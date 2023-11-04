@@ -1,6 +1,7 @@
 import CardSlider from "./Components/Common/CardSlider";
 import MainSlider from "./Components/MainSlider";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import PlansPage from "./Pages/Plans/PlansPage";
 import Slider from "./Slider";
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <div className="App">
       {/* <Slider /> */}
       {/* <CardSlider /> */}
-      <Dashboard />
+      {/* <Dashboard /> */}
+      <PlansPage />
     </div>
   );
 }

@@ -9,7 +9,7 @@ function Plans() {
           <img src={avatar} className="w-40"></img>
           <p className="pt-2">Username</p>
           <p>something@example.com</p>
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 mt-2 rounded flex flex-row gap-2  justify-center items-center ">
+          <button class="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 mt-2 rounded flex flex-row gap-2  justify-center items-center ">
             <svg
               className="feather feather-edit "
               fill="none"
@@ -43,7 +43,7 @@ function Plans() {
             />
           </p>
 
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center ">
+          <button class="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center ">
             Select Plan
           </button>
         </div>
