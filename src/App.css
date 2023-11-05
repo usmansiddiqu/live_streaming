@@ -3,6 +3,58 @@ body, h1, h2, h3, p, div {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 /* Apply custom styles to the slider */
+.App{
+
+
+  width: 100vw;
+  height: 100vh;
+  overflow-X: hidden;
+  overflow-y: scroll;
+  background-color: #130A2D;
+}
+.footer{
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.fooer-Img{
+  width: 100%;
+  height: 26vh;
+  background-image: url(./Assets//Images/footer-bg-item.png);
+  margin-top: 4vh;
+}
+.fooer-Img ul {
+  display: flex;
+  width: 30vw;
+  /* border: 1px solid; */
+  justify-content: space-between;
+  margin-left: 350px;
+  margin-top: 50px;
+}
+.fooer-Img li{
+  text-decoration: none;
+  list-style: none;
+}
+.fooer-Img li a{
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+.login-Bg{
+  background-image: url(../src/Assets/Images/login-signup-bg-img.jpg);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.2;
+
+}
+.signup-Bg{
+  background-image: url(../src/Assets/Images/login-signup-bg-img.jpg);
+  background-size: cover;
+  opacity: 0.9;
+}
