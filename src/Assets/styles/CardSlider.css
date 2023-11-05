@@ -1,5 +1,6 @@
 .cardSlider{
     width: 100%;
-    background: rgb(121,9,9);
-background: linear-gradient(-60deg, rgba(121,9,9,1) 50%, rgba(255,0,0,1) 50%);
+    background: rgb(9, 121, 116);
+background: linear-gradient(-60deg, rgb(104, 121, 9) 50%, rgb(255, 0, 157) 50%);
 }
+
