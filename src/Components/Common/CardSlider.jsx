@@ -2,8 +2,10 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "../../Assets/styles/CardSlider.css";
+import TeamIcons from "./TeamIcons";
 
 function CardSlider() {
+  //data
   const dummyData = [
     {
       id: 1,
@@ -60,59 +62,65 @@ function CardSlider() {
       Date: "23-11-2023",
     },
   ];
+
+  //icons
+  const dummyIcons = [
+    {
+      iconUrl: "https://cdn-icons-png.flaticon.com/128/1039/1039386.png",
+      name: "Icon 1",
+    },
+    {
+      iconUrl: "https://cdn-icons-png.flaticon.com/128/1201/1201923.png",
+      name: "Icon 2",
+    },
+  ];
   const splideOptions = {
-    type: "slide",
     perPage: 5,
-    perMove: 4,
+    perMove: 5,
     pagination: false,
     gap: 20,
     drag: true,
+    type: "loop",
   };
   return (
     <div
       className="CardSlider"
       style={{
-        border: "1px solid",
-        marginTop: "300px",
-        width: "100vw",
-        height: "25vh",
+        width: "100%",
+        height: "AUTO",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        marginTop: "25px",
       }}
     >
-      <Splide
-        options={splideOptions}
-        style={{
-          width: "80%",
-          border: "1px solid",
-          margin: "auto",
-        }}
-      >
+      <Splide options={{ ...splideOptions, width: 1200 }}>
         <>
           {dummyData.map((item) => (
             <SplideSlide
+              options={{ ...splideOptions, width: 200 }}
               className="cardSlider"
               key={item.id}
-              style={{ width: "250px", height: "200px", border: "1px solid" }}
+              style={{ width: "24PX", height: "25PX" }}
             >
               <div
                 className="placeAndTime"
                 style={{
-                  width: "100%",
-                  border: "1px solid",
-                  height: "5vh",
+                  width: "92%",
+                  height: "3vh",
                   display: "flex",
                   justifyContent: "space-between",
                   flexDirection: "row",
+                  margin: "auto",
                 }}
               >
                 <p>{item.Stadium}</p>
                 <p>{item.Date}</p>
               </div>
-              <div className="container"></div>
-              <h1>{item.title}</h1>
-              <p>{item.title}</p>
+
+              <div className="container" style={{ marginTop: "25px" }}>
+                <TeamIcons iconsData={dummyIcons} />
+              </div>
             </SplideSlide>
           ))}
         </>
