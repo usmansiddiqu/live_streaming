@@ -3,7 +3,7 @@ import dashBoardImage from "../../utils/images/dashboardBanner.jpg";
 function PlansDash() {
   return (
     <div
-      className=" text-[white] h-[30vh] w-100 object-cover bg-center bg-opacity-90 flex flex-row flex-wrap items-center justify-between"
+      className=" text-[white] h-[30vh]   md:w-100 object-cover bg-center bg-opacity-90 flex flex-row flex-wrap items-center justify-around lg:justify-between"
       style={{
         backgroundImage: `url(${dashBoardImage})`,
         backgroundColor: "rgba(128, 0, 128, 0.5)",
