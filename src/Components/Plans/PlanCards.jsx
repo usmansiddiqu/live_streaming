@@ -22,7 +22,7 @@ function PlanCards() {
             10
             <span className="text-xl">.00</span>
           </p>
-          <hr
+          <div
             className="w-14 rounded-lg bg-blue-500"
             style={{ paddingTop: "4px", marginTop: "4px" }}
           />
@@ -55,7 +55,7 @@ function PlanCards() {
             10
             <span className="text-xl">.00</span>
           </p>
-          <hr
+          <div
             className="w-14 rounded-lg bg-blue-500"
             style={{ paddingTop: "4px", marginTop: "4px" }}
           />
@@ -88,7 +88,7 @@ function PlanCards() {
             10
             <span className="text-xl">.00</span>
           </p>
-          <hr
+          <div
             className="w-14 rounded-lg bg-blue-500"
             style={{ paddingTop: "4px", marginTop: "4px" }}
           />
@@ -121,7 +121,7 @@ function PlanCards() {
             10
             <span className="text-xl ">.00</span>
           </p>
-          <hr
+          <div
             className="w-14 rounded-lg bg-blue-500"
             style={{ paddingTop: "4px", marginTop: "4px" }}
           />

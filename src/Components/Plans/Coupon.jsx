@@ -45,7 +45,7 @@ function Coupon() {
       >
         <div className="flex flex-col justify-center items-center gap-2">
           <p className="text-xl md:text-2xl">I Have Coupon Code</p>
-          <hr
+          <div
             className="w-12 rounded-lg bg-blue-500"
             style={{ paddingTop: "4px" }}
           />

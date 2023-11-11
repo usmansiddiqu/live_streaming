@@ -37,8 +37,8 @@ function Plans() {
         >
           <p className="text-xl">
             My Subscription
-            <hr
-              className="w-10 rounded-lg bg-blue-500"
+            <div
+              className="w-10 rounded-lg text-blue-500 bg-blue-500"
               style={{ paddingTop: "2px" }}
             />
           </p>
@@ -57,7 +57,7 @@ function Plans() {
         >
           <p className="text-xl">
             Last Invoice
-            <hr
+            <div
               className="w-10 rounded-lg bg-blue-500"
               style={{ paddingTop: "2px" }}
             />

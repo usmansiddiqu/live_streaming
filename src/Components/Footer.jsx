@@ -5,27 +5,31 @@ import GooglePlay from "../Assets/Icons/google-play.png";
 function Footer() {
   return (
     <footer
-      className="footer text-base-content fooer-Img"
+      className="footer text-base-content fooer-Img bg-[#170F2C] pt-10"
       style={{ overflow: "hidden" }}
     >
-      <div className=" flex flex-row justify-between	w-[60vw] m-auto">
-        <div>
-          <nav className="flex justify-between w-[25vw]">
-            <a className="link link-hover text-white text-xl">About us</a>
-            <a className="link link-hover text-white text-xl">Contact</a>
-            <a className="link link-hover text-white text-xl">Jobs</a>
-            <a className="link link-hover text-white text-xl">Press kit</a>
-            <a className="link link-hover text-white text-xl">Press kit</a>
+      <div className="flex flex-col md:flex-row items-center justify-start gap-40 w-full max-w-screen-xl mx-auto px-4 ">
+        <div className="">
+          <nav className="flex flex-col md:flex-row md:justify-between w-full gap-4 ">
+            <a className="link link-hover text-white text-lg">About us</a>
+            <a className="link link-hover text-white text-lg">Contact</a>
+            <a className="link link-hover text-white text-lg">Jobs</a>
+            <a className="link link-hover text-white text-lg">Press kit</a>
+            <a className="link link-hover text-white text-lg">Press kit</a>
           </nav>
           <p className="text-white text-sm mt-6">
             Copyright @ 2022 PixelSports.tv All Rights Reserved
           </p>
         </div>
-        <nav>
-          <header className="footer-title text-white text-2xl ">
+        <div className="md:ml-0 flex flex-col gap-3">
+          <div className="footer-title text-white text-xl mb-5">
             Contact with us
-          </header>
-          <div className="grid grid-flow-col mt-5">
+            <div
+              className="w-10 rounded-lg bg-blue-500"
+              style={{ paddingTop: "3px" }}
+            />
+          </div>
+          <div className="grid grid-flow-col gap-5">
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -63,11 +67,21 @@ function Footer() {
               </svg>
             </a>
           </div>
-        </nav>
-        <nav className="flex justify-between flex-col ">
-          <h1 className="text-white text-3xl">Apps</h1>
-          <img src={GooglePlay} alt="" className="h-[55px] mt-5 " />
-        </nav>
+        </div>
+        <div className=" md:mt-0 flex flex-col gap-3 ">
+          <h1 className="text-white text-xl  ">
+            Apps
+            <div
+              className="w-10 rounded-lg bg-blue-500"
+              style={{ paddingTop: "4px" }}
+            />
+          </h1>
+          <img
+            src={GooglePlay}
+            alt=""
+            className="h-[55px] rounded-lg shadow-xl shadow-black "
+          />
+        </div>
       </div>
     </footer>
   );

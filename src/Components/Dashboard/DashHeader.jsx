@@ -10,7 +10,7 @@ function DashHeader() {
       }}
     >
       <div
-        className="absolute h-[30vh] w-100 inset-0 "
+        className=" h-[30vh] w-100 inset-0 "
         style={{
           background: "linear-gradient(to right, #372566, #37256669)",
         }}
