@@ -9,12 +9,12 @@ function DashHeader() {
         backgroundColor: "rgba(128, 0, 128, 0.5)",
       }}
     >
-      <div
+      {/* <div
         className="absolute h-[30vh] w-100 inset-0 "
         style={{
           background: "linear-gradient(to right, #372566, #37256669)",
         }}
-      ></div>
+      ></div> */}
       <div className=" flex justify-between  lg:px-40 md:px-20">
         <h1 className="text-3xl z-20 ">Dashboard</h1>
       </div>

@@ -19,7 +19,7 @@ function NavLinks() {
         <li>
           <a
             href="#"
-            className={`block py-3   text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
+            className={`block py-3 text-sm  text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
               activeLink === "Home" ? "active" : ""
             }`}
             aria-current={activeLink === "Home" ? "page" : undefined}
@@ -31,7 +31,7 @@ function NavLinks() {
         <li>
           <a
             href="#"
-            className={`block py-3 text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
+            className={`block py-3 text-sm text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
               activeLink === "MLB" ? "active" : ""
             }`}
             onClick={() => handleLinkClick("MLB")}
@@ -42,7 +42,7 @@ function NavLinks() {
         <li>
           <a
             href="#"
-            className={`block py-3 text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white  dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
+            className={`block py-3 text-sm text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white  dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
               activeLink === "NBA" ? "active" : ""
             }`}
             onClick={() => handleLinkClick("NBA")}
@@ -53,7 +53,7 @@ function NavLinks() {
         <li>
           <a
             href="#"
-            className={`block py-3 text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
+            className={`block py-3 text-sm text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
               activeLink === "NFL" ? "active" : ""
             }`}
             onClick={() => handleLinkClick("NFL")}
@@ -64,7 +64,7 @@ function NavLinks() {
         <li>
           <a
             href="#"
-            className={`block py-3 text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white  dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
+            className={`block py-3 text-sm text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white  dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
               activeLink === "NHL" ? "active" : ""
             }`}
             onClick={() => handleLinkClick("NHL")}
@@ -75,7 +75,7 @@ function NavLinks() {
         <li>
           <a
             href="#"
-            className={`block py-3 text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white  dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
+            className={`block py-3 text-sm text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white  dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
               activeLink === "UFC" ? "active" : ""
             }`}
             onClick={() => handleLinkClick("UFC")}

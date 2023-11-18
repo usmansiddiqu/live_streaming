@@ -15,7 +15,7 @@ function MainSlider() {
         flexDirection: "column",
         alignItems: "center",
         marginTop: "15px",
-        height: "52vh",
+        height: "57vh",
         // margin: "auto",
         background: "#0D0620",
         boxShadow: "1px 2px 14px 7px rgba(0,0,0,0.51)",
@@ -30,7 +30,7 @@ function MainSlider() {
           type: "loop",
           padding: "5rem",
           gap: "1.5rem",
-          // autoplay: true,
+          autoplay: true,
           width: 1200,
         }}
       >
