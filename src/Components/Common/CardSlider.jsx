@@ -1,7 +1,7 @@
 import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import "../../Assets/styles/CardSlider.css";
+import "../../Assets/styles/CardSlider.scss";
 import TeamIcons from "./TeamIcons";
 
 function CardSlider() {
@@ -84,7 +84,7 @@ function CardSlider() {
   };
   return (
     <div
-      className="CardSlider"
+      className="Cardslider"
       style={{
         width: "100%",
         height: "AUTO",

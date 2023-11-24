@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
-import "../../Assets/styles/Button.css";
+import "../../Assets/styles/Button.scss";
 import Image from "../../Assets/Icons/person.png";
 function Profile() {
   return (
