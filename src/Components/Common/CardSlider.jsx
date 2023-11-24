@@ -99,23 +99,20 @@ function CardSlider() {
           {dummyData.map((item) => (
             <SplideSlide
               options={{ ...splideOptions, width: 200 }}
-              className="cardSlider"
+              className="cardSlider flex flex-col items-center "
               key={item.id}
-              style={{ width: "24PX", height: "25PX" }}
+              style={{
+                border: "1px solid white",
+              }}
             >
               <div
-                className="placeAndTime"
+                className="placeAndTime border w-[100%] h-[3vh] flex justify-between flex-row m-[auto] bg-[black] bg-opacity-40"
                 style={{
-                  width: "92%",
-                  height: "3vh",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  flexDirection: "row",
-                  margin: "auto",
+                  padding: "0 10px",
                 }}
               >
-                <p>{item.Stadium}</p>
-                <p>{item.Date}</p>
+                <p className="text-white text-sm">{item.Stadium}</p>
+                <p className="text-white text-sm">{item.Date}</p>
               </div>
 
               <div className="container" style={{ marginTop: "25px" }}>

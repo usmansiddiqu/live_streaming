@@ -54,7 +54,7 @@ function Nav() {
         boxShadow: "-1px 6px 18px -6px rgba(255,255,255,0.45)",
       }}
     >
-      <Container maxWidth="xl">
+      <Container style={{ padding: "0px 0px" }}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -148,7 +148,7 @@ function Nav() {
           </Typography>
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-            style={{ marginLeft: "100px" }}
+            style={{ marginLeft: "70px" }}
           >
             <NavLinks />
           </Box>
@@ -186,9 +186,10 @@ function Nav() {
                                   flexDirection: "column",
                                 }}
                               >
-                                <a href="#">DashBoard</a>
+                                <a href="#" className="mt-3">
+                                  <Link to="/Dashboard">Dashboard</Link>
+                                </a>
                                 <a href="#">
-                                  {" "}
                                   <Link to="/Profile">Profile</Link>
                                 </a>
                                 <a href="#">My Watchlist</a>
