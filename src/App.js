@@ -9,7 +9,7 @@ import NBA from "./Pages/NBA";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup";
 import Profile from "./Pages/Profile";
-import Dashboard from "./Pages/Dashboard/Dashboard";
+import Dashboard from "./Pages/Dashboard";
 import Plans from "./Pages/Plans/PlansPage";
 import DetailsPage from "./Pages/DetailsPage/DetailsPage";
 function App() {
