@@ -50,7 +50,10 @@ function AdminPanelWrapper() {
         <Route path="/sub_admin" element={<SubAdmin />} />
         <Route path="/coupons" element={<Coupons />} />
         <Route path="/transactions" element={<Transactions />} />
-        <Route path="/Tv_category/edit_category" element={<EditCategory />} />
+        <Route
+          path="/Tv_category/edit_category/:id"
+          element={<EditCategory />}
+        />
         <Route path="/live_tv/edit_live_tv" element={<EditLiveTv />} />
         <Route
           path="/assign_live_tv/assign_tv_edit"
