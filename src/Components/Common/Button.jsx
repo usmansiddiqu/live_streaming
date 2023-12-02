@@ -12,7 +12,7 @@ function Button(props) {
         }}
       >
         <div
-          className="w-[6vw] h-[35px] flex justify-evenly items-center"
+          className="w-[120px] h-[35px] flex justify-evenly items-center"
           style={{ margin: "auto" }}
         >
           <img

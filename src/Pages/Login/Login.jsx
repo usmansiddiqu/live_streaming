@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../App.css";
 import logo from "../../Assets/Icons/PixelSportLogo.png";
 import { Link } from "react-router-dom";
+import ErrorComponent from "../../Components/Common/ErrorComponent";
 
 function Login() {
   return (

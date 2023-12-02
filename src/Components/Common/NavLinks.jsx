@@ -36,7 +36,7 @@ function NavLinks() {
             }`}
             onClick={() => handleLinkClick("MLB")}
           >
-            <Link to="/MLB"> MLB</Link>
+            <Link to="/mlb"> MLB</Link>
           </a>
         </li>
         <li>
@@ -47,7 +47,7 @@ function NavLinks() {
             }`}
             onClick={() => handleLinkClick("NBA")}
           >
-            <Link to="/NBA"> NBA</Link>
+            <Link to="/nba"> NBA</Link>
           </a>
         </li>
         <li>
@@ -58,7 +58,7 @@ function NavLinks() {
             }`}
             onClick={() => handleLinkClick("NFL")}
           >
-            <Link to="/NFL"> NFL</Link>
+            <Link to="/nfl"> NFL</Link>
           </a>
         </li>
         <li>
@@ -69,18 +69,7 @@ function NavLinks() {
             }`}
             onClick={() => handleLinkClick("NHL")}
           >
-            <Link to="/NHL"> NHL</Link>
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className={`block py-3 text-sm text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white  dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
-              activeLink === "UFC" ? "active" : ""
-            }`}
-            onClick={() => handleLinkClick("UFC")}
-          >
-            <Link to="/UFC"> UFC</Link>
+            <Link to="/nhl"> NHL</Link>
           </a>
         </li>
       </ul>

@@ -2,13 +2,16 @@ import React from "react";
 import PlansDash from "../../Components/Plans/PlansDash";
 import PlanCards from "../../Components/Plans/PlanCards";
 import Coupon from "../../Components/Plans/Coupon";
+import Nav from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
 function PlansPage() {
   return (
     <div className="bg-[#0D0620]">
+      <Nav />
       <PlansDash />
       <PlanCards />
       <Coupon />
-      <div className="lg:px-20 md:px-10 sm:px-5 px-5 text-white ps-40">
+      <div className="lg:px-20 md:px-10 sm:px-5 px-5 text-white ps-40 ml-7 ">
         <p className="text-lg font-bold">Why Choose Our Subscription?</p>
         <p>
           <span className="font-bold">Unlimited Sports Access:</span>{" "}
@@ -29,6 +32,7 @@ function PlansPage() {
           24-hour money-back guarantee—no questions asked!
         </p>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -17,7 +17,7 @@ import Search from "../Assets/Icons/search.png";
 import "../Assets/styles/Navbar.scss";
 import NavLinks from "./Common/NavLinks";
 import Login from "../Pages/Login/Login";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Nav() {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -26,6 +26,7 @@ function Nav() {
   // const pages = ["HOME", "MLB", "NBA", "NFL", "NHL", "UFC"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -44,6 +45,10 @@ function Nav() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleNavigate = () => {
+    navigate("/membership_plan");
   };
 
   return (
@@ -156,7 +161,7 @@ function Nav() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip>
               <div className="nav-Icons">
-                <div className="w-[55px]">
+                <div className="w-[55px]" onClick={handleNavigate}>
                   <div className="Sub-Icon rounded-md flex justify-center items-center">
                     <img src={Subscribe} alt="" className="w-[21px] h-[25px]" />
                   </div>
@@ -187,16 +192,16 @@ function Nav() {
                                 }}
                               >
                                 <li className="w-[100%] list-none p-1">
-                                  <a href="/admin">Dashboard</a>
+                                  <a href="/dashboard">Dashboard</a>
                                 </li>
                                 <li className="w-[100%]  list-none p-1">
-                                  <a href="/admin">Profile</a>
+                                  <a href="/profile">Profile</a>
                                 </li>
                                 <li className="w-[100%] list-none p-1">
-                                  <a href="/admin">Watchlist</a>
+                                  <a href="/watchlist">Watchlist</a>
                                 </li>
                                 <li className="w-[100%] list-none p-1 border-b-0">
-                                  <a href="/admin">Logout</a>
+                                  <a href="/">Logout</a>
                                 </li>
                               </div>
                             </div>

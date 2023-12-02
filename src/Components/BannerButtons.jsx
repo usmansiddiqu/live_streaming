@@ -6,7 +6,7 @@ import Crown from "../Assets/Icons/crown.png";
 
 function BannerButtons() {
   return (
-    <div className="banner-Buttons w-[14vw] h-[auto] flex justify-between mt-[-70px] ml-[25px]">
+    <div className="banner-Buttons w-[13vw] h-[auto] flex justify-between mt-[-70px] ml-[25px]">
       <Button text="WATCH" src={Play} className="pre-Button rounded text-sm" />
       <Button
         text="BUY PLAN"

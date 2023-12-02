@@ -1,5 +1,7 @@
 import React from "react";
 import TeamIcons from "./TeamIcons";
+import Dashboard from "../../Pages/Dashboard";
+import DashHeader from "../Dashboard/DashHeader";
 
 function Card() {
   const dummyData = [
@@ -72,6 +74,7 @@ function Card() {
   ];
   return (
     <div>
+      <DashHeader title="title" />
       <div class=" flex items-center justify-center h-[55vh]">
         <div class="container mx-auto mx-auto p-4">
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">

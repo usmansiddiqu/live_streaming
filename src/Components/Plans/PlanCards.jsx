@@ -2,7 +2,7 @@ import React from "react";
 import plan from "../../utils/images/plan.png";
 function PlanCards() {
   return (
-    <div className="lg:px-20 md:px-10 sm:px-5  bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row justify-around gap-8 px-5">
+    <div className="lg:px-20 md:px-10 sm:px-5 w-[83vw] mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row justify-around gap-8 px-5">
       <div
         className="flex flex-col gap-3 w-full md:w-[22rem] h-64 bg-center rounded-xl"
         style={{

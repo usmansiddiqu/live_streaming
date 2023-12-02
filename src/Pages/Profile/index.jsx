@@ -3,11 +3,13 @@ import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import "../../Assets/styles/Button.scss";
 import Image from "../../Assets/Icons/person.png";
+import DashHeader from "../../Components/Dashboard/DashHeader";
 function Profile() {
   return (
     <>
       <div className="h-[100vh] bg-[#0D0620]">
         <Nav />
+        <DashHeader title="Edit Profile" SubTitle="Edit Profile" />
         <div className="w-[100vw] h-[auto] bg-[#0D0620] flex items-center ">
           <div className="py-8 lg:py-10 px-6 mx-auto max-w-screen-md sm:w-[100vw] mt-10  my-auto bg-[#130A2D] rounded-lg">
             <form class="w-full mx-auto">

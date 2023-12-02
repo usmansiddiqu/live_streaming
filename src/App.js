@@ -15,27 +15,29 @@ import AdminPanel from "./Pages/AdminPanel";
 import AdminPanelWrapper from "./Pages/AdminPanel";
 import { useState } from "react";
 import NotFound from "./Pages/NotFound";
+import Dashboard from "./Pages/Dashboard";
+import WatchList from "./Pages/WatchList/WatchList";
 
 function App() {
   const [isLoggedIn] = useState(true);
-  const [isAdmin] = useState(localStorage.getItem("data")?.isAdmin);
+  const [isAdmin] = useState(true);
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainScreen />} />
-          <Route path="/MLB" element={<MLB />} />
-          <Route path="/NBA" element={<NBA />} />
-          <Route path="/NFL" element={<NFL />} />
-          <Route path="/NHL" element={<NHL />} />
-          <Route path="/UFC" element={<UFC />} />
-          <Route path="/LOGIN" element={<Login />} />
-          <Route path="/SIGNUP" element={<Signup />} />
-          <Route path="/Plans" element={<Plans />} />
+          <Route path="/mlb" element={<MLB />} />
+          <Route path="/nba" element={<NBA />} />
+          <Route path="/nfl" element={<NFL />} />
+          <Route path="/nhl" element={<NHL />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/membership_plan" element={<Plans />} />
+          <Route path="/watchlist" element={<WatchList />} />
           {isLoggedIn && (
             <>
-              <Route path="/Profile" element={<Profile />} />
-              <Route path="/Dashboard" element={<AdminPanel />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/detailpage" element={<DetailsPage />} />
               {isAdmin && (
                 <>

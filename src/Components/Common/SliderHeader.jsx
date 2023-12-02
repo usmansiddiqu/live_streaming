@@ -4,7 +4,7 @@ function SliderHeader(props) {
   return (
     <div
       style={{
-        width: "69%",
+        width: "63%",
         display: "flex",
         justifyContent: "space-between",
         margin: "auto",

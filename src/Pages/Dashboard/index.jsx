@@ -11,10 +11,11 @@ function Dashboard() {
     <>
       <Nav />
       <div>
-        <DashHeader />
-        <PlanCards />
+        <DashHeader title="DashBoard" SubTitle="DashBoard" />
+        <Plans />
+        <Table />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

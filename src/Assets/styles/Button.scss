@@ -1,14 +1,14 @@
 
 .pre-Button{
-    width: 6vw;
-    height: 4.5vh;
+    width: 120px;
+    height: 40px;
     background-color: rgb(228, 167, 2);
     color: white;
 
 }
 .post-Button{
-    width: 7vw;
-    height: 4.5vh;
+  width: 120px;
+  height: 40px;
     background-color: rgb(73, 73, 250);
     color: white;
 
@@ -220,5 +220,21 @@
     .file-upload-wrapper2::after{
       width: 75vw;
     }
+
+    .pre-Button{
+      width: 100px;
+      height: 40px;
+      background-color: rgb(228, 167, 2);
+      color: white;
+  
+  }
+  .post-Button{
+    width: 100px;
+    height: 40px;
+      background-color: rgb(73, 73, 250);
+      color: white;
+      margin-left: 10px;
+  
+  }
   }
   
