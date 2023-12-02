@@ -1,7 +1,7 @@
 import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import "../../Assets/styles/CardSlider.css";
+import "../../Assets/styles/CardSlider.scss";
 import TeamIcons from "./TeamIcons";
 
 function DetailsSlider() {

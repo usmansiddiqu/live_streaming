@@ -23,7 +23,7 @@ const AdminCards = () => {
 
   return (
     <>
-      <div className="ml-4 mt-20 ">
+      <div className="ml-12 mt-20 w-[80vw] ">
         <div className="wrapper">
           <div className="container1">
             <span className="num text-[#FF0015] text-2xl" data-val="5">

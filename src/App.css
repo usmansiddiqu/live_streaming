@@ -62,6 +62,9 @@ li a{
   background-size: cover;
   opacity: 0.9;
 }
+.ql-container.ql-snow{
+  border: none !important;
+}
 
 @media screen and (max-width: 1000px) {
   .AdminBarLogo{
@@ -124,5 +127,93 @@ li a{
     height: 25vmin;
     font-size: 8px;
   }
+  .input-feild{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .input-feild-image{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+  }
+  .input-feild-label{
+    min-width: 50vw;
+  }
+  .edit-con{
+    padding: 1rem;
+    padding-left: 0.7rem;
+  }
+  .input-feild-drop{
+    width: 75vw;
+  }
+ .main-user-container{
+  display: flex;
+  flex-direction: column;
+ }
+ .user-edit{
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+ }
+ .user-info{
+  width: 100%;
+  padding: 0;
+  margin-top: 10px;
+ }
+ .active-user-btn{
+  margin-left: -50px;
+ }
+ .Useredit-side{
+  width: 100%;
+  margin: 0;
+  margin-top: 10px;
+ }
+ .user-transaction{
+  margin-top: 10px;
+ }
+ .sub-type{
+  width: auto;
+  border: 1px solid;
+  justify-content: space-around;
+ }
+
+
+  /* .logo-sidebar {
+    display: none;
+  } */
+  /* .sidebar-toggle{
+    margin-left: 100px;
+  } */
 }
-/* main slider */
+
+/* Edit Form */
+@media screen and (max-width: 769px) {
+  .Edit-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .left{
+    width: 100%;
+  }
+  .input-feild{
+    width: 75vw;
+  }
+  .input-feild-label {
+    width: 20vw;
+  }
+  .save-btn{
+    margin-left: 450px;
+  }
+  .edit-con{
+    left: 10%;
+ 
+  }
+  .layer-icon{
+    display: block;
+  }
+
+
+}

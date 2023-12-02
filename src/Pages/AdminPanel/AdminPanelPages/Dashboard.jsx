@@ -7,7 +7,7 @@ function AdminDashboard() {
       style={{
         background: "black",
         position: "absolute",
-        left: "14%",
+        left: "13%",
         width: "85vw",
         height: "100%",
         overflow: "hidden",

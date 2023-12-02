@@ -7,9 +7,7 @@ import Tag from "../../../Assets/Icons/tags.png";
 import List from "../../../Assets/Icons/list.png";
 import HomeBar from "../../../Assets/Icons/volume-bars.png";
 import Group from "../../../Assets/Icons/group.png";
-import ViewList from "../../../Assets/Icons/view-list.png";
 import { Link } from "react-router-dom";
-import AdminCards from "./AdminCards";
 function AdminPanelBar() {
   const [activeItem, setActiveItem] = useState({ id: null, name: null });
 
@@ -17,6 +15,11 @@ function AdminPanelBar() {
   const [isOpenHome, setisOpenHome] = useState(false);
   const [isOpenUser, setIsOpenUSer] = useState(false);
   const [isCollapsed, setCollapsed] = useState(false);
+  const [isSidebarVisible, setSidebarVisible] = useState(true);
+
+  const handleToggleBar = () => {
+    setSidebarVisible(!isSidebarVisible);
+  };
 
   const handleItemClick = (itemId, itemName) => {
     setActiveItem({
@@ -49,11 +52,11 @@ function AdminPanelBar() {
         >
           <div class="px-3 lg:px-5 lg:pl-3 h-[7vh]">
             <div class="flex items-center justify-between ">
-              <div class="flex items-center justify-between rtl:justify-end border-r border-red-500 h-[7vh] w-[16.3vw]">
+              <div class="flex items-center justify-center rtl:justify-end border-r border-red-500 h-[7vh] w-[14.5vw]">
                 <a href="" class="flex ms-2 md:me-24 mx-auto ">
                   <img
                     src={logo}
-                    className="ml-[40px] AdminBarLogo"
+                    className="ml-14 h-[25px] w-[90px] AdminBarLogo"
                     alt="PixelSportTv"
                   />
                 </a>
@@ -133,19 +136,23 @@ function AdminPanelBar() {
         </nav>
         <a
           id="sidebar-toggle"
-          className="absolute top-4 left-4 cursor-pointer text-white text-2xl z-50 "
+          className="absolute sidebar-toggle top-4 left-4 cursor-pointer text-white text-2xl z-50"
           onClick={handleToggle}
         >
-          <img src={Layers} alt="" className="w-[25px] h-[25px]" />
+          <img
+            src={Layers}
+            alt=""
+            className="w-[25px] h-[25px] hidden layer-icon"
+          />
         </a>
         <aside
           id="logo-sidebar"
-          className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${
+          className={`fixed logo-sidebar top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${
             isCollapsed ? "-translate-x-[200px]" : "translate-x-0"
           } border-r border-gray-200 bg-[#0c0c0d] dark:border-gray-700`}
           aria-label="Sidebar"
         >
-          <div class="h-full  pb-4 overflow-y-auto bg-[#0c0c0d]">
+          <div class="h-full side-Bar pb-4 overflow-y-auto bg-[#0c0c0d]">
             <ul class=" font-medium">
               <li
                 className={activeItem.id === "dashboard" ? "active" : ""}
@@ -506,6 +513,34 @@ function AdminPanelBar() {
                 </ul>
               )}
               <li
+                id="Coupons"
+                className={`mt-1 ${
+                  activeItem.id === "Coupons" ? "active" : ""
+                }`}
+                onClick={() => handleItemClick("Coupons", "Coupons")}
+              >
+                <a
+                  href="#"
+                  className={`flex items-center text-sm p-2 dark:text-white bg-[#1c1c1e] group-hover:text-red-600 ${
+                    activeItem.id === "Coupons" ? "bg-[#ff0015]" : ""
+                  } ${isCollapsed ? "justify-end" : "justify-start"}`}
+                >
+                  <img
+                    src={List}
+                    alt=""
+                    className={`w-[18px] h-[18px] flex ${
+                      isCollapsed ? "mr-3" : "ml-2"
+                    }`}
+                  />
+                  {!isCollapsed && (
+                    <span className="ms-3">
+                      {" "}
+                      <Link to="/admin/coupons">Coupons</Link>
+                    </span>
+                  )}
+                </a>
+              </li>
+              <li
                 id="Transcations"
                 className={`mt-1 ${
                   activeItem.id === "Transcations" ? "active" : ""
@@ -536,11 +571,6 @@ function AdminPanelBar() {
             </ul>
           </div>
         </aside>
-        {/* <div class="p-1 ml-[15%] mt-7 w-[85%] ">
-          <div class="p-4 mx-auto rounded-lg ">
-            <AdminCards />
-          </div>
-        </div> */}
       </div>
     </>
   );
