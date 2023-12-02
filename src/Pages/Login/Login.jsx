@@ -4,7 +4,6 @@ import logo from "../../Assets/Icons/PixelSportLogo.png";
 import ErrorComponent from "../../Components/Common/ErrorComponent";
 import { Link, useNavigate } from "react-router-dom";
 import { clearLocalStorage } from "../../helper/localstorage";
-import { async } from "q";
 import { login } from "../../api/auth.api";
 
 function Login() {
@@ -12,7 +11,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const handleUpdate = async () => {
+  const handleClick = async () => {
     const { data } = await login({ email, password });
 
     if (data?.error) {
@@ -26,9 +25,10 @@ function Login() {
     }
   };
   useEffect(() => {
-    if (localStorage.getItem("token") || localStorage.getItem("data")) {
-      clearLocalStorage();
+    if (localStorage.getItem("token") && localStorage.getItem("data")) {
       navigate("/");
+    } else {
+      clearLocalStorage();
     }
   }, []);
   return (
@@ -104,7 +104,7 @@ function Login() {
                 <button
                   type="button"
                   class="w-full h-[6vh] text-white bg-[#000bdd] font-medium rounded-md text-sm px-5 py-2.5 text-center"
-                  onClick={handleUpdate}
+                  onClick={handleClick}
                 >
                   LOGIN
                 </button>
@@ -115,7 +115,7 @@ function Login() {
                     href="#"
                     class="font-medium text-primary-600 hover:underline dark:text-primary-500 ml-2"
                   >
-                    <Link to="/SIGNUP">Sign up</Link>
+                    <Link to="/signup">Sign up</Link>
                   </a>
                 </p>
                 <button
