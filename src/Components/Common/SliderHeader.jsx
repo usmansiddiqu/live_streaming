@@ -11,6 +11,7 @@ function SliderHeader(props) {
         alignItems: "center",
         marginTop: "25px",
       }}
+      className="sliderHeader"
     >
       <h1 style={{ color: "white", fontSize: "24px" }}>{props.title}</h1>
       <span>

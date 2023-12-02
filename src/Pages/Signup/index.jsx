@@ -10,9 +10,9 @@ function Signup() {
   return (
     <>
       <div className="main-page flex flex-row w-[100vw] h-[100vh] bg-white">
-        <div className="left-side w-[60%] h-full flex items-center ">
-          <div className="overflow-x-hidden overflow-y-auto w-[60%] h-full fixed h-modal md:h-full signup-Bg "></div>
-          <div className="relative w-[100%] mx-autoflex flex-col items-center h-[35vh]  my-auto">
+        <div className="left-side w-[60%] h-full flex items-center relative">
+          <div className="overflow-x-hidden absolute overflow-y-auto w-[60%] h-full fixed h-modal md:h-full signup-Bg "></div>
+          <div className="relative w-[100%] mx-autoflex flex-col items-center h-[35vh] signup  my-auto">
             <div className="flex flex-col ">
               <a
                 href="#"
@@ -38,9 +38,9 @@ function Signup() {
         </div>
         {/* Right Side */}
         <div className="right-side w-[40%]  m-auto ">
-          <section class="flex flex-col items-center pt-6">
-            <div class="w-full rounded-lg  md:mt-0 sm:max-w-md xl:p-0 ">
-              <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <section class="flex flex-col items-center pt-6 ">
+            <div class="w-full rounded-lg  md:mt-0 sm:max-w-md xl:p-0">
+              <div class="p-6 space-y-4 md:space-y-6 sm:p-8 ">
                 <div>
                   <h1 className="text-3xl leading-tight tracking-tight text-gray-900">
                     Sign Up

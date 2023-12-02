@@ -9,19 +9,19 @@ function WatchList() {
       <Nav />
       <div>
         <DashHeader title="My Watchlist" SubTitle="My Watchlist" />
-        <h1 className="h-[8vh] w-[84vw] text-white text-2xl font-bold mx-auto flex items-center">
+        <h1 className="h-[8vh] w-[64vw] text-white text-2xl font-bold mx-auto flex items-center">
           MLB
         </h1>
-        <h1 className="h-[8vh] w-[84vw] text-white text-2xl font-bold mx-auto flex items-center">
+        <h1 className="h-[8vh] w-[64vw] text-white text-2xl font-bold mx-auto flex items-center">
           NBA
         </h1>
-        <h1 className="h-[8vh] w-[84vw] text-white text-2xl font-bold mx-auto flex items-center">
+        <h1 className="h-[8vh] w-[64vw] text-white text-2xl font-bold mx-auto flex items-center">
           NFL
         </h1>
-        <h1 className="h-[8vh] w-[84vw] text-white text-2xl font-bold mx-auto flex items-center">
+        <h1 className="h-[8vh] w-[64vw] text-white text-2xl font-bold mx-auto flex items-center">
           NHL
         </h1>
-        <h1 className="h-[8vh] w-[84vw] text-white text-2xl font-bold mx-auto flex items-center">
+        <h1 className="h-[8vh] w-[64vw] text-white text-2xl font-bold mx-auto flex items-center">
           UFC
         </h1>
 

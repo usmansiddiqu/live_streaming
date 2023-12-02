@@ -65,6 +65,9 @@ li a{
 .ql-container.ql-snow{
   border: none !important;
 }
+.signup-Bg{
+  width: 100%;
+ }
 
 @media screen and (max-width: 1000px) {
   .AdminBarLogo{
@@ -74,7 +77,6 @@ li a{
   
 }
 
-/* Admin Cards */
 
 .wrapper {
   display: flex;
@@ -179,17 +181,40 @@ li a{
   border: 1px solid;
   justify-content: space-around;
  }
+ .main-page {
+  flex-direction: column;
+ }
+ .left-side {
+  width: 100%;
+  background-color: rebeccapurple;
+ }
+ .signup-Bg{
+  width: 100%;
+ }
+ .signup h1{
+  width: 80% !important;
+  font-size: 26px !important;
+ }
+ .banner-Buttons{
+  margin-left: 0;
+  margin-top: -10px;
+  margin: auto;
+  position: relative;
+  top: -80% !important;
+ left: 0%;
+ display: flex;
+ flex-direction: column;
+ }
+.post-Button{
+  margin-left: 0px !important;
+  margin-top: 10px;
 
 
-  /* .logo-sidebar {
-    display: none;
-  } */
-  /* .sidebar-toggle{
-    margin-left: 100px;
-  } */
 }
 
-/* Edit Form */
+}
+
+
 @media screen and (max-width: 769px) {
   .Edit-container {
     display: flex;
@@ -214,6 +239,56 @@ li a{
   .layer-icon{
     display: block;
   }
+  .main-page {
+    flex-direction: column;
+   }
+   .left-side {
+    width: 100%;
+    height: 50vh;
+   }
+   .signup-Bg{
+    width: 100%;
+    height: 50vh;
+   }
+   .signup{
+    width: 100%;
+    height: 50vh;
+   }
+   .signup img{
+    margin-top: 30px;
+   }
+   .signup h1{
+    width: 50%;
+    font-size: 30px;
+   }
+   .right-side {
+    width: 100%;
+    height:100vh;
+    border: 1px solid;
+    background-color: white;
+
+   }
+   .banner-Buttons{
+    margin-left: 0;
+    margin-top: -10px;
+    margin: auto;
+    width: 34vw;
+    position: relative;
+    top: -40%;
+   }
+   .mainSlider{
+    height: 58vh !important;
+   }
+   .sliderHeader{
+    width: 95% !important;
+   }
 
 
+}
+@media screen and (max-width: 900px) {
+  .signup-Bg{
+    width: 100%;
+    /* height: 50vh; */
+   }
+  
 }

@@ -22,7 +22,7 @@ function Profile() {
                     Name
                   </label>
                   <input
-                    class="appearance-none bg-[#22134E] h-[7vh] block w-full text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
+                    class="appearance-none bg-[#22134E] text-white h-[7vh] block w-full text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                     id="grid-first-name"
                     type="text"
                   />
@@ -35,7 +35,7 @@ function Profile() {
                     Email
                   </label>
                   <input
-                    class="appearance-none bg-[#22134E] h-[7vh] block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
+                    class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                     id="grid-last-name"
                     type="text"
                   />
@@ -50,7 +50,7 @@ function Profile() {
                     Password
                   </label>
                   <input
-                    class="appearance-none bg-[#22134E] h-[7vh] block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
+                    class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                     id="grid-first-name"
                     type="text"
                   />
@@ -63,7 +63,7 @@ function Profile() {
                     Phone
                   </label>
                   <input
-                    class="appearance-none bg-[#22134E] h-[7vh] block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
+                    class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                     id="grid-last-name"
                     type="text"
                   />
@@ -82,7 +82,7 @@ function Profile() {
                 <textarea
                   id="message"
                   rows="6"
-                  class="appearance-none bg-[#22134E] h-[10vh] block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
+                  class="appearance-none bg-[#22134E]  text-white h-[10vh] block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                 ></textarea>
               </div>
               <div className="flex justify-between w-full items-end upload-ip">
