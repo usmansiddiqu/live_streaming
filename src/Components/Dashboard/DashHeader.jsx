@@ -17,7 +17,7 @@ function DashHeader({ title, SubTitle }) {
       ></div>
       <div className="w-[80vw]  flex justify-between mx-auto">
         <div className=" flex justify-between    lg:px-40 md:px-20">
-          <h1 className="text-3xl z-20 ">{title}</h1>
+          <h1 className="text-3xl z-20 font-bold">{title}</h1>
         </div>
         <div className="flex  flex-row  z-20 gap-10 justify-between lg:px-5">
           <a href="">Home</a>

@@ -1,6 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Button(props) {
+  const navigate = useNavigate();
+  const handleCLick = () => {
+    navigate("/membership_plan");
+  };
   return (
     <>
       <button
@@ -14,6 +19,7 @@ function Button(props) {
         <div
           className="w-[120px] h-[35px] flex justify-evenly items-center"
           style={{ margin: "auto" }}
+          onClick={handleCLick}
         >
           <img
             src={props.src}

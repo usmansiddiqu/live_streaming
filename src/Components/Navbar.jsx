@@ -18,6 +18,10 @@ import "../Assets/styles/Navbar.scss";
 import NavLinks from "./Common/NavLinks";
 import Login from "../Pages/Login/Login";
 import { Link, useNavigate } from "react-router-dom";
+import Database from "../Assets/Icons/database.png";
+import Profile from "../Assets/Icons/user.png";
+import Watchlist from "../Assets/Icons/watchlist.png";
+import Logout from "../Assets/Icons/logout.png";
 
 function Nav() {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -191,17 +195,64 @@ function Nav() {
                                   flexDirection: "column",
                                 }}
                               >
-                                <li className="w-[100%] list-none p-1">
-                                  <a href="/dashboard">Dashboard</a>
+                                <li className="w-[100%] list-none p-2">
+                                  <a
+                                    href="/dashboard"
+                                    className="flex items-center"
+                                  >
+                                    <img
+                                      src={Database}
+                                      alt=""
+                                      className="w-[15px] h-[15px]"
+                                    />{" "}
+                                    <span className="ml-2 text-sm">
+                                      Dashboard
+                                    </span>
+                                  </a>
                                 </li>
-                                <li className="w-[100%]  list-none p-1">
-                                  <a href="/profile">Profile</a>
+
+                                <li className="w-[100%] list-none p-2">
+                                  <a
+                                    href="/profile"
+                                    className="flex items-center"
+                                  >
+                                    <img
+                                      src={Profile}
+                                      alt=""
+                                      className="w-[15px] h-[15px]"
+                                    />{" "}
+                                    <span className="ml-2 text-sm">
+                                      Profile
+                                    </span>
+                                  </a>
                                 </li>
-                                <li className="w-[100%] list-none p-1">
-                                  <a href="/watchlist">Watchlist</a>
+                                <li className="w-[100%] list-none p-2">
+                                  <a
+                                    href="/watchlist"
+                                    className="flex items-center"
+                                  >
+                                    <img
+                                      src={Watchlist}
+                                      alt=""
+                                      className="w-[15px] h-[15px]"
+                                    />
+                                    <span className="ml-2 text-sm">
+                                      Watchlist
+                                    </span>
+                                  </a>
                                 </li>
-                                <li className="w-[100%] list-none p-1 border-b-0">
-                                  <a href="/">Logout</a>
+                                <li
+                                  className="w-[100%] list-none p-2 "
+                                  style={{ borderBottom: "0px" }}
+                                >
+                                  <a href="/" className="flex items-center">
+                                    <img
+                                      src={Logout}
+                                      alt=""
+                                      className="w-[15px] h-[15px]"
+                                    />
+                                    <span className="ml-2 text-sm">Logout</span>
+                                  </a>
                                 </li>
                               </div>
                             </div>

@@ -3,7 +3,7 @@ import dashBoardImage from "../../utils/images/dashboardBanner.jpg";
 function PlansDash() {
   return (
     <div
-      className=" text-[white] h-[20vh] relative md:w-100 object-cover bg-center bg-opacity-90 flex flex-row flex-wrap items-center justify-around lg:justify-between"
+      className=" text-[white] h-[20vh] relative  md:w-100 object-cover bg-center bg-opacity-90 flex flex-row flex-wrap items-center justify-around lg:justify-between"
       style={{
         backgroundImage: `url(${dashBoardImage})`,
         backgroundColor: "rgba(128, 0, 128, 0.5)",
@@ -15,12 +15,14 @@ function PlansDash() {
           background: "linear-gradient(to right, #372566, #37256669)",
         }}
       ></div>
-      <div className=" flex justify-between  lg:px-40 md:px-20">
-        <h1 className="text-3xl z-20 ml-20 ">Subscription Plan</h1>
-      </div>
-      <div className="flex  flex-row  z-20 gap-10 justify-between lg:px-5">
-        <a href="">Home</a>
-        <p>Subscription Plan</p>
+      <div className="w-[80vw]  flex justify-between mx-auto">
+        <div className=" flex justify-between    lg:px-40 md:px-20">
+          <h1 className="text-3xl z-20 font-bold">Service Plan</h1>
+        </div>
+        <div className="flex  flex-row  z-20 gap-10 justify-between lg:px-5">
+          <a href="">Home</a>
+          <p>Service Plan</p>
+        </div>
       </div>
     </div>
   );
