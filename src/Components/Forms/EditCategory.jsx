@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { getCategoryDetail, updateCategory } from "../../api/category";
+import { getCategoryDetail, updateCategory } from "../../api/category.api";
 
 function EditCategory() {
   const navigate = useNavigate();

@@ -1,4 +1,3 @@
-const { async } = require("q");
 const { default: axiosInstance } = require(".");
 
 const getCategories = async () => {
@@ -13,4 +12,18 @@ const updateCategory = async (data) => {
   return await axiosInstance.post(`/category/updateCategory`, data);
 };
 
-module.exports = { getCategories, getCategoryDetail, updateCategory };
+const createCategory = async (data) => {
+  return await axiosInstance.post(`/category/createCategory`, data);
+};
+
+const deleteCategoryById = async (id) => {
+  return await axiosInstance.delete(`/category/deleteCategory/${id}`);
+};
+
+module.exports = {
+  getCategories,
+  getCategoryDetail,
+  updateCategory,
+  createCategory,
+  deleteCategoryById,
+};
