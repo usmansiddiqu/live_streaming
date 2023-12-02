@@ -16,6 +16,10 @@ body, h1, h2, h3, p, div {
   overflow-y: scroll;
   background-color: #130A2D;
 }
+li a{
+  text-decoration: none;
+}
+
 .footer{
   width: 100%;
   height: 30vh;
@@ -57,4 +61,159 @@ body, h1, h2, h3, p, div {
   background-image: url(../src/Assets/Images/login-signup-bg-img.jpg);
   background-size: cover;
   opacity: 0.9;
+}
+.ql-container.ql-snow{
+  border: none !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .AdminBarLogo{
+    display: none;
+  
+  }
+  
+}
+
+/* Admin Cards */
+
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.container1 {
+  width: 43vmin;
+  height: 18vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3em 0;
+  position: relative;
+  font-size: 16px;
+  border-radius: 0.5em;
+  background-color: #21242b;
+
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    width: 85vw;
+  }
+  .container1 {
+    height: 26vmin;
+    width: 26vmin;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 90vw;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .container1 {
+    width: calc(50% - 40px);
+    height: 30vmin;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .wrapper {
+    gap: 15px;
+  }
+  .container1 {
+    width: 100%;
+    height: 25vmin;
+    font-size: 8px;
+  }
+  .input-feild{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .input-feild-image{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+  }
+  .input-feild-label{
+    min-width: 50vw;
+  }
+  .edit-con{
+    padding: 1rem;
+    padding-left: 0.7rem;
+  }
+  .input-feild-drop{
+    width: 75vw;
+  }
+ .main-user-container{
+  display: flex;
+  flex-direction: column;
+ }
+ .user-edit{
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+ }
+ .user-info{
+  width: 100%;
+  padding: 0;
+  margin-top: 10px;
+ }
+ .active-user-btn{
+  margin-left: -50px;
+ }
+ .Useredit-side{
+  width: 100%;
+  margin: 0;
+  margin-top: 10px;
+ }
+ .user-transaction{
+  margin-top: 10px;
+ }
+ .sub-type{
+  width: auto;
+  border: 1px solid;
+  justify-content: space-around;
+ }
+
+
+  /* .logo-sidebar {
+    display: none;
+  } */
+  /* .sidebar-toggle{
+    margin-left: 100px;
+  } */
+}
+
+/* Edit Form */
+@media screen and (max-width: 769px) {
+  .Edit-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .left{
+    width: 100%;
+  }
+  .input-feild{
+    width: 75vw;
+  }
+  .input-feild-label {
+    width: 20vw;
+  }
+  .save-btn{
+    margin-left: 450px;
+  }
+  .edit-con{
+    left: 10%;
+ 
+  }
+  .layer-icon{
+    display: block;
+  }
+
+
 }

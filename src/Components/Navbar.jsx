@@ -14,7 +14,7 @@ import logo from "../Assets/Icons/PixelSportLogo.png";
 import Account from "../Assets/Icons/account.png";
 import Subscribe from "../Assets/Icons/crown.png";
 import Search from "../Assets/Icons/search.png";
-import "../Assets/styles/Navbar.css";
+import "../Assets/styles/Navbar.scss";
 import NavLinks from "./Common/NavLinks";
 import Login from "../Pages/Login/Login";
 import { Link } from "react-router-dom";
@@ -178,22 +178,26 @@ function Nav() {
                         <>
                           <div>
                             <div className="triangle"></div>
-                            <div className="dropdown">
+                            <div className="dropdown rounded-md">
                               <div
-                                className="dropdown-content"
+                                className="dropdown-content rounded-md"
                                 style={{
                                   display: "flex",
                                   flexDirection: "column",
                                 }}
                               >
-                                <a href="#" className="mt-3">
-                                  <Link to="/Dashboard">Dashboard</Link>
-                                </a>
-                                <a href="#">
-                                  <Link to="/Profile">Profile</Link>
-                                </a>
-                                <a href="#">My Watchlist</a>
-                                <a href="#">Logout</a>
+                                <li className="w-[100%] list-none p-1">
+                                  <a href="/admin">Dashboard</a>
+                                </li>
+                                <li className="w-[100%]  list-none p-1">
+                                  <a href="/admin">Profile</a>
+                                </li>
+                                <li className="w-[100%] list-none p-1">
+                                  <a href="/admin">Watchlist</a>
+                                </li>
+                                <li className="w-[100%] list-none p-1 border-b-0">
+                                  <a href="/admin">Logout</a>
+                                </li>
                               </div>
                             </div>
                           </div>

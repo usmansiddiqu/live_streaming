@@ -2,22 +2,24 @@
   width: 145px;
   height: 35px;
 }
-a:hover{
-    text-decoration: none;
-    color: rgb(25, 5, 204);
-}
+//  a:hover{
+//     text-decoration: none;
+//     color: rgb(25, 5, 204);
+// } 
   
   li:hover a::before,
   li:active a::before {
     background-color: rgb(73, 73, 250);
   }
-.active {
-    /* width: 70px; */
-    border-bottom: 3px solid rgb(73, 73, 250);
-    color: rgb(25, 5, 204);
-    cursor: pointer;
+// .active {
+
+//     border-bottom: 3px solid rgb(73, 73, 250);
+//     color: rgb(25, 5, 204);
+//     cursor: pointer;
+//     position: relative;
     
-  }
+    
+// }
 .nav-Btn:hover{
     background-color:rgb(228, 167, 2);
     transition: 0.3s ease-in-out;
@@ -71,8 +73,8 @@ a:hover{
 
   margin-left: -140px;
   width: 200px;
-  height: 17vh;
-  margin-top: 20px;
+  height: 16.4vh;
+  margin-top: 17px;
   background-color: white;
   position: absolute;
   display: flex;
@@ -81,11 +83,14 @@ a:hover{
 
 
 }
+.dropdown-content li{
+  border-bottom: 1px solid grey;
+}
 
 .dropdown-content a{
   color: grey;
   width: 100%;
-  border-bottom: 1px solid grey;
+
 
 }
 
@@ -93,7 +98,7 @@ a:hover{
       background-color: #00022b;
 }
 
-/* Media Querry */
+
 @media screen and (max-width: 480px) {
   .logo {
    width: 100px;

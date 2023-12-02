@@ -15,7 +15,12 @@ function Button(props) {
           className="w-[6vw] h-[35px] flex justify-evenly items-center"
           style={{ margin: "auto" }}
         >
-          <img src={props.src} alt="" className="w-[18px] h-[18px]" />
+          <img
+            src={props.src}
+            alt=""
+            className="w-[18px] h-[18px]"
+            style={{ borderRadius: "0px" }}
+          />
           <span>{props.text}</span>
         </div>
       </button>

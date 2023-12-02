@@ -5,6 +5,7 @@ import Banner2 from "../Assets/Images/NBA HD Pass.webp";
 import Banner3 from "../Assets/Images/NFL HD Pass.webp";
 import Banner4 from "../Assets/Images/NHL LIVE 4k.webp";
 import BannerButtons from "./BannerButtons";
+import "../Assets/styles/MainSlider.scss";
 
 function MainSlider() {
   return (
@@ -20,6 +21,7 @@ function MainSlider() {
         background: "#0D0620",
         boxShadow: "1px 2px 14px 7px rgba(0,0,0,0.51)",
       }}
+      className="mainSlider"
     >
       <Splide
         options={{
@@ -30,9 +32,10 @@ function MainSlider() {
           type: "loop",
           padding: "5rem",
           gap: "1.5rem",
-          autoplay: true,
+          // autoplay: true,
           width: 1200,
         }}
+        style={{ borderRadius: "20px" }}
       >
         <SplideSlide className="rounded">
           <img src={Banner1} alt="Image 1" />
@@ -48,6 +51,7 @@ function MainSlider() {
         </SplideSlide>
         <SplideSlide>
           <img src={Banner4} alt="Image 4" />
+          <BannerButtons />
         </SplideSlide>
       </Splide>
     </div>
