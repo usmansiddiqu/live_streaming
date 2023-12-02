@@ -4,7 +4,16 @@ import "react-quill/dist/quill.snow.css";
 import SaveIcon from "../../Assets/Icons/diskette.png";
 
 function AddChannel() {
-  const [imageSrc, setImageSrc] = useState(null);
+  const [TVName, setTvName] = useState("");
+  const [description, setDescription] = useState("");
+  const [TVAccess, setTVAccess] = useState("");
+  const [TVCategory, setTVCategory] = useState("");
+  const [streamType, setStreamType] = useState("");
+  const [status, setStatus] = useState("");
+  const [server1URL, setServer1URL] = useState("");
+  const [server2URL, setServer2URL] = useState("");
+  const [server3URL, setServer3URL] = useState("");
+  const [logo, setLogo] = useState(null);
   const [text, setText] = useState("");
 
   const handleFileChange = (event) => {
@@ -13,14 +22,14 @@ function AddChannel() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImageSrc(reader.result);
+        setLogo(reader.result);
       };
       reader.readAsDataURL(file);
     }
   };
 
   const handleChange = (value) => {
-    setText(value);
+    setDescription(value);
   };
   return (
     <div
@@ -50,14 +59,16 @@ function AddChannel() {
                     for="email"
                     class="input-feild-label block mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white "
                   >
-                    Category Name
+                    TV Name
                   </label>
                   <input
                     type="email"
                     id="email"
                     class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#313133]"
-                    placeholder="MLB"
-                    value="MLB"
+                    value={TVName}
+                    onChange={(e) => {
+                      setTvName(e.target.value);
+                    }}
                     required
                   />
                 </div>
@@ -69,7 +80,7 @@ function AddChannel() {
                     Description
                   </label>
                   <ReactQuill
-                    value={text}
+                    value={description}
                     onChange={handleChange}
                     theme="snow"
                     style={{
@@ -111,9 +122,12 @@ function AddChannel() {
                   <select
                     id="countries"
                     class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#313133] block w-full p-2.5 font-bold text-white"
+                    onChange={(e) => {
+                      setTVAccess(e.target.value);
+                    }}
                   >
-                    <option>Active</option>
-                    <option>Inactive</option>
+                    <option value={"active"}>Active</option>
+                    <option value={"inactive"}>Inactive</option>
                   </select>
                 </div>
                 <div class="mb-5 input-feild w-[37vw] flex items-center ">
@@ -219,9 +233,12 @@ function AddChannel() {
                   <select
                     id="countries"
                     class="border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#313133] block w-full p-2.5 font-bold text-white"
+                    onChange={(e) => {
+                      setStreamType(e.target.value);
+                    }}
                   >
-                    <option>Active</option>
-                    <option>Inactive</option>
+                    <option value={"active"}>Active</option>
+                    <option value={"inactive"}>Inactive</option>
                   </select>
                 </div>
               </form>
@@ -242,8 +259,8 @@ function AddChannel() {
                     id="countries"
                     class="border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#313133] block w-full p-2.5 font-bold text-white"
                   >
-                    <option>Active</option>
-                    <option>Inactive</option>
+                    <option value={"active"}>Active</option>
+                    <option value={"inactive"}>Inactive</option>
                   </select>
                 </div>
                 <div class="mb-5 input-feild  w-[37vw] flex items-center">
@@ -259,6 +276,9 @@ function AddChannel() {
                     class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#313133]"
                     value="https://main.fhdsports.live:443/hdstreamlive/hdembed/141.m3u8"
                     required
+                    onChange={(e) => {
+                      setServer1URL(e.target.value);
+                    }}
                   />
                 </div>
                 <div class="mb-5 input-feild w-[37vw] flex items-center">
@@ -266,7 +286,7 @@ function AddChannel() {
                     for="email"
                     class="block mb-2 input-feild-label text-sm font-medium w-[17vw] text-gray-900 text-white "
                   >
-                    Server 2 URL*
+                    Server 2 URL
                   </label>
                   <input
                     type="email"
@@ -274,6 +294,9 @@ function AddChannel() {
                     class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#313133]"
                     value="https://main.fhdsports.live:443/hdstreamlive/hdembed/150.m3u8"
                     required
+                    onChange={(e) => {
+                      setServer2URL(e.target.value);
+                    }}
                   />
                 </div>
                 <div class="mb-5 input-feild w-[37vw] flex items-center">
@@ -281,7 +304,7 @@ function AddChannel() {
                     for="email"
                     class="block mb-2 input-feild-label text-sm font-medium w-[17vw] text-gray-900 text-white "
                   >
-                    Server 3 URL*
+                    Server 3 URL
                   </label>
                   <div className="flex flex-col w-full">
                     <input
@@ -289,6 +312,9 @@ function AddChannel() {
                       id="email"
                       class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#313133]"
                       required
+                      onChange={(e) => {
+                        setServer3URL(e.target.value);
+                      }}
                     />
                     <p className="mt-4 text-[#98A6AD] text-xs	">
                       Supported M3U8 URL
@@ -328,7 +354,7 @@ function AddChannel() {
                           (Recommended resolution : 800x450)
                         </p>
                         <img
-                          src={imageSrc}
+                          src={logo}
                           alt="Uploaded Image"
                           className="w-[200px] h-[116px] border-[6px]"
                         />

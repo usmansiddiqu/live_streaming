@@ -7,5 +7,8 @@ const login = async (data) => {
 const signup = async (data) => {
   return await axiosInstance.post("/auth/signup", data);
 };
+const loginWithGoogle = async (data) => {
+  return await axiosInstance.post("/auth/loginWithGoogle", data);
+};
 
-module.exports = { login, signup };
+module.exports = { login, signup, loginWithGoogle };
