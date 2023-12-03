@@ -4,8 +4,11 @@ import logo from "../../Assets/Icons/PixelSportLogo.png";
 import ErrorComponent from "../../Components/Common/ErrorComponent";
 import { Link, useNavigate } from "react-router-dom";
 import { clearLocalStorage } from "../../helper/localstorage";
-import { login } from "../../api/auth.api";
-
+import { login, loginWithGoogle } from "../../api/auth.api";
+// import { GoogleLogin } from "react-google-login";
+import { GoogleLogin } from "@react-oauth/google";
+const clientSecret =
+  "523867614519-9dcc1641isodinb0tgi0cbk0dqn4m3q8.apps.googleusercontent.com";
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -24,6 +27,67 @@ function Login() {
       navigate("/");
     }
   };
+  const onSuccess = async (res) => {
+    console.log(res);
+    const { data } = await loginWithGoogle({
+      name: res.name,
+      email: res.email,
+      googleId: res.googleId,
+      imageUrl: res.imageUrl,
+    });
+
+    if (data?.error) {
+      console.log(data);
+      setError(data?.error);
+    } else {
+      setError(null);
+      console.log(data?.data);
+      localStorage.setItem("token", data.data.token);
+      localStorage.setItem("data", JSON.stringify(data.data.user));
+      navigate("/");
+    }
+  };
+  const onFailure = (res) => {
+    console.log(res);
+  };
+  // const start = () => {
+  //   window.gapi.load("client", () => {
+  //     window.gapi.client
+  //       .init({
+  //         clientId: clientSecret,
+  //         scope: "",
+  //       })
+  //       .then(
+  //         () => {
+  //           // Initialization successful, you can now use gapi.client
+  //           console.log("Google API client initialized successfully");
+  //         },
+  //         (error) => {
+  //           // Initialization failed, handle the error
+  //           console.error("Error initializing Google API client", error);
+  //         }
+  //       );
+  //   });
+  // };
+  // const start = () => {
+  //   gapi.client.init({
+  //     clientId: clientSecret,
+  //     scope: "",
+  //   });
+  // };
+  // useEffect(() => {
+  //   const loadGoogleApi = () => {
+  //     if (window.gapi) {
+  //       window.gapi.load("client", start);
+  //     } else {
+  //       // Handle the case where window.gapi is not available
+  //       console.error("Google API client library not loaded");
+  //     }
+  //   };
+
+  //   // Load the Google API client library when the component mounts
+  //   loadGoogleApi();
+  // }, []);
   useEffect(() => {
     if (localStorage.getItem("token") && localStorage.getItem("data")) {
       navigate("/");
@@ -108,7 +172,6 @@ function Login() {
                 >
                   LOGIN
                 </button>
-
                 <p class="text-sm font-light text-white font-medium text-center">
                   Don’t have an account yet?
                   <a
@@ -118,12 +181,40 @@ function Login() {
                     <Link to="/signup">Sign up</Link>
                   </a>
                 </p>
-                <button
+                {/* <button
                   type="submit"
                   class="w-full h-[6vh] bg-red-600 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                 >
                   Goolge
-                </button>
+                </button> */}
+                <GoogleLogin
+                  onSuccess={(credentialResponse) => {
+                    const { credential, clientId, select_by } =
+                      credentialResponse;
+                    const jwtToken = credential.split(".")[1];
+                    const decodedToken = atob(jwtToken);
+                    const userInformation = JSON.parse(decodedToken);
+                    const {
+                      name,
+                      email,
+                      sub: googleId,
+                      picture: imageUrl,
+                    } = userInformation;
+                    onSuccess({ name, email, googleId, imageUrl });
+                  }}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                />
+                ;
+                {/* <GoogleLogin
+                  clientId={clientSecret}
+                  buttonText="Login"
+                  onSuccess={onSuccess}
+                  onFailure={onFailure}
+                  cookiePolicy={"single_host_origin"}
+                  isSignedIn={true}
+                /> */}
               </form>
             </div>
           </div>
