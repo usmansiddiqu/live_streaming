@@ -3,11 +3,16 @@ import tvchannel from "../../../../Assets/Images/nba poster.webp";
 import { useNavigate } from "react-router-dom";
 import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
-import { getChannel } from "../../../../api/tvChannel.api";
+import ErrorComponent from "../../../../Components/Common/ErrorComponent";
+import {
+  getChannel,
+  deleteSpecificChannel,
+} from "../../../../api/tvChannel.api";
 
 function TVChannel() {
   const [activeItem, setActiveItem] = useState(1);
   const [channel, setChannel] = useState([]);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleItemClick = (index) => {
@@ -23,6 +28,14 @@ function TVChannel() {
     const { data: response } = await getChannel();
     console.log(response.live);
     setChannel(response.liveTVs);
+  };
+  const handleDelete = async (chnl) => {
+    try {
+      const { data: response } = await deleteSpecificChannel(chnl._id);
+      getChannels();
+    } catch (error) {
+      setError(error.response.data.message);
+    }
   };
   useEffect(() => {
     getChannels();
@@ -46,6 +59,7 @@ function TVChannel() {
             style={{ position: "absolute", left: "14%" }}
           >
             <div class="relative overflow-x-auto shadow-md ">
+              {error && <ErrorComponent message={error} />}
               <div>
                 <div class="relative mt-1">
                   <div class=" flex items-center w-[60%] justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
@@ -270,7 +284,12 @@ function TVChannel() {
                                   className="w-[16px] h-[16px] m-auto"
                                 />
                               </button>
-                              <button className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]">
+                              <button
+                                className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
+                                onClick={() => {
+                                  handleDelete(chnl);
+                                }}
+                              >
                                 <img
                                   src={Cross}
                                   alt=""
