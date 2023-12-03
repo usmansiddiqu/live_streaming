@@ -13,7 +13,7 @@ function AddCoupons() {
     code: "",
     plan: "",
     numberOfUses: "",
-    status: "active",
+    status: true,
     expiryDate: "",
   });
   const generateRandomString = (length) => {
@@ -47,10 +47,17 @@ function AddCoupons() {
     };
   }, []);
   const handleChange = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.name == "status") {
+      setData({
+        ...data,
+        [e.target.name]: e.target.value == "true",
+      });
+    } else {
+      setData({
+        ...data,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
   const handleClick = async () => {
     if (!data.code) {

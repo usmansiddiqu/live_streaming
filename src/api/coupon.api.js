@@ -20,10 +20,15 @@ const editCoupon = async (data) => {
   return await axiosInstance.put(`/coupon`, data);
 };
 
+const availCoupon = async (coupon) => {
+  return await axiosInstance.post(`/coupon/${coupon}`);
+};
+
 module.exports = {
   getCoupons,
   createCoupon,
   deleteCoupon,
   getCouponDetails,
   editCoupon,
+  availCoupon,
 };
