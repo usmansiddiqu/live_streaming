@@ -4,7 +4,7 @@ import "@splidejs/react-splide/css";
 import "../../Assets/styles/CardSlider.scss";
 import TeamIcons from "./TeamIcons";
 
-function CardSlider() {
+function CardSlider({ data }) {
   //data
   const dummyData = [
     {
@@ -63,17 +63,6 @@ function CardSlider() {
     },
   ];
 
-  //icons
-  const dummyIcons = [
-    {
-      iconUrl: "https://cdn-icons-png.flaticon.com/128/1039/1039386.png",
-      name: "Icon 1",
-    },
-    {
-      iconUrl: "https://cdn-icons-png.flaticon.com/128/1201/1201923.png",
-      name: "Icon 2",
-    },
-  ];
   const splideOptions = {
     perPage: 5,
     perMove: 5,
@@ -94,9 +83,10 @@ function CardSlider() {
         marginTop: "25px",
       }}
     >
+      {console.log(data)}
       <Splide options={{ ...splideOptions, width: 1200 }}>
         <>
-          {dummyData.map((item) => (
+          {data.map((item) => (
             <SplideSlide
               options={{ ...splideOptions, width: 200 }}
               className="cardSlider flex flex-col items-center "
@@ -111,12 +101,19 @@ function CardSlider() {
                   padding: "0 10px",
                 }}
               >
-                <p className="text-white text-sm">{item.Stadium}</p>
-                <p className="text-white text-sm">{item.Date}</p>
+                <p className="text-white text-sm">{item.data.location}</p>
+                <p className="text-white text-sm">
+                  {item.data.date.split("T")[0]}
+                </p>
               </div>
 
               <div className="container" style={{ marginTop: "25px" }}>
-                <TeamIcons iconsData={dummyIcons} />
+                <TeamIcons
+                  iconsData={item.data.competitors.map((comp) => ({
+                    iconUrl: comp.logo,
+                    name: comp.name,
+                  }))}
+                />
               </div>
             </SplideSlide>
           ))}
