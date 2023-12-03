@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import { getChannel } from "../../../../api/tvChannel.api";
-import { async } from "q";
 
 function TVChannel() {
   const [activeItem, setActiveItem] = useState(1);
@@ -14,8 +13,8 @@ function TVChannel() {
   const handleItemClick = (index) => {
     setActiveItem(index);
   };
-  const handleButtonClick = () => {
-    navigate("/admin/live_tv/edit_live_tv");
+  const handleButtonClick = (chnl) => {
+    navigate(`/admin/live_tv/edit_live_tv/${chnl._id}`);
   };
   const handleCreateButtonClick = () => {
     navigate("/admin/live_tv/add_live_tv");
@@ -261,7 +260,9 @@ function TVChannel() {
                             <div className="flex">
                               <button
                                 className=" border relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
-                                onClick={handleButtonClick}
+                                onClick={() => {
+                                  handleButtonClick(chnl);
+                                }}
                               >
                                 <img
                                   src={Edit}

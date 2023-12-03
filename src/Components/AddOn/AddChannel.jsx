@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import SaveIcon from "../../Assets/Icons/diskette.png";
-
+import { getCategories } from "../../api/category.api";
+import { addChannelToDB } from "../../api/tvChannel.api";
+import ErrorComponent from "../Common/ErrorComponent";
 function AddChannel() {
   const [TVName, setTvName] = useState("");
   const [description, setDescription] = useState("");
-  const [TVAccess, setTVAccess] = useState("");
+  const [TVAccess, setTVAccess] = useState("free");
   const [TVCategory, setTVCategory] = useState("");
   const [streamType, setStreamType] = useState("");
   const [status, setStatus] = useState("");
@@ -15,19 +17,51 @@ function AddChannel() {
   const [server3URL, setServer3URL] = useState("");
   const [logo, setLogo] = useState(null);
   const [text, setText] = useState("");
+  const [categoriesObj, setCategoriesObj] = useState([]);
+  const [error, setError] = useState("");
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setLogo(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setLogo(file);
+      // const reader = new FileReader();
+      // reader.onloadend = () => {
+      //   setLogo(reader.result);
+      // };
+      // reader.readAsDataURL(file);
     }
   };
-
+  const getCategoriess = async () => {
+    const { data: response } = await getCategories();
+    setCategoriesObj(response.categories);
+  };
+  useEffect(() => {
+    getCategoriess();
+  }, []);
+  const createTVChannel = async () => {
+    const formData = new FormData();
+    console.log(TVAccess);
+    formData.append("TVName", TVName);
+    formData.append("description", description);
+    formData.append("TVAccess", TVAccess);
+    formData.append("TVCategory", TVCategory);
+    formData.append("streamType", streamType);
+    formData.append("status", status);
+    formData.append("server1URL", server1URL);
+    formData.append("server2URL", server2URL);
+    formData.append("server3URL", server3URL);
+    formData.append("logo", logo);
+    try {
+      const { data: response } = await addChannelToDB(formData);
+      console.log(response);
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
+  // const extractText = (html) => {
+  //   const doc = new DOMParser().parseFromString(html, "text/html");
+  //   return doc.body.textContent || "";
+  // };
   const handleChange = (value) => {
     setDescription(value);
   };
@@ -48,18 +82,20 @@ function AddChannel() {
           className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
           style={{ position: "absolute", left: "17%" }}
         >
+          {error && <ErrorComponent message={error} />}
           <div className="flex justify-between mx-auto Edit-container">
             <div className=" w-[48%] left">
               <h1 className="text-lg font-bold text-white mb-5">
                 Live TV Info
               </h1>
+
               <form class="max-w-sm ">
                 <div class="mb-5 w-[37vw] input-feild flex items-center">
                   <label
                     for="email"
                     class="input-feild-label block mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white "
                   >
-                    TV Name
+                    TV Name*
                   </label>
                   <input
                     type="email"
@@ -126,11 +162,42 @@ function AddChannel() {
                       setTVAccess(e.target.value);
                     }}
                   >
-                    <option value={"active"}>Active</option>
-                    <option value={"inactive"}>Inactive</option>
+                    <option value={"paid"}>Paid</option>
+                    <option value={"free"}>Free</option>
                   </select>
                 </div>
                 <div class="mb-5 input-feild w-[37vw] flex items-center ">
+                  <label
+                    for="countries"
+                    class="block mb-2 input-feild-label text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                  >
+                    Category
+                  </label>
+                  <select
+                    id="countries"
+                    class="border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#313133] block w-full p-2.5 font-bold text-white"
+                    onChange={(e) => {
+                      setTVCategory(e.target.value);
+                    }}
+                  >
+                    {categoriesObj &&
+                      categoriesObj?.map((cat) => {
+                        return (
+                          <option value={cat._id}>{cat.name}</option>
+                          // <li>
+                          //   <a
+                          //     href="#"
+                          //     class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
+                          //   >
+                          //     {cat.name}
+                          //   </a>
+                          // </li>
+                        );
+                      })}
+                  </select>
+                </div>
+
+                {/* <div class="mb-5 input-feild w-[37vw] flex items-center ">
                   <label
                     for="countries"
                     class="block mb-2 input-feild-label text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
@@ -187,42 +254,38 @@ function AddChannel() {
                             Filter by category
                           </a>
                         </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
-                          >
-                            MLB
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
-                          >
-                            NBA
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
-                          >
-                            NFL
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
-                          >
-                            NHL
-                          </a>
-                        </li>
+                        <label
+                          for="countries"
+                          class="block mb-2 input-feild-label text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                        >
+                          Stream Type
+                        </label>
+                        <select
+                          id="countries"
+                          class="border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#313133] block w-full p-2.5 font-bold text-white"
+                          onChange={(e) => {
+                            setStreamType(e.target.value);
+                          }}
+                        >
+                          {categoriesObj &&
+                            categoriesObj?.map((cat) => {
+                              return (
+                                <option value={"active"}>Active</option>
+                                // <li>
+                                //   <a
+                                //     href="#"
+                                //     class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
+                                //   >
+                                //     {cat.name}
+                                //   </a>
+                                // </li>
+                              );
+                            })}
+                        </select>
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <div class="mb-5 input-feild w-[37vw] flex items-center ">
                   <label
                     for="countries"
@@ -237,8 +300,10 @@ function AddChannel() {
                       setStreamType(e.target.value);
                     }}
                   >
-                    <option value={"active"}>Active</option>
-                    <option value={"inactive"}>Inactive</option>
+                    <option value={"hls"}>hls/M3U8/HTTP</option>
+                    <option value={"mpeg-dash"}>mpeg-dash</option>
+                    <option value={"embedcode"}>embedcode</option>
+                    <option value={"youtube"}>youtube</option>
                   </select>
                 </div>
               </form>
@@ -258,6 +323,9 @@ function AddChannel() {
                   <select
                     id="countries"
                     class="border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#313133] block w-full p-2.5 font-bold text-white"
+                    onChange={(e) => {
+                      setStatus(e.target.value);
+                    }}
                   >
                     <option value={"active"}>Active</option>
                     <option value={"inactive"}>Inactive</option>
@@ -274,7 +342,7 @@ function AddChannel() {
                     type="email"
                     id="email"
                     class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#313133]"
-                    value="https://main.fhdsports.live:443/hdstreamlive/hdembed/141.m3u8"
+                    value={server1URL}
                     required
                     onChange={(e) => {
                       setServer1URL(e.target.value);
@@ -292,7 +360,7 @@ function AddChannel() {
                     type="email"
                     id="email"
                     class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#313133]"
-                    value="https://main.fhdsports.live:443/hdstreamlive/hdembed/150.m3u8"
+                    value={server2URL}
                     required
                     onChange={(e) => {
                       setServer2URL(e.target.value);
@@ -312,6 +380,7 @@ function AddChannel() {
                       id="email"
                       class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#313133]"
                       required
+                      value={server3URL}
                       onChange={(e) => {
                         setServer3URL(e.target.value);
                       }}
@@ -368,6 +437,9 @@ function AddChannel() {
                 <button
                   type="submit"
                   class="text-white save-btn  bg-[#FF0015] text-sm font-bold rounded-md text-sm w-[70px]  px-3 py-1.5 flex justify-around items-center text-center "
+                  onClick={() => {
+                    createTVChannel();
+                  }}
                 >
                   <img
                     src={SaveIcon}
