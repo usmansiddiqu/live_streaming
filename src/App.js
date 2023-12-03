@@ -17,13 +17,15 @@ import { useState } from "react";
 import NotFound from "./Pages/NotFound";
 import Dashboard from "./Pages/Dashboard";
 import WatchList from "./Pages/WatchList/WatchList";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [isLoggedIn] = useState(true);
   const [isAdmin] = useState(true);
   return (
     <div className="App">
       <BrowserRouter>
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<MainScreen />} />
           <Route path="/mlb" element={<MLB />} />

@@ -2,20 +2,19 @@ import React, { useEffect, useState } from "react";
 import Pikaday from "pikaday";
 import "pikaday/css/pikaday.css";
 import { getPlans } from "../../api/plan.api";
-import { useNavigate } from "react-router";
-import { createCoupon } from "../../api/coupon.api";
+import { useNavigate, useParams } from "react-router";
+import {
+  createCoupon,
+  editCoupon,
+  getCouponDetails,
+} from "../../api/coupon.api";
 
-function AddCoupons() {
+function EditCoupons() {
+  const params = useParams();
   const navigate = useNavigate();
   const [plans, setPlans] = useState([]);
   const [error, setError] = useState(null);
-  const [data, setData] = useState({
-    code: "",
-    plan: "",
-    numberOfUses: "",
-    status: true,
-    expiryDate: "",
-  });
+  const [data, setData] = useState({});
   const generateRandomString = (length) => {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -35,16 +34,13 @@ function AddCoupons() {
     const { data: response } = await getPlans();
     setPlans(response.data);
   };
+  const getCouponData = async () => {
+    const { data: response } = await getCouponDetails(params.id);
+    setData(response.data);
+  };
   useEffect(() => {
-    const picker = new Pikaday({
-      field: document.getElementById("expiry_date"),
-      format: "MM/DD/YYYY",
-      yearRange: [new Date().getFullYear(), new Date().getFullYear() + 10],
-    });
     getData();
-    return () => {
-      picker.destroy();
-    };
+    getCouponData();
   }, []);
   const handleChange = (e) => {
     if (e.target.name == "status") {
@@ -69,9 +65,16 @@ function AddCoupons() {
     } else if (!data.expiryDate) {
       setError("Expiry date is required!");
     } else {
-      await createCoupon(data);
+      await editCoupon(data);
       navigate("/admin/coupons");
     }
+  };
+  const formatDateForInput = (date) => {
+    if (!date) return "";
+
+    const formattedDate = new Date(date);
+
+    return formattedDate.toISOString().split("T")[0];
   };
   return (
     <div
@@ -135,9 +138,12 @@ function AddCoupons() {
                 name="plan"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
                 onChange={handleChange}
+                defaultValue={data.plan}
               >
                 {plans.map((plan) => (
-                  <option value={plan._id}>{plan.name}</option>
+                  <option selected={plan._id == data.plan} value={plan._id}>
+                    {plan.name}
+                  </option>
                 ))}
               </select>
             </div>
@@ -170,9 +176,9 @@ function AddCoupons() {
               <input
                 name="expiryDate"
                 type="date"
-                // id="expiry_date"
                 className="border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                value={formatDateForInput(data.expiryDate)}
                 onChange={handleChange}
               />
             </div>
@@ -213,4 +219,4 @@ function AddCoupons() {
   );
 }
 
-export default AddCoupons;
+export default EditCoupons;

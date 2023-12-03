@@ -1,12 +1,22 @@
-import React, { useState } from "react";
-import TransactionTable from "../../../../Components/TransactionTable";
+import React, { useEffect, useState } from "react";
+import { getTransactions } from "../../../../api/transaction.api";
 
 function Transactions() {
   const [activeItem, setActiveItem] = useState(1);
-
+  const [data, setData] = useState([]);
   const handleItemClick = (index) => {
     setActiveItem(index);
   };
+  const [textFilter, setTextFilter] = useState("");
+  const [dateFilter, setDateFilter] = useState("");
+  const getData = async () => {
+    const { data: response } = await getTransactions();
+    setData(response.data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div
       style={{
@@ -25,59 +35,6 @@ function Transactions() {
               <div>
                 <div class="relative mt-1">
                   <div class=" flex items-center w-[70%] justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
-                    <div className="bg-[#313133] rounded">
-                      <button
-                        id="dropdownActionButton"
-                        data-dropdown-toggle="dropdownAction"
-                        class="inline-flex items-center w-[310px] bg-[#313133] justify-between text-white border-0 font-medium rounded-lg text-sm px-3 py-2.5 "
-                        type="button"
-                      >
-                        <span class="sr-only">Filter by Gateway</span>
-                        Filter by Gateway
-                        <svg
-                          class="w-2.5 h-2.5 ms-2.5"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 10 6"
-                        >
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="m1 1 4 4 4-4"
-                          />
-                        </svg>
-                      </button>
-
-                      <div
-                        id="dropdownAction"
-                        class="z-10 hidden bg-white w-[310px] top-0 shadow w-44 dark:divide-gray-600"
-                      >
-                        <ul
-                          class="text-sm text-black"
-                          aria-labelledby="dropdownActionButton"
-                        >
-                          <li>
-                            <a
-                              href="#"
-                              class="block px-4 py-2 text-[#6C757D] bg-[#ddd]  dark:hover:bg-[#FF0015] dark:hover:text-white"
-                            >
-                              Filter by Gateway
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
-                            >
-                              NowPayments
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
@@ -87,6 +44,7 @@ function Transactions() {
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-80 "
                         placeholder="Search by Payment ID or Email"
+                        onChange={(e) => setTextFilter(e.target.value)}
                       />
                       <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
                         <svg
@@ -109,12 +67,13 @@ function Transactions() {
 
                     <div class="relative flex justify-between w-60 rounded-full bg-[#313133]">
                       <input
-                        type="text"
+                        type="date"
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0 outline-none text-[#6C757D] text-xs  bg-[#313133] rounded-full w-60 "
                         placeholder="mm/dd/yy"
+                        onChange={(e) => setDateFilter(e.target.value)}
                       />
-                      <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
+                      {/* <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
                         <svg
                           class="w-3 h-3 text-white dark:text-white"
                           aria-hidden="true"
@@ -130,7 +89,7 @@ function Transactions() {
                             d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                           />
                         </svg>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -191,57 +150,90 @@ function Transactions() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-blue-600"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      Greg
-                    </th>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      greg@tt.com
-                    </th>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      Free Service - No Card required
-                    </th>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      $ 0.00
-                    </th>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      NA
-                    </th>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      -
-                    </th>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      Nov 24 2023 03:13 AM
-                    </th>
-                  </tr>
+                  {data
+                    ?.filter((payment) => {
+                      if (dateFilter) {
+                        const currentDate = new Date(payment?.updatedAt);
+
+                        const formattedDate = currentDate
+                          .toISOString()
+                          .slice(0, 10);
+                        return formattedDate == dateFilter;
+                      } else return true;
+                    })
+                    ?.filter((payment) => {
+                      if (textFilter) {
+                        return (
+                          payment?.userId?.email?.includes(textFilter) ||
+                          payment?.token?.includes(textFilter)
+                        );
+                      } else {
+                        return true;
+                      }
+                    })
+                    ?.map((payment) => (
+                      <tr>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-blue-600"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {payment?.userId?.name}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {payment?.userId?.email}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {payment?.packageId?.name}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          ${payment?.packageId?.amount}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          PAYCEC
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {payment?.token}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {new Date(payment?.updatedAt).toLocaleString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "numeric",
+                              day: "numeric",
+                              hour: "numeric",
+                              minute: "numeric",
+                              hour12: true,
+                            }
+                          )}
+                        </th>
+                      </tr>
+                    ))}
                 </tbody>
               </table>
             </div>
