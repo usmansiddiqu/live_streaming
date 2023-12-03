@@ -61,7 +61,7 @@ function AdminPanelWrapper() {
         />
         <Route path="/slider/edit_slider" element={<EditSlider />} />
         <Route path="/home_sections/edit" element={<EditHomeSection />} />
-        <Route path="/users/edit_user" element={<EditUser />} />
+        <Route path="/users/edit_user/:id" element={<EditUser />} />
         <Route path="/sub_admin/edit_user" element={<EditSubAdmin />} />
         <Route path="/users/history" element={<UserHistory />} />
 

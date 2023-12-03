@@ -1,19 +1,48 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Pikaday from "pikaday";
 import "pikaday/css/pikaday.css";
-
+import { createUser } from "../../api/auth.api";
+import ErrorComponent from "../Common/ErrorComponent";
 function AddUser() {
-  useEffect(() => {
-    const picker = new Pikaday({
-      field: document.getElementById("expiry_date"),
-      format: "MM/DD/YYYY",
-      yearRange: [new Date().getFullYear(), new Date().getFullYear() + 10],
-    });
-
-    return () => {
-      picker.destroy();
-    };
-  }, []);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [image, setImage] = useState("");
+  const [expireDate, setExpireDate] = useState("");
+  // const [subscriptionPlan,setEmail]=useState("")
+  const [status, setStatus] = useState("");
+  const [error, setError] = useState("");
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setImage(file);
+      // const reader = new FileReader();
+      // reader.onloadend = () => {
+      //   setLogo(reader.result);
+      // };
+      // reader.readAsDataURL(file);
+    }
+  };
+  const handleSave = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("password", password);
+      formData.append("email", email);
+      formData.append("phone", phone);
+      formData.append("address", address);
+      formData.append("expDate", expireDate);
+      formData.append("status", status);
+      formData.append("image", image);
+      const { data: response } = await createUser(formData);
+      console.log(response);
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
+  // useEffect(() => {}, []);
   return (
     <div
       style={{
@@ -31,6 +60,7 @@ function AddUser() {
           className="w-[80vw] edit-con bg-[#1C1C1E]  rounded p-5"
           style={{ position: "absolute", left: "17%" }}
         >
+          {error && <ErrorComponent message={error} />}
           <form class="max-w-sm ">
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
@@ -44,6 +74,9 @@ function AddUser() {
                 id="text"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
               />
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -58,6 +91,9 @@ function AddUser() {
                 id="email"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -72,6 +108,9 @@ function AddUser() {
                 id="password"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -86,6 +125,9 @@ function AddUser() {
                 id="phone"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                }}
               />
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -99,6 +141,9 @@ function AddUser() {
                 id="message"
                 rows="4"
                 class="block p-2.5 w-full border border-0 text-sm text-white dark:placeholder-white focus:ring-0 focus:border-0 rounded bg-[#48484A]"
+                onChange={(e) => {
+                  setAddress(e.target.value);
+                }}
               ></textarea>
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -112,6 +157,7 @@ function AddUser() {
                 class="block w-full text-sm text-white border border-0 rounded cursor-pointer bg-white-600 dark:text-white focus:outline-none bg-[#48484A] "
                 id="file_input"
                 type="file"
+                onChange={handleFileChange}
               />
             </div>
             <div className="mb-5 input-feild w-[72vw] flex">
@@ -122,13 +168,16 @@ function AddUser() {
                 Expiry Date*
               </label>
               <input
-                type="text"
+                type="Date"
                 id="expiry_date"
                 className="border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                onChange={(e) => {
+                  setExpireDate(e.target.value);
+                }}
               />
             </div>
-            <div class="mb-5 input-feild w-[72vw] flex  ">
+            {/* <div class="mb-5 input-feild w-[72vw] flex  ">
               <label
                 for="countries"
                 class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
@@ -141,7 +190,7 @@ function AddUser() {
               >
                 <option>Active</option>
               </select>
-            </div>
+            </div> */}
             <div class="mb-5 input-feild w-[72vw] flex  ">
               <label
                 for="countries"
@@ -152,8 +201,12 @@ function AddUser() {
               <select
                 id="countries"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                onChange={(e) => {
+                  setStatus(e.target.value);
+                }}
               >
-                <option>Active</option>
+                <option value={"active"}>Active</option>
+                <option value={"inactive"}>Inactive</option>
               </select>
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -164,6 +217,9 @@ function AddUser() {
               <button
                 type="submit"
                 class="text-white  bg-[#FF0015] text-sm font-bold rounded-md text-sm w-[70px]  sm:w-auto px-3 py-1.5 text-center "
+                onClick={() => {
+                  handleSave();
+                }}
               >
                 Save
               </button>

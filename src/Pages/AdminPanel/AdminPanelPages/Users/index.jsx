@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import Eye from "../../../../Assets/Icons/eye-open.png";
 import { useNavigate } from "react-router-dom";
+import { getAllUsers } from "../../../../api/auth.api";
 
 function Users() {
   const navigate = useNavigate();
   const [activeItem, setActiveItem] = useState(1);
+  const [users, setUsers] = useState([]);
 
   const handleItemClick = (index) => {
     setActiveItem(index);
   };
-  const handleButtonClick = () => {
-    navigate("/admin/users/edit_user");
+  const handleButtonClick = (user) => {
+    navigate(`/admin/users/edit_user/${user._id}`);
   };
   const handleHistoryButtonClick = () => {
     navigate("/admin/users/history");
@@ -20,6 +22,14 @@ function Users() {
   const handleCreateButtonClick = () => {
     navigate("/admin/users/add_user");
   };
+  const getUsers = async () => {
+    const { data: response } = await getAllUsers();
+    setUsers(response.data.user);
+  };
+  useEffect(() => {
+    getUsers();
+  }, []);
+
   return (
     <div
       style={{
@@ -208,71 +218,78 @@ function Users() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      Laird Bedwell
-                    </th>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      Crazytrucker04@hotmail.com
-                    </th>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      02135647
-                    </th>
-                    <td
-                      class="px-6 py-4 dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
-                        Active
-                      </div>
-                    </td>
-                    <td
-                      class="px-6 py-4 dark:text-white border"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      <div className="flex">
-                        <button
-                          className=" border relative w-[36px] h-[33px] rounded z-10 bg-[#FF0015] hover:before:absolute hover:before:bg-black hover:before:content-['History'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
-                          onClick={handleHistoryButtonClick}
-                        >
-                          <img
-                            src={Eye}
-                            alt=""
-                            className="w-[16px] h-[16px] m-auto"
-                          />
-                        </button>
-                        <button
-                          className=" border  ml-3  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
-                          onClick={handleButtonClick}
-                        >
-                          <img
-                            src={Edit}
-                            alt=""
-                            className="w-[16px] h-[16px] m-auto"
-                          />
-                        </button>
-                        <button className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]">
-                          <img
-                            src={Cross}
-                            alt=""
-                            className="w-[10px] h-[10px] m-auto"
-                          />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
+                  {users &&
+                    users.map((user) => {
+                      return (
+                        <tr>
+                          <th
+                            scope="row"
+                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            {user.name}
+                          </th>
+                          <th
+                            scope="row"
+                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            {user.email}
+                          </th>
+                          <th
+                            scope="row"
+                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            02135647
+                          </th>
+                          <td
+                            class="px-6 py-4 dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
+                              Active
+                            </div>
+                          </td>
+                          <td
+                            class="px-6 py-4 dark:text-white border"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            <div className="flex">
+                              <button
+                                className=" border relative w-[36px] h-[33px] rounded z-10 bg-[#FF0015] hover:before:absolute hover:before:bg-black hover:before:content-['History'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                                onClick={handleHistoryButtonClick}
+                              >
+                                <img
+                                  src={Eye}
+                                  alt=""
+                                  className="w-[16px] h-[16px] m-auto"
+                                />
+                              </button>
+                              <button
+                                className=" border  ml-3  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                                onClick={() => {
+                                  handleButtonClick(user);
+                                }}
+                              >
+                                <img
+                                  src={Edit}
+                                  alt=""
+                                  className="w-[16px] h-[16px] m-auto"
+                                />
+                              </button>
+                              <button className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]">
+                                <img
+                                  src={Cross}
+                                  alt=""
+                                  className="w-[10px] h-[10px] m-auto"
+                                />
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
                 </tbody>
               </table>
             </div>
