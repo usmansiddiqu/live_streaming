@@ -26,6 +26,7 @@ import AddSlider from "../../Components/AddOn/AddSlider";
 import AddSubAdmin from "../../Components/AddOn/AddSubAdmin";
 import AddCoupons from "../../Components/AddOn/AddCoupons";
 import AddUser from "../../Components/AddOn/AddUser";
+import EditCoupons from "../../Components/AddOn/EditCoupon";
 
 function AdminPanelWrapper() {
   return (
@@ -50,7 +51,10 @@ function AdminPanelWrapper() {
         <Route path="/sub_admin" element={<SubAdmin />} />
         <Route path="/coupons" element={<Coupons />} />
         <Route path="/transactions" element={<Transactions />} />
-        <Route path="/Tv_category/edit_category" element={<EditCategory />} />
+        <Route
+          path="/Tv_category/edit_category/:id"
+          element={<EditCategory />}
+        />
         <Route path="/live_tv/edit_live_tv" element={<EditLiveTv />} />
         <Route
           path="/assign_live_tv/assign_tv_edit"
@@ -69,6 +73,7 @@ function AdminPanelWrapper() {
         <Route path="/slider/add_slider" element={<AddSlider />} />
         <Route path="/sub_admin/add_user" element={<AddSubAdmin />} />
         <Route path="/coupons/addcoupon" element={<AddCoupons />} />
+        <Route path="/coupons/editcoupon/:id" element={<EditCoupons />} />
         <Route path="/users/add_user" element={<AddUser />} />
       </Routes>
     </div>

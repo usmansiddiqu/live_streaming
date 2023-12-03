@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { createCategory } from "../../api/category.api";
+import { useNavigate } from "react-router";
+import ErrorComponent from "../Common/ErrorComponent";
 
 function AddTvCategory() {
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const [data, setData] = useState({ name: "", status: "active" });
+  const handleClick = async () => {
+    try {
+      const { data: response } = await createCategory(data);
+      navigate("/admin/Tv_category");
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
   return (
     <div
       style={{
@@ -18,6 +32,7 @@ function AddTvCategory() {
           className="w-[80vw] edit-con bg-[#1C1C1E]  rounded p-5"
           style={{ position: "absolute", left: "17%" }}
         >
+          {error && <ErrorComponent message={error} />}
           <form class="max-w-sm ">
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
@@ -31,6 +46,12 @@ function AddTvCategory() {
                 id="name"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    name: e.target.value,
+                  })
+                }
               />
             </div>
             <div class="mb-5 input-feild w-[72vw] flex  ">
@@ -43,9 +64,15 @@ function AddTvCategory() {
               <select
                 id="countries"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    status: e.target.value,
+                  })
+                }
               >
-                <option>Active</option>
-                <option>Inactive</option>
+                <option value={"active"}>Active</option>
+                <option value={"inactive"}>Inactive</option>
               </select>
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -54,8 +81,9 @@ function AddTvCategory() {
                 class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[13.5vw]"
               ></label>
               <button
-                type="submit"
+                type="button"
                 class="text-white  bg-[#FF0015] text-sm font-bold rounded-md text-sm w-[70px]  sm:w-auto px-3 py-1.5 text-center "
+                onClick={handleClick}
               >
                 Save
               </button>

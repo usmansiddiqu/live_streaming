@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../App.css";
 import logo from "../../Assets/Icons/PixelSportLogo.png";
 import NFL from "../../Assets/Icons/nfl1.png";
@@ -6,7 +6,53 @@ import NBA from "../../Assets/Icons/nba.png";
 import MLB from "../../Assets/Icons/mlb1.png";
 import NHL from "../../Assets/Icons/nhl1.png";
 import Google from "../../Assets/Icons/google.png";
+import { clearLocalStorage } from "../../helper/localstorage";
+import { useNavigate } from "react-router";
+import ErrorComponent from "../../Components/Common/ErrorComponent";
+import { signup } from "../../api/auth.api";
 function Signup() {
+  const navigate = useNavigate();
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [error, setError] = useState(null);
+  const handleClick = async () => {
+    if (!data.name) {
+      setError("Name is required!");
+    } else if (!data.email) {
+      setError("Email is required!");
+    } else if (!data.password) {
+      setError("Password is required!");
+    } else if (!data.confirmPassword) {
+      setError("Confirm Password is required!");
+    } else if (data.confirmPassword != data.password) {
+      setError("Password and confirm password are not equal!");
+    } else if (data.confirmPassword.length < 8) {
+      setError("Password Should be 8 characters long!");
+    } else {
+      setError(null);
+      const { data: response } = await signup(data);
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("data", JSON.stringify(response.data.user));
+      navigate("/");
+    }
+  };
+  useEffect(() => {
+    if (localStorage.getItem("token") && localStorage.getItem("data")) {
+      navigate("/");
+    } else {
+      clearLocalStorage();
+    }
+  }, []);
+  const handleChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <>
       <div className="main-page flex flex-row w-[100vw] h-[100vh] bg-white">
@@ -49,7 +95,8 @@ function Signup() {
                     Create an new account
                   </h1>
                 </div>
-                <form class="space-y-4 md:space-y-6" method="POST">
+                <form class="space-y-4 md:space-y-6">
+                  {error && <ErrorComponent message={error} />}
                   <div>
                     <input
                       type="text"
@@ -58,16 +105,18 @@ function Signup() {
                       class="bg-[#F3F4F8] h-[7vh] border-none text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Name"
                       required=""
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
                     <input
                       type="text"
-                      name="username"
-                      id="username"
+                      name="email"
+                      id="name"
                       class="bg-[#F3F4F8] h-[7vh] border-none text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Email"
                       required=""
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
@@ -78,21 +127,24 @@ function Signup() {
                       placeholder="Password (At least 8 characters)"
                       class="bg-[#F3F4F8] h-[7vh] border-none text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
                     <input
                       type="password"
-                      name="password"
+                      name="confirmPassword"
                       id="password"
                       placeholder="Confirm Password"
                       class="bg-[#F3F4F8] h-[7vh] border-none text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
+                      onChange={handleChange}
                     />
                   </div>
                   <button
-                    type="submit"
+                    type="button"
                     class="w-full h-[7vh] rounded-full  text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-auto"
+                    onClick={handleClick}
                   >
                     SIGN UP
                   </button>
@@ -100,7 +152,7 @@ function Signup() {
                     Already Sign Up
                     <a
                       class="font-medium text-blue-600 hover:underline dark:text-blue-500 ml-2"
-                      href="/signin"
+                      href="/login"
                     >
                       Login
                     </a>

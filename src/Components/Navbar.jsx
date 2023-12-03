@@ -22,11 +22,13 @@ import Database from "../Assets/Icons/database.png";
 import Profile from "../Assets/Icons/user.png";
 import Watchlist from "../Assets/Icons/watchlist.png";
 import Logout from "../Assets/Icons/logout.png";
+import { clearLocalStorage } from "../helper/localstorage";
 
 function Nav() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [data, setData] = useState(JSON?.parse(localStorage.getItem("data")));
   // const pages = ["HOME", "MLB", "NBA", "NFL", "NHL", "UFC"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -54,7 +56,7 @@ function Nav() {
   const handleNavigate = () => {
     navigate("/membership_plan");
   };
-
+  console.log(data);
   return (
     <AppBar
       position="static"
@@ -176,7 +178,7 @@ function Nav() {
                   </div>
                 </div>
                 <div>
-                  {isLoggedIn ? (
+                  {data ? (
                     <div className="avatar-profile">
                       <img
                         className="avatar w-[40px] h-[40px] rounded-full"
@@ -195,65 +197,115 @@ function Nav() {
                                   flexDirection: "column",
                                 }}
                               >
-                                <li className="w-[100%] list-none p-2">
-                                  <a
-                                    href="/dashboard"
-                                    className="flex items-center"
-                                  >
-                                    <img
-                                      src={Database}
-                                      alt=""
-                                      className="w-[15px] h-[15px]"
-                                    />{" "}
-                                    <span className="ml-2 text-sm">
-                                      Dashboard
-                                    </span>
-                                  </a>
-                                </li>
-
-                                <li className="w-[100%] list-none p-2">
-                                  <a
-                                    href="/profile"
-                                    className="flex items-center"
-                                  >
-                                    <img
-                                      src={Profile}
-                                      alt=""
-                                      className="w-[15px] h-[15px]"
-                                    />{" "}
-                                    <span className="ml-2 text-sm">
-                                      Profile
-                                    </span>
-                                  </a>
-                                </li>
-                                <li className="w-[100%] list-none p-2">
-                                  <a
-                                    href="/watchlist"
-                                    className="flex items-center"
-                                  >
-                                    <img
-                                      src={Watchlist}
-                                      alt=""
-                                      className="w-[15px] h-[15px]"
-                                    />
-                                    <span className="ml-2 text-sm">
-                                      Watchlist
-                                    </span>
-                                  </a>
-                                </li>
-                                <li
-                                  className="w-[100%] list-none p-2 "
-                                  style={{ borderBottom: "0px" }}
-                                >
-                                  <a href="/" className="flex items-center">
-                                    <img
-                                      src={Logout}
-                                      alt=""
-                                      className="w-[15px] h-[15px]"
-                                    />
-                                    <span className="ml-2 text-sm">Logout</span>
-                                  </a>
-                                </li>
+                                {data?.userType == "admin" ? (
+                                  <>
+                                    <li className="w-[100%] list-none p-2">
+                                      <a
+                                        href="/dashboard"
+                                        className="flex items-center"
+                                      >
+                                        <img
+                                          src={Database}
+                                          alt=""
+                                          className="w-[15px] h-[15px]"
+                                        />{" "}
+                                        <span className="ml-2 text-sm">
+                                          Dashboard
+                                        </span>
+                                      </a>
+                                    </li>
+                                    <li
+                                      className="w-[100%] list-none p-2 "
+                                      style={{ borderBottom: "0px" }}
+                                    >
+                                      <a
+                                        className="flex items-center"
+                                        onClick={() => {
+                                          clearLocalStorage();
+                                          navigate("/login");
+                                        }}
+                                      >
+                                        <img
+                                          src={Logout}
+                                          alt=""
+                                          className="w-[15px] h-[15px]"
+                                        />
+                                        <span className="ml-2 text-sm">
+                                          Logout
+                                        </span>
+                                      </a>
+                                    </li>
+                                  </>
+                                ) : (
+                                  <>
+                                    <li className="w-[100%] list-none p-2">
+                                      <a
+                                        href="/admin/dashboard"
+                                        className="flex items-center"
+                                      >
+                                        <img
+                                          src={Database}
+                                          alt=""
+                                          className="w-[15px] h-[15px]"
+                                        />{" "}
+                                        <span className="ml-2 text-sm">
+                                          Dashboard
+                                        </span>
+                                      </a>
+                                    </li>
+                                    <li className="w-[100%] list-none p-2">
+                                      <a
+                                        href="/profile"
+                                        className="flex items-center"
+                                      >
+                                        <img
+                                          src={Profile}
+                                          alt=""
+                                          className="w-[15px] h-[15px]"
+                                        />{" "}
+                                        <span className="ml-2 text-sm">
+                                          Profile
+                                        </span>
+                                      </a>
+                                    </li>
+                                    <li className="w-[100%] list-none p-2">
+                                      <a
+                                        href="/watchlist"
+                                        className="flex items-center"
+                                      >
+                                        <img
+                                          src={Watchlist}
+                                          alt=""
+                                          className="w-[15px] h-[15px]"
+                                        />
+                                        <span className="ml-2 text-sm">
+                                          Watchlist
+                                        </span>
+                                      </a>
+                                    </li>
+                                    <li
+                                      className="w-[100%] list-none p-2 "
+                                      style={{ borderBottom: "0px" }}
+                                    >
+                                      <a
+                                        className="flex items-center"
+                                        onClick={() => {
+                                          clearLocalStorage();
+                                          navigate("/login");
+                                        }}
+                                      >
+                                        <img
+                                          src={Logout}
+                                          alt=""
+                                          className="w-[15px] h-[15px]"
+                                        />
+                                        <span className="ml-2 text-sm">
+                                          Logout
+                                        </span>
+                                      </a>
+                                    </li>
+                                  </>
+                                )}
                               </div>
                             </div>
                           </div>
@@ -270,7 +322,7 @@ function Nav() {
                           <img src={Account} alt="" />
                         </div>
                         <span style={{ fontSize: "14px" }}>
-                          <Link to="/LOGIN"> LOGIN</Link>
+                          <Link to="/login"> LOGIN</Link>
                         </span>
                       </div>
                     </button>

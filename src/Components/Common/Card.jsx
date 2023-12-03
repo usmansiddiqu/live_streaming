@@ -3,7 +3,7 @@ import TeamIcons from "./TeamIcons";
 import Dashboard from "../../Pages/Dashboard";
 import DashHeader from "../Dashboard/DashHeader";
 
-function Card() {
+function Card({ data }) {
   const dummyData = [
     {
       id: 1,
@@ -79,16 +79,21 @@ function Card() {
         <div class="container mx-auto mx-auto p-4">
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
             <>
-              {dummyData.slice(0, 5).map((item) => (
+              {data.map((item) => (
                 <div class="rounded-lg p-4">
-                  <div className="cardSlider w-[100%]" key={item.id}>
+                  <div className="cardSlider w-[100%]" key={item._id}>
                     <div className="placeAndTime  border w-[100%] h-[3vh] flex justify-between flex-row p-0 px-2">
-                      <p>{item.Stadium}</p>
-                      <p>{item.Date}</p>
+                      <p>{item.data.location}</p>
+                      <p> {item.data.date.split("T")[0]}</p>
                     </div>
 
                     <div className="container p-6">
-                      <TeamIcons iconsData={dummyIcons} />
+                      <TeamIcons
+                        iconsData={item.data.competitors.map((comp) => ({
+                          iconUrl: comp.logo,
+                          name: comp.name,
+                        }))}
+                      />
                     </div>
                   </div>
                 </div>
