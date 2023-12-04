@@ -8,4 +8,16 @@ const availFreePayment = async () => {
   return await axiosInstance.get("/payment/free");
 };
 
-module.exports = { createPayment, availFreePayment };
+const getUserPayments = async () => {
+  return await axiosInstance.get("/payment/user");
+};
+
+const verifyPayments = async (id) => {
+  return await axiosInstance.get(`/payment/${id}`);
+};
+module.exports = {
+  createPayment,
+  availFreePayment,
+  getUserPayments,
+  verifyPayments,
+};

@@ -37,17 +37,18 @@ function SubAdmin() {
     <div
       style={{
         background: "black",
-        position: "absolute",
+        position: "relative",
+        // left: "14%",
         width: "100%",
         height: "100%",
-        overflow: "hidden",
+        overflowY: "scroll",
       }}
     >
       <div className=" ml-4 mt-20 ">
         <div>
           <div
             className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
-            style={{ position: "absolute", left: "14%" }}
+            style={{ position: "absolute", left: "17%" }}
           >
             {error && <ErrorComponent message={error} />}
             <div class="relative overflow-x-auto shadow-md ">
@@ -136,6 +137,7 @@ function SubAdmin() {
                   </tr>
                 </thead>
                 <tbody>
+
                   {subAdmin &&
                     subAdmin.map((admin) => {
                       return (
