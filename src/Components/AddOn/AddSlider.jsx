@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import ErrorComponent from "../Common/ErrorComponent";
 import { useNavigate } from "react-router-dom";
 import { getChannel } from "../../api/tvChannel.api";
+import { createSlider } from "../../api/slider.api";
 
 function AddSlider() {
   const [title, setTitle] = useState();
   const [liveTV, setLiveTV] = useState();
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState(true);
   const [image, setImage] = useState();
   const [liveTVObj, setLiveTVObj] = useState([]);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -24,9 +26,28 @@ function AddSlider() {
     }
   };
   const getLiveTV = async () => {
-    const { data: response } = await getChannel();
-    // console.log(response.liveTVs.data);
-    setLiveTVObj(response.liveTVs);
+    try {
+      const { data: response } = await getChannel();
+      // console.log(response.liveTVs.data);
+      setLiveTVObj(response.liveTVs);
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
+  const handleSave = async (e) => {
+    try {
+      e.preventDefault();
+      console.log(title, liveTV, status);
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("liveTV", liveTV);
+      formData.append("status", status);
+      formData.append("image", image);
+      const { data: response } = await createSlider(formData);
+      navigate("/admin/slider");
+    } catch (error) {
+      setError(error.response.data.message);
+    }
   };
   useEffect(() => {
     getLiveTV();
@@ -138,6 +159,7 @@ function AddSlider() {
                     onChange={(e) => {
                       setLiveTV(e.target.value);
                     }}
+                    required
                   >
                     {liveTVObj &&
                       liveTVObj?.map((tv) => {
@@ -201,8 +223,8 @@ function AddSlider() {
                     }}
                     value={status}
                   >
-                    <option value={"active"}>Active</option>
-                    <option value={"inactive"}>Inactive</option>
+                    <option value={true}>Active</option>
+                    <option value={false}>Inactive</option>
                   </select>
                 </div>
                 <div class="mb-5 input-feild w-[72vw] flex">
@@ -211,8 +233,10 @@ function AddSlider() {
                     class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17.5vw]"
                   ></label>
                   <button
-                    type="submit"
                     class="text-white  bg-[#FF0015] text-sm font-bold rounded-md text-sm w-[70px]  sm:w-auto px-3 py-1.5 text-center "
+                    onClick={(e) => {
+                      handleSave(e);
+                    }}
                   >
                     Save
                   </button>
