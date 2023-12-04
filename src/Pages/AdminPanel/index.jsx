@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdminPanelBar from "../../Components/Dashboard/Admin/AdminPanelBar";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import AdminDashboard from "./AdminPanelPages/Dashboard";
 import TVCategory from "./AdminPanelPages/TvCategory";
 import TVChannel from "./AdminPanelPages/TVChannel";
@@ -29,6 +29,15 @@ import AddUser from "../../Components/AddOn/AddUser";
 import EditCoupons from "../../Components/AddOn/EditCoupon";
 
 function AdminPanelWrapper() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("data")) {
+      const data = JSON.parse(localStorage.getItem("data"));
+      if (data?.userType == "user") {
+        navigate("/");
+      }
+    }
+  }, []);
   return (
     <div
       style={{
@@ -63,7 +72,7 @@ function AdminPanelWrapper() {
         <Route path="/slider/edit_slider" element={<EditSlider />} />
         <Route path="/home_sections/edit" element={<EditHomeSection />} />
         <Route path="/users/edit_user/:id" element={<EditUser />} />
-        <Route path="/sub_admin/edit_user" element={<EditSubAdmin />} />
+        <Route path="/sub_admin/edit_user/:id" element={<EditSubAdmin />} />
         <Route path="/users/history" element={<UserHistory />} />
 
         {/* Add Button Routes */}

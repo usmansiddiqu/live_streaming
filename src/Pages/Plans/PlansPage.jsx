@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PlansDash from "../../Components/Plans/PlansDash";
 import PlanCards from "../../Components/Plans/PlanCards";
 import Coupon from "../../Components/Plans/Coupon";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
+import { useParams } from "react-router-dom";
+import { verifyPayments } from "../../api/payment.api";
+import { ToastContainer, toast } from "react-toastify";
 function PlansPage() {
+  const params = useParams();
+  const [result, setResult] = useState(null);
+  const getData = async () => {
+    const { data: response } = await verifyPayments(params.id);
+    if (response.message == "Token Verified!") {
+      toast.success("Payment Successfull!");
+    } else {
+      toast.error("Payment Failed");
+    }
+  };
+  useEffect(() => {
+    if (params?.id) {
+      getData();
+    }
+  }, []);
   return (
     <div className="bg-[#0D0620]">
+      <ToastContainer limit={1} />
       <Nav />
       <PlansDash />
       <PlanCards />

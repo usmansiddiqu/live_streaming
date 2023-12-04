@@ -18,7 +18,7 @@ function MLB() {
   return (
     <div>
       <Nav />
-      <Card data={data} />
+      <Card data={data} title={"MLB"} />
       <Footer />
     </div>
   );

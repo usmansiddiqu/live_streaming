@@ -1,17 +1,45 @@
 import React, { useState } from "react";
+import ErrorComponent from "../Common/ErrorComponent";
+import { addSubAdmin } from "../../api/subadmins.api";
+import { useNavigate } from "react-router-dom";
 
 function AddSubAdmin() {
-  const [imageSrc, setImageSrc] = useState(null);
-
+  const [image, setImage] = useState(null);
+  const [error, setError] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [adminType, setAdminType] = useState("");
+  const [status, setStatus] = useState("active");
+  const navigate = useNavigate();
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImageSrc(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setImage(file);
+      // const reader = new FileReader();
+      // reader.onloadend = () => {
+      //   setLogo(reader.result);
+      // };
+      // reader.readAsDataURL(file);
+    }
+  };
+  const saveAdmin = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("phone", phone);
+    formData.append("adminType", adminType);
+    formData.append("image", image);
+    formData.append("status", status);
+    try {
+      const { data: response } = await addSubAdmin(formData);
+      navigate("/admin/sub_admin");
+      console.log(response);
+    } catch (error) {
+      setError(error.response.data.message);
     }
   };
   return (
@@ -31,6 +59,7 @@ function AddSubAdmin() {
           className="w-[80vw] edit-con bg-[#1C1C1E]  rounded p-5"
           style={{ position: "absolute", left: "17%" }}
         >
+          {error && <ErrorComponent message={error} />}
           <form class="max-w-sm ">
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
@@ -43,9 +72,12 @@ function AddSubAdmin() {
                 type="text"
                 id="text"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
-                placeholder="MLB"
-                value="MLB"
+                placeholder="Name"
+                value={name}
                 required
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
               />
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -60,6 +92,10 @@ function AddSubAdmin() {
                 id="email"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -74,6 +110,10 @@ function AddSubAdmin() {
                 id="Password"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -88,6 +128,10 @@ function AddSubAdmin() {
                 id="phone"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                value={phone}
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                }}
               />
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -102,6 +146,7 @@ function AddSubAdmin() {
                 onChange={handleFileChange}
                 id="file_input"
                 type="file"
+                value={image?.filename}
               />
             </div>
 
@@ -115,8 +160,13 @@ function AddSubAdmin() {
               <select
                 id="countries"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                onChange={(e) => {
+                  setAdminType(e.target.value);
+                }}
+                value={adminType}
               >
-                <option>Active</option>
+                <option value={"admin"}>Admin</option>
+                <option value={"subadmin"}>Sub Admin</option>
               </select>
             </div>
 
@@ -130,8 +180,13 @@ function AddSubAdmin() {
               <select
                 id="countries"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                onChange={(e) => {
+                  setStatus(e.target.value);
+                  console.log(status);
+                }}
               >
-                <option>Active</option>
+                <option value={"active"}>Active</option>
+                <option value={"inactive"}>Inactive</option>
               </select>
             </div>
             <div class="mb-5 input-feild w-[72vw] flex">
@@ -142,6 +197,9 @@ function AddSubAdmin() {
               <button
                 type="submit"
                 class="text-white  bg-[#FF0015] text-sm font-bold rounded-md text-sm w-[70px]  sm:w-auto px-3 py-1.5 text-center "
+                onClick={(e) => {
+                  saveAdmin(e);
+                }}
               >
                 Save
               </button>
