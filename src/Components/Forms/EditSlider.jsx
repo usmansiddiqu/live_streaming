@@ -141,9 +141,11 @@ function EditSlider() {
                     </p>
                     <img
                       src={
-                        image && image.includes(url)
+                        typeof image === "string"
                           ? image
-                          : URL.createObjectURL(image)
+                          : image instanceof File
+                          ? URL.createObjectURL(image)
+                          : null
                       }
                       alt="Uploaded Image"
                       className="w-[400px] h-[169px] border-[6px]"

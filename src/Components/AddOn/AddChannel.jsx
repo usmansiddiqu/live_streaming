@@ -428,7 +428,13 @@ function AddChannel() {
                           (Recommended resolution : 800x450)
                         </p>
                         <img
-                          src={logo}
+                          src={
+                            typeof logo === "string"
+                              ? logo
+                              : logo instanceof File
+                              ? URL.createObjectURL(logo)
+                              : null
+                          }
                           alt="Uploaded Image"
                           className="w-[200px] h-[116px] border-[6px]"
                         />

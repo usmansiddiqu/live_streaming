@@ -7,6 +7,7 @@ import { editChannelInDB, getSpecificChannel } from "../../api/tvChannel.api";
 import ErrorComponent from "../Common/ErrorComponent";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { url } from "../../helper/url";
 function EditLiveTv() {
   const { id } = useParams();
   const [TVName, setTvName] = useState("");
@@ -83,9 +84,9 @@ function EditLiveTv() {
       setServer1URL(response.liveTV.server1URL);
       setServer2URL(response.liveTV.server2URL);
       setServer3URL(response.liveTV.server3URL);
-      // setLogo()
+      setLogo(url + "\\" + response.liveTV.TVLogo.replace("uploads\\", ""));
     } catch (error) {
-      setError(error.response.data.message);
+      setError(error.response?.data?.message);
     }
   };
   useEffect(() => {
@@ -439,7 +440,7 @@ function EditLiveTv() {
                             type="file"
                             class=" appearance-none items-center py-2 block upload-input w-full text-gray-700 border rounded  focus:outline-none "
                             onChange={handleFileChange}
-                            value={logo}
+                            // value={logo}
                           />
                         </div>
                       </div>
@@ -454,10 +455,17 @@ function EditLiveTv() {
                           (Recommended resolution : 800x450)
                         </p>
                         <img
-                          src={logo}
+                          src={
+                            typeof logo === "string"
+                              ? logo
+                              : logo instanceof File
+                              ? URL.createObjectURL(logo)
+                              : null
+                          }
                           alt="Uploaded Image"
                           className="w-[200px] h-[116px] border-[6px]"
                         />
+                        {console.log(logo)}
                       </div>
                     </div>
                   </div>
