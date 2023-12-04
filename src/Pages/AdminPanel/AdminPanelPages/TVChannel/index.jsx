@@ -22,6 +22,8 @@ function TVChannel() {
     const endIndex = startIndex + itemsPerPage;
     return channel.slice(startIndex, endIndex);
   };
+  const [textFilter, setTextFilter] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("Filter by category");
   const handlePreviousClick = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
@@ -85,8 +87,8 @@ function TVChannel() {
                         class="inline-flex items-center w-[310px] bg-[#313133] justify-between text-white border-0 font-medium rounded-lg text-sm px-3 py-2.5 "
                         type="button"
                       >
-                        <span class="sr-only">Filter by category</span>
-                        Filter by category
+                        <span class="sr-only">{categoryFilter}</span>
+                        {categoryFilter}
                         <svg
                           class="w-2.5 h-2.5 ms-2.5"
                           aria-hidden="true"
@@ -118,11 +120,14 @@ function TVChannel() {
                               id="table-search-users"
                               class=" ps-5  text-sm w-full  text-[#6C757D] text-xs border "
                               placeholder="Search by title"
+                              value={textFilter}
                             />
                           </li>
                           <li>
                             <a
-                              href="#"
+                              onClick={() =>
+                                setCategoryFilter("Filter by category")
+                              }
                               class="block px-4 py-2 text-[#6C757D] bg-[#ddd]  dark:hover:bg-[#FF0015] dark:hover:text-white"
                             >
                               Filter by category
@@ -130,7 +135,7 @@ function TVChannel() {
                           </li>
                           <li>
                             <a
-                              href="#"
+                              onClick={() => setCategoryFilter("MLB")}
                               class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
                             >
                               MLB
@@ -138,7 +143,7 @@ function TVChannel() {
                           </li>
                           <li>
                             <a
-                              href="#"
+                              onClick={() => setCategoryFilter("NBA")}
                               class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
                             >
                               NBA
@@ -146,7 +151,7 @@ function TVChannel() {
                           </li>
                           <li>
                             <a
-                              href="#"
+                              onClick={() => setCategoryFilter("NFL")}
                               class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
                             >
                               NFL
@@ -154,7 +159,7 @@ function TVChannel() {
                           </li>
                           <li>
                             <a
-                              href="#"
+                              onClick={() => setCategoryFilter("NHL")}
                               class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
                             >
                               NHL
@@ -172,6 +177,7 @@ function TVChannel() {
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-80 "
                         placeholder="Search by title"
+                        onChange={(e) => setTextFilter(e.target.value)}
                       />
                       <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
                         <svg
@@ -248,76 +254,90 @@ function TVChannel() {
                   </tr>
                 </thead>
                 <tbody>
-                  {paginatedData.map((chnl) => {
-                    return (
-                      <tr>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          {chnl?.TVName}
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          <img
-                            src={tvchannel}
-                            alt=""
-                            className="w-[150px] h-[84px]"
-                          />
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          {chnl.TVAccess}
-                        </th>
-                        <td
-                          class="px-6 py-4 dark:text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
-                            {chnl.status}
-                          </div>
-                        </td>
-                        <td
-                          class="px-6 py-4 dark:text-white border"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          <div className="flex">
-                            <button
-                              className=" relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
-                              onClick={() => {
-                                handleButtonClick(chnl);
-                              }}
-                            >
-                              <img
-                                src={Edit}
-                                alt=""
-                                className="w-[16px] h-[16px] m-auto"
-                              />
-                            </button>
-                            <button
-                              className="ml-3  w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
-                              onClick={() => {
-                                handleDelete(chnl);
-                              }}
-                            >
-                              <img
-                                src={Cross}
-                                alt=""
-                                className="w-[10px] h-[10px] m-auto"
-                              />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {paginatedData
+                    ?.filter((chnl) => {
+                      if (categoryFilter == "Filter by category") {
+                        return true;
+                      } else return chnl.TVCategory.name == categoryFilter;
+                    })
+                    ?.filter((chnl) => {
+                      if (textFilter) {
+                        console.log(chnl);
+                        return chnl.TVName.toLowerCase().includes(
+                          textFilter.toLowerCase()
+                        );
+                      } else return true;
+                    })
+                    .map((chnl) => {
+                      return (
+                        <tr>
+                          <th
+                            scope="row"
+                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            {chnl?.TVName}
+                          </th>
+                          <th
+                            scope="row"
+                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            <img
+                              src={tvchannel}
+                              alt=""
+                              className="w-[150px] h-[84px]"
+                            />
+                          </th>
+                          <th
+                            scope="row"
+                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            {chnl.TVAccess}
+                          </th>
+                          <td
+                            class="px-6 py-4 dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
+                              {chnl.status}
+                            </div>
+                          </td>
+                          <td
+                            class="px-6 py-4 dark:text-white border"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            <div className="flex">
+                              <button
+                                className=" relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                                onClick={() => {
+                                  handleButtonClick(chnl);
+                                }}
+                              >
+                                <img
+                                  src={Edit}
+                                  alt=""
+                                  className="w-[16px] h-[16px] m-auto"
+                                />
+                              </button>
+                              <button
+                                className="ml-3  w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
+                                onClick={() => {
+                                  handleDelete(chnl);
+                                }}
+                              >
+                                <img
+                                  src={Cross}
+                                  alt=""
+                                  className="w-[10px] h-[10px] m-auto"
+                                />
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
                 </tbody>
               </table>
             </div>
