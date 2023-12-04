@@ -14,7 +14,7 @@ function AddUser() {
   const [image, setImage] = useState("");
   const [expireDate, setExpireDate] = useState("");
   // const [subscriptionPlan,setEmail]=useState("")
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("active");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
