@@ -110,7 +110,6 @@ function AdminPanelBar() {
                       <ul class="py-1" role="none">
                         <li>
                           <a
-                            href="#"
                             class="block px-4 py-2 text-sm text-black hover:bg-gray-100  dark:hover:bg-red-500 dark:hover:text-white"
                             role="menuitem"
                           >
@@ -119,7 +118,6 @@ function AdminPanelBar() {
                         </li>
                         <li>
                           <a
-                            href="#"
                             class="block px-4 py-2 text-sm text-black hover:bg-gray-100  dark:hover:bg-red-500 dark:hover:text-white"
                             role="menuitem"
                           >
@@ -159,7 +157,6 @@ function AdminPanelBar() {
                 onClick={() => handleItemClick("dashboard", "Dashboard")}
               >
                 <a
-                  href="#"
                   className={`flex items-center text-sm p-2 dark:text-white bg-[#1c1c1e] group-hover:text-red-600 ${
                     activeItem.id === "dashboard" ? "bg-[#ff0015]" : ""
                   } ${isCollapsed ? "justify-end" : "justify-start"}`}
@@ -236,7 +233,6 @@ function AdminPanelBar() {
                     }
                   >
                     <a
-                      href="#"
                       className={`flex  w-full p-2 text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         isCollapsed ? "justify-end" : "justify-start"
                       }`}
@@ -262,7 +258,6 @@ function AdminPanelBar() {
                     }
                   >
                     <a
-                      href="#"
                       className={`flex  w-full p-2 text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         isCollapsed ? "justify-end" : "justify-start"
                       }`}
@@ -288,7 +283,6 @@ function AdminPanelBar() {
                     }
                   >
                     <a
-                      href="#"
                       className={`flex  w-full p-2 text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         isCollapsed ? "justify-end" : "justify-start"
                       }`}
@@ -364,7 +358,6 @@ function AdminPanelBar() {
                     onClick={() => handleItemClick(" Slider", " Slider")}
                   >
                     <a
-                      href="#"
                       className={`flex  w-full p-2 text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         isCollapsed ? "justify-end" : "justify-start"
                       }`}
@@ -390,7 +383,6 @@ function AdminPanelBar() {
                     }
                   >
                     <a
-                      href="#"
                       className={`flex  w-full p-2 text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         isCollapsed ? "justify-end" : "justify-start"
                       }`}
@@ -467,7 +459,6 @@ function AdminPanelBar() {
                     onClick={() => handleItemClick(" User", " User")}
                   >
                     <a
-                      href="#"
                       className={`flex w-full p-2  text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         activeItem.id === "User" ? "bg-[#ff0015]" : ""
                       } ${isCollapsed ? "justify-end" : "justify-start"}`}
@@ -491,7 +482,6 @@ function AdminPanelBar() {
                     onClick={() => handleItemClick(" Sub Admin", " Sub Admin")}
                   >
                     <a
-                      href="#"
                       className={`flex  w-full p-2  text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         activeItem.id === "Sub Admin" ? "bg-[#ff0015]" : ""
                       } ${isCollapsed ? "justify-end" : "justify-start"}`}
@@ -520,7 +510,6 @@ function AdminPanelBar() {
                 onClick={() => handleItemClick("Coupons", "Coupons")}
               >
                 <a
-                  href="#"
                   className={`flex items-center text-sm p-2 dark:text-white bg-[#1c1c1e] group-hover:text-red-600 ${
                     activeItem.id === "Coupons" ? "bg-[#ff0015]" : ""
                   } ${isCollapsed ? "justify-end" : "justify-start"}`}
@@ -548,7 +537,6 @@ function AdminPanelBar() {
                 onClick={() => handleItemClick("Transcations", "Transcations")}
               >
                 <a
-                  href="#"
                   className={`flex items-center text-sm p-2 dark:text-white bg-[#1c1c1e] group-hover:text-red-600 ${
                     activeItem.id === "Transcations" ? "bg-[#ff0015]" : ""
                   } ${isCollapsed ? "justify-end" : "justify-start"}`}

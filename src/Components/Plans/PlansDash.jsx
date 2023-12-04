@@ -15,7 +15,7 @@ function PlansDash() {
           background: "linear-gradient(to right, #372566, #37256669)",
         }}
       ></div>
-      <div className="w-[80vw]  flex justify-between mx-auto">
+      <div className="w-[90vw] flex justify-between mx-auto">
         <div className=" flex justify-between    lg:px-40 md:px-20">
           <h1 className="text-3xl z-20 font-bold">Service Plan</h1>
         </div>

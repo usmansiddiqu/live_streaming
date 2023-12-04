@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import avatar from "../../utils/images/avatar.png";
 import plan from "../../utils/images/plan.png";
 import { useNavigate } from "react-router-dom";
-function Plans() {
+import { getUserPayments } from "../../api/payment.api";
+function Plans({ userData }) {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/profile");
@@ -11,13 +12,14 @@ function Plans() {
     navigate("/membership_plan");
   };
 
+  const data = JSON.parse(localStorage.getItem("data"));
   return (
     <div className="md:px-40 bg-[#0D0620]  py-5">
       <div className="flex flex-row flex-wrap  justify-around text-white bg-[#130A2D] py-10 rounded  gap-5 px-5 xl:px-2 lg:px-0 ">
         <div className="flex flex-col justify-center items-center ">
           <img src={avatar} className="w-40"></img>
-          <p className="pt-2">Username</p>
-          <p>something@example.com</p>
+          <p className="pt-2">{data?.name}</p>
+          <p>{data?.email}</p>
           <button
             class="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 mt-2 rounded flex flex-row gap-2  justify-center items-center "
             onClick={handleClick}
@@ -78,9 +80,9 @@ function Plans() {
             />
           </p>
 
-          <p>Date:</p>
-          <p>Plan:</p>
-          <p>Amount:</p>
+          <p>Date: {userData?.[0]?.createdAt?.split("T")[0]} </p>
+          <p>Plan: {userData?.[0]?.packageId.name}</p>
+          <p>Amount: $ {userData?.[0]?.packageId.amount}</p>
         </div>
       </div>
     </div>

@@ -28,59 +28,61 @@ function PlanCards() {
     setError(response.message);
   };
   return (
-    <div className="lg:px-20 md:px-10 sm:px-5 w-[83vw] mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
-      <div className="flex flex-col">
+    <div className="lg:px-20 md:px-10 sm:px-5 w-[83vw]  mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
+      <div className="flex flex-col w-full ">
         {error && <ErrorComponent message={error} />}
         <h4 className="mb-5">
           NOTE: The service will not auto-renew, if you do not renew manually
           then it will be automatically canceled at the end of the billing
           period.
         </h4>
-        {data?.map((payment) => (
-          <div>
-            <div
-              className="flex flex-col gap-3 w-full md:w-[22rem] h-64 bg-center rounded-xl"
-              style={{
-                backgroundColor: "#1F1340",
-                backgroundImage: `url(${plan})`,
-              }}
-            >
-              <div className="flex justify-start items-start">
-                <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 text-xl font-semibold">
-                  {payment.name}
+        <div className="flex pay-cards justify-between flex-wrap">
+          {data?.map((payment) => (
+            <div key={payment._id} className="flex w-[20rem] mb-4">
+              <div
+                className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl"
+                style={{
+                  backgroundColor: "#1F1340",
+                  backgroundImage: `url(${plan})`,
+                }}
+              >
+                <div className="flex justify-start items-start">
+                  <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 text-xl font-semibold">
+                    {payment.name}
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex flex-col justify-center items-center">
-                <p className="text-4xl font-bold">
-                  <span className="text-xl">$</span>
-                  {payment.amount}
-                  <span className="text-xl">.00</span>
-                </p>
-                <div
-                  className="w-14 rounded-lg bg-blue-500"
-                  style={{ paddingTop: "4px", marginTop: "4px" }}
-                />
-                <div>
-                  <p className="text-lg mt-3">
-                    <span> {payment.days}</span> <span>Day</span> (
-                    <span>s</span>)
+                <div className="flex flex-col justify-center items-center">
+                  <p className="text-4xl font-bold">
+                    <span className="text-xl">$</span>
+                    {payment.amount}
+                    <span className="text-xl">.00</span>
                   </p>
+                  <div
+                    className="w-14 rounded-lg bg-blue-500"
+                    style={{ paddingTop: "4px", marginTop: "4px" }}
+                  />
+                  <div>
+                    <p className="text-lg mt-3">
+                      <span> {payment.days}</span> <span>Day</span> (
+                      <span>s</span>)
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      if (payment.name === "Free Service - No Card required") {
+                        handleFreePayment();
+                      } else handleClick(payment._id);
+                    }}
+                    className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
+                  >
+                    Select Plan
+                  </button>
                 </div>
-                <button
-                  onClick={() => {
-                    if (payment.name == "Free Service - No Card required") {
-                      handleFreePayment();
-                    } else handleClick(payment._id);
-                  }}
-                  className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
-                >
-                  Select Plan
-                </button>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

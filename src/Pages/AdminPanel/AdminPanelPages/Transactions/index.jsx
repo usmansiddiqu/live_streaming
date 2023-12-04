@@ -16,33 +16,54 @@ function Transactions() {
   useEffect(() => {
     getData();
   }, []);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+  const totalItems = data.length;
+  const paginate = (page) => {
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return data.slice(startIndex, endIndex);
+  };
+  const handlePreviousClick = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const handleNextClick = () => {
+    setCurrentPage((prevPage) =>
+      Math.min(prevPage + 1, Math.ceil(totalItems / itemsPerPage))
+    );
+  };
+  const paginatedData = paginate(currentPage);
 
   return (
     <div
       style={{
         background: "black",
-        position: "absolute",
-        left: "14%",
-        width: "85vw",
+        position: "relative",
+        // left: "14%",
+        width: "100%",
         height: "100%",
-        overflow: "hidden",
+        overflowY: "scroll",
       }}
     >
       <div className=" ml-4 mt-20 ">
         <div>
-          <div className="w-[81vw] bg-[#1C1C1E] ml-6 rounded p-5">
+          <div
+            className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
+            style={{ position: "absolute", left: "17%" }}
+          >
             <div class="relative overflow-x-auto shadow-md ">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[70%] justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center w-[55%]  justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
-                    <div class="relative flex justify-between w-80 rounded-full bg-[#313133]">
+                    <div class="relative flex justify-between w-[25vw]  rounded-full bg-[#313133]">
                       <input
                         type="text"
                         id="table-search-users"
-                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-80 "
+                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-full "
                         placeholder="Search by Payment ID or Email"
                         onChange={(e) => setTextFilter(e.target.value)}
                       />
@@ -150,7 +171,7 @@ function Transactions() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data
+                  {paginatedData
                     ?.filter((payment) => {
                       if (dateFilter) {
                         const currentDate = new Date(payment?.updatedAt);
@@ -244,44 +265,21 @@ function Transactions() {
               <ul className="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
                 <li>
                   <a
-                    href="#"
                     className={`flex items-center justify-center px-3 h-8 ms-0 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015] dark:text-white ${
                       activeItem === 0 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
                     }`}
-                    onClick={() => handleItemClick(0)}
+                    onClick={() => handlePreviousClick()}
                   >
                     Previous
                   </a>
                 </li>
+
                 <li>
                   <a
-                    href="#"
-                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
-                      activeItem === 1 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
-                    }`}
-                    onClick={() => handleItemClick(1)}
-                  >
-                    1
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
-                      activeItem === 2 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
-                    }`}
-                    onClick={() => handleItemClick(2)}
-                  >
-                    2
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
                     className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
                       activeItem === 3 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
                     }`}
-                    onClick={() => handleItemClick(3)}
+                    onClick={() => handleNextClick()}
                   >
                     Next
                   </a>

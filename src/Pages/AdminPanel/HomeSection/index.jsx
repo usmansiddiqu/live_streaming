@@ -16,15 +16,18 @@ function AdminHomeSlider() {
     <div
       style={{
         background: "black",
-        position: "absolute",
-        left: "14%",
-        width: "85vw",
+        position: "relative",
+        // left: "14%",
+        width: "100%",
         height: "100%",
-        overflow: "hidden",
+        overflowY: "scroll",
       }}
     >
       <div className=" ml-4 mt-20 ">
-        <div className="w-[81vw] bg-[#1C1C1E] ml-6 rounded p-5">
+        <div
+          className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
+          style={{ position: "absolute", left: "17%" }}
+        >
           <div class="relative overflow-x-auto shadow-md">
             <div class="relative mt-1">
               <div class=" flex items-center  ">
@@ -89,7 +92,7 @@ function AdminHomeSlider() {
                   >
                     <div className="flex">
                       <button
-                        className=" border relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                        className="  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
                         onClick={handleButtonClick}
                       >
                         <img
@@ -98,7 +101,7 @@ function AdminHomeSlider() {
                           className="w-[16px] h-[16px] m-auto"
                         />
                       </button>
-                      <button className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]">
+                      <button className="ml-3 w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]">
                         <img
                           src={Cross}
                           alt=""

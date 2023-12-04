@@ -14,10 +14,24 @@ function TVChannel() {
   const [channel, setChannel] = useState([]);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
-  const handleItemClick = (index) => {
-    setActiveItem(index);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 7;
+  const totalItems = channel.length;
+  const paginate = (page) => {
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return channel.slice(startIndex, endIndex);
   };
+  const handlePreviousClick = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const handleNextClick = () => {
+    setCurrentPage((prevPage) =>
+      Math.min(prevPage + 1, Math.ceil(totalItems / itemsPerPage))
+    );
+  };
+
   const handleButtonClick = (chnl) => {
     navigate(`/admin/live_tv/edit_live_tv/${chnl._id}`);
   };
@@ -29,6 +43,7 @@ function TVChannel() {
     console.log(response.live);
     setChannel(response.liveTVs);
   };
+  const paginatedData = paginate(currentPage);
   const handleDelete = async (chnl) => {
     try {
       const { data: response } = await deleteSpecificChannel(chnl._id);
@@ -45,18 +60,18 @@ function TVChannel() {
     <div
       style={{
         background: "black",
-        position: "absolute",
+        position: "relative",
         // left: "10%",
         width: "100%",
         height: "100%",
-        overflow: "hidden",
+        overflowY: "scroll",
       }}
     >
       <div className=" ml-4 mt-20 ">
         <div>
           <div
-            className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
-            style={{ position: "absolute", left: "14%" }}
+            className="w-[80vw] edit-con bg-[#1C1C1E]  mx-auto rounded p-5"
+            style={{ position: "absolute", left: "17%" }}
           >
             <div class="relative overflow-x-auto shadow-md ">
               {error && <ErrorComponent message={error} />}
@@ -188,7 +203,10 @@ function TVChannel() {
                   </div>
                 </div>
               </div>
-              <table class="w-full mt-5 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              <table
+                class="w-full mt-5 text-sm  text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                style={{ overflow: "scroll" }}
+              >
                 <thead class=" w-[78vw] text-xs text-gray-700  dark:text-gray-400">
                   <tr>
                     <th
@@ -230,77 +248,76 @@ function TVChannel() {
                   </tr>
                 </thead>
                 <tbody>
-                  {channel &&
-                    channel.map((chnl) => {
-                      return (
-                        <tr>
-                          <th
-                            scope="row"
-                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                            style={{ border: "1px solid #313133" }}
-                          >
-                            {chnl?.TVCategory?.name}
-                          </th>
-                          <th
-                            scope="row"
-                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                            style={{ border: "1px solid #313133" }}
-                          >
-                            <img
-                              src={tvchannel}
-                              alt=""
-                              className="w-[150px] h-[84px]"
-                            />
-                          </th>
-                          <th
-                            scope="row"
-                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                            style={{ border: "1px solid #313133" }}
-                          >
-                            {chnl.TVAccess}
-                          </th>
-                          <td
-                            class="px-6 py-4 dark:text-white"
-                            style={{ border: "1px solid #313133" }}
-                          >
-                            <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
-                              {chnl.status}
-                            </div>
-                          </td>
-                          <td
-                            class="px-6 py-4 dark:text-white border"
-                            style={{ border: "1px solid #313133" }}
-                          >
-                            <div className="flex">
-                              <button
-                                className=" border relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
-                                onClick={() => {
-                                  handleButtonClick(chnl);
-                                }}
-                              >
-                                <img
-                                  src={Edit}
-                                  alt=""
-                                  className="w-[16px] h-[16px] m-auto"
-                                />
-                              </button>
-                              <button
-                                className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
-                                onClick={() => {
-                                  handleDelete(chnl);
-                                }}
-                              >
-                                <img
-                                  src={Cross}
-                                  alt=""
-                                  className="w-[10px] h-[10px] m-auto"
-                                />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      );
-                    })}
+                  {paginatedData.map((chnl) => {
+                    return (
+                      <tr>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {chnl?.TVCategory?.name}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          <img
+                            src={tvchannel}
+                            alt=""
+                            className="w-[150px] h-[84px]"
+                          />
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {chnl.TVAccess}
+                        </th>
+                        <td
+                          class="px-6 py-4 dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
+                            {chnl.status}
+                          </div>
+                        </td>
+                        <td
+                          class="px-6 py-4 dark:text-white border"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          <div className="flex">
+                            <button
+                              className=" relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                              onClick={() => {
+                                handleButtonClick(chnl);
+                              }}
+                            >
+                              <img
+                                src={Edit}
+                                alt=""
+                                className="w-[16px] h-[16px] m-auto"
+                              />
+                            </button>
+                            <button
+                              className="ml-3  w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
+                              onClick={() => {
+                                handleDelete(chnl);
+                              }}
+                            >
+                              <img
+                                src={Cross}
+                                alt=""
+                                className="w-[10px] h-[10px] m-auto"
+                              />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
@@ -315,40 +332,19 @@ function TVChannel() {
                     className={`flex items-center justify-center px-3 h-8 ms-0 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015] dark:text-white ${
                       activeItem === 0 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
                     }`}
-                    onClick={() => handleItemClick(0)}
+                    onClick={() => handlePreviousClick()}
                   >
                     Previous
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
-                      activeItem === 1 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
-                    }`}
-                    onClick={() => handleItemClick(1)}
-                  >
-                    1
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
-                      activeItem === 2 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
-                    }`}
-                    onClick={() => handleItemClick(2)}
-                  >
-                    2
-                  </a>
-                </li>
+
                 <li>
                   <a
                     href="#"
                     className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
                       activeItem === 3 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
                     }`}
-                    onClick={() => handleItemClick(3)}
+                    onClick={() => handleNextClick()}
                   >
                     Next
                   </a>

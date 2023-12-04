@@ -16,11 +16,11 @@ function AdminSlider() {
     <div
       style={{
         background: "black",
-        position: "absolute",
+        position: "relative",
         // left: "14%",
         width: "100%",
         height: "100%",
-        overflow: "hidden",
+        overflowY: "scroll",
       }}
     >
       <div className=" ml-4 mt-20 ">
@@ -111,7 +111,7 @@ function AdminSlider() {
                   >
                     <div className="flex">
                       <button
-                        className=" border relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                        className=" relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
                         onClick={handleButtonClick}
                       >
                         <img
@@ -120,7 +120,7 @@ function AdminSlider() {
                           className="w-[16px] h-[16px] m-auto"
                         />
                       </button>
-                      <button className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]">
+                      <button className="ml-3 w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]">
                         <img
                           src={Cross}
                           alt=""

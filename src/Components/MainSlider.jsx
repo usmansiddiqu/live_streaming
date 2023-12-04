@@ -29,7 +29,7 @@ function MainSlider() {
           perMove: 1,
           pagination: false,
           rewind: true,
-          type: "loop",
+          // type: "loop",
           padding: "5rem",
           gap: "1.5rem",
           // autoplay: true,

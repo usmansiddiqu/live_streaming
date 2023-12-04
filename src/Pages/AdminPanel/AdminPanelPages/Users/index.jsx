@@ -9,7 +9,26 @@ import ErrorComponent from "../../../../Components/Common/ErrorComponent";
 function Users() {
   const navigate = useNavigate();
   const [activeItem, setActiveItem] = useState(1);
+  const [textFilter, setTextFilter] = useState("");
   const [users, setUsers] = useState([]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+  const totalItems = users.length;
+  const paginate = (page) => {
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return users.slice(startIndex, endIndex);
+  };
+  const handlePreviousClick = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const handleNextClick = () => {
+    setCurrentPage((prevPage) =>
+      Math.min(prevPage + 1, Math.ceil(totalItems / itemsPerPage))
+    );
+  };
   const [error, setError] = useState("");
   const handleItemClick = (index) => {
     setActiveItem(index);
@@ -42,23 +61,24 @@ function Users() {
   useEffect(() => {
     getUsers();
   }, []);
+  const paginatedData = paginate(currentPage);
 
   return (
     <div
       style={{
         background: "black",
-        position: "absolute",
+        position: "relative",
         // left: "14%",
         width: "100%",
         height: "100%",
-        overflow: "hidden",
+        overflowY: "scroll",
       }}
     >
       <div className=" ml-4 mt-20 ">
         <div>
           <div
             className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
-            style={{ position: "absolute", left: "14%" }}
+            style={{ position: "absolute", left: "17%" }}
           >
             <div class="relative overflow-x-auto shadow-md ">
               <div>
@@ -107,42 +127,27 @@ function Users() {
                             />
                           </li>
                           <li>
-                            <a
-                              href="#"
-                              class="block px-4 py-2 text-[#6C757D] bg-[#ddd]  dark:hover:bg-[#FF0015] dark:hover:text-white"
-                            >
+                            <a class="block px-4 py-2 text-[#6C757D] bg-[#ddd]  dark:hover:bg-[#FF0015] dark:hover:text-white">
                               Filter by Plan
                             </a>
                           </li>
                           <li>
-                            <a
-                              href="#"
-                              class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
-                            >
+                            <a class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white">
                               MLB
                             </a>
                           </li>
                           <li>
-                            <a
-                              href="#"
-                              class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
-                            >
+                            <a class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white">
                               NBA
                             </a>
                           </li>
                           <li>
-                            <a
-                              href="#"
-                              class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
-                            >
+                            <a class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white">
                               NFL
                             </a>
                           </li>
                           <li>
-                            <a
-                              href="#"
-                              class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
-                            >
+                            <a class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white">
                               NHL
                             </a>
                           </li>
@@ -158,6 +163,7 @@ function Users() {
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-80 "
                         placeholder="Search by name or email"
+                        onChange={(e) => setTextFilter(e.target.value)}
                       />
                       <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
                         <svg
@@ -231,8 +237,24 @@ function Users() {
                   </tr>
                 </thead>
                 <tbody>
-                  {users &&
-                    users.map((user) => {
+                  {paginatedData
+                    .filter((user) => {
+                      if (textFilter) {
+                        console.log(user, "user123");
+
+                        return (
+                          user.name
+                            .toLowerCase()
+                            .includes(textFilter.toLowerCase()) ||
+                          user.email
+                            .toLowerCase()
+                            .includes(textFilter.toLowerCase())
+                        );
+                      } else {
+                        return true;
+                      }
+                    })
+                    .map((user) => {
                       return (
                         <tr>
                           <th
@@ -270,7 +292,7 @@ function Users() {
                           >
                             <div className="flex">
                               <button
-                                className=" border relative w-[36px] h-[33px] rounded z-10 bg-[#FF0015] hover:before:absolute hover:before:bg-black hover:before:content-['History'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                                className="  relative w-[36px] h-[33px] rounded z-10 bg-[#FF0015] hover:before:absolute hover:before:bg-black hover:before:content-['History'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
                                 onClick={handleHistoryButtonClick}
                               >
                                 <img
@@ -280,7 +302,7 @@ function Users() {
                                 />
                               </button>
                               <button
-                                className=" border  ml-3  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                                className="   ml-3  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
                                 onClick={() => {
                                   handleButtonClick(user);
                                 }}
@@ -291,6 +313,7 @@ function Users() {
                                   className="w-[16px] h-[16px] m-auto"
                                 />
                               </button>
+
                               <button
                                 className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
                                 onClick={() => {
@@ -310,6 +333,7 @@ function Users() {
                     })}
                 </tbody>
               </table>
+              {console.log(paginatedData, "paginatedData123")}
             </div>
             <nav
               className="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4"
@@ -318,44 +342,21 @@ function Users() {
               <ul className="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
                 <li>
                   <a
-                    href="#"
                     className={`flex items-center justify-center px-3 h-8 ms-0 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015] dark:text-white ${
                       activeItem === 0 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
                     }`}
-                    onClick={() => handleItemClick(0)}
+                    onClick={() => handlePreviousClick()}
                   >
                     Previous
                   </a>
                 </li>
+
                 <li>
                   <a
-                    href="#"
-                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
-                      activeItem === 1 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
-                    }`}
-                    onClick={() => handleItemClick(1)}
-                  >
-                    1
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
-                      activeItem === 2 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
-                    }`}
-                    onClick={() => handleItemClick(2)}
-                  >
-                    2
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
                     className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
                       activeItem === 3 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
                     }`}
-                    onClick={() => handleItemClick(3)}
+                    onClick={() => handleNextClick()}
                   >
                     Next
                   </a>
