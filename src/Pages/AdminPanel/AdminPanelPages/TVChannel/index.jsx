@@ -256,7 +256,7 @@ function TVChannel() {
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          {chnl?.TVCategory?.name}
+                          {chnl?.TVName}
                         </th>
                         <th
                           scope="row"

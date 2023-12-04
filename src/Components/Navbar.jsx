@@ -171,11 +171,11 @@ function Nav() {
                     <img src={Subscribe} alt="" className="w-[21px] h-[25px]" />
                   </div>
                 </div>
-                <div className="w-[50px]">
+                {/* <div className="w-[50px]">
                   <div className="search-Icon rounded-md flex justify-center items-center rounded-full w-[35px] h-[35px] bg-white-700">
                     <img src={Search} alt="" className="w-[17px] h-[17px]" />
                   </div>
-                </div>
+                </div> */}
                 <div>
                   {data ? (
                     <div className="avatar-profile">

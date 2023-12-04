@@ -38,7 +38,7 @@ function EditUser() {
       formData.append("email", email);
       formData.append("phone", phone);
       formData.append("address", address);
-      formData.append("expDate", expireDate);
+      formData.append("expiryDate", expireDate);
       formData.append("status", status);
       formData.append("image", image);
       const { data: response } = await updateUser(formData);
@@ -51,7 +51,7 @@ function EditUser() {
   const getChannelById = async () => {
     try {
       const { data: response } = await getSpecificUser(id);
-      console.log(response.user);
+      console.log(123, response.user);
       setName(response.user.name);
       setEmail(response.user.email);
       setPhone(response.user?.phone);
@@ -200,12 +200,15 @@ function EditUser() {
                 id="expiry_date"
                 className="border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
-                value={expireDate}
+                value={
+                  expireDate && new Date(expireDate).toISOString().split("T")[0]
+                }
                 onChange={(e) => {
                   setExpireDate(e.target.value);
                 }}
               />
             </div>
+            {console.log(123, expireDate)}
             {/* <div class="mb-5 input-feild w-[72vw] flex  ">
               <label
                 for="countries"
