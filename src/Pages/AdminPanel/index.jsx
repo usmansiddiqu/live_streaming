@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdminPanelBar from "../../Components/Dashboard/Admin/AdminPanelBar";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import AdminDashboard from "./AdminPanelPages/Dashboard";
 import TVCategory from "./AdminPanelPages/TvCategory";
 import TVChannel from "./AdminPanelPages/TVChannel";
@@ -29,6 +29,15 @@ import AddUser from "../../Components/AddOn/AddUser";
 import EditCoupons from "../../Components/AddOn/EditCoupon";
 
 function AdminPanelWrapper() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("data")) {
+      const data = JSON.parse(localStorage.getItem("data"));
+      if (data?.userType == "user") {
+        navigate("/");
+      }
+    }
+  }, []);
   return (
     <div
       style={{

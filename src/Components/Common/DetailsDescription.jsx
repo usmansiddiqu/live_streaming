@@ -1,11 +1,14 @@
 import React from "react";
 
-function DetailsDescription() {
+function DetailsDescription({ data, setUrl }) {
   return (
     <div className="flex justify-center mt-8 ">
       <div className=" bg-[#190D39] w-[80rem] pt-12 pb-6 ps-7">
         <div className=" flex gap-3">
-          <button class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded">
+          <button
+            class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
+            onClick={() => setUrl(data?.channel?.server1URL)}
+          >
             <div className="flex gap-1">
               <svg
                 fill="#FFFFFF"
@@ -21,7 +24,10 @@ function DetailsDescription() {
               <label>Home</label>
             </div>
           </button>
-          <button class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded">
+          <button
+            class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
+            onClick={() => setUrl(data?.channel?.server2URL)}
+          >
             <div className="flex gap-1">
               <svg
                 fill="#FFFFFF"
@@ -39,9 +45,7 @@ function DetailsDescription() {
           </button>
         </div>
         <div className="text-white pt-10">
-          <h1 className="text-2xl font-semibold">
-            Pittsburgh Steelers at Cleveland Browns
-          </h1>
+          <h1 className="text-2xl font-semibold">{data?.data?.name}</h1>
           <br />
           <p className="flex gap-2 text-lg items-center">
             <svg
@@ -61,7 +65,7 @@ function DetailsDescription() {
               ></path>
               <rect x="0" y="0" width="36" height="36" fill-opacity="0" />
             </svg>
-            Cleveland Browns Stadium
+            {data?.data?.location}
           </p>
           <p className="flex gap-2 items-center">
             <svg
@@ -74,7 +78,18 @@ function DetailsDescription() {
             >
               <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M15.5,14c-0.3,0.5-0.9,0.6-1.4,0.4l-2.6-1.5C11.2,12.7,11,12.4,11,12V7c0-0.6,0.4-1,1-1s1,0.4,1,1v4.4l2.1,1.2C15.6,12.9,15.7,13.5,15.5,14z" />
             </svg>
-            2023-11-19 13:00:00
+            {data?.data?.date &&
+              new Date(data?.data?.date)
+                .toLocaleString("en-US", {
+                  timeZone: "UTC",
+                  year: "numeric",
+                  month: "2-digit",
+                  day: "2-digit",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  second: "2-digit",
+                })
+                .replace(/,/g, "")}
           </p>
           <br />
           <button className="bg-[#118D04] hover:bg-white text-white hover:text-[#118D04] font-bold py-2 px-4 rounded flex gap-1 items-center">

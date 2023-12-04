@@ -17,7 +17,6 @@ import { useState } from "react";
 import NotFound from "./Pages/NotFound";
 import Dashboard from "./Pages/Dashboard";
 import WatchList from "./Pages/WatchList/WatchList";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [isLoggedIn] = useState(true);
@@ -25,7 +24,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ToastContainer />
         <Routes>
           <Route path="/" element={<MainScreen />} />
           <Route path="/mlb" element={<MLB />} />
@@ -40,7 +38,9 @@ function App() {
             <>
               <Route path="/profile" element={<Profile />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/detailpage" element={<DetailsPage />} />
+              <Route path="/:type/live/:id" element={<DetailsPage />} />
+              <Route path="/membership_plan/:id" element={<Plans />} />
+
               {isAdmin && (
                 <>
                   <Route path="/admin/*" element={<AdminPanelWrapper />} />

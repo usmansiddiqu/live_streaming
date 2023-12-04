@@ -1,6 +1,6 @@
 import React from "react";
 import dashBoardImage from "../../utils/images/dashboardBanner.jpg";
-function DashHeader({ title, SubTitle }) {
+function DashHeader({ title }) {
   return (
     <div
       className=" text-[white] h-[20vh] relative  md:w-100 object-cover bg-center bg-opacity-90 flex flex-row flex-wrap items-center justify-around lg:justify-between"
@@ -21,7 +21,7 @@ function DashHeader({ title, SubTitle }) {
         </div>
         <div className="flex  flex-row  z-20 gap-10 justify-between lg:px-5">
           <a href="">Home</a>
-          <p>{SubTitle}</p>
+          <p>{title}</p>
         </div>
       </div>
     </div>

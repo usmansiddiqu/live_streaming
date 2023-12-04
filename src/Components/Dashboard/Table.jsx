@@ -1,6 +1,6 @@
 import React from "react";
 
-function Table() {
+function Table({ userData }) {
   return (
     <div className="xl:px-40 lg:px-36 md:px-28 sm:px-16 px-12 bg-[#0D0620] py-1 text-white ">
       <p className="text-xl lg:text-2xl md:text-xl sm:text-lg pb-2">
@@ -27,7 +27,27 @@ function Table() {
               </th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            {userData?.map((data) => (
+              <tr>
+                <td className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white border-r-2 border-[#221846]">
+                  {data?.packageId.name}
+                </td>
+                <td className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white border-r-2 border-[#221846]">
+                  $ {data?.packageId.amount}
+                </td>
+                <td className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white border-r-2 border-[#221846]">
+                  PayCEC{" "}
+                </td>
+                <td className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white border-r-2 border-[#221846]">
+                  {data?.token}{" "}
+                </td>
+                <td className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white border-r-2 border-[#221846]">
+                  {data?.createdAt.split("T")[0]}
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>

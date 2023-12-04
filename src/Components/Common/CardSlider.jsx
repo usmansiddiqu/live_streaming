@@ -3,8 +3,9 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "../../Assets/styles/CardSlider.scss";
 import TeamIcons from "./TeamIcons";
+import { useNavigate } from "react-router-dom";
 
-function CardSlider({ data }) {
+const CardSlider = ({ data }) => {
   const splideOptions = {
     perPage: 1,
     perMove: 1,
@@ -12,9 +13,10 @@ function CardSlider({ data }) {
     gap: 20,
     drag: true,
   };
+  const navigate = useNavigate();
   return (
     <div
-      className="Cardslider"
+      className="Cardslider "
       style={{
         width: "73%",
         height: "AUTO",
@@ -30,12 +32,27 @@ function CardSlider({ data }) {
           {data.map((item) => (
             <SplideSlide
               options={{ ...splideOptions, width: 150 }}
-              className="cardSlider bg-red-600 flex flex-col items-center "
+              onClick={() =>
+                navigate(`/${item?.channel?.TVCategory?.name}/live/${item._id}`)
+              }
+              className={`cardSlider flex flex-col items-center cursor-pointer`}
               key={item.id}
               style={{
                 border: "1px solid white",
+                width: "100%;",
+                height: "100vh",
+                background: `linear-gradient(-60deg, #${
+                  item.data.competitors.filter(
+                    (comp) => comp.homeAway == "home"
+                  )[0].color
+                } 50%, #${
+                  item.data.competitors.filter(
+                    (comp) => comp.homeAway != "home"
+                  )[0].alternateColor
+                } 50%)`,
               }}
             >
+              {console.log(item)}
               <div
                 className="placeAndTime border w-[100%] h-[3vh] flex justify-between flex-row  bg-[black] bg-opacity-40"
                 style={{
@@ -62,6 +79,6 @@ function CardSlider({ data }) {
       </Splide>
     </div>
   );
-}
+};
 
 export default CardSlider;

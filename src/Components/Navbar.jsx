@@ -56,7 +56,6 @@ function Nav() {
   const handleNavigate = () => {
     navigate("/membership_plan");
   };
-  console.log(data);
   return (
     <AppBar
       position="static"
@@ -201,7 +200,7 @@ function Nav() {
                                   <>
                                     <li className="w-[100%] list-none p-2">
                                       <a
-                                        href="/dashboard"
+                                        href="/admin/dashboard"
                                         className="flex items-center"
                                       >
                                         <img
@@ -240,7 +239,7 @@ function Nav() {
                                   <>
                                     <li className="w-[100%] list-none p-2">
                                       <a
-                                        href="/admin/dashboard"
+                                        href="/dashboard"
                                         className="flex items-center"
                                       >
                                         <img
