@@ -1,19 +1,23 @@
 import React from "react";
 import AdminCards from "../../../Components/Dashboard/Admin/AdminCards";
+import BarChart from "../../../Components/Common/Graph";
+import MyResponsiveBar from "../../../Components/Common/Graph";
 
 function AdminDashboard() {
   return (
     <div
       style={{
         background: "black",
-        position: "absolute",
+        position: "relative",
         left: "13%",
-        width: "85vw",
+        width: "100%",
         height: "100%",
-        overflow: "hidden",
+        overflowY: "scroll",
       }}
     >
-      <AdminCards />
+      <div>
+        <AdminCards />
+      </div>
     </div>
   );
 }

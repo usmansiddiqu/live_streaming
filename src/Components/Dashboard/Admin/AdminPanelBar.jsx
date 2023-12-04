@@ -7,7 +7,7 @@ import Tag from "../../../Assets/Icons/tags.png";
 import List from "../../../Assets/Icons/list.png";
 import HomeBar from "../../../Assets/Icons/volume-bars.png";
 import Group from "../../../Assets/Icons/group.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function AdminPanelBar() {
   const [activeItem, setActiveItem] = useState({ id: null, name: null });
 
@@ -16,9 +16,13 @@ function AdminPanelBar() {
   const [isOpenUser, setIsOpenUSer] = useState(false);
   const [isCollapsed, setCollapsed] = useState(false);
   const [isSidebarVisible, setSidebarVisible] = useState(true);
+  const navigate = useNavigate();
 
   const handleToggleBar = () => {
     setSidebarVisible(!isSidebarVisible);
+  };
+  const handleButtonClick = () => {
+    navigate("/admin/profile");
   };
 
   const handleItemClick = (itemId, itemName) => {
@@ -108,9 +112,9 @@ function AdminPanelBar() {
                       id="dropdown-user"
                     >
                       <ul class="py-1" role="none">
-                        <li>
+                        <li onClick={handleButtonClick}>
                           <a
-                            class="block px-4 py-2 text-sm text-black hover:bg-gray-100  dark:hover:bg-red-500 dark:hover:text-white"
+                            class="block px-4 py-2 text-sm text-black  dark:hover:bg-[#FF0015] cursor-pointer dark:hover:text-white"
                             role="menuitem"
                           >
                             Profile
@@ -118,7 +122,7 @@ function AdminPanelBar() {
                         </li>
                         <li>
                           <a
-                            class="block px-4 py-2 text-sm text-black hover:bg-gray-100  dark:hover:bg-red-500 dark:hover:text-white"
+                            class="block px-4 py-2 text-sm text-black dark:hover:bg-[#FF0015] cursor-pointer dark:hover:text-white"
                             role="menuitem"
                           >
                             Logout

@@ -18,6 +18,11 @@ import NotFound from "./Pages/NotFound";
 import Dashboard from "./Pages/Dashboard";
 import WatchList from "./Pages/WatchList/WatchList";
 import "react-toastify/dist/ReactToastify.css";
+import AboutUS from "./Pages/AboutUS";
+import TermOfUse from "./Pages/TermOfUse";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import FAQ from "./Pages/FAQ";
+import Contact from "./Pages/Contact";
 function App() {
   const [isLoggedIn] = useState(true);
   const [isAdmin] = useState(true);
@@ -34,6 +39,11 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/membership_plan" element={<Plans />} />
           <Route path="/watchlist" element={<WatchList />} />
+          <Route path="/about-us" element={<AboutUS />} />
+          <Route path="/terms-of-use" element={<TermOfUse />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/contact-us" element={<Contact />} />
           {isLoggedIn && (
             <>
               <Route path="/profile" element={<Profile />} />

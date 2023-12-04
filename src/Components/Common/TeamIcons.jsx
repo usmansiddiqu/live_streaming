@@ -3,22 +3,22 @@ import React from "react";
 function TeamIcons({ iconsData }) {
   return (
     <div
+      className="px-5 pr-6"
       style={{
         height: "100%",
         display: "flex",
         justifyContent: "space-between",
         alignContent: "center",
-        padding: "0 35px 25px",
       }}
     >
       {iconsData.map((icon, index) => (
-        <div key={index} style={{ textAlign: "center" }}>
+        <div key={index} className="flex flex-col items-center">
           <img
             src={icon.iconUrl}
             alt={icon.name}
             style={{ width: "35px", height: "35px" }}
           />
-          <p className="text-sm">{icon.name}</p>
+          <p className="text-sm text-white font-medium">{icon.name}</p>
         </div>
       ))}
     </div>

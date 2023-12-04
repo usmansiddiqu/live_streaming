@@ -150,10 +150,10 @@ function AddSubAdmin() {
               />
             </div>
 
-            <div class=" input-feild w-[72vw] flex  ">
+            <div class="mb-5 input-feild w-[72vw] flex  ">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                class="block mb-5 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
               >
                 Admin Type
               </label>

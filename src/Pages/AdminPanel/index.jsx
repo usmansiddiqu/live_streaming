@@ -27,6 +27,7 @@ import AddSubAdmin from "../../Components/AddOn/AddSubAdmin";
 import AddCoupons from "../../Components/AddOn/AddCoupons";
 import AddUser from "../../Components/AddOn/AddUser";
 import EditCoupons from "../../Components/AddOn/EditCoupon";
+import AdminProfile from "../../Components/Forms/EditAdminProfile";
 
 function AdminPanelWrapper() {
   const navigate = useNavigate();
@@ -51,6 +52,7 @@ function AdminPanelWrapper() {
       <Routes>
         <Route path="/" element={<AdminDashboard />} />
         <Route path="/dashboard" element={<AdminDashboard />} />
+        <Route path="/profile" element={<AdminProfile />} />
         <Route path="/Tv_category" element={<TVCategory />} />
         <Route path="/live_tv" element={<TVChannel />} />
         <Route path="/assign_live_tv" element={<AssignLiveTv />} />
