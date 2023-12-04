@@ -22,6 +22,12 @@ const updateUser = async (data) => {
     headers: { "Content-Type": "multipart/form-data" },
   });
 };
+const getSpecificUser = async (id) => {
+  return await axiosInstance.get(`/auth/getSpecificUser/${id}`);
+};
+const deleteSingleUser = async (id) => {
+  return await axiosInstance.delete(`/auth/deleteUser/${id}`);
+};
 module.exports = {
   login,
   signup,
@@ -29,4 +35,6 @@ module.exports = {
   createUser,
   getAllUsers,
   updateUser,
+  getSpecificUser,
+  deleteSingleUser,
 };

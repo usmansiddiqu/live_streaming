@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Pikaday from "pikaday";
 import "pikaday/css/pikaday.css";
-import { updateUser } from "../../api/auth.api";
+import { updateUser, getSpecificUser } from "../../api/auth.api";
 import ErrorComponent from "../Common/ErrorComponent";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function EditUser() {
   const { id } = useParams();
   const [name, setName] = useState("");
@@ -14,8 +15,9 @@ function EditUser() {
   const [image, setImage] = useState("");
   const [expireDate, setExpireDate] = useState("");
   // const [subscriptionPlan,setEmail]=useState("")
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("active");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -40,11 +42,30 @@ function EditUser() {
       formData.append("status", status);
       formData.append("image", image);
       const { data: response } = await updateUser(formData);
+      navigate("/admin/users");
       console.log(response);
     } catch (error) {
       setError(error.response.data.message);
     }
   };
+  const getChannelById = async () => {
+    try {
+      const { data: response } = await getSpecificUser(id);
+      console.log(response.user);
+      setName(response.user.name);
+      setEmail(response.user.email);
+      setPhone(response.user?.phone);
+      setAddress(response.user?.address);
+      setExpireDate(response.user?.expiryDate);
+      setStatus(response.user?.status);
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
+  useEffect(() => {
+    getChannelById();
+  }, []);
+
   return (
     <div
       style={{
@@ -76,6 +97,7 @@ function EditUser() {
                 id="text"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                value={name}
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
@@ -93,6 +115,7 @@ function EditUser() {
                 id="email"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -110,6 +133,7 @@ function EditUser() {
                 id="password"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
@@ -127,6 +151,7 @@ function EditUser() {
                 id="phone"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                value={phone}
                 onChange={(e) => {
                   setPhone(e.target.value);
                 }}
@@ -159,6 +184,7 @@ function EditUser() {
                 class="block w-full text-sm text-white border border-0 rounded cursor-pointer bg-white-600 dark:text-white focus:outline-none bg-[#48484A] "
                 id="file_input"
                 type="file"
+                value={image.filename}
                 onChange={handleFileChange}
               />
             </div>
@@ -174,6 +200,7 @@ function EditUser() {
                 id="expiry_date"
                 className="border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
+                value={expireDate}
                 onChange={(e) => {
                   setExpireDate(e.target.value);
                 }}
@@ -203,6 +230,7 @@ function EditUser() {
               <select
                 id="countries"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                value={status}
                 onChange={(e) => {
                   setStatus(e.target.value);
                   console.log(status);

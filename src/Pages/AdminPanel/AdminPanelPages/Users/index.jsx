@@ -3,13 +3,15 @@ import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import Eye from "../../../../Assets/Icons/eye-open.png";
 import { useNavigate } from "react-router-dom";
-import { getAllUsers } from "../../../../api/auth.api";
+import { deleteSingleUser, getAllUsers } from "../../../../api/auth.api";
+import ErrorComponent from "../../../../Components/Common/ErrorComponent";
 
 function Users() {
   const navigate = useNavigate();
   const [activeItem, setActiveItem] = useState(1);
   const [textFilter, setTextFilter] = useState("");
   const [users, setUsers] = useState([]);
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
   const totalItems = users.length;
@@ -27,7 +29,7 @@ function Users() {
       Math.min(prevPage + 1, Math.ceil(totalItems / itemsPerPage))
     );
   };
-
+  const [error, setError] = useState("");
   const handleItemClick = (index) => {
     setActiveItem(index);
   };
@@ -40,9 +42,21 @@ function Users() {
   const handleCreateButtonClick = () => {
     navigate("/admin/users/add_user");
   };
+  const handleDelete = async (user) => {
+    try {
+      const response = await deleteSingleUser(user._id);
+      getUsers();
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
   const getUsers = async () => {
-    const { data: response } = await getAllUsers();
-    setUsers(response.data.user);
+    try {
+      const { data: response } = await getAllUsers();
+      setUsers(response.data.user);
+    } catch (error) {
+      setError(error.response.data.message);
+    }
   };
   useEffect(() => {
     getUsers();
@@ -203,7 +217,7 @@ function Users() {
                       class="px-6 py-3 dark:text-white"
                       style={{ border: "1px solid #313133" }}
                     >
-                      Access
+                      Phone
                     </th>
 
                     <th
@@ -299,7 +313,13 @@ function Users() {
                                   className="w-[16px] h-[16px] m-auto"
                                 />
                               </button>
-                              <button className="ml-3  w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]">
+
+                              <button
+                                className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
+                                onClick={() => {
+                                  handleDelete(user);
+                                }}
+                              >
                                 <img
                                   src={Cross}
                                   alt=""
