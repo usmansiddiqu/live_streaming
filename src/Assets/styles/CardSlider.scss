@@ -1,6 +1,12 @@
 .cardSlider{
-    width: 100%;
+    width: 260.5px !important;
+    height: 140px !important;
     background: rgb(9, 121, 116);
+background: linear-gradient(-60deg, rgb(104, 121, 9) 50%, rgb(255, 0, 157) 50%);
+}
+.card-Slider{
+
+  background: rgb(9, 121, 116);
 background: linear-gradient(-60deg, rgb(104, 121, 9) 50%, rgb(255, 0, 157) 50%);
 }
 .Cardslider{
@@ -17,6 +23,12 @@ background: linear-gradient(-60deg, rgb(104, 121, 9) 50%, rgb(255, 0, 157) 50%);
     height: 12px !important;
     width: 12px !important;
   }
+  .splide__arrow--next {
+    margin-right: 15px !important;
+    // display: none;
+  }
+ 
+  
   
   
   }

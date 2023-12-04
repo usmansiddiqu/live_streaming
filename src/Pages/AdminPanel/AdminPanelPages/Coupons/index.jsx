@@ -29,12 +29,11 @@ function Coupons() {
     <div
       style={{
         background: "black",
-        position: "absolute",
-        // left: "10%",
+        position: "relative",
+        // left: "14%",
         width: "100%",
         height: "100%",
-        overflowX: "hidden",
-        margin: "auto",
+        overflowY: "scroll",
       }}
     >
       <div className=" ml-4 mt-20 ">
@@ -159,7 +158,7 @@ function Coupons() {
                         >
                           <div className="flex">
                             <button
-                              className=" border  ml-3  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                              className="  ml-3  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
                               onClick={() => handleButtonClick(coupon._id)}
                             >
                               <img
@@ -170,7 +169,7 @@ function Coupons() {
                             </button>
                             <button
                               onClick={() => deleteHandler(coupon._id)}
-                              className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
+                              className="ml-3 w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
                             >
                               <img
                                 src={Cross}

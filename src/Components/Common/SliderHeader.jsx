@@ -4,7 +4,7 @@ function SliderHeader(props) {
   return (
     <div
       style={{
-        width: "63%",
+        width: "73%",
         display: "flex",
         justifyContent: "space-between",
         margin: "auto",
@@ -13,13 +13,15 @@ function SliderHeader(props) {
       }}
       className="sliderHeader"
     >
-      <h1 style={{ color: "white", fontSize: "24px" }}>{props.title}</h1>
+      <h1 className="font-medium" style={{ color: "white", fontSize: "24px" }}>
+        {props.title}
+      </h1>
       <span>
         <a
-          href=""
+          className="font-bold"
           style={{
             textDecoration: "none",
-            color: "blue",
+            color: "#0474FF",
             fontSize: "16px",
           }}
         >

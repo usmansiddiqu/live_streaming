@@ -11,7 +11,7 @@ function PlansPage() {
       <PlansDash />
       <PlanCards />
       <Coupon />
-      <div className="lg:px-20 md:px-10 sm:px-5 px-5 text-white ps-40 ml-7 ">
+      <div className="text-white mx-auto w-[75vw] ">
         <p className="text-lg font-bold">Why Choose Our Subscription?</p>
         <p>
           <span className="font-bold">Unlimited Sports Access:</span>{" "}

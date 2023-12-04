@@ -75,19 +75,19 @@ function Card({ data }) {
   return (
     <div>
       <DashHeader title="title" />
-      <div class=" flex items-center justify-center h-[55vh]">
-        <div class="container mx-auto mx-auto p-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+      <div class=" flex items-center justify-center">
+        <div class="container mx-auto mx-auto">
+          <div class="grid card-con grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 p-3 mx-auto gap-4 w-[75vw]">
             <>
               {data.map((item) => (
-                <div class="rounded-lg p-4">
-                  <div className="cardSlider w-[100%]" key={item._id}>
-                    <div className="placeAndTime  border w-[100%] h-[3vh] flex justify-between flex-row p-0 px-2">
+                <div class="w-[330px] h-[180px] border ">
+                  <div className="card-Slider w-[100%] h-[100%]" key={item._id}>
+                    <div className="placeAndTime  border w-[100%] h-[3vh] flex justify-between flex-row p-0 px-2 bg-[black] bg-opacity-40">
                       <p>{item.data.location}</p>
                       <p> {item.data.date.split("T")[0]}</p>
                     </div>
 
-                    <div className="container p-6">
+                    <div className="container px-6 py-10">
                       <TeamIcons
                         iconsData={item.data.competitors.map((comp) => ({
                           iconUrl: comp.logo,
