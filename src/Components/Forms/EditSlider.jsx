@@ -1,20 +1,74 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import ErrorComponent from "../Common/ErrorComponent";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { getChannel } from "../../api/tvChannel.api";
+import { editSlider, getSpecific } from "../../api/slider.api";
+import { url } from "../../helper/url";
 function EditSlider() {
-  const [imageSrc, setImageSrc] = useState(null);
-
+  const { id } = useParams();
+  const [image, setImage] = useState(null);
+  const [error, setError] = useState("");
+  const [title, setTitle] = useState();
+  const [liveTV, setLiveTV] = useState();
+  const [status, setStatus] = useState(true);
+  const [liveTVObj, setLiveTVObj] = useState([]);
+  const navigate = useNavigate();
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImageSrc(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setImage(file);
+      // const reader = new FileReader();
+      // reader.onloadend = () => {
+      //   setImageSrc(reader.result);
+      // };
+      // reader.readAsDataURL(file);
     }
   };
-
+  const getLiveTV = async () => {
+    try {
+      const { data: response } = await getChannel();
+      // console.log(response.liveTVs.data);
+      setLiveTVObj(response.liveTVs);
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
+  const handleSave = async (e) => {
+    try {
+      e.preventDefault();
+      console.log(title, liveTV, status);
+      const formData = new FormData();
+      formData.append("id", id);
+      formData.append("title", title);
+      formData.append("liveTV", liveTV);
+      formData.append("status", status);
+      formData.append("image", image);
+      const { data: response } = await editSlider(formData);
+      navigate("/admin/slider");
+      console.log(response);
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
+  const specificSlider = async () => {
+    try {
+      const { data: response } = await getSpecific(id);
+      console.log(response.data);
+      setTitle(response.data.title);
+      setLiveTV(response.data.liveTV);
+      setStatus(response.data.status);
+      console.log(url + "\\" + response.data.image.replace("uploads\\", ""));
+      setImage(url + "\\" + response.data.image.replace("uploads\\", ""));
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
+  useEffect(() => {
+    getLiveTV();
+    specificSlider();
+  }, []);
   return (
     <div
       style={{
@@ -32,20 +86,24 @@ function EditSlider() {
           className="w-[80vw] edit-con bg-[#1C1C1E]  rounded p-5"
           style={{ position: "absolute", left: "17%" }}
         >
+          {error && <ErrorComponent message={error} />}
           <form class="max-w-sm ">
             <div class="mb-5 w-[60vw] input-feild flex items-center">
               <label
                 for="email"
                 class="input-feild-label block mb-2 text-sm font-medium w-[25vw] text-gray-900 text-white "
               >
-                Category Name
+                Title
               </label>
               <input
-                type="email"
-                id="email"
+                type="text"
+                id="title"
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#313133]"
-                placeholder="MLB"
-                value="MLB"
+                placeholder="title"
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
                 required
               />
             </div>
@@ -67,7 +125,7 @@ function EditSlider() {
                         type="file"
                         class=" appearance-none items-center py-2 block upload-input  text-gray-700  rounded focus:outline-none "
                         onChange={handleFileChange}
-                        value=""
+                        value={image?.filename}
                       />
                     </div>
                   </div>
@@ -82,27 +140,31 @@ function EditSlider() {
                       (Recommended resolution : 1100x450)
                     </p>
                     <img
-                      src={imageSrc}
+                      src={
+                        image && image.includes(url)
+                          ? image
+                          : URL.createObjectURL(image)
+                      }
                       alt="Uploaded Image"
                       className="w-[400px] h-[169px] border-[6px]"
                     />
                   </div>
                 </div>
-                <div class="mb-5 input-feild  w-[60vw] flex  ">
-                  <label
-                    for="countries"
-                    class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[25vw]"
-                  >
-                    Post Type
-                  </label>
-                  <select
-                    id="countries"
-                    class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
-                  >
-                    <option>Active</option>
-                    <option>Inactive</option>
-                  </select>
-                </div>
+                {/* <div class="mb-5 input-feild  w-[60vw] flex  ">
+                <label
+                  for="countries"
+                  class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[25vw]"
+                >
+                  Post Type
+                </label>
+                <select
+                  id="countries"
+                  class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                >
+                  <option>Active</option>
+                  <option>Inactive</option>
+                </select>
+              </div> */}
                 <div class="mb-5 input-feild  w-[60vw] flex  ">
                   <label
                     for="countries"
@@ -113,51 +175,58 @@ function EditSlider() {
                   <select
                     id="countries"
                     class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                    value={liveTV}
+                    onChange={(e) => {
+                      setLiveTV(e.target.value);
+                    }}
+                    required
                   >
-                    <option>Active</option>
-                    <option>Inactive</option>
+                    {liveTVObj &&
+                      liveTVObj?.map((tv) => {
+                        return <option value={tv._id}>{tv.TVName}</option>;
+                      })}
                   </select>
                 </div>
-                <div class=" w-[60vw]  input-feild  flex mb-5">
-                  <label
-                    for="countries"
-                    class="block mb-2 input-feild-label   text-sm font-medium text-gray-900 dark:text-white w-[17.5vw]"
-                  >
-                    Live TV
-                  </label>
-                  <div className="w-[43vw]  flex">
-                    <div class="flex items-center h-5">
-                      <input
-                        id="remember"
-                        type="checkbox"
-                        value=""
-                        class="w-4 h-4 border border-gray-300 "
-                        required
-                      />
-                    </div>
-                    <label
-                      for="remember"
-                      class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Home
-                    </label>
-                    <div class="flex items-center h-5">
-                      <input
-                        id="remember"
-                        type="checkbox"
-                        value=""
-                        class="w-4 h-4 border border-gray-300 ml-2 "
-                        required
-                      />
-                    </div>
-                    <label
-                      for="remember"
-                      class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Live Tv
-                    </label>
+                {/* <div class=" w-[60vw]  input-feild  flex mb-5">
+                <label
+                  for="countries"
+                  class="block mb-2 input-feild-label   text-sm font-medium text-gray-900 dark:text-white w-[17.5vw]"
+                >
+                  Live TV
+                </label>
+                <div className="w-[43vw]  flex">
+                  <div class="flex items-center h-5">
+                    <input
+                      id="remember"
+                      type="checkbox"
+                      value=""
+                      class="w-4 h-4 border border-gray-300 "
+                      required
+                    />
                   </div>
+                  <label
+                    for="remember"
+                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Home
+                  </label>
+                  <div class="flex items-center h-5">
+                    <input
+                      id="remember"
+                      type="checkbox"
+                      value=""
+                      class="w-4 h-4 border border-gray-300 ml-2 "
+                      required
+                    />
+                  </div>
+                  <label
+                    for="remember"
+                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Live Tv
+                  </label>
                 </div>
+              </div> */}
 
                 <div class="mb-5 input-feild  w-[60vw] flex  ">
                   <label
@@ -169,9 +238,13 @@ function EditSlider() {
                   <select
                     id="countries"
                     class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                    onChange={(e) => {
+                      setStatus(e.target.value);
+                    }}
+                    value={status}
                   >
-                    <option>Active</option>
-                    <option>Inactive</option>
+                    <option value={true}>Active</option>
+                    <option value={false}>Inactive</option>
                   </select>
                 </div>
                 <div class="mb-5 input-feild w-[72vw] flex">
@@ -180,8 +253,10 @@ function EditSlider() {
                     class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17.5vw]"
                   ></label>
                   <button
-                    type="submit"
                     class="text-white  bg-[#FF0015] text-sm font-bold rounded-md text-sm w-[70px]  sm:w-auto px-3 py-1.5 text-center "
+                    onClick={(e) => {
+                      handleSave(e);
+                    }}
                   >
                     Save
                   </button>
