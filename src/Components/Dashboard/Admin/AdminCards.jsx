@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../../../App.css";
+import CustomBarChart from "../../../Components/Common/Graph";
 const AdminCards = () => {
   useEffect(() => {
     let valueDisplays = document.querySelectorAll(".num");
@@ -75,6 +76,9 @@ const AdminCards = () => {
             </span>
             <span className="text text-white text-sm">Yearly Revenue</span>
           </div>
+        </div>
+        <div className=" w-[80vw] h-[45vh] bg-[#1C1C1E] rounded mt-10">
+          <CustomBarChart />
         </div>
       </div>
     </>
