@@ -1,6 +1,6 @@
 import React from "react";
 
-function TeamIcons({ iconsData }) {
+function TeamIconsDetailPage({ iconsData }) {
   return (
     <>
       <div
@@ -13,18 +13,20 @@ function TeamIcons({ iconsData }) {
         }}
       >
         {iconsData.map((icon, index) => (
-          <div key={index} className="flex flex-col items-center ">
+          <div key={index} className="flex flex-col items-center px-4 ">
             <img
               src={icon.iconUrl}
               alt={icon.name}
-              style={{ width: "35px", height: "35px" }}
+              style={{ width: "55px", height: "55px" }}
             />
-            <p className="text-sm text-white font-medium">{icon.name}</p>
           </div>
         ))}
+      </div>
+      <div className="w-[278px] team-names h-[0] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center py-1">
+        <span className="py-auto text-white font-medium"> hellow</span>
       </div>
     </>
   );
 }
 
-export default TeamIcons;
+export default TeamIconsDetailPage;

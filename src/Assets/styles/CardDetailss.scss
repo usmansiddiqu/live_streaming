@@ -1,0 +1,49 @@
+.CardSlider1 {
+    width: 260.5px !important;
+    height: 140px !important;
+    // background: rgb(9, 121, 116);
+    // background: linear-gradient(
+    //   -60deg,
+    //   rgb(104, 121, 9) 50%,
+    //   rgb(255, 0, 157) 50%
+    // );
+  }
+  .card-slider1{
+    width: 280.5px !important;
+    height: 140px !important;
+  
+  }
+  .team-icons:hover{
+    transform:scale(1.1);
+    transition: 0.3s ease-in-out;
+  
+   }
+  .team-names {
+    display: none;
+  }
+  
+  .team-icons:hover ~ .team-names {
+    display: block;
+    transition: 1s ease-in-out;
+    height: 35px;
+  }
+
+    .splide__arrow {
+      width: 30px !important;
+      height: 30px !important;
+      background-color: rgba(255, 255, 255, 0);
+    }
+    .splide__arrow--prev svg,
+    .splide__arrow--next svg {
+      fill: #007AFF !important;
+      height: 100px !important;
+      width: 100px !important;
+      color: aqua;
+    }
+    .splide__arrow--next {
+        margin-right: 5px !important;
+        // display: none;
+      }
+      .splide__arrow--prev{
+        margin-left: -10px;
+      }

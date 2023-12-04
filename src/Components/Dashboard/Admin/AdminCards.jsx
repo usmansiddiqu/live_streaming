@@ -78,7 +78,15 @@ const AdminCards = () => {
           </div>
         </div>
         <div className=" w-[80vw] h-[45vh] bg-[#1C1C1E] rounded mt-10">
-          <CustomBarChart />
+          <div className="p-2 px-9">
+            <h2 className="text-white font-medium text-xl">
+              Users Plan Statistics
+            </h2>{" "}
+            <p className="text-white">Current Year</p>
+          </div>
+          <div className=" w-[70vw] h-[40vh] mx-auto">
+            <CustomBarChart />
+          </div>
         </div>
       </div>
     </>
