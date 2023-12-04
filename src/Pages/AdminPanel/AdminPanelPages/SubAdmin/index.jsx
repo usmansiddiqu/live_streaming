@@ -1,17 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import { useNavigate } from "react-router-dom";
-
+import { getAllSubAdmin } from "../../../../api/subadmins.api";
+import { deleteSingleUser } from "../../../../api/auth.api";
+import ErrorComponent from "../../../../Components/Common/ErrorComponent";
 function SubAdmin() {
+  const [subAdmin, setSubAdmin] = useState([]);
+  const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
-  const handleButtonClick = () => {
-    navigate("/admin/sub_admin/edit_user");
+  const handleButtonClick = (admin) => {
+    navigate(`/admin/sub_admin/edit_user/${admin._id}`);
   };
   const handleCreateButtonClick = () => {
     navigate("/admin/sub_admin/add_user");
   };
+  const getSubAdmins = async () => {
+    try {
+      const { data: response } = await getAllSubAdmin();
+      console.log(response.data);
+      setSubAdmin(response.data);
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
+  const handleDelete = async (id) => {
+    const { data: response } = await deleteSingleUser(id);
+    getSubAdmins();
+  };
+  useEffect(() => {
+    getSubAdmins();
+  }, []);
   return (
     <div
       style={{
@@ -28,6 +49,7 @@ function SubAdmin() {
             className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
             style={{ position: "absolute", left: "14%" }}
           >
+            {error && <ErrorComponent message={error} />}
             <div class="relative overflow-x-auto shadow-md ">
               <div>
                 <div class="relative mt-1">
@@ -94,7 +116,7 @@ function SubAdmin() {
                       class="px-6 py-3 dark:text-white"
                       style={{ border: "1px solid #313133" }}
                     >
-                      Access
+                      Phone
                     </th>
 
                     <th
@@ -114,61 +136,79 @@ function SubAdmin() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      Anonnya
-                    </th>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      =khadijaislam9010@gmail.com{" "}
-                    </th>
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      02135647
-                    </th>
-                    <td
-                      class="px-6 py-4 dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
-                        Active
-                      </div>
-                    </td>
-                    <td
-                      class="px-6 py-4 dark:text-white border"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      <div className="flex">
-                        <button
-                          className=" border relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
-                          onClick={handleButtonClick}
-                        >
-                          <img
-                            src={Edit}
-                            alt=""
-                            className="w-[16px] h-[16px] m-auto"
-                          />
-                        </button>
-                        <button className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]">
-                          <img
-                            src={Cross}
-                            alt=""
-                            className="w-[10px] h-[10px] m-auto"
-                          />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
+                  {subAdmin &&
+                    subAdmin.map((admin) => {
+                      return (
+                        <tr>
+                          <th
+                            scope="row"
+                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            {admin.name}
+                          </th>
+                          <th
+                            scope="row"
+                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            {admin.email}
+                          </th>
+                          <th
+                            scope="row"
+                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            {admin.phone}
+                          </th>
+                          <td
+                            class="px-6 py-4 dark:text-white"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            {admin.status ? (
+                              <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
+                                Active
+                              </div>
+                            ) : (
+                              <div className=" bg-red-700 p-1 w-[60px] text-center rounded text-sm">
+                                Inactive
+                              </div>
+                            )}
+                          </td>
+                          <td
+                            class="px-6 py-4 dark:text-white border"
+                            style={{ border: "1px solid #313133" }}
+                          >
+                            <div className="flex">
+                              <button
+                                className=" border relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                                onClick={() => {
+                                  handleButtonClick(admin);
+                                }}
+                              >
+                                <img
+                                  src={Edit}
+                                  alt=""
+                                  className="w-[16px] h-[16px] m-auto"
+                                />
+                              </button>
+                              <button
+                                className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
+                                onClick={() => {
+                                  handleDelete(admin._id);
+                                }}
+                              >
+                                <img
+                                  src={Cross}
+                                  alt=""
+                                  className="w-[10px] h-[10px] m-auto"
+                                />
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
                 </tbody>
               </table>
             </div>

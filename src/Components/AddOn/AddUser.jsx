@@ -3,6 +3,8 @@ import Pikaday from "pikaday";
 import "pikaday/css/pikaday.css";
 import { createUser } from "../../api/auth.api";
 import ErrorComponent from "../Common/ErrorComponent";
+import { useNavigate } from "react-router-dom";
+
 function AddUser() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,6 +16,8 @@ function AddUser() {
   // const [subscriptionPlan,setEmail]=useState("")
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -25,8 +29,9 @@ function AddUser() {
       // reader.readAsDataURL(file);
     }
   };
-  const handleSave = async () => {
+  const handleSave = async (e) => {
     try {
+      e.preventDefault();
       const formData = new FormData();
       formData.append("name", name);
       formData.append("password", password);
@@ -37,6 +42,7 @@ function AddUser() {
       formData.append("status", status);
       formData.append("image", image);
       const { data: response } = await createUser(formData);
+      navigate("/admin/users");
       console.log(response);
     } catch (error) {
       setError(error.response.data.message);
@@ -217,8 +223,8 @@ function AddUser() {
               <button
                 type="submit"
                 class="text-white  bg-[#FF0015] text-sm font-bold rounded-md text-sm w-[70px]  sm:w-auto px-3 py-1.5 text-center "
-                onClick={() => {
-                  handleSave();
+                onClick={(e) => {
+                  handleSave(e);
                 }}
               >
                 Save

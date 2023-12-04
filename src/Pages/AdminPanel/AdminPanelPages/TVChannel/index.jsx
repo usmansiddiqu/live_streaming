@@ -210,7 +210,7 @@ function TVChannel() {
                       class="px-6 py-3 dark:text-white"
                       style={{ border: "1px solid #313133" }}
                     >
-                      Access
+                      Phone
                     </th>
 
                     <th

@@ -5,6 +5,8 @@ import SaveIcon from "../../Assets/Icons/diskette.png";
 import { getCategories } from "../../api/category.api";
 import { addChannelToDB } from "../../api/tvChannel.api";
 import ErrorComponent from "../Common/ErrorComponent";
+import { useNavigate } from "react-router-dom";
+
 function AddChannel() {
   const [TVName, setTvName] = useState("");
   const [description, setDescription] = useState("");
@@ -19,6 +21,7 @@ function AddChannel() {
   const [text, setText] = useState("");
   const [categoriesObj, setCategoriesObj] = useState([]);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -38,7 +41,8 @@ function AddChannel() {
   useEffect(() => {
     getCategoriess();
   }, []);
-  const createTVChannel = async () => {
+  const createTVChannel = async (e) => {
+    e.preventDefault();
     const formData = new FormData();
     console.log(TVAccess);
     formData.append("TVName", TVName);
@@ -54,6 +58,7 @@ function AddChannel() {
     try {
       const { data: response } = await addChannelToDB(formData);
       console.log(response);
+      navigate("/admin/live_tv");
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -437,8 +442,8 @@ function AddChannel() {
                 <button
                   type="submit"
                   class="text-white save-btn  bg-[#FF0015] text-sm font-bold rounded-md text-sm w-[70px]  px-3 py-1.5 flex justify-around items-center text-center "
-                  onClick={() => {
-                    createTVChannel();
+                  onClick={(e) => {
+                    createTVChannel(e);
                   }}
                 >
                   <img
