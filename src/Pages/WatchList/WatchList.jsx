@@ -12,6 +12,7 @@ function WatchList() {
     try {
       const { data: response } = await getWishList();
       convertAndSetState(response.data);
+
       return response.data;
     } catch (error) {}
   };
@@ -23,6 +24,7 @@ function WatchList() {
       __v: item.eventId.__v,
     }));
     setConvertedData([...convertedArray]);
+    console.log(convertedArray);
   };
   useEffect(() => {
     getWishlists();

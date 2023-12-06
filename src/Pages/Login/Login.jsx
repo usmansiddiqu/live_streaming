@@ -159,7 +159,7 @@ function Login() {
                     </div>
                   </div>
                   <a
-                    href="#"
+                    href="/enterEmail"
                     class="text-sm font-medium text-white hover:underline dark:text-primary-500"
                   >
                     Forgot password?

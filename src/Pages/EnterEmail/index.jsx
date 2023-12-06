@@ -3,63 +3,29 @@ import "../../App.css";
 import logo from "../../Assets/Icons/PixelSportLogo.png";
 import ErrorComponent from "../../Components/Common/ErrorComponent";
 import { Link, useNavigate } from "react-router-dom";
-import { clearLocalStorage } from "../../helper/localstorage";
-import { login, loginWithGoogle } from "../../api/auth.api";
-// import { GoogleLogin } from "react-google-login";
-import { GoogleLogin } from "@react-oauth/google";
-const clientSecret =
-  "523867614519-9dcc1641isodinb0tgi0cbk0dqn4m3q8.apps.googleusercontent.com";
+import { sendVerificationCode } from "../../api/auth.api";
+import { ToastContainer, toast } from "react-toastify";
+
 function EnterEmail() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-  const handleClick = async () => {
-    const { data } = await login({ email, password });
-
-    if (data?.error) {
-      setError(data?.error);
-    } else {
-      setError(null);
-      console.log(data?.data);
-      localStorage.setItem("token", data.data.token);
-      localStorage.setItem("data", JSON.stringify(data.data.user));
-      navigate("/");
+  const [error, setError] = useState("");
+  const sendEmail = async () => {
+    try {
+      const response = await sendVerificationCode({ email });
+      toast.success("Code Sent");
+      navigate("/forgetPassword");
+    } catch (error) {
+      setError(error.response.data.message);
+      toast.error("Something went wrong");
     }
   };
-  const onSuccess = async (res) => {
-    console.log(res);
-    const { data } = await loginWithGoogle({
-      name: res.name,
-      email: res.email,
-      googleId: res.googleId,
-      imageUrl: res.imageUrl,
-    });
 
-    if (data?.error) {
-      console.log(data);
-      setError(data?.error);
-    } else {
-      setError(null);
-      console.log(data?.data);
-      localStorage.setItem("token", data.data.token);
-      localStorage.setItem("data", JSON.stringify(data.data.user));
-      navigate("/");
-    }
-  };
-  const onFailure = (res) => {
-    console.log(res);
-  };
-
-  useEffect(() => {
-    if (localStorage.getItem("token") && localStorage.getItem("data")) {
-      navigate("/");
-    } else {
-      clearLocalStorage();
-    }
-  }, []);
+  useEffect(() => {}, []);
   return (
     <div className="max-w-2xl mx-auto">
+      <ToastContainer limit={1} />
+
       <div className="overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 justify-center items-center login-Bg mx-auto"></div>
       <section>
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 relative ">
@@ -93,7 +59,9 @@ function EnterEmail() {
                 <button
                   type="button"
                   class="w-full h-[6vh] text-white bg-[#000bdd] font-medium rounded-md text-sm px-5 py-2.5 text-center"
-                  onClick={handleClick}
+                  onClick={() => {
+                    sendEmail();
+                  }}
                 >
                   Confirm
                 </button>

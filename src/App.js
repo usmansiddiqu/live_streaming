@@ -22,6 +22,8 @@ import AboutUS from "./Pages/AboutUS";
 import TermOfUse from "./Pages/TermOfUse";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import FAQ from "./Pages/FAQ";
+import Email from "./Pages/EnterEmail";
+import ForgetPassword from "./Pages/ForgetPassword";
 import Contact from "./Pages/Contact";
 function App() {
   const [isLoggedIn] = useState(true);
@@ -43,6 +45,8 @@ function App() {
           <Route path="/terms-of-use" element={<TermOfUse />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/enterEmail" element={<Email />} />
+          <Route path="/forgetPassword" element={<ForgetPassword />} />
           <Route path="/contact-us" element={<Contact />} />
           {isLoggedIn && (
             <>

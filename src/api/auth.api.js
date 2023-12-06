@@ -28,6 +28,12 @@ const getSpecificUser = async (id) => {
 const deleteSingleUser = async (id) => {
   return await axiosInstance.delete(`/auth/deleteUser/${id}`);
 };
+const sendVerificationCode = async (data) => {
+  return await axiosInstance.post("/auth/sendVerificationCode", data);
+};
+const codeverification = async (data) => {
+  return await axiosInstance.post("/auth/codeverification", data);
+};
 module.exports = {
   login,
   signup,
@@ -37,4 +43,6 @@ module.exports = {
   updateUser,
   getSpecificUser,
   deleteSingleUser,
+  sendVerificationCode,
+  codeverification,
 };
