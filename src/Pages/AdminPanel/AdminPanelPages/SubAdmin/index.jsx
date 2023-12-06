@@ -47,14 +47,14 @@ function SubAdmin() {
       <div className=" ml-4 mt-20 ">
         <div>
           <div
-            className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
-            style={{ position: "absolute", left: "17%" }}
+            className="w-[80vw] box edit-con bg-[#1C1C1E] mx-auto rounded p-5"
+            style={{ position: "absolute", left: "16.5%" }}
           >
             {error && <ErrorComponent message={error} />}
             <div class="relative overflow-x-auto shadow-md ">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[35%] justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center w-[35%] justify-between tvChannel-head flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
@@ -62,7 +62,7 @@ function SubAdmin() {
                       <input
                         type="text"
                         id="table-search-users"
-                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-80 "
+                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] search-title text-xs  bg-[#313133] rounded-full w-80 "
                         placeholder="Search by name or email"
                       />
                       <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
@@ -137,7 +137,6 @@ function SubAdmin() {
                   </tr>
                 </thead>
                 <tbody>
-
                   {subAdmin &&
                     subAdmin.map((admin) => {
                       return (

@@ -72,19 +72,19 @@ function TVChannel() {
       <div className=" ml-4 mt-20 ">
         <div>
           <div
-            className="w-[80vw] edit-con bg-[#1C1C1E]  mx-auto rounded p-5"
-            style={{ position: "absolute", left: "17%" }}
+            className="w-[80vw] box edit-con bg-[#1C1C1E]  mx-auto rounded p-5"
+            style={{ position: "absolute", left: "16.5%" }}
           >
             <div class="relative overflow-x-auto shadow-md ">
               {error && <ErrorComponent message={error} />}
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[60%] justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
-                    <div className="bg-[#313133] rounded">
+                  <div class=" flex items-center w-[60%] tvChannel-head justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                    <div className="bg-[#313133] Category-Filter rounded">
                       <button
                         id="dropdownActionButton"
                         data-dropdown-toggle="dropdownAction"
-                        class="inline-flex items-center w-[310px] bg-[#313133] justify-between text-white border-0 font-medium rounded-lg text-sm px-3 py-2.5 "
+                        class="inline-flex items-center w-[310px]  bg-[#313133] justify-between text-white border-0 font-medium rounded-lg text-sm px-3 py-2.5 "
                         type="button"
                       >
                         <span class="sr-only">{categoryFilter}</span>
@@ -108,7 +108,7 @@ function TVChannel() {
 
                       <div
                         id="dropdownAction"
-                        class="z-10 hidden bg-white w-[310px] top-0 shadow w-44 dark:divide-gray-600"
+                        class="z-10 hidden bg-white w-[310px] Category-Filter top-0 shadow w-44 dark:divide-gray-600"
                       >
                         <ul
                           class="text-sm text-black"
@@ -171,7 +171,7 @@ function TVChannel() {
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
-                    <div class="relative flex justify-between w-80 rounded-full bg-[#313133]">
+                    <div class="relative flex justify-between search-title w-80 rounded-full bg-[#313133]">
                       <input
                         type="text"
                         id="table-search-users"
@@ -199,7 +199,7 @@ function TVChannel() {
                     </div>
 
                     <button
-                      className="w-[120px] h-[4vh] bg-[#0EAC5C] font-medium rounded-md "
+                      className="w-[120px] h-[4vh] Add-tv bg-[#0EAC5C] font-medium rounded-md "
                       onClick={handleCreateButtonClick}
                     >
                       <span className="text-white text-sm dark:text-white">
@@ -283,11 +283,9 @@ function TVChannel() {
                             class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                             style={{ border: "1px solid #313133" }}
                           >
-                            <img
-                              src={tvchannel}
-                              alt=""
-                              className="w-[150px] h-[84px]"
-                            />
+                            <div className="tv-img w-[150px] h-[84px]">
+                              <img src={tvchannel} alt="" className="" />
+                            </div>
                           </th>
                           <th
                             scope="row"

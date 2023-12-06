@@ -162,12 +162,12 @@ function Login() {
                     href="/enterEmail"
                     class="text-sm font-medium text-white hover:underline dark:text-primary-500"
                   >
-                    Forgot password?
+                    <Link to="/forget_password">Forgot password?</Link>
                   </a>
                 </div>
                 <button
                   type="button"
-                  class="w-full h-[6vh] text-white bg-[#000bdd] font-medium rounded-md text-sm px-5 py-2.5 text-center"
+                  class="w-full h-[5vh] text-white bg-[#000bdd] font-medium rounded-md text-sm px-5 py-2.5 text-center"
                   onClick={handleClick}
                 >
                   LOGIN
@@ -188,6 +188,7 @@ function Login() {
                   Goolge
                 </button> */}
                 <GoogleLogin
+                  width={"380px"}
                   onSuccess={(credentialResponse) => {
                     const { credential, clientId, select_by } =
                       credentialResponse;

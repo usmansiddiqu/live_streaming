@@ -49,21 +49,21 @@ function Transactions() {
       <div className=" ml-4 mt-20 ">
         <div>
           <div
-            className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
-            style={{ position: "absolute", left: "17%" }}
+            className="w-[80vw] box edit-con bg-[#1C1C1E] mx-auto rounded p-5"
+            style={{ position: "absolute", left: "16.5%" }}
           >
             <div class="relative overflow-x-auto shadow-md ">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[55%]  justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center w-[55%] search-bar-for-transaction  justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
-                    <div class="relative flex justify-between w-[25vw]  rounded-full bg-[#313133]">
+                    <div class="relative flex justify-between w-[28vw] search-bar-for-transaction  rounded-full bg-[#313133]">
                       <input
                         type="text"
                         id="table-search-users"
-                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-full "
+                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs   bg-[#313133] rounded-full w-full "
                         placeholder="Search by Payment ID or Email"
                         onChange={(e) => setTextFilter(e.target.value)}
                       />
@@ -86,7 +86,7 @@ function Transactions() {
                       </div>
                     </div>
 
-                    <div class="relative flex justify-between w-60 rounded-full bg-[#313133]">
+                    <div class="relative flex justify-between table-search-user  w-60 rounded-full bg-[#313133]">
                       <input
                         type="date"
                         id="table-search-users"

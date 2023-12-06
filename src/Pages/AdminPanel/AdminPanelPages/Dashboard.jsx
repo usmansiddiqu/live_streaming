@@ -9,11 +9,12 @@ function AdminDashboard() {
       style={{
         background: "black",
         position: "relative",
-        left: "13%",
+        left: "11.7%",
         width: "100%",
         height: "100%",
         overflowY: "scroll",
       }}
+      className="admin-dash"
     >
       <div>
         <AdminCards />

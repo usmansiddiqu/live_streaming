@@ -43,8 +43,8 @@ function AssignLiveTv() {
       >
         <div className=" ml-4 mt-20 ">
           <div
-            className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
-            style={{ position: "absolute", left: "14%" }}
+            className="w-[80vw] box edit-con bg-[#1C1C1E] mx-auto rounded p-5"
+            style={{ position: "absolute", left: "16.5%" }}
           >
             <div class="relative overflow-x-auto shadow-md">
               <table class="w-full mt-5 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

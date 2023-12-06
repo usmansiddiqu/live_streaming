@@ -77,7 +77,7 @@ const AdminCards = () => {
             <span className="text text-white text-sm">Yearly Revenue</span>
           </div>
         </div>
-        <div className=" w-[80vw] h-[45vh] bg-[#1C1C1E] rounded mt-10">
+        {/* <div className=" w-[80vw] h-[45vh] bg-[#1C1C1E] rounded mt-10">
           <div className="p-2 px-9">
             <h2 className="text-white font-medium text-xl">
               Users Plan Statistics
@@ -87,7 +87,7 @@ const AdminCards = () => {
           <div className=" w-[70vw] h-[40vh] mx-auto">
             <CustomBarChart />
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

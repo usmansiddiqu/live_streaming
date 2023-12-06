@@ -26,6 +26,7 @@ import FAQ from "./Pages/FAQ";
 import Email from "./Pages/EnterEmail";
 import ForgetPassword from "./Pages/ForgetPassword";
 import Contact from "./Pages/Contact";
+import ForgetPassword from "./Pages/ForgetPassword";
 function App() {
   const [isLoggedIn] = useState(true);
   const [isAdmin] = useState(true);
@@ -49,6 +50,8 @@ function App() {
           <Route path="/enterEmail" element={<Email />} />
           <Route path="/forgetPassword" element={<ForgetPassword />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/forget_password" element={<ForgetPassword />} />
+
           {isLoggedIn && (
             <>
               <Route path="/profile" element={<Profile />} />

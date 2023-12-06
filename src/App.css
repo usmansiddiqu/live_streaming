@@ -19,7 +19,13 @@ body, h1, h2, h3, p, div {
 li a{
   text-decoration: none;
 }
-
+.video-player-wrapper{
+  width: 100vw !important;
+  height: 100vh !important;
+}
+.google-btn{
+  width: 100% !important;
+}
 .footer{
   width: 100%;
   height: 30vh;
@@ -68,12 +74,18 @@ li a{
 .signup-Bg{
   width: 100%;
  }
+ .labelTextColor{
+  color: white;
 
+ }
 
 @media screen and (max-width: 1000px) {
   .AdminBarLogo{
     display: none;
   
+  }
+  .nav-sider{
+    border: 0px;
   }
   
 }
@@ -129,9 +141,38 @@ li a{
     gap: 15px;
   }
   .container1 {
-    width: 100%;
+    width: 70%;
     height: 25vmin;
     font-size: 8px;
+  
+  }
+  .sidebar-toggle {
+    display: none;
+  }
+  .side-icon{
+    display: none;
+  }
+  .admin-dash{
+    left: 0% !important;
+  }
+  .tvChannel-head{
+    width: 100% !important;
+    height: 23vh !important;
+  }
+  .Category-Filter{
+    width: 250px !important;
+  }
+  .search-title{
+    width: 250px !important;
+  }
+  .Add-tv{
+    width: 100px;
+    height: 5vh !important;
+  }
+  .search-transactions{
+    width: 450px !important;
+    border: 1px solid;
+    margin-bottom: 10px;
   }
   .input-feild{
     display: flex;
@@ -225,7 +266,13 @@ li a{
 .footer-title{
   font-size: 20px;
 }
+.box{
+  margin-left: 15px;
+}
+.search-bar-for-transaction{
+  width: 93% !important;
 
+}
 }
 
 
@@ -306,7 +353,12 @@ li a{
   .footer{
     height: max-content;
   }
-  
+  .Add-tv{
+    width: 120px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 10px !important;
+  }
 
 
 }
@@ -321,7 +373,31 @@ li a{
     justify-content: space-between;
 
   }
- 
+  .search-transactions{
+
+    margin-bottom: 10px;
+  }
+  .sidddee{
+    height: 7vh;
+    border: 1px solid;
+  }
+  .layer-icon{
+    display: none !important;
+  }
+  .side-icon{
+    display: none;
+  }
+  .tvChannel-head{
+    width: 100% !important;
+    height: 25vh !important;
+
+  }
+  .Add-tv{
+    width: 120px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 10px !important;
+  }
 
 }
 @media screen and (max-width: 900px) {
@@ -343,8 +419,66 @@ li a{
     width: 100%;
 
   }
+  .layer-icon{
+    display: block;
+    margin-top: 10px;
+  }
+  .side-icon{
+    width: 6vw !important;
+  }
   .footer{
     height: max-content;
   }
+  .tvChannel-head{
+    width: 100% !important;
+    height: 10vh;
+  }
+  .Category-Filter{
+    width: 200px !important;
+    margin-left: 20px;
+  }
+  .search-title{
+    width: 200px ;
+    margin-left: 20px;
+  }
+  .Add-tv{
+    width: 120px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 10px !important;
+  }
+  .table-search-user{
+    margin-top: 10px !important;
+  }
+ 
   
+  
+}
+@media screen and (max-width: 920px) {
+  .layer-icon{
+    display: block;
+    margin-top: 10px;
+  }
+  .side-icon{
+    width: 5.5vw !important;
+  }
+  .box{
+    left: 12% !important;
+  }
+  .Category-Filter{
+    width: 220px !important;
+    margin-left: 20px;
+  }
+  .search-title{
+    width: 280px ;
+    margin-left: 20px;
+    margin-top: 10px !important;
+  }
+  .Add-tv{
+    width: 120px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 10px !important;
+  }
+
 }

@@ -54,12 +54,12 @@ function AdminPanelBar() {
         style={{ overflow: "hidden" }}
       >
         <nav
-          class="fixed top-0 z-50 w-full bg-black border-t-[3px] border-red-500 "
+          class="fixed top-0 h-[6vh] z-50 w-full sidddee  bg-black border-t-[3px] border-red-500 "
           style={{ boxShadow: "-1px 6px 18px -13px rgba(255,255,255,0.45)" }}
         >
-          <div class="px-3 lg:px-5 lg:pl-3 h-[7vh]">
+          <div class="px-3 lg:px-5 lg:pl-3 h-[5vh]">
             <div class="flex items-center justify-between ">
-              <div class="flex items-center justify-center rtl:justify-end border-r border-red-500 h-[7vh] w-[14.5vw]">
+              <div class="flex items-center justify-center side-icon rtl:justify-end border-r border-red-500 h-[5vh] w-[14.5vw]">
                 <a href="" class="flex ms-2 md:me-24 mx-auto ">
                   <img
                     src={logo}
@@ -68,7 +68,7 @@ function AdminPanelBar() {
                   />
                 </a>
               </div>
-              <div className="flex justify-between items-center w-full">
+              <div className="flex justify-between items-center w-full mt-1">
                 <button
                   data-drawer-target="logo-sidebar"
                   data-drawer-toggle="logo-sidebar"
@@ -169,7 +169,7 @@ function AdminPanelBar() {
         >
           <div class="h-full side-Bar pb-4 overflow-y-auto bg-[#0c0c0d]">
             <ul class=" font-medium">
-              <li
+              {/* <li
                 className={activeItem.id === "dashboard" ? "active" : ""}
                 onClick={() => handleItemClick("dashboard", "Dashboard")}
               >
@@ -191,7 +191,7 @@ function AdminPanelBar() {
                     </span>
                   )}
                 </a>
-              </li>
+              </li> */}
 
               {/*  ------------------------LIVE TV ---------------------- */}
               <li
@@ -393,7 +393,7 @@ function AdminPanelBar() {
                       )}
                     </a>
                   </li>
-                  <li
+                  {/* <li
                     className="flex items-center pl-11"
                     onClick={() =>
                       handleItemClick("  Home Section", "  Home Section")
@@ -418,11 +418,11 @@ function AdminPanelBar() {
                         </span>
                       )}
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               )}
               {/*  ------------------------USERS---------------------- */}
-              <li
+              {/* <li
                 id="Users"
                 className={`mt-1 ${activeItem.id === "Users" ? "active" : ""}`}
                 onClick={() => {
@@ -518,7 +518,7 @@ function AdminPanelBar() {
                     </a>
                   </li>
                 </ul>
-              )}
+              )} */}
               <li
                 id="Coupons"
                 className={`mt-1 ${

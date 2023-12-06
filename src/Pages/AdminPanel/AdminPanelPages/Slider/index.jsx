@@ -50,15 +50,15 @@ function AdminSlider() {
     >
       <div className=" ml-4 mt-20 ">
         <div
-          className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
-          style={{ position: "absolute", left: "17%" }}
+          className="w-[80vw] box edit-con bg-[#1C1C1E] mx-auto rounded p-5"
+          style={{ position: "absolute", left: "16.5%" }}
         >
           {error && <ErrorComponent message={error} />}
           <div class="relative overflow-x-auto shadow-md">
             <div class="relative mt-1">
               <div class=" flex items-center  ">
                 <button
-                  className="w-[120px] h-[4vh] bg-[#0EAC5C] font-medium rounded-md "
+                  className="w-[120px] Add-tv h-[4vh] bg-[#0EAC5C] font-medium rounded-md "
                   onClick={handleCreateButtonClick}
                 >
                   <span className="text-white text-sm dark:text-white">

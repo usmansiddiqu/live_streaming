@@ -18,8 +18,8 @@ function DetailsSlider() {
   }, []);
 
   const splideOptions = {
-    perPage: 5,
-    perMove: 5,
+    perPage: 1,
+    perMove: 1,
     pagination: false,
     gap: 20,
     drag: true,
@@ -28,15 +28,15 @@ function DetailsSlider() {
   const navigate = useNavigate();
   return (
     <div
-      className="CardSlider1"
+      className="CardSlider1 "
       style={{
-        width: "70%",
+        width: "100%",
         height: "AUTO",
         display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
         marginTop: "25px",
+
         margin: "auto",
+        justifyContent: "flex-start",
       }}
     >
       <Splide options={{ ...splideOptions, width: 1200 }}>

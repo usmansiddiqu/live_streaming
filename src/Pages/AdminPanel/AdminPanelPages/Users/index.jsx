@@ -77,18 +77,18 @@ function Users() {
       <div className=" ml-4 mt-20 ">
         <div>
           <div
-            className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
-            style={{ position: "absolute", left: "17%" }}
+            className="w-[80vw] box edit-con bg-[#1C1C1E] mx-auto rounded p-5"
+            style={{ position: "absolute", left: "16.5%" }}
           >
             <div class="relative overflow-x-auto shadow-md ">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[60%] justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
-                    <div className="bg-[#313133] rounded">
+                  <div class=" flex items-center w-[60%] tvChannel-head justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                    <div className="bg-[#313133] Category-Filter rounded">
                       <button
                         id="dropdownActionButton"
                         data-dropdown-toggle="dropdownAction"
-                        class="inline-flex items-center w-[310px] bg-[#313133] justify-between text-white border-0 font-medium rounded-lg text-sm px-3 py-2.5 "
+                        class="inline-flex items-center w-[310px] bg-[#313133]  justify-between text-white border-0 font-medium rounded-lg text-sm px-3 py-2.5 "
                         type="button"
                       >
                         <span class="sr-only">Filter by Plan</span>
@@ -112,7 +112,7 @@ function Users() {
 
                       <div
                         id="dropdownAction"
-                        class="z-10 hidden bg-white w-[310px] top-0 shadow w-44 dark:divide-gray-600"
+                        class="z-10 hidden bg-white w-[310px] top-0 shadow Category-Filter w-44 dark:divide-gray-600"
                       >
                         <ul
                           class="text-sm text-black"
@@ -122,7 +122,7 @@ function Users() {
                             <input
                               type="text"
                               id="table-search-users"
-                              class=" ps-5  text-sm w-full  text-[#6C757D] text-xs border "
+                              class=" ps-5  text-sm w-full search-title  text-[#6C757D] text-xs border "
                               placeholder="Search by title"
                             />
                           </li>

@@ -34,7 +34,7 @@ const CardSlider = ({ data }) => {
               onClick={() =>
                 navigate(`/${item?.channel?.TVCategory?.name}/live/${item._id}`)
               }
-              className={`cardSlider flex flex-col items-center cursor-pointer`}
+              className="cardSlider flex flex-col items-center cursor-pointer"
               key={item.id}
               style={{
                 border: "1px solid white",
