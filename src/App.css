@@ -14,7 +14,7 @@ body, h1, h2, h3, p, div {
   height: 100vh;
   overflow-X: hidden;
   overflow-y: scroll;
-  background-color: #130A2D;
+  background-color: #0D0620;
 }
 li a{
   text-decoration: none;
@@ -69,6 +69,7 @@ li a{
   width: 100%;
  }
 
+
 @media screen and (max-width: 1000px) {
   .AdminBarLogo{
     display: none;
@@ -94,7 +95,7 @@ li a{
   position: relative;
   font-size: 16px;
   border-radius: 0.5em;
-  background-color: #21242b;
+  background-color: #1C1C1E;
 
 }
 
@@ -214,6 +215,16 @@ li a{
 
 
 }
+.footer-flex{
+  display: flex;
+  flex-direction: column;
+}
+.footer{
+  height: max-content;
+}
+.footer-title{
+  font-size: 20px;
+}
 
 }
 
@@ -288,7 +299,29 @@ li a{
    .card-con{
     width: 90vw !important;
   }
+  .contact-form{
+    flex-direction: column;
+    width: 100%;
+  }
+  .footer{
+    height: max-content;
+  }
+  
 
+
+}
+@media screen and (max-width: 540px){
+  .footer-flex{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .app-btn{
+    width: 100%;
+    justify-content: space-between;
+
+  }
+ 
 
 }
 @media screen and (max-width: 900px) {
@@ -298,6 +331,20 @@ li a{
    }
    .card-con{
     width: 90vw !important;
+  }
+  .contact-form{
+    flex-direction: column;
+  }
+  .contact-feild{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .contact-info{
+    width: 100%;
+
+  }
+  .footer{
+    height: max-content;
   }
   
 }

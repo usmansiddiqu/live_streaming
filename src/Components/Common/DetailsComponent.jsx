@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Assets/styles/CardSlider.scss";
+import "../../Assets/styles/CardDetailss.scss";
 import DetailsIcon from "./DetailsIcon";
 import VideoPlayer from "./VideoPlayer";
 const dummyIcons = [
