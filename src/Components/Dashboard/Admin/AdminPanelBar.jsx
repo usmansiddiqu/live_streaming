@@ -7,6 +7,9 @@ import Tag from "../../../Assets/Icons/tags.png";
 import List from "../../../Assets/Icons/list.png";
 import HomeBar from "../../../Assets/Icons/volume-bars.png";
 import Group from "../../../Assets/Icons/group.png";
+import Gift from "../../../Assets/Icons/gift.png";
+import User from "../../../Assets/Icons/manager.png";
+import LogOut from "../../../Assets/Icons/log-out.png";
 import { Link, useNavigate } from "react-router-dom";
 function AdminPanelBar() {
   const [activeItem, setActiveItem] = useState({ id: null, name: null });
@@ -114,18 +117,28 @@ function AdminPanelBar() {
                       <ul class="py-1" role="none">
                         <li onClick={handleButtonClick}>
                           <a
-                            class="block px-4 py-2 text-sm text-black  dark:hover:bg-[#FF0015] cursor-pointer dark:hover:text-white"
+                            class="block px-4 py-2 text-sm text-black dark:hover:bg-[#c6c6c6] flex cursor-pointer "
                             role="menuitem"
                           >
-                            Profile
+                            <img
+                              src={User}
+                              alt=""
+                              className="w-[18px] h-[18px]"
+                            />
+                            <p className="ml-2"> Profile</p>
                           </a>
                         </li>
                         <li>
                           <a
-                            class="block px-4 py-2 text-sm text-black dark:hover:bg-[#FF0015] cursor-pointer dark:hover:text-white"
+                            class="block px-4 py-2 text-sm text-black dark:hover:bg-[#c6c6c6] flex cursor-pointer "
                             role="menuitem"
                           >
-                            Logout
+                            <img
+                              src={LogOut}
+                              alt=""
+                              className="w-[18px] h-[18px]"
+                            />
+                            <p className="ml-2"> LogOut</p>
                           </a>
                         </li>
                       </ul>
@@ -519,7 +532,7 @@ function AdminPanelBar() {
                   } ${isCollapsed ? "justify-end" : "justify-start"}`}
                 >
                   <img
-                    src={List}
+                    src={Gift}
                     alt=""
                     className={`w-[18px] h-[18px] flex ${
                       isCollapsed ? "mr-3" : "ml-2"
