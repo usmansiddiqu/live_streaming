@@ -19,7 +19,7 @@ function Button(props) {
         <div
           className="w-[120px] h-[35px] flex justify-evenly items-center"
           style={{ margin: "auto" }}
-          onClick={handleCLick}
+          onClick={props?.onClick || handleCLick}
         >
           <img
             src={props.src}

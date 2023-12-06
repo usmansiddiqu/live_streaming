@@ -5,6 +5,7 @@ import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import { getSliders, deleteSlider } from "../../../../api/slider.api";
 import ErrorComponent from "../../../../Components/Common/ErrorComponent";
+import { url } from "../../../../helper/url";
 function AdminSlider() {
   const navigate = useNavigate();
   const [slider, setSlider] = useState([]);
@@ -118,7 +119,9 @@ function AdminSlider() {
                           style={{ border: "1px solid #313133" }}
                         >
                           <img
-                            src={tvchannel}
+                            src={
+                              url + "\\" + sldr.image.replace("uploads\\", "")
+                            }
                             alt=""
                             className="w-[150px] h-[84px]"
                           />

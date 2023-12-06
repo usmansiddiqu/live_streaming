@@ -5,16 +5,7 @@ import DashHeader from "../Dashboard/DashHeader";
 
 function Card({ data, title }) {
   //icons
-  const dummyIcons = [
-    {
-      iconUrl: "https://cdn-icons-png.flaticon.com/128/1039/1039386.png",
-      name: "Icon 1",
-    },
-    {
-      iconUrl: "https://cdn-icons-png.flaticon.com/128/1201/1201923.png",
-      name: "Icon 2",
-    },
-  ];
+
   return (
     <div>
       <DashHeader title={title} />

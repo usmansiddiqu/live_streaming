@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import Banner1 from "../Assets/Images/MLB HD Pass.webp";
-import Banner2 from "../Assets/Images/NBA HD Pass.webp";
-import Banner3 from "../Assets/Images/NFL HD Pass.webp";
-import Banner4 from "../Assets/Images/NHL LIVE 4k.webp";
 import BannerButtons from "./BannerButtons";
 import "../Assets/styles/MainSlider.scss";
+import { getSliders } from "../api/slider.api";
+import { url } from "../helper/url";
+import { useNavigate } from "react-router-dom";
 
 function MainSlider() {
+  const [data, setData] = useState([]);
+  const getData = async () => {
+    const { data: response } = await getSliders();
+    setData(response?.data);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -37,22 +47,17 @@ function MainSlider() {
         }}
         style={{ borderRadius: "20px" }}
       >
-        <SplideSlide className="rounded">
-          <img src={Banner1} alt="Image 1" />
-          <BannerButtons />
-        </SplideSlide>
-        <SplideSlide>
-          <img src={Banner2} alt="Image 2" />
-          <BannerButtons />
-        </SplideSlide>
-        <SplideSlide>
-          <img src={Banner3} alt="Image 3" />
-          <BannerButtons />
-        </SplideSlide>
-        <SplideSlide>
-          <img src={Banner4} alt="Image 4" />
-          <BannerButtons />
-        </SplideSlide>
+        {data
+          ?.filter((card) => card?.status)
+          .map((card, key) => (
+            <SplideSlide className="rounded">
+              <img
+                src={url + "\\" + card.image.replace("uploads\\", "")}
+                alt={`Image ${key}`}
+              />
+              <BannerButtons onWatch={() => navigate(`/live/${card._id}`)} />
+            </SplideSlide>
+          ))}
       </Splide>
     </div>
   );
