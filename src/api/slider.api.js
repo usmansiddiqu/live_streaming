@@ -18,10 +18,15 @@ const deleteSlider = async (id) => {
 const getSpecific = async (id) => {
   return await axiosInstance.get(`/slider/getSpecificSlider/${id}`);
 };
+
+const getSpecificDetails = async (id) => {
+  return await axiosInstance.get(`/slider/detail/${id}`);
+};
 module.exports = {
   createSlider,
   getSliders,
   editSlider,
   deleteSlider,
   getSpecific,
+  getSpecificDetails,
 };
