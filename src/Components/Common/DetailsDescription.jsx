@@ -1,8 +1,22 @@
 import React from "react";
+import { createWishList } from "../../api/wishList.api";
+import { useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 function DetailsDescription({ data, setUrl }) {
+  const { id } = useParams();
+  const addToWishList = async () => {
+    try {
+      const { data: response } = await createWishList({ eventId: id });
+      toast.success("Added to Wishlist");
+    } catch (error) {
+      console.log(error);
+      toast.error("Failed to Add");
+    }
+  };
   return (
     <div className="flex justify-center mt-8 ">
+      <ToastContainer limit={1} />
       <div className=" bg-[#190D39] w-[80rem] pt-12 pb-6 ps-7">
         <div className=" flex gap-3">
           <button
@@ -92,7 +106,12 @@ function DetailsDescription({ data, setUrl }) {
                 .replace(/,/g, "")}
           </p>
           <br />
-          <button className="bg-[#118D04] hover:bg-white text-white hover:text-[#118D04] font-bold py-2 px-4 rounded flex gap-1 items-center">
+          <button
+            className="bg-[#118D04] hover:bg-white text-white hover:text-[#118D04] font-bold py-2 px-4 rounded flex gap-1 items-center"
+            onClick={() => {
+              addToWishList();
+            }}
+          >
             <svg
               fill="#FFFFFF"
               width="20px"
