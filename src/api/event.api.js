@@ -12,4 +12,18 @@ const getEventsByType = async (type) => {
   return await axiosInstance.get(`/liveTV/events/type/${type}`);
 };
 
-module.exports = { getEvents, getEventById, getEventsByType };
+const deleteEventById = async (id) => {
+  return await axiosInstance.delete(`/liveTV/event/${id}`);
+};
+
+const editEventById = async (id, body) => {
+  return await axiosInstance.put(`/liveTV/event/${id}`, body);
+};
+
+module.exports = {
+  getEvents,
+  getEventById,
+  getEventsByType,
+  deleteEventById,
+  editEventById,
+};

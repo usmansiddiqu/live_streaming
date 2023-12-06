@@ -11,6 +11,7 @@ import Signup from "./Pages/Signup";
 import Profile from "./Pages/Profile";
 import Plans from "./Pages/Plans/PlansPage";
 import DetailsPage from "./Pages/DetailsPage/DetailsPage";
+import BannerPage from "./Pages/DetailsPage/BannerPage";
 import AdminPanel from "./Pages/AdminPanel";
 import AdminPanelWrapper from "./Pages/AdminPanel";
 import { useState } from "react";
@@ -48,6 +49,7 @@ function App() {
             <>
               <Route path="/profile" element={<Profile />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/live/:id" element={<BannerPage />} />
               <Route path="/:type/live/:id" element={<DetailsPage />} />
               <Route path="/membership_plan/:id" element={<Plans />} />
 

@@ -68,7 +68,7 @@ function AdminPanelWrapper() {
         />
         <Route path="/live_tv/edit_live_tv/:id" element={<EditLiveTv />} />
         <Route
-          path="/assign_live_tv/assign_tv_edit"
+          path="/assign_live_tv/assign_tv_edit/:id"
           element={<EditAssignTv />}
         />
         <Route path="/slider/edit_slider/:id" element={<EditSlider />} />
