@@ -2,15 +2,30 @@ import React, { useEffect, useState } from "react";
 import "../../Assets/styles/CardDetailss.scss";
 import DetailsIcon from "./DetailsIcon";
 import VideoPlayer from "./VideoPlayer";
+import axiosInstance from "../../api";
+import axios from "axios";
+import { url as url1 } from "../../helper/url";
 
 function BannerDetailComponent({ data, url }) {
   const [show, setShow] = useState(true);
-  const [videoPlayer, setVideoPlayer] = useState(false);
+  // const [videoPlayer, setVideoPlayer] = useState(false);
   // setTimeout(() => setShow(true), 10000);
+  const getData = async () => {
+    try {
+      const response = await axios.get(url);
+      setShow(true);
+    } catch (error) {
+      setShow(false);
+      console.log(123, error);
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, [url]);
   return (
     <div className="flex !justify-center">
       {show ? (
-        <VideoPlayer url={url} />
+        <VideoPlayer url={url} setShow={setShow} />
       ) : (
         <div
           className="!w-[80rem] !h-[35rem]"
@@ -37,15 +52,19 @@ function BannerDetailComponent({ data, url }) {
               margin: "auto",
             }}
           ></div>
-
-          <div className="" style={{ marginTop: "25px" }}>
+          <img
+            className="mx-auto"
+            src={url1 + "\\" + data?.image?.replace("uploads\\", "")}
+          />
+          {/* <div className="" style={{ marginTop: "25px" }}>
             <DetailsIcon
               iconsData={data?.data?.competitors?.map((comp) => ({
                 iconUrl: comp.logo,
                 name: comp.name,
               }))}
             />
-          </div>
+            {console.log(url1 + "\\" + data.image.replace("uploads\\", ""))}
+          </div> */}
         </div>
       )}
     </div>

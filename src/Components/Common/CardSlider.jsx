@@ -81,7 +81,7 @@ const CardSlider = ({ data }) => {
                   />
                   <Ended
                     show={
-                      new Date(item?.data?.date) <
+                      new Date(item?.data?.date) >
                       new Date().setHours(new Date().getHours() + 4)
                     }
                   />
