@@ -169,7 +169,7 @@ function AdminPanelBar() {
         >
           <div class="h-full side-Bar pb-4 overflow-y-auto bg-[#0c0c0d]">
             <ul class=" font-medium">
-              {/* <li
+              <li
                 className={activeItem.id === "dashboard" ? "active" : ""}
                 onClick={() => handleItemClick("dashboard", "Dashboard")}
               >
@@ -191,7 +191,7 @@ function AdminPanelBar() {
                     </span>
                   )}
                 </a>
-              </li> */}
+              </li>
 
               {/*  ------------------------LIVE TV ---------------------- */}
               <li
@@ -422,7 +422,7 @@ function AdminPanelBar() {
                 </ul>
               )}
               {/*  ------------------------USERS---------------------- */}
-              {/* <li
+              <li
                 id="Users"
                 className={`mt-1 ${activeItem.id === "Users" ? "active" : ""}`}
                 onClick={() => {
@@ -518,7 +518,7 @@ function AdminPanelBar() {
                     </a>
                   </li>
                 </ul>
-              )} */}
+              )}
               <li
                 id="Coupons"
                 className={`mt-1 ${
