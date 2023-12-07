@@ -97,7 +97,9 @@ function AdminPanelBar() {
                     </svg>
                   </button>
                 </div>
-                <h1 className="text-white ml-2">{activeItem.name || ""}</h1>
+                <h1 className="text-white text-start ml-2">
+                  {activeItem.name || ""}
+                </h1>
                 <div class="flex items-center">
                   <div class="flex items-center ms-3">
                     <div className="flex items-center">

@@ -34,12 +34,13 @@ function TVChannel() {
   const handleButtonClick = (chnl) => {
     navigate(`/admin/live_tv/edit_live_tv/${chnl._id}`);
   };
+
   const handleCreateButtonClick = () => {
     navigate("/admin/live_tv/add_live_tv");
   };
   const getChannels = async () => {
     const { data: response } = await getChannel();
-    console.log(response.live);
+    console.log(response.live, "chnl123123");
     setChannel(response.liveTVs);
   };
   const paginatedData = paginate(currentPage);
@@ -76,7 +77,7 @@ function TVChannel() {
               {error && <ErrorComponent message={error} />}
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[60%] tvChannel-head justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center w-[65%] tvChannel-head justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <div className="bg-[#313133] Category-Filter rounded">
                       <button
                         id="dropdownActionButton"
@@ -196,7 +197,7 @@ function TVChannel() {
                     </div>
 
                     <button
-                      className="w-[120px] h-[4vh] Add-tv bg-[#0EAC5C] font-medium rounded-md "
+                      className="w-[120px] h-[4vh] Add-tv bg-[#0EAC5C] font-medium rounded-md"
                       onClick={handleCreateButtonClick}
                     >
                       <span className="text-white text-sm dark:text-white">

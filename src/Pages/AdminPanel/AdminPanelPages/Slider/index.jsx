@@ -119,13 +119,15 @@ function AdminSlider() {
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          <img
-                            src={
-                              url + "\\" + sldr.image.replace("uploads\\", "")
-                            }
-                            alt=""
-                            className="w-[150px] h-[84px]"
-                          />
+                          <div className="tv-img w-[150px] h-[84px]">
+                            <img
+                              src={
+                                url + "\\" + sldr.image.replace("uploads\\", "")
+                              }
+                              alt=""
+                              className="w-[150px] h-[84px]"
+                            />
+                          </div>
                         </th>
                         <td
                           class="px-6 py-4 dark:text-white"
