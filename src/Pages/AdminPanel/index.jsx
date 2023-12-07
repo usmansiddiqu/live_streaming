@@ -37,6 +37,8 @@ function AdminPanelWrapper() {
       if (data?.userType == "user") {
         navigate("/");
       }
+    } else {
+      navigate("/");
     }
   }, []);
   return (
