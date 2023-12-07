@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-// import Image from "../Assets/Icons/person.png";
+import avatar from "../Assets/Icons/person.png";
 import logo from "../Assets/Icons/PixelSportLogo.png";
 import Account from "../Assets/Icons/account.png";
 import Subscribe from "../Assets/Icons/crown.png";
@@ -208,7 +208,7 @@ function Nav() {
                               : image instanceof File
                               ? URL.createObjectURL(image)
                               : image
-                            : null
+                            : avatar
                         }
                       />
                       {isDropdownOpen && (
