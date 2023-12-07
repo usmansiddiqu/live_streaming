@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default getSpecificDetails = async (id) => {
+const getSpecificDetails = async (id) => {
   return await axiosInstance.get(`/slider/detail/${id}`);
 };
+export default getSpecificDetails;

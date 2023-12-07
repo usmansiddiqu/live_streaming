@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default getEvents = async () => {
+const getEvents = async () => {
   return await axiosInstance.get("/liveTV/events");
 };
+export default getEvents;

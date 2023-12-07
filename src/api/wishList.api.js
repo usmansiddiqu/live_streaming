@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default getWishList = async () => {
+const getWishList = async () => {
   return axiosInstance.get("/wishList/getAllWishListById");
 };
+export default getWishList;

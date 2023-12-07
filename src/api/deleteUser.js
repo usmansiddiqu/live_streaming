@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default deleteSingleUser = async (id) => {
+const deleteSingleUser = async (id) => {
   return await axiosInstance.delete(`/auth/deleteUser/${id}`);
 };
+export default deleteSingleUser;

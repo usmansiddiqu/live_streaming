@@ -1,4 +1,5 @@
 const { default: axiosInstance } = require(".");
-export default getAllSubAdmin = async () => {
+const getAllSubAdmin = async () => {
   return await axiosInstance.get("/auth/getSubAdmins");
 };
+export default getAllSubAdmin;

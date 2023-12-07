@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default getCategoryDetail = async (id) => {
+const getCategoryDetail = async (id) => {
   return await axiosInstance.get(`/category/getCategoryById/${id}`);
 };
+export default getCategoryDetail;

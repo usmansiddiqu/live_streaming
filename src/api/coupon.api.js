@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default deleteCoupon = async (id) => {
+const deleteCoupon = async (id) => {
   return await axiosInstance.delete(`/coupon/${id}`);
 };
+export default deleteCoupon;

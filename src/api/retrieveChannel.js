@@ -1,6 +1,7 @@
 const { default: axiosInstance } = require(".");
 
-export default getChannel = async () => {
+const getChannel = async () => {
   const result = await axiosInstance.get("/liveTV/getAllLiveTVs");
   return result;
 };
+export default getChannel;

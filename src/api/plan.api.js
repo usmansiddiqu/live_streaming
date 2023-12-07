@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default getPlans = async () => {
+const getPlans = async () => {
   return await axiosInstance.get("/packages");
 };
+export default getPlans;

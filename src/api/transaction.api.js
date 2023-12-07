@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default getTransactions = async () => {
+const getTransactions = async () => {
   return await axiosInstance.get("/transactions");
 };
+export default getTransactions;

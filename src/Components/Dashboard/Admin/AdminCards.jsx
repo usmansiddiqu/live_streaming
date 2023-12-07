@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../../App.css";
 import CustomBarChart from "../../../Components/Common/Graph";
-import { getDashboardData } from "../../../api/auth.api";
+import getDashboardData from "../../../api/authGetDashboard";
 const AdminCards = () => {
   const [data, setData] = useState(null);
   const getData = async () => {

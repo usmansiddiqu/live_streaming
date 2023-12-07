@@ -1,3 +1,5 @@
-export default clearLocalStorage = async () => {
+const clearLocalStorage = async () => {
   localStorage.clear();
 };
+
+export default clearLocalStorage;

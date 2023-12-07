@@ -1,6 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default getAllUsers = async (skip, filter) => {
+const getAllUsers = async (skip, filter) => {
   let url = `/auth/getAllUsers/${skip}`;
   if (filter) {
     url = `${url}?searchString=${filter}`;
@@ -8,3 +8,4 @@ export default getAllUsers = async (skip, filter) => {
 
   return await axiosInstance.get(url);
 };
+export default getAllUsers;

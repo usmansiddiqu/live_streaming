@@ -7,7 +7,7 @@ import Footer from "../../Components/Footer";
 import { useParams } from "react-router-dom";
 import verifyPayments from "../../api/payment.api";
 import { ToastContainer, toast } from "react-toastify";
-import { getDetails } from "../../api/auth.api";
+import getDetails from "../../api/authGetDetails";
 function PlansPage() {
   const params = useParams();
   const [result, setResult] = useState(null);

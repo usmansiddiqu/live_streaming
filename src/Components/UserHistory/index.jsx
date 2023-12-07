@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
+import authGetUserHistory from "../../api/authGetUserHistory";
 
 function UserHistory() {
   const params = useParams();
+  const [data, setData] = useState(null);
+  const getData = async () => {
+    const { data: response } = await authGetUserHistory(params.id);
+    console.log(response);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div
       style={{

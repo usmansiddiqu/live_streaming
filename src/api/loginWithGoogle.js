@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default loginWithGoogle = async (data) => {
+const loginWithGoogle = async (data) => {
   return await axiosInstance.post("/auth/loginWithGoogle", data);
 };
+export default loginWithGoogle;

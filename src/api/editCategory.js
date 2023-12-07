@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default updateCategory = async (data) => {
+const updateCategory = async (data) => {
   return await axiosInstance.post(`/category/updateCategory`, data);
 };
+export default updateCategory;

@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default codeverification = async (data) => {
+const codeverification = async (data) => {
   return await axiosInstance.post("/auth/codeverification", data);
 };
+export default codeverification;

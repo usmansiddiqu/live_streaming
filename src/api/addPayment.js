@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default createPayment = async (data) => {
+const createPayment = async (data) => {
   return await axiosInstance.post("/payment", data);
 };
+export default createPayment;

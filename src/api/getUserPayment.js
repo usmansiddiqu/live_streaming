@@ -1,5 +1,7 @@
 const { default: axiosInstance } = require(".");
 
-export default getUserPayments = async () => {
+const getUserPayments = async () => {
   return await axiosInstance.get("/payment/user");
 };
+
+export default getUserPayments;

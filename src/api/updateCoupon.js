@@ -1,5 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-export default editCoupon = async (data) => {
+const editCoupon = async (data) => {
   return await axiosInstance.put(`/coupon`, data);
 };
+export default editCoupon;
