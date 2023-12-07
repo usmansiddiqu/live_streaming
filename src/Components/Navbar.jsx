@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-// import Image from "../Assets/Icons/person.png";
+import Image from "../Assets/Icons/person.png";
 import logo from "../Assets/Icons/PixelSportLogo.png";
 import Account from "../Assets/Icons/account.png";
 import Subscribe from "../Assets/Icons/crown.png";
@@ -173,17 +173,7 @@ function Nav() {
               <div className="nav-Icons">
                 <div className="w-[55px]" onClick={handleNavigate}>
                   <div className="Sub-Icon rounded-md flex justify-center items-center">
-                    <img
-                      src={
-                        typeof image === "string"
-                          ? image
-                          : image instanceof File
-                          ? URL.createObjectURL(image)
-                          : null
-                      }
-                      alt=""
-                      className="w-[21px] h-[25px]"
-                    />
+                    <img src={Subscribe} alt="" className="w-[21px] h-[25px]" />
                   </div>
                 </div>
                 {/* <div className="w-[50px]">
@@ -333,7 +323,16 @@ function Nav() {
                         style={{ margin: "auto" }}
                       >
                         <div style={{ width: "18px", height: "18px" }}>
-                          <img src={Account} alt="" />
+                          <img
+                            src={
+                              typeof image === "string"
+                                ? image
+                                : image instanceof File
+                                ? URL.createObjectURL(image)
+                                : null
+                            }
+                            alt=""
+                          />
                         </div>
                         <span style={{ fontSize: "14px" }}>
                           <Link to="/login"> LOGIN</Link>
