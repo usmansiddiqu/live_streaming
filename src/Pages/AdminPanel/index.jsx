@@ -34,7 +34,7 @@ function AdminPanelWrapper() {
   useEffect(() => {
     if (localStorage.getItem("data")) {
       const data = JSON.parse(localStorage.getItem("data"));
-      if (data?.userType == "user") {
+      if (data?.usertype == "user") {
         navigate("/");
       }
     } else {
@@ -77,7 +77,7 @@ function AdminPanelWrapper() {
         <Route path="/home_sections/edit" element={<EditHomeSection />} />
         <Route path="/users/edit_user/:id" element={<EditUser />} />
         <Route path="/sub_admin/edit_user/:id" element={<EditSubAdmin />} />
-        <Route path="/users/history" element={<UserHistory />} />
+        <Route path="/users/history/:id" element={<UserHistory />} />
 
         {/* Add Button Routes */}
         <Route path="/tv_category/add_category" element={<AddTvCategory />} />

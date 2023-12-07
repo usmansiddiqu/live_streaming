@@ -196,7 +196,7 @@ function Nav() {
                                   flexDirection: "column",
                                 }}
                               >
-                                {data?.userType == "admin" ? (
+                                {data?.usertype == "admin" ? (
                                   <>
                                     <li className="w-[100%] list-none p-2">
                                       <a

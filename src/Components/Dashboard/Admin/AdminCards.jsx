@@ -1,26 +1,50 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../../../App.css";
 import CustomBarChart from "../../../Components/Common/Graph";
+import { getDashboardData } from "../../../api/auth.api";
 const AdminCards = () => {
+  const [data, setData] = useState(null);
+  const getData = async () => {
+    const { data: response } = await getDashboardData();
+    setData([
+      1,
+      response.liveTv,
+      response.Users,
+      response.Transactions,
+      response.todayAmount,
+      response.weekAmount,
+      response.monthAmount,
+      response.yearAmount,
+    ]);
+  };
   useEffect(() => {
-    let valueDisplays = document.querySelectorAll(".num");
-    let interval = 400;
-
-    valueDisplays.forEach((valueDisplay) => {
-      let startValue = 0;
-      let endValue = parseInt(valueDisplay.getAttribute("data-val"));
-      let duration = Math.floor(interval / endValue);
-      let counter = setInterval(function () {
-        startValue += 1;
-        valueDisplay.textContent = startValue;
-        if (startValue === endValue) {
-          clearInterval(counter);
-        }
-      }, duration);
-
-      return () => clearInterval(counter);
-    });
+    getData();
   }, []);
+  useEffect(() => {
+    if (data) {
+      let valueDisplays = document.querySelectorAll(".num");
+      let duration = 300;
+      let interval = 100;
+
+      valueDisplays.forEach((valueDisplay, i) => {
+        let startValue = 0;
+        let endValue = data[i];
+        let steps = Math.ceil(duration / interval);
+        let stepValue = (endValue - startValue) / steps;
+
+        let counter = setInterval(function () {
+          startValue += stepValue;
+          valueDisplay.textContent = Math.round(startValue);
+          if (startValue >= endValue) {
+            valueDisplay.textContent = endValue;
+            clearInterval(counter);
+          }
+        }, interval);
+
+        return () => clearInterval(counter);
+      });
+    }
+  }, [data]);
 
   return (
     <>

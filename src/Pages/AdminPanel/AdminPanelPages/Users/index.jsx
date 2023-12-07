@@ -38,8 +38,8 @@ function Users() {
   const handleButtonClick = (user) => {
     navigate(`/admin/users/edit_user/${user._id}`);
   };
-  const handleHistoryButtonClick = () => {
-    navigate("/admin/users/history");
+  const handleHistoryButtonClick = (id) => {
+    navigate(`/admin/users/history/${id}`);
   };
   const handleCreateButtonClick = () => {
     navigate("/admin/users/add_user");
@@ -282,7 +282,7 @@ function Users() {
                           <div className="flex">
                             <button
                               className="  relative w-[36px] h-[33px] rounded z-10 bg-[#FF0015] hover:before:absolute hover:before:bg-black hover:before:content-['History'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
-                              onClick={handleHistoryButtonClick}
+                              onClick={() => handleHistoryButtonClick(user._id)}
                             >
                               <img
                                 src={Eye}
