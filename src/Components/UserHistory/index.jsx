@@ -7,7 +7,7 @@ function UserHistory() {
   const [data, setData] = useState(null);
   const getData = async () => {
     const { data: response } = await authGetUserHistory(params.id);
-    console.log(response);
+    setData(response?.data);
   };
   useEffect(() => {
     getData();
@@ -24,6 +24,7 @@ function UserHistory() {
         margin: "auto",
       }}
     >
+      {console.log(data)}
       <div className=" mt-20 ">
         <div className="flex flex-col">
           <div
@@ -31,28 +32,35 @@ function UserHistory() {
             style={{ position: "relative", left: "7%" }}
           >
             <div className="w-[65%]  bg-[#1C1C1E] user-edit flex justify-between rounded p-5">
-              <img src="" alt="" className="w-[200px] h-[200px] border-[5px]" />
+              {/* <img src="" alt="" className="w-[200px] h-[200px] border-[5px]" /> */}
               <div className="user-info flex justify-between w-[45vw]  p-4">
                 <div>
-                  <h1 className="text-lg text-white font-bold">Matt</h1>
+                  <h1 className="text-lg text-white font-bold">
+                    {data?.user?.name}
+                  </h1>
                   <div className="flex items-center">
                     <h1 className="text-md text-white font-bold">Email :</h1>
                     <h2 className="text-sm text-white ml-2">
-                      mbrown4487@yahoo.com
+                      {data?.user?.email}
                     </h2>
                   </div>
                   <div className="flex items-center mb-5">
                     <h1 className="text-md text-white font-bold">Phone :</h1>
-                    <h2 className="text-sm text-white ml-2"></h2>
+                    <h2 className="text-sm text-white ml-2">
+                      {data?.user?.phone}
+                    </h2>
                   </div>
                   <div className="flex items-center">
                     <h1 className="text-md text-white font-bold">Address :</h1>
-                    <h2 className="text-sm text-white ml-2"></h2>
+                    <h2 className="text-sm text-white ml-2">
+                      {" "}
+                      {data?.user?.address}
+                    </h2>
                   </div>
                 </div>
                 <div>
                   <div className="active-user-btn bg-[#0EAC5C] w-[60px] text-center text-white rounded text-sm">
-                    Active
+                    {data?.user?.status}
                   </div>
                 </div>
               </div>
@@ -73,7 +81,10 @@ function UserHistory() {
                           </div>
                           <div className="w-[100%]  text-start">
                             <h3>
-                              Free Service - No Card Required
+                              {data?.payments.length
+                                ? data?.payments?.[0].packageId?.name
+                                : "No Service Availed"}
+
                               <br />
                               <p className="mt-1 text-xs">Current Plan</p>
                             </h3>
@@ -92,7 +103,22 @@ function UserHistory() {
                           </div>
                           <div className="w-[100%]  text-start">
                             <h3>
-                              December,03,2023
+                              {data?.payments.length
+                                ? new Date(
+                                    new Date(
+                                      data?.payments?.[0].createdAt
+                                    ).getTime() +
+                                      data?.payments?.[0].packageId?.days *
+                                        24 *
+                                        60 *
+                                        60 *
+                                        1000
+                                  ).toLocaleDateString("en-US", {
+                                    month: "long",
+                                    day: "numeric",
+                                    year: "numeric",
+                                  })
+                                : "No Service Availed"}
                               <br />
                               <p className="mt-1 text-xs">
                                 Subscription expires on
@@ -161,50 +187,56 @@ function UserHistory() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                    style={{ border: "1px solid #313133" }}
-                  >
-                    greg@tt.com
-                  </th>
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                    style={{ border: "1px solid #313133" }}
-                  >
-                    Free Service - No Card required
-                  </th>
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                    style={{ border: "1px solid #313133" }}
-                  >
-                    $ 0.00
-                  </th>
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                    style={{ border: "1px solid #313133" }}
-                  >
-                    NA
-                  </th>
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                    style={{ border: "1px solid #313133" }}
-                  >
-                    -
-                  </th>
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                    style={{ border: "1px solid #313133" }}
-                  >
-                    Nov 24 2023 03:13 AM
-                  </th>
-                </tr>
+                {data?.payments?.length ? (
+                  data?.payments?.map((data) => {
+                    <tr>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {data?.user?.email}
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {data?.payments?.packageId?.name}
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        $ {data?.payments?.packageId?.amount}
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {data?.payments?.packageId?.amount ? "PayCEC" : "-"}
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        $ {data?.payments?._id}
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {data?.payments?.createdAt}
+                      </th>
+                    </tr>;
+                  })
+                ) : (
+                  <></>
+                )}
               </tbody>
             </table>
           </div>

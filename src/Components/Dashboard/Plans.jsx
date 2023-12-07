@@ -56,7 +56,6 @@ function Plans({ userData }) {
               style={{ paddingTop: "2px" }}
             />
           </p>
-          {console.log(userData)}
           <div className="mt-3 flex flex-col gap-3">
             <div className="flex ">
               <p>Current Plan:</p>
