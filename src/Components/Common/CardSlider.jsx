@@ -7,6 +7,12 @@ import { useNavigate } from "react-router-dom";
 import Ended from "./Ended";
 
 const CardSlider = ({ data }) => {
+  function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + "...";
+    }
+    return text;
+  }
   const splideOptions = {
     perPage: 1,
     perMove: 1,
@@ -56,16 +62,13 @@ const CardSlider = ({ data }) => {
                   } 50%)`,
                 }}
               >
-                <div
-                  className="placeAndTime border w-[100%] h-[auto] p-1  flex justify-between flex-row  bg-[black] bg-opacity-40"
-                  style={{
-                    padding: "0 10px",
-                  }}
-                >
+                <div className="placeAndTime border w-[100%] h-[auto] p-1  flex justify-between flex-row  bg-[black] bg-opacity-40">
                   {console.log(item)}
-                  <p className="text-white text-sm">{item.data.location}</p>
                   <p className="text-white text-sm">
-                    {item.data.date.split("T")[0]}
+                    {truncateText(item.data.location, 20)}
+                  </p>
+                  <p className="text-white text-sm">
+                    {truncateText(item.data.date.split("T")[0], 10)}
                   </p>
                 </div>
 
