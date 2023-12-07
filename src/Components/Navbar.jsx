@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import Image from "../Assets/Icons/person.png";
+// import Image from "../Assets/Icons/person.png";
 import logo from "../Assets/Icons/PixelSportLogo.png";
 import Account from "../Assets/Icons/account.png";
 import Subscribe from "../Assets/Icons/crown.png";
@@ -23,8 +23,15 @@ import Profile from "../Assets/Icons/user.png";
 import Watchlist from "../Assets/Icons/watchlist.png";
 import Logout from "../Assets/Icons/logout.png";
 import clearLocalStorage from "../helper/localstorage";
+import { url } from "../helper/url";
 
 function Nav() {
+  const isGoogleImageUrl = (url) => {
+    const googleImageUrlRegex =
+      /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
+    console.log(googleImageUrlRegex.test(url));
+    return googleImageUrlRegex.test(url);
+  };
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -34,8 +41,14 @@ function Nav() {
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [image, setImage] = useState(
-    data?.image ? JSON.parse(localStorage.getItem(data?.image)) : null
+    data?.image
+      ? isGoogleImageUrl(data.image)
+        ? image
+        : url + "\\" + data.image.replace("uploads\\", "")
+      : null
   );
+
+  console.log(image);
   console.log(data, "iamge123");
   const navigate = useNavigate();
 
@@ -61,6 +74,7 @@ function Nav() {
   const handleNavigate = () => {
     navigate("/membership_plan");
   };
+
   return (
     <AppBar
       position="static"
@@ -187,7 +201,15 @@ function Nav() {
                       <img
                         className="avatar w-[40px] h-[40px] rounded-full cursor-pointer"
                         onClick={toggleDropdown}
-                        src={Image}
+                        src={
+                          typeof image === "string"
+                            ? isGoogleImageUrl(image)
+                              ? image
+                              : image instanceof File
+                              ? URL.createObjectURL(image)
+                              : image
+                            : null
+                        }
                       />
                       {isDropdownOpen && (
                         <>
@@ -326,9 +348,11 @@ function Nav() {
                           <img
                             src={
                               typeof image === "string"
-                                ? image
-                                : image instanceof File
-                                ? URL.createObjectURL(image)
+                                ? isGoogleImageUrl(image)
+                                  ? image
+                                  : image instanceof File
+                                  ? URL.createObjectURL(image)
+                                  : image
                                 : null
                             }
                             alt=""
