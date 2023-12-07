@@ -349,7 +349,7 @@ function Nav() {
                             alt=""
                           />
                         </div>
-                        <span style={{ fontSize: "14px" }}>
+                        <span style={{ fontSize: "14px" }} className="mr-3 ">
                           <Link to="/login"> LOGIN</Link>
                         </span>
                       </div>
