@@ -39,8 +39,13 @@ const sendVerificationCode = async (data) => {
 const codeverification = async (data) => {
   return await axiosInstance.post("/auth/codeverification", data);
 };
+
+const getDetails = async () => {
+  return await axiosInstance.post("/auth/get");
+};
 module.exports = {
   login,
+  getDetails,
   signup,
   loginWithGoogle,
   createUser,
