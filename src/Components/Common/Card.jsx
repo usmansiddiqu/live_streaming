@@ -2,6 +2,7 @@ import React from "react";
 import TeamIcons from "./TeamIcons";
 import Dashboard from "../../Pages/Dashboard";
 import DashHeader from "../Dashboard/DashHeader";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Card({ data, title }) {
   const params = useParams();
