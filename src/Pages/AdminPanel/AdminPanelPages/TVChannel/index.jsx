@@ -4,11 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import ErrorComponent from "../../../../Components/Common/ErrorComponent";
-import {
-  getChannel,
-  deleteSpecificChannel,
-} from "../../../../api/tvChannel.api";
-
+import deleteSpecificChannel from "../../../../api/tvChannel.api";
+import getChannel from "../../../../api/retrieveChannel";
 function TVChannel() {
   const [activeItem, setActiveItem] = useState(1);
   const [channel, setChannel] = useState([]);

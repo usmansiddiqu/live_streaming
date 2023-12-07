@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getTransactions } from "../../../../api/transaction.api";
+import getTransactions from "../../../../api/transaction.api";
 
 function Transactions() {
   const [activeItem, setActiveItem] = useState(1);

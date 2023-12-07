@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import plan from "../../utils/images/plan.png";
-import { availCoupon } from "../../api/coupon.api";
+import availCoupon from "../../api/availtheCoupon";
 import { ToastContainer, toast } from "react-toastify";
 
 function Coupon() {

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import plan from "../../utils/images/plan.png";
-import { getPlans } from "../../api/plan.api";
+import getPlans from "../../api/plan.api";
 import { useNavigate } from "react-router-dom";
-import { availFreePayment, createPayment } from "../../api/payment.api";
+import availFreePayment from "../../api/availFree";
+import createPayment from "../../api/addPayment";
 import ErrorComponent from "../Common/ErrorComponent";
 function PlanCards() {
   const navigate = useNavigate();

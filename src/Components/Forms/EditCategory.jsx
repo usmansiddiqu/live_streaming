@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { getCategoryDetail, updateCategory } from "../../api/category.api";
-
+import updateCategory from "../../api/editCategory";
+import getCategoryDetail from "../../api/categoryDetails";
 function EditCategory() {
   const navigate = useNavigate();
   const params = useParams();

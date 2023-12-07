@@ -3,8 +3,8 @@ import { url } from "../../helper/url";
 import ErrorComponent from "../Common/ErrorComponent";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { getSpecificUser } from "../../api/auth.api";
-import { editSubAdmin } from "../../api/subadmins.api";
+import getSpecificUser from "../../api/specificUser";
+import editSubAdmin from "../../api/updateSubadmin";
 import { useEffect } from "react";
 function AdminProfile() {
   const [image, setImage] = useState(null);

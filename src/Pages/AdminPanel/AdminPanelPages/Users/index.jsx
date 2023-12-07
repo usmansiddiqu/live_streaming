@@ -3,7 +3,8 @@ import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import Eye from "../../../../Assets/Icons/eye-open.png";
 import { useNavigate } from "react-router-dom";
-import { deleteSingleUser, getAllUsers } from "../../../../api/auth.api";
+import getAllUsers from "../../../../api/getAllUsers";
+import deleteSingleUser from "../../../../api/deleteUser";
 import ErrorComponent from "../../../../Components/Common/ErrorComponent";
 
 function Users() {

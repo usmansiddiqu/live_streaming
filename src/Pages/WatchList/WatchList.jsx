@@ -3,7 +3,7 @@ import DashHeader from "../../Components/Dashboard/DashHeader";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import CardSliders from "../../Components/Common/CardSliders";
-import { getWishList } from "../../api/wishList.api";
+import getWishList from "../../api/wishList.api";
 import SliderHeaders from "../../Components/Common/SliderHeaders";
 function WatchList() {
   const [watchList, setWatchList] = useState([]);

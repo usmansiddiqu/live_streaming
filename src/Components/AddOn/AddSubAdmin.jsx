@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ErrorComponent from "../Common/ErrorComponent";
-import { addSubAdmin } from "../../api/subadmins.api";
+import addSubAdmin from "../../api/addSubadmin";
 import { useNavigate } from "react-router-dom";
 
 function AddSubAdmin() {

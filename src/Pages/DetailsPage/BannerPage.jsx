@@ -5,9 +5,9 @@ import DetailsComponent from "../../Components/Common/DetailsComponent";
 import DetailsDescription from "../../Components/Common/DetailsDescription";
 import TeamScore from "../../Components/Common/TeamScore";
 import DetailsSlider from "../../Components/Common/BannerSlider";
-import { getEventById } from "../../api/event.api";
+import getEventById from "../../api/eventById";
 import { useParams } from "react-router-dom";
-import { getSpecificDetails } from "../../api/slider.api";
+import getSpecificDetails from "../../api/slider.api";
 import BannerDetailComponent from "../../Components/Common/BannerDetailComponent";
 import BannerDetailsDescription from "../../Components/Common/BannerDetailsDescription";
 function BannerPage() {

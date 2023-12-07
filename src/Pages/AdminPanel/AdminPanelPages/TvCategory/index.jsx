@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
-import {
-  deleteCategoryById,
-  getCategories,
-} from "../../../../api/category.api";
-
+import deleteCategoryById from "../../../../api/category.api";
+import getAllCategories from "../../../../api/getCategory";
 function TVCategory() {
   const navigate = useNavigate();
 
@@ -19,7 +16,7 @@ function TVCategory() {
 
   const [data, setData] = useState();
   const getData = async () => {
-    const { data: response } = await getCategories();
+    const { data: response } = await getAllCategories();
     setData(response.categories);
   };
   const deleteCategory = async (id) => {

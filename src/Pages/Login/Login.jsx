@@ -3,8 +3,9 @@ import "../../App.css";
 import logo from "../../Assets/Icons/PixelSportLogo.png";
 import ErrorComponent from "../../Components/Common/ErrorComponent";
 import { Link, useNavigate } from "react-router-dom";
-import { clearLocalStorage } from "../../helper/localstorage";
-import { login, loginWithGoogle } from "../../api/auth.api";
+import clearLocalStorage from "../../helper/localstorage";
+import loginWithGoogle from "../../api/loginWithGoogle";
+import login from "../../api/login";
 // import { GoogleLogin } from "react-google-login";
 import { GoogleLogin } from "@react-oauth/google";
 const clientSecret =

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import { useNavigate } from "react-router-dom";
-import { deleteEventById, getEvents } from "../../../../api/event.api";
+import deleteEventById from "../../../../api/event.api";
+import getEvents from "../../../../api/getEvents";
 import { ToastContainer, toast } from "react-toastify";
 function AssignLiveTv() {
   const navigate = useNavigate();

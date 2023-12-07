@@ -3,7 +3,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "../../Assets/styles/CardDetailss.scss";
 import { useNavigate, useParams } from "react-router-dom";
-import { getEventsByType } from "../../api/event.api";
+import getEventsByType from "../../api/getEventsType";
 import TeamIconsDetailPage from "./TeamIconsDetailPage";
 
 function BannerDetailSlider() {

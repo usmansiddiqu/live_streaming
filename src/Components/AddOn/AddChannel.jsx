@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import SaveIcon from "../../Assets/Icons/diskette.png";
-import { getCategories } from "../../api/category.api";
-import { addChannelToDB } from "../../api/tvChannel.api";
+import getAllCategories from "../../api/getCategory";
+import addChannelToDB from "../../api/channelDB";
 import ErrorComponent from "../Common/ErrorComponent";
 import { useNavigate } from "react-router-dom";
 
@@ -35,7 +35,7 @@ function AddChannel() {
     }
   };
   const getCategoriess = async () => {
-    const { data: response } = await getCategories();
+    const { data: response } = await getAllCategories();
     setCategoriesObj(response.categories);
   };
   useEffect(() => {

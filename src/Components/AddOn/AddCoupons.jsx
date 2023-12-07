@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Pikaday from "pikaday";
 import "pikaday/css/pikaday.css";
-import { getPlans } from "../../api/plan.api";
+import getPlans from "../../api/plan.api";
 import { useNavigate } from "react-router";
-import { createCoupon } from "../../api/coupon.api";
+import createCoupon from "../../api/addCoupon";
 
 function AddCoupons() {
   const navigate = useNavigate();

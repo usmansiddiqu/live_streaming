@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getSpecificUser } from "../../api/auth.api";
+import getSpecificUser from "../../api/specificUser";
 import { useNavigate } from "react-router-dom";
-import { editSubAdmin } from "../../api/subadmins.api";
+import editSubAdmin from "../../api/updateSubadmin";
 
 import ErrorComponent from "../Common/ErrorComponent";
 function EditSubAdmin() {

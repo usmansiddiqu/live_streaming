@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import BannerButtons from "./BannerButtons";
 import "../Assets/styles/MainSlider.scss";
-import { getSliders } from "../api/slider.api";
+import getSliders from "../api/getSlider";
 import { url } from "../helper/url";
 import { useNavigate } from "react-router-dom";
 

@@ -5,7 +5,7 @@ import Table from "../../Components/Dashboard/Table";
 import PlanCards from "../../Components/Plans/PlanCards";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
-import { getUserPayments } from "../../api/payment.api";
+import getUserPayments from "../../api/getUserPayment";
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {

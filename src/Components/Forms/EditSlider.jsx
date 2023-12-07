@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import ErrorComponent from "../Common/ErrorComponent";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { getChannel } from "../../api/tvChannel.api";
-import { editSlider, getSpecific } from "../../api/slider.api";
+import getChannel from "../../api/retrieveChannel";
+import getSpecific from "../../api/getSpecificSlider";
+import editSlider from "../../api/updateSlider";
 import { url } from "../../helper/url";
 function EditSlider() {
   const { id } = useParams();

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
-import { editEventById, getEventById } from "../../api/event.api";
-import { getChannel } from "../../api/tvChannel.api";
+import editEventById from "../../api/editEvent";
+import getEventById from "../../api/eventById";
+import getChannel from "../../api/retrieveChannel";
 
 function EditAssignTv() {
   const navigate = useNavigate();

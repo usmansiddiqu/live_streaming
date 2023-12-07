@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Pikaday from "pikaday";
 import "pikaday/css/pikaday.css";
-import { getPlans } from "../../api/plan.api";
+import getPlans from "../../api/plan.api";
 import { useNavigate, useParams } from "react-router";
-import {
-  createCoupon,
-  editCoupon,
-  getCouponDetails,
-} from "../../api/coupon.api";
+import editCoupon from "../../api/updateCoupon";
+import getCouponDetails from "../../api/couponDetails";
 
 function EditCoupons() {
   const params = useParams();

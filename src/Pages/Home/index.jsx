@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MainSlider from "../../Components/MainSlider";
 import SliderHeader from "../../Components/Common/SliderHeader";
 import CardSlider from "../../Components/Common/CardSlider";
-import { getEvents } from "../../api/event.api";
+import getEvents from "../../api/getEvents";
 
 function Home() {
   const [data, setData] = useState([]);

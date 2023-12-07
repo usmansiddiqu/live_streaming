@@ -22,7 +22,7 @@ import Database from "../Assets/Icons/database.png";
 import Profile from "../Assets/Icons/user.png";
 import Watchlist from "../Assets/Icons/watchlist.png";
 import Logout from "../Assets/Icons/logout.png";
-import { clearLocalStorage } from "../helper/localstorage";
+import clearLocalStorage from "../helper/localstorage";
 
 function Nav() {
   const [anchorElNav, setAnchorElNav] = useState(null);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import avatar from "../../utils/images/avatar.png";
 import plan from "../../utils/images/plan.png";
 import { useNavigate } from "react-router-dom";
-import { getUserPayments } from "../../api/payment.api";
+import getUserPayments from "../../api/getUserPayment";
 function Plans({ userData }) {
   const navigate = useNavigate();
   const handleClick = () => {

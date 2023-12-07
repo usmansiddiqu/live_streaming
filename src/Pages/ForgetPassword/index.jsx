@@ -3,7 +3,7 @@ import "../../App.css";
 import logo from "../../Assets/Icons/PixelSportLogo.png";
 import ErrorComponent from "../../Components/Common/ErrorComponent";
 import { Link, useNavigate } from "react-router-dom";
-import { codeverification } from "../../api/auth.api";
+import codeverification from "../../api/auth.api";
 function ForgetPassword() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");

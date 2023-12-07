@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import Card from "../../Components/Common/Card";
-import { getEvents } from "../../api/event.api";
+import getEvents from "../../api/getEvents";
 
 function NBA() {
   const [data, setData] = useState([]);

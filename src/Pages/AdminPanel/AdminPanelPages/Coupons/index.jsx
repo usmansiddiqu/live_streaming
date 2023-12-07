@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import { useNavigate } from "react-router-dom";
-import { deleteCoupon, getCoupons } from "../../../../api/coupon.api";
+import deleteCoupon from "../../../../api/coupon.api";
+import getCoupons from "../../../../api/getCoupon";
 
 function Coupons() {
   const navigate = useNavigate();

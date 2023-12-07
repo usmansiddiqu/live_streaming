@@ -6,10 +6,10 @@ import NBA from "../../Assets/Icons/nba.png";
 import MLB from "../../Assets/Icons/mlb1.png";
 import NHL from "../../Assets/Icons/nhl1.png";
 import Google from "../../Assets/Icons/google.png";
-import { clearLocalStorage } from "../../helper/localstorage";
+import clearLocalStorage from "../../helper/localstorage";
 import { useNavigate } from "react-router";
 import ErrorComponent from "../../Components/Common/ErrorComponent";
-import { signup } from "../../api/auth.api";
+import signup from "../../api/signup";
 function Signup() {
   const navigate = useNavigate();
   const [data, setData] = useState({

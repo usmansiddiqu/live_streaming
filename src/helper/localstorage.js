@@ -1,5 +1,3 @@
-const clearLocalStorage = async () => {
+export default clearLocalStorage = async () => {
   localStorage.clear();
 };
-
-module.exports = { clearLocalStorage };

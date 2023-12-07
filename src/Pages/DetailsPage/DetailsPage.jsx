@@ -5,7 +5,7 @@ import DetailsComponent from "../../Components/Common/DetailsComponent";
 import DetailsDescription from "../../Components/Common/DetailsDescription";
 import TeamScore from "../../Components/Common/TeamScore";
 import DetailsSlider from "../../Components/Common/DetailsSlider";
-import { getEventById } from "../../api/event.api";
+import getEventById from "../../api/eventById";
 import { useParams, useNavigate } from "react-router-dom";
 function DetailsPage() {
   const navigate = useNavigate();

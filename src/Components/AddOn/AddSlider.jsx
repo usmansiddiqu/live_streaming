@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ErrorComponent from "../Common/ErrorComponent";
 import { useNavigate } from "react-router-dom";
-import { getChannel } from "../../api/tvChannel.api";
-import { createSlider } from "../../api/slider.api";
+import getChannel from "../../api/retrieveChannel";
+import createSlider from "../../api/addSlider";
 
 function AddSlider() {
   const [title, setTitle] = useState();

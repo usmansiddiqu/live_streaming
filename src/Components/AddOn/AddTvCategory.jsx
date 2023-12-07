@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createCategory } from "../../api/category.api";
+import createCategory from "../../api/addCategory";
 import { useNavigate } from "react-router";
 import ErrorComponent from "../Common/ErrorComponent";
 

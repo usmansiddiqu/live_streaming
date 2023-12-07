@@ -1,5 +1,5 @@
 import React from "react";
-import { createWishList } from "../../api/wishList.api";
+import createWishList from "../../api/addWishlist";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 

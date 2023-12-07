@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import { useNavigate } from "react-router-dom";
-import { getAllSubAdmin } from "../../../../api/subadmins.api";
-import { deleteSingleUser } from "../../../../api/auth.api";
+import getAllSubAdmin from "../../../../api/subadmins.api";
+import deleteSingleUser from "../../../../api/deleteUser";
 import ErrorComponent from "../../../../Components/Common/ErrorComponent";
 function SubAdmin() {
   const [subAdmin, setSubAdmin] = useState([]);

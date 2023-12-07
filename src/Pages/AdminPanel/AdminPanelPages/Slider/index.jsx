@@ -3,7 +3,8 @@ import tvchannel from "../../../../Assets/Images/nba poster.webp";
 import { useNavigate } from "react-router-dom";
 import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
-import { getSliders, deleteSlider } from "../../../../api/slider.api";
+import deleteSlider from "../../../../api/deleteSlider";
+import getSliders from "../../../../api/getSlider";
 import ErrorComponent from "../../../../Components/Common/ErrorComponent";
 import { url } from "../../../../helper/url";
 function AdminSlider() {

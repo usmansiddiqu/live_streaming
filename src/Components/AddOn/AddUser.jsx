@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pikaday from "pikaday";
 import "pikaday/css/pikaday.css";
-import { createUser } from "../../api/auth.api";
+import createUser from "../../api/addUser";
 import ErrorComponent from "../Common/ErrorComponent";
 import { useNavigate } from "react-router-dom";
 

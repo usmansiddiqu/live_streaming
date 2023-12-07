@@ -5,7 +5,7 @@ import Coupon from "../../Components/Plans/Coupon";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import { useParams } from "react-router-dom";
-import { verifyPayments } from "../../api/payment.api";
+import verifyPayments from "../../api/payment.api";
 import { ToastContainer, toast } from "react-toastify";
 function PlansPage() {
   const params = useParams();
