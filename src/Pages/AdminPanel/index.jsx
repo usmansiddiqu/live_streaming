@@ -51,14 +51,14 @@ function AdminPanelWrapper() {
       <AdminPanelBar />
       <Routes>
         <Route path="/" element={<TVCategory />} />
-        {/* <Route path="/dashboard" element={<AdminDashboard />} /> */}
+        <Route path="/dashboard" element={<AdminDashboard />} />
         <Route path="/profile" element={<AdminProfile />} />
         <Route path="/Tv_category" element={<TVCategory />} />
         <Route path="/live_tv" element={<TVChannel />} />
         <Route path="/assign_live_tv" element={<AssignLiveTv />} />
         <Route path="/slider" element={<AdminSlider />} />
-        {/* <Route path="/home_section" element={<AdminHomeSlider />} /> */}
-        {/* <Route path="/users" element={<Users />} /> */}
+        <Route path="/home_section" element={<AdminHomeSlider />} />
+        <Route path="/users" element={<Users />} />
         <Route path="/sub_admin" element={<SubAdmin />} />
         <Route path="/coupons" element={<Coupons />} />
         <Route path="/transactions" element={<Transactions />} />

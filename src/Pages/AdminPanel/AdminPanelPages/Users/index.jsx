@@ -20,14 +20,15 @@ function Users() {
     const endIndex = startIndex + itemsPerPage;
     return users.slice(startIndex, endIndex);
   };
+  const [skip, setSkip] = useState(1);
   const handlePreviousClick = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+    if (skip > 1) {
+      setSkip(skip - 1);
+    }
   };
 
   const handleNextClick = () => {
-    setCurrentPage((prevPage) =>
-      Math.min(prevPage + 1, Math.ceil(totalItems / itemsPerPage))
-    );
+    setSkip(skip + 1);
   };
   const [error, setError] = useState("");
   const handleItemClick = (index) => {
@@ -52,16 +53,17 @@ function Users() {
   };
   const getUsers = async () => {
     try {
-      const { data: response } = await getAllUsers();
-      setUsers(response.data.user);
+      const { data: response } = await getAllUsers(skip, textFilter);
+      // setUsers(response.data.user);
+      setUsers(response?.data?.user);
     } catch (error) {
       setError(error.response.data.message);
     }
   };
+
   useEffect(() => {
     getUsers();
-  }, []);
-  const paginatedData = paginate(currentPage);
+  }, [textFilter, skip]);
 
   return (
     <div
@@ -85,7 +87,7 @@ function Users() {
                 <div class="relative mt-1">
                   <div class=" flex items-center w-[60%] tvChannel-head justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <div className="bg-[#313133] Category-Filter rounded">
-                      <button
+                      {/* <button
                         id="dropdownActionButton"
                         data-dropdown-toggle="dropdownAction"
                         class="inline-flex items-center w-[310px] bg-[#313133]  justify-between text-white border-0 font-medium rounded-lg text-sm px-3 py-2.5 "
@@ -108,7 +110,7 @@ function Users() {
                             d="m1 1 4 4 4-4"
                           />
                         </svg>
-                      </button>
+                      </button> */}
 
                       <div
                         id="dropdownAction"
@@ -163,7 +165,10 @@ function Users() {
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-80 "
                         placeholder="Search by name or email"
-                        onChange={(e) => setTextFilter(e.target.value)}
+                        onChange={(e) => {
+                          setSkip(1);
+                          setTextFilter(e.target.value);
+                        }}
                       />
                       <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
                         <svg
@@ -237,103 +242,85 @@ function Users() {
                   </tr>
                 </thead>
                 <tbody>
-                  {paginatedData
-                    .filter((user) => {
-                      if (textFilter) {
-                        console.log(user, "user123");
+                  {users.map((user) => {
+                    return (
+                      <tr>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {user.name}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {user.email}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          02135647
+                        </th>
+                        <td
+                          class="px-6 py-4 dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
+                            Active
+                          </div>
+                        </td>
+                        <td
+                          class="px-6 py-4 dark:text-white border"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          <div className="flex">
+                            <button
+                              className="  relative w-[36px] h-[33px] rounded z-10 bg-[#FF0015] hover:before:absolute hover:before:bg-black hover:before:content-['History'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                              onClick={handleHistoryButtonClick}
+                            >
+                              <img
+                                src={Eye}
+                                alt=""
+                                className="w-[16px] h-[16px] m-auto"
+                              />
+                            </button>
+                            <button
+                              className="   ml-3  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                              onClick={() => {
+                                handleButtonClick(user);
+                              }}
+                            >
+                              <img
+                                src={Edit}
+                                alt=""
+                                className="w-[16px] h-[16px] m-auto"
+                              />
+                            </button>
 
-                        return (
-                          user.name
-                            .toLowerCase()
-                            .includes(textFilter.toLowerCase()) ||
-                          user.email
-                            .toLowerCase()
-                            .includes(textFilter.toLowerCase())
-                        );
-                      } else {
-                        return true;
-                      }
-                    })
-                    .map((user) => {
-                      return (
-                        <tr>
-                          <th
-                            scope="row"
-                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                            style={{ border: "1px solid #313133" }}
-                          >
-                            {user.name}
-                          </th>
-                          <th
-                            scope="row"
-                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                            style={{ border: "1px solid #313133" }}
-                          >
-                            {user.email}
-                          </th>
-                          <th
-                            scope="row"
-                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                            style={{ border: "1px solid #313133" }}
-                          >
-                            02135647
-                          </th>
-                          <td
-                            class="px-6 py-4 dark:text-white"
-                            style={{ border: "1px solid #313133" }}
-                          >
-                            <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
-                              Active
-                            </div>
-                          </td>
-                          <td
-                            class="px-6 py-4 dark:text-white border"
-                            style={{ border: "1px solid #313133" }}
-                          >
-                            <div className="flex">
-                              <button
-                                className="  relative w-[36px] h-[33px] rounded z-10 bg-[#FF0015] hover:before:absolute hover:before:bg-black hover:before:content-['History'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
-                                onClick={handleHistoryButtonClick}
-                              >
-                                <img
-                                  src={Eye}
-                                  alt=""
-                                  className="w-[16px] h-[16px] m-auto"
-                                />
-                              </button>
-                              <button
-                                className="   ml-3  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
-                                onClick={() => {
-                                  handleButtonClick(user);
-                                }}
-                              >
-                                <img
-                                  src={Edit}
-                                  alt=""
-                                  className="w-[16px] h-[16px] m-auto"
-                                />
-                              </button>
-
-                              <button
-                                className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
-                                onClick={() => {
-                                  handleDelete(user);
-                                }}
-                              >
-                                <img
-                                  src={Cross}
-                                  alt=""
-                                  className="w-[10px] h-[10px] m-auto"
-                                />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      );
-                    })}
+                            <button
+                              className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
+                              onClick={() => {
+                                handleDelete(user);
+                              }}
+                            >
+                              <img
+                                src={Cross}
+                                alt=""
+                                className="w-[10px] h-[10px] m-auto"
+                              />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
-              {console.log(paginatedData, "paginatedData123")}
             </div>
             <nav
               className="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4"
