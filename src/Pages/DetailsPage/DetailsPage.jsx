@@ -6,8 +6,9 @@ import DetailsDescription from "../../Components/Common/DetailsDescription";
 import TeamScore from "../../Components/Common/TeamScore";
 import DetailsSlider from "../../Components/Common/DetailsSlider";
 import { getEventById } from "../../api/event.api";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 function DetailsPage() {
+  const navigate = useNavigate();
   const [url, setUrl] = useState("");
   const params = useParams();
   const [data, setData] = useState(null);
@@ -20,6 +21,16 @@ function DetailsPage() {
     getData();
   }, [params.id]);
 
+  useEffect(() => {
+    if (localStorage.getItem("data")) {
+      const data = localStorage.getItem("data");
+      if (!(data.expiryDate && new Date(data.expiryDate) > new Date())) {
+        navigate("/membership_plan");
+      }
+    } else {
+      navigate("/membership_plan");
+    }
+  }, []);
   console.log(data);
 
   return (
