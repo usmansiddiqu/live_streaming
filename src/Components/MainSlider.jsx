@@ -63,7 +63,7 @@ function MainSlider() {
                   top: "67%",
                 }}
               >
-                GET NHL HD Pass - No Blackouts
+                {card?.title}
               </h1>
               <BannerButtons onWatch={() => navigate(`/live/${card._id}`)} />
             </SplideSlide>
