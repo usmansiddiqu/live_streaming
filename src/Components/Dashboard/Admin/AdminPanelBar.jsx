@@ -97,7 +97,9 @@ function AdminPanelBar() {
                     </svg>
                   </button>
                 </div>
-                <h1 className="text-white ml-2">{activeItem.name || ""}</h1>
+                <h1 className="text-white text-start ml-2">
+                  {activeItem.name || ""}
+                </h1>
                 <div class="flex items-center">
                   <div class="flex items-center ms-3">
                     <div className="flex items-center">
@@ -139,7 +141,7 @@ function AdminPanelBar() {
                             <p className="ml-2"> Profile</p>
                           </a>
                         </li>
-                        <li>
+                        <li onClick={handleNavigateFrontEnd}>
                           <a
                             class="block px-4 py-2 text-sm text-black dark:hover:bg-[#c6c6c6] flex cursor-pointer "
                             role="menuitem"

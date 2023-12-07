@@ -2,7 +2,6 @@ import React from "react";
 import TeamIcons from "./TeamIcons";
 import Dashboard from "../../Pages/Dashboard";
 import DashHeader from "../Dashboard/DashHeader";
-import Ended from "./Ended";
 import { useNavigate, useParams } from "react-router-dom";
 
 function Card({ data, title }) {
@@ -56,12 +55,6 @@ function Card({ data, title }) {
                             iconUrl: comp.logo,
                             name: comp.name,
                           }))}
-                        />
-                        <Ended
-                          show={
-                            new Date(item?.data?.date) <
-                            new Date().setHours(new Date().getHours() + 4)
-                          }
                         />
                       </div>
                     </div>

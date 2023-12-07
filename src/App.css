@@ -476,6 +476,13 @@ li a{
     width: 100%;
 
   }
+  .admin-dash{
+    position: relative;
+    left: 7% !important;
+  }
+  .dash-card{
+    margin-left: 13px;
+  }
   .banner-text{
 
    margin-left: 150px;
@@ -538,6 +545,13 @@ li a{
   .Category-Filter{
     width: 220px !important;
     margin-left: 20px;
+  }
+  .admin-dash{
+    position: relative;
+    left: 6.5% !important;
+  }
+  .dash-card{
+    margin-left: 13px;
   }
   .search-title{
     width: 280px ;
