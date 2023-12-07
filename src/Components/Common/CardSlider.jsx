@@ -52,7 +52,7 @@ const CardSlider = ({ data }) => {
               }}
             >
               <div
-                className="placeAndTime border w-[100%] h-[3vh] flex justify-between flex-row  bg-[black] bg-opacity-40"
+                className="placeAndTime border w-[100%] h-[auto] p-1  flex justify-between flex-row  bg-[black] bg-opacity-40"
                 style={{
                   padding: "0 10px",
                 }}

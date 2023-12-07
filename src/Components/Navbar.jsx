@@ -180,7 +180,7 @@ function Nav() {
                   {data ? (
                     <div className="avatar-profile">
                       <img
-                        className="avatar w-[40px] h-[40px] rounded-full"
+                        className="avatar w-[40px] h-[40px] rounded-full cursor-pointer"
                         onClick={toggleDropdown}
                         src={Image}
                       />
@@ -214,7 +214,7 @@ function Nav() {
                                       </a>
                                     </li>
                                     <li
-                                      className="w-[100%] list-none p-2 "
+                                      className="w-[100%] list-none p-2 cursor-pointer"
                                       style={{ borderBottom: "0px" }}
                                     >
                                       <a

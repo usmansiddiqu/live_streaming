@@ -9,6 +9,7 @@ const VideoPlayer = ({ url }) => {
         controls={true}
         width="100%"
         height="100%"
+        onReady={() => console.log("123ready")}
         config={{
           hlsOptions: {
             // Any additional options for the hls.js library can be added here

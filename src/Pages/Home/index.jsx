@@ -14,7 +14,7 @@ function Home() {
     getData();
   }, []);
   return (
-    <div>
+    <div className="bg-[#130A2D]">
       <MainSlider />
       <SliderHeader title="NFL Live" />
       <CardSlider

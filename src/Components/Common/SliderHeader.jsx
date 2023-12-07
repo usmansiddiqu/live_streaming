@@ -18,7 +18,7 @@ function SliderHeader(props) {
       </h1>
       <span>
         <a
-          className="font-bold"
+          className="font-bold cursor-pointer"
           style={{
             textDecoration: "none",
             color: "#0474FF",
