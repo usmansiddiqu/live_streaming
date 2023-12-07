@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function SliderHeader(props) {
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -18,6 +20,7 @@ function SliderHeader(props) {
       </h1>
       <span>
         <a
+          onClick={() => navigate(`/${props.link}`)}
           className="font-bold cursor-pointer"
           style={{
             textDecoration: "none",
