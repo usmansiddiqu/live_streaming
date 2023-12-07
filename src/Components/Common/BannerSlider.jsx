@@ -28,7 +28,7 @@ function BannerDetailSlider() {
   const navigate = useNavigate();
   return (
     <div
-      className="CardSlider1"
+      className="CardSlider1 w-[90vw]"
       style={{
         width: "70%",
         height: "AUTO",
@@ -49,7 +49,7 @@ function BannerDetailSlider() {
                   `/${item?.channel?.TVCategory?.name}/live/${item._id}`
                 );
               }}
-              className={`card-slider1 flex flex-col items-center cursor-pointer rounded-lg`}
+              className="card-slider1 flex flex-col items-center cursor-pointer rounded-lg"
               key={item.id}
               style={{
                 border: "1px solid white",

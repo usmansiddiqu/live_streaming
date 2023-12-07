@@ -141,7 +141,7 @@ function AdminPanelBar() {
                             <p className="ml-2"> Profile</p>
                           </a>
                         </li>
-                        <li>
+                        <li onClick={handleNavigateFrontEnd}>
                           <a
                             class="block px-4 py-2 text-sm text-black dark:hover:bg-[#c6c6c6] flex cursor-pointer "
                             role="menuitem"
