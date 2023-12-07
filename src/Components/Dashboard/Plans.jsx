@@ -56,17 +56,27 @@ function Plans({ userData }) {
               style={{ paddingTop: "2px" }}
             />
           </p>
+          {console.log(userData)}
           <div className="mt-3 flex flex-col gap-3">
             <div className="flex ">
               <p>Current Plan:</p>
               <div className="w-auto text-sm flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3">
-                Free Service - No Card required
+                {userData?.[0]?.packageId?.name}
               </div>
             </div>
             <div className="flex ">
               <p>Subscription expires on:</p>
               <div className="w-auto text-sm flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3">
-                November, 01, 2023
+                {userData?.[0]?.createdAt &&
+                  new Date(
+                    new Date(userData?.[0]?.createdAt).getTime() +
+                      userData?.[0]?.packageId?.days * 24 * 60 * 60 * 1000
+                  ).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                {/* November, 01, 2023 */}
               </div>
             </div>
 

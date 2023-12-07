@@ -7,6 +7,7 @@ import Footer from "../../Components/Footer";
 import { useParams } from "react-router-dom";
 import verifyPayments from "../../api/payment.api";
 import { ToastContainer, toast } from "react-toastify";
+import { getDetails } from "../../api/auth.api";
 function PlansPage() {
   const params = useParams();
   const [result, setResult] = useState(null);
@@ -14,8 +15,15 @@ function PlansPage() {
     const { data: response } = await verifyPayments(params.id);
     if (response.message == "Token Verified!") {
       toast.success("Payment Successfull!");
+      getUser();
     } else {
       toast.error("Payment Failed");
+    }
+  };
+  const getUser = async () => {
+    if (localStorage.getItem("token")) {
+      const { data: response } = await getDetails();
+      localStorage.setItem("data", JSON.stringify(response?.user));
     }
   };
   useEffect(() => {

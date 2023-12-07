@@ -23,7 +23,7 @@ function DetailsPage() {
 
   useEffect(() => {
     if (localStorage.getItem("data")) {
-      const data = localStorage.getItem("data");
+      const data = JSON.parse(localStorage.getItem("data"));
       if (!(data.expiryDate && new Date(data.expiryDate) > new Date())) {
         navigate("/membership_plan");
       }
