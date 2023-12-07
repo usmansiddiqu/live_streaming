@@ -54,7 +54,7 @@ function SubAdmin() {
             <div class="relative overflow-x-auto shadow-md ">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[35%] justify-between tvChannel-head flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center w-[32%] justify-between tvChannel-head flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <label for="table-search" class="sr-only">
                       Search
                     </label>

@@ -86,9 +86,9 @@ function Users() {
             <div class="relative overflow-x-auto shadow-md ">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[60%] tvChannel-head justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
-                    <div className="bg-[#313133] Category-Filter rounded">
-                      {/* <button
+                  <div class=" flex items-center w-[32%] tvChannel-head justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                    {/* <div className="bg-[#313133] Category-Filter rounded">
+                      <button
                         id="dropdownActionButton"
                         data-dropdown-toggle="dropdownAction"
                         class="inline-flex items-center w-[310px] bg-[#313133]  justify-between text-white border-0 font-medium rounded-lg text-sm px-3 py-2.5 "
@@ -111,7 +111,7 @@ function Users() {
                             d="m1 1 4 4 4-4"
                           />
                         </svg>
-                      </button> */}
+                      </button>
 
                       <div
                         id="dropdownAction"
@@ -156,7 +156,7 @@ function Users() {
                           </li>
                         </ul>
                       </div>
-                    </div>
+                    </div> */}
                     <label for="table-search" class="sr-only">
                       Search
                     </label>

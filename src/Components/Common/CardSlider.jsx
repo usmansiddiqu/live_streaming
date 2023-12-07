@@ -4,6 +4,7 @@ import "@splidejs/react-splide/css";
 import "../../Assets/styles/CardSlider.scss";
 import TeamIcons from "./TeamIcons";
 import { useNavigate } from "react-router-dom";
+import Ended from "./Ended";
 
 const CardSlider = ({ data }) => {
   const splideOptions = {
@@ -70,6 +71,7 @@ const CardSlider = ({ data }) => {
                     name: comp.name,
                   }))}
                 />
+                <Ended show={true} />
               </div>
             </SplideSlide>
           ))}

@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import Image from "../Assets/Icons/person.png";
+// import Image from "../Assets/Icons/person.png";
 import logo from "../Assets/Icons/PixelSportLogo.png";
 import Account from "../Assets/Icons/account.png";
 import Subscribe from "../Assets/Icons/crown.png";
@@ -28,10 +28,15 @@ function Nav() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+
   const [data, setData] = useState(JSON?.parse(localStorage.getItem("data")));
   // const pages = ["HOME", "MLB", "NBA", "NFL", "NHL", "UFC"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [image, setImage] = useState(
+    data?.image ? JSON.parse(localStorage.getItem(data?.image)) : null
+  );
+  console.log(data, "iamge123");
   const navigate = useNavigate();
 
   const toggleDropdown = () => {
@@ -168,7 +173,17 @@ function Nav() {
               <div className="nav-Icons">
                 <div className="w-[55px]" onClick={handleNavigate}>
                   <div className="Sub-Icon rounded-md flex justify-center items-center">
-                    <img src={Subscribe} alt="" className="w-[21px] h-[25px]" />
+                    <img
+                      src={
+                        typeof image === "string"
+                          ? image
+                          : image instanceof File
+                          ? URL.createObjectURL(image)
+                          : null
+                      }
+                      alt=""
+                      className="w-[21px] h-[25px]"
+                    />
                   </div>
                 </div>
                 {/* <div className="w-[50px]">

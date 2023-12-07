@@ -2,6 +2,7 @@ import React from "react";
 import TeamIcons from "./TeamIcons";
 import Dashboard from "../../Pages/Dashboard";
 import DashHeader from "../Dashboard/DashHeader";
+import Ended from "./Ended";
 import { useNavigate } from "react-router-dom";
 
 function Card({ data, title }) {
@@ -50,6 +51,7 @@ function Card({ data, title }) {
                           name: comp.name,
                         }))}
                       />
+                      <Ended />
                     </div>
                   </div>
                 </div>
