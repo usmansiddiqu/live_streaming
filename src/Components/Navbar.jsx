@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import Image from "../Assets/Icons/person.png";
+// import Image from "../Assets/Icons/person.png";
 import logo from "../Assets/Icons/PixelSportLogo.png";
 import Account from "../Assets/Icons/account.png";
 import Subscribe from "../Assets/Icons/crown.png";
@@ -33,9 +33,8 @@ function Nav() {
   // const pages = ["HOME", "MLB", "NBA", "NFL", "NHL", "UFC"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [image, setImage] = useState(
-    data?.image ? JSON.parse(localStorage.getItem(data?.image)) : null
-  );
+  const [image, setImage] = useState(data?.image ? data.image : null);
+  console.log(image);
   console.log(data, "iamge123");
   const navigate = useNavigate();
 
@@ -60,6 +59,12 @@ function Nav() {
 
   const handleNavigate = () => {
     navigate("/membership_plan");
+  };
+  const isGoogleImageUrl = (url) => {
+    const googleImageUrlRegex =
+      /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
+    console.log(googleImageUrlRegex.test(url));
+    return googleImageUrlRegex.test(url);
   };
   return (
     <AppBar
@@ -187,7 +192,15 @@ function Nav() {
                       <img
                         className="avatar w-[40px] h-[40px] rounded-full cursor-pointer"
                         onClick={toggleDropdown}
-                        src={Image}
+                        src={
+                          typeof image === "string"
+                            ? isGoogleImageUrl(image)
+                              ? image
+                              : null
+                            : image instanceof File
+                            ? URL.createObjectURL(image)
+                            : null
+                        }
                       />
                       {isDropdownOpen && (
                         <>
@@ -326,7 +339,9 @@ function Nav() {
                           <img
                             src={
                               typeof image === "string"
-                                ? image
+                                ? isGoogleImageUrl(image)
+                                  ? image
+                                  : null
                                 : image instanceof File
                                 ? URL.createObjectURL(image)
                                 : null

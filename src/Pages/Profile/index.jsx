@@ -6,14 +6,17 @@ import DashHeader from "../../Components/Dashboard/DashHeader";
 import updateUser from "../../api/editUser";
 
 function Profile() {
-  const [image, setImage] = useState(null);
   const [user, setUser] = useState(localStorage.getItem("data"));
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [data, setData] = useState(JSON?.parse(localStorage.getItem("data")));
+
+  const [name, setName] = useState(data.name);
+  const [email, setEmail] = useState(data.email);
   const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState(data.phone);
   const [error, setError] = useState("");
-  const [address, setAddress] = useState("");
+  const [address, setAddress] = useState(data.address);
+  const [image, setImage] = useState(data?.image ? data.image : null);
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
@@ -60,6 +63,12 @@ function Profile() {
   //   console.log("running");
   //   getUser();
   // }, []);
+  const isGoogleImageUrl = (url) => {
+    const googleImageUrlRegex =
+      /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
+    console.log(googleImageUrlRegex.test(url));
+    return googleImageUrlRegex.test(url);
+  };
   return (
     <>
       <div className="h-[100vh] bg-[#0D0620]">
@@ -186,7 +195,9 @@ function Profile() {
                       <img
                         src={
                           typeof image === "string"
-                            ? image
+                            ? isGoogleImageUrl(image)
+                              ? image
+                              : null
                             : image instanceof File
                             ? URL.createObjectURL(image)
                             : null
