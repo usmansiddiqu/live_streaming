@@ -29,52 +29,62 @@ const CardSlider = ({ data }) => {
     >
       <Splide options={{ ...splideOptions, width: 1400 }}>
         <>
-          {data.map((item) => (
-            <SplideSlide
-              options={{ ...splideOptions, width: 150 }}
-              onClick={() =>
-                navigate(`/${item?.channel?.TVCategory?.name}/live/${item._id}`)
-              }
-              className="cardSlider flex flex-col items-center cursor-pointer"
-              key={item.id}
-              style={{
-                border: "1px solid white",
-                width: "100%;",
-                height: "100vh",
-                background: `linear-gradient(-60deg, #${
-                  item.data.competitors.filter(
-                    (comp) => comp.homeAway == "home"
-                  )[0].color
-                } 50%, #${
-                  item.data.competitors.filter(
-                    (comp) => comp.homeAway != "home"
-                  )[0].alternateColor
-                } 50%)`,
-              }}
-            >
-              <div
-                className="placeAndTime border w-[100%] h-[auto] p-1  flex justify-between flex-row  bg-[black] bg-opacity-40"
+          {data
+            ?.sort((a, b) => new Date(b?.data?.date) - new Date(a?.data?.date))
+            .map((item) => (
+              <SplideSlide
+                options={{ ...splideOptions, width: 150 }}
+                onClick={() =>
+                  navigate(
+                    `/${item?.channel?.TVCategory?.name}/live/${item._id}`
+                  )
+                }
+                className="cardSlider flex flex-col items-center cursor-pointer"
+                key={item.id}
                 style={{
-                  padding: "0 10px",
+                  border: "1px solid white",
+                  width: "100%;",
+                  height: "100vh",
+                  background: `linear-gradient(-60deg, #${
+                    item.data.competitors.filter(
+                      (comp) => comp.homeAway == "home"
+                    )[0].color
+                  } 50%, #${
+                    item.data.competitors.filter(
+                      (comp) => comp.homeAway != "home"
+                    )[0].alternateColor
+                  } 50%)`,
                 }}
               >
-                <p className="text-white text-sm">{item.data.location}</p>
-                <p className="text-white text-sm">
-                  {item.data.date.split("T")[0]}
-                </p>
-              </div>
+                <div
+                  className="placeAndTime border w-[100%] h-[auto] p-1  flex justify-between flex-row  bg-[black] bg-opacity-40"
+                  style={{
+                    padding: "0 10px",
+                  }}
+                >
+                  {console.log(item)}
+                  <p className="text-white text-sm">{item.data.location}</p>
+                  <p className="text-white text-sm">
+                    {item.data.date.split("T")[0]}
+                  </p>
+                </div>
 
-              <div className="container" style={{ marginTop: "25px" }}>
-                <TeamIcons
-                  iconsData={item.data.competitors.map((comp) => ({
-                    iconUrl: comp.logo,
-                    name: comp.name,
-                  }))}
-                />
-                <Ended show={true} />
-              </div>
-            </SplideSlide>
-          ))}
+                <div className="container" style={{ marginTop: "25px" }}>
+                  <TeamIcons
+                    iconsData={item.data.competitors.map((comp) => ({
+                      iconUrl: comp.logo,
+                      name: comp.name,
+                    }))}
+                  />
+                  <Ended
+                    show={
+                      new Date(item?.data?.date) <
+                      new Date().setHours(new Date().getHours() + 4)
+                    }
+                  />
+                </div>
+              </SplideSlide>
+            ))}
         </>
       </Splide>
     </div>

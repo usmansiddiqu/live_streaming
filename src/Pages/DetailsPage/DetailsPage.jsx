@@ -31,7 +31,6 @@ function DetailsPage() {
       navigate("/membership_plan");
     }
   }, []);
-  console.log(data);
 
   return (
     <div>

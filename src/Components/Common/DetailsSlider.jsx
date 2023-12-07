@@ -5,6 +5,7 @@ import "../../Assets/styles/CardDetailss.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import getEventsByType from "../../api/getEventsType";
 import TeamIconsDetailPage from "./TeamIconsDetailPage";
+import Ended from "./Ended";
 
 function DetailsSlider() {
   const params = useParams();
@@ -93,6 +94,12 @@ function DetailsSlider() {
                     iconUrl: comp.logo,
                     name: comp.name,
                   }))}
+                />
+                <Ended
+                  show={
+                    new Date(item?.data?.date) <
+                    new Date().setHours(new Date().getHours() + 4)
+                  }
                 />
               </div>
             </SplideSlide>
