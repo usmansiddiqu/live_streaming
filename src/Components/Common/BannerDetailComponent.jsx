@@ -5,6 +5,7 @@ import VideoPlayer from "./VideoPlayer";
 
 function BannerDetailComponent({ data, url }) {
   const [show, setShow] = useState(true);
+  const [videoPlayer, setVideoPlayer] = useState(false);
   // setTimeout(() => setShow(true), 10000);
   return (
     <div className="flex !justify-center">
