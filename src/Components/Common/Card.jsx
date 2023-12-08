@@ -13,7 +13,7 @@ function Card({ data, title }) {
       <DashHeader title={title} />
       <div class=" flex items-center justify-center">
         <div class="container mx-auto">
-          <div class="grid card-con grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 p-3 mx-auto gap-4 w-[75vw]">
+          <div class="grid card-con grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 p-3 mx-auto gap-4 w-[67vw]">
             <>
               {data
                 ?.sort(
@@ -29,7 +29,7 @@ function Card({ data, title }) {
                     }
                   >
                     <div
-                      className="card-Slider w-[100%] h-[100%]"
+                      className="card-Slider cursor-pointer w-[100%] h-[100%]"
                       key={item._id}
                       style={{
                         border: "1px solid white",

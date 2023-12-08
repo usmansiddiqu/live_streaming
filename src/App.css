@@ -37,7 +37,6 @@ li a{
   width: 100%;
   height: 26vh;
   background-image: url(./Assets//Images/footer-bg-item.png);
-  margin-top: 4vh;
 }
 .fooer-Img ul {
   display: flex;
@@ -84,6 +83,10 @@ li a{
    width: 65% !important;
   
   }
+  .mainSlider{
+    margin-top: 20px !important;
+    height: 49vh !important;
+  }
   .sliderHeader{
     width: 65% !important;
 
@@ -110,6 +113,10 @@ li a{
   }
   .nav-sider{
     border: 0px;
+  }
+  .mainSlider{
+    margin-top: 20px !important;
+    height: 40vh !important;
   }
   
 }
@@ -150,6 +157,10 @@ li a{
     width: 90vw;
     flex-wrap: wrap;
     gap: 30px;
+  }
+  .footer-goole-img{
+    height: 0px;
+    margin-top: -20px;
   }
   .container1 {
     width: calc(50% - 40px);
@@ -464,6 +475,10 @@ li a{
    }
    .card-con{
     width: 90vw !important;
+  }
+  .footer-goole-img{
+    height: 0px;
+    margin-top: -20px;
   }
   .contact-form{
     flex-direction: column;

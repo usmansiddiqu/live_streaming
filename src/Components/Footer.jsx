@@ -26,10 +26,10 @@ function Footer() {
     navigate("/contact-us");
   };
   return (
-    <footer className="footer relative text-base-content fooer-Img bg-[#170F2C] pt-10">
-      <div className="flex footer-flex items-center !justify-between  !gap-10 px-4 lg:px-72">
+    <footer className="footer relative text-base-content fooer-Img bg-[#170F2C]">
+      <div className="flex footer-flex items-center mt-5 !justify-between  !gap-10 px-4 lg:px-72">
         <div className="flex flex-col ">
-          <nav className="flex flex-wrap w-full gap-4 ">
+          <nav className="flex flex-wrap w-full gap-4 w-[29vw] ">
             <a
               className="link link-hover text-white text-lg cursor-pointer"
               onClick={handleCLickAbout}
@@ -65,7 +65,7 @@ function Footer() {
             Copyright @ 2022 PixelSports.tv All Rights Reserved
           </p>
         </div>
-        <div className="flex app-btn p-4 w-[60%] justify-between">
+        <div className="flex app-btn p-4 w-[25vw]  justify-between">
           <div className=" flex flex-col flex-wrap gap-3">
             <div className="flex flex-col gap-5">
               <header className="footer-title text-white text-2xl ">
@@ -89,10 +89,11 @@ function Footer() {
                 style={{ paddingTop: "4px" }}
               />
             </h1>
+            <div className="h-[0px] w-[180px] footer-goole-img"></div>
             <img
               src={GooglePlay}
               alt=""
-              className="h-[55px] rounded-lg shadow-xl shadow-black mt-5"
+              className="h-[100%] w-[100%]  rounded-lg shadow-xl shadow-black "
             />
           </div>
         </div>

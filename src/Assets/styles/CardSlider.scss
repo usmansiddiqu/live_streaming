@@ -1,5 +1,5 @@
 .cardSlider {
-  width: 260.5px !important;
+  width: 259px !important;
   height: 140px !important;
   // background: rgb(9, 121, 116);
   // background: linear-gradient(
@@ -30,7 +30,108 @@
     width: 12px !important;
   }
   .splide__arrow--next {
-    margin-right: 15px !important;
+    margin-right: 27px !important;
     // display: none;
   }
+}
+
+@media screen and (max-width: 2600px) {
+  .Cardslider {
+    .splide__arrow {
+      width: 30px !important;
+      height: 30px !important;
+      opacity: 1 !important;
+      background-image: linear-gradient(to right, #00c4ff, #0074ff);
+    }
+    .splide__arrow--prev svg,
+    .splide__arrow--next svg {
+      fill: white !important;
+      height: 12px !important;
+      width: 12px !important;
+    }
+    .splide__arrow--next {
+      margin-right: -7px !important;
+      // display: none;
+    }
+  }
+  .ended{
+    width: 11.5vw;
+  }
+}
+@media screen and (max-width: 1980px) {
+  .Cardslider {
+    .splide__arrow {
+      width: 30px !important;
+      height: 30px !important;
+      opacity: 1 !important;
+      background-image: linear-gradient(to right, #00c4ff, #0074ff);
+    }
+    .splide__arrow--prev svg,
+    .splide__arrow--next svg {
+      fill: white !important;
+      height: 12px !important;
+      width: 12px !important;
+    }
+    .splide__arrow--next {
+      margin-right: 6px !important;
+      // display: none;
+    }
+  }
+  .banner-Buttons{
+    width: 13vw;
+    }
+    .mainSlider{
+      height: 53vh !important;
+    }
+    .ended{
+      width: 13vw;
+    }
+   
+}
+@media screen and (max-width: 980px) {
+
+  .banner-Buttons{
+    width: 30vw !important;
+    }
+    .mainSlider{
+      height: 40vh !important;
+    }
+    .ended{
+      margin-left: 80px;
+    }
+   
+   
+}
+@media screen and (max-width: 790px) {
+
+  .banner-Buttons{
+    width: 32vw !important;
+    }
+    .mainSlider{
+      height: 45vh !important;
+    }
+   
+   
+}
+@media screen and (max-width: 420px) {
+
+  .ended{
+    margin-left: 100px;
+  }
+  .mainSlider{
+    height: 53vh !important;
+  }
+   
+   
+}
+@media screen and (max-width: 390px) {
+
+  .ended{
+    margin-left: 100px;
+  }
+  .mainSlider{
+    height: 58vh !important;
+  }
+   
+   
 }

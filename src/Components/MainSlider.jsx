@@ -26,7 +26,7 @@ function MainSlider() {
         flexDirection: "column",
         alignItems: "center",
         marginTop: "35px",
-        height: "55vh",
+        // height: "55vh",
         margin: "auto",
         // padding: "15px",
         background: "#0D0620",
