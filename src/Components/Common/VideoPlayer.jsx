@@ -1,7 +1,7 @@
 import React from "react";
 import ReactPlayer from "react-player";
 
-const VideoPlayer = ({ url }) => {
+const VideoPlayer = ({ url, setShow }) => {
   return (
     <div className="video-player-wrapper">
       <ReactPlayer
@@ -9,7 +9,12 @@ const VideoPlayer = ({ url }) => {
         controls={true}
         width="100%"
         height="100%"
-        onReady={() => console.log("123ready")}
+        onReady={() => {
+          console.log(123);
+          setShow(true);
+        }}
+        onEnded={() => console.log("some")}
+        onError={() => console.log("errro")}
         config={{
           hlsOptions: {
             // Any additional options for the hls.js library can be added here
