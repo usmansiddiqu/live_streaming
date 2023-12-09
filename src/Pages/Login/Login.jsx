@@ -8,6 +8,7 @@ import loginWithGoogle from "../../api/loginWithGoogle";
 import login from "../../api/login";
 // import { GoogleLogin } from "react-google-login";
 import { GoogleLogin } from "@react-oauth/google";
+import { useMediaQuery } from "react-responsive";
 const clientSecret =
   "523867614519-9dcc1641isodinb0tgi0cbk0dqn4m3q8.apps.googleusercontent.com";
 function Login() {
@@ -15,6 +16,9 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+
+  // const isMobileSCreen = useMediaQuery({ query: "(max-width: 420px)" });
+  // const isMobileSCreen2 = useMediaQuery({ query: "(min-width: 912px)" });
   const handleClick = async () => {
     const { data } = await login({ email, password });
 
@@ -188,26 +192,55 @@ function Login() {
                 >
                   Goolge
                 </button> */}
-                <GoogleLogin
-                  width={"380px"}
-                  onSuccess={(credentialResponse) => {
-                    const { credential, clientId, select_by } =
-                      credentialResponse;
-                    const jwtToken = credential.split(".")[1];
-                    const decodedToken = atob(jwtToken);
-                    const userInformation = JSON.parse(decodedToken);
-                    const {
-                      name,
-                      email,
-                      sub: googleId,
-                      picture: imageUrl,
-                    } = userInformation;
-                    onSuccess({ name, email, googleId, imageUrl });
-                  }}
-                  onError={() => {
-                    console.log("Login Failed");
-                  }}
-                />
+                {/* {isMobileSCreen2 && (
+                  <GoogleLogin
+                    width={"320px"}
+                    onSuccess={(credentialResponse) => {
+                      const { credential, clientId, select_by } =
+                        credentialResponse;
+                      const jwtToken = credential.split(".")[1];
+                      const decodedToken = atob(jwtToken);
+                      const userInformation = JSON.parse(decodedToken);
+                      const {
+                        name,
+                        email,
+                        sub: googleId,
+                        picture: imageUrl,
+                      } = userInformation;
+                      onSuccess({ name, email, googleId, imageUrl });
+                    }}
+                    onError={() => {
+                      console.log("Login Failed");
+                    }}
+                  />
+                )} */}
+                <button
+                  type="button"
+                  class="w-full h-[5vh] text-white bg-[white] font-medium rounded-md text-sm px-5 flex justify-center items-center text-center"
+                >
+                  <GoogleLogin
+                    style={{ border: "none" }}
+                    width={"full"}
+                    size="medium"
+                    onSuccess={(credentialResponse) => {
+                      const { credential, clientId, select_by } =
+                        credentialResponse;
+                      const jwtToken = credential.split(".")[1];
+                      const decodedToken = atob(jwtToken);
+                      const userInformation = JSON.parse(decodedToken);
+                      const {
+                        name,
+                        email,
+                        sub: googleId,
+                        picture: imageUrl,
+                      } = userInformation;
+                      onSuccess({ name, email, googleId, imageUrl });
+                    }}
+                    onError={() => {
+                      console.log("Login Failed");
+                    }}
+                  />
+                </button>
                 ;
                 {/* <GoogleLogin
                   clientId={clientSecret}
