@@ -1,7 +1,8 @@
 import "./App.css";
 import MLB from "./Pages/MLB";
 import MainScreen from "./Pages/MainScreen";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter as BrowserRouter } from "react-router-dom";
 import UFC from "./Pages/UFC";
 import NHL from "./Pages/NHL";
 import NFL from "./Pages/NFL";
