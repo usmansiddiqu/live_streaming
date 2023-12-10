@@ -2,6 +2,7 @@ import "./App.css";
 import MLB from "./Pages/MLB";
 import MainScreen from "./Pages/MainScreen";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import UFC from "./Pages/UFC";
 import NHL from "./Pages/NHL";
 import NFL from "./Pages/NFL";
@@ -14,7 +15,7 @@ import DetailsPage from "./Pages/DetailsPage/DetailsPage";
 import BannerPage from "./Pages/DetailsPage/BannerPage";
 import AdminPanel from "./Pages/AdminPanel";
 import AdminPanelWrapper from "./Pages/AdminPanel";
-import { useState } from "react";
+import React, { useState } from "react";
 import NotFound from "./Pages/NotFound";
 import Dashboard from "./Pages/Dashboard";
 import WatchList from "./Pages/WatchList/WatchList";
@@ -52,7 +53,7 @@ function App() {
           <Route path="/contact-us" element={<Contact />} />
 
           {isLoggedIn && (
-            <>
+            <React.Fragment>
               <Route path="/profile" element={<Profile />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/live/:id" element={<BannerPage />} />
@@ -60,11 +61,11 @@ function App() {
               <Route path="/membership_plan/:id" element={<Plans />} />
 
               {isAdmin && (
-                <>
+                <React.Fragment>
                   <Route path="/admin/*" element={<AdminPanelWrapper />} />
-                </>
+                </React.Fragment>
               )}
-            </>
+            </React.Fragment>
           )}
 
           {/* 404 route */}
