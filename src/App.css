@@ -431,17 +431,23 @@ li a{
 
 }
 @media screen and (max-width: 420px){
+  .banner-text{
+    margin-top: -14% !important;
+ 
+  }
+
   .banner-Buttons{
     margin-left: 210px ;
     margin-top: -20px;
     margin: auto;
     width: 34vw !important;
     position: relative;
-    top: -35% !important;
+    top: -30% !important;
    }
    .sliderHeader{
     width: 75% !important;
    }
+   
    
 
   
@@ -454,9 +460,12 @@ li a{
     margin: auto;
     width: 34vw !important;
     position: relative;
-    top: -25% !important;
+    top: -45% !important;
    }
-
+   .banner-text{
+    margin-top: -14% !important;
+ 
+  }
   
 
 }
