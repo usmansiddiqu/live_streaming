@@ -497,6 +497,10 @@ li a{
 
     margin-bottom: 10px;
   }
+  .watch-img{
+    width: 100vw;
+    height: 50vh;
+  }
   .sidddee{
     height: 7vh;
     border: 1px solid;
