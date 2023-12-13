@@ -31,9 +31,9 @@ function BannerPage() {
       <BannerDetailComponent data={data} url={url} />
       <BannerDetailsDescription data={data} setUrl={setUrl} />
       {/* <TeamScore /> */}
-      <div className="mt-6 w-[68%] bg-[#130A2D] mx-auto h-[28vh] flex flex-col p-3 px-10 ">
+      <div className="mt-6 w-[68%] bg-[#130A2D] mx-auto h-[28vh] flex flex-col p-3 px-10 mb-2">
         <h3 className="text-white font-medium text-2xl">You May Also Like</h3>
-        <div className="w-[32vw] mt-4 ">
+        <div className="w-[32vw] mt-4  mx-auto">
           <DetailsSlider />
         </div>
       </div>

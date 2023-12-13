@@ -4,7 +4,7 @@ import EYE from "../../Assets/Icons/eye-open.png";
 function BannerDetailsDescription({ data, setUrl }) {
   return (
     <div className="flex justify-center mt-8 ">
-      <div className=" bg-[#190D39] w-[80rem] pt-4 pb-6 ps-7">
+      <div className=" bg-[#190D39] w-[67vw] pt-4 pb-6 ps-7">
         <div className="">
           <h1 className="text-white text-2xl pb-4">NHL NETWORK LIVE</h1>
         </div>
