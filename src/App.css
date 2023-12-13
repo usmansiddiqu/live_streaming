@@ -447,6 +447,18 @@ li a{
    .sliderHeader{
     width: 75% !important;
    }
+   .card-slider1{
+    width: 200.5px !important;
+    height: 100px !important;
+   }
+   .banner-slidess{
+    width: 95vw;
+   }
+   .banner-slide-card{
+    padding: 0;
+    margin-left: 0;
+    width: 128vw !important;
+   }
    
    
 
@@ -601,7 +613,20 @@ li a{
   .table-search-user{
     margin-top: 10px !important;
   }
- 
+  .banner-slidess{
+    width: 95vw;
+
+    height: 32vh;
+   }
+   .banner-slide-card{
+    padding: 0;
+    margin-left: 0;
+    width: 128vw !important;
+   }
+   .live-head{
+    width: 95vw ;
+
+   }
   
   
 }

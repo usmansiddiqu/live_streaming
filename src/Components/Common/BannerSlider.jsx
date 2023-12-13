@@ -18,25 +18,21 @@ function BannerDetailSlider() {
   }, []);
 
   const splideOptions = {
-    perPage: 5,
-    perMove: 5,
+    perPage: 1,
+    perMove: 1,
     pagination: false,
     gap: 20,
     drag: true,
-    // type: "loop",
   };
   const navigate = useNavigate();
   return (
     <div
-      className="CardSlider1 w-[90vw] "
+      className="CardSlider  "
       style={{
         width: "70%",
         height: "AUTO",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        marginTop: "25px",
-        margin: "auto",
       }}
     >
       <Splide options={{ ...splideOptions, width: 1200 }}>
@@ -49,7 +45,7 @@ function BannerDetailSlider() {
                   `/${item?.channel?.TVCategory?.name}/live/${item._id}`
                 );
               }}
-              className="card-slider1 flex flex-col items-center cursor-pointer rounded-lg border"
+              className="card-slider1 flex flex-col  cursor-pointer rounded-lg "
               key={item.id}
               style={{
                 border: "1px solid white",
