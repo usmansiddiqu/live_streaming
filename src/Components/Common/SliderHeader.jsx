@@ -6,7 +6,7 @@ function SliderHeader(props) {
   return (
     <div
       style={{
-        width: "73%",
+        width: "63%",
         display: "flex",
         justifyContent: "space-between",
         margin: "auto",
@@ -18,7 +18,7 @@ function SliderHeader(props) {
       <h1 className="font-medium" style={{ color: "white", fontSize: "24px" }}>
         {props.title}
       </h1>
-      <span>
+      <span className="header-view px-3">
         <a
           onClick={() => navigate(`/${props.link}`)}
           className="font-bold cursor-pointer"

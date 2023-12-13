@@ -56,6 +56,7 @@ function MainSlider() {
                 src={url + "\\" + card.image.replace("uploads\\", "")}
                 alt={`Image ${key}`}
               />
+
               <h1
                 className="text-white banner-text text-4xl font-bold absolute"
                 style={{

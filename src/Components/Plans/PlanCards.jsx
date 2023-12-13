@@ -37,7 +37,7 @@ function PlanCards() {
           then it will be automatically canceled at the end of the billing
           period.
         </h4>
-        <div className="flex pay-cards justify-between flex-wrap">
+        <div className="flex pay-cards justify-between items-center flex-wrap">
           {data?.map((payment) => (
             <div key={payment._id} className="flex w-[20rem] mb-4">
               <div
@@ -48,8 +48,13 @@ function PlanCards() {
                 }}
               >
                 <div className="flex justify-start items-start">
-                  <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 text-xl font-semibold">
-                    {payment.name}
+                  <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
+                    <div
+                      className="mx-auto text-center font-semibold"
+                      style={{ fontSize: "17px" }}
+                    >
+                      {payment.name}
+                    </div>
                   </div>
                 </div>
 

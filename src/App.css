@@ -430,6 +430,49 @@ li a{
 
 
 }
+@media screen and (max-width: 420px){
+  .banner-Buttons{
+    margin-left: 210px ;
+    margin-top: -20px;
+    margin: auto;
+    width: 34vw !important;
+    position: relative;
+    top: -35% !important;
+   }
+   .sliderHeader{
+    width: 75% !important;
+   }
+   
+
+  
+
+}
+@media screen and (max-width: 380px){
+  .banner-Buttons{
+    margin-left: 210px ;
+    margin-top: -20px;
+    margin: auto;
+    width: 34vw !important;
+    position: relative;
+    top: -25% !important;
+   }
+
+  
+
+}
+@media screen and (max-width: 280px){
+  .banner-Buttons{
+    margin-left: 210px ;
+    margin-top: -20px;
+    margin: auto;
+    width: 34vw !important;
+    position: relative;
+    top: -50% !important;
+   }
+
+  
+
+}
 @media screen and (max-width: 540px){
   .footer-flex{
     width: 100%;
@@ -479,6 +522,9 @@ li a{
   .footer-goole-img{
     height: 0px;
     margin-top: -20px;
+  }
+  .pay-cards{
+    justify-content: center;
   }
   .contact-form{
     flex-direction: column;
