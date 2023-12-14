@@ -33,6 +33,10 @@ li a{
   justify-content: space-between;
   align-items: baseline;
 }
+.carousel-indicators{
+
+  display: none !important;
+}
 .fooer-Img{
   width: 100%;
   height: 26vh;
@@ -230,6 +234,11 @@ li a{
     margin-top: 20px ;
     text-shadow: -1px 4px 2px rgba(0,0,0,0.6);
   }
+  .banner-textt{
+    width: 100%;
+    font-size: 20px;
+
+  }
   .sidebar-toggle {
     display: none;
   }
@@ -395,7 +404,7 @@ li a{
    .pre-Button{
     margin-top: 0px !important;
     width: 100px !important;
-    height: 32px !important;
+    height: 35px !important;
    }
   .save-btn{
     margin-left: 450px;
@@ -483,6 +492,11 @@ li a{
   .banner-text{
     margin-top: -14% !important;
  
+  }
+  .bg-imgg{
+    width: 100vw;
+    height: 28vh;
+    background-color: aqua;
   }
   .banner-Buttons{
     width: 52vw !important;
@@ -693,7 +707,7 @@ li a{
    .pre-Button{
     margin-top: 0px !important;
     width: 100px !important;
-    height: 32px !important;
+    height: 35px !important;
    }
   .layer-icon{
     display: block;
