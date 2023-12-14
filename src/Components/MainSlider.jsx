@@ -23,6 +23,7 @@ function MainSlider() {
   const navigate = useNavigate();
   return (
     <>
+      {console.log(isTabletOrMobile, isDekstop, "check1234")}
       {isDekstop && (
         <div
           style={{
@@ -98,8 +99,12 @@ function MainSlider() {
                     <img
                       src={url + "\\" + card.image.replace("uploads\\", "")}
                       alt={`Image ${key}`}
-                      class="absolute bg-img block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                      class="absolute bg-img block w-full  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                     />
+                    {console.log(
+                      url + "\\" + card.image.replace("uploads\\", ""),
+                      "checkimage"
+                    )}
                     <h1
                       className="text-white  text-xl font-bold absolute"
                       style={{

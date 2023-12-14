@@ -124,6 +124,22 @@ li a{
     margin-top: 20px !important;
     height: 40vh !important;
   }
+  .sliderHeader{
+    width: 100% ;
+
+  }
+  .tem-img-box{
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+   }
+   .ended{
+    margin-top: -55px;
+    margin-left: 20px;
+  }
+  .tem-img{
+    margin-top: -10px;
+   }
   
 }
 
@@ -555,19 +571,20 @@ li a{
   
 
 }
-/* @media screen and (max-width: 280px){
-  .banner-Buttons{
-    margin-left: 210px ;
-    margin-top: -20px;
-    margin: auto;
-    width: 34vw !important;
-    position: relative;
-    top: -50% !important;
-   } */
-
-  
-
-/* } */
+@media screen and (max-width: 650px){
+  .tem-img-box{
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+   }
+   .ended{
+    margin-top: -55px;
+    margin-left: 50px !important;
+  }
+  .tem-img{
+    margin-top: -10px;
+   }
+} 
 @media screen and (max-width: 540px){
   .footer-flex{
     width: 100%;
@@ -759,8 +776,17 @@ li a{
     margin-left: 20px;
     margin-top: 10px !important;
   }
-  .ended{
-    margin-left: 30px;
-margin-top: -65px;
+  .tem-img-box{
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+   }
+   .ended{
+    margin-top: -55px;
+    margin-left: 20px;
   }
+  .tem-img{
+    margin-top: -10px;
+   }
+
 }
