@@ -4,7 +4,7 @@ function TeamIcons({ iconsData }) {
   return (
     <>
       <div
-        className="px-5 pr-6 py-1 tem-img-box"
+        className="tem-img-box"
         style={{
           height: "100%",
           display: "flex",

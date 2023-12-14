@@ -6,8 +6,8 @@ import getSliders from "../api/getSlider";
 import { url } from "../helper/url";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-import Carousel from "react-bootstrap/Carousel";
-import "bootstrap/dist/css/bootstrap.min.css";
+import CarouselSlider from "./CarouselSlider";
+
 function MainSlider() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1001px)" });
@@ -84,33 +84,7 @@ function MainSlider() {
 
       {isTabletOrMobile && (
         <>
-          <Carousel data-bs-theme="dark">
-            {data
-              ?.filter((card) => card?.status)
-              .map((card, key) => (
-                <Carousel.Item key={key}>
-                  <img
-                    className="d-block w-100 h-[30vh]"
-                    src={url + "\\" + card.image.replace("uploads\\", "")}
-                    alt={`Image ${key}`}
-                  />
-                  <div
-                    className="flex flex-col w-[100vw] absolute"
-                    style={{
-                      left: "2%",
-                      top: "50%",
-                    }}
-                  >
-                    <h1 className="text-white banner-textt text-4xl font-bold absolute">
-                      {card?.title}
-                    </h1>
-                    <BannerButtons
-                      onWatch={() => navigate(`/live/${card._id}`)}
-                    />
-                  </div>
-                </Carousel.Item>
-              ))}
-          </Carousel>
+          <CarouselSlider />
         </>
       )}
     </>

@@ -22,8 +22,13 @@ function TeamIconsDetailPage({ iconsData }) {
           </div>
         ))}
       </div>
-      <div className="w-[278px] team-names h-[0] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center py-1">
-        <span className="py-auto text-white font-medium"> hellow</span>
+      <div
+        className="w-[278px] team-names h-[0] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center py-1 "
+        style={{
+          right: "0%",
+        }}
+      >
+        <span className="py-auto text-white font-medium"> </span>
       </div>
     </>
   );
