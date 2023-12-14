@@ -44,6 +44,24 @@
     // display: none;
   }
 }
+.Cardsliderr {
+  .splide__arrow {
+    width: 30px !important;
+    height: 30px !important;
+    opacity: 1 !important;
+    background-image: linear-gradient(to right, #00c4ff, #0074ff);
+  }
+  .splide__arrow--prev svg,
+  .splide__arrow--next svg {
+    fill: white !important;
+    height: 12px !important;
+    width: 12px !important;
+  }
+  .splide__arrow--next {
+    margin-right: 3px !important;
+    // display: none;
+  }
+}
 
 @media screen and (max-width: 2600px) {
   .Cardslider {
