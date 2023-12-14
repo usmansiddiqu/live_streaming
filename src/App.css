@@ -88,8 +88,11 @@ li a{
     height: 49vh !important;
   }
   .sliderHeader{
-    width: 65% !important;
+    width: 65% ;
 
+  }
+  .ended{
+    margin-top: -55px;
   }
 }
 @media screen and (max-width: 1980px) {
@@ -98,11 +101,14 @@ li a{
   
   }
   .sliderHeader{
-    width: 73% !important;
+    width: 73% ;
 
   }
   .mainSlider{
     margin-top: 20px !important;
+  }
+  .ended{
+    margin-top: -55px;
   }
 }
 
@@ -171,14 +177,18 @@ li a{
 @media screen and (max-width: 380px) {
   .banner-Buttons{
     margin-left: 0;
-    /* margin-top: -10px; */
     margin: auto;
     position: relative;
-    top: -55% !important;
-   left: 30%;
+    top: 20% !important;
+   left: 0%;
    display: flex;
    flex-direction: column;
    }
+ .cardd{
+  width: 100px !important;
+  height: 30px !important;
+ }
+
 }
 
 
@@ -298,7 +308,7 @@ li a{
   width: 80% !important;
   font-size: 26px !important;
  }
- .banner-Buttons{
+ /* .banner-Buttons{
   margin-left: 0;
   margin-top: -20px !important;
   margin: auto;
@@ -307,7 +317,7 @@ li a{
  left: 30%;
  display: flex;
  flex-direction: column;
- }
+ } */
 .post-Button{
   margin-left: 0px !important;
   margin-top: 10px;
@@ -348,6 +358,29 @@ li a{
   .input-feild-label {
     width: 20vw;
   }
+  .banner-Buttons{
+    width: 50vw ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    top: 55% ;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 55px;
+    
+   }
+   .post-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
+    margin-left: 5px;
+   }
+   .pre-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 32px !important;
+   }
   .save-btn{
     margin-left: 450px;
   }
@@ -387,14 +420,14 @@ li a{
     background-color: white;
 
    }
-   .banner-Buttons{
+   /* .banner-Buttons{
     margin-left: 210px ;
     margin-top: -10px;
     margin: auto;
     width: 34vw !important;
     position: relative;
     top: -20%;
-   }
+   } */
    .mainSlider{
     height: 58vh !important;
    }
@@ -435,17 +468,38 @@ li a{
     margin-top: -14% !important;
  
   }
-
   .banner-Buttons{
-    margin-left: 210px ;
-    margin-top: -20px;
-    margin: auto;
-    width: 34vw !important;
+    width: 52vw !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     position: relative;
-    top: -30% !important;
+    top: 55% !important;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 55px;
+    
+   }
+   .post-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
+   }
+   .pre-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
    }
    .sliderHeader{
-    width: 75% !important;
+    width: 99% !important;
+   }
+   .tem-img-box{
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+   }
+   .tem-img{
+    margin-top: -10px;
    }
    .card-slider1{
     width: 200.5px !important;
@@ -459,7 +513,9 @@ li a{
     margin-left: 0;
     width: 128vw !important;
    }
-   
+   .bg-img{
+    height: 30vh;
+   }
    
 
   
@@ -467,21 +523,39 @@ li a{
 }
 @media screen and (max-width: 380px){
   .banner-Buttons{
-    margin-left: 210px ;
-    margin-top: -20px;
-    margin: auto;
-    width: 34vw !important;
+    width: 55vw !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     position: relative;
-    top: -45% !important;
+    top: 55% !important;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 55px;
+    
+   }
+   .post-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 33px !important;
+   }
+   .pre-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
    }
    .banner-text{
     margin-top: -14% !important;
  
   }
+  .img-icon{
+    width: 12px;
+    height: 12px;
+  }
   
 
 }
-@media screen and (max-width: 280px){
+/* @media screen and (max-width: 280px){
   .banner-Buttons{
     margin-left: 210px ;
     margin-top: -20px;
@@ -489,11 +563,11 @@ li a{
     width: 34vw !important;
     position: relative;
     top: -50% !important;
-   }
+   } */
 
   
 
-}
+/* } */
 @media screen and (max-width: 540px){
   .footer-flex{
     width: 100%;
@@ -536,13 +610,17 @@ li a{
   }
 
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 920px) {
   .signup-Bg{
     width: 100%;
     /* height: 50vh; */
    }
    .card-con{
     width: 90vw !important;
+  }
+  .sliderHeader{
+    width: 100% ;
+
   }
   .footer-goole-img{
     height: 0px;
@@ -579,8 +657,26 @@ li a{
     text-shadow: -1px 4px 2px rgba(0,0,0,0.6);
   }
   .banner-Buttons{
-    width: 30vw;
-   margin-left: 175px
+    width: 27vw ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    top: 62%;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 55px;
+    
+   }
+   .post-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
+   }
+   .pre-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 32px !important;
    }
   .layer-icon{
     display: block;
@@ -663,5 +759,8 @@ li a{
     margin-left: 20px;
     margin-top: 10px !important;
   }
-
+  .ended{
+    margin-left: 30px;
+margin-top: -65px;
+  }
 }

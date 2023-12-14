@@ -4,7 +4,7 @@ function TeamIcons({ iconsData }) {
   return (
     <>
       <div
-        className="px-5 pr-6 py-1"
+        className="px-5 pr-6 py-1 tem-img-box"
         style={{
           height: "100%",
           display: "flex",
@@ -13,7 +13,7 @@ function TeamIcons({ iconsData }) {
         }}
       >
         {iconsData.map((icon, index) => (
-          <div key={index} className="flex flex-col items-center ">
+          <div key={index} className="flex flex-col items-center tem-img">
             <img
               src={icon.iconUrl}
               alt={icon.name}
