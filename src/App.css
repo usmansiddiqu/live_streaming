@@ -208,11 +208,16 @@ li a{
     height: 0px;
     margin-top: -20px;
   }
+  .history-table{
+    padding: 10px;
+    width: 60vw;
+   }
   .container1 {
     width: calc(50% - 40px);
     height: 30vmin;
     font-size: 14px;
   }
+
 }
 .headd{
  width: 25vw;
@@ -559,10 +564,18 @@ li a{
   .palceandtimeheight{
     height: 5vh;
   }
+  .dash-card{
+    width: 100vw;
+    height: 30vh !important;
+    margin-right: 10px;
+  }
+  .dash-main{
+    width: 100%;
+    padding: 10px;
+  }
   .bg-imgg{
     width: 100vw;
     height: 28vh;
-    background-color: aqua;
   }
   .banner-Buttons{
     width: 52vw !important;
@@ -575,6 +588,11 @@ li a{
     margin-left: 10px;
     margin-top: 55px;
     
+   }
+   .history-table{
+    padding: 10px;
+    width: 100vw !important;
+    margin-bottom: 10px;
    }
    .post-Button{
     margin-top: 0px !important;
@@ -762,6 +780,19 @@ margin-left: -80px;
    }
    .card-con{
     width: 90vw !important;
+  }
+  .history-table{
+    padding: 10px;
+    width: 68vw;
+   }
+  .dash-card{
+    width: 100vw;
+    height: 22vh;
+    margin-right: 10px;
+  }
+  .dash-main{
+    width: 100%;
+    padding: 10px;
   }
   .sliderHeader{
     width: 100% ;

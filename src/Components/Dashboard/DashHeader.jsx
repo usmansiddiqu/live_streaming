@@ -20,7 +20,7 @@ function DashHeader({ title }) {
         <div className=" flex justify-between  lg:px-40">
           <h1 className="text-2xl z-20 font-semibold">{title}</h1>
         </div>
-        <div className="flex  flex-row  z-20 justify-between !w-[120px]  headdd items-center">
+        <div className="flex  flex-row  z-20 justify-between !w-[150px]  headdd items-center">
           <a href="">Home</a>
           <img src={Play} alt="" className="w-[10px] h-[10px]" />
           <p>{title}</p>
