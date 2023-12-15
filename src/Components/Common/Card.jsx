@@ -1,8 +1,8 @@
 import React from "react";
-import TeamIcons from "./TeamIcons";
-import Dashboard from "../../Pages/Dashboard";
 import DashHeader from "../Dashboard/DashHeader";
 import { useNavigate, useParams } from "react-router-dom";
+import AnotherTeamIcons from "./AnotherTeamIcons";
+import Ended from "./Ended";
 
 function Card({ data, title }) {
   const params = useParams();
@@ -11,9 +11,9 @@ function Card({ data, title }) {
   return (
     <div>
       <DashHeader title={title} />
-      <div class=" flex items-center justify-center">
+      <div class=" flex items-center justify-center relative">
         <div class="container mx-auto">
-          <div class="grid card-con grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 p-3 mx-auto gap-3 w-[73vw]">
+          <div class="grid card-con grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 p-3 mx-auto gap-3 w-[73vw] mb-4 card-match">
             <>
               {data
                 ?.sort(
@@ -44,18 +44,26 @@ function Card({ data, title }) {
                         } 50%)`,
                       }}
                     >
-                      <div className="placeAndTime  border w-[100%] h-[3vh] flex justify-between flex-row p-0 px-2 bg-[black] bg-opacity-40 text-white">
+                      <div className="placeAndTime  border w-[100%] h-[3vh] flex justify-between flex-row p-1 px-2 bg-[black] bg-opacity-40 text-white">
                         <p>{item.data.location}</p>
                         <p> {item.data.date.split("T")[0]}</p>
                       </div>
 
                       <div className="container px-6 py-10">
-                        <TeamIcons
+                        <AnotherTeamIcons
                           iconsData={item.data.competitors.map((comp) => ({
                             iconUrl: comp.logo,
                             name: comp.name,
                           }))}
                         />
+                        <div className="endedd ">
+                          <Ended
+                            show={
+                              new Date(item?.data?.date) >
+                              new Date().setHours(new Date().getHours() + 4)
+                            }
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>

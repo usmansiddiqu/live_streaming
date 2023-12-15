@@ -87,6 +87,9 @@ li a{
    width: 65% !important;
   
   }
+  .endedd{
+    margin-left: 20px;
+  }
   .mainSlider{
     margin-top: 20px !important;
     height: 49vh !important;
@@ -96,7 +99,8 @@ li a{
 
   }
   .ended{
-    margin-top: -55px;
+    margin-top: -45px;
+    margin-left: -5px;
   }
 }
 @media screen and (max-width: 1980px) {
@@ -112,8 +116,8 @@ li a{
     margin-top: 20px !important;
   }
   .ended{
-    margin-top: -45px;
-    margin-left: 30px;
+    margin-top: -50px;
+    margin-left: 0px;
   }
   .tem-img-box{
     padding-top: 0px;
@@ -149,6 +153,16 @@ li a{
   }
   .tem-img{
     margin-top: -10px;
+   }
+   .dash-headd{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+   }
+   .headd{
+    width: 25vw;
+    margin-top: 10px;
    }
   
 }
@@ -200,6 +214,11 @@ li a{
     font-size: 14px;
   }
 }
+.headd{
+ width: 25vw;
+ margin-top: 10px;
+}
+
 @media screen and (max-width: 380px) {
   .banner-Buttons{
     margin-left: 0;
@@ -214,6 +233,37 @@ li a{
   width: 100px !important;
   height: 30px !important;
  }
+.pay-cardd{
+  width: 100vw !important;
+
+}  .endedd{
+  margin-left: 60px;
+}
+.new-footer-box{
+  width: 100vw;
+}.google-btn{
+
+}
+.pay-cardds{
+  width: 93vw !important;
+  height: 30vh;
+
+}
+.pay-card-box{
+  width: 98vw;
+  padding: 10;
+}
+.coupan-btn{
+  margin-top: 10px;
+}
+.tem-icons{
+  height: 25px !important;
+  width:25px !important ;
+  /* margin-left: -20px; */
+}
+.tem-img-box{
+  width: 100%;
+}
 
 }
 
@@ -225,6 +275,10 @@ li a{
   .wrapper {
     gap: 15px;
   }
+  .headd{
+    width: 38vw;
+    margin-top: 10px;
+   }
   .container1 {
     width: 70%;
     height: 25vmin;
@@ -243,6 +297,8 @@ li a{
   .banner-textt{
     width: 100%;
     font-size: 20px;
+    text-shadow: -1px 4px 2px rgba(0,0,0,0.6);
+    margin-left: 10px;
 
   }
   .sidebar-toggle {
@@ -273,6 +329,7 @@ li a{
     border: 1px solid;
     margin-bottom: 10px;
   }
+  
   .input-feild{
     display: flex;
     flex-direction: column;
@@ -339,6 +396,8 @@ li a{
   width: 80% !important;
   font-size: 26px !important;
  }
+
+
  /* .banner-Buttons{
   margin-left: 0;
   margin-top: -20px !important;
@@ -499,6 +558,9 @@ li a{
     margin-top: -14% !important;
  
   }
+  .placeAndTime{
+    height: 5vh;
+  }
   .bg-imgg{
     width: 100vw;
     height: 28vh;
@@ -580,15 +642,58 @@ li a{
     width: 100px !important;
     height: 35px !important;
    }
+   .google-btnn{
+    width: 120px;
+    height: 40px;
+
+   }
+   .text-footer a{
+    font-size: 11px;
+   }
+   .footer-copy{
+    margin-top: 10px !important;
+   }
    .banner-text{
     margin-top: -14% !important;
  
+  }
+  .app-btn{
+    margin-top: 30px !important;
+  }
+  .tem-p{
+    font-size: 10px !important;
+  }
+  .pay-texts{
+width: 100vw;
+margin-left: -80px;
+  }
+  .plan-page-text{
+    width: 100vw;
+    padding: 20px;
+  }
+  .card-match{
+    margin-left: -4px !important;
+
+  }
+
+  .team-icons{
+    width: 45px !important;
+    height: 45px !important;
   }
   .img-icon{
     width: 12px;
     height: 12px;
   }
-  
+  .headd{
+    width: 43vw !important;
+    margin-top: 10px;
+   }
+  .mbl-bg-img{
+    height: 25vh !important;
+  }
+  .team-p{
+    font-size: 16px;
+  }
 
 }
 @media screen and (max-width: 650px){
@@ -599,7 +704,7 @@ li a{
    }
    .ended{
     margin-top: -55px;
-    margin-left: 50px !important;
+    margin-left: 50px ;
   }
   .tem-img{
     margin-top: -10px;
@@ -616,6 +721,10 @@ li a{
     justify-content: space-between;
 
   }
+  .headd{
+    width: 35vw;
+    margin-top: 10px;
+   }
   .search-transactions{
 
     margin-bottom: 10px;
@@ -658,6 +767,9 @@ li a{
   .sliderHeader{
     width: 100% ;
 
+  }
+  .endedd{
+    margin-left: 60px;
   }
   .footer-goole-img{
     height: 0px;

@@ -28,7 +28,7 @@ function CarouselSlider() {
           .map((card, key) => (
             <Carousel.Item key={key}>
               <img
-                className="d-block w-100 h-[30vh]"
+                className="d-block w-100 h-[30vh] mbl-bg-img"
                 src={url + "\\" + card.image.replace("uploads\\", "")}
                 alt={`Image ${key}`}
               />
