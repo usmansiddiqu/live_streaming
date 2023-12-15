@@ -116,7 +116,10 @@ function Login() {
               class="p-6 space-y-4 md:space-y-6 sm:p-8 bg-[#0D0820] rounded-2xl "
               style={{ boxShadow: "0px 1px 15px 1px rgba(255,255,255,0.5)" }}
             >
-              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              <h1
+                class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white"
+                style={{ color: "white" }}
+              >
                 Login
               </h1>
               <form class="space-y-4 md:space-y-6">
