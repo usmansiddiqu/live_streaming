@@ -55,7 +55,7 @@ function Transactions() {
             <div class="relative overflow-x-auto shadow-md edit-contain">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[55%] search-bar-for-transaction  justify-between flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center  search-bar-for-transaction  justify-between flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
