@@ -25,7 +25,9 @@ function NavLinks() {
             aria-current={activeLink === "Home" ? "page" : undefined}
             onClick={() => handleLinkClick("Home")}
           >
-            <Link to="/">Home</Link>
+            <Link to="/" style={{ color: "white" }}>
+              Home
+            </Link>
           </a>
         </li>
         <li>
@@ -36,7 +38,10 @@ function NavLinks() {
             }`}
             onClick={() => handleLinkClick("MLB")}
           >
-            <Link to="/mlb"> MLB</Link>
+            <Link to="/mlb" style={{ color: "white" }}>
+              {" "}
+              MLB
+            </Link>
           </a>
         </li>
         <li>
@@ -47,7 +52,10 @@ function NavLinks() {
             }`}
             onClick={() => handleLinkClick("NBA")}
           >
-            <Link to="/nba"> NBA</Link>
+            <Link to="/nba" style={{ color: "white" }}>
+              {" "}
+              NBA
+            </Link>
           </a>
         </li>
         <li>
@@ -58,7 +66,10 @@ function NavLinks() {
             }`}
             onClick={() => handleLinkClick("NFL")}
           >
-            <Link to="/nfl"> NFL</Link>
+            <Link to="/nfl" style={{ color: "white" }}>
+              {" "}
+              NFL
+            </Link>
           </a>
         </li>
         <li>
@@ -69,7 +80,10 @@ function NavLinks() {
             }`}
             onClick={() => handleLinkClick("NHL")}
           >
-            <Link to="/nhl"> NHL</Link>
+            <Link to="/nhl" style={{ color: "white" }}>
+              {" "}
+              NHL
+            </Link>
           </a>
         </li>
       </ul>

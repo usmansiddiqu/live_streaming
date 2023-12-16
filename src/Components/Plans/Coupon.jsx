@@ -11,10 +11,10 @@ function Coupon() {
     setCoupon("");
   };
   return (
-    <div className="lg:px-20 md:px-10 w-[83vw]  mx-auto sm:px-7 px-5 bg-[#0D0620] pt-0 pb-5 md:ps-20 text-white">
+    <div className="w-[70vw]  mx-auto  bg-[#0D0620] pt-0 pb-5 md:ps-20 text-white pay-card-box p-2">
       <ToastContainer />
       <div
-        className="flex flex-col ml-19 gap-5 justify-center items-center md:ps-7 pt-4 pb-4 md:w-[34rem] h-48 bg-center rounded-xl"
+        className="flex flex-col  gap-5 justify-center items-center md:ps-7 pt-4 pb-4 md:w-[34rem] h-48 bg-center rounded-xl pay-cardds"
         style={{
           backgroundColor: "#1F1340",
           backgroundImage: `url(${plan})`,
@@ -37,7 +37,7 @@ function Coupon() {
           ></input>
           <button
             onClick={applyCoupon}
-            className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l  text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center md:mt-0 "
+            className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l  text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center md:mt-0 coupan-btn "
           >
             APPLY COUPON
           </button>

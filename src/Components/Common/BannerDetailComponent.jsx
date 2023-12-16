@@ -28,7 +28,7 @@ function BannerDetailComponent({ data, url }) {
         <VideoPlayer url={url} setShow={setShow} />
       ) : (
         <div
-          className="!w-[80rem] !h-[35rem]"
+          className=" w-[67vw] h-[50vh] watch-img"
           style={{
             background: `linear-gradient(-60deg, #${
               data?.data?.competitors?.filter(
@@ -53,7 +53,7 @@ function BannerDetailComponent({ data, url }) {
             }}
           ></div>
           <img
-            className="mx-auto"
+            className="mx-auto watch-img w-[100vw] h-[50vh]"
             src={url1 + "\\" + data?.image?.replace("uploads\\", "")}
           />
           {/* <div className="" style={{ marginTop: "25px" }}>

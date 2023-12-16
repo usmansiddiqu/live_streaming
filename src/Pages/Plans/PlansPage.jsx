@@ -4,15 +4,14 @@ import PlanCards from "../../Components/Plans/PlanCards";
 import Coupon from "../../Components/Plans/Coupon";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import verifyPayments from "../../api/payment.api";
 import { ToastContainer, toast } from "react-toastify";
 import getDetails from "../../api/authGetDetails";
 function PlansPage() {
-  const params = useParams();
-  const [result, setResult] = useState(null);
+  const [search] = useSearchParams();
   const getData = async () => {
-    const { data: response } = await verifyPayments(params.id);
+    const { data: response } = await verifyPayments(search.get("token"));
     if (response.message == "Token Verified!") {
       toast.success("Payment Successfull!");
       getUser();
@@ -27,7 +26,7 @@ function PlansPage() {
     }
   };
   useEffect(() => {
-    if (params?.id) {
+    if (search.get("token")) {
       getData();
     }
   }, []);
@@ -38,7 +37,7 @@ function PlansPage() {
       <PlansDash />
       <PlanCards />
       <Coupon />
-      <div className="text-white mx-auto w-[75vw] ">
+      <div className="text-white mx-auto w-[70vw] mb-3 plan-page-text">
         <p className="text-lg font-bold">Why Choose Our Subscription?</p>
         <p>
           <span className="font-bold">Unlimited Sports Access:</span>{" "}

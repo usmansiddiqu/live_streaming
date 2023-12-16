@@ -24,7 +24,7 @@ function Button(props) {
           <img
             src={props.src}
             alt=""
-            className="w-[18px] h-[18px]"
+            className="w-[18px] h-[18px] img-icon"
             style={{ borderRadius: "0px" }}
           />
           <span>{props.text}</span>

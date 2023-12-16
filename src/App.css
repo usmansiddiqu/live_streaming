@@ -33,6 +33,10 @@ li a{
   justify-content: space-between;
   align-items: baseline;
 }
+.carousel-indicators{
+
+  display: none !important;
+}
 .fooer-Img{
   width: 100%;
   height: 26vh;
@@ -83,13 +87,20 @@ li a{
    width: 65% !important;
   
   }
+  .endedd{
+    margin-left: 20px;
+  }
   .mainSlider{
     margin-top: 20px !important;
     height: 49vh !important;
   }
   .sliderHeader{
-    width: 65% !important;
+    width: 65% ;
 
+  }
+  .ended{
+    margin-top: -45px;
+    margin-left: -5px;
   }
 }
 @media screen and (max-width: 1980px) {
@@ -98,12 +109,21 @@ li a{
   
   }
   .sliderHeader{
-    width: 73% !important;
+    width: 73% ;
 
   }
   .mainSlider{
     margin-top: 20px !important;
   }
+  .ended{
+    margin-top: -50px;
+    margin-left: 0px;
+  }
+  .tem-img-box{
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+   }
 }
 
 @media screen and (max-width: 1000px) {
@@ -118,6 +138,32 @@ li a{
     margin-top: 20px !important;
     height: 40vh !important;
   }
+  .sliderHeader{
+    width: 100% ;
+
+  }
+  .tem-img-box{
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+   }
+   .ended{
+    margin-top: -55px;
+    margin-left: 20px;
+  }
+  .tem-img{
+    margin-top: -10px;
+   }
+   .dash-headd{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+   }
+   .headd{
+    width: 25vw;
+    margin-top: 10px;
+   }
   
 }
 
@@ -162,23 +208,67 @@ li a{
     height: 0px;
     margin-top: -20px;
   }
+  .history-table{
+    padding: 10px;
+    width: 60vw;
+   }
   .container1 {
     width: calc(50% - 40px);
     height: 30vmin;
     font-size: 14px;
   }
+
 }
+.headd{
+ width: 25vw;
+ margin-top: 10px;
+}
+
 @media screen and (max-width: 380px) {
   .banner-Buttons{
     margin-left: 0;
-    /* margin-top: -10px; */
     margin: auto;
     position: relative;
-    top: -55% !important;
-   left: 30%;
+    top: 20% !important;
+   left: 0%;
    display: flex;
    flex-direction: column;
    }
+ .cardd{
+  width: 100px !important;
+  height: 30px !important;
+ }
+.pay-cardd{
+  width: 100vw !important;
+
+}  .endedd{
+  margin-left: 60px;
+  margin-top: -20px !important;
+}
+.new-footer-box{
+  width: 100vw;
+}
+.pay-cardds{
+  width: 93vw !important;
+  height: 30vh;
+
+}
+.pay-card-box{
+  width: 98vw;
+  padding: 10;
+}
+.coupan-btn{
+  margin-top: 10px;
+}
+.tem-icons{
+  height: 25px !important;
+  width:25px !important ;
+  /* margin-left: -20px; */
+}
+.tem-img-box{
+  width: 100%;
+}
+
 }
 
 
@@ -189,6 +279,10 @@ li a{
   .wrapper {
     gap: 15px;
   }
+  .headd{
+    width: 38vw;
+    margin-top: 10px;
+   }
   .container1 {
     width: 70%;
     height: 25vmin;
@@ -203,6 +297,13 @@ li a{
     text-align: center !important;
     margin-top: 20px ;
     text-shadow: -1px 4px 2px rgba(0,0,0,0.6);
+  }
+  .banner-textt{
+    width: 100%;
+    font-size: 20px;
+    text-shadow: -1px 4px 2px rgba(0,0,0,0.6);
+    margin-left: 10px;
+
   }
   .sidebar-toggle {
     display: none;
@@ -232,6 +333,7 @@ li a{
     border: 1px solid;
     margin-bottom: 10px;
   }
+  
   .input-feild{
     display: flex;
     flex-direction: column;
@@ -298,7 +400,9 @@ li a{
   width: 80% !important;
   font-size: 26px !important;
  }
- .banner-Buttons{
+
+
+ /* .banner-Buttons{
   margin-left: 0;
   margin-top: -20px !important;
   margin: auto;
@@ -307,7 +411,7 @@ li a{
  left: 30%;
  display: flex;
  flex-direction: column;
- }
+ } */
 .post-Button{
   margin-left: 0px !important;
   margin-top: 10px;
@@ -348,6 +452,29 @@ li a{
   .input-feild-label {
     width: 20vw;
   }
+  .banner-Buttons{
+    width: 50vw ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    top: 55% ;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 55px;
+    
+   }
+   .post-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
+    margin-left: 5px;
+   }
+   .pre-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
+   }
   .save-btn{
     margin-left: 450px;
   }
@@ -359,7 +486,7 @@ li a{
     display: block;
   }
   .main-page {
-    flex-direction: column;
+    flex-direction: column !important;
    }
    .left-side {
     width: 100%;
@@ -367,11 +494,11 @@ li a{
    }
    .signup-Bg{
     width: 100%;
-    height: 50vh;
+    height: 40vh;
    }
    .signup{
     width: 100%;
-    height: 50vh;
+    height: 40vh;
    }
    .signup img{
     margin-top: 30px;
@@ -383,18 +510,17 @@ li a{
    .right-side {
     width: 100%;
     height:100vh;
-    border: 1px solid;
     background-color: white;
 
    }
-   .banner-Buttons{
+   /* .banner-Buttons{
     margin-left: 210px ;
     margin-top: -10px;
     margin: auto;
     width: 34vw !important;
     position: relative;
     top: -20%;
-   }
+   } */
    .mainSlider{
     height: 58vh !important;
    }
@@ -430,6 +556,177 @@ li a{
 
 
 }
+@media screen and (max-width: 420px){
+  .banner-text{
+    margin-top: -14% !important;
+ 
+  }
+  .palceandtimeheight{
+    height: 5vh;
+  }
+  .dash-card{
+    width: 100vw;
+    height: 30vh !important;
+    margin-right: 10px;
+  }
+  .dash-main{
+    width: 100%;
+    padding: 10px;
+  }
+  .bg-imgg{
+    width: 100vw;
+    height: 28vh;
+  }
+  .banner-Buttons{
+    width: 52vw !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    top: 55% !important;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 55px;
+    
+   }
+   .history-table{
+    padding: 10px;
+    width: 100vw !important;
+    margin-bottom: 10px;
+   }
+   .post-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
+   }
+   .pre-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
+   }
+   .sliderHeader{
+    width: 99% !important;
+   }
+   .tem-img-box{
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+   }
+   .tem-img{
+    margin-top: -10px;
+   }
+   .card-slider1{
+    width: 200.5px !important;
+    height: 100px !important;
+   }
+   .banner-slidess{
+    width: 95vw;
+   }
+   .banner-slide-card{
+    padding: 0;
+    margin-left: 0;
+    width: 128vw !important;
+   }
+   .bg-img{
+    height: 30vh;
+   }
+   
+
+  
+
+}
+@media screen and (max-width: 380px){
+  .banner-Buttons{
+    width: 55vw !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    top: 55% !important;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 55px;
+    
+   }
+
+   .post-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 33px !important;
+   }
+   .pre-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
+   }
+   .google-btnn{
+    width: 120px;
+    height: 40px;
+
+   }
+   .text-footer a{
+    font-size: 11px;
+   }
+   .footer-copy{
+    margin-top: 10px !important;
+   }
+   .banner-text{
+    margin-top: -14% !important;
+ 
+  }
+  .app-btn{
+    margin-top: 30px !important;
+  }
+  .tem-p{
+    font-size: 10px !important;
+  }
+  .pay-texts{
+width: 100vw;
+margin-left: -80px;
+  }
+  .plan-page-text{
+    width: 100vw;
+    padding: 20px;
+  }
+  .card-match{
+    margin-left: -4px !important;
+
+  }
+
+  .team-icons{
+    width: 45px !important;
+    height: 45px !important;
+  }
+  .img-icon{
+    width: 12px;
+    height: 12px;
+  }
+  .headd{
+    width: 43vw !important;
+    margin-top: 10px;
+   }
+  .mbl-bg-img{
+    height: 25vh !important;
+  }
+  .team-p{
+    font-size: 16px;
+  }
+
+}
+@media screen and (max-width: 650px){
+  .tem-img-box{
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+   }
+   .ended{
+    margin-top: -55px;
+    margin-left: 50px ;
+  }
+  .tem-img{
+    margin-top: -10px;
+   }
+} 
 @media screen and (max-width: 540px){
   .footer-flex{
     width: 100%;
@@ -441,9 +738,17 @@ li a{
     justify-content: space-between;
 
   }
+  .headd{
+    width: 35vw;
+    margin-top: 10px;
+   }
   .search-transactions{
 
     margin-bottom: 10px;
+  }
+  .watch-img{
+    width: 100vw;
+    height: 50vh;
   }
   .sidddee{
     height: 7vh;
@@ -468,7 +773,7 @@ li a{
   }
 
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 920px) {
   .signup-Bg{
     width: 100%;
     /* height: 50vh; */
@@ -476,9 +781,32 @@ li a{
    .card-con{
     width: 90vw !important;
   }
+  .history-table{
+    padding: 10px;
+    width: 68vw;
+   }
+  .dash-card{
+    width: 100vw;
+    height: 22vh;
+    margin-right: 10px;
+  }
+  .dash-main{
+    width: 100%;
+    padding: 10px;
+  }
+  .sliderHeader{
+    width: 100% ;
+
+  }
+  .endedd{
+    margin-left: 60px;
+  }
   .footer-goole-img{
     height: 0px;
     margin-top: -20px;
+  }
+  .pay-cards{
+    justify-content: center;
   }
   .contact-form{
     flex-direction: column;
@@ -508,8 +836,26 @@ li a{
     text-shadow: -1px 4px 2px rgba(0,0,0,0.6);
   }
   .banner-Buttons{
-    width: 30vw;
-   margin-left: 175px
+    width: 27vw ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    top: 62%;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 55px;
+    
+   }
+   .post-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
+   }
+   .pre-Button{
+    margin-top: 0px !important;
+    width: 100px !important;
+    height: 35px !important;
    }
   .layer-icon{
     display: block;
@@ -542,7 +888,20 @@ li a{
   .table-search-user{
     margin-top: 10px !important;
   }
- 
+  .banner-slidess{
+    width: 95vw;
+
+    height: 32vh;
+   }
+   .banner-slide-card{
+    padding: 0;
+    margin-left: 0;
+    width: 128vw !important;
+   }
+   .live-head{
+    width: 95vw ;
+
+   }
   
   
 }
@@ -579,5 +938,17 @@ li a{
     margin-left: 20px;
     margin-top: 10px !important;
   }
+  .tem-img-box{
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+   }
+   .ended{
+    margin-top: -55px;
+    margin-left: 20px;
+  }
+  .tem-img{
+    margin-top: -10px;
+   }
 
 }

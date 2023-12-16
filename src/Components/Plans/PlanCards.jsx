@@ -29,27 +29,32 @@ function PlanCards() {
     setError(response.message);
   };
   return (
-    <div className="lg:px-20 md:px-10 sm:px-5 w-[83vw]  mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
+    <div className="lg:px-20 md:px-10 sm:px-5 w-[73vw] mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
       <div className="flex flex-col w-full ">
         {error && <ErrorComponent message={error} />}
-        <h4 className="mb-5">
+        <h4 className="mb-5 pay-texts">
           NOTE: The service will not auto-renew, if you do not renew manually
           then it will be automatically canceled at the end of the billing
           period.
         </h4>
-        <div className="flex pay-cards justify-between flex-wrap">
+        <div className="flex pay-cards justify-between items-center flex-wrap">
           {data?.map((payment) => (
             <div key={payment._id} className="flex w-[20rem] mb-4">
               <div
-                className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl"
+                className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
                 style={{
                   backgroundColor: "#1F1340",
                   backgroundImage: `url(${plan})`,
                 }}
               >
                 <div className="flex justify-start items-start">
-                  <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 text-xl font-semibold">
-                    {payment.name}
+                  <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
+                    <div
+                      className="mx-auto text-center font-semibold"
+                      style={{ fontSize: "17px" }}
+                    >
+                      {payment.name}
+                    </div>
                   </div>
                 </div>
 

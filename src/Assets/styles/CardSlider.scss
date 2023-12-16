@@ -8,6 +8,16 @@
   //   rgb(255, 0, 157) 50%
   // );
 }
+.cardSliderr {
+  width: 169px !important;
+  height: 110px !important;
+  // background: rgb(9, 121, 116);
+  // background: linear-gradient(
+  //   -60deg,
+  //   rgb(104, 121, 9) 50%,
+  //   rgb(255, 0, 157) 50%
+  // );
+}
 .card-Slider {
   background: rgb(9, 121, 116);
 }
@@ -31,6 +41,24 @@
   }
   .splide__arrow--next {
     margin-right: 27px !important;
+    // display: none;
+  }
+}
+.Cardsliderr {
+  .splide__arrow {
+    width: 30px !important;
+    height: 30px !important;
+    opacity: 1 !important;
+    background-image: linear-gradient(to right, #00c4ff, #0074ff);
+  }
+  .splide__arrow--prev svg,
+  .splide__arrow--next svg {
+    fill: white !important;
+    height: 12px !important;
+    width: 12px !important;
+  }
+  .splide__arrow--next {
+    margin-right: 3px !important;
     // display: none;
   }
 }
@@ -73,7 +101,7 @@
       width: 12px !important;
     }
     .splide__arrow--next {
-      margin-right: 6px !important;
+      margin-right: 1px !important;
       // display: none;
     }
   }
@@ -90,23 +118,20 @@
 }
 @media screen and (max-width: 980px) {
 
-  .banner-Buttons{
-    width: 30vw !important;
-    }
+
     .mainSlider{
       height: 40vh !important;
     }
     .ended{
-      margin-left: 80px;
+      margin-left: 30px;
+    
     }
    
    
 }
 @media screen and (max-width: 790px) {
 
-  .banner-Buttons{
-    width: 32vw !important;
-    }
+ 
     .mainSlider{
       height: 45vh !important;
     }
@@ -116,18 +141,21 @@
 @media screen and (max-width: 420px) {
 
   .ended{
-    margin-left: 100px;
+    margin-left: 60px;
+    margin-top: -50px !important ;
   }
   .mainSlider{
     height: 53vh !important;
   }
+
    
    
 }
 @media screen and (max-width: 390px) {
 
   .ended{
-    margin-left: 100px;
+    margin-left: 45px;
+    margin-top: -40px !important ;
   }
   .mainSlider{
     height: 58vh !important;

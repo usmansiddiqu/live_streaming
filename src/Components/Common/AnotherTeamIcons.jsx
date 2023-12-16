@@ -1,10 +1,10 @@
 import React from "react";
 
-function TeamIcons({ iconsData }) {
+function AnotherTeamIcons({ iconsData }) {
   return (
     <>
       <div
-        className="tem-img-box"
+        className="team-img-box  px-3 "
         style={{
           height: "100%",
           display: "flex",
@@ -13,14 +13,14 @@ function TeamIcons({ iconsData }) {
         }}
       >
         {iconsData.map((icon, index) => (
-          <div key={index} className="flex flex-col items-center tem-img">
+          <div key={index} className="flex flex-col items-center team-img ">
             <img
               src={icon.iconUrl}
               alt={icon.name}
               style={{ width: "35px", height: "35px" }}
-              className="tem-icons"
+              className="team-icons"
             />
-            <p className="text-sm text-white font-medium tem-p">{icon.name}</p>
+            <p className="text-sm text-white font-medium team-p">{icon.name}</p>
           </div>
         ))}
       </div>
@@ -28,4 +28,4 @@ function TeamIcons({ iconsData }) {
   );
 }
 
-export default TeamIcons;
+export default AnotherTeamIcons;
