@@ -87,9 +87,13 @@ li a{
    width: 65% !important;
   
   }
-  .endedd{
-    margin-left: 20px;
+  .container{
+    padding-left:100px ;
   }
+  .dash-headd{
+    width: 75vw;
+  }
+
   .mainSlider{
     margin-top: 20px !important;
     height: 49vh !important;
@@ -99,7 +103,7 @@ li a{
 
   }
   .ended{
-    margin-top: -45px;
+    margin-top: -55px;
     margin-left: -5px;
   }
 }
@@ -112,12 +116,26 @@ li a{
     width: 73% ;
 
   }
+  .dash-headd{
+    width: 82vw;
+  }
+
+  .watch-img{
+    width: 67vw;
+  }
+.live-head{
+  width: 67vw;
+  border: 1px solid;
+}
+.banner-slidess{
+  width: 68%;
+}
   .mainSlider{
     margin-top: 20px !important;
   }
   .ended{
     margin-top: -50px;
-    margin-left: 0px;
+    margin-left: -10px;
   }
   .tem-img-box{
     padding-top: 0px;
@@ -208,6 +226,16 @@ li a{
     height: 0px;
     margin-top: -20px;
   }
+  .container{
+    padding-left:10px !important;
+  }
+
+  .google-btnn{
+    width: 120px;
+    height: 40px;
+
+
+   }
   .history-table{
     padding: 10px;
     width: 60vw;
@@ -261,8 +289,8 @@ li a{
   margin-top: 10px;
 }
 .tem-icons{
-  height: 25px !important;
-  width:25px !important ;
+  height: 35px !important;
+  width:35px !important ;
   /* margin-left: -20px; */
 }
 .tem-img-box{
@@ -556,10 +584,45 @@ li a{
 
 
 }
+@media screen and (max-width: 430px){
+  .tem-p{
+    font-size: 10px !important;
+  }
+  .tem-img{
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .history-div{
+    width: 95%;
+  }   
+  .text-footer a{
+    font-size: 11px;
+   }
+   .text-footer{
+    width: 92vw !important;
+  }
+   .google-btnn{
+    width: 120px;
+    height: 40px;
+
+   }
+   .app-btn{
+    width: 90vw !important;
+   }
+}
 @media screen and (max-width: 420px){
   .banner-text{
     margin-top: -14% !important;
  
+  }
+  .watch-img{
+    height: 38vh !important;
+ 
+  }
+  .tem-icons{
+    height: 30px !important;
+    width:30px !important ;
+    /* margin-left: -20px; */
   }
   .palceandtimeheight{
     height: 5vh;
@@ -576,6 +639,9 @@ li a{
   .bg-imgg{
     width: 100vw;
     height: 28vh;
+  }
+  .tem-p{
+    font-size: 10px !important;
   }
   .banner-Buttons{
     width: 52vw !important;
@@ -630,6 +696,10 @@ li a{
    .bg-img{
     height: 30vh;
    }
+   .ended{
+    margin-top: -65px;
+    left: -2%;
+  }
    
 
   
@@ -674,9 +744,9 @@ li a{
     margin-top: -14% !important;
  
   }
-  .app-btn{
+  /* .app-btn{
     margin-top: 30px !important;
-  }
+  } */
   .tem-p{
     font-size: 10px !important;
   }
@@ -694,7 +764,7 @@ margin-left: -80px;
   }
 
   .team-icons{
-    width: 45px !important;
+
     height: 45px !important;
   }
   .img-icon{
@@ -780,6 +850,26 @@ margin-left: -80px;
    }
    .card-con{
     width: 90vw !important;
+  }
+  .watch-img{
+    width: 95vw;
+ 
+  }
+  .footer-flex{
+    flex-direction: column;
+    width: 100vw;
+  }
+  .text-footer{
+    width: 69vw;
+  }
+  .google-btnn{
+    width: 120px;
+    height: 40px;
+
+   }
+  .app-btn{
+    width: 74vw;
+    justify-content: flex-start;
   }
   .history-table{
     padding: 10px;

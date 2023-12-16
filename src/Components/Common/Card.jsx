@@ -44,7 +44,7 @@ function Card({ data, title }) {
                         } 50%)`,
                       }}
                     >
-                      <div className="placeAndTime palceandtimeheight border w-[100%] h-[3vh] flex justify-between flex-row p-1 px-2 bg-[black] bg-opacity-40 text-white">
+                      <div className="placeAndTime  border w-[100%]  flex justify-between flex-row p-1 px-2 bg-[black] bg-opacity-40 text-white">
                         <p>{item.data.location}</p>
                         <p> {item.data.date.split("T")[0]}</p>
                       </div>

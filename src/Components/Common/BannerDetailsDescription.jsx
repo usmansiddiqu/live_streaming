@@ -4,11 +4,11 @@ import EYE from "../../Assets/Icons/eye-open.png";
 function BannerDetailsDescription({ data, setUrl }) {
   return (
     <div className="flex justify-center mt-8 ">
-      <div className=" bg-[#190D39] w-[67vw] pt-4 pb-6 ps-7 live-head">
+      <div className=" bg-[#190D39] w-[60vw] pt-4 pb-6 ps-7 live-head">
         <div className="">
           <h1 className="text-white text-2xl pb-4">NHL NETWORK LIVE</h1>
         </div>
-        <div className="flex items-center mb-5">
+        <div className="flex items-center mb-2">
           <img src={EYE} alt="" className="w-[20px] h-[20px]" />
           <h1 className="text-white ml-2">109.10k</h1>
           <span className="text-white ml-2">Views</span>

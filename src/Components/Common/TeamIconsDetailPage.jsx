@@ -4,7 +4,7 @@ function TeamIconsDetailPage({ iconsData }) {
   return (
     <>
       <div
-        className="px-5 pr-6 py-3 team-icons"
+        className="px-2 pr-6 py-3 team-icons"
         style={{
           height: "100%",
           display: "flex",

@@ -4,7 +4,7 @@ function TeamIcons({ iconsData }) {
   return (
     <>
       <div
-        className="tem-img-box"
+        className="tem-img-box px-2"
         style={{
           height: "100%",
           display: "flex",
@@ -17,7 +17,7 @@ function TeamIcons({ iconsData }) {
             <img
               src={icon.iconUrl}
               alt={icon.name}
-              style={{ width: "35px", height: "35px" }}
+              style={{ width: "47px", height: "47px" }}
               className="tem-icons"
             />
             <p className="text-sm text-white font-medium tem-p">{icon.name}</p>

@@ -2,7 +2,7 @@ import React from "react";
 
 function Table({ userData }) {
   return (
-    <div className="xl:px-40 lg:px-36 md:px-28 sm:px-16 px-12 bg-[#0D0620] py-1 text-white  w-[83%]  mx-auto mb-10">
+    <div className="bg-[#0D0620] py-1 text-white  w-[67%] history-div  mx-auto mb-10">
       <p className="text-xl lg:text-2xl md:text-xl sm:text-lg pb-2">
         User History
       </p>

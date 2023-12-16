@@ -28,7 +28,7 @@ function BannerDetailComponent({ data, url }) {
         <VideoPlayer url={url} setShow={setShow} />
       ) : (
         <div
-          className=" w-[67vw] h-[50vh] watch-img"
+          className=" w-[60vw] h-[50vh] watch-img mb-4"
           style={{
             background: `linear-gradient(-60deg, #${
               data?.data?.competitors?.filter(

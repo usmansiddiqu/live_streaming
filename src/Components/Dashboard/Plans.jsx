@@ -43,7 +43,7 @@ function Plans({ userData }) {
           </button>
         </div>
         <div
-          className="flex flex-col gap-3 justify-start items-start w-[24vw] h-[23vh] p-4 bg-center dash-card rounded-xl"
+          className="flex flex-col gap-3 justify-start items-start w-[24vw] h-[25vh] dash-card p-3 bg-center rounded-xl"
           style={{
             backgroundColor: "#1F1340",
             backgroundImage: `url(${plan})`,
@@ -56,16 +56,16 @@ function Plans({ userData }) {
               style={{ paddingTop: "2px" }}
             />
           </p>
-          <div className="mt-3 flex flex-col gap-3">
+          <div className=" flex flex-col gap-3">
             <div className="flex ">
               <p>Current Plan:</p>
-              <div className="w-auto text-sm flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3">
+              <div className="w-auto flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3" style={{fontSize:'11px'}}>
                 {userData?.[0]?.packageId?.name}
               </div>
             </div>
             <div className="flex ">
               <p>Subscription expires on:</p>
-              <div className="w-auto text-sm flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3">
+              <div className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-2" style={{fontSize:'11px'}}>
                 {userData?.[0]?.createdAt &&
                   new Date(
                     new Date(userData?.[0]?.createdAt).getTime() +
@@ -91,7 +91,7 @@ function Plans({ userData }) {
         </div>
 
         <div
-          className="flex flex-col gap-3 justify-start items-start w-[20vw] h-[23vh] dash-card p-4 bg-center rounded-xl"
+          className="flex flex-col gap-3 justify-start items-start w-[20vw] h-[25vh] dash-card p-4 bg-center rounded-xl"
           style={{
             backgroundColor: "#1F1340",
             backgroundImage: `url(${plan})`,
@@ -107,19 +107,19 @@ function Plans({ userData }) {
 
           <div className="flex ">
             <p>Date:</p>
-            <div className="w-auto text-sm flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3">
+            <div className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3" style={{fontSize:'12px'}}>
               {userData?.[0]?.createdAt?.split("T")[0]}
             </div>
           </div>
           <div className="flex ">
             <p>Plan: </p>
-            <div className="w-auto text-sm flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3">
+            <div className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3" style={{fontSize:'12px'}}>
               {userData?.[0]?.packageId.name}
             </div>
           </div>
           <div className="flex ">
             <p>Amount:</p>
-            <div className="w-auto text-sm flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3">
+            <div className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3" style={{fontSize:'12px'}}>
               $ {userData?.[0]?.packageId.amount}
             </div>
           </div>

@@ -66,7 +66,7 @@ function Footer() {
               Copyright @ 2022 PixelSports.tv All Rights Reserved
             </p>
           </div>
-          <div className="flex app-btn px-3 w-[25vw]  justify-between ">
+          <div className="flex app-btn w-[20vw]  justify-between ">
             <div className=" flex  flex-col gap-3">
               <h1 className="text-white text-xl  ">
                 Buy Plans
@@ -80,13 +80,13 @@ function Footer() {
                   <Button
                     text="BUY PLAN"
                     src={Crown}
-                    className="post-Button mt-4 w-[200px] rounded text-sm"
+                    className="post-Button  w-[200px] rounded text-sm"
                     style={{ width: "200px" }}
                   />
                 </div>
               </div>
             </div>
-            <div className=" flex  flex-col gap-3 px-4">
+            <div className=" flex  flex-col gap-3 ">
               <h1 className="text-white text-xl  ">
                 Apps
                 <div
@@ -94,7 +94,7 @@ function Footer() {
                   style={{ paddingTop: "4px" }}
                 />
               </h1>
-              <div className="w-[170px] h-[60px] google-btnn  cursor-pointer">
+              <div className="w-[150px] h-[50px] google-btnn  cursor-pointer">
                 <img
                   src={GooglePlay}
                   alt=""
