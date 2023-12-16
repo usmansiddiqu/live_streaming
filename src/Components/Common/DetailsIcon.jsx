@@ -1,19 +1,35 @@
 import React from "react";
-
+import { useMediaQuery } from "react-responsive";
 function DetailsIcon({ iconsData }) {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 600px)" });
+  const isDekstop = useMediaQuery({ query: "(min-width: 601px)" });
   return (
-    <div className="flex !justify-between pt-20  px-16 items-center">
+    <>
+    {isDekstop && <div className="flex !justify-between px-20  items-center mt-[180px]">
       {iconsData?.map((icon, index) => (
-        <div key={index} style={{ textAlign: "center" }}>
+        <div key={index} style={{ textAlign: "center" }} className="px-20">
           <img
             src={icon.iconUrl}
             alt={icon.name}
             // style={{ width: "44px", height: "44px" }}
-            className="w-80 h-80"
+            className="w-40 h-50"
           />
         </div>
       ))}
-    </div>
+    </div>}
+    {isTabletOrMobile && <div className="flex !justify-between   items-center mt-[80px]">
+      {iconsData?.map((icon, index) => (
+        <div key={index} style={{ textAlign: "center" }} className="px-5 ">
+          <img
+            src={icon.iconUrl}
+            alt={icon.name}
+            style={{ width: "55px", height: "55px" }}
+         
+          />
+        </div>
+      ))}
+    </div>}
+    </>
   );
 }
 

@@ -81,7 +81,7 @@ function AdminProfile() {
           >
             {error && <ErrorComponent message={error} />}
             <form class="max-w-sm ">
-              <div class="mb-5 input-feild w-[72vw] flex ">
+              <div class="mb-5 input-feild w-[72vw] flex edit-contain ">
                 <div
                   for="text"
                   class="block input-feild-label bg-white border w-[200px] h-[200px] flex justify-betweenitems-center  mb-2 text-sm font-medium text-gray-900 text-white"

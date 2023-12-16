@@ -56,7 +56,7 @@ function Card({ data, title }) {
                             name: comp.name,
                           }))}
                         />
-                        <div className="endedd ">
+                        <div className="end ">
                           <Ended
                             show={
                               new Date(item?.data?.date) >

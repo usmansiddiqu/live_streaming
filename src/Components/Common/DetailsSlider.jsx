@@ -29,15 +29,12 @@ function DetailsSlider() {
   const navigate = useNavigate();
   return (
     <div
-      className="CardSlider1 "
+      className="CardSlider "
       style={{
-        width: "100%",
+        width: "70%",
         height: "AUTO",
         display: "flex",
-        marginTop: "25px",
-
-        margin: "auto",
-        justifyContent: "flex-start",
+        flexDirection: "column",
       }}
     >
       <Splide options={{ ...splideOptions, width: 1200 }}>
@@ -67,18 +64,7 @@ function DetailsSlider() {
                 } 50%)`,
               }}
             >
-              {/* {console.log(item)}
-              <div
-                className="placeAndTime border w-[100%] h-[3vh] flex justify-between flex-row  bg-[black] bg-opacity-40"
-                style={{
-                  padding: "0 10px",
-                }}
-              >
-                <p className="text-white text-sm">{item.data.location}</p>
-                <p className="text-white text-sm">
-                  {item.data.date.split("T")[0]}
-                </p>
-              </div> */}
+             
 
               <div
                 className="container"
@@ -95,12 +81,14 @@ function DetailsSlider() {
                     name: comp.name,
                   }))}
                 />
-                <Ended
+              <div className="detail-live-end">
+              <Ended
                   show={
                     new Date(item?.data?.date) <
                     new Date().setHours(new Date().getHours() + 4)
                   }
                 />
+              </div>
               </div>
             </SplideSlide>
           ))}

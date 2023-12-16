@@ -7,6 +7,7 @@ import TeamScore from "../../Components/Common/TeamScore";
 import DetailsSlider from "../../Components/Common/DetailsSlider";
 import getEventById from "../../api/eventById";
 import { useParams, useNavigate } from "react-router-dom";
+import BannerDetailSlider from "../../Components/Common/BannerSlider";
 function DetailsPage() {
   const navigate = useNavigate();
   const [url, setUrl] = useState("");
@@ -38,15 +39,13 @@ function DetailsPage() {
       <DetailsComponent data={data} url={url} />
       <DetailsDescription data={data} setUrl={setUrl} />
       {/* <TeamScore /> */}
-      <div className="mt-6 w-[68%] bg-[#130A2D] mx-auto h-[28vh] flex flex-col p-3 px-10">
+      <div className="mt-6 w-[61%] bg-[#130A2D] mx-auto  h-[28vh] flex flex-col p-3 mb-2 banner-slidess">
         <h3 className="text-white font-medium text-2xl">You May Also Like</h3>
-        <div
-          className="flex justify-start w-[15vw]"
-          style={{ alignItems: "self-start", justifyContent: "start" }}
-        >
+     <div className="w-[110vw] mt-4 ml-9  mb-5 banner-slide-card">
           <DetailsSlider />
+      
         </div>
-      </div>
+        </div>
       <Footer />
     </div>
   );

@@ -9,7 +9,7 @@ function TeamIconsDetailPage({ iconsData }) {
     {isDekstop && 
     <>
     <div
-        className="px-2 pr-6 py-3 team-icons w-[11vw]  ml-[-80px]"
+        className="px-2 pr-6 py-3 team-icons"
         style={{
           height: "100%",
           display: "flex",

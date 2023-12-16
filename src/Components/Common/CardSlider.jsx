@@ -80,19 +80,23 @@ const CardSlider = ({ data }) => {
                         </p>
                       </div>
 
-                      <div className="container" style={{ marginTop: "25px" }}>
+                      <div className="container relative " style={{ marginTop: "25px" }}>
+                        <div className="">
                         <TeamIcons
                           iconsData={item.data.competitors.map((comp) => ({
                             iconUrl: comp.logo,
                             name: comp.name,
                           }))}
                         />
-                        <Ended
-                          show={
-                            new Date(item?.data?.date) >
-                            new Date().setHours(new Date().getHours() + 4)
-                          }
-                        />
+                        </div>
+                         <div className="card-live-end">
+              <Ended
+                  show={
+                    new Date(item?.data?.date) <
+                    new Date().setHours(new Date().getHours() + 4)
+                  }
+                />
+              </div>
                       </div>
                     </SplideSlide>
                   ))}

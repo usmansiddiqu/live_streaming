@@ -2,26 +2,17 @@ import React from "react";
 import "../../Assets/styles/CardDetailss.scss";
 import DetailsIcon from "./DetailsIcon";
 import VideoPlayer from "./VideoPlayer";
-const dummyIcons = [
-  {
-    iconUrl: "https://cdn-icons-png.flaticon.com/128/1039/1039386.png",
-    name: "Icon 1",
-  },
-  {
-    iconUrl: "https://cdn-icons-png.flaticon.com/128/1201/1201923.png",
-    name: "Icon 2",
-  },
-];
+
 function DetailsComponent({ data, url }) {
   return (
-    <div className="flex !justify-center">
+    <div className="flex !justify-center mt-3">
       {data?.data?.date &&
       new Date(data?.data?.date) - new Date() >= 0 &&
       new Date(data?.data?.date) - new Date() / (1000 * 60 * 60) <= 3.5 ? (
         <VideoPlayer url={url} />
       ) : (
         <div
-          className="!w-[80rem] !h-[35rem]  "
+          className="w-[80rem] h-[35rem]   deatil-container"
           style={{
             background: `linear-gradient(-60deg, #${
               data?.data?.competitors?.filter(

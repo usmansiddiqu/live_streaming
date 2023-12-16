@@ -6,24 +6,16 @@ function AnotherTeamIcons({ iconsData }) {
   return (
     <>
  {isDekstop
-  &&      <div
-  className="team-img-box   "
-  style={{
-    height: "100%",
-    display: "flex",
-    justifyContent: "space-between",
-    alignContent: "center",
-  }}
->
+  &&      <div className="flex justify-between ">
   {iconsData.map((icon, index) => (
-    <div key={index} className="flex flex-col items-center team-img ">
+    <div key={index} className=" flex flex-col items-center">
       <img
         src={icon.iconUrl}
         alt={icon.name}
-        style={{ width: "35px", height: "35px" }}
+        style={{ width: "40px", height: "40px" }}
         className="team-iconss"
       />
-      <p className="text-sm text-white font-medium team-p">{icon.name}</p>
+      <p className="">{icon.name}</p>
     </div>
   ))}
 </div>
