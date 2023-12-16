@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../Assets/styles/CardDetailss.scss";
 import DetailsIcon from "./DetailsIcon";
 import VideoPlayer from "./VideoPlayer";
+import ClapprPlayer from "./ClapprPlayer";
 import axiosInstance from "../../api";
 import axios from "axios";
 import { url as url1 } from "../../helper/url";
@@ -25,7 +26,9 @@ function BannerDetailComponent({ data, url }) {
   return (
     <div className="flex !justify-center">
       {show ? (
-        <VideoPlayer url={url} setShow={setShow} />
+        <div className="chunchun">
+          <ClapprPlayer url={url} />
+        </div>
       ) : (
         <div
           className=" w-[60vw] h-[50vh] watch-img mb-4"
