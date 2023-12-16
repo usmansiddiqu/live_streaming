@@ -7,14 +7,14 @@ import updateUser from "../../api/editUser";
 
 function Profile() {
   const [user, setUser] = useState(localStorage.getItem("data"));
-  const [data, setData] = useState(JSON?.parse(localStorage.getItem("data")));
+  const [data, setData] = useState(JSON?.parse(localStorage?.getItem("data")));
 
-  const [name, setName] = useState(data.name);
-  const [email, setEmail] = useState(data.email);
+  const [name, setName] = useState(data?.name);
+  const [email, setEmail] = useState(data?.email);
   const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState(data.phone);
+  const [phone, setPhone] = useState(data?.phone);
   const [error, setError] = useState("");
-  const [address, setAddress] = useState(data.address);
+  const [address, setAddress] = useState(data?.address);
   const [image, setImage] = useState(data?.image ? data.image : null);
 
   const handleFileChange = (event) => {
