@@ -10,19 +10,19 @@ function Table({ userData }) {
         <table className="min-w-full table-auto">
           <thead>
             <tr>
-              <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white border-r-2 border-[#221846]">
+              <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-center text-xs text-white border-r-2 border-[#221846]">
                 Plan
               </th>
-              <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white border-r-2 border-[#221846]">
+              <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-center text-xs text-white border-r-2 border-[#221846]">
                 Amount{" "}
               </th>
-              <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white border-r-2 border-[#221846]">
+              <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-center text-xs text-white border-r-2 border-[#221846]">
                 Payment Gateway{" "}
               </th>
-              <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white border-r-2 border-[#221846]">
+              <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-center text-xs text-white border-r-2 border-[#221846]">
                 Payment ID{" "}
               </th>
-              <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white border-r-2 border-[#221846]">
+              <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-center text-xs text-white border-r-2 border-[#221846]">
                 Payment Date
               </th>
             </tr>
