@@ -15,7 +15,7 @@ const isMobile = useMediaQuery({ query: "(max-width: 500px)" });
     <>
     {isDesktop
       &&   <div
-      className="flex justify-between  px-3 " style={{marginTop:'-10px'}}
+      className="flex justify-between  px-3 " style={{marginTop:'0px'}}
      >
        {iconsData.map((icon, index) => (
          <div key={index} className="flex flex-col items-center">
