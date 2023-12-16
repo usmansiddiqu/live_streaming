@@ -94,6 +94,7 @@ function DetailsSlider() {
                     iconUrl: comp.logo,
                     name: comp.name,
                   }))}
+                  title={item?.data?.shortName}
                 />
                 <Ended
                   show={
