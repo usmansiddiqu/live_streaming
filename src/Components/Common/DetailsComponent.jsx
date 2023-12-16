@@ -26,7 +26,7 @@ function DetailsComponent({ data, url }) {
     <div className="flex !justify-center">
       {isTimeWithinRange ? (
         <div className="embed-responsive embed-responsive-16by9">
-          <div className="chunchun" id="videoPlayer">
+          <div className="chunchun">
             <ClapprPlayer url={url} />
           </div>
         </div>

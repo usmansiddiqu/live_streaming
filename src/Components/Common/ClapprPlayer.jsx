@@ -6,8 +6,8 @@ function ClapprPlayer({ url, setShow }) {
     const player = new Clappr.Player({
       source: url,
       parentId: "#videoPlayer",
-      width: "300",
-      height: "300",
+      //   width: "100%", // Adjusted for responsiveness
+      //   height: "56.25vw", // 16:9 aspect ratio
       mute: true,
       events: {
         onReady: function () {
@@ -15,15 +15,11 @@ function ClapprPlayer({ url, setShow }) {
           console.log("ready");
         },
       },
-      //   autoPlay: true,
-      //   with: "500px",
-      //   height: "200px",
-      // Other configuration options
     });
 
     return () => player.destroy();
   }, []);
-  return <div></div>;
+  return <div className="w-full" id="videoPlayer"></div>;
 }
 
 export default ClapprPlayer;
