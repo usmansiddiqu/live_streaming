@@ -87,6 +87,9 @@ li a{
    width: 65% !important;
   
   }
+  .endedd{
+    margin-left: 40px;
+  }
   .container{
     padding-left:100px ;
   }
@@ -104,8 +107,20 @@ li a{
   }
   .ended{
     margin-top: -55px;
-    margin-left: -5px;
+    margin-left: -90px;
   }
+  .tem-img-box{
+    width: 10vw;
+    padding-top: 0px;
+    margin-left: -75px;
+    margin-top: -5px;
+    
+   }
+   .team-img-box{
+    width: 12vw;
+    margin-left: -65px;
+   }
+ 
 }
 @media screen and (max-width: 1980px) {
   .Cardslider{
@@ -138,9 +153,14 @@ li a{
     margin-left: -10px;
   }
   .tem-img-box{
+    width: 12vw;
     padding-top: 0px;
-    padding-left: 8px;
-    padding-right: 8px;
+    margin-left: -85px;
+    margin-top: -5px;
+    
+   }
+   .ended{
+    margin-left: -100px;
    }
 }
 
@@ -262,6 +282,7 @@ li a{
    display: flex;
    flex-direction: column;
    }
+
  .cardd{
   width: 100px !important;
   height: 30px !important;
@@ -492,6 +513,13 @@ li a{
     margin-top: 55px;
     
    }
+   .team-namess {
+    display: none;
+    margin-top: -10px;
+  }
+   .endedd{
+    margin-left: 70px !important;
+  }
    .post-Button{
     margin-top: 0px !important;
     width: 100px !important;
@@ -592,9 +620,20 @@ li a{
     width: 35px !important;
     height: 35px !important;
   }
+  .endedd{
+  position: relative;
+  left: -20px;
+  }
+  .team-namess {
+    display: none;
+    margin-top: 32px;
+  }
   .history-div{
     width: 95%;
   }   
+  .watch-img{
+    height: 35vh !important;
+   }
   .text-footer a{
     font-size: 11px;
    }
@@ -609,14 +648,31 @@ li a{
    .app-btn{
     width: 90vw !important;
    }
+   .tem-img-box{
+    width: 35vw;
+    padding-top: 0px;
+    padding-left: 20px;
+    margin-left: 0px;
+    margin-top: -4px;
+    
+   }
+   .ended{
+    /* margin-left: 70px; */
+    margin-top: -35px !important  ;
+    left: 20%;
+  }
 }
 @media screen and (max-width: 420px){
   .banner-text{
     margin-top: -14% !important;
  
   }
+  .endedd{
+    position: relative;
+    left: 0px;
+    }
   .watch-img{
-    height: 38vh !important;
+    height: 35vh !important;
  
   }
   .tem-icons{
@@ -781,7 +837,14 @@ margin-left: -80px;
   .team-p{
     font-size: 16px;
   }
-
+  .tem-img-box{
+    width: 40vw;
+    padding-top: 0px;
+    padding-left: 20px;
+    margin-left: 0px;
+    margin-top: -4px;
+    
+   }
 }
 @media screen and (max-width: 650px){
   .tem-img-box{
@@ -851,6 +914,10 @@ margin-left: -80px;
    .card-con{
     width: 90vw !important;
   }
+  .team-namess {
+    display: none;
+    margin-top: -10px;
+  }
   .watch-img{
     width: 95vw;
  
@@ -889,7 +956,7 @@ margin-left: -80px;
 
   }
   .endedd{
-    margin-left: 60px;
+    margin-left: -15px;
   }
   .footer-goole-img{
     height: 0px;

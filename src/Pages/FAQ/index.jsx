@@ -8,7 +8,7 @@ function FAQ() {
     <div>
       <Nav />
       <DashHeader title="FAQ" />
-      <div className="bg-[#130A2D] rounded w-[65vw] mx-auto mt-9 p-8">
+      <div className="bg-[#130A2D] rounded w-[65vw] mx-auto mt-9 p-8 mb-3">
         <div>
           <p className="text-[#C2C0C0] mb-5 ">
             <strong>Frequently Asked Questions (FAQ) - Pixelsport TV</strong>

@@ -1,10 +1,16 @@
 import React from "react";
 
 function TeamIcons({ iconsData }) {
+  function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + "...";
+    }
+    return text;
+  }
   return (
     <>
       <div
-        className="tem-img-box px-2"
+        className="tem-img-box "
         style={{
           height: "100%",
           display: "flex",
@@ -20,7 +26,7 @@ function TeamIcons({ iconsData }) {
               style={{ width: "47px", height: "47px" }}
               className="tem-icons"
             />
-            <p className="text-sm text-white font-medium tem-p">{icon.name}</p>
+            <p className="text-sm text-white font-medium tem-p"> {truncateText(icon.name, 7)}</p>
           </div>
         ))}
       </div>
