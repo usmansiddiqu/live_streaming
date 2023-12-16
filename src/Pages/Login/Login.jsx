@@ -107,7 +107,7 @@ function Login() {
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 relative ">
           <a
             href="#"
-            class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+            class="flex items-center mb-6 text-2xl font-semibold  text-white"
           >
             <img class="mx-auto h-10 w-auto" src={logo} alt="Your Company" />
           </a>
@@ -126,22 +126,24 @@ function Login() {
                 {error && <ErrorComponent message={error} />}
                 <div>
                   <input
+                    style={{color:'white'}}
                     type="email"
                     name="email"
                     id="email"
-                    class="bg-[#22134E] h-[6vh] border border-[#22134E] text-gray-900 sm:text-sm rounded-md focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  border-[#22134E] dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@company.com"
+                    class="bg-[#22134E] h-[6vh] border border-[#22134E] sm:text-sm rounded-md focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  border-[#22134E] dark:placeholder-white-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Enter Email"
                     required
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div>
                   <input
+                    style={{color:'white'}}
                     type="password"
                     name="password"
                     id="password"
-                    placeholder="••••••••"
-                    class="bg-[#22134E] h-[6vh] border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Enter Password"
+                    class="bg-[#22134E] h-[6vh] border border-[#22134E] sm:text-sm rounded-md focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  border-[#22134E] dark:placeholder-white-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                     onChange={(e) => setPassword(e.target.value)}
                   />
@@ -150,6 +152,7 @@ function Login() {
                   <div class="flex items-start">
                     <div class="flex items-center h-5">
                       <input
+                    
                         id="remember"
                         aria-describedby="remember"
                         type="checkbox"

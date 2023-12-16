@@ -83,10 +83,10 @@ function Users() {
             className="w-[80vw] box edit-con bg-[#1C1C1E] mx-auto rounded p-5"
             style={{ position: "absolute", left: "16.5%" }}
           >
-            <div class="relative overflow-x-auto shadow-md ">
+            <div class="relative overflow-x-auto shadow-md edit-contain ">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[32%] tvChannel-head justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center w-[32%] tvChannel-head justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     {/* <div className="bg-[#313133] Category-Filter rounded">
                       <button
                         id="dropdownActionButton"
@@ -164,7 +164,7 @@ function Users() {
                       <input
                         type="text"
                         id="table-search-users"
-                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-80 "
+                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs placeholder:text-white bg-[#313133] rounded-full w-80 text-white"
                         placeholder="Search by name or email"
                         onChange={(e) => {
                           setSkip(1);
@@ -201,8 +201,8 @@ function Users() {
                   </div>
                 </div>
               </div>
-              <table class="w-full mt-5 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class=" w-[78vw] text-xs text-gray-700  dark:text-gray-400">
+              <table class="w-full mt-5 text-sm text-left rtl:text-right text-white">
+                <thead class=" w-[78vw] text-xs text-white">
                   <tr>
                     <th
                       scope="col"
@@ -276,7 +276,7 @@ function Users() {
                           </div>
                         </td>
                         <td
-                          class="px-6 py-4 dark:text-white border"
+                          class="px-6 py-4 dark:text-white "
                           style={{ border: "1px solid #313133" }}
                         >
                           <div className="flex">
@@ -304,7 +304,7 @@ function Users() {
                             </button>
 
                             <button
-                              className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
+                              className="ml-3  w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
                               onClick={() => {
                                 handleDelete(user);
                               }}
@@ -330,7 +330,7 @@ function Users() {
               <ul className="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
                 <li>
                   <a
-                    className={`flex items-center justify-center px-3 h-8 ms-0 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015] dark:text-white ${
+                    className={`flex items-center justify-center px-3 h-8 ms-0 leading-tight border border-[#464648] bg-[#313133] hover:bg-[#FF0015] cursor-pointer text-white ${
                       activeItem === 0 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
                     }`}
                     onClick={() => handlePreviousClick()}
@@ -341,7 +341,7 @@ function Users() {
 
                 <li>
                   <a
-                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
+                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] hover:bg-[#FF0015] cursor-pointer  text-white ${
                       activeItem === 3 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
                     }`}
                     onClick={() => handleNextClick()}

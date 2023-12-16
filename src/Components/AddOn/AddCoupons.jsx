@@ -91,7 +91,7 @@ function AddCoupons() {
           style={{ position: "absolute", left: "17%" }}
         >
           <form class="max-w-sm ">
-            <div class="mb-5 input-feild w-[72vw] flex">
+            <div class="mb-5 input-feild w-[72vw] flex edit-contain">
               <label
                 for="code"
                 class="block input-feild-label  mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white"

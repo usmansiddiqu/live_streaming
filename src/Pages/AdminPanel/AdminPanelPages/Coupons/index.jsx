@@ -52,40 +52,40 @@ function Coupons() {
                   + Add Coupons
                 </span>
               </button>
-              <table class="w-full mt-5 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class=" w-[78vw] text-xs text-gray-700  dark:text-gray-400">
+              <table class="w-full mt-5 text-sm text-left rtl:text-right text-white">
+                <thead class=" w-[78vw] text-xs text-white">
                   <tr>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white text-md"
+                      class="px-6 py-3 text-white text-md"
                       style={{ border: "1px solid #313133" }}
                     >
                       Coupons
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Plan
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Number of Users Allow
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Coupon Used
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Expiry Date
@@ -93,14 +93,14 @@ function Coupons() {
 
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Actions

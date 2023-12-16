@@ -52,7 +52,7 @@ function AdminPanelWrapper() {
     >
       <AdminPanelBar />
       <Routes>
-        <Route path="/" element={<TVCategory />} />
+        <Route path="/" element={<AdminDashboard />} />
         <Route path="/dashboard" element={<AdminDashboard />} />
         <Route path="/profile" element={<AdminProfile />} />
         <Route path="/Tv_category" element={<TVCategory />} />

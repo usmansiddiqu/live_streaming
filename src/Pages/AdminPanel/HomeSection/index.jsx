@@ -28,7 +28,7 @@ function AdminHomeSlider() {
           className="w-[80vw] box edit-con bg-[#1C1C1E] mx-auto rounded p-5"
           style={{ position: "absolute", left: "16.5%" }}
         >
-          <div class="relative overflow-x-auto shadow-md">
+          <div class="relative overflow-x-auto shadow-md edit-contain">
             <div class="relative mt-1">
               <div class=" flex items-center  ">
                 <button

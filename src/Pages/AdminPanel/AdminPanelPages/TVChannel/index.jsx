@@ -73,11 +73,11 @@ function TVChannel() {
             className="w-[80vw] box edit-con bg-[#1C1C1E]  mx-auto rounded p-5"
             style={{ position: "absolute", left: "16.5%" }}
           >
-            <div class="relative overflow-x-auto shadow-md ">
+            <div class="relative overflow-x-auto shadow-md edit-contain">
               {error && <ErrorComponent message={error} />}
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[65%] tvChannel-head justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center w-[65%] tvChannel-head justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <div className="bg-[#313133] Category-Filter rounded">
                       <button
                         id="dropdownActionButton"
@@ -106,7 +106,7 @@ function TVChannel() {
 
                       <div
                         id="dropdownAction"
-                        class="z-10 hidden bg-white w-[310px] Category-Filter top-0 shadow w-44 dark:divide-gray-600"
+                        class="z-10 hidden bg-white w-[310px]  Category-Filter top-0 shadow w-44 dark:divide-gray-600"
                       >
                         <ul
                           class="text-sm text-black"
@@ -116,7 +116,7 @@ function TVChannel() {
                             <input
                               type="text"
                               id="table-search-users"
-                              class=" ps-5  text-sm w-full  text-[#6C757D] text-xs border "
+                              class=" ps-5  text-sm w-full  text-white text-xs border "
                               placeholder="Search by title"
                               value={textFilter}
                             />
@@ -134,7 +134,7 @@ function TVChannel() {
                           <li>
                             <a
                               onClick={() => setCategoryFilter("MLB")}
-                              class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
+                              class="block px-4 py-2  hover:bg-[#FF0015] hover:text-white cursor-pointer"
                             >
                               MLB
                             </a>
@@ -142,7 +142,7 @@ function TVChannel() {
                           <li>
                             <a
                               onClick={() => setCategoryFilter("NBA")}
-                              class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
+                              class="block px-4 py-2  hover:bg-[#FF0015] hover:text-white cursor-pointer"
                             >
                               NBA
                             </a>
@@ -150,7 +150,7 @@ function TVChannel() {
                           <li>
                             <a
                               onClick={() => setCategoryFilter("NFL")}
-                              class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
+                              class="block px-4 py-2  hover:bg-[#FF0015] hover:text-white cursor-pointer"
                             >
                               NFL
                             </a>
@@ -158,7 +158,7 @@ function TVChannel() {
                           <li>
                             <a
                               onClick={() => setCategoryFilter("NHL")}
-                              class="block px-4 py-2  dark:hover:bg-[#FF0015] dark:hover:text-white"
+                              class="block px-4 py-2  hover:bg-[#FF0015] hover:text-white cursor-pointer"
                             >
                               NHL
                             </a>
@@ -171,6 +171,7 @@ function TVChannel() {
                     </label>
                     <div class="relative flex justify-between search-title w-80 rounded-full bg-[#313133]">
                       <input
+                      style={{color:'white'}}
                         type="text"
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-80 "
@@ -200,7 +201,7 @@ function TVChannel() {
                       className="w-[120px] h-[4vh] Add-tv bg-[#0EAC5C] font-medium rounded-md"
                       onClick={handleCreateButtonClick}
                     >
-                      <span className="text-white text-sm dark:text-white">
+                      <span className="text-white text-sm ">
                         + Add Live TV
                       </span>
                     </button>
@@ -208,10 +209,10 @@ function TVChannel() {
                 </div>
               </div>
               <table
-                class="w-full mt-5 text-sm  text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                class="w-full mt-5 text-sm  text-left rtl:text-right text-white"
                 style={{ overflow: "scroll" }}
               >
-                <thead class=" w-[78vw] text-xs text-gray-700  dark:text-gray-400">
+                <thead class=" w-[78vw] text-xs text-white">
                   <tr>
                     <th
                       scope="col"
@@ -271,14 +272,14 @@ function TVChannel() {
                         <tr>
                           <th
                             scope="row"
-                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                             style={{ border: "1px solid #313133" }}
                           >
                             {chnl?.TVName}
                           </th>
                           <th
                             scope="row"
-                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                             style={{ border: "1px solid #313133" }}
                           >
                             <div className="tv-img w-[150px] h-[84px]">
@@ -287,13 +288,13 @@ function TVChannel() {
                           </th>
                           <th
                             scope="row"
-                            class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                            class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                             style={{ border: "1px solid #313133" }}
                           >
                             {chnl.TVAccess}
                           </th>
                           <td
-                            class="px-6 py-4 dark:text-white"
+                            class="px-6 py-4 text-white"
                             style={{ border: "1px solid #313133" }}
                           >
                             <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
@@ -301,7 +302,7 @@ function TVChannel() {
                             </div>
                           </td>
                           <td
-                            class="px-6 py-4 dark:text-white border"
+                            class="px-6 py-4 text-white"
                             style={{ border: "1px solid #313133" }}
                           >
                             <div className="flex">
@@ -345,8 +346,8 @@ function TVChannel() {
                 <li>
                   <a
                     href="#"
-                    className={`flex items-center justify-center px-3 h-8 ms-0 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015] dark:text-white ${
-                      activeItem === 0 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
+                    className={`flex items-center justify-center px-3 h-8 ms-0 leading-tight border border-[#464648] bg-[#313133] hover:bg-[#FF0015] text-white ${
+                      activeItem === 0 ? "bg-gray-700 bg-[#FF0015]" : ""
                     }`}
                     onClick={() => handlePreviousClick()}
                   >
@@ -357,8 +358,8 @@ function TVChannel() {
                 <li>
                   <a
                     href="#"
-                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
-                      activeItem === 3 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
+                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] hover:bg-[#FF0015]  text-white ${
+                      activeItem === 3 ? "bg-gray-700 bg-[#FF0015]" : ""
                     }`}
                     onClick={() => handleNextClick()}
                   >

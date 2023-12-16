@@ -44,7 +44,7 @@ function TVCategory() {
             className="w-[82vw] box edit-con bg-[#1C1C1E] mx-auto rounded p-5"
             style={{ position: "absolute", left: "16%" }}
           >
-            <div class="relative overflow-x-auto shadow-md ">
+            <div class="relative overflow-x-auto shadow-md edit-contain">
               <div class="relative mt-1">
                 <div class=" flex items-center  ">
                   <button
@@ -64,7 +64,7 @@ function TVCategory() {
                   <tr>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white text-md"
+                      class="px-6 py-3 text-white text-md"
                       style={{ border: "1px solid #313133" }}
                     >
                       Category Name
@@ -72,14 +72,14 @@ function TVCategory() {
 
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Action
@@ -91,7 +91,7 @@ function TVCategory() {
                     <tr key={cat._id}>
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
                         {cat.name}
@@ -101,15 +101,16 @@ function TVCategory() {
                         style={{ border: "1px solid #313133" }}
                       >
                         <div
+                        
                           className={`bg-[${
                             cat.status == "active" ? "#0EAC5C" : "#ac0e28"
-                          }] w-[60px] text-center rounded text-sm`}
+                          }] w-[60px] text-center  text-white rounded text-sm`}
                         >
                           {cat.status == "active" ? "Active" : "Inactive"}
                         </div>
                       </td>
                       <td
-                        class="px-6 py-4 dark:text-white border"
+                        class="px-6 py-4 dark:text-white "
                         style={{ border: "1px solid #313133" }}
                       >
                         <div className="flex">

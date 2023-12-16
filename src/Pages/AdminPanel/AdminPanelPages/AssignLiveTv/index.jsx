@@ -47,13 +47,13 @@ function AssignLiveTv() {
             className="w-[80vw] box edit-con bg-[#1C1C1E] mx-auto rounded p-5"
             style={{ position: "absolute", left: "16.5%" }}
           >
-            <div class="relative overflow-x-auto shadow-md">
-              <table class="w-full mt-5 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class=" w-[78vw] text-xs text-gray-700  dark:text-gray-400">
+            <div class="relative overflow-x-auto shadow-md edit-contain">
+              <table class="w-full mt-5 text-sm text-left rtl:text-right text-white">
+                <thead class=" w-[78vw] text-xs text-white">
                   <tr>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white text-md"
+                      class="px-6 py-3 text-white text-md"
                       style={{ border: "1px solid #313133" }}
                     >
                       Name
@@ -61,28 +61,28 @@ function AssignLiveTv() {
 
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Date
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Type
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       TV Channel
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Action
@@ -100,7 +100,7 @@ function AssignLiveTv() {
                         {event?.data?.name}
                       </th>
                       <td
-                        class="px-6 py-4 dark:text-white"
+                        class="px-6 py-4 text-white"
                         style={{ border: "1px solid #313133" }}
                       >
                         <div className=" rounded text-sm">
@@ -108,19 +108,19 @@ function AssignLiveTv() {
                         </div>
                       </td>
                       <td
-                        class="px-6 py-4 dark:text-white"
+                        class="px-6 py-4 text-white"
                         style={{ border: "1px solid #313133" }}
                       >
                         {event?.channel.TVCategory.name}
                       </td>
                       <td
-                        class="px-6 py-4 dark:text-white"
+                        class="px-6 py-4 text-white"
                         style={{ border: "1px solid #313133" }}
                       >
                         {event?.channel.TVName}
                       </td>
                       <td
-                        class="px-6 py-4 dark:text-white"
+                        class="px-6 py-4 text-white"
                         style={{ border: "1px solid #313133" }}
                       >
                         <div className="flex">

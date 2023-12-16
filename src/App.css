@@ -620,6 +620,12 @@ li a{
     width: 35px !important;
     height: 35px !important;
   }
+  .edit-con{
+    width: 100vw;
+  }
+  .edit-contain{
+    margin-left: -30px;
+  }
   .endedd{
   position: relative;
   left: -20px;

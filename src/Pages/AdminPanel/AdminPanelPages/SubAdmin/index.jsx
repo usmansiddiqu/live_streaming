@@ -51,10 +51,10 @@ function SubAdmin() {
             style={{ position: "absolute", left: "16.5%" }}
           >
             {error && <ErrorComponent message={error} />}
-            <div class="relative overflow-x-auto shadow-md ">
+            <div class="relative overflow-x-auto shadow-md edit-contain">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[32%] justify-between tvChannel-head flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center w-[32%] justify-between tvChannel-head flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
@@ -85,10 +85,10 @@ function SubAdmin() {
                     </div>
 
                     <button
-                      className="w-[120px] h-[4vh] bg-[#0EAC5C] font-medium rounded-md "
+                      className="w-[120px] h-[4vh] bg-[#0EAC5C] font-medium rounded-md"
                       onClick={handleCreateButtonClick}
                     >
-                      <span className="text-white text-sm dark:text-white">
+                      <span className="text-white text-sm text-white">
                         + Add Users
                       </span>
                     </button>
@@ -96,11 +96,11 @@ function SubAdmin() {
                 </div>
               </div>
               <table class="w-full mt-5 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class=" w-[78vw] text-xs text-gray-700  dark:text-gray-400">
+                <thead class=" w-[78vw] text-xs text-white">
                   <tr>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white text-md"
+                      class="px-6 py-3 text-white text-md"
                       style={{ border: "1px solid #313133" }}
                     >
                       Name

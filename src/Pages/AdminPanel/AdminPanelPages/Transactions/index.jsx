@@ -52,10 +52,10 @@ function Transactions() {
             className="w-[80vw] box edit-con bg-[#1C1C1E] mx-auto rounded p-5"
             style={{ position: "absolute", left: "16.5%" }}
           >
-            <div class="relative overflow-x-auto shadow-md ">
+            <div class="relative overflow-x-auto shadow-md edit-contain">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[55%] search-bar-for-transaction  justify-between flex-column flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center w-[55%] search-bar-for-transaction  justify-between flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
@@ -63,7 +63,7 @@ function Transactions() {
                       <input
                         type="text"
                         id="table-search-users"
-                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs   bg-[#313133] rounded-full w-full "
+                        class=" ps-5 text-sm py-3 border-0 placeholder:text-white  text-white text-xs   bg-[#313133] rounded-full w-full "
                         placeholder="Search by Payment ID or Email"
                         onChange={(e) => setTextFilter(e.target.value)}
                       />
@@ -90,7 +90,7 @@ function Transactions() {
                       <input
                         type="date"
                         id="table-search-users"
-                        class=" ps-5 text-sm py-3 border-0 outline-none text-[#6C757D] text-xs  bg-[#313133] rounded-full w-60 "
+                        class=" ps-5 text-sm py-3 border-0 outline-none text-white text-xs  bg-[#313133] rounded-full w-60 "
                         placeholder="mm/dd/yy"
                         onChange={(e) => setDateFilter(e.target.value)}
                       />
@@ -115,40 +115,40 @@ function Transactions() {
                   </div>
                 </div>
               </div>
-              <table class="w-full mt-5 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class=" w-[78vw] text-xs text-gray-700  dark:text-gray-400">
+              <table class="w-full mt-5 text-sm text-left rtl:text-right text-white">
+                <thead class=" w-[78vw] text-xs text-white">
                   <tr>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white text-md"
+                      class="px-6 py-3text-white text-md"
                       style={{ border: "1px solid #313133" }}
                     >
                       Name
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Email
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Plan
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Amount
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Payment Gateway
@@ -156,14 +156,14 @@ function Transactions() {
 
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Payment ID
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 dark:text-white"
+                      class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Payment Date
@@ -196,49 +196,49 @@ function Transactions() {
                       <tr>
                         <th
                           scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-blue-600"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-blue-600"
                           style={{ border: "1px solid #313133" }}
                         >
                           {payment?.userId?.name}
                         </th>
                         <th
                           scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                           style={{ border: "1px solid #313133" }}
                         >
                           {payment?.userId?.email}
                         </th>
                         <th
                           scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                           style={{ border: "1px solid #313133" }}
                         >
                           {payment?.packageId?.name}
                         </th>
                         <th
                           scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                           style={{ border: "1px solid #313133" }}
                         >
                           ${payment?.packageId?.amount}
                         </th>
                         <th
                           scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                           style={{ border: "1px solid #313133" }}
                         >
                           PAYCEC
                         </th>
                         <th
                           scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                           style={{ border: "1px solid #313133" }}
                         >
                           {payment?.token}
                         </th>
                         <th
                           scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                           style={{ border: "1px solid #313133" }}
                         >
                           {new Date(payment?.updatedAt).toLocaleString(
@@ -265,7 +265,7 @@ function Transactions() {
               <ul className="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
                 <li>
                   <a
-                    className={`flex items-center justify-center px-3 h-8 ms-0 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015] dark:text-white ${
+                    className={`flex items-center justify-center px-3 h-8 ms-0 leading-tight border border-[#464648] bg-[#313133] hover:bg-[#FF0015] cursor-pointer text-white ${
                       activeItem === 0 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
                     }`}
                     onClick={() => handlePreviousClick()}
@@ -276,7 +276,7 @@ function Transactions() {
 
                 <li>
                   <a
-                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] dark:hover:bg-[#FF0015]  dark:text-white ${
+                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] hover:bg-[#FF0015] cursor-pointer text-white ${
                       activeItem === 3 ? "bg-gray-700 dark:bg-[#FF0015]" : ""
                     }`}
                     onClick={() => handleNextClick()}

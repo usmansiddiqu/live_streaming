@@ -55,25 +55,25 @@ function AdminSlider() {
           style={{ position: "absolute", left: "16.5%" }}
         >
           {error && <ErrorComponent message={error} />}
-          <div class="relative overflow-x-auto shadow-md">
+          <div class="relative overflow-x-auto shadow-md edit-contain">
             <div class="relative mt-1">
               <div class=" flex items-center  ">
                 <button
                   className="w-[120px] Add-tv h-[4vh] bg-[#0EAC5C] font-medium rounded-md "
                   onClick={handleCreateButtonClick}
                 >
-                  <span className="text-white text-sm dark:text-white">
+                  <span className="text-white text-sm ">
                     + Add Slider
                   </span>
                 </button>
               </div>
             </div>
-            <table class="w-full mt-5 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-              <thead class=" w-[78vw] text-xs text-gray-700  dark:text-gray-400">
+            <table class="w-full mt-5 text-sm text-left rtl:text-right text-white">
+              <thead class=" w-[78vw] text-xs text-white">
                 <tr>
                   <th
                     scope="col"
-                    class="px-6 py-3 dark:text-white text-md"
+                    class="px-6 py-3 text-white text-md"
                     style={{ border: "1px solid #313133" }}
                   >
                     Slider Title
@@ -81,21 +81,21 @@ function AdminSlider() {
 
                   <th
                     scope="col"
-                    class="px-6 py-3 dark:text-white"
+                    class="px-6 py-3 text-white"
                     style={{ border: "1px solid #313133" }}
                   >
                     Slider Image
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 dark:text-white"
+                    class="px-6 py-3 text-white"
                     style={{ border: "1px solid #313133" }}
                   >
                     Status
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 dark:text-white"
+                    class="px-6 py-3 text-white"
                     style={{ border: "1px solid #313133" }}
                   >
                     Action
@@ -109,14 +109,14 @@ function AdminSlider() {
                       <tr>
                         <th
                           scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                           style={{ border: "1px solid #313133" }}
                         >
                           {sldr.title}
                         </th>
                         <th
                           scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                           style={{ border: "1px solid #313133" }}
                         >
                           <div className="tv-img w-[150px] h-[84px]">

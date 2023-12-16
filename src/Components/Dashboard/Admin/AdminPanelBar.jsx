@@ -187,6 +187,7 @@ function AdminPanelBar() {
                 onClick={() => handleItemClick("dashboard", "Dashboard")}
               >
                 <a
+                  style={{color:'white'}}
                   className={`flex items-center text-sm p-2 dark:text-white bg-[#1c1c1e] group-hover:text-red-600 ${
                     activeItem.id === "dashboard" ? "bg-[#ff0015]" : ""
                   } ${isCollapsed ? "justify-end" : "justify-start"}`}
@@ -217,6 +218,7 @@ function AdminPanelBar() {
                 }}
               >
                 <button
+                  style={{color:'white'}}
                   type="button"
                   className={`flex items-center w-full transition duration-75 bg-[#1c1c1e] p-2 text-gray-900 dark:text-white group-hover:text-red-600 ${
                     activeItem.id === "Live TV" ? "bg-[#ff0015]" : ""
@@ -230,7 +232,7 @@ function AdminPanelBar() {
                     }`}
                   />
                   {!isCollapsed && (
-                    <span class="flex-1 ms-3 text-sm text-left rtl:text-right whitespace-nowrap">
+                    <span class="flex-1 ms-3 text-sm text-left rtl:text-right whitespace-nowrap"   style={{color:'white'}}>
                       Live TV
                     </span>
                   )}
@@ -263,6 +265,7 @@ function AdminPanelBar() {
                     }
                   >
                     <a
+                      style={{color:'white'}}
                       className={`flex  w-full p-2 text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         isCollapsed ? "justify-end" : "justify-start"
                       }`}
@@ -288,6 +291,7 @@ function AdminPanelBar() {
                     }
                   >
                     <a
+                      style={{color:'white'}}
                       className={`flex  w-full p-2 text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         isCollapsed ? "justify-end" : "justify-start"
                       }`}
@@ -313,6 +317,7 @@ function AdminPanelBar() {
                     }
                   >
                     <a
+                      style={{color:'white'}}
                       className={`flex  w-full p-2 text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         isCollapsed ? "justify-end" : "justify-start"
                       }`}
@@ -325,7 +330,7 @@ function AdminPanelBar() {
                         }`}
                       />
                       {!isCollapsed && (
-                        <span className="ms-3">
+                        <span className="ms-3"   style={{color:'white'}}>
                           <Link to="/admin/assign_live_tv">Assign Live TV</Link>
                         </span>
                       )}
@@ -336,6 +341,7 @@ function AdminPanelBar() {
 
               {/*  ------------------------HOME---------------------- */}
               <li
+              
                 id="Home"
                 className={`mt-1 ${activeItem === "Home" ? "active" : ""}`}
                 onClick={() => {
@@ -345,6 +351,7 @@ function AdminPanelBar() {
                 }}
               >
                 <button
+                  style={{color:'white'}}
                   type="button"
                   className={`flex items-center w-full transition duration-75 bg-[#1c1c1e] p-2 text-gray-900 dark:text-white group-hover:text-red-600 ${
                     activeItem.id === "Home" ? "bg-[#ff0015]" : ""
@@ -358,7 +365,7 @@ function AdminPanelBar() {
                     }`}
                   />
                   {!isCollapsed && (
-                    <span class="flex-1 ms-3 text-sm text-left rtl:text-right whitespace-nowrap">
+                    <span   style={{color:'white'}} class="flex-1 ms-3 text-sm text-left rtl:text-right whitespace-nowrap">
                       Home
                     </span>
                   )}
@@ -388,6 +395,7 @@ function AdminPanelBar() {
                     onClick={() => handleItemClick(" Slider", " Slider")}
                   >
                     <a
+                      style={{color:'white'}}
                       className={`flex  w-full p-2 text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         isCollapsed ? "justify-end" : "justify-start"
                       }`}
@@ -445,6 +453,7 @@ function AdminPanelBar() {
                 }}
               >
                 <button
+                  style={{color:'white'}}
                   type="button"
                   className={`flex items-center w-full transition duration-75 bg-[#1c1c1e] p-2 text-gray-900 dark:text-white group-hover:text-red-600 ${
                     activeItem.id === "Users" ? "bg-[#ff0015]" : ""
@@ -458,7 +467,7 @@ function AdminPanelBar() {
                     }`}
                   />
                   {!isCollapsed && (
-                    <span class="flex-1 ms-3 text-sm text-left rtl:text-right whitespace-nowrap">
+                    <span   style={{color:'white'}} class="flex-1 ms-3 text-sm text-left rtl:text-right whitespace-nowrap">
                       Users
                     </span>
                   )}
@@ -489,6 +498,7 @@ function AdminPanelBar() {
                     onClick={() => handleItemClick(" User", " User")}
                   >
                     <a
+                      style={{color:'white'}}
                       className={`flex w-full p-2  text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         activeItem.id === "User" ? "bg-[#ff0015]" : ""
                       } ${isCollapsed ? "justify-end" : "justify-start"}`}
@@ -512,6 +522,7 @@ function AdminPanelBar() {
                     onClick={() => handleItemClick(" Sub Admin", " Sub Admin")}
                   >
                     <a
+                      style={{color:'white'}}
                       className={`flex  w-full p-2  text-gray-900 transition duration-75 group  text-sm dark:text-white dark:hover:text-red-600 ${
                         activeItem.id === "Sub Admin" ? "bg-[#ff0015]" : ""
                       } ${isCollapsed ? "justify-end" : "justify-start"}`}
@@ -540,6 +551,7 @@ function AdminPanelBar() {
                 onClick={() => handleItemClick("Coupons", "Coupons")}
               >
                 <a
+                  style={{color:'white'}}
                   className={`flex items-center text-sm p-2 dark:text-white bg-[#1c1c1e] group-hover:text-red-600 ${
                     activeItem.id === "Coupons" ? "bg-[#ff0015]" : ""
                   } ${isCollapsed ? "justify-end" : "justify-start"}`}
@@ -567,6 +579,7 @@ function AdminPanelBar() {
                 onClick={() => handleItemClick("Transcations", "Transcations")}
               >
                 <a
+                  style={{color:'white'}}
                   className={`flex items-center text-sm p-2 dark:text-white bg-[#1c1c1e] group-hover:text-red-600 ${
                     activeItem.id === "Transcations" ? "bg-[#ff0015]" : ""
                   } ${isCollapsed ? "justify-end" : "justify-start"}`}
