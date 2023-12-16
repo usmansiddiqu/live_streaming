@@ -54,16 +54,17 @@ function SubAdmin() {
             <div class="relative overflow-x-auto shadow-md edit-contain">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center  justify-between tvChannel-head flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center  w-[35%] justify-between tvChannel-head flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
-                    <div class="relative flex justify-between w-72 sm:w-80 rounded-full bg-[#313133]">
+                    <div class="relative flex justify-between w-80 rounded-full bg-[#313133]">
                       <input
                         type="text"
                         id="table-search-users"
-                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] search-title text-xs  bg-[#313133] rounded-full w-80 "
+                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs placeholder:text-white bg-[#313133] rounded-full w-80 text-white"
                         placeholder="Search by name or email"
+                   
                       />
                       <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
                         <svg

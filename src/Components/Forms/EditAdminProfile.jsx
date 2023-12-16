@@ -87,11 +87,11 @@ function AdminProfile() {
             style={{ position: "absolute", left: "17%" }}
           >
             {error && <ErrorComponent message={error} />}
-            <form class="max-w-sm ">
-              <div class="mb-5 input-feild w-[72vw] flex edit-contain ">
+            <form class="max-w-sm edit-contain">
+              <div class="mb-5 input-feild w-[72vw] flex  ">
                 <div
                   for="text"
-                  class="block input-feild-label bg-white border w-[200px] h-[200px] flex justify-betweenitems-center  mb-2 text-sm font-medium text-gray-900 text-white"
+                  class="block main-profile-img bg-white border w-[200px] h-[220px] flex justify-between items-center  mb-2 text-sm font-medium text-gray-900 text-white"
                 >
                   <img
                     src={
@@ -193,10 +193,10 @@ function AdminProfile() {
                 />
               </div>
 
-              <div class="mb-5 input-feild w-[72vw] flex">
+              <div class="mb-5 input-feild w-[72vw] flex ">
                 <label
                   for="countries"
-                  class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[13.5vw]"
+                  class="block mb-2  text-sm font-medium text-gray-900 dark:text-white w-[15.5vw] "
                 ></label>
                 <button
                   type="submit"

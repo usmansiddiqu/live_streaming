@@ -113,6 +113,10 @@ li a {
 }
 
  @media screen and (max-width: 2600px) {
+ 
+  .red-bar{
+    width: 12.7vw;
+  }
   .Cardslider{
    width: 65% !important;
   
@@ -157,6 +161,9 @@ li a {
   }
 }
 @media screen and (max-width: 1980px) {
+  .red-bar{
+    width: 14.4vw;
+  }
   .Cardslider {
     width: 73% !important;
   }
@@ -540,6 +547,9 @@ li a {
 }
 
 @media screen and (max-width: 769px) {
+  .main-profile-img{
+    margin: auto;
+  }
   .Edit-container {
     display: flex;
     flex-direction: column;

@@ -62,7 +62,7 @@ function AdminPanelBar() {
         >
           <div class="px-3 lg:px-5 lg:pl-3 h-[5vh]">
             <div class="flex items-center justify-between ">
-              <div class="flex items-center justify-center side-icon rtl:justify-end border-r border-red-500 h-[5vh] w-[14.5vw]">
+              <div class="flex items-center justify-center side-icon rtl:justify-end red-bar border-r border-red-500 h-[5vh] w-[14.5vw]">
                 <a href="" class="flex ms-2 md:me-24 mx-auto ">
                   <img
                     src={logo}
@@ -124,13 +124,13 @@ function AdminPanelBar() {
                       </button>
                     </div>
                     <div
-                      class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow w-[120px] "
+                      class="z-50 hidden text-base list-none bg-white  divide-gray-100 rounded shadow w-[120px] "
                       id="dropdown-user"
                     >
                       <ul class="py-1" role="none">
                         <li onClick={handleButtonClick}>
                           <a
-                            class="block px-4 py-2 text-sm text-black dark:hover:bg-[#c6c6c6] flex cursor-pointer "
+                            class="block px-4 py-2 text-sm text-black hover:bg-[#c6c6c6] flex cursor-pointer "
                             role="menuitem"
                           >
                             <img
@@ -143,7 +143,7 @@ function AdminPanelBar() {
                         </li>
                         <li onClick={handleNavigateFrontEnd}>
                           <a
-                            class="block px-4 py-2 text-sm text-black dark:hover:bg-[#c6c6c6] flex cursor-pointer "
+                            class="block px-4 py-2 text-sm text-black hover:bg-[#c6c6c6] flex cursor-pointer "
                             role="menuitem"
                           >
                             <img
