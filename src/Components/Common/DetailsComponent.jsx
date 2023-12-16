@@ -25,8 +25,10 @@ function DetailsComponent({ data, url }) {
   return (
     <div className="flex !justify-center">
       {isTimeWithinRange ? (
-        <div className="chunchun" id="videoPlayer">
-          <ClapprPlayer url={url} />
+        <div className="embed-responsive embed-responsive-16by9">
+          <div className="chunchun" id="videoPlayer">
+            <ClapprPlayer url={url} />
+          </div>
         </div>
       ) : (
         <div
