@@ -2,6 +2,7 @@ import React from "react";
 import createWishList from "../../api/addWishlist";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import moment from "moment";
 
 function DetailsDescription({ data, setUrl }) {
   const { id } = useParams();
@@ -93,17 +94,7 @@ function DetailsDescription({ data, setUrl }) {
               <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M15.5,14c-0.3,0.5-0.9,0.6-1.4,0.4l-2.6-1.5C11.2,12.7,11,12.4,11,12V7c0-0.6,0.4-1,1-1s1,0.4,1,1v4.4l2.1,1.2C15.6,12.9,15.7,13.5,15.5,14z" />
             </svg>
             {data?.data?.date &&
-              new Date(data?.data?.date)
-                .toLocaleString("en-US", {
-                  timeZone: "UTC",
-                  year: "numeric",
-                  month: "2-digit",
-                  day: "2-digit",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  second: "2-digit",
-                })
-                .replace(/,/g, "")}
+              moment.utc(data?.data?.date).format("MM/DD/YYYY hh:mm:ss A")}
           </p>
           <br />
           <button

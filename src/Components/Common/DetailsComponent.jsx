@@ -2,6 +2,7 @@ import React from "react";
 import "../../Assets/styles/CardDetailss.scss";
 import DetailsIcon from "./DetailsIcon";
 import VideoPlayer from "./VideoPlayer";
+import moment from "moment-timezone";
 const dummyIcons = [
   {
     iconUrl: "https://cdn-icons-png.flaticon.com/128/1039/1039386.png",
@@ -13,11 +14,16 @@ const dummyIcons = [
   },
 ];
 function DetailsComponent({ data, url }) {
+  const currentTime = moment();
+  const eventTime = moment(data?.data?.date).utc();
+
+  const isTimeWithinRange =
+    data?.data?.date &&
+    currentTime.isBetween(eventTime, eventTime.clone().add(3.5, "hours"));
+
   return (
     <div className="flex !justify-center">
-      {data?.data?.date &&
-      new Date(data?.data?.date) - new Date() >= 0 &&
-      new Date(data?.data?.date) - new Date() / (1000 * 60 * 60) <= 3.5 ? (
+      {isTimeWithinRange ? (
         <VideoPlayer url={url} />
       ) : (
         <div

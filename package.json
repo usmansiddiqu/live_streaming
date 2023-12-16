@@ -19,6 +19,8 @@
     "flowbite": "^2.0.0",
     "flowbite-react": "^0.6.4",
     "gapi-script": "^1.2.0",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43",
     "nivo": "^0.31.0",
     "or": "^0.2.0",
     "pikaday": "^1.8.2",

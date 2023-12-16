@@ -15,7 +15,7 @@ function DetailsPage() {
   const getData = async () => {
     const { data: response } = await getEventById(params.id);
     setData(response.events);
-    setUrl(data?.channel?.server1URL);
+    setUrl(data?.channel?.server2URL);
   };
   useEffect(() => {
     getData();
