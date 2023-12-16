@@ -551,7 +551,8 @@ li a {
     margin-left: 0px !important;
 
   }
-  .input-feild{
+}
+.input-feild{
   .left {
     width: 100%;
   }
@@ -581,11 +582,9 @@ li a {
     display: none;
     margin-top: -10px;
   }
+
    
-   .post-Button{
-  .endedd {
-    margin-left: 70px !important;
-  }
+  
   .post-Button {
     margin-top: 0px !important;
     width: 100px !important;
@@ -633,6 +632,7 @@ li a {
     height: 100vh;
     background-color: white;
   }
+
   /* .banner-Buttons{
     margin-left: 210px ;
     margin-top: -10px;

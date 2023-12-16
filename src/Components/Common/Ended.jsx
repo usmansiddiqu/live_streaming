@@ -15,7 +15,7 @@ function Ended({ show }) {
 
   return (
     <>
-      {show && (
+       {showEnded && (
         <>
         <div className="absolute z-40 ended text-center  ">
           <span
