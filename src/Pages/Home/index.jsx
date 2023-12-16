@@ -13,12 +13,15 @@ function Home() {
   useEffect(() => {
     getData();
   }, []);
+  console.log(data);
   return (
     <div className="bg-[#130A2D] ">
       <MainSlider />
       <SliderHeader title="NFL Live" link="nfl" />
       <CardSlider
-        data={data.filter((card) => card.channel.TVCategory.name == "NFL")}
+        data={data.filter((card) => {
+          return card.channel.TVCategory.name == "NFL";
+        })}
       />
       <SliderHeader title="NHL Live" link="nhl" />
       <CardSlider

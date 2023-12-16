@@ -57,12 +57,7 @@ function Card({ data, title }) {
                           }))}
                         />
                         <div className="endedd ">
-                          <Ended
-                            show={
-                              new Date(item?.data?.date) >
-                              new Date().setHours(new Date().getHours() + 4)
-                            }
-                          />
+                          <Ended show={new Date(item?.data?.date)} />
                         </div>
                       </div>
                     </div>

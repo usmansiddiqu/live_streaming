@@ -96,12 +96,7 @@ function DetailsSlider() {
                   }))}
                   title={item?.data?.shortName}
                 />
-                <Ended
-                  show={
-                    new Date(item?.data?.date) <
-                    new Date().setHours(new Date().getHours() + 4)
-                  }
-                />
+                <Ended show={new Date(item?.data?.date)} />
               </div>
             </SplideSlide>
           ))}
