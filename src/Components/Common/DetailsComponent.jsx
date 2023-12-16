@@ -2,6 +2,7 @@ import React from "react";
 import "../../Assets/styles/CardDetailss.scss";
 import DetailsIcon from "./DetailsIcon";
 import VideoPlayer from "./VideoPlayer";
+import ClapprPlayer from "./ClapprPlayer";
 import moment from "moment-timezone";
 const dummyIcons = [
   {
@@ -24,7 +25,9 @@ function DetailsComponent({ data, url }) {
   return (
     <div className="flex !justify-center">
       {isTimeWithinRange ? (
-        <VideoPlayer url={url} />
+        <div className="chunchun" id="videoPlayer">
+          <ClapprPlayer url={url} />
+        </div>
       ) : (
         <div
           className="!w-[80rem] !h-[35rem]  "
