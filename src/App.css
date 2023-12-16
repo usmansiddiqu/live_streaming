@@ -1,43 +1,44 @@
 /* Reset default margin and padding for the entire page */
-body, h1, h2, h3, p, div {
+body,
+h1,
+h2,
+h3,
+p,
+div {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 /* Apply custom styles to the slider */
-.App{
-
-
+.App {
   width: 100vw;
   height: 100vh;
-  overflow-X: hidden;
+  overflow-x: hidden;
   overflow-y: scroll;
-  background-color: #0D0620;
+  background-color: #0d0620;
 }
-li a{
+li a {
   text-decoration: none;
 }
-.video-player-wrapper{
+.video-player-wrapper {
   width: 100vw !important;
   height: 100vh !important;
 }
-.google-btn{
+.google-btn {
   width: 100% !important;
 }
-.footer{
+.footer {
   width: 100%;
   height: 30vh;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
-.carousel-indicators{
-
+.carousel-indicators {
   display: none !important;
 }
-.fooer-Img{
+.fooer-Img {
   width: 100%;
   height: 26vh;
   background-image: url(./Assets//Images/footer-bg-item.png);
@@ -50,161 +51,147 @@ li a{
   margin-left: 350px;
   margin-top: 50px;
 }
-.fooer-Img li{
+.fooer-Img li {
   text-decoration: none;
   list-style: none;
 }
-.fooer-Img li a{
+.fooer-Img li a {
   text-decoration: none;
   color: white;
   font-size: 18px;
 }
-.login-Bg{
+.login-Bg {
   background-image: url(../src/Assets/Images/login-signup-bg-img.jpg);
   background-position: center;
   background-size: cover;
   opacity: 0.2;
-
 }
-.signup-Bg{
+.signup-Bg {
   background-image: url(../src/Assets/Images/login-signup-bg-img.jpg);
   background-size: cover;
   opacity: 0.9;
 }
-.ql-container.ql-snow{
+.ql-container.ql-snow {
   border: none !important;
 }
-.signup-Bg{
+.signup-Bg {
   width: 100%;
- }
- .labelTextColor{
+}
+.labelTextColor {
   color: white;
+}
 
- }
-
- @media screen and (max-width: 2600px) {
-  .Cardslider{
-   width: 65% !important;
-  
+@media screen and (max-width: 2600px) {
+  .Cardslider {
+    width: 65% !important;
   }
-  .endedd{
+  .endedd {
     margin-left: 40px;
   }
-  .container{
-    padding-left:100px ;
+  .container {
+    padding-left: 100px;
   }
-  .dash-headd{
+  .dash-headd {
     width: 75vw;
   }
 
-  .mainSlider{
+  .mainSlider {
     margin-top: 20px !important;
     height: 49vh !important;
   }
-  .sliderHeader{
-    width: 65% ;
-
+  .sliderHeader {
+    width: 65%;
   }
-  .ended{
+  .ended {
     margin-top: -55px;
     margin-left: -90px;
   }
-  .tem-img-box{
+  .tem-img-box {
     width: 10vw;
     padding-top: 0px;
     margin-left: -75px;
     margin-top: -5px;
-    
-   }
-   .team-img-box{
+  }
+  .team-img-box {
     width: 12vw;
     margin-left: -65px;
-   }
- 
+  }
 }
 @media screen and (max-width: 1980px) {
-  .Cardslider{
-   width: 73% !important;
-  
+  .Cardslider {
+    width: 73% !important;
   }
-  .sliderHeader{
-    width: 73% ;
-
+  .sliderHeader {
+    width: 73%;
   }
-  .dash-headd{
+  .dash-headd {
     width: 82vw;
   }
 
-  .watch-img{
+  .watch-img {
     width: 67vw;
   }
-.live-head{
-  width: 67vw;
-  border: 1px solid;
-}
-.banner-slidess{
-  width: 68%;
-}
-  .mainSlider{
+  .live-head {
+    width: 67vw;
+    border: 1px solid;
+  }
+  .banner-slidess {
+    width: 68%;
+  }
+  .mainSlider {
     margin-top: 20px !important;
   }
-  .ended{
+  .ended {
     margin-top: -50px;
     margin-left: -10px;
   }
-  .tem-img-box{
+  .tem-img-box {
     width: 12vw;
     padding-top: 0px;
     margin-left: -85px;
     margin-top: -5px;
-    
-   }
-   .ended{
+  }
+  .ended {
     margin-left: -100px;
-   }
+  }
 }
 
 @media screen and (max-width: 1000px) {
-  .AdminBarLogo{
+  .AdminBarLogo {
     display: none;
-  
   }
-  .nav-sider{
+  .nav-sider {
     border: 0px;
   }
-  .mainSlider{
+  .mainSlider {
     margin-top: 20px !important;
     height: 40vh !important;
   }
-  .sliderHeader{
-    width: 100% ;
-
+  .sliderHeader {
+    width: 100%;
   }
-  .tem-img-box{
+  .tem-img-box {
     padding-top: 0px;
     padding-left: 8px;
     padding-right: 8px;
-   }
-   .ended{
+  }
+  .ended {
     margin-top: -55px;
     margin-left: 20px;
   }
-  .tem-img{
+  .tem-img {
     margin-top: -10px;
-   }
-   .dash-headd{
+  }
+  .dash-headd {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-   }
-   .headd{
+  }
+  .headd {
     width: 25vw;
     margin-top: 10px;
-   }
-  
+  }
 }
-
 
 .wrapper {
   display: flex;
@@ -222,8 +209,7 @@ li a{
   position: relative;
   font-size: 16px;
   border-radius: 0.5em;
-  background-color: #1C1C1E;
-
+  background-color: #1c1c1e;
 }
 
 @media screen and (max-width: 1024px) {
@@ -242,216 +228,206 @@ li a{
     flex-wrap: wrap;
     gap: 30px;
   }
-  .footer-goole-img{
+  .footer-goole-img {
     height: 0px;
     margin-top: -20px;
   }
-  .container{
-    padding-left:10px !important;
+  .container {
+    padding-left: 10px !important;
   }
 
-  .google-btnn{
+  .google-btnn {
     width: 120px;
     height: 40px;
-
-
-   }
-  .history-table{
+  }
+  .history-table {
     padding: 10px;
     width: 60vw;
-   }
+  }
   .container1 {
     width: calc(50% - 40px);
     height: 30vmin;
     font-size: 14px;
   }
-
 }
-.headd{
- width: 25vw;
- margin-top: 10px;
+.headd {
+  width: 25vw;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 380px) {
-  .banner-Buttons{
+  .banner-Buttons {
     margin-left: 0;
     margin: auto;
     position: relative;
     top: 20% !important;
-   left: 0%;
-   display: flex;
-   flex-direction: column;
-   }
-
- .cardd{
-  width: 100px !important;
-  height: 30px !important;
- }
-.pay-cardd{
-  width: 100vw !important;
-
-}  .endedd{
-  margin-left: 60px;
-  margin-top: -20px !important;
+    left: 0%;
+    display: flex;
+    flex-direction: column;
+  }
+  .dropdownActionButton {
+    width: 250px !important;
+  }
+  .cardd {
+    width: 100px !important;
+    height: 30px !important;
+  }
+  .pay-cardd {
+    width: 100vw !important;
+  }
+  .endedd {
+    margin-left: 60px;
+    margin-top: -20px !important;
+  }
+  .new-footer-box {
+    width: 100vw;
+  }
+  .pay-cardds {
+    width: 93vw !important;
+    height: 30vh;
+  }
+  .pay-card-box {
+    width: 98vw;
+    padding: 10;
+  }
+  .coupan-btn {
+    margin-top: 10px;
+  }
+  .tem-icons {
+    height: 35px !important;
+    width: 35px !important ;
+    /* margin-left: -20px; */
+  }
+  .tem-img-box {
+    width: 100%;
+  }
 }
-.new-footer-box{
-  width: 100vw;
-}
-.pay-cardds{
-  width: 93vw !important;
-  height: 30vh;
-
-}
-.pay-card-box{
-  width: 98vw;
-  padding: 10;
-}
-.coupan-btn{
-  margin-top: 10px;
-}
-.tem-icons{
-  height: 35px !important;
-  width:35px !important ;
-  /* margin-left: -20px; */
-}
-.tem-img-box{
-  width: 100%;
-}
-
-}
-
 
 @media screen and (max-width: 480px) {
-  .card-con{
+  .card-con {
     width: 90vw !important;
   }
   .wrapper {
     gap: 15px;
   }
-  .headd{
+  .headd {
     width: 38vw;
     margin-top: 10px;
-   }
+  }
   .container1 {
     width: 70%;
     height: 25vmin;
     font-size: 8px;
-  
   }
-  .banner-text{
-
+  .banner-text {
     left: 24% !important;
     font-size: 24px !important;
     width: 25% !important;
     text-align: center !important;
-    margin-top: 20px ;
-    text-shadow: -1px 4px 2px rgba(0,0,0,0.6);
+    margin-top: 20px;
+    text-shadow: -1px 4px 2px rgba(0, 0, 0, 0.6);
   }
-  .banner-textt{
+  .banner-textt {
     width: 100%;
     font-size: 20px;
-    text-shadow: -1px 4px 2px rgba(0,0,0,0.6);
+    text-shadow: -1px 4px 2px rgba(0, 0, 0, 0.6);
     margin-left: 10px;
-
   }
   .sidebar-toggle {
     display: none;
   }
-  .side-icon{
+  .side-icon {
     display: none;
   }
-  .admin-dash{
+  .admin-dash {
     left: 0% !important;
   }
-  .tvChannel-head{
+  .tvChannel-head {
     width: 100% !important;
     height: 23vh !important;
   }
-  .Category-Filter{
+  .Category-Filter {
     width: 250px !important;
   }
-  .search-title{
+  .search-title {
     width: 250px !important;
   }
-  .Add-tv{
+  .Add-tv {
     width: 100px;
     height: 5vh !important;
   }
-  .search-transactions{
+  .search-transactions {
     width: 450px !important;
     border: 1px solid;
     margin-bottom: 10px;
   }
-  
-  .input-feild{
+
+  .input-feild {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
-  .input-feild-image{
+  .input-feild-image {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
   }
-  .input-feild-label{
+  .input-feild-label {
     min-width: 50vw;
   }
-  .edit-con{
+  .edit-con {
     padding: 1rem;
     padding-left: 0.7rem;
   }
-  .input-feild-drop{
+  .input-feild-drop {
     width: 75vw;
   }
- .main-user-container{
-  display: flex;
-  flex-direction: column;
- }
- .user-edit{
-  width: 100%;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
- }
- .user-info{
-  width: 100%;
-  padding: 0;
-  margin-top: 10px;
- }
- .active-user-btn{
-  margin-left: -50px;
- }
- .Useredit-side{
-  width: 100%;
-  margin: 0;
-  margin-top: 10px;
- }
- .user-transaction{
-  margin-top: 10px;
- }
- .sub-type{
-  width: auto;
-  border: 1px solid;
-  justify-content: space-around;
- }
- .main-page {
-  flex-direction: column;
- }
- .left-side {
-  width: 100%;
+  .main-user-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .user-edit {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .user-info {
+    width: 100%;
+    padding: 0;
+    margin-top: 10px;
+  }
+  .active-user-btn {
+    margin-left: -50px;
+  }
+  .Useredit-side {
+    width: 100%;
+    margin: 0;
+    margin-top: 10px;
+  }
+  .user-transaction {
+    margin-top: 10px;
+  }
+  .sub-type {
+    width: auto;
+    border: 1px solid;
+    justify-content: space-around;
+  }
+  .main-page {
+    flex-direction: column;
+  }
+  .left-side {
+    width: 100%;
+  }
+  .signup-Bg {
+    width: 100%;
+  }
+  .signup h1 {
+    width: 80% !important;
+    font-size: 26px !important;
+  }
 
- }
- .signup-Bg{
-  width: 100%;
- }
- .signup h1{
-  width: 80% !important;
-  font-size: 26px !important;
- }
-
-
- /* .banner-Buttons{
+  /* .banner-Buttons{
   margin-left: 0;
   margin-top: -20px !important;
   margin: auto;
@@ -461,115 +437,108 @@ li a{
  display: flex;
  flex-direction: column;
  } */
-.post-Button{
-  margin-left: 0px !important;
-  margin-top: 10px;
-
-
+  .post-Button {
+    margin-left: 0px !important;
+    margin-top: 10px;
+  }
+  .footer-flex {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer {
+    height: max-content;
+  }
+  .footer-title {
+    font-size: 20px;
+  }
+  .box {
+    margin-left: 15px;
+  }
+  .search-bar-for-transaction {
+    width: 93% !important;
+  }
 }
-.footer-flex{
-  display: flex;
-  flex-direction: column;
-}
-.footer{
-  height: max-content;
-}
-.footer-title{
-  font-size: 20px;
-}
-.box{
-  margin-left: 15px;
-}
-.search-bar-for-transaction{
-  width: 93% !important;
-
-}
-}
-
 
 @media screen and (max-width: 769px) {
   .Edit-container {
     display: flex;
     flex-direction: column;
   }
-  .left{
+  .left {
     width: 100%;
   }
-  .input-feild{
+  .input-feild {
     width: 75vw;
   }
   .input-feild-label {
     width: 20vw;
   }
-  .banner-Buttons{
-    width: 50vw ;
+  .banner-Buttons {
+    width: 50vw;
     display: flex;
     flex-direction: row;
     align-items: center;
     position: relative;
-    top: 55% ;
+    top: 55%;
     display: flex;
     margin-left: 10px;
     margin-top: 55px;
-    
-   }
-   .team-namess {
+  }
+  .team-namess {
     display: none;
     margin-top: -10px;
   }
-   .endedd{
+  .endedd {
     margin-left: 70px !important;
   }
-   .post-Button{
+  .post-Button {
     margin-top: 0px !important;
     width: 100px !important;
     height: 35px !important;
     margin-left: 5px;
-   }
-   .pre-Button{
+  }
+  .pre-Button {
     margin-top: 0px !important;
     width: 100px !important;
     height: 35px !important;
-   }
-  .save-btn{
+  }
+  .save-btn {
     margin-left: 450px;
   }
-  .edit-con{
+  .edit-con {
     left: 10%;
- 
   }
-  .layer-icon{
+  .layer-icon {
     display: block;
   }
   .main-page {
     flex-direction: column !important;
-   }
-   .left-side {
+  }
+  .left-side {
     width: 100%;
     height: 50vh;
-   }
-   .signup-Bg{
+  }
+  .signup-Bg {
     width: 100%;
     height: 40vh;
-   }
-   .signup{
+  }
+  .signup {
     width: 100%;
     height: 40vh;
-   }
-   .signup img{
+  }
+  .signup img {
     margin-top: 30px;
-   }
-   .signup h1{
+  }
+  .signup h1 {
     width: 50%;
     font-size: 30px;
-   }
-   .right-side {
+  }
+  .right-side {
     width: 100%;
-    height:100vh;
+    height: 100vh;
     background-color: white;
-
-   }
-   /* .banner-Buttons{
+  }
+  /* .banner-Buttons{
     margin-left: 210px ;
     margin-top: -10px;
     margin: auto;
@@ -577,135 +546,128 @@ li a{
     position: relative;
     top: -20%;
    } */
-   .mainSlider{
+  .mainSlider {
     height: 58vh !important;
-   }
-   .sliderHeader{
+  }
+  .sliderHeader {
     width: 95% !important;
-   }
-   .card-con{
+  }
+  .card-con {
     width: 90vw !important;
   }
-  .contact-form{
+  .contact-form {
     flex-direction: column;
     width: 100%;
   }
-  .footer{
+  .footer {
     height: max-content;
   }
-  .Add-tv{
+  .Add-tv {
     width: 120px;
     height: 50px;
     margin-left: 20px;
     margin-top: 10px !important;
   }
-  .banner-text{
-
+  .banner-text {
     margin-left: 500px;
-    font-size: 38px ;
+    font-size: 38px;
     margin-left: 35px;
     /* width: 25% !important; */
     text-align: center;
     margin-top: -9%;
-    text-shadow: -1px 4px 2px rgba(0,0,0,0.6);
+    text-shadow: -1px 4px 2px rgba(0, 0, 0, 0.6);
   }
-
-
 }
-@media screen and (max-width: 430px){
-  .tem-p{
+@media screen and (max-width: 430px) {
+  .tem-p {
     font-size: 10px !important;
   }
-  .tem-img{
+  .tem-img {
     width: 35px !important;
     height: 35px !important;
   }
-  .edit-con{
+  .edit-con {
     width: 100vw;
   }
-  .edit-contain{
+  .edit-contain {
     margin-left: -30px;
   }
-  .endedd{
-  position: relative;
-  left: -20px;
+  .endedd {
+    position: relative;
+    left: -20px;
   }
   .team-namess {
     display: none;
     margin-top: 32px;
   }
-  .history-div{
+  .history-div {
     width: 95%;
-  }   
-  .watch-img{
+  }
+  .watch-img {
     height: 35vh !important;
-   }
-  .text-footer a{
+  }
+  .text-footer a {
     font-size: 11px;
-   }
-   .text-footer{
+  }
+  .text-footer {
     width: 92vw !important;
   }
-   .google-btnn{
+  .google-btnn {
     width: 120px;
     height: 40px;
-
-   }
-   .app-btn{
+  }
+  .app-btn {
     width: 90vw !important;
-   }
-   .tem-img-box{
+  }
+  .tem-img-box {
     width: 35vw;
     padding-top: 0px;
     padding-left: 20px;
     margin-left: 0px;
     margin-top: -4px;
-    
-   }
-   .ended{
+  }
+  .ended {
     /* margin-left: 70px; */
     margin-top: -35px !important  ;
     left: 20%;
   }
 }
-@media screen and (max-width: 420px){
-  .banner-text{
+@media screen and (max-width: 420px) {
+  .banner-text {
     margin-top: -14% !important;
- 
   }
-  .endedd{
+  .endedd {
     position: relative;
     left: 0px;
-    }
-  .watch-img{
-    height: 35vh !important;
- 
   }
-  .tem-icons{
+  .watch-img {
+    height: 35vh !important;
+  }
+  .tem-icons {
     height: 30px !important;
-    width:30px !important ;
+    width: 30px !important ;
     /* margin-left: -20px; */
   }
-  .palceandtimeheight{
+  .palceandtimeheight {
     height: 5vh;
   }
-  .dash-card{
+  .dash-card {
     width: 100vw;
     height: 30vh !important;
     margin-right: 10px;
   }
-  .dash-main{
+  .dash-main {
     width: 100%;
     padding: 10px;
   }
-  .bg-imgg{
+  .bg-imgg {
     width: 100vw;
     height: 28vh;
   }
-  .tem-p{
+  .tem-p {
     font-size: 10px !important;
   }
-  .banner-Buttons{
+  .banner-Buttons {
     width: 52vw !important;
     display: flex;
     flex-direction: row;
@@ -715,60 +677,55 @@ li a{
     display: flex;
     margin-left: 10px;
     margin-top: 55px;
-    
-   }
-   .history-table{
+  }
+  .history-table {
     padding: 10px;
     width: 100vw !important;
     margin-bottom: 10px;
-   }
-   .post-Button{
+  }
+  .post-Button {
     margin-top: 0px !important;
     width: 100px !important;
     height: 35px !important;
-   }
-   .pre-Button{
+  }
+  .pre-Button {
     margin-top: 0px !important;
     width: 100px !important;
     height: 35px !important;
-   }
-   .sliderHeader{
+  }
+  .sliderHeader {
     width: 99% !important;
-   }
-   .tem-img-box{
+  }
+  .tem-img-box {
     padding-top: 0px;
     padding-left: 8px;
     padding-right: 8px;
-   }
-   .tem-img{
+  }
+  .tem-img {
     margin-top: -10px;
-   }
-   .card-slider1{
+  }
+  .card-slider1 {
     width: 200.5px !important;
     height: 100px !important;
-   }
-   .banner-slidess{
+  }
+  .banner-slidess {
     width: 95vw;
-   }
-   .banner-slide-card{
+  }
+  .banner-slide-card {
     padding: 0;
     margin-left: 0;
     width: 128vw !important;
-   }
-   .bg-img{
+  }
+  .bg-img {
     height: 30vh;
-   }
-   .ended{
+  }
+  .ended {
     margin-top: -65px;
     left: -2%;
   }
-   
-
-  
-
 }
-@media screen and (max-width: 380px){
-  .banner-Buttons{
+@media screen and (max-width: 380px) {
+  .banner-Buttons {
     width: 55vw !important;
     display: flex;
     flex-direction: row;
@@ -778,228 +735,213 @@ li a{
     display: flex;
     margin-left: 10px;
     margin-top: 55px;
-    
-   }
+  }
 
-   .post-Button{
+  .post-Button {
     margin-top: 0px !important;
     width: 100px !important;
     height: 33px !important;
-   }
-   .pre-Button{
+  }
+  .pre-Button {
     margin-top: 0px !important;
     width: 100px !important;
     height: 35px !important;
-   }
-   .google-btnn{
+  }
+  .google-btnn {
     width: 120px;
     height: 40px;
-
-   }
-   .text-footer a{
+  }
+  .text-footer a {
     font-size: 11px;
-   }
-   .footer-copy{
+  }
+  .footer-copy {
     margin-top: 10px !important;
-   }
-   .banner-text{
+  }
+  .banner-text {
     margin-top: -14% !important;
- 
   }
   /* .app-btn{
     margin-top: 30px !important;
   } */
-  .tem-p{
+  .tem-p {
     font-size: 10px !important;
   }
-  .pay-texts{
-width: 100vw;
-margin-left: -80px;
+  .pay-texts {
+    width: 100vw;
+    margin-left: -80px;
   }
-  .plan-page-text{
+  .plan-page-text {
     width: 100vw;
     padding: 20px;
   }
-  .card-match{
+  .card-match {
     margin-left: -4px !important;
-
   }
 
-  .team-icons{
-
+  .team-icons {
     height: 45px !important;
   }
-  .img-icon{
+  .img-icon {
     width: 12px;
     height: 12px;
   }
-  .headd{
+  .headd {
     width: 43vw !important;
     margin-top: 10px;
-   }
-  .mbl-bg-img{
+  }
+  .mbl-bg-img {
     height: 25vh !important;
   }
-  .team-p{
+  .team-p {
     font-size: 16px;
   }
-  .tem-img-box{
+  .tem-img-box {
     width: 40vw;
     padding-top: 0px;
     padding-left: 20px;
     margin-left: 0px;
     margin-top: -4px;
-    
-   }
+  }
 }
-@media screen and (max-width: 650px){
-  .tem-img-box{
+@media screen and (max-width: 650px) {
+  .tem-img-box {
     padding-top: 0px;
     padding-left: 8px;
     padding-right: 8px;
-   }
-   .ended{
-    margin-top: -55px;
-    margin-left: 50px ;
   }
-  .tem-img{
+  .ended {
+    margin-top: -55px;
+    margin-left: 50px;
+  }
+  .tem-img {
     margin-top: -10px;
-   }
-} 
-@media screen and (max-width: 540px){
-  .footer-flex{
+  }
+}
+@media screen and (max-width: 540px) {
+  .footer-flex {
     width: 100%;
     display: flex;
     flex-direction: column;
   }
-  .app-btn{
+  .app-btn {
     width: 100%;
     justify-content: space-between;
-
   }
-  .headd{
+  .headd {
     width: 35vw;
     margin-top: 10px;
-   }
-  .search-transactions{
-
+  }
+  .search-transactions {
     margin-bottom: 10px;
   }
-  .watch-img{
+  .watch-img {
     width: 100vw;
     height: 50vh;
   }
-  .sidddee{
+  .sidddee {
     height: 7vh;
     border: 1px solid;
   }
-  .layer-icon{
+  .layer-icon {
     display: none !important;
   }
-  .side-icon{
+  .side-icon {
     display: none;
   }
-  .tvChannel-head{
+  .tvChannel-head {
     width: 100% !important;
     height: 25vh !important;
-
   }
-  .Add-tv{
+  .Add-tv {
     width: 120px;
     height: 50px;
     margin-left: 20px;
     margin-top: 10px !important;
   }
-
 }
 @media screen and (max-width: 920px) {
-  .signup-Bg{
+  .signup-Bg {
     width: 100%;
     /* height: 50vh; */
-   }
-   .card-con{
+  }
+  .card-con {
     width: 90vw !important;
   }
   .team-namess {
     display: none;
     margin-top: -10px;
   }
-  .watch-img{
+  .watch-img {
     width: 95vw;
- 
   }
-  .footer-flex{
+  .footer-flex {
     flex-direction: column;
     width: 100vw;
   }
-  .text-footer{
+  .text-footer {
     width: 69vw;
   }
-  .google-btnn{
+  .google-btnn {
     width: 120px;
     height: 40px;
-
-   }
-  .app-btn{
+  }
+  .app-btn {
     width: 74vw;
     justify-content: flex-start;
   }
-  .history-table{
+  .history-table {
     padding: 10px;
     width: 68vw;
-   }
-  .dash-card{
+  }
+  .dash-card {
     width: 100vw;
     height: 22vh;
     margin-right: 10px;
   }
-  .dash-main{
+  .dash-main {
     width: 100%;
     padding: 10px;
   }
-  .sliderHeader{
-    width: 100% ;
-
+  .sliderHeader {
+    width: 100%;
   }
-  .endedd{
+  .endedd {
     margin-left: -15px;
   }
-  .footer-goole-img{
+  .footer-goole-img {
     height: 0px;
     margin-top: -20px;
   }
-  .pay-cards{
+  .pay-cards {
     justify-content: center;
   }
-  .contact-form{
+  .contact-form {
     flex-direction: column;
   }
-  .contact-feild{
+  .contact-feild {
     width: 100%;
     margin-bottom: 20px;
   }
-  .contact-info{
+  .contact-info {
     width: 100%;
-
   }
-  .admin-dash{
+  .admin-dash {
     position: relative;
     left: 7% !important;
   }
-  .dash-card{
+  .dash-card {
     margin-left: 13px;
   }
-  .banner-text{
-
-   margin-left: 150px;
-    font-size: 38px ;
+  .banner-text {
+    margin-left: 150px;
+    font-size: 38px;
     /* width: 25% !important; */
     text-align: center;
     margin-top: -9%;
-    text-shadow: -1px 4px 2px rgba(0,0,0,0.6);
+    text-shadow: -1px 4px 2px rgba(0, 0, 0, 0.6);
   }
-  .banner-Buttons{
-    width: 27vw ;
+  .banner-Buttons {
+    width: 27vw;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1008,110 +950,105 @@ margin-left: -80px;
     display: flex;
     margin-left: 10px;
     margin-top: 55px;
-    
-   }
-   .post-Button{
+  }
+  .post-Button {
     margin-top: 0px !important;
     width: 100px !important;
     height: 35px !important;
-   }
-   .pre-Button{
+  }
+  .pre-Button {
     margin-top: 0px !important;
     width: 100px !important;
     height: 35px !important;
-   }
-  .layer-icon{
+  }
+  .layer-icon {
     display: block;
     margin-top: 10px;
   }
-  .side-icon{
+  .side-icon {
     width: 6vw !important;
   }
-  .footer{
+  .footer {
     height: max-content;
   }
-  .tvChannel-head{
+  .tvChannel-head {
     width: 100% !important;
     height: 10vh;
   }
-  .Category-Filter{
+  .Category-Filter {
     width: 200px !important;
     margin-left: 20px;
   }
-  .search-title{
-    width: 200px ;
+  .search-title {
+    width: 200px;
     margin-left: 20px;
   }
-  .Add-tv{
+  .Add-tv {
     width: 120px;
     height: 50px;
     margin-left: 20px;
     margin-top: 10px !important;
   }
-  .table-search-user{
+  .table-search-user {
     margin-top: 10px !important;
   }
-  .banner-slidess{
+  .banner-slidess {
     width: 95vw;
 
     height: 32vh;
-   }
-   .banner-slide-card{
+  }
+  .banner-slide-card {
     padding: 0;
     margin-left: 0;
     width: 128vw !important;
-   }
-   .live-head{
-    width: 95vw ;
-
-   }
-  
-  
+  }
+  .live-head {
+    width: 95vw;
+  }
 }
 @media screen and (max-width: 920px) {
-  .layer-icon{
+  .layer-icon {
     display: block;
     margin-top: 10px;
   }
-  .side-icon{
+  .side-icon {
     width: 5.5vw !important;
   }
-  .box{
+  .box {
     left: 12% !important;
   }
-  .Category-Filter{
+  .Category-Filter {
     width: 220px !important;
     margin-left: 20px;
   }
-  .admin-dash{
+  .admin-dash {
     position: relative;
     left: 6.5% !important;
   }
-  .dash-card{
+  .dash-card {
     margin-left: 13px;
   }
-  .search-title{
-    width: 280px ;
+  .search-title {
+    width: 280px;
     margin-left: 20px;
     margin-top: 10px !important;
   }
-  .Add-tv{
+  .Add-tv {
     width: 120px;
     height: 50px;
     margin-left: 20px;
     margin-top: 10px !important;
   }
-  .tem-img-box{
+  .tem-img-box {
     padding-top: 0px;
     padding-left: 8px;
     padding-right: 8px;
-   }
-   .ended{
+  }
+  .ended {
     margin-top: -55px;
     margin-left: 20px;
   }
-  .tem-img{
+  .tem-img {
     margin-top: -10px;
-   }
-
+  }
 }
