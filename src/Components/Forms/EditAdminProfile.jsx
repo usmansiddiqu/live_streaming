@@ -7,12 +7,14 @@ import getSpecificUser from "../../api/specificUser";
 import editSubAdmin from "../../api/updateSubadmin";
 import { useEffect } from "react";
 function AdminProfile() {
-  const [image, setImage] = useState(null);
+  const [data, setData] = useState(JSON?.parse(localStorage?.getItem("data")));
+  const [image, setImage] = useState(data?.image ? data.image : null);
   const [user, setUser] = useState(localStorage.getItem("data"));
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+
+  const [name, setName] = useState(data?.name);
+  const [email, setEmail] = useState(data?.email);
   const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState(data?.phone);
   const [error, setError] = useState("");
 
   const handleFileChange = (event) => {
@@ -47,13 +49,18 @@ function AdminProfile() {
   };
   const getUser = async () => {
     try {
-      const { data: response } = await getSpecificUser(JSON.parse(user)._id);
-      console.log(response.user);
-      setName(response.user.name);
-      setEmail(response.user.email);
-      setPhone(response.user?.phone);
-      setImage(url + "\\" + response.user.image.replace("uploads\\", ""));
+      console.log(JSON.parse(user)._id);
+
+      const response = await getSpecificUser(JSON.parse(user)._id);
+      console.log(response.data.data.name);
+      setName(response.data.data.user?.name);
+      setEmail(response.data.data.user?.email);
+      setPhone(response.data.data.user?.phone);
+      setImage(
+        url + "\\" + response.data.data.user?.image.replace("uploads\\", "")
+      );
     } catch (error) {
+      console.log(error);
       setError(error.response.data.message);
     }
   };

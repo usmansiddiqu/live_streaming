@@ -2,14 +2,32 @@ import React from "react";
 import "../../Assets/styles/CardDetailss.scss";
 import DetailsIcon from "./DetailsIcon";
 import VideoPlayer from "./VideoPlayer";
-
+import ClapprPlayer from "./ClapprPlayer";
+import moment from "moment-timezone";
+const dummyIcons = [
+  {
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/1039/1039386.png",
+    name: "Icon 1",
+  },
+  {
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/1201/1201923.png",
+    name: "Icon 2",
+  },
+];
 function DetailsComponent({ data, url }) {
+  const currentTime = moment();
+  const eventTime = moment(data?.data?.date).utc();
+
+  const isTimeWithinRange =
+    data?.data?.date &&
+    currentTime.isBetween(eventTime, eventTime.clone().add(3.5, "hours"));
+
   return (
-    <div className="flex !justify-center mt-3">
-      {data?.data?.date &&
-      new Date(data?.data?.date) - new Date() >= 0 &&
-      new Date(data?.data?.date) - new Date() / (1000 * 60 * 60) <= 3.5 ? (
-        <VideoPlayer url={url} />
+    <div className="flex !justify-center">
+      {isTimeWithinRange ? (
+        <div className="chunchun" id="videoPlayer">
+          <ClapprPlayer url={url} />
+        </div>
       ) : (
         <div
           className="w-[80rem] h-[35rem]   deatil-container"

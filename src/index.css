@@ -19,6 +19,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.chunchun > div > .container {
+  width: 100% !important;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

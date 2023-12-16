@@ -80,6 +80,7 @@ function DetailsSlider() {
                     iconUrl: comp.logo,
                     name: comp.name,
                   }))}
+                  title={item?.data?.shortName}
                 />
               <div className="detail-live-end">
               <Ended

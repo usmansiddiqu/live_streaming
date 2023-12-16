@@ -42,9 +42,12 @@ const CardSlider = ({ data }) => {
             <Splide options={{ ...splideOptions, width: 1400 }}>
               <>
                 {data
-                  ?.sort(
-                    (a, b) => new Date(b?.data?.date) - new Date(a?.data?.date)
-                  )
+                  .sort((a, b) => {
+                    return (
+                      new Date(a.data.date).getTime() -
+                      new Date(b.data.date).getTime()
+                    );
+                  })
                   .map((item) => (
                     <SplideSlide
                       options={{ ...splideOptions, width: 150 }}
@@ -90,13 +93,9 @@ const CardSlider = ({ data }) => {
                         />
                         </div>
                          <div className="card-live-end">
-              <Ended
-                  show={
-                    new Date(item?.data?.date) <
-                    new Date().setHours(new Date().getHours() + 4)
-                  }
-                />
+                         <Ended show={item?.data?.date} />
               </div>
+                        
                       </div>
                     </SplideSlide>
                   ))}
@@ -163,12 +162,7 @@ const CardSlider = ({ data }) => {
                             name: comp.name,
                           }))}
                         />
-                        <Ended
-                          show={
-                            new Date(item?.data?.date) >
-                            new Date().setHours(new Date().getHours() + 4)
-                          }
-                        />
+                        <Ended show={new Date(item?.data?.date)} />
                       </div>
                     </SplideSlide>
                   ))}

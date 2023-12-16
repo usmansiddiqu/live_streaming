@@ -54,11 +54,11 @@ function SubAdmin() {
             <div class="relative overflow-x-auto shadow-md edit-contain">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[32%] justify-between tvChannel-head flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center  justify-between tvChannel-head flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
-                    <div class="relative flex justify-between w-80 rounded-full bg-[#313133]">
+                    <div class="relative flex justify-between w-72 sm:w-80 rounded-full bg-[#313133]">
                       <input
                         type="text"
                         id="table-search-users"
@@ -85,7 +85,7 @@ function SubAdmin() {
                     </div>
 
                     <button
-                      className="w-[120px] h-[4vh] bg-[#0EAC5C] font-medium rounded-md"
+                      className="w-[110px] h-[4vh] bg-[#0EAC5C] font-medium rounded-md"
                       onClick={handleCreateButtonClick}
                     >
                       <span className="text-white text-sm text-white">

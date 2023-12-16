@@ -10,13 +10,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import BannerDetailSlider from "../../Components/Common/BannerSlider";
 function DetailsPage() {
   const navigate = useNavigate();
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState(null);
   const params = useParams();
   const [data, setData] = useState(null);
   const getData = async () => {
     const { data: response } = await getEventById(params.id);
     setData(response.events);
-    setUrl(data?.channel?.server1URL);
+    setUrl(response.events?.channel?.server2URL);
   };
   useEffect(() => {
     getData();
@@ -36,7 +36,8 @@ function DetailsPage() {
   return (
     <div>
       <Navbar />
-      <DetailsComponent data={data} url={url} />
+      {url ? <DetailsComponent data={data} url={url} /> : <></>}
+
       <DetailsDescription data={data} setUrl={setUrl} />
       {/* <TeamScore /> */}
       <div className="mt-6 w-[61%] bg-[#130A2D] mx-auto  h-[28vh] flex flex-col p-3 mb-2 banner-slidess">

@@ -77,12 +77,12 @@ function TVChannel() {
               {error && <ErrorComponent message={error} />}
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[65%] tvChannel-head justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center  tvChannel-head justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <div className="bg-[#313133] Category-Filter rounded">
                       <button
                         id="dropdownActionButton"
                         data-dropdown-toggle="dropdownAction"
-                        class="inline-flex items-center w-[310px]  bg-[#313133] justify-between text-white border-0 font-medium rounded-lg text-sm px-3 py-2.5 "
+                        class="dropdownActionButton inline-flex items-center w-[310px]  bg-[#313133] justify-between text-white border-0 font-medium rounded-lg text-sm px-3 py-2.5 "
                         type="button"
                       >
                         <span class="sr-only">{categoryFilter}</span>
@@ -171,7 +171,7 @@ function TVChannel() {
                     </label>
                     <div class="relative flex justify-between search-title w-80 rounded-full bg-[#313133]">
                       <input
-                      style={{color:'white'}}
+                        style={{ color: "white" }}
                         type="text"
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-80 "
@@ -201,9 +201,7 @@ function TVChannel() {
                       className="w-[120px] h-[4vh] Add-tv bg-[#0EAC5C] font-medium rounded-md"
                       onClick={handleCreateButtonClick}
                     >
-                      <span className="text-white text-sm ">
-                        + Add Live TV
-                      </span>
+                      <span className="text-white text-sm ">+ Add Live TV</span>
                     </button>
                   </div>
                 </div>
