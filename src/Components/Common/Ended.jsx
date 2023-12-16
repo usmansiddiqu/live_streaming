@@ -25,7 +25,7 @@ function Ended({ show }) {
             Ended
           </span>
         </div>
-         {/* <div className="absolute z-40 ended w-[14vw]  mx-auto ">
+         {/* <div className="absolute z-40 live w-[14vw]  mx-auto ">
           <div
             className="bg-white rounded-lg  text-white flex justify-evenly items-center "
             style={{ fontSize: "10px",

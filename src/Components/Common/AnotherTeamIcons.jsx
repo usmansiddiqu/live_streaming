@@ -15,7 +15,7 @@ function AnotherTeamIcons({ iconsData }) {
         style={{ width: "40px", height: "40px" }}
         className="team-iconss"
       />
-      <p className="">{icon.name}</p>
+      <p className="text-sm text-white font-medium text-white">{icon.name}</p>
     </div>
   ))}
 </div>
@@ -38,6 +38,7 @@ function AnotherTeamIcons({ iconsData }) {
               className="team-icons"
             />
             <p className="text-sm text-white font-medium team-p">{icon.name}</p>
+        
           </div>
         ))}
       </div>}

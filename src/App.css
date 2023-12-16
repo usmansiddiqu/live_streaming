@@ -117,6 +117,11 @@ li a {
    width: 65% !important;
   
   }
+  .live{
+    position: relative;
+    left: 40%;
+    margin-top: -40px;
+  }
   .end{
     position: relative;
     margin-left: 10px;
@@ -225,6 +230,11 @@ li a {
   .headd {
     width: 25vw;
     margin-top: 10px;
+  }
+  .live{
+    position: relative;
+    left: 30%;
+    margin-top: -40px;
   }
 }
 
@@ -534,6 +544,11 @@ li a {
     display: flex;
     flex-direction: column;
   }
+  .live{
+    position: relative;
+    left: 26%;
+    margin-top: -34px;
+  }
   .end{
     position: relative;
     left: 10%;
@@ -680,6 +695,11 @@ li a {
   .deatil-container{
     height: 30vh;
     margin-top: 0px !important;
+  }
+  .live{
+    position: relative;
+    left: 8%;
+    margin-top: -40px;
   }
   .detail-live-end{
     margin-top: -10px;
@@ -849,6 +869,11 @@ li a {
     margin-top: 55px;
     
    }
+   .live{
+    position: relative;
+    left: 6%;
+    margin-top: -40px;
+  }
    .detail-live-end{
     margin-top: -10px;
     position: relative;
