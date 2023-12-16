@@ -6,6 +6,9 @@ function ClapprPlayer({ url, setShow }) {
     const player = new Clappr.Player({
       source: url,
       parentId: "#videoPlayer",
+      width: "300",
+      height: "300",
+      mute: true,
       events: {
         onReady: function () {
           setShow(true);
