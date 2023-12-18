@@ -37,7 +37,7 @@ function Nav() {
   const handleSearchChange = (event) => {
     console.log("change");
     setSearch(event.target.value);
-    setSortedData(sortArray(eventData, search));
+    setSortedData(filterArray(eventData, search));
     console.log(sortedData);
   };
 
@@ -45,7 +45,11 @@ function Nav() {
     getData();
     setModalOpen(true);
   };
-  const closeModal = () => setModalOpen(false);
+  const closeModal = () => {
+    setSearch("");
+    setSortedData([]);
+    setModalOpen(false);
+  };
   const isGoogleImageUrl = (url) => {
     const googleImageUrlRegex =
       /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
@@ -98,29 +102,27 @@ function Nav() {
     setEventData(response.events);
     console.log(response.events);
   };
-  function sortArray(arr, search) {
+  function filterArray(arr, search) {
     if (search.length >= 2) {
-      arr.sort((a, b) => {
-        const tvCategoryA = a.channel.TVCategory.name.toLowerCase();
-        const tvCategoryB = b.channel.TVCategory.name.toLowerCase();
-        const competitorNameA = a.data.competitors[0].displayName.toLowerCase();
-        const competitorNameB = a.data.competitors[1].displayName.toLowerCase();
+      return arr.filter((item) => {
+        const tvCategory = item.channel.TVCategory.name.toLowerCase();
+        const competitorNames = item.data.competitors
+          .map((comp) => comp.displayName.toLowerCase())
+          .join(" ");
+
         const searchLower = search.toLowerCase();
-        console.log(tvCategoryA, tvCategoryB, competitorNameA, competitorNameB);
-        const tvCategoryComparison =
-          tvCategoryA.includes(searchLower) - tvCategoryB.includes(searchLower);
-        const competitorComparison =
-          competitorNameA.includes(searchLower) -
-          competitorNameB.includes(searchLower);
-        if (tvCategoryComparison !== 0) {
-          return tvCategoryComparison;
-        }
-        return competitorComparison;
+
+        // Check if the search string is included in TV category names or competitor names
+        return (
+          tvCategory.includes(searchLower) ||
+          competitorNames.includes(searchLower)
+        );
       });
     }
-    console.log(arr);
+
     return arr;
   }
+
   return (
     <AppBar
       position="static"
@@ -133,7 +135,9 @@ function Nav() {
         <div className="fixed top-0 left-0 w-full h-full flex justify-center bg-[#0D0721] bg-opacity-90 z-50">
           <div className="p-8 rounded shadow-lg flex flex-col item-center relative">
             <button
-              onClick={closeModal}
+              onClick={() => {
+                closeModal();
+              }}
               className="  text-white px-4 py-2 rounded absolute"
               style={{ right: "2%" }}
             >
@@ -151,9 +155,13 @@ function Nav() {
                 }}
               />
             </div>
-            <div className="bg-[#18132A] w-[100vw] h-[20vh] flex mt-4">
-              <SearchCards />
-            </div>
+            {search.length > 2 ? (
+              <div className="bg-[#18132A] w-[100vw] h-[20vh] flex mt-4">
+                <SearchCards data={sortedData} />
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       )}

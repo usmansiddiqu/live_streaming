@@ -28,9 +28,9 @@ li a {
 .google-btn {
   width: 100% !important;
 }
-.searcCard{
+/* .searcCard {
   background-image: url(../src/Assets/Images/NFLHDFALLBACK.webp);
-}
+} */
 .footer {
   width: 100%;
   height: 30vh;
@@ -84,10 +84,8 @@ li a {
   color: white;
 }
 
-
-
- /* Live button */
- .animation-container {
+/* Live button */
+.animation-container {
   display: inline-block;
   position: relative;
 }
@@ -115,49 +113,44 @@ li a {
   }
 }
 
- @media screen and (max-width: 2600px) {
- 
-  .red-bar{
+@media screen and (max-width: 2600px) {
+  .red-bar {
     width: 12.7vw;
   }
-  .card-match{
+  .card-match {
     width: 65.5vw;
   }
-  .score{
+  .score {
     visibility: hidden;
-
   }
-  .score-card:hover .score{
+  .score-card:hover .score {
     visibility: visible;
-
   }
   /* .teamOtherCards{
     margin-right: -200px;
   } */
-  .Cardslider{
-   width: 65% !important;
-  
-  }
-  .SearchCard{
+  .Cardslider {
     width: 65% !important;
-
   }
-  .nfl-view{
+  .SearchCard {
+    width: 65% !important;
+  }
+  .nfl-view {
     margin-top: 50px;
   }
-  .live{
+  .live {
     position: relative;
     margin-top: -50px;
   }
-  .end{
+  .end {
     position: relative;
     margin-left: 10px;
   }
- 
+
   /* .container{
     padding-left:20px ;
   } */
-  .dash-headd{
+  .dash-headd {
     width: 75vw;
   }
 
@@ -168,7 +161,7 @@ li a {
   .sliderHeader {
     width: 65%;
   }
-  .ended{
+  .ended {
     margin-top: -50px;
     margin-left: 0px;
   }
@@ -184,23 +177,23 @@ li a {
   }
 }
 @media screen and (max-width: 1980px) {
-  .red-bar{
+  .red-bar {
     width: 14.4vw;
   }
   .Cardslider {
     width: 73% !important;
   }
-  .card-match{
+  .card-match {
     width: 73vw;
   }
   .sliderHeader {
     width: 73%;
   }
-  .end{
+  .end {
     position: relative;
     margin-left: 10px;
   }
-  .dash-headd{
+  .dash-headd {
     width: 82vw;
   }
 
@@ -217,17 +210,16 @@ li a {
   .mainSlider {
     margin-top: 20px !important;
   }
- 
-  .tem-img-box{
+
+  .tem-img-box {
     width: 12vw;
     padding-top: 0px;
     margin-left: -85px;
     margin-top: -5px;
-    
-   }
-   .ended{
+  }
+  .ended {
     margin-left: 0px;
-   }
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -241,18 +233,17 @@ li a {
     margin-top: 20px !important;
     height: 40vh !important;
   }
- 
-  .sliderHeader{
-    width: 100% ;
 
+  .sliderHeader {
+    width: 100%;
   }
   .tem-img-box {
     padding-top: 0px;
     padding-left: 8px;
     padding-right: 8px;
-   }
-  
-  .tem-img{
+  }
+
+  .tem-img {
     margin-top: -10px;
   }
   .dash-headd {
@@ -264,7 +255,7 @@ li a {
     width: 25vw;
     margin-top: 10px;
   }
-  .live{
+  .live {
     position: relative;
     margin-top: -40px;
   }
@@ -338,58 +329,17 @@ li a {
     margin: auto;
     position: relative;
     top: 20% !important;
-   left: 0%;
-   display: flex;
-   flex-direction: column;
-   }
-
- .cardd{
-  width: 100px !important;
-  height: 30px !important;
- }
-.pay-cardd{
-  width: 100vw !important;
-
-}  
-.new-footer-box{
-  width: 100vw;
-}
-.pay-cardds{
-  width: 93vw !important;
-  height: 30vh;
-
-}
-.pay-card-box{
-  width: 98vw;
-  padding: 10;
-}
-.coupan-btn{
-  margin-top: 10px;
-}
-.tem-icons{
-  height: 35px !important;
-  width:35px !important ;
-  /* margin-left: -20px; */
-}
-.tem-img-box{
-  width: 100%;
-}
-
-}
-
-  .dropdownActionButton {
-    width: 250px !important;
+    left: 0%;
+    display: flex;
+    flex-direction: column;
   }
+
   .cardd {
     width: 100px !important;
     height: 30px !important;
   }
   .pay-cardd {
     width: 100vw !important;
-  }
-  .endedd {
-    margin-left: 60px;
-    margin-top: -20px !important;
   }
   .new-footer-box {
     width: 100vw;
@@ -413,7 +363,44 @@ li a {
   .tem-img-box {
     width: 100%;
   }
+}
 
+.dropdownActionButton {
+  width: 250px !important;
+}
+.cardd {
+  width: 100px !important;
+  height: 30px !important;
+}
+.pay-cardd {
+  width: 100vw !important;
+}
+.endedd {
+  margin-left: 60px;
+  margin-top: -20px !important;
+}
+.new-footer-box {
+  width: 100vw;
+}
+.pay-cardds {
+  width: 93vw !important;
+  height: 30vh;
+}
+.pay-card-box {
+  width: 98vw;
+  padding: 10;
+}
+.coupan-btn {
+  margin-top: 10px;
+}
+.tem-icons {
+  height: 35px !important;
+  width: 35px !important ;
+  /* margin-left: -20px; */
+}
+.tem-img-box {
+  width: 100%;
+}
 
 @media screen and (max-width: 480px) {
   .card-con {
@@ -573,47 +560,45 @@ li a {
 }
 
 @media screen and (max-width: 769px) {
-  .main-profile-img{
+  .main-profile-img {
     margin: auto;
   }
   .Edit-container {
     display: flex;
     flex-direction: column;
   }
-  .live{
+  .live {
     position: relative;
 
     margin-top: -34px;
   }
-  .end{
+  .end {
     position: relative;
     left: 10%;
   }
-  .detail-live-end{
+  .detail-live-end {
     margin-top: 0px;
     position: relative;
     margin-left: 50px !important ;
     top: 5%;
   }
-  .left{
+  .left {
     width: 100%;
   }
-  .team-icons{
+  .team-icons {
     margin-left: 0px !important;
-
   }
 }
-.input-feild{
+.input-feild {
   .left {
     width: 100%;
   }
   .input-feild {
     width: 75vw;
   }
-  .banner-sliders{
+  .banner-sliders {
     width: 60%;
     border: 1px solid;
-
   }
   .input-feild-label {
     width: 20vw;
@@ -634,8 +619,6 @@ li a {
     margin-top: -10px;
   }
 
-   
-  
   .post-Button {
     margin-top: 0px !important;
     width: 100px !important;
@@ -728,57 +711,57 @@ li a {
   .tem-p {
     font-size: 10px !important;
   }
-  .search-bar{
+  .search-bar {
     width: 98vw;
   }
-  .input-label1{
+  .input-label1 {
     width: 76vw;
   }
-  .bg-tab-mb{
+  .bg-tab-mb {
     height: 27vh !important;
   }
-  .userhisotryy{
+  .userhisotryy {
     width: 100%;
     height: 50vh;
     background-color: red;
   }
-  .main-user-container{
+  .main-user-container {
     width: 106vw;
     left: 4% !important;
   }
-  .user-info{
+  .user-info {
     padding: 0 !important;
   }
 
-  .address-ip{
+  .address-ip {
     max-width: 45vw;
-    min-height:10vh ;
+    min-height: 10vh;
   }
-  .edit-con{
+  .edit-con {
     left: 7% !important;
   }
-  .left{
+  .left {
     width: 100% !important;
   }
-  .tv-logo{
+  .tv-logo {
     width: 17vw;
   }
-  .deatil-container{
+  .deatil-container {
     height: 30vh;
     margin-top: 0px !important;
   }
-  .live{
+  .live {
     position: relative;
     margin-top: -40px;
   }
-  .detail-live-end{
+  .detail-live-end {
     margin-top: -10px;
     position: relative;
     /* margin-left: 40px ; */
-    left: -10% ;
-    top:-20%;
+    left: -10%;
+    top: -20%;
   }
-  .tem-img{
+  .tem-img {
     width: 35px !important;
     height: 35px !important;
   }
@@ -788,7 +771,7 @@ li a {
   .edit-contain {
     margin-left: -30px;
   }
-  
+
   .team-namess {
     display: none;
     margin-top: 32px;
@@ -829,17 +812,16 @@ li a {
   .banner-text {
     margin-top: -14% !important;
   }
- 
-    .detail-live-end{
-      margin-top: -10px;
-      position: relative;
-      /* margin-left: 40px ; */
-      left: 0% ;
-      top:-20%;
-    }
-  .watch-img{
+
+  .detail-live-end {
+    margin-top: -10px;
+    position: relative;
+    /* margin-left: 40px ; */
+    left: 0%;
+    top: -20%;
+  }
+  .watch-img {
     height: 35vh !important;
- 
   }
   .watch-img {
     height: 35vh !important;
@@ -919,8 +901,8 @@ li a {
   }
   .bg-img {
     height: 30vh;
-   }
-   .ended{
+  }
+  .ended {
     margin-top: -75px;
 
     left: -2%;
@@ -937,18 +919,17 @@ li a {
     display: flex;
     margin-left: 10px;
     margin-top: 55px;
-    
-   }
-   .live{
+  }
+  .live {
     position: relative;
     margin-top: -40px;
   }
-   .detail-live-end{
+  .detail-live-end {
     margin-top: -10px;
     position: relative;
     /* margin-left: 40px ; */
-    left: 0% ;
-    top:35%;
+    left: 0%;
+    top: 35%;
   }
 
   .post-Button {
@@ -964,13 +945,12 @@ li a {
   .google-btnn {
     width: 120px;
     height: 40px;
-
-   }
-   .team-namess {
+  }
+  .team-namess {
     display: none;
     margin-top: 33px !important;
   }
-   .text-footer a{
+  .text-footer a {
     font-size: 11px;
   }
   .footer-copy {
@@ -1086,33 +1066,32 @@ li a {
   .card-con {
     width: 90vw !important;
   }
-  .nfl-view{
+  .nfl-view {
     margin-top: 0px;
   }
-  .bg-tab-mb{
+  .bg-tab-mb {
     height: 32vh;
   }
-  .end{
+  .end {
     position: relative;
     margin-left: 40px;
   }
-  .card-live-end{
+  .card-live-end {
     position: relative;
   }
-  .detail-live-end{
+  .detail-live-end {
     margin-top: 0px;
     position: relative;
-    margin-left: -50px ;
+    margin-left: -50px;
   }
   .team-namess {
     display: none;
     margin-top: -10px;
   }
-  .team-icons{
+  .team-icons {
     margin-left: -80px;
-
   }
-  .watch-img{
+  .watch-img {
     width: 95vw;
   }
   .footer-flex {
@@ -1146,8 +1125,8 @@ li a {
   .sliderHeader {
     width: 100%;
   }
- 
-  .footer-goole-img{
+
+  .footer-goole-img {
     height: 0px;
     margin-top: -20px;
   }
@@ -1282,8 +1261,8 @@ li a {
     padding-top: 0px;
     padding-left: 8px;
     padding-right: 8px;
-   }
-   .ended{
+  }
+  .ended {
     margin-top: -40px;
     margin-left: 20px;
   }
