@@ -26,6 +26,10 @@ import clearLocalStorage from "../helper/localstorage";
 import { url } from "../helper/url";
 
 function Nav() {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
   const isGoogleImageUrl = (url) => {
     const googleImageUrlRegex =
       /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
@@ -83,6 +87,20 @@ function Nav() {
         boxShadow: "-1px 6px 8px -6px rgba(255,255,255,0.45)",
       }}
     >
+      {isModalOpen && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-[#0D0721] bg-opacity-90 z-50">
+          <div className="p-8 rounded shadow-lg flex flex-col relative">
+            <button
+              onClick={closeModal}
+              className="  bg-[#0D0721]  text-white px-4 py-2 rounded absolute right-[0px] top-[0px]"
+            >
+              x
+            </button>
+            <label className="mt-5">Search</label>
+            <input className="w-[900px] bg-[#0D0721] px-2 py-1 mt-2 border-[#34236A]  "></input>
+          </div>
+        </div>
+      )}
       <Container style={{ padding: "0px 0px" }}>
         <Toolbar disableGutters>
           <Typography
@@ -190,11 +208,18 @@ function Nav() {
                     <img src={Subscribe} alt="" className="w-[21px] h-[25px]" />
                   </div>
                 </div>
-                {/* <div className="w-[50px]">
-                  <div className="search-Icon rounded-md flex justify-center items-center rounded-full w-[35px] h-[35px] bg-white-700">
+                <div className="w-[50px]">
+                  <div
+                    className="search-Icon rounded-md flex justify-center items-center rounded-full w-[35px] h-[35px] bg-white-700 "
+                    onClick={() => {
+                      openModal();
+                      console.log(isModalOpen);
+                    }}
+                  >
                     <img src={Search} alt="" className="w-[17px] h-[17px]" />
                   </div>
-                </div> */}
+                </div>
+
                 <div>
                   {data ? (
                     <div className="avatar-profile">
