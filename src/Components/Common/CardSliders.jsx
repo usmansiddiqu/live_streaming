@@ -29,7 +29,7 @@ const CardSliders = ({ data }) => {
       {console.log(data)}
       <Splide options={{ ...splideOptions, width: 1400 }}>
         <>
-          {data.map((item) => (
+          {data?.map((item) => (
             <SplideSlide
               options={{ ...splideOptions, width: 150 }}
               onClick={() =>
