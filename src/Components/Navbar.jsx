@@ -25,6 +25,7 @@ import Logout from "../Assets/Icons/logout.png";
 import clearLocalStorage from "../helper/localstorage";
 import cross from "../utils/images/cross.png";
 import { url } from "../helper/url";
+import SearchCards from "./Common/SearchCards";
 
 function Nav() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -93,16 +94,21 @@ function Nav() {
           <div className="p-8 rounded shadow-lg flex flex-col item-center relative">
             <button
               onClick={closeModal}
-              className="  bg-[#0D0721]  text-white px-4 py-2 rounded absolute right-[-145px] top-[10px]"
+              className="  text-white px-4 py-2 rounded absolute"
+              style={{right:'2%'}}
             >
               <img src={cross} height="30px" width="30px"></img>
             </button>
-            <label className="mt-5 text-base text-[#D9D9D9]">SEARCH</label>
+           <div className="flex flex-col ">
+           <label className="mt-5 w-[60vw] search-bar mx-auto text-xl text-[#D9D9D9] font-medium">SEARCH</label>
             <input
-              className="!w-[1150px] bg-[#0D0721] px-3 py-2 mt-2 border-2 outline-none !border-[#34236A] focus:!border-[#34236A] rounded-md "
+              className="w-[60vw] search-bar mx-auto bg-[#0D0721] px-3 py-2 mt-2 border-2 outline-none !border-[#34236A] focus:!border-[#34236A] rounded-md "
               placeholder="Title"
             />
-            <div className="bg-[#18132A] min-w-max h-36 mt-4"></div>
+           </div>
+            <div className="bg-[#18132A] w-[100vw] h-[20vh] flex mt-4">
+              <SearchCards/>
+            </div>
           </div>
         </div>
       )}

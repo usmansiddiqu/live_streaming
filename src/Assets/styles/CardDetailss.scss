@@ -31,6 +31,20 @@
   .team-namess {
     display: none;
   }
+  .search-card-bar{
+    display: none;
+  }
+  .searcCard:hover{
+    transform:scale(1.1);
+    transition: 0.3s ease-in-out;
+  
+   }
+  .seacrh-card-box:hover ~ .search-card-bar{
+    display: block;
+    transition: 1s ease-in-out;
+    height: 35px;
+
+  }
   .team-icons:hover ~ .team-namess {
     display: block;
     transition: 1s ease-in-out;

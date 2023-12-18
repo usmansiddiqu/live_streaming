@@ -28,6 +28,9 @@ li a {
 .google-btn {
   width: 100% !important;
 }
+.searcCard{
+  background-image: url(../src/Assets/Images/NFLHDFALLBACK.webp);
+}
 .footer {
   width: 100%;
   height: 30vh;
@@ -134,6 +137,10 @@ li a {
   .Cardslider{
    width: 65% !important;
   
+  }
+  .SearchCard{
+    width: 65% !important;
+
   }
   .nfl-view{
     margin-top: 50px;
@@ -720,6 +727,9 @@ li a {
 @media screen and (max-width: 430px) {
   .tem-p {
     font-size: 10px !important;
+  }
+  .search-bar{
+    width: 98vw;
   }
   .input-label1{
     width: 76vw;

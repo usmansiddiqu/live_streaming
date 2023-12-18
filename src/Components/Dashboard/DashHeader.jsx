@@ -1,6 +1,7 @@
 import React from "react";
 import Play from "../../Assets/Icons/play.png";
 import dashBoardImage from "../../utils/images/dashboardBanner.jpg";
+import { Link } from "react-router-dom";
 function DashHeader({ title }) {
   return (
     <div
@@ -20,8 +21,8 @@ function DashHeader({ title }) {
         <div className=" flex justify-between  lg:px-40">
           <h1 className="text-2xl z-20 font-semibold">{title}</h1>
         </div>
-        <div className="flex  flex-row  z-20 justify-between !w-[150px]  headdd items-center">
-          <a href="">Home</a>
+        <div className="flex  flex-row  z-20 justify-between !w-[150px] cursor-pointer  headdd items-center">
+          <a > <Link to="/"> Home</Link></a>
           <img src={Play} alt="" className="w-[10px] h-[10px]" />
           <p>{title}</p>
         </div>
