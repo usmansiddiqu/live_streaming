@@ -3,7 +3,7 @@ import React from "react";
 function TeamScore({ teamA, teamB }) {
   return (
     <div className="flex justify-center">
-      <div className="w-[8  0rem] ">
+      <div className="w-[80rem] ">
         {/* <div className="h-12 bg-gradient-to-r from-[#00C3FF] to-[#0075FF] w-32 rounded-t-lg ms-4 flex justify-center items-center text-white font-semibold">
           Description
         </div> */}
