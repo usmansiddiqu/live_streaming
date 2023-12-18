@@ -77,7 +77,7 @@ function TVChannel() {
               {error && <ErrorComponent message={error} />}
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[50%]  tvChannel-head justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center tvChannel-head2 justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <div className="bg-[#313133] Category-Filter rounded">
                       <button
                         id="dropdownActionButton"

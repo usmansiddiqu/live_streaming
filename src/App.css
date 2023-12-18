@@ -118,6 +118,12 @@ li a {
     width: 10% !important;
     margin: auto;
   }
+  .tvChannel-head{
+    width: 23vw;
+  }
+  .tvChannel-head2 {
+    width: 42vw;
+  }
 
   .red-bar {
     width: 12.7vw;
@@ -191,6 +197,13 @@ li a {
   .Cardslider {
     width: 73% !important;
   }
+  .tvChannel-head{
+    width: 25vw;
+  }
+  .tvChannel-head2 {
+    width: 38vw;
+  }
+
   .card-match {
     width: 73vw;
   }
