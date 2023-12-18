@@ -98,7 +98,7 @@ function DetailsDescription({ data, setUrl }) {
           </p>
           <br />
           <button
-            className="bg-[#118D04] hover:bg-white text-white hover:text-[#118D04] font-bold py-2 px-4 rounded flex gap-1 items-center"
+            className="bg-[#118D04]  text-white  font-bold py-2 px-4 rounded flex gap-1 items-center"
             onClick={() => {
               addToWishList();
             }}

@@ -45,11 +45,20 @@ function Coupons() {
           >
             <div class="relative overflow-x-auto shadow-md ">
               <button
-                className="w-[120px] h-[4vh] Add-tv bg-[#0EAC5C] font-medium rounded-md "
+                className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
                 onClick={handleCreateButtonClick}
               >
+                <svg
+                  fill="#FFFFFF"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z" />
+                </svg>
                 <span className="text-white text-sm dark:text-white">
-                  + Add Coupons
+                  Add Coupons
                 </span>
               </button>
               <table class="w-full mt-5 text-sm text-left rtl:text-right text-white">

@@ -13,7 +13,7 @@ function Card({ data, title }) {
       <DashHeader title={title} />
       <div class=" flex items-center justify-center relative ">
         <div class="container mx-auto  teamOtherCards ">
-          <div class="grid card-con grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 p-3 mx-auto gap-3 w-[73vw] mb-4 card-match ">
+          <div class="grid card-con grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 p-3 mx-auto gap-3 mb-4 card-match ">
             <>
               {data
                 ?.sort(
@@ -21,7 +21,7 @@ function Card({ data, title }) {
                 )
                 .map((item) => (
                   <div
-                    class="w-[330px] h-[180px] border "
+                    class="w-[330px] h-[180px] border score-card"
                     onClick={() =>
                       navigate(
                         `/${item.channel.TVCategory?.name}/live/${item._id}`
@@ -49,22 +49,16 @@ function Card({ data, title }) {
                         <p> {item.data.date.split("T")[0]}</p>
                       </div>
 
-                      <div className="container px-6 py-10">
+                      <div className="container px-7">
                         <AnotherTeamIcons
                           iconsData={item.data.competitors.map((comp) => ({
                             iconUrl: comp.logo,
                             name: comp.name,
                           }))}
                         />
-                        <div className="end ">
-                          <Ended
-                            show={
-                              new Date(item?.data?.date) >
-                              new Date().setHours(new Date().getHours() + 4)
-                            }
-                          />
+                        <div className=" ">
+                          <Ended show={new Date(item?.data?.date)} />
                         </div>
-                       
                       </div>
                     </div>
                   </div>

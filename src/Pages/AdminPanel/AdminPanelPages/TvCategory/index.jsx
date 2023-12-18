@@ -48,12 +48,20 @@ function TVCategory() {
               <div class="relative mt-1">
                 <div class=" flex items-center  ">
                   <button
-                    className="w-[120px] h-[4vh] bg-[#0EAC5C]  Add-tv font-medium rounded-md "
+                    className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
                     onClick={handleCreateButtonClick}
                   >
+                    <svg
+                      fill="#FFFFFF"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z" />
+                    </svg>
                     <span className="text-white text-sm dark:text-white">
-                      {" "}
-                      + Add Category
+                      Add Category
                     </span>
                   </button>
                 </div>
@@ -101,7 +109,6 @@ function TVCategory() {
                         style={{ border: "1px solid #313133" }}
                       >
                         <div
-                        
                           className={`bg-[${
                             cat.status == "active" ? "#0EAC5C" : "#ac0e28"
                           }] w-[60px] text-center  text-white rounded text-sm`}

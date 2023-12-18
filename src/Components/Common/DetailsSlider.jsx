@@ -64,8 +64,6 @@ function DetailsSlider() {
                 } 50%)`,
               }}
             >
-             
-
               <div
                 className="container"
                 style={{ marginTop: "25px" }}
@@ -82,14 +80,14 @@ function DetailsSlider() {
                   }))}
                   title={item?.data?.shortName}
                 />
-              <div className="detail-live-end">
-              <Ended
-                  show={
-                    new Date(item?.data?.date) <
-                    new Date().setHours(new Date().getHours() + 4)
-                  }
-                />
-              </div>
+                <div className="detail-live-end">
+                  <Ended
+                    show={
+                      new Date(item?.data?.date) <
+                      new Date().setHours(new Date().getHours() + 4)
+                    }
+                  />
+                </div>
               </div>
             </SplideSlide>
           ))}

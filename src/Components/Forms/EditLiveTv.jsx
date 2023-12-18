@@ -106,7 +106,7 @@ function EditLiveTv() {
         margin: "auto",
       }}
     >
-      <div className=" mt-20 mx-auto my-auto">
+      <div className=" mt-20 mx-auto">
         <div
           className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
           style={{ position: "absolute", left: "17%" }}

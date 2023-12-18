@@ -40,13 +40,12 @@ function DetailsPage() {
 
       <DetailsDescription data={data} setUrl={setUrl} />
       <TeamScore />
-      <div className="mt-6 w-[61%] bg-[#130A2D] mx-auto  h-[28vh] flex flex-col p-3 mb-2 banner-slidess">
+      <div className="mt-6 w-[79rem] bg-[#190D39]  mx-auto  h-[17rem] flex flex-col p-3 mb-2 banner-slidess rounded-lg">
         <h3 className="text-white font-medium text-2xl">You May Also Like</h3>
-     <div className="w-[110vw] mt-4 ml-9  mb-5 banner-slide-card">
+        <div className="w-[110rem] mt-4 ml-9  mb-5 banner-slide-card">
           <DetailsSlider />
-      
         </div>
-        </div>
+      </div>
       <Footer />
     </div>
   );

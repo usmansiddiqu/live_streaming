@@ -82,7 +82,7 @@ function AddChannel() {
         margin: "auto",
       }}
     >
-      <div className="  mx-auto  border  mt-10">
+      <div className="  mx-auto  mt-20">
         <div
           className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
           style={{ position: "absolute", left: "17%" }}
@@ -155,14 +155,13 @@ function AddChannel() {
                 </div>
                 <div class="mb-5 input-feild mt-[90px] w-[37vw] flex items-center ">
                   <label
-                  style={{color:'white'}}
+                    style={{ color: "white" }}
                     for="countries"
                     class="block mb-2 input-feild-label text-sm font-medium text-white w-[17vw]"
                   >
                     TV Access
                   </label>
                   <select
-
                     id="countries"
                     class=" border-0  text-sm rounded focus:ring-0 bg-[#313133] block w-full p-2.5 font-bold text-white"
                     onChange={(e) => {

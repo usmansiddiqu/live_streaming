@@ -48,12 +48,20 @@ function SubscriptionPlan() {
               <div class="relative mt-1">
                 <div class=" flex items-center  ">
                   <button
-                    className="w-[120px] h-[4vh] bg-[#0EAC5C]  Add-tv font-medium rounded-md "
+                    className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
                     onClick={handleCreateButtonClick}
                   >
+                    <svg
+                      fill="#FFFFFF"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z" />
+                    </svg>
                     <span className="text-white text-sm dark:text-white">
-                      {" "}
-                      + Add Plan
+                      Add Plan
                     </span>
                   </button>
                 </div>
@@ -67,21 +75,21 @@ function SubscriptionPlan() {
                       class="px-6 py-3 text-white text-md"
                       style={{ border: "1px solid #313133" }}
                     >
-                     Plan Name	
+                      Plan Name
                     </th>
                     <th
                       scope="col"
                       class="px-6 py-3 text-white text-md"
                       style={{ border: "1px solid #313133" }}
                     >
-                     Duration	
+                      Duration
                     </th>
                     <th
                       scope="col"
                       class="px-6 py-3 text-white text-md"
                       style={{ border: "1px solid #313133" }}
                     >
-                    Price	
+                      Price
                     </th>
 
                     <th
@@ -115,7 +123,6 @@ function SubscriptionPlan() {
                         style={{ border: "1px solid #313133" }}
                       >
                         <div
-                        
                           className={`bg-[${
                             cat.status == "active" ? "#0EAC5C" : "#ac0e28"
                           }] w-[60px] text-center  text-white rounded text-sm`}
