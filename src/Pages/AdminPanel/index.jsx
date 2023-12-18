@@ -89,7 +89,7 @@ function AdminPanelWrapper() {
         <Route path="/live_tv/add_live_tv" element={<AddChannel />} />
         <Route path="/home_sections/add" element={<AddSection />} />
         <Route path="/slider/add_slider" element={<AddSlider />} />
-        <Route path="/subscription_plan/add_subscription_plann" element={<AddSubscriptionPlan />} />
+        <Route path="/subscription_plan/add_subscription_plan" element={<AddSubscriptionPlan />} />
         <Route path="/sub_admin/add_user" element={<AddSubAdmin />} />
         <Route path="/coupons/addcoupon" element={<AddCoupons />} />
         <Route path="/coupons/editcoupon/:id" element={<EditCoupons />} />

@@ -12,9 +12,10 @@ function SubscriptionPlan() {
   const handleButtonClick = (id) => {
     navigate(`/admin/subscription_plan/edit_subscription_plan/${id}`);
   };
-  const handleCreateButtonClick = () => {
-    navigate("/admin/subscription_plan/add_subscription_plan");
-  };
+
+  const handleAddButton = () =>{
+    navigate("/admin/subscription_plan/add_subscription_plan")
+  }
 
   const [data, setData] = useState();
   const getData = async () => {
@@ -52,7 +53,7 @@ function SubscriptionPlan() {
                 <div class=" flex items-center  ">
                   <button
                     className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
-                    onClick={handleCreateButtonClick}
+                    onClick={handleAddButton}
                   >
                     <svg
                       fill="#FFFFFF"
