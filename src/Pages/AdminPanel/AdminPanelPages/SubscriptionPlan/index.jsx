@@ -4,6 +4,8 @@ import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import deleteCategoryById from "../../../../api/category.api";
 import getAllCategories from "../../../../api/getCategory";
+import getPlans from "../../../../api/plan.api";
+import deletePaymentPackage from "../../../../api/deletePaymentPackage";
 function SubscriptionPlan() {
   const navigate = useNavigate();
 
@@ -16,11 +18,12 @@ function SubscriptionPlan() {
 
   const [data, setData] = useState();
   const getData = async () => {
-    const { data: response } = await getAllCategories();
-    setData(response.categories);
+    const { data: response } = await getPlans();
+
+    setData(response.data);
   };
   const deleteCategory = async (id) => {
-    await deleteCategoryById(id);
+    await deletePaymentPackage(id);
     getData();
   };
   useEffect(() => {
@@ -118,6 +121,20 @@ function SubscriptionPlan() {
                       >
                         {cat.name}
                       </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {cat.days} (days)
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {cat.amount}
+                      </th>
                       <td
                         class="px-6 py-4 dark:text-white"
                         style={{ border: "1px solid #313133" }}
@@ -127,7 +144,7 @@ function SubscriptionPlan() {
                             cat.status == "active" ? "#0EAC5C" : "#ac0e28"
                           }] w-[60px] text-center  text-white rounded text-sm`}
                         >
-                          {cat.status == "active" ? "Active" : "Inactive"}
+                          {cat.status ? "Active" : "Inactive"}
                         </div>
                       </td>
                       <td

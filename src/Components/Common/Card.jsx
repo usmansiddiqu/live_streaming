@@ -56,7 +56,11 @@ function Card({ data, title }) {
                             name: comp.name,
                           }))}
                         />
+<<<<<<< Updated upstream
                         <div className=" ">
+=======
+                        <div className="end ">
+>>>>>>> Stashed changes
                           <Ended show={new Date(item?.data?.date)} />
                         </div>
                       </div>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Clappr from "@clappr/player";
+import { MediaControl } from "@clappr/plugins";
 
 function ClapprPlayer({ url, setShow }) {
   console.log(url);
@@ -29,10 +30,41 @@ function ClapprPlayer({ url, setShow }) {
           console.log("ready");
 
           // Adjust the positioning of controls
-          const controls = document.querySelector(".media-control");
-          controls.style.right = "100px"; // You can adjust this value as needed
+          // const controls = document.querySelector(".media-control");
+          // controls.style.right = "100px"; // You can adjust this value as needed
         },
       },
+
+      plugins: [
+        MediaControl.MainPlugin,
+        MediaControl.PlayPauseButtonPlugin,
+        MediaControl.VolumePlugin,
+        MediaControl.FullscreenButtonPlugin,
+        MediaControl.SeekBarPlugin,
+        MediaControl.TimeIndicatorPlugin,
+      ],
+      // mediaControl: {
+      //   disableBeforeVideoStarts: false,
+      //   layersQuantity: 1,
+      //   layersConfig: [
+      //     {
+      //       id: 1,
+      //       sectionsQuantity: 1,
+      //       flexDirection: "column",
+      //       sectionsConfig: [
+      //         {
+      //           id: 1,
+      //           separator: true,
+      //           height: height.toString(),
+      //           width: width.toString(),
+      //           alignItems: "stretch",
+      //           justifyContent: "flex-start",
+      //           flexGrow: 0,
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
     });
 
     // Handle window resize
@@ -50,7 +82,7 @@ function ClapprPlayer({ url, setShow }) {
     };
   }, [url, setShow]);
 
-  return <div className="w-full" id="videoPlayer"></div>;
+  return <p className="w-full" id="videoPlayer"></p>;
 }
 
 export default ClapprPlayer;
