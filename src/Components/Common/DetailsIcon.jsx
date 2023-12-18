@@ -19,11 +19,11 @@ function DetailsIcon({ iconsData }) {
     </div>}
     {isTabletOrMobile && <div className="flex !justify-between   items-center mt-[80px]">
       {iconsData?.map((icon, index) => (
-        <div key={index} style={{ textAlign: "center" }} className="px-5 ">
+        <div key={index} style={{ textAlign: "center",marginTop:'-20px' }} className="px-5 ">
           <img
             src={icon.iconUrl}
             alt={icon.name}
-            style={{ width: "55px", height: "55px" }}
+            style={{ width: "85px", height: "95px" }}
          
           />
         </div>

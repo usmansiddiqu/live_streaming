@@ -32,7 +32,9 @@ function UserHistory() {
             style={{ position: "relative", left: "7%" }}
           >
             <div className="w-[65%] userhisotryy h-[23vh] bg-[#1C1C1E] user-edit flex justify-between rounded p-3">
-              <img src="" alt="" className="w-[200px] h-[170px] border-[5px]" />
+            <div className="w-[200px] h-[170px] border-[5px] user-img">
+            <img src="" alt="" className="w-[100%] h-[100%]" />
+            </div>
               <div className="user-info flex justify-between w-[45vw]  p-4">
                 <div>
                   <h1 className="text-lg text-white font-bold">
