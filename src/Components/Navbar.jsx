@@ -23,6 +23,7 @@ import Profile from "../Assets/Icons/user.png";
 import Watchlist from "../Assets/Icons/watchlist.png";
 import Logout from "../Assets/Icons/logout.png";
 import clearLocalStorage from "../helper/localstorage";
+import cross from "../utils/images/cross.png";
 import { url } from "../helper/url";
 
 function Nav() {
@@ -88,16 +89,20 @@ function Nav() {
       }}
     >
       {isModalOpen && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-[#0D0721] bg-opacity-90 z-50">
-          <div className="p-8 rounded shadow-lg flex flex-col relative">
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center bg-[#0D0721] bg-opacity-90 z-50">
+          <div className="p-8 rounded shadow-lg flex flex-col item-center relative">
             <button
               onClick={closeModal}
-              className="  bg-[#0D0721]  text-white px-4 py-2 rounded absolute right-[0px] top-[0px]"
+              className="  bg-[#0D0721]  text-white px-4 py-2 rounded absolute right-[-145px] top-[10px]"
             >
-              x
+              <img src={cross} height="30px" width="30px"></img>
             </button>
-            <label className="mt-5">Search</label>
-            <input className="w-[900px] bg-[#0D0721] px-2 py-1 mt-2 border-[#34236A]  "></input>
+            <label className="mt-5 text-base text-[#D9D9D9]">SEARCH</label>
+            <input
+              className="!w-[1150px] bg-[#0D0721] px-3 py-2 mt-2 border-2 outline-none !border-[#34236A] focus:!border-[#34236A] rounded-md "
+              placeholder="Title"
+            />
+            <div className="bg-[#18132A] min-w-max h-36 mt-4"></div>
           </div>
         </div>
       )}
