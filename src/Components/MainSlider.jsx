@@ -62,20 +62,23 @@ function MainSlider() {
                   <img
                     src={url + "\\" + card.image.replace("uploads\\", "")}
                     alt={`Image ${key}`}
+                    style={{ filter: "brightness(70%) saturate(150%)" }}
                   />
 
                   <h1
                     className="text-white banner-text text-4xl font-bold absolute"
                     style={{
                       left: "2%",
-                      top: "67%",
+                      top: "58%",
                     }}
                   >
                     {card?.title}
                   </h1>
-                  <BannerButtons
-                    onWatch={() => navigate(`/live/${card._id}`)}
-                  />
+                  <div className="mt-[-90px] z-80">
+                    <BannerButtons
+                      onWatch={() => navigate(`/live/${card._id}`)}
+                    />
+                  </div>
                 </SplideSlide>
               ))}
           </Splide>

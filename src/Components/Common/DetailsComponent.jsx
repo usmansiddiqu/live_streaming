@@ -4,16 +4,7 @@ import DetailsIcon from "./DetailsIcon";
 import VideoPlayer from "./VideoPlayer";
 import ClapprPlayer from "./ClapprPlayer";
 import moment from "moment-timezone";
-const dummyIcons = [
-  {
-    iconUrl: "https://cdn-icons-png.flaticon.com/128/1039/1039386.png",
-    name: "Icon 1",
-  },
-  {
-    iconUrl: "https://cdn-icons-png.flaticon.com/128/1201/1201923.png",
-    name: "Icon 2",
-  },
-];
+
 function DetailsComponent({ data, url }) {
   const currentTime = moment();
   const eventTime = moment(data?.data?.date).utc();
@@ -23,7 +14,7 @@ function DetailsComponent({ data, url }) {
     currentTime.isBetween(eventTime, eventTime.clone().add(3.5, "hours"));
 
   return (
-    <div className="flex !justify-center">
+    <div className="flex !justify-center mt-2">
       {isTimeWithinRange ? (
         <div className="embed-responsive embed-responsive-16by9">
           <div className="chunchun">
@@ -32,7 +23,7 @@ function DetailsComponent({ data, url }) {
         </div>
       ) : (
         <div
-          className="w-[80rem] h-[35rem]   deatil-container"
+          className="w-[80rem] h-[35rem]   deatil-container mt-2"
           style={{
             background: `linear-gradient(-60deg, #${
               data?.data?.competitors?.filter(

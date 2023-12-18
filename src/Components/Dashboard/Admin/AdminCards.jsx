@@ -78,7 +78,7 @@ const AdminCards = () => {
             <span className="text text-white text-sm">Transactions</span>
           </div>
         </div>
-        <div className="wrapper mt-5">
+        <div className="wrapper mt-3">
           <div className="container1">
             <span className="num text-[#FF0015] text-2xl" data-val="298">
               0

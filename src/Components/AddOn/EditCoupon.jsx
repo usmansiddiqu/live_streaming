@@ -109,15 +109,15 @@ function EditCoupons() {
                 onChange={handleChange}
               />
             </div>
-            <div class="mb-5 input-feild-image w-[60vw]  flex items-center justify-evenly">
-              <label class="block mb-2 text-sm font-medium w-[17.5vw] text-gray-900 text-white "></label>
+            <div class="mb-5 input-feild-image w-[60vw]  flex items-center justify-evenly ">
+              <label class="block mb-2 text-sm font-medium w-[20.5vw] text-gray-900 text-white  "></label>
               <div className="w-full">
                 <button
                   type="button"
                   className="w-[80px] h-[4vh] bg-[#0EAC5C] font-medium rounded-md flex items-center justify-center"
                   onClick={() => generateRandomString(10)}
                 >
-                  <span className="text-white text-sm dark:text-white">
+                  <span className="text-white text-sm text-white">
                     Generate
                   </span>
                 </button>
@@ -127,7 +127,7 @@ function EditCoupons() {
             <div class=" input-feild w-[72vw] flex  mb-5">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                class="block mb-2 input-feild-label  text-sm font-medium text-white w-[17vw]"
               >
                 Plan*
               </label>
@@ -182,7 +182,7 @@ function EditCoupons() {
             <div class="mb-5 input-feild w-[72vw] flex  ">
               <label
                 for="status"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                class="block mb-2 input-feild-label  text-sm font-medium text-white w-[17vw]"
               >
                 Status
               </label>
@@ -199,7 +199,7 @@ function EditCoupons() {
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[13.5vw]"
+                class="block mb-2  text-sm font-medium text-white w-[15.5vw]"
               ></label>
               <button
                 type="button"

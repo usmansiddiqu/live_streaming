@@ -106,7 +106,7 @@ function EditLiveTv() {
         margin: "auto",
       }}
     >
-      <div className=" mt-20 mx-auto my-auto">
+      <div className=" mt-20 mx-auto">
         <div
           className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
           style={{ position: "absolute", left: "17%" }}
@@ -180,7 +180,7 @@ function EditLiveTv() {
                 <div class="mb-5 input-feild mt-[90px] w-[37vw] flex items-center ">
                   <label
                     for="countries"
-                    class="block mb-2 input-feild-label text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                    class="block mb-2 input-feild-label text-sm font-medium text-white w-[17vw]"
                   >
                     TV Access
                   </label>
@@ -199,7 +199,7 @@ function EditLiveTv() {
                 <div class="mb-5 input-feild w-[37vw] flex items-center ">
                   <label
                     for="countries"
-                    class="block mb-2 input-feild-label text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                    class="block mb-2 input-feild-label text-sm font-medium text-white w-[17vw]"
                   >
                     Category
                   </label>
@@ -320,7 +320,7 @@ function EditLiveTv() {
                 <div class="mb-5 input-feild w-[37vw] flex items-center ">
                   <label
                     for="countries"
-                    class="block mb-2 input-feild-label text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                    class="block mb-2 input-feild-label text-sm font-medium text-white w-[17vw]"
                   >
                     Stream Type
                   </label>
@@ -348,7 +348,7 @@ function EditLiveTv() {
                 <div class="mb-5 w-[37vw] input-feild flex items-center ">
                   <label
                     for="countries"
-                    class="block mb-2 input-feild-label text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                    class="block mb-2 input-feild-label text-sm font-medium text-white w-[17vw]"
                   >
                     Status
                   </label>
@@ -367,7 +367,7 @@ function EditLiveTv() {
                 <div class="mb-5 input-feild  w-[37vw] flex items-center">
                   <label
                     for="email"
-                    class="block mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white "
+                    class="block mb-2 input-feild-label text-sm font-medium w-[17vw] text-gray-900 text-white "
                   >
                     Server 1 URL*
                   </label>
@@ -425,21 +425,21 @@ function EditLiveTv() {
                 </div>
                 <div class="mb-5 input-feild w-[37vw] ">
                   <div className="flex flex-col w-full">
-                    <div className="flex input-feild  items-center">
+                    <div className="flex input-feild  items-center ">
                       <label
                         for="email"
-                        class="block mb-2 input-feild-label text-sm font-medium w-[17vw] text-gray-900 text-white "
+                        class="block mb-2  text-sm font-medium w-[13vw]   tv-logo  text-white "
                       >
                         TV Logo*
                       </label>
-                      <div class="flex upload-img w-full">
+                      <div class="flex upload-img w-[20vw] ">
                         <div
                           class="file-upload-wrapper2  rounded text-sm text-gray-50 "
                           data-text="Choose File.."
                         >
                           <input
                             type="file"
-                            class=" appearance-none items-center py-2 block upload-input w-full text-gray-700 border rounded  focus:outline-none "
+                            class=" appearance-none items-center py-2 block upload-input w-full text-gray-700  rounded  focus:outline-none "
                             onChange={handleFileChange}
                             // value={logo}
                           />
@@ -449,7 +449,7 @@ function EditLiveTv() {
                     <div class="mb-5 input-feild-image w-[37vw] flex items-center justify-evenly">
                       <label
                         for="email"
-                        class="block mb-2 text-sm font-medium w-[16.5vw] text-gray-900 text-white "
+                        class="block mb-2 text-sm font-medium w-[19.5vw] text-gray-900 text-white "
                       ></label>
                       <div className="w-full  upload-img-frame ">
                         <p className="mt-4 text-[#98A6AD] mb-3 text-xs	">

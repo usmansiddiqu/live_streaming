@@ -117,14 +117,30 @@ li a {
   .red-bar{
     width: 12.7vw;
   }
+  .card-match{
+    width: 65.5vw;
+  }
+  .score{
+    visibility: hidden;
+
+  }
+  .score-card:hover .score{
+    visibility: visible;
+
+  }
+  /* .teamOtherCards{
+    margin-right: -200px;
+  } */
   .Cardslider{
    width: 65% !important;
   
   }
+  .nfl-view{
+    margin-top: 50px;
+  }
   .live{
     position: relative;
-    left: 40%;
-    margin-top: -40px;
+    margin-top: -50px;
   }
   .end{
     position: relative;
@@ -166,6 +182,9 @@ li a {
   }
   .Cardslider {
     width: 73% !important;
+  }
+  .card-match{
+    width: 73vw;
   }
   .sliderHeader {
     width: 73%;
@@ -240,7 +259,6 @@ li a {
   }
   .live{
     position: relative;
-    left: 30%;
     margin-top: -40px;
   }
 }
@@ -453,6 +471,7 @@ li a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 73vw;
   }
   .input-feild-image {
     display: flex;
@@ -556,7 +575,7 @@ li a {
   }
   .live{
     position: relative;
-    left: 26%;
+
     margin-top: -34px;
   }
   .end{
@@ -702,13 +721,44 @@ li a {
   .tem-p {
     font-size: 10px !important;
   }
+  .input-label1{
+    width: 76vw;
+  }
+  .bg-tab-mb{
+    height: 27vh !important;
+  }
+  .userhisotryy{
+    width: 100%;
+    height: 50vh;
+    background-color: red;
+  }
+  .main-user-container{
+    width: 106vw;
+    left: 4% !important;
+  }
+  .user-info{
+    padding: 0 !important;
+  }
+
+  .address-ip{
+    max-width: 45vw;
+    min-height:10vh ;
+  }
+  .edit-con{
+    left: 7% !important;
+  }
+  .left{
+    width: 100% !important;
+  }
+  .tv-logo{
+    width: 17vw;
+  }
   .deatil-container{
     height: 30vh;
     margin-top: 0px !important;
   }
   .live{
     position: relative;
-    left: 8%;
     margin-top: -40px;
   }
   .detail-live-end{
@@ -881,7 +931,6 @@ li a {
    }
    .live{
     position: relative;
-    left: 6%;
     margin-top: -40px;
   }
    .detail-live-end{
@@ -1026,6 +1075,12 @@ li a {
   }
   .card-con {
     width: 90vw !important;
+  }
+  .nfl-view{
+    margin-top: 0px;
+  }
+  .bg-tab-mb{
+    height: 32vh;
   }
   .end{
     position: relative;

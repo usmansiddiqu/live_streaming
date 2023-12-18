@@ -4,23 +4,27 @@ import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import deleteCategoryById from "../../../../api/category.api";
 import getAllCategories from "../../../../api/getCategory";
-function TVCategory() {
+import getPlans from "../../../../api/plan.api";
+import deletePaymentPackage from "../../../../api/deletePaymentPackage";
+function SubscriptionPlan() {
   const navigate = useNavigate();
 
   const handleButtonClick = (id) => {
-    navigate(`/admin/Tv_category/edit_category/${id}`);
+    navigate(`/admin/subscription_plan/edit_subscription_plan/${id}`);
   };
-  const handleCreateButtonClick = () => {
-    navigate("/admin/tv_category/add_category");
-  };
+
+  const handleAddButton = () =>{
+    navigate("/admin/subscription_plan/add_subscription_plan")
+  }
 
   const [data, setData] = useState();
   const getData = async () => {
-    const { data: response } = await getAllCategories();
-    setData(response.categories);
+    const { data: response } = await getPlans();
+
+    setData(response.data);
   };
   const deleteCategory = async (id) => {
-    await deleteCategoryById(id);
+    await deletePaymentPackage(id);
     getData();
   };
   useEffect(() => {
@@ -49,7 +53,7 @@ function TVCategory() {
                 <div class=" flex items-center  ">
                   <button
                     className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
-                    onClick={handleCreateButtonClick}
+                    onClick={handleAddButton}
                   >
                     <svg
                       fill="#FFFFFF"
@@ -61,7 +65,7 @@ function TVCategory() {
                       <path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z" />
                     </svg>
                     <span className="text-white text-sm dark:text-white">
-                      Add Category
+                      Add Plan
                     </span>
                   </button>
                 </div>
@@ -75,7 +79,21 @@ function TVCategory() {
                       class="px-6 py-3 text-white text-md"
                       style={{ border: "1px solid #313133" }}
                     >
-                      Category Name
+                      Plan Name
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-white text-md"
+                      style={{ border: "1px solid #313133" }}
+                    >
+                      Duration
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-white text-md"
+                      style={{ border: "1px solid #313133" }}
+                    >
+                      Price
                     </th>
 
                     <th
@@ -104,6 +122,20 @@ function TVCategory() {
                       >
                         {cat.name}
                       </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {cat.days} (days)
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {cat.amount}
+                      </th>
                       <td
                         class="px-6 py-4 dark:text-white"
                         style={{ border: "1px solid #313133" }}
@@ -113,7 +145,7 @@ function TVCategory() {
                             cat.status == "active" ? "#0EAC5C" : "#ac0e28"
                           }] w-[60px] text-center  text-white rounded text-sm`}
                         >
-                          {cat.status == "active" ? "Active" : "Inactive"}
+                          {cat.status ? "Active" : "Inactive"}
                         </div>
                       </td>
                       <td
@@ -155,4 +187,4 @@ function TVCategory() {
   );
 }
 
-export default TVCategory;
+export default SubscriptionPlan;

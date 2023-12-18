@@ -85,7 +85,7 @@ function Nav() {
       position="static"
       style={{
         background: "#0D0620",
-        boxShadow: "-1px 6px 18px -6px rgba(255,255,255,0.45)",
+        boxShadow: "-1px 6px 8px -6px rgba(255,255,255,0.45)",
       }}
     >
       {isModalOpen && (

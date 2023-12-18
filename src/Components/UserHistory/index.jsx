@@ -25,14 +25,14 @@ function UserHistory() {
       }}
     >
       {console.log(data)}
-      <div className=" mt-20 ">
+      <div className=" mt-10 ">
         <div className="flex flex-col">
           <div
-            className="w-[83vw] main-user-container flex  mx-auto rounded p-5"
+            className="w-[86vw] main-user-container flex  mx-auto rounded p-5"
             style={{ position: "relative", left: "7%" }}
           >
-            <div className="w-[65%]  bg-[#1C1C1E] user-edit flex justify-between rounded p-5">
-              {/* <img src="" alt="" className="w-[200px] h-[200px] border-[5px]" /> */}
+            <div className="w-[65%] userhisotryy h-[23vh] bg-[#1C1C1E] user-edit flex justify-between rounded p-3">
+              <img src="" alt="" className="w-[200px] h-[170px] border-[5px]" />
               <div className="user-info flex justify-between w-[45vw]  p-4">
                 <div>
                   <h1 className="text-lg text-white font-bold">
@@ -44,18 +44,22 @@ function UserHistory() {
                       {data?.user?.email}
                     </h2>
                   </div>
-                  <div className="flex items-center mb-5">
+                  <div className="flex items-center mb-1">
                     <h1 className="text-md text-white font-bold">Phone :</h1>
                     <h2 className="text-sm text-white ml-2">
                       {data?.user?.phone}
                     </h2>
                   </div>
-                  <div className="flex items-center">
-                    <h1 className="text-md text-white font-bold">Address :</h1>
-                    <h2 className="text-sm text-white ml-2">
-                      {" "}
-                      {data?.user?.address}
-                    </h2>
+                  <div className="flex items-center ">
+                    <h1 className="text-md text-white font-bold adress">Address :</h1>
+                    <h2 className="text-xs text-white ml-2 address-ip">
+                    {("123 Main Street, Cityville, Country").match(/.{1,50}/g).map((line, index) => (
+                      <React.Fragment key={index}>
+                        {line}
+                        <br />
+                      </React.Fragment>
+                    ))}
+                  </h2>
                   </div>
                 </div>
                 <div>
@@ -65,18 +69,18 @@ function UserHistory() {
                 </div>
               </div>
             </div>
-            <div className="w-[33vw] Useredit-side bg-[#1C1C1E] ml-5 flex flex-col rounded p-5">
-              <h1 className="text-white font-bold mb-5">Subscription Plan</h1>
+            <div className="w-[33vw] h-[21vh] Useredit-side bg-[#1C1C1E] ml-5 flex flex-col rounded p-3">
+              <h1 className="text-white font-bold mb-4">Subscription Plan</h1>
               <div>
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 text-gray-400  ">
                   <tbody>
-                    <tr class="bg-white border-b dark:bg-[#444548] dark:border-[white] hover:bg-gray-50 dark:hover:bg-[#282A2D]">
+                    <tr class="bg-white border-b ">
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        class="px-6 py-2 font-medium bg-[#444548] whitespace-nowrap text-white"
                       >
                         <div className="flex items-center sub-type w-[12vw]  justify-between ">
-                          <div className="w-[5vw] ">
+                          <div className="w-[1.7vw] ">
                             <div className="w-[10px] h-[10px] bg-[#FF0015] rounded-full"></div>
                           </div>
                           <div className="w-[100%]  text-start">
@@ -92,10 +96,10 @@ function UserHistory() {
                         </div>
                       </th>
                     </tr>
-                    <tr class="bg-white border-b border-[0.5px] dark:bg-[#444548]  dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-[#282A2D]">
+                    <tr class="bg-white  ">
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        class="px-6 py-2 bg-[#444548] font-medium  whitespace-nowrap text-white"
                       >
                         <div className="flex items-center sub-type w-[8vw] ">
                           <div className="w-[5vw] ">
@@ -138,33 +142,33 @@ function UserHistory() {
             style={{ position: "relative", left: "16.5%" }}
           >
             <h1 className="text-white font-bold">User Transactions</h1>
-            <table class="w-full mt-5 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-              <thead class=" w-[78vw] text-xs text-gray-700  dark:text-gray-400">
+            <table class="w-full mt-5 text-sm text-left rtl:text-right text-white ">
+              <thead class=" w-[78vw] text-xs text-white">
                 <tr>
                   <th
                     scope="col"
-                    class="px-6 py-3 dark:text-white"
+                    class="px-6 py-3 text-white"
                     style={{ border: "1px solid #313133" }}
                   >
                     Email
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 dark:text-white"
+                    class="px-6 py-3 text-white"
                     style={{ border: "1px solid #313133" }}
                   >
                     Plan
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 dark:text-white"
+                    class="px-6 py-3 text-white"
                     style={{ border: "1px solid #313133" }}
                   >
                     Amount
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 dark:text-white"
+                    class="px-6 py-3 text-white"
                     style={{ border: "1px solid #313133" }}
                   >
                     Payment Gateway
@@ -172,14 +176,14 @@ function UserHistory() {
 
                   <th
                     scope="col"
-                    class="px-6 py-3 dark:text-white"
+                    class="px-6 py-3 text-white"
                     style={{ border: "1px solid #313133" }}
                   >
                     Payment ID
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 dark:text-white"
+                    class="px-6 py-3 text-white"
                     style={{ border: "1px solid #313133" }}
                   >
                     Payment Date
@@ -192,42 +196,42 @@ function UserHistory() {
                     <tr>
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
                         {data?.user?.email}
                       </th>
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
                         {data?.payments?.packageId?.name}
                       </th>
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
                         $ {data?.payments?.packageId?.amount}
                       </th>
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
                         {data?.payments?.packageId?.amount ? "PayCEC" : "-"}
                       </th>
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
                         $ {data?.payments?._id}
                       </th>
                       <th
                         scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
                         {data?.payments?.createdAt}

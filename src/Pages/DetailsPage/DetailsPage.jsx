@@ -37,16 +37,24 @@ function DetailsPage() {
     <div>
       <Navbar />
       {url ? <DetailsComponent data={data} url={url} /> : <></>}
-
+      {console.log(123, data)}
       <DetailsDescription data={data} setUrl={setUrl} />
-      {/* <TeamScore /> */}
+      <TeamScore
+        teamA={{
+          name: data?.data?.competitors[0]?.name,
+          score: data?.data?.competitors[0]?.score,
+        }}
+        teamB={{
+          name: data?.data?.competitors[1]?.name,
+          score: data?.data?.competitors[1]?.score,
+        }}
+      />
       <div className="mt-6 w-[61%] bg-[#130A2D] mx-auto  h-[28vh] flex flex-col p-3 mb-2 banner-slidess">
         <h3 className="text-white font-medium text-2xl">You May Also Like</h3>
-     <div className="w-[110vw] mt-4 ml-9  mb-5 banner-slide-card">
+        <div className="w-[110vw] mt-4 ml-9  mb-5 banner-slide-card">
           <DetailsSlider />
-      
         </div>
-        </div>
+      </div>
       <Footer />
     </div>
   );

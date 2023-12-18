@@ -77,7 +77,7 @@ function TVChannel() {
               {error && <ErrorComponent message={error} />}
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center w-[60%]  tvChannel-head justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center w-[50%]  tvChannel-head justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <div className="bg-[#313133] Category-Filter rounded">
                       <button
                         id="dropdownActionButton"
@@ -198,10 +198,21 @@ function TVChannel() {
                     </div>
 
                     <button
-                      className="w-[120px] h-[4vh] Add-tv bg-[#0EAC5C] font-medium rounded-md"
+                      className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
                       onClick={handleCreateButtonClick}
                     >
-                      <span className="text-white text-sm ">+ Add Live TV</span>
+                      <svg
+                        fill="#FFFFFF"
+                        width="20px"
+                        height="20px"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z" />
+                      </svg>
+                      <span className="text-white text-sm dark:text-white">
+                        Add Live Tv
+                      </span>
                     </button>
                   </div>
                 </div>

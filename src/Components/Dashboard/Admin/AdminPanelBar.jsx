@@ -6,6 +6,7 @@ import Tv from "../../../Assets/Icons/television.png";
 import Tag from "../../../Assets/Icons/tags.png";
 import List from "../../../Assets/Icons/list.png";
 import HomeBar from "../../../Assets/Icons/volume-bars.png";
+import Dollar from "../../../Assets/Icons/dollar-currency-symbol.png"
 import Group from "../../../Assets/Icons/group.png";
 import Gift from "../../../Assets/Icons/gift.png";
 import User from "../../../Assets/Icons/manager.png";
@@ -543,6 +544,34 @@ function AdminPanelBar() {
                   </li>
                 </ul>
               )}
+                  <li
+                id="Subscription Plan"
+                className={`mt-1 ${
+                  activeItem.id === "Subscription Plan" ? "active" : ""
+                }`}
+                onClick={() => handleItemClick("Subscription Plan", "Subscription Plan")}
+              >
+                <a
+                  style={{color:'white'}}
+                  className={`flex items-center text-sm p-2 dark:text-white bg-[#1c1c1e] group-hover:text-red-600 ${
+                    activeItem.id === "Subscription Plan" ? "bg-[#ff0015]" : ""
+                  } ${isCollapsed ? "justify-end" : "justify-start"}`}
+                >
+                  <img
+                    src={Dollar}
+                    alt=""
+                    className={`w-[18px] h-[18px] flex ${
+                      isCollapsed ? "mr-3" : "ml-2"
+                    }`}
+                  />
+                  {!isCollapsed && (
+                    <span className="ms-3">
+                      {" "}
+                      <Link to="/admin/subscription_plan">Subscription Plan</Link>
+                    </span>
+                  )}
+                </a>
+              </li>
               <li
                 id="Coupons"
                 className={`mt-1 ${

@@ -59,11 +59,20 @@ function AdminSlider() {
             <div class="relative mt-1">
               <div class=" flex items-center  ">
                 <button
-                  className="w-[120px] Add-tv h-[4vh] bg-[#0EAC5C] font-medium rounded-md "
+                  className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
                   onClick={handleCreateButtonClick}
                 >
-                  <span className="text-white text-sm ">
-                    + Add Slider
+                  <svg
+                    fill="#FFFFFF"
+                    width="20px"
+                    height="20px"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z" />
+                  </svg>
+                  <span className="text-white text-sm dark:text-white">
+                    Add Slider
                   </span>
                 </button>
               </div>

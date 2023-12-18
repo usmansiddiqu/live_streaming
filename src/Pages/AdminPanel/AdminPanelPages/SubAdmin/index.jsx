@@ -54,7 +54,7 @@ function SubAdmin() {
             <div class="relative overflow-x-auto shadow-md edit-contain">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center  w-[35%] justify-between tvChannel-head flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center  w-[30%] justify-between tvChannel-head flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
@@ -64,7 +64,6 @@ function SubAdmin() {
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs placeholder:text-white bg-[#313133] rounded-full w-80 text-white"
                         placeholder="Search by name or email"
-                   
                       />
                       <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
                         <svg
@@ -86,11 +85,20 @@ function SubAdmin() {
                     </div>
 
                     <button
-                      className="w-[110px] h-[4vh] bg-[#0EAC5C] font-medium rounded-md"
+                      className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
                       onClick={handleCreateButtonClick}
                     >
-                      <span className="text-white text-sm text-white">
-                        + Add Users
+                      <svg
+                        fill="#FFFFFF"
+                        width="20px"
+                        height="20px"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z" />
+                      </svg>
+                      <span className="text-white text-sm dark:text-white">
+                        Add Users
                       </span>
                     </button>
                   </div>

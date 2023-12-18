@@ -143,14 +143,14 @@ function EditUser() {
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
                 for="email"
-                class="block input-feild-label  mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white"
+                class="block input-feild-label  mb-2 text-sm font-medium w-[17vw] text-white"
               >
                 Phone
               </label>
               <input
                 type="phone"
                 id="phone"
-                class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
+                class=" border-0 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
                 value={phone}
                 onChange={(e) => {
@@ -161,7 +161,7 @@ function EditUser() {
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
                 for="message"
-                class="block input-feild-label  mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white"
+                class="block input-feild-label  mb-2 text-sm font-medium w-[17vw]  text-white"
               >
                 Address
               </label>
@@ -177,7 +177,7 @@ function EditUser() {
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
                 for="email"
-                class="block input-feild-label  mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white"
+                class="block input-feild-label  mb-2 text-sm font-medium w-[17vw]  text-white"
               >
                 Image
               </label>
@@ -192,14 +192,14 @@ function EditUser() {
             <div className="mb-5 input-feild w-[72vw] flex">
               <label
                 htmlFor="expiry_date"
-                className="block input-feild-label mb-2 text-sm font-medium  w-[17vw] text-gray-900 text-white"
+                className="block input-feild-label mb-2 text-sm font-medium  w-[17vw] text-white"
               >
                 Expiry Date*
               </label>
               <input
                 type="Date"
                 id="expiry_date"
-                className="border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
+                className="border-0 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
                 value={
                   expireDate && new Date(expireDate).toISOString().split("T")[0]
@@ -227,13 +227,13 @@ function EditUser() {
             <div class="mb-5 input-feild w-[72vw] flex  ">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                class="block mb-2 input-feild-label  text-sm font-medium text-white w-[17vw]"
               >
                 Status
               </label>
               <select
                 id="countries"
-                class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                class=" border-0 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
                 value={status}
                 onChange={(e) => {
                   setStatus(e.target.value);
@@ -247,7 +247,7 @@ function EditUser() {
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[13.5vw]"
+                class="block mb-2  text-sm font-medium text-white w-[15.5vw] "
               ></label>
               <button
                 type="submit"

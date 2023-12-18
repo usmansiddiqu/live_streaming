@@ -16,9 +16,9 @@ function DetailsDescription({ data, setUrl }) {
     }
   };
   return (
-    <div className="flex justify-center mt-8 ">
+    <div className="flex justify-center mt-3 ">
       <ToastContainer limit={1} />
-      <div className=" bg-[#190D39] w-[80rem] pt-12 pb-6 ps-7">
+      <div className=" bg-[#190D39] w-[80rem] pt-3 pb-6 ps-7">
         <div className=" flex gap-3">
           <button
             class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
@@ -59,7 +59,7 @@ function DetailsDescription({ data, setUrl }) {
             </div>
           </button>
         </div>
-        <div className="text-white pt-10">
+        <div className="text-white pt-3">
           <h1 className="text-2xl font-semibold">{data?.data?.name}</h1>
           <br />
           <p className="flex gap-2 text-lg items-center">
@@ -98,7 +98,7 @@ function DetailsDescription({ data, setUrl }) {
           </p>
           <br />
           <button
-            className="bg-[#118D04] hover:bg-white text-white hover:text-[#118D04] font-bold py-2 px-4 rounded flex gap-1 items-center"
+            className="bg-[#118D04]  text-white  font-bold py-2 px-4 rounded flex gap-1 items-center"
             onClick={() => {
               addToWishList();
             }}

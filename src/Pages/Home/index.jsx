@@ -17,7 +17,9 @@ function Home() {
   return (
     <div className="bg-[#130A2D] ">
       <MainSlider />
+      <div className="nfl-view">
       <SliderHeader title="NFL Live" link="nfl" />
+      </div>
       <CardSlider
         data={data.filter((card) => {
           return card.channel.TVCategory.name == "NFL";
