@@ -73,7 +73,7 @@ function TVChannel() {
             className="w-[80vw] box edit-con bg-[#1C1C1E]  mx-auto rounded p-5"
             style={{ position: "absolute", left: "16.5%" }}
           >
-            <div class="relative overflow-x-auto shadow-md edit-contain">
+            <div class="relative shadow-md edit-contain">
               {error && <ErrorComponent message={error} />}
               <div>
                 <div class="relative mt-1">
