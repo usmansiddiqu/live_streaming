@@ -6,6 +6,7 @@ import deleteCategoryById from "../../../../api/category.api";
 import getAllCategories from "../../../../api/getCategory";
 import getPlans from "../../../../api/plan.api";
 import deletePaymentPackage from "../../../../api/deletePaymentPackage";
+import getPackagesAdmin from "../../../../api/getPackagesAdmin";
 function SubscriptionPlan() {
   const navigate = useNavigate();
 
@@ -13,13 +14,13 @@ function SubscriptionPlan() {
     navigate(`/admin/subscription_plan/edit_subscription_plan/${id}`);
   };
 
-  const handleAddButton = () =>{
-    navigate("/admin/subscription_plan/add_subscription_plan")
-  }
+  const handleAddButton = () => {
+    navigate("/admin/subscription_plan/add_subscription_plan");
+  };
 
   const [data, setData] = useState();
   const getData = async () => {
-    const { data: response } = await getPlans();
+    const { data: response } = await getPackagesAdmin();
 
     setData(response.data);
   };

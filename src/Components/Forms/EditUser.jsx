@@ -46,21 +46,24 @@ function EditUser() {
       navigate("/admin/users");
       console.log(response);
     } catch (error) {
-      setError(error.response.data.message);
+      console.log(error);
+      // setError(error.response.data.message);
     }
   };
   const getChannelById = async () => {
     try {
       const { data: response } = await getSpecificUser(id);
       console.log(123, response.user);
-      setName(response.user.name);
-      setEmail(response.user.email);
-      setPhone(response.user?.phone);
-      setAddress(response.user?.address);
-      setExpireDate(response.user?.expiryDate);
-      setStatus(response.user?.status);
+      setName(response.data.name);
+      setEmail(response.data.email);
+      setPhone(response.data?.phone);
+      setAddress(response.data?.address);
+      setExpireDate(response.data?.expiryDate);
+      setStatus(response.data?.status);
     } catch (error) {
-      setError(error.response.data.message);
+      console.log(error);
+
+      // setError(error.response.data.message);
     }
   };
   useEffect(() => {
