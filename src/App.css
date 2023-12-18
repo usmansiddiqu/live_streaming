@@ -116,6 +116,10 @@ li a {
 }
 
  @media screen and (max-width: 2600px) {
+  .play-wrapper[data-poster]{
+    width: 10% !important;
+    margin: auto;
+  }
  
   .red-bar{
     width: 12.7vw;
