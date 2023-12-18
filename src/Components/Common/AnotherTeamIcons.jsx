@@ -8,11 +8,11 @@ function AnotherTeamIcons({ iconsData }) {
  {isDekstop
   &&      <div className="flex justify-between ">
   {iconsData.map((icon, index) => (
-    <div key={index} className=" flex flex-col items-center">
+    <div key={index} className=" flex flex-col items-center px-6">
       <img
         src={icon.iconUrl}
         alt={icon.name}
-        style={{ width: "40px", height: "40px" }}
+        style={{ width: "60px", height: "60px" ,marginTop:'-10px' }}
         className="team-iconss"
       />
       <p className="text-sm text-white font-medium text-white">{icon.name}</p>
@@ -21,7 +21,7 @@ function AnotherTeamIcons({ iconsData }) {
 </div>
  }
  {isTabletOrMobile &&      <div
-        className="  px-2"
+        className="  px-3"
         style={{
           height: "100%",
           display: "flex",
@@ -30,11 +30,11 @@ function AnotherTeamIcons({ iconsData }) {
         }}
       >
         {iconsData.map((icon, index) => (
-          <div key={index} className="flex flex-col items-center team-img pl-2">
+          <div key={index} className="flex flex-col items-center team-img pl-2 ">
             <img
               src={icon.iconUrl}
               alt={icon.name}
-              style={{ width: "35px", height: "35px" }}
+              style={{ width: "50px", height: "50px" }}
               className="team-icons"
             />
             <p className="text-sm text-white font-medium team-p">{icon.name}</p>

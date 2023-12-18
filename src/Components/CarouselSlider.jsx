@@ -21,7 +21,7 @@ function CarouselSlider() {
 
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="bg-[#0D0620] bg-tab-mb">
       <Carousel data-bs-theme="dark">
         {data
           ?.filter((card) => card?.status)
@@ -31,6 +31,7 @@ function CarouselSlider() {
                 className="d-block w-100 h-[30vh] mbl-bg-img"
                 src={url + "\\" + card.image.replace("uploads\\", "")}
                 alt={`Image ${key}`}
+                  style={{ filter: 'brightness(70%) saturate(150%)'}}
               />
               <div
                 className="flex flex-col w-[100vw] absolute"

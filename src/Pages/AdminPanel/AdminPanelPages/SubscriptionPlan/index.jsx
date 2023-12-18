@@ -4,7 +4,7 @@ import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import deleteCategoryById from "../../../../api/category.api";
 import getAllCategories from "../../../../api/getCategory";
-function TVCategory() {
+function SubscriptionPlan() {
   const navigate = useNavigate();
 
   const handleButtonClick = (id) => {
@@ -53,7 +53,7 @@ function TVCategory() {
                   >
                     <span className="text-white text-sm dark:text-white">
                       {" "}
-                      + Add Category
+                      + Add Plan
                     </span>
                   </button>
                 </div>
@@ -67,7 +67,21 @@ function TVCategory() {
                       class="px-6 py-3 text-white text-md"
                       style={{ border: "1px solid #313133" }}
                     >
-                      Category Name
+                     Plan Name	
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-white text-md"
+                      style={{ border: "1px solid #313133" }}
+                    >
+                     Duration	
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-white text-md"
+                      style={{ border: "1px solid #313133" }}
+                    >
+                    Price	
                     </th>
 
                     <th
@@ -148,4 +162,4 @@ function TVCategory() {
   );
 }
 
-export default TVCategory;
+export default SubscriptionPlan;

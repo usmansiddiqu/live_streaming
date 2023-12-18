@@ -337,12 +337,12 @@ function EditSubAdmin() {
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
                 for="file"
-                class="block input-feild-label  mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white"
+                class="block input-feild-label  mb-2 text-sm font-medium w-[17vw]text-white"
               >
                 Image
               </label>
               <input
-                class="block w-full text-sm text-white border border-0 rounded cursor-pointer bg-white-600 dark:text-white focus:outline-none bg-[#48484A] "
+                class="block w-full text-sm text-white border border-0 rounded cursor-pointer text-white focus:outline-none bg-[#48484A] "
                 onChange={handleFileChange}
                 id="file_input"
                 type="file"
@@ -353,7 +353,7 @@ function EditSubAdmin() {
             <div class=" input-feild w-[72vw] flex  ">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                class="block mb-2 input-feild-label  text-sm font-medium text-white w-[17vw]"
               >
                 Admin Type
               </label>
@@ -373,7 +373,7 @@ function EditSubAdmin() {
             <div class="mb-5 input-feild w-[72vw] flex  ">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                class="block mb-2 input-feild-label  text-sm font-medium text-white w-[17vw]"
               >
                 Status
               </label>
@@ -392,7 +392,7 @@ function EditSubAdmin() {
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[13.5vw]"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white w-[15.5vw]"
               ></label>
               <button
                 type="submit"

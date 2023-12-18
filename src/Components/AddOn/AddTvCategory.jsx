@@ -33,18 +33,18 @@ function AddTvCategory() {
           style={{ position: "absolute", left: "17%" }}
         >
           {error && <ErrorComponent message={error} />}
-          <form class="max-w-sm ">
+          <form class="max-w-sm  ">
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
                 for="name"
-                class="block input-feild-label  mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white"
+                class="block input-feild-label  mb-2 text-sm font-medium w-[17vw] text-white"
               >
                 Category Name
               </label>
               <input
                 type="name"
                 id="name"
-                class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
+                class=" border-0  text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
                 onChange={(e) =>
                   setData({
@@ -57,7 +57,7 @@ function AddTvCategory() {
             <div class="mb-5 input-feild w-[72vw] flex  ">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                class="block mb-2 input-feild-label  text-sm font-medium text-white w-[17vw]"
               >
                 Status
               </label>
@@ -78,7 +78,7 @@ function AddTvCategory() {
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[13.5vw]"
+                class="block mb-2  text-sm font-medium text-gray-900 dark:text-white w-[15.5vw]"
               ></label>
               <button
                 type="button"

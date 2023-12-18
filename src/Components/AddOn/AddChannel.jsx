@@ -82,7 +82,7 @@ function AddChannel() {
         margin: "auto",
       }}
     >
-      <div className=" mt-20 mx-auto my-auto">
+      <div className="  mx-auto  border  mt-10">
         <div
           className="w-[80vw] edit-con bg-[#1C1C1E] mx-auto rounded p-5"
           style={{ position: "absolute", left: "17%" }}
@@ -155,14 +155,16 @@ function AddChannel() {
                 </div>
                 <div class="mb-5 input-feild mt-[90px] w-[37vw] flex items-center ">
                   <label
+                  style={{color:'white'}}
                     for="countries"
-                    class="block mb-2 input-feild-label text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                    class="block mb-2 input-feild-label text-sm font-medium text-white w-[17vw]"
                   >
                     TV Access
                   </label>
                   <select
+
                     id="countries"
-                    class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#313133] block w-full p-2.5 font-bold text-white"
+                    class=" border-0  text-sm rounded focus:ring-0 bg-[#313133] block w-full p-2.5 font-bold text-white"
                     onChange={(e) => {
                       setTVAccess(e.target.value);
                     }}
@@ -174,7 +176,7 @@ function AddChannel() {
                 <div class="mb-5 input-feild w-[37vw] flex items-center ">
                   <label
                     for="countries"
-                    class="block mb-2 input-feild-label text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                    class="block mb-2 input-feild-label text-sm font-medium text-white w-[17vw]"
                   >
                     Category
                   </label>
@@ -291,10 +293,10 @@ function AddChannel() {
                     </div>
                   </div>
                 </div> */}
-                <div class="mb-5 input-feild w-[37vw] flex items-center ">
+                <div class="mb-5 input-feild w-[37vw] flex items-center text-white">
                   <label
                     for="countries"
-                    class="block mb-2 input-feild-label text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                    class="block mb-2 input-feild-label text-sm font-medium text-white w-[17vw]"
                   >
                     Stream Type
                   </label>
@@ -321,7 +323,7 @@ function AddChannel() {
                 <div class="mb-5 w-[37vw] input-feild flex items-center ">
                   <label
                     for="countries"
-                    class="block mb-2 input-feild-label text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                    class="block mb-2 input-feild-label text-sm font-medium text-white w-[17vw]"
                   >
                     Status
                   </label>
@@ -339,7 +341,7 @@ function AddChannel() {
                 <div class="mb-5 input-feild  w-[37vw] flex items-center">
                   <label
                     for="email"
-                    class="block mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white "
+                    class="block mb-2 input-feild-label text-sm font-medium w-[17vw] text-gray-900 text-white  "
                   >
                     Server 1 URL*
                   </label>
@@ -395,23 +397,23 @@ function AddChannel() {
                     </p>
                   </div>
                 </div>
-                <div class="mb-5 input-feild w-[37vw] ">
+                <div class="mb-5 input-feild w-[10vw] ">
                   <div className="flex flex-col w-full">
-                    <div className="flex input-feild  items-center">
+                    <div className="flex input-feild  items-center ">
                       <label
                         for="email"
-                        class="block mb-2 input-feild-label text-sm font-medium w-[17vw] text-gray-900 text-white "
+                        class="block mb-2  text-sm font-medium w-[16vw] tv-logo text-gray-900 text-white  "
                       >
                         TV Logo*
                       </label>
                       <div class="flex upload-img w-full">
                         <div
-                          class="file-upload-wrapper2  rounded text-sm text-gray-50 "
+                          class="file-upload-wrapper2  rounded text-sm text-gray-50  "
                           data-text="Choose File.."
                         >
                           <input
                             type="file"
-                            class=" appearance-none items-center py-2 block upload-input w-full text-gray-700 border rounded  focus:outline-none "
+                            class=" appearance-none items-center py-2 block upload-input w-full text-white  rounded  focus:outline-none "
                             onChange={handleFileChange}
                             value=""
                           />
@@ -421,7 +423,7 @@ function AddChannel() {
                     <div class="mb-5 input-feild-image w-[37vw] flex items-center justify-evenly">
                       <label
                         for="email"
-                        class="block mb-2 text-sm font-medium w-[16.5vw] text-gray-900 text-white "
+                        class="block mb-2 text-sm font-medium w-[20.5vw] text-gray-900 text-white "
                       ></label>
                       <div className="w-full  upload-img-frame ">
                         <p className="mt-4 text-[#98A6AD] mb-3 text-xs	">

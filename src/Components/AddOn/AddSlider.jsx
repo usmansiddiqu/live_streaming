@@ -75,14 +75,14 @@ function AddSlider() {
             <div class="mb-5 w-[60vw] input-feild flex items-center">
               <label
                 for="email"
-                class="input-feild-label block mb-2 text-sm font-medium w-[25vw] text-gray-900 text-white "
+                class=" block mb-2 text-sm font-medium w-[15vw]  text-gray-900 text-white "
               >
                 Title
               </label>
               <input
                 type="text"
                 id="title"
-                class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#313133]"
+                class=" border-0 input-label1  text-sm rounded focus:ring-0 block w-[42.5vw] p-2.5 text-white font-bold bg-[#313133]"
                 placeholder="title"
                 value={title}
                 onChange={(e) => {
@@ -96,13 +96,13 @@ function AddSlider() {
                 <div className="flex input-feild  items-center">
                   <label
                     for="email"
-                    class="block mb-2 input-feild-label text-sm font-medium w-[24vw] text-gray-900 text-white "
+                    class="block mb-2  text-sm font-medium w-[15vw] tv-logo text-white "
                   >
                     TV Logo*
                   </label>
-                  <div class="flex upload-img  ">
+                  <div class="flex upload-img ">
                     <div
-                      class="file-upload-wrapper2 file-upload-wrapper3 file-upload-wrapper3 rounded text-sm text-gray-50 "
+                      class="file-upload-wrapper2  file-upload-wrapper3 file-upload-wrapper3 rounded text-sm text-gray-50 "
                       data-text="Choose File.."
                     >
                       <input
@@ -117,7 +117,7 @@ function AddSlider() {
                 <div class="mb-5 input-feild-image w-[60vw]  flex items-center justify-evenly">
                   <label
                     for="email"
-                    class="block mb-2 text-sm font-medium w-[24vw] text-gray-900 text-white "
+                    class="block mb-2 text-sm font-medium w-[20vw] text-gray-900 text-white "
                   ></label>
                   <div className="w-full  upload-img-frame ">
                     <p className="mt-4 text-[#98A6AD] mb-3 text-xs	">
@@ -148,13 +148,13 @@ function AddSlider() {
                 <div class="mb-5 input-feild  w-[60vw] flex  ">
                   <label
                     for="countries"
-                    class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[25vw]"
+                    class="block mb-2  text-sm font-medium text-white w-[15vw] "
                   >
                     Live TV
                   </label>
                   <select
                     id="countries"
-                    class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                    class=" border-0 input-label1 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-[43vw] p-2.5 font-bold text-white"
                     value={liveTV}
                     onChange={(e) => {
                       setLiveTV(e.target.value);
@@ -211,13 +211,13 @@ function AddSlider() {
                 <div class="mb-5 input-feild  w-[60vw] flex  ">
                   <label
                     for="countries"
-                    class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[25vw]"
+                    class="block mb-2  text-sm font-medium text-white w-[15vw]"
                   >
                     Status
                   </label>
                   <select
                     id="countries"
-                    class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                    class=" border-0 input-label1 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-[43vw] p-2.5 font-bold text-white"
                     onChange={(e) => {
                       setStatus(e.target.value);
                     }}
@@ -230,7 +230,7 @@ function AddSlider() {
                 <div class="mb-5 input-feild w-[72vw] flex">
                   <label
                     for="countries"
-                    class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17.5vw]"
+                    class="block mb-2  text-sm font-medium text-gray-900 dark:text-white w-[15vw]"
                   ></label>
                   <button
                     class="text-white  bg-[#FF0015] text-sm font-bold rounded-md text-sm w-[70px]  sm:w-auto px-3 py-1.5 text-center "

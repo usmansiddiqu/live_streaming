@@ -200,7 +200,7 @@ function AddUser() {
             <div class="mb-5 input-feild w-[72vw] flex  ">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                class="block mb-2 input-feild-label  text-sm font-medium text-white w-[17vw]"
               >
                 Status
               </label>
@@ -218,7 +218,7 @@ function AddUser() {
             <div class="mb-5 input-feild w-[72vw] flex">
               <label
                 for="countries"
-                class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[13.5vw]"
+                class="block mb-2   text-sm font-medium text-gray-900 dark:text-white w-[15.5vw]"
               ></label>
               <button
                 type="submit"

@@ -11,9 +11,9 @@ function Card({ data, title }) {
   return (
     <div>
       <DashHeader title={title} />
-      <div class=" flex items-center justify-center relative">
-        <div class="container mx-auto">
-          <div class="grid card-con grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 p-3 mx-auto gap-3 w-[73vw] mb-4 card-match">
+      <div class=" flex items-center justify-center relative ">
+        <div class="container mx-auto  teamOtherCards ">
+          <div class="grid card-con grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 p-3 mx-auto gap-3 w-[73vw] mb-4 card-match ">
             <>
               {data
                 ?.sort(
@@ -64,6 +64,7 @@ function Card({ data, title }) {
                             }
                           />
                         </div>
+                       
                       </div>
                     </div>
                   </div>

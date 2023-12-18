@@ -22,8 +22,8 @@ const isMobile = useMediaQuery({ query: "(max-width: 500px)" });
            <img
              src={icon.iconUrl}
              alt={icon.name}
-             style={{ width: "40px", height: "45px" }}
-             className="tem-icons"
+             style={{ width: "50px", height: "53px",marginTop:'-10px' }}
+            //  className="tem-icons"
            />
            <p className="text-sm text-white font-medium tem-p"> {truncateText(icon.name, 7)}</p>
          </div>

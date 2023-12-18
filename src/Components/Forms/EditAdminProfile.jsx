@@ -87,7 +87,7 @@ function AdminProfile() {
             style={{ position: "absolute", left: "17%" }}
           >
             {error && <ErrorComponent message={error} />}
-            <form class="max-w-sm edit-contain">
+            <form class="max-w-sm">
               <div class="mb-5 input-feild w-[72vw] flex  ">
                 <div
                   for="text"

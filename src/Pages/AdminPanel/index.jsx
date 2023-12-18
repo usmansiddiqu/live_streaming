@@ -28,6 +28,9 @@ import AddCoupons from "../../Components/AddOn/AddCoupons";
 import AddUser from "../../Components/AddOn/AddUser";
 import EditCoupons from "../../Components/AddOn/EditCoupon";
 import AdminProfile from "../../Components/Forms/EditAdminProfile";
+import SubscriptionPlan from "./AdminPanelPages/SubscriptionPlan";
+import EditSubscription from "../../Components/Forms/EditSubscription";
+import AddSubscriptionPlan from "../../Components/AddOn/AddSubscriptionPlan";
 
 function AdminPanelWrapper() {
   const navigate = useNavigate();
@@ -57,6 +60,7 @@ function AdminPanelWrapper() {
         <Route path="/profile" element={<AdminProfile />} />
         <Route path="/Tv_category" element={<TVCategory />} />
         <Route path="/live_tv" element={<TVChannel />} />
+        <Route path="/subscription_plan" element={<SubscriptionPlan/>} />
         <Route path="/assign_live_tv" element={<AssignLiveTv />} />
         <Route path="/slider" element={<AdminSlider />} />
         <Route path="/home_section" element={<AdminHomeSlider />} />
@@ -74,6 +78,7 @@ function AdminPanelWrapper() {
           element={<EditAssignTv />}
         />
         <Route path="/slider/edit_slider/:id" element={<EditSlider />} />
+        <Route path="/subscription_plan/edit_subscription_plan/:id" element={<EditSubscription />} />
         <Route path="/home_sections/edit" element={<EditHomeSection />} />
         <Route path="/users/edit_user/:id" element={<EditUser />} />
         <Route path="/sub_admin/edit_user/:id" element={<EditSubAdmin />} />
@@ -84,6 +89,7 @@ function AdminPanelWrapper() {
         <Route path="/live_tv/add_live_tv" element={<AddChannel />} />
         <Route path="/home_sections/add" element={<AddSection />} />
         <Route path="/slider/add_slider" element={<AddSlider />} />
+        <Route path="/subscription_plan/add_subscription_plan/" element={<AddSubscriptionPlan />} />
         <Route path="/sub_admin/add_user" element={<AddSubAdmin />} />
         <Route path="/coupons/addcoupon" element={<AddCoupons />} />
         <Route path="/coupons/editcoupon/:id" element={<EditCoupons />} />
