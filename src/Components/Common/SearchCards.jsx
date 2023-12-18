@@ -51,6 +51,11 @@ const SearchCards = ({ data }) => {
                     return (
                       <SplideSlide
                         className="cardSlider flex flex-col items-center relative cursor-pointer bg-contain bg-center border"
+                        onClick={() =>
+                          navigate(
+                            `/${item?.channel?.TVCategory?.name}/live/${item._id}`
+                          )
+                        }
                         style={{
                           width: "100%;",
                           height: "100vh",
