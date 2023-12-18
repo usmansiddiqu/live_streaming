@@ -41,7 +41,7 @@ function EditSubscription() {
             <form class="max-w-sm ">
               <div class="mb-5 input-feild w-[72vw] flex">
                 <label
-                  for="name"
+                  for="text"
                   class="block input-feild-label  mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white"
                 >
                  Plan Name*
@@ -93,7 +93,7 @@ function EditSubscription() {
               <div class="mb-5 input-feild w-[72vw] flex  ">
                 <label
                   for="countries"
-                  class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                  class="block mb-2 input-feild-label  text-sm font-medium text-white w-[17vw]"
                 >
                   Status
                 </label>
@@ -110,7 +110,7 @@ function EditSubscription() {
               <div class="mb-5 input-feild w-[72vw] flex">
                 <label
                   for="countries"
-                  class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[13.5vw]"
+                  class="block mb-2 input-feild-label  text-sm font-medium text-white w-[13.5vw]"
                 ></label>
                 <button
                   type="button"

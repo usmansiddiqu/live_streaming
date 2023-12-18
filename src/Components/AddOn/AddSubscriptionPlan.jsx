@@ -20,6 +20,7 @@ function AddSubscriptionPlan() {
     });
     navigate("/admin/Tv_category");
   };
+  
   return (
     <div
       style={{
@@ -76,7 +77,7 @@ function AddSubscriptionPlan() {
               <div class="mb-5 input-feild w-[72vw] flex">
                 <label
                   for="name"
-                  class="block input-feild-label  mb-2 text-sm font-medium w-[17vw] text-gray-900 text-white"
+                  class="block input-feild-label  mb-2 text-sm font-medium w-[17vw]  text-white"
                 >
                  Price*
 
@@ -84,7 +85,7 @@ function AddSubscriptionPlan() {
                 <input
                   type="text"
                   id="name"
-                  class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
+                  class=" border-0  text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                   value={data.name}
                   required
                   onChange={(e) => setData({ ...data, name: e.target.value })}
@@ -93,13 +94,14 @@ function AddSubscriptionPlan() {
               <div class="mb-5 input-feild w-[72vw] flex  ">
                 <label
                   for="countries"
-                  class="block mb-2 input-feild-label  text-sm font-medium text-gray-900 dark:text-white w-[17vw]"
+                  class="block mb-2 input-feild-label  text-sm font-medium text-white w-[17vw]"
+                  style={{color:'white'}}
                 >
                   Status
                 </label>
                 <select
                   id="countries"
-                  class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                  class=" border-0  text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
                   defaultValue={data.status}
                   onChange={(e) => setData({ ...data, status: e.target.value })}
                 >

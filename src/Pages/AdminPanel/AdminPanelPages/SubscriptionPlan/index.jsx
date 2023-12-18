@@ -10,10 +10,10 @@ function SubscriptionPlan() {
   const navigate = useNavigate();
 
   const handleButtonClick = (id) => {
-    navigate(`/admin/Tv_category/edit_category/${id}`);
+    navigate(`/admin/subscription_plan/edit_subscription_plan/${id}`);
   };
   const handleCreateButtonClick = () => {
-    navigate("/admin/tv_category/add_category");
+    navigate("/admin/subscription_plan/add_subscription_plan");
   };
 
   const [data, setData] = useState();

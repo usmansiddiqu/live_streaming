@@ -17,34 +17,20 @@ function TeamScore({ teamA, teamB }) {
                 <thead>
                   <tr>
                     <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-center text-white border-2 border-[#373B3E]">
-<<<<<<< Updated upstream
-                      Name
-                    </th>
-                    <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white text-center border-2 border-[#373B3E]">
-                      Name
-=======
                       {teamA?.name}
                     </th>
                     <th className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-xs text-white text-center border-2 border-[#373B3E]">
                       {teamB?.name}
->>>>>>> Stashed changes
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="">
                     <td className="px-4 py-2 text-center lg:text-base md:text-sm sm:text-xs text-xs text-white border-2 border-[#373B3E]">
-<<<<<<< Updated upstream
-                      10
-                    </td>
-                    <td className="px-4 py-2 text-center  lg:text-base md:text-sm sm:text-xs text-xs text-white border-2 border-[#373B3E]">
-                      10
-=======
                       {teamA?.score || 0}
                     </td>
                     <td className="px-4 py-2 text-center  lg:text-base md:text-sm sm:text-xs text-xs text-white border-2 border-[#373B3E]">
                       {teamB?.score || 0}
->>>>>>> Stashed changes
                     </td>
                   </tr>
                 </tbody>
