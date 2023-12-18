@@ -30,60 +30,56 @@ const SearchCards = ({ data }) => {
   return (
     <>
       {isDekstop && (
-        <div
-          className="Cardslider"
-          style={{
-            width: "73%",
-            height: "AUTO",
-            display: "flex",
-            flexDirection: "column",
-            margin: "auto",
-          }}
-        >
-          <div className=" ml-1  ">
+        <>
+          <div
+            className="Cardslider "
+            style={{
+              width: "73%",
+              height: "AUTO",
+              display: "flex",
+              flexDirection: "column",
+              margin: "auto",
+              marginTop: "25px",
+            }}
+          >
+            {console.log(data)}
             <Splide options={{ ...splideOptions, width: 1400 }}>
               <>
-                <div
-                  className="seacrh-card-box  rounded-lg flex"
-                  style={{ overflow: "hidden" }}
-                >
-                  {data.map((item) => {
-                    return (
-                      <SplideSlide
-                        className="cardSlider flex flex-col items-center relative cursor-pointer bg-contain bg-center border"
-                        onClick={() =>
-                          navigate(
-                            `/${item?.channel?.TVCategory?.name}/live/${item._id}`
-                          )
-                        }
-                        style={{
-                          width: "100%;",
-                          height: "100vh",
-                          overflow: "hidden",
-                          background: item.channel?.TVLogo
-                            ? `url(${url}/${item.channel.TVLogo.replace(
-                                "uploads\\",
-                                ""
-                              )})`
-                            : `url(${background})`,
-                        }}
-                      ></SplideSlide>
-                    );
-                  })}
-
-                  <div
-                    className="w-[258px] search-card-bar h-[0] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center py-1.5 "
-                    style={{ bottom: "0%" }}
+                {data?.map((item) => (
+                  <SplideSlide
+                    options={{ ...splideOptions, width: 150 }}
+                    onClick={() =>
+                      navigate(
+                        `/${item?.channel?.TVCategory?.name}/live/${item._id}`
+                      )
+                    }
+                    className="cardSlider flex flex-col items-center relative cursor-pointer bg-contain bg-center searcCard"
+                    style={{
+                      width: "100%;",
+                      height: "100vh",
+                      overflow: "hidden",
+                      background: item.channel?.TVLogo
+                        ? `url(${url}/${item.channel.TVLogo.replace(
+                            "uploads\\",
+                            ""
+                          )})`
+                        : `url(${background})`,
+                    }}
                   >
-                    <span className="py-auto text-white font-medium">
-                      {/* {item?.data?.shortName} */}
-                    </span>
-                  </div>
-                </div>
+                    <div
+                      className="w-[258px] search-card-bar  h-[3vh] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center py-1.5 "
+                      style={{ bottom: "0%" }}
+                    >
+                      <span className="py-auto text-white font-medium">
+                        {item?.data?.shortName}
+                      </span>
+                    </div>
+                  </SplideSlide>
+                ))}
               </>
             </Splide>
           </div>
-        </div>
+        </>
       )}
       {isTabletOrMobile && (
         <div

@@ -32,15 +32,15 @@
     display: none;
   }
   .search-card-bar{
-    display: none;
+    visibility: hidden;
   }
   .searcCard:hover{
     transform:scale(1.1);
     transition: 0.3s ease-in-out;
   
    }
-  .seacrh-card-box:hover ~ .search-card-bar{
-    display: block;
+  .searcCard:hover ~ .search-card-bar{
+    visibility: visible;
     transition: 1s ease-in-out;
     height: 35px;
 
