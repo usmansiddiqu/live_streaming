@@ -73,7 +73,7 @@ function SubscriptionPlan() {
               </div>
 
               <table class="w-full mt-5 text-sm text-left rtl:text-right text-white">
-                <thead class=" w-[78vw] text-xs   text-white">
+                <thead class=" w-[78vw] text-xs text-white">
                   <tr>
                     <th
                       scope="col"

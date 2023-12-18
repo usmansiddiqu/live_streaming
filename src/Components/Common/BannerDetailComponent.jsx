@@ -26,7 +26,7 @@ function BannerDetailComponent({ data, url }) {
   return (
     <div className="flex !justify-center">
       {show ? (
-        <div className="chunchun">
+        <div className="chunchun mt-2">
           <ClapprPlayer url={url} />
         </div>
       ) : (

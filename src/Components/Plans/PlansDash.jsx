@@ -1,6 +1,7 @@
 import React from "react";
 import dashBoardImage from "../../utils/images/dashboardBanner.jpg";
 import Play from "../../Assets/Icons/play.png";
+import { Link } from "react-router-dom";
 function PlansDash() {
   return (
     <div
@@ -21,7 +22,7 @@ function PlansDash() {
           <h1 className="text-2xl z-20 font-semibold">Service Plan</h1>
         </div>
         <div className="flex  flex-row  z-20 justify-between !w-[200px]  headd items-center">
-          <a href="">Home</a>
+        <a > <Link to="/"> Home</Link></a>
           <img src={Play} alt="" className="w-[10px] h-[10px]" />
           <p>Service Plan</p>
         </div>

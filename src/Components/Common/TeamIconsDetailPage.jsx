@@ -18,7 +18,7 @@ function TeamIconsDetailPage({ iconsData, title }) {
             }}
           >
             {iconsData.map((icon, index) => (
-              <div key={index} className="flex flex-col items-center ">
+              <div key={index} className="flex flex-col items-center">
                 <img
                   src={icon.iconUrl}
                   alt={icon.name}

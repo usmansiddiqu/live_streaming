@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -23,13 +23,33 @@ import Profile from "../Assets/Icons/user.png";
 import Watchlist from "../Assets/Icons/watchlist.png";
 import Logout from "../Assets/Icons/logout.png";
 import clearLocalStorage from "../helper/localstorage";
+import cross from "../utils/images/cross.png";
 import { url } from "../helper/url";
+import SearchCards from "./Common/SearchCards";
+import getEvents from "../api/getEvents";
 
 function Nav() {
+  const [eventData, setEventData] = useState([]);
+  const [search, setSearch] = useState("");
   const [isModalOpen, setModalOpen] = useState(false);
+  const [sortedData, setSortedData] = useState([]);
 
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
+  const handleSearchChange = (event) => {
+    console.log("change");
+    setSearch(event.target.value);
+    setSortedData(filterArray(eventData, search));
+    console.log(sortedData);
+  };
+
+  const openModal = () => {
+    getData();
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setSearch("");
+    setSortedData([]);
+    setModalOpen(false);
+  };
   const isGoogleImageUrl = (url) => {
     const googleImageUrlRegex =
       /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
@@ -52,8 +72,6 @@ function Nav() {
       : null
   );
 
-  console.log(image);
-  console.log(data, "iamge123");
   const navigate = useNavigate();
 
   const toggleDropdown = () => {
@@ -78,6 +96,32 @@ function Nav() {
   const handleNavigate = () => {
     navigate("/membership_plan");
   };
+  const getData = async () => {
+    console.log("ere");
+    const { data: response } = await getEvents();
+    setEventData(response.events);
+    console.log(response.events);
+  };
+  function filterArray(arr, search) {
+    if (search.length >= 2) {
+      return arr.filter((item) => {
+        const tvCategory = item.channel.TVCategory.name.toLowerCase();
+        const competitorNames = item.data.competitors
+          .map((comp) => comp.displayName.toLowerCase())
+          .join(" ");
+
+        const searchLower = search.toLowerCase();
+
+        // Check if the search string is included in TV category names or competitor names
+        return (
+          tvCategory.includes(searchLower) ||
+          competitorNames.includes(searchLower)
+        );
+      });
+    }
+
+    return arr;
+  }
 
   return (
     <AppBar
@@ -88,16 +132,36 @@ function Nav() {
       }}
     >
       {isModalOpen && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-[#0D0721] bg-opacity-90 z-50">
-          <div className="p-8 rounded shadow-lg flex flex-col relative">
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center bg-[#0D0721] bg-opacity-90 z-50">
+          <div className="p-8 rounded shadow-lg flex flex-col item-center relative">
             <button
-              onClick={closeModal}
-              className="  bg-[#0D0721]  text-white px-4 py-2 rounded absolute right-[0px] top-[0px]"
+              onClick={() => {
+                closeModal();
+              }}
+              className="  text-white px-4 py-2 rounded absolute"
+              style={{ right: "2%" }}
             >
-              x
+              <img src={cross} height="30px" width="30px"></img>
             </button>
-            <label className="mt-5">Search</label>
-            <input className="w-[900px] bg-[#0D0721] px-2 py-1 mt-2 border-[#34236A]  "></input>
+            <div className="flex flex-col ">
+              <label className="mt-5 w-[60vw] search-bar mx-auto text-xl text-[#D9D9D9] font-medium">
+                SEARCH
+              </label>
+              <input
+                className="w-[60vw] search-bar mx-auto bg-[#0D0721] px-3 py-2 mt-2 border-2 outline-none !border-[#34236A] focus:!border-[#34236A] rounded-md "
+                placeholder="Title"
+                onChange={(e) => {
+                  handleSearchChange(e);
+                }}
+              />
+            </div>
+            {search.length > 2 ? (
+              <div className="bg-[#18132A] w-[100vw] h-[20vh] flex mt-4">
+                <SearchCards data={sortedData} />
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       )}
@@ -213,7 +277,6 @@ function Nav() {
                     className="search-Icon rounded-md flex justify-center items-center rounded-full w-[35px] h-[35px] bg-white-700 "
                     onClick={() => {
                       openModal();
-                      console.log(isModalOpen);
                     }}
                   >
                     <img src={Search} alt="" className="w-[17px] h-[17px]" />
