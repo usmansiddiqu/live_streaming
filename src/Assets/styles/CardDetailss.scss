@@ -31,20 +31,7 @@
   .team-namess {
     display: none;
   }
-  .search-card-bar{
-    visibility: hidden;
-  }
-  .searcCard:hover{
-    transform:scale(1.1);
-    transition: 0.3s ease-in-out;
-  
-   }
-  .searcCard:hover ~ .search-card-bar{
-    visibility: visible;
-    transition: 1s ease-in-out;
-    height: 35px;
-
-  }
+ 
   .team-icons:hover ~ .team-namess {
     display: block;
     transition: 1s ease-in-out;
@@ -53,6 +40,12 @@
   .team-names{
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+  }
+  .search-card-bar{
+    display: none;
+  }
+  .cardSlider:hover  .search-card-bar{
+    display: block;
   }
 
     .splide__arrow {

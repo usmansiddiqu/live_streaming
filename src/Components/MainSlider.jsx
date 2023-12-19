@@ -58,7 +58,7 @@ function MainSlider() {
             {data
               ?.filter((card) => card?.status)
               .map((card, key) => (
-                <SplideSlide className="rounded">
+                <SplideSlide className="rounded !h-[20vh]">
                   <img
                     src={url + "\\" + card.image.replace("uploads\\", "")}
                     alt={`Image ${key}`}
@@ -69,7 +69,7 @@ function MainSlider() {
                     className="text-white banner-text text-4xl font-bold absolute"
                     style={{
                       left: "2%",
-                      top: "58%",
+                      bottom: "-70%",
                     }}
                   >
                     {card?.title}

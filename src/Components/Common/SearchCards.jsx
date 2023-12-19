@@ -30,56 +30,62 @@ const SearchCards = ({ data }) => {
   return (
     <>
       {isDekstop && (
-        <>
-          <div
-            className="Cardslider "
-            style={{
-              width: "73%",
-              height: "AUTO",
-              display: "flex",
-              flexDirection: "column",
-              margin: "auto",
-              marginTop: "25px",
-            }}
-          >
-            {console.log(data)}
-            <Splide options={{ ...splideOptions, width: 1400 }}>
-              <>
+     <>
+
+        <div
+        className="Cardslider "
+        style={{
+          width: "73%",
+          height: "AUTO",
+          display: "flex",
+          flexDirection: "column",
+          margin: "auto",
+          marginTop: "25px",
+        }}
+      >
+        {console.log(data)}
+        <Splide options={{ ...splideOptions, width: 1400 }}>
+          <>
+      
                 {data?.map((item) => (
-                  <SplideSlide
-                    options={{ ...splideOptions, width: 150 }}
-                    onClick={() =>
-                      navigate(
-                        `/${item?.channel?.TVCategory?.name}/live/${item._id}`
-                      )
-                    }
-                    className="cardSlider flex flex-col items-center relative cursor-pointer bg-contain bg-center searcCard"
-                    style={{
-                      width: "100%;",
-                      height: "100vh",
-                      overflow: "hidden",
-                      background: item.channel?.TVLogo
-                        ? `url(${url}/${item.channel.TVLogo.replace(
-                            "uploads\\",
-                            ""
-                          )})`
-                        : `url(${background})`,
-                    }}
+              <SplideSlide
+              onClick={() =>
+                navigate(
+                  `/${item?.channel?.TVCategory?.name}/live/${item._id}`
+                )
+              }
+              options={{ ...splideOptions, width: 150 }}
+              className="cardSlider flex flex-col items-center relative cursor-pointer bg-contain  bg-center "
+              style={{
+                width: "100%;",
+                height: "100vh",
+                overflow: "hidden",
+                backgroundSize:'100%',
+                background: item.channel?.TVLogo
+            ? `url(${url}/${item.channel.TVLogo.replace(
+                "uploads\\",
+                ""
+              )})`
+            : `url(${background})`,
+              }} >
+                <div
+                className="w-[258px] search-card-bar  h-[3vh] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center  "
+                style={{ bottom: "0%" }}
                   >
-                    <div
-                      className="w-[258px] search-card-bar  h-[3vh] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center py-1.5 "
-                      style={{ bottom: "0%" }}
-                    >
-                      <span className="py-auto text-white font-medium">
-                        {item?.data?.shortName}
-                      </span>
-                    </div>
-                  </SplideSlide>
-                ))}
-              </>
-            </Splide>
-          </div>
-        </>
+                    <span className=" text-white font-medium">
+                      {item?.data?.shortName}
+                    </span>
+                  </div>
+            
+              </SplideSlide>
+            ))}
+   
+            
+
+ 
+          </>
+        </Splide>
+      </div></>
       )}
       {isTabletOrMobile && (
         <div
@@ -95,25 +101,38 @@ const SearchCards = ({ data }) => {
           <div className=" ml-1">
             <Splide options={{ ...splideOptions, width: 1400 }}>
               <>
+              {data?.map((item) => (
+              <SplideSlide
+              onClick={() =>
+                navigate(
+                  `/${item?.channel?.TVCategory?.name}/live/${item._id}`
+                )
+              }
+              options={{ ...splideOptions, width: 150 }}
+              className="cardSlider flex flex-col items-center relative cursor-pointer bg-contain  bg-center "
+              style={{
+                width: "100%;",
+                height: "100vh",
+                overflow: "hidden",
+                background: item.channel?.TVLogo
+            ? `url(${url}/${item.channel.TVLogo.replace(
+                "uploads\\",
+                ""
+              )})`
+            : `url(${background})`,
+              }} >
                 <div
-                  className="seacrh-card-box  rounded-lg "
-                  style={{ overflow: "hidden" }}
-                >
-                  <SplideSlide
-                    className="cardSlider flex flex-col items-center relative cursor-pointer bg-cover bg-center searcCard"
-                    style={{
-                      width: "100%;",
-                      height: "100vh",
-                      overflow: "hidden",
-                    }}
-                  ></SplideSlide>
-                </div>
-                <div
-                  className="w-[258px] search-card-bar h-[0] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center py-1.5 "
-                  style={{ bottom: "0%" }}
-                >
-                  <span className="py-auto text-white font-medium">kokok </span>
-                </div>
+                className="w-[258px] search-card-bar  h-[3vh] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center  "
+                style={{ bottom: "0%" }}
+                  >
+                    <span className=" text-white font-medium">
+                      {item?.data?.shortName}
+                    </span>
+                  </div>
+            
+              </SplideSlide>
+            ))}
+   
               </>
             </Splide>
           </div>

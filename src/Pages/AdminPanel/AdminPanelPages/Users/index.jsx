@@ -86,7 +86,7 @@ function Users() {
             <div class="relative overflow-x-auto shadow-md edit-contain ">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center  w-[30%] tvChannel-head justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center  tvChannel-head justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
                     {/* <div className="bg-[#313133] Category-Filter rounded">
                       <button
                         id="dropdownActionButton"

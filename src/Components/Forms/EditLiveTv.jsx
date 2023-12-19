@@ -425,23 +425,23 @@ function EditLiveTv() {
                 </div>
                 <div class="mb-5 input-feild w-[37vw] ">
                   <div className="flex flex-col w-full">
-                    <div className="flex input-feild  items-center ">
+                  <div className="flex input-feild  items-center ">
                       <label
                         for="email"
-                        class="block mb-2  text-sm font-medium w-[13vw]   tv-logo  text-white "
+                        class="block mb-2  text-sm font-medium w-[16vw] tv-logo text-gray-900 text-white  "
                       >
                         TV Logo*
                       </label>
-                      <div class="flex upload-img w-[20vw] ">
+                      <div class="flex upload-img w-full">
                         <div
-                          class="file-upload-wrapper2  rounded text-sm text-gray-50 "
+                          class="file-upload-wrapper2  rounded text-sm text-gray-50  "
                           data-text="Choose File.."
                         >
                           <input
                             type="file"
-                            class=" appearance-none items-center py-2 block upload-input w-full text-gray-700  rounded  focus:outline-none "
+                            class=" appearance-none items-center py-2 block upload-input w-full text-white  rounded  focus:outline-none "
                             onChange={handleFileChange}
-                            // value={logo}
+                            value=""
                           />
                         </div>
                       </div>

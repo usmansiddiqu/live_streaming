@@ -118,6 +118,12 @@ li a {
     width: 10% !important;
     margin: auto;
   }
+  .tvChannel-head{
+    width: 23vw;
+  }
+  .tvChannel-head2 {
+    width: 42vw;
+  }
 
   .red-bar {
     width: 12.7vw;
@@ -185,9 +191,19 @@ li a {
   .red-bar {
     width: 14.4vw;
   }
+  .banner-text{
+    bottom: -90% !important;
+  } 
   .Cardslider {
     width: 73% !important;
   }
+  .tvChannel-head{
+    width: 25vw;
+  }
+  .tvChannel-head2 {
+    width: 38vw;
+  }
+
   .card-match {
     width: 73vw;
   }
@@ -387,14 +403,7 @@ li a {
 .new-footer-box {
   width: 100vw;
 }
-.pay-cardds {
-  width: 93vw !important;
-  height: 30vh;
-}
-.pay-card-box {
-  width: 98vw;
-  padding: 10;
-}
+
 .coupan-btn {
   margin-top: 10px;
 }
@@ -507,6 +516,7 @@ li a {
   }
   .Useredit-side {
     width: 100%;
+    height: 23vh !important;
     margin: 0;
     margin-top: 10px;
   }
@@ -515,7 +525,6 @@ li a {
   }
   .sub-type {
     width: auto;
-    border: 1px solid;
     justify-content: space-around;
   }
   .main-page {
@@ -728,7 +737,6 @@ li a {
   .userhisotryy {
     width: 100%;
     height: 50vh;
-    background-color: red;
   }
   .main-user-container {
     width: 106vw;
@@ -740,7 +748,6 @@ li a {
 
   .address-ip {
     max-width: 45vw;
-    min-height: 10vh;
   }
   .edit-con {
     left: 7% !important;
@@ -825,11 +832,9 @@ li a {
     left: 0%;
     top: -20%;
   }
+
   .watch-img {
-    height: 35vh !important;
-  }
-  .watch-img {
-    height: 35vh !important;
+    height: 30vh !important;
   }
   .tem-icons {
     height: 30px !important;
@@ -1067,12 +1072,22 @@ li a {
   .signup-Bg {
     width: 100%;
     /* height: 50vh; */
+   
   }
+
   .card-con {
     width: 90vw !important;
   }
   .nfl-view {
     margin-top: 0px;
+  }
+  .pay-cardds {
+    width: 100% !important;
+    height: 20vh;
+  }
+  .pay-card-box {
+    width: 70vw;
+    padding: 10;
   }
   .bg-tab-mb {
     height: 32vh;
@@ -1234,6 +1249,37 @@ li a {
     display: block;
     margin-top: 10px;
   }
+  .main-user-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .user-edit {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .user-info {
+    width: 100%;
+    padding: 0;
+    margin-top: 10px;
+  }
+  .active-user-btn {
+    margin-left: -50px;
+  }
+  .Useredit-side {
+    width: 100%;
+    height: 18vh;
+    margin: 0;
+    margin-top: 10px;
+  }
+  .user-transaction {
+    margin-top: 10px;
+  }
+  .sub-type {
+    width: auto;
+    justify-content: space-around;
+  }
+
   .side-icon {
     width: 5.5vw !important;
   }
