@@ -44,7 +44,7 @@ function AdminProfile() {
       getUser();
     } catch (error) {
       console.log(error);
-      setError(error.response.data.message);
+      setError(error?.response?.data?.message);
     }
   };
   const getUser = async () => {
@@ -52,22 +52,22 @@ function AdminProfile() {
       console.log(JSON.parse(user)._id);
 
       const response = await getSpecificUser(JSON.parse(user)._id);
-      console.log(response.data.data.name);
-      setName(response.data.data.user?.name);
-      setEmail(response.data.data.user?.email);
-      setPhone(response.data.data.user?.phone);
+      console.log(response.data.user.name);
+      setName(response?.data?.user?.name);
+      setEmail(response?.data?.user?.email);
+      setPhone(response?.data?.user?.phone);
       setImage(
-        url + "\\" + response.data.data.user?.image.replace("uploads\\", "")
+        url + "\\" + response?.data?.user?.image.replace("uploads\\", "")
       );
     } catch (error) {
       console.log(error);
-      setError(error.response.data.message);
+      setError(error?.response?.data?.message);
     }
   };
-  useEffect(() => {
-    console.log("running");
-    getUser();
-  }, []);
+  // useEffect(() => {
+  //   console.log("running");
+  //   getUser();
+  // }, []);
 
   return (
     <div
