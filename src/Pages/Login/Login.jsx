@@ -26,14 +26,12 @@ function Login() {
       setError(data?.error);
     } else {
       setError(null);
-      console.log(data?.data);
       localStorage.setItem("token", data.data.token);
       localStorage.setItem("data", JSON.stringify(data.data.user));
       navigate("/");
     }
   };
   const onSuccess = async (res) => {
-    console.log(res);
     const { data } = await loginWithGoogle({
       name: res.name,
       email: res.email,
@@ -42,7 +40,6 @@ function Login() {
     });
 
     if (data?.error) {
-      console.log(data);
       setError(data?.error);
     } else {
       setError(null);
@@ -126,7 +123,7 @@ function Login() {
                 {error && <ErrorComponent message={error} />}
                 <div>
                   <input
-                    style={{color:'white'}}
+                    style={{ color: "white" }}
                     type="email"
                     name="email"
                     id="email"
@@ -138,7 +135,7 @@ function Login() {
                 </div>
                 <div>
                   <input
-                    style={{color:'white'}}
+                    style={{ color: "white" }}
                     type="password"
                     name="password"
                     id="password"
@@ -152,7 +149,6 @@ function Login() {
                   <div class="flex items-start">
                     <div class="flex items-center h-5">
                       <input
-                    
                         id="remember"
                         aria-describedby="remember"
                         type="checkbox"

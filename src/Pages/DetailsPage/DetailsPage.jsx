@@ -8,15 +8,35 @@ import DetailsSlider from "../../Components/Common/DetailsSlider";
 import getEventById from "../../api/eventById";
 import { useParams, useNavigate } from "react-router-dom";
 import BannerDetailSlider from "../../Components/Common/BannerSlider";
+import axios from "axios";
 function DetailsPage() {
   const navigate = useNavigate();
   const [url, setUrl] = useState(null);
   const params = useParams();
   const [data, setData] = useState(null);
+  const checkUrl = async () => {
+    try {
+      await axios.get(url, {
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
   const getData = async () => {
-    const { data: response } = await getEventById(params.id);
-    setData(response.events);
-    setUrl(response.events?.channel?.server2URL);
+    try {
+      const { data: response } = await getEventById(params.id);
+      setData(response.events);
+      const result = await checkUrl(response.events?.channel?.server1URL);
+      if (result) {
+        setUrl(response.events?.channel?.server1URL);
+      } else {
+        setUrl(response.events?.channel?.server2URL);
+      }
+    } catch (error) {}
   };
   useEffect(() => {
     getData();
@@ -37,7 +57,6 @@ function DetailsPage() {
     <div>
       <Navbar />
       {url ? <DetailsComponent data={data} url={url} /> : <></>}
-      {console.log(123, data)}
       <DetailsDescription data={data} setUrl={setUrl} />
       <TeamScore
         teamA={{

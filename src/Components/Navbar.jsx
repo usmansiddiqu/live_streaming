@@ -27,6 +27,7 @@ import cross from "../utils/images/cross.png";
 import { url } from "../helper/url";
 import SearchCards from "./Common/SearchCards";
 import getEvents from "../api/getEvents";
+import { useMediaQuery } from "react-responsive";
 
 function Nav() {
   const [eventData, setEventData] = useState([]);
@@ -71,6 +72,7 @@ function Nav() {
         : url + "\\" + data.image.replace("uploads\\", "")
       : null
   );
+  const isDesktop = useMediaQuery({ query: "(min-width: 1001px)" });
 
   const navigate = useNavigate();
 
@@ -191,16 +193,7 @@ function Nav() {
               background: "#00022b",
             }}
           >
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
+         
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -223,13 +216,13 @@ function Nav() {
                 <MenuItem
                   onClick={handleCloseNavMenu}
                   style={{
-                    background: "#00022b",
+                    background: "white",
                   }}
                 >
                   <div
                     className="w-[100vw] m-auto"
                     style={{
-                      background: "#00022b",
+                      background: "white",
                     }}
                   >
                     <NavLinks />
@@ -286,19 +279,29 @@ function Nav() {
                 <div>
                   {data ? (
                     <div className="avatar-profile">
-                      <img
-                        className="avatar w-[40px] h-[40px] rounded-full cursor-pointer"
-                        onClick={toggleDropdown}
-                        src={
-                          typeof image === "string"
-                            ? isGoogleImageUrl(image)
-                              ? image
-                              : image instanceof File
-                              ? URL.createObjectURL(image)
-                              : image
-                            : avatar
-                        }
-                      />
+                     {
+                      isDesktop ? (
+                        <img
+                          className="avatar w-[40px] h-[40px] rounded-full cursor-pointer"
+                          onClick={toggleDropdown}
+                          src={
+                            typeof image === "string"
+                              ? isGoogleImageUrl(image)
+                                ? image
+                                : image instanceof File
+                                ? URL.createObjectURL(image)
+                                : image
+                              : avatar
+                          }
+                        />
+                      ) : (
+                        <div className="w-[55px]" onClick={toggleDropdown} >
+                        <div className="Sub-Icon rounded-md flex justify-center items-center">
+                          <img    src={Account} alt="" className="w-[21px] h-[25px]" />
+                        </div>
+                      </div>
+                      )
+                    }
                       {isDropdownOpen && (
                         <>
                           <div>
@@ -453,8 +456,31 @@ function Nav() {
                     </button>
                   )}
                 </div>
+            <div className="nav-menu-btn flex flex-center items-center relative" style={{
+              width:'40px',
+              height:'40px',
+              borderRadius:'50%',
+              background:'#332360',
+              
+            }}>
+           <div  className="absolute"
+           style={{marginTop:'-4px',marginRight:'0px',right:'-10%'}}>
+           <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+           </div>
+            </div>
               </div>
+              
             </Tooltip>
+            
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -472,6 +498,7 @@ function Nav() {
             >
               <div className="Profile-DropDown"></div>
             </Menu>
+            
           </Box>
         </Toolbar>
       </Container>
