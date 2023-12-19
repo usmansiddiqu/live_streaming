@@ -1383,6 +1383,19 @@ li a {
 }
 
 /* Card media QUeerry */
+@media screen and (max-width: 1366px) {
+.banner-btnss{
+  margin-top: -190px !important;
+}
+.banner-Buttons{
+  width: 20vw !important;
+
+}
+.card-match{
+  width: 76vw;
+}
+
+}
 @media screen and (max-width: 1024px) {
   .mbl-bg-img{
     height: 70vh;
