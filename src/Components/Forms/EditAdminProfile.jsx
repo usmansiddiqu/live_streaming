@@ -8,7 +8,7 @@ import editSubAdmin from "../../api/updateSubadmin";
 import { useEffect } from "react";
 function AdminProfile() {
   const [data, setData] = useState(JSON?.parse(localStorage?.getItem("data")));
-  const [image, setImage] = useState(data?.image ? data.image : null);
+  const [image, setImage] = useState(data?.image ? data.image : "");
   const [user, setUser] = useState(localStorage.getItem("data"));
 
   const [name, setName] = useState(data?.name);
@@ -16,7 +16,6 @@ function AdminProfile() {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState(data?.phone);
   const [error, setError] = useState("");
-
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
@@ -40,7 +39,6 @@ function AdminProfile() {
     formData.append("image", image);
     try {
       const response = await editSubAdmin(formData);
-      console.log(response);
       getUser();
     } catch (error) {
       console.log(error);
@@ -49,25 +47,34 @@ function AdminProfile() {
   };
   const getUser = async () => {
     try {
-      console.log(JSON.parse(user)._id);
-
       const response = await getSpecificUser(JSON.parse(user)._id);
-      console.log(response.data.user.name);
-      setName(response?.data?.user?.name);
-      setEmail(response?.data?.user?.email);
-      setPhone(response?.data?.user?.phone);
+      setName(response.data.data?.name);
+      setEmail(response.data.data?.email);
+      setPhone(response.data.data?.phone);
+
       setImage(
-        url + "\\" + response?.data?.user?.image.replace("uploads\\", "")
+        url +
+          "\\" +
+          response.data.data?.image
+            .replace("uploads\\", "")
+            .replace("uploads/", "")
+      );
+      console.log(
+        typeof image === "string"
+          ? image
+          : image instanceof File
+          ? URL.createObjectURL(image)
+          : null
       );
     } catch (error) {
       console.log(error);
       setError(error?.response?.data?.message);
     }
   };
-  // useEffect(() => {
-  //   console.log("running");
-  //   getUser();
-  // }, []);
+  useEffect(() => {
+    console.log("running");
+    getUser();
+  }, []);
 
   return (
     <div
