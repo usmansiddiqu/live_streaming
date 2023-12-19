@@ -873,11 +873,11 @@ li a {
   .palceandtimeheight {
     height: 5vh;
   }
-  .dash-card {
+  /* .dash-card {
     width: 100vw;
     height: 30vh !important;
     margin-right: 10px;
-  }
+  } */
   .dash-main {
     width: 100%;
     padding: 10px;
@@ -1383,7 +1383,7 @@ li a {
 }
 
 /* Card media QUeerry */
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1368px) {
 .banner-btnss{
   margin-top: -190px !important;
 }
@@ -1394,8 +1394,26 @@ li a {
 .card-match{
   width: 76vw;
 }
+.dash-main{
+  width: 100%;
+}
+.dash-card{
+width: 24vw;
+height: 27vh;
+}
 
 }
+@media screen and (max-width: 1290px) {
+
+  .dash-main{
+    width: 100%;
+  }
+  .dash-card{
+  width: 24vw;
+  height: 30vh;
+  }
+  
+  }
 @media screen and (max-width: 1024px) {
   .mbl-bg-img{
     height: 70vh;
@@ -1460,7 +1478,13 @@ li a {
 .mbl-bg-img{
   height: 28vh;
 }
+.dash-card{
+  width: 100vw;
+  height: 30vh;
+  }
 }
+
+
 @media screen and (max-width: 490px) {
   .card-con{
 
