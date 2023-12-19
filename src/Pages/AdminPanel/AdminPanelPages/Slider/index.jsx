@@ -131,7 +131,11 @@ function AdminSlider() {
                           <div className="tv-img w-[150px] h-[84px]">
                             <img
                               src={
-                                url + "\\" + sldr.image.replace("uploads\\", "")
+                                url +
+                                "\\" +
+                                sldr.image
+                                  .replace("uploads\\", "")
+                                  .replace("uploads/", "")
                               }
                               alt=""
                               className="w-[150px] h-[84px]"
