@@ -27,15 +27,16 @@ function DetailsPage() {
     }
   };
   const getData = async () => {
-    const { data: response } = await getEventById(params.id);
-    setData(response.events);
-
-    const result = await checkUrl(response?.data?.liveTV?.server1URL);
-    if (result) {
-      setUrl(response?.data?.liveTV?.server1URL);
-    } else {
-      setUrl(response?.data?.liveTV?.server2URL);
-    }
+    try {
+      const { data: response } = await getEventById(params.id);
+      setData(response.events);
+      const result = await checkUrl(response.events?.channel?.server1URL);
+      if (result) {
+        setUrl(response.events?.channel?.server1URL);
+      } else {
+        setUrl(response.events?.channel?.server2URL);
+      }
+    } catch (error) {}
   };
   useEffect(() => {
     getData();
@@ -56,7 +57,6 @@ function DetailsPage() {
     <div>
       <Navbar />
       {url ? <DetailsComponent data={data} url={url} /> : <></>}
-      {console.log(123, data)}
       <DetailsDescription data={data} setUrl={setUrl} />
       <TeamScore
         teamA={{
