@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import DetailsComponent from "../../Components/Common/DetailsComponent";
@@ -10,16 +10,34 @@ import { useParams } from "react-router-dom";
 import getSpecificDetails from "../../api/slider.api";
 import BannerDetailComponent from "../../Components/Common/BannerDetailComponent";
 import BannerDetailsDescription from "../../Components/Common/BannerDetailsDescription";
+import axios from "axios";
 function BannerPage() {
   const [url, setUrl] = useState("");
   const params = useParams();
   const [data, setData] = useState(null);
+  const checkUrl = async () => {
+    try {
+      await axios.get(url, {
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
   const getData = async () => {
     const { data: response } = await getSpecificDetails(params.id);
     setData(response?.data);
-    setUrl(data?.liveTV?.server1URL);
+    const result = await checkUrl(response?.data?.liveTV?.server1URL);
+    if (result) {
+      setUrl(response?.data?.liveTV?.server1URL);
+    } else {
+      setUrl(response?.data?.liveTV?.server2URL);
+    }
   };
-  useEffect(() => {
+  useMemo(() => {
     getData();
   }, [params.id]);
 
