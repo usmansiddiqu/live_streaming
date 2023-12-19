@@ -112,6 +112,25 @@ li a {
     opacity: 1;
   }
 }
+@media screen and (max-width:1500px) {
+  .score-card{
+    min-width: 270px;
+  }
+  
+}
+@media screen and (max-width:680px) {
+  .card-con {
+    width: 56vw;
+
+   
+  }
+  .score-card{
+    min-width: 270px;
+    height: 200px;
+  }
+  
+  
+}
 
 @media screen and (max-width: 2600px) {
   .play-wrapper[data-poster] {
@@ -195,7 +214,7 @@ li a {
     width: 14.4vw;
   }
   .banner-text{
-    bottom: -90% !important;
+    bottom: -60% !important;
   } 
   .Cardslider {
     width: 73% !important;
@@ -357,6 +376,10 @@ li a {
     display: flex;
     flex-direction: column;
   }
+  .score-card{
+    min-width: 330px;
+    height: 200px;
+  }
 
   .cardd {
     width: 100px !important;
@@ -420,9 +443,7 @@ li a {
 }
 
 @media screen and (max-width: 480px) {
-  .card-con {
-    width: 90vw !important;
-  }
+
   .wrapper {
     gap: 15px;
   }
@@ -580,6 +601,9 @@ li a {
   .main-profile-img {
     margin: auto;
   }
+  .mbl-bg-img{
+    height: 30vh !important;
+  }
   .Edit-container {
     display: flex;
     flex-direction: column;
@@ -698,9 +722,7 @@ li a {
   .sliderHeader {
     width: 95% !important;
   }
-  .card-con {
-    width: 90vw !important;
-  }
+
   .contact-form {
     flex-direction: column;
     width: 100%;
@@ -727,6 +749,10 @@ li a {
 @media screen and (max-width: 430px) {
   .tem-p {
     font-size: 10px !important;
+  }
+  .card-con {
+    width: 80vw ;
+   
   }
   .search-bar {
     width: 98vw;
@@ -1004,6 +1030,7 @@ li a {
   .mbl-bg-img {
     height: 28vh !important;
   }
+ 
   .team-p {
     font-size: 16px;
   }
@@ -1097,6 +1124,7 @@ li a {
     /* height: 50vh; */
    
   }
+
   .nav-menu-btn{
     display: block;
   }
@@ -1108,7 +1136,7 @@ li a {
   }
 
   .card-con {
-    width: 90vw !important;
+    width: 90vw;
   }
   .nfl-view {
     margin-top: 0px;
@@ -1352,4 +1380,103 @@ li a {
   .tem-img {
     margin-top: -10px;
   }
+}
+
+/* Card media QUeerry */
+@media screen and (max-width: 1024px) {
+  .mbl-bg-img{
+    height: 70vh;
+  }
+  .banner-Buttons{
+    width: 27vw !important;
+    margin-top: 120px;
+
+  }
+  .banner-textt{
+    margin-top: 5%;
+  }
+  .sliderHeader{
+    width: 100%;
+  }
+  .Cardslider{
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  
+  .card-con{
+    width: 100vw;
+
+    margin-left: 20px;
+    padding: 0;
+  }
+  .contain-card{
+    width: 100vw;
+  }
+  .banner-textt{
+    margin-top: 0%;
+  }
+  .banner-Buttons{
+    width: 27vw !important;
+    margin-top: 45px;
+
+  }
+
+}
+@media screen and (max-width: 645px) {
+  
+  .card-con{
+    width: 47vw;
+
+  }
+  .deatil-container {
+    height: 20rem;
+    margin-top: 0px !important;
+  }
+
+}
+@media screen and (max-width: 550px) {
+  .card-con{
+
+    width: 55vw;
+  }
+.boox{
+  width: 100%;
+}
+.mbl-bg-img{
+  height: 28vh;
+}
+}
+@media screen and (max-width: 490px) {
+  .card-con{
+
+    width: 65vw;
+  }
+
+}
+@media screen and (max-width: 450px) {
+  .card-con{
+
+    width: 78vw;
+
+  }
+  .banner-Buttons{
+    width: 50vw !important;
+  }
+
+}
+@media screen and (max-width: 390px) {
+  .card-con{
+
+    width: 85vw;
+  }
+  .banner-Buttons{
+    width: 60vw !important;
+  }
+  .boox{
+    width: 90% !important;
+  }
+
+
 }

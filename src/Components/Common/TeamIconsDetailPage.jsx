@@ -40,7 +40,7 @@ function TeamIconsDetailPage({ iconsData, title }) {
       {isTabletOrMobile && (
         <>
           <div
-            className="px-2 pr-6 py-3 team-icons"
+            className="px-2 pr-6 py-3"
             style={{
               height: "100%",
               display: "flex",

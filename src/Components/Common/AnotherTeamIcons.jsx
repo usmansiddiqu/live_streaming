@@ -53,7 +53,7 @@ function AnotherTeamIcons({ iconsData }) {
                 src={icon.iconUrl}
                 alt={icon.name}
                 style={{ width: "50px", height: "50px" }}
-                className="team-icons"
+               
               />
               <p className="text-sm text-white font-medium team-p">
                 {icon.name}

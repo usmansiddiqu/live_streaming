@@ -9,8 +9,8 @@ import { useMediaQuery } from "react-responsive";
 import CarouselSlider from "./CarouselSlider";
 
 function MainSlider() {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
-  const isDekstop = useMediaQuery({ query: "(min-width: 1001px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1024px)" });
+  const isDekstop = useMediaQuery({ query: "(min-width: 1025px)" });
   const [data, setData] = useState([]);
   const getData = async () => {
     const { data: response } = await getSliders();
