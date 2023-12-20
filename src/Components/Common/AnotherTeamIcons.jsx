@@ -16,7 +16,7 @@ function AnotherTeamIcons({ iconsData }) {
           {iconsData.map((icon, index) => (
             <div key={index} className=" flex flex-col  items-center px-6 mt-2">
               <p className="text-2xl text-white font-medium text-white mb-1 score">
-                0
+                {icon?.score || 0}
               </p>
               <img
                 src={icon.iconUrl}
@@ -47,13 +47,12 @@ function AnotherTeamIcons({ iconsData }) {
               className="flex flex-col items-center team-img pl-2 "
             >
               <p className="text-2xl text-white font-medium text-white  score mt-2">
-                0
+                {icon?.score || 0}
               </p>
               <img
                 src={icon.iconUrl}
                 alt={icon.name}
                 style={{ width: "50px", height: "50px" }}
-               
               />
               <p className="text-sm text-white font-medium team-p">
                 {icon.name}
