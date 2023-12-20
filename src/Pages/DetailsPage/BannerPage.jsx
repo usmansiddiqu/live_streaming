@@ -41,8 +41,6 @@ function BannerPage() {
     getData();
   }, [params.id]);
 
-  console.log(data);
-
   return (
     <div>
       <Navbar />
