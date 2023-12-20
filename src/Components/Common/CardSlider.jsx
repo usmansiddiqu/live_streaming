@@ -6,6 +6,7 @@ import TeamIcons from "./TeamIcons";
 import { useNavigate } from "react-router-dom";
 import Ended from "./Ended";
 import { useMediaQuery } from "react-responsive";
+import moment from "moment";
 
 const CardSlider = ({ data }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
@@ -48,6 +49,29 @@ const CardSlider = ({ data }) => {
                       new Date(b.data.date).getTime()
                     );
                   })
+                  .sort((a, b) => {
+                    const eventTimeA = moment(a.data.date).utc();
+                    const eventTimeB = moment(b.data.date).utc();
+                    const currentTimeLocal = moment();
+
+                    const isLiveA = currentTimeLocal.isBetween(
+                      eventTimeA,
+                      eventTimeA.clone().add(4, "hours")
+                    );
+                    const isLiveB = currentTimeLocal.isBetween(
+                      eventTimeB,
+                      eventTimeB.clone().add(4, "hours")
+                    );
+
+                    // The following comparison will bring live events to the front
+                    if (isLiveA && !isLiveB) {
+                      return -1;
+                    } else if (!isLiveA && isLiveB) {
+                      return 1;
+                    } else {
+                      return 0;
+                    }
+                  })
                   .map((item) => (
                     <SplideSlide
                       options={{ ...splideOptions, width: 150 }}
@@ -83,19 +107,21 @@ const CardSlider = ({ data }) => {
                         </p>
                       </div>
 
-                      <div className="container relative " style={{ marginTop: "25px" }}>
+                      <div
+                        className="container relative "
+                        style={{ marginTop: "25px" }}
+                      >
                         <div className="">
-                        <TeamIcons
-                          iconsData={item.data.competitors.map((comp) => ({
-                            iconUrl: comp.logo,
-                            name: comp.name,
-                          }))}
-                        />
+                          <TeamIcons
+                            iconsData={item.data.competitors.map((comp) => ({
+                              iconUrl: comp.logo,
+                              name: comp.name,
+                            }))}
+                          />
                         </div>
-                         <div className="card-live-end">
-                         <Ended show={item?.data?.date} />
-              </div>
-                        
+                        <div className="card-live-end">
+                          <Ended show={item?.data?.date} />
+                        </div>
                       </div>
                     </SplideSlide>
                   ))}

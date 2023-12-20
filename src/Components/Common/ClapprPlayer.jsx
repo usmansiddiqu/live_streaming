@@ -23,7 +23,7 @@ function ClapprPlayer({ url, setShow }) {
       parentId: "#videoPlayer",
       width: width.toString(),
       height: height.toString(),
-      mute: true,
+      mute: false,
       autoPlay: true,
       events: {
         onReady: function () {
