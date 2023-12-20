@@ -14,7 +14,10 @@ function SliderHeader(props) {
       }}
       className="sliderHeader"
     >
-      <h1 className="font-medium" style={{ color: "white", fontSize: "24px" }}>
+      <h1
+        className="font-medium slider-head-text"
+        style={{ color: "white", fontSize: "24px" }}
+      >
         {props.title}
       </h1>
       <span className="header-view px-3">

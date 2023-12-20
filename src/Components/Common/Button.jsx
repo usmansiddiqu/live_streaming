@@ -27,7 +27,7 @@ function Button(props) {
             className="w-[18px] h-[18px] img-icon"
             style={{ borderRadius: "0px" }}
           />
-          <span>{props.text}</span>
+          <span className="text-btnn">{props.text}</span>
         </div>
       </button>
     </>

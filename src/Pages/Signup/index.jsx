@@ -59,7 +59,7 @@ function Signup() {
         <div className="left-side w-[60%] h-full flex items-center relative">
           <div className="overflow-x-hidden absolute overflow-y-auto w-[60%] h-full fixed h-modal md:h-full signup-Bg "></div>
           <div className="relative w-[100%] mx-autoflex flex-col items-center h-[35vh] signup  my-auto">
-            <div className="flex flex-col ">
+            <div className="flex flex-col sign-text">
               <a
                 href="#"
                 class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
@@ -70,7 +70,7 @@ function Signup() {
                   alt="Your Company"
                 />
               </a>
-              <h1 className="text-white text-5xl font-bold italic w-[20vw]  text-center mx-auto">
+              <h1 className="text-white text-5xl font-bold italic w-[20vw] banner-sign-text  text-center mx-auto">
                 STREAM LIVE SPORTS ONLINE IN 4K
               </h1>
               <div className="icons flex  w-[200px] justify-between items-center mx-auto mt-5">
@@ -83,8 +83,8 @@ function Signup() {
           </div>
         </div>
         {/* Right Side */}
-        <div className="right-side w-[40%]  m-auto ">
-          <section class="flex flex-col items-center pt-6 ">
+        <div className="right-side w-[40%]  m-auto bg-white">
+          <section class="flex flex-col items-center ">
             <div class="w-full rounded-lg  md:mt-0 sm:max-w-md xl:p-0">
               <div class="p-6 space-y-4 md:space-y-6 sm:p-8 ">
                 <div>

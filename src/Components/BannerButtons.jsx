@@ -19,7 +19,7 @@ function BannerButtons({ onWatch }) {
       <Button
         text="BUY PLAN"
         src={Crown}
-        className="post-Button rounded text-"
+        className="post-Button rounded text-sm "
         style={{
           boxShadow: "1px 2px 14px 7px rgba(0,0,0,0.51)",
         }}

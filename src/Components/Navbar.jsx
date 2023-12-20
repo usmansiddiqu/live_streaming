@@ -193,7 +193,6 @@ function Nav() {
               background: "#00022b",
             }}
           >
-         
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -260,7 +259,6 @@ function Nav() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip>
               <div className="nav-Icons">
-                
                 <div className="w-[50px]">
                   <div
                     className="search-Icon rounded-md flex justify-center items-center rounded-full w-[35px] h-[35px] bg-white-700 "
@@ -280,8 +278,7 @@ function Nav() {
                 <div>
                   {data ? (
                     <div className="avatar-profile">
-                     {
-                      isDesktop ? (
+                      {isDesktop ? (
                         <img
                           className="avatar w-[40px] h-[40px] rounded-full cursor-pointer"
                           onClick={toggleDropdown}
@@ -296,13 +293,16 @@ function Nav() {
                           }
                         />
                       ) : (
-                        <div className="w-[55px]" onClick={toggleDropdown} >
-                        <div className="Sub-Icon rounded-md flex justify-center items-center">
-                          <img    src={Account} alt="" className="w-[21px] h-[25px]" />
+                        <div className="w-[55px]" onClick={toggleDropdown}>
+                          <div className="Sub-Icon rounded-md flex justify-center items-center">
+                            <img
+                              src={Account}
+                              alt=""
+                              className="w-[21px] h-[25px]"
+                            />
+                          </div>
                         </div>
-                      </div>
-                      )
-                    }
+                      )}
                       {isDropdownOpen && (
                         <>
                           <div>
@@ -431,57 +431,88 @@ function Nav() {
                       )}
                     </div>
                   ) : (
-                    <button className="w-[100px] h-[35px] rounded-md bg-blue-700 nav-Btn">
-                      <div
-                        className="w-[70px] h-[35px]  flex justify-between items-center"
-                        style={{ margin: "auto" }}
-                      >
-                        <div style={{ width: "18px", height: "18px" }}>
-                          <img
-                            src={
-                              typeof image === "string"
-                                ? isGoogleImageUrl(image)
-                                  ? image
-                                  : image instanceof File
-                                  ? URL.createObjectURL(image)
-                                  : image
-                                : null
-                            }
-                            alt=""
-                          />
-                        </div>
-                        <span style={{ fontSize: "14px" }} className="mr-3 ">
-                          <Link to="/login"> LOGIN</Link>
-                        </span>
-                      </div>
-                    </button>
+                    <>
+                      {isDesktop ? (
+                        <button className="w-[100px] h-[35px] rounded-md bg-blue-700 nav-Btn">
+                          <div
+                            className="w-[70px] h-[35px]  flex justify-between items-center"
+                            style={{ margin: "auto" }}
+                          >
+                            <div style={{ width: "18px", height: "18px" }}>
+                              <img
+                                src={
+                                  typeof image === "string"
+                                    ? isGoogleImageUrl(image)
+                                      ? image
+                                      : image instanceof File
+                                      ? URL.createObjectURL(image)
+                                      : image
+                                    : null
+                                }
+                                alt=""
+                              />
+                            </div>
+                            <span
+                              style={{ fontSize: "14px" }}
+                              className="mr-3 "
+                            >
+                              <Link to="/login"> LOGIN</Link>
+                            </span>
+                          </div>
+                        </button>
+                      ) : (
+                        <button className="mr-2">
+                          <div
+                            className="Sub-Icon rounded-md flex justify-center items-center"
+                            onClick={() => {
+                              clearLocalStorage();
+                              navigate("/login");
+                            }}
+                          >
+                            <img
+                              src={Account}
+                              alt=""
+                              className="w-[21px] h-[25px]"
+                            />
+                          </div>
+                        </button>
+                      )}
+                    </>
                   )}
                 </div>
-            <div className="nav-menu-btn flex flex-center items-center relative" style={{
-              width:'40px',
-              height:'40px',
-              borderRadius:'50%',
-              background:'#332360',
-              
-            }}>
-           <div  className="absolute"
-           style={{marginTop:'-4px',marginRight:'0px',right:'-10%'}}>
-           <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-           </div>
-            </div>
+                <div
+                  className="nav-menu-btn flex flex-center items-center relative"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    background: "#332360",
+                    marginTop: "-2px",
+                  }}
+                >
+                  <div
+                    className="absolute"
+                    style={{
+                      marginTop: "-4px",
+                      marginRight: "0px",
+                      right: "-10%",
+                    }}
+                  >
+                    <IconButton
+                      size="large"
+                      aria-label="account of current user"
+                      aria-controls="menu-appbar"
+                      aria-haspopup="true"
+                      onClick={handleOpenNavMenu}
+                      color="inherit"
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </div>
+                </div>
               </div>
-              
             </Tooltip>
-            
+
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -499,7 +530,6 @@ function Nav() {
             >
               <div className="Profile-DropDown"></div>
             </Menu>
-            
           </Box>
         </Toolbar>
       </Container>

@@ -1018,10 +1018,10 @@ li a {
   .team-icons {
     height: 45px !important;
   }
-  .img-icon {
+  /* .img-icon {
     width: 12px;
     height: 12px;
-  }
+  } */
   .headd {
     width: 43vw !important;
     margin-top: 10px;
@@ -1080,6 +1080,9 @@ li a {
     width: 100vw;
     right: 18%;
 
+  }
+  .text-btnn{
+    font-size: 13px;
   }
   .app-btn {
     width: 100%;
@@ -1382,6 +1385,12 @@ li a {
 }
 
 /* Card media QUeerry */
+@media screen and (max-width: 1568px) {
+
+  .left-side{
+    width: 50%;
+  }
+  }
 @media screen and (max-width: 1368px) {
 .banner-btnss{
   margin-top: -190px !important;
@@ -1414,6 +1423,11 @@ height: 27vh;
   
   }
 @media screen and (max-width: 1024px) {
+  .banner-sign-text{
+    width: 40vw;
+  }.sign-text{
+    margin-top: -30px;
+  }
   .mbl-bg-img{
     height: 70vh;
   }
@@ -1473,6 +1487,28 @@ height: 27vh;
     margin-top: 45px;
 
   }
+  .main-page{
+    flex-direction: column !important;
+  }
+  .left-side{
+    width: 100%;
+
+  }
+
+  .right-side{
+    width: 100%;
+  }
+  .sign-text{
+    margin-top: 30px !important;
+  
+  }
+  .slider-head-text{
+    font-size: 18px !important;
+  }
+  .sliderHeader{
+    margin-bottom: 13px !important;
+  }
+
 
 }
 @media screen and (max-width: 645px) {
