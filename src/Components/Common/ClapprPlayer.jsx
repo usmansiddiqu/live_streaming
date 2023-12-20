@@ -24,6 +24,7 @@ function ClapprPlayer({ url, setShow }) {
       width: width.toString(),
       height: height.toString(),
       mute: true,
+      autoPlay: true,
       events: {
         onReady: function () {
           setShow(true);
