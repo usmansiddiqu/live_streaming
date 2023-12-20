@@ -9,6 +9,7 @@ import getEventById from "../../api/eventById";
 import { useParams, useNavigate } from "react-router-dom";
 import BannerDetailSlider from "../../Components/Common/BannerSlider";
 import axios from "axios";
+import canView from "../../api/canView";
 function DetailsPage() {
   const navigate = useNavigate();
   const [url, setUrl] = useState(null);
@@ -42,15 +43,19 @@ function DetailsPage() {
     getData();
   }, [params.id]);
 
-  useEffect(() => {
+  const canViewPage = async () => {
+    const result = await canView();
+    console.log(123, result);
     if (localStorage.getItem("data")) {
-      const data = JSON.parse(localStorage.getItem("data"));
-      if (!(data.expiryDate && new Date(data.expiryDate) > new Date())) {
+      if (!result.data.flag) {
         navigate("/membership_plan");
       }
     } else {
       navigate("/membership_plan");
     }
+  };
+  useEffect(() => {
+    canViewPage();
   }, []);
 
   return (
