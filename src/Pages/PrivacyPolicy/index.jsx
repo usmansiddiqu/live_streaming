@@ -8,7 +8,7 @@ function PrivacyPolicy() {
     <div>
       <Nav />
       <DashHeader title="Privacy Policy" />
-      <div className="bg-[#130A2D] rounded w-[65vw] mx-auto mt-9 p-8 mb-3">
+      <div className="bg-[#130A2D] pages rounded w-[65vw] mx-auto mt-9 p-8 mb-3">
         <div>
           <h4 className="font-normal text-2xl mb-3 text-white">
             <strong>

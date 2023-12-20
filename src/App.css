@@ -1005,7 +1005,6 @@ li a {
     font-size: 10px !important;
   }
   .pay-texts {
-    width: 100vw;
     margin-left: -80px;
   }
   .plan-page-text {
@@ -1433,8 +1432,29 @@ height: 27vh;
     width: 100% !important;
   }
 }
+@media screen and (max-width: 750px) {
+  .pages{
+    width: 98vw ;
+  }
+  .contact-feild{
+    width: 98vw;
+    margin-left: -85px;
+  }
+  .contact-feild-form{
+    width: 97vw;
+    margin-left: -46px !important;
+  }
+  .contact-info{
+    width: 98vw;
+    margin-left: -85px !important;
+  }
+  
+
+
+}
 
 @media screen and (max-width: 720px) {
+  
   
   .card-con{
     width: 100vw;
@@ -1465,6 +1485,20 @@ height: 27vh;
     height: 20rem;
     margin-top: 0px !important;
   }
+  .pay-texts{
+    width: 93vw ;
+    margin-left: -90px;
+  }
+  .pay-card-box {
+    width: 80vw;
+  }
+  .pay-cardds{
+    height: 25vh;
+  }
+  .pages{
+    width: 98vw ;
+  }
+
 
 }
 @media screen and (max-width: 550px) {
@@ -1472,6 +1506,10 @@ height: 27vh;
 
     width: 55vw;
   }
+  .pages{
+    width: 98vw ;
+  }
+
 .boox{
   width: 100%;
 }
@@ -1489,6 +1527,9 @@ height: 27vh;
   .card-con{
 
     width: 65vw;
+  }
+  .pages{
+    width: 98vw ;
   }
 
 }

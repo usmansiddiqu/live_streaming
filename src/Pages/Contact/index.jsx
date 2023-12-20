@@ -10,7 +10,7 @@ function Contact() {
       <DashHeader title="Contact Us" />
       <div className="rounded contact-form w-[70vw] mx-auto mt-9 p-8 flex justify-evenly flex-wrap">
         <div className="w-[68%] contact-feild p-5 bg-[#130A2D] rounded-lg ">
-          <form class="w-full mx-auto">
+          <form class="w-full  contact-feild-form mx-auto">
             <div class="flex flex-wrap -mx-3 mb-6">
               <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label
