@@ -1578,6 +1578,12 @@ height: 27vh;
   .banner-Buttons{
     width: 50vw !important;
   }
+  .pay-cardds{
+    height: 28vh;
+  }
+  .plan-page-text{
+    width: 93vw;
+  }
 
 }
 @media screen and (max-width: 390px) {
@@ -1591,6 +1597,13 @@ height: 27vh;
   .boox{
     width: 90% !important;
   }
-
+  .pay-cardds{
+    height: 28vh;
+    width: 83vw !important;
+    margin-left: -15px;
+  }
+  .plan-page-text{
+    width: 100vw;
+  }
 
 }
