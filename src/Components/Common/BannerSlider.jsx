@@ -8,11 +8,13 @@ import TeamIconsDetailPage from "./TeamIconsDetailPage";
 
 function BannerDetailSlider() {
   const params = useParams();
+
   const [data, setData] = useState(null);
   const getData = async () => {
     const { data: response } = await getEventsByType("NBA");
     setData(response.events);
   };
+
   useEffect(() => {
     getData();
   }, []);

@@ -38,6 +38,7 @@ li a {
   justify-content: space-between;
   align-items: baseline;
 }
+
 .carousel-indicators {
   display: none !important;
 }
@@ -112,24 +113,19 @@ li a {
     opacity: 1;
   }
 }
-@media screen and (max-width:1500px) {
-  .score-card{
+@media screen and (max-width: 1500px) {
+  .score-card {
     min-width: 270px;
   }
-  
 }
-@media screen and (max-width:680px) {
+@media screen and (max-width: 680px) {
   .card-con {
     width: 56vw;
-
-   
   }
-  .score-card{
+  .score-card {
     min-width: 270px;
     height: 200px;
   }
-  
-  
 }
 
 @media screen and (max-width: 2600px) {
@@ -137,10 +133,10 @@ li a {
     width: 10% !important;
     margin: auto;
   }
-  .nav-menu-btn{
+  .nav-menu-btn {
     display: none;
   }
-  .tvChannel-head{
+  .tvChannel-head {
     width: 23vw;
   }
   .tvChannel-head2 {
@@ -213,13 +209,13 @@ li a {
   .red-bar {
     width: 14.4vw;
   }
-  .banner-text{
+  .banner-text {
     bottom: -60% !important;
-  } 
+  }
   .Cardslider {
     width: 73% !important;
   }
-  .tvChannel-head{
+  .tvChannel-head {
     width: 25vw;
   }
   .tvChannel-head2 {
@@ -376,7 +372,7 @@ li a {
     display: flex;
     flex-direction: column;
   }
-  .score-card{
+  .score-card {
     min-width: 330px;
     height: 200px;
   }
@@ -443,7 +439,6 @@ li a {
 }
 
 @media screen and (max-width: 480px) {
-
   .wrapper {
     gap: 15px;
   }
@@ -601,7 +596,7 @@ li a {
   .main-profile-img {
     margin: auto;
   }
-  .mbl-bg-img{
+  .mbl-bg-img {
     height: 30vh !important;
   }
   .Edit-container {
@@ -751,8 +746,7 @@ li a {
     font-size: 10px !important;
   }
   .card-con {
-    width: 80vw ;
-   
+    width: 80vw;
   }
   .search-bar {
     width: 98vw;
@@ -1029,7 +1023,7 @@ li a {
   .mbl-bg-img {
     height: 28vh !important;
   }
- 
+
   .team-p {
     font-size: 16px;
   }
@@ -1061,27 +1055,24 @@ li a {
     display: flex;
     flex-direction: column;
   }
-  .nav-a{
+  .nav-a {
     color: black !important;
     font-weight: 700;
     font-size: 18px;
     padding-left: 20px;
-   
   }
-  .nav-aa{
+  .nav-aa {
     position: relative;
     width: 100vw;
     border-bottom: 1px solid;
     right: 18%;
-
   }
-  .nav-aaa{
+  .nav-aaa {
     position: relative;
     width: 100vw;
     right: 18%;
-
   }
-  .text-btnn{
+  .text-btnn {
     font-size: 13px;
   }
   .app-btn {
@@ -1124,17 +1115,15 @@ li a {
   .signup-Bg {
     width: 100%;
     /* height: 50vh; */
-   
   }
 
-  .nav-menu-btn{
+  .nav-menu-btn {
     display: block;
   }
-  .nav-a{
+  .nav-a {
     color: black !important;
     font-weight: 700;
     font-size: 18px;
-   
   }
 
   .card-con {
@@ -1386,224 +1375,196 @@ li a {
 
 /* Card media QUeerry */
 @media screen and (max-width: 1568px) {
-
-  .left-side{
+  .left-side {
     width: 50%;
   }
-  }
+}
 @media screen and (max-width: 1368px) {
-.banner-btnss{
-  margin-top: -190px !important;
-}
-.banner-Buttons{
-  width: 20vw !important;
-
-}
-.card-match{
-  width: 76vw;
-}
-.dash-main{
-  width: 100%;
-}
-.dash-card{
-width: 24vw;
-height: 27vh;
-}
-
+  .banner-btnss {
+    margin-top: -190px !important;
+  }
+  .banner-Buttons {
+    width: 20vw !important;
+  }
+  .card-match {
+    width: 76vw;
+  }
+  .dash-main {
+    width: 100%;
+  }
+  .dash-card {
+    width: 24vw;
+    height: 27vh;
+  }
 }
 @media screen and (max-width: 1290px) {
-
-  .dash-main{
+  .dash-main {
     width: 100%;
   }
-  .dash-card{
-  width: 24vw;
-  height: 30vh;
+  .dash-card {
+    width: 24vw;
+    height: 30vh;
   }
-  
-  }
+}
 @media screen and (max-width: 1024px) {
-  .banner-sign-text{
+  .banner-sign-text {
     width: 40vw;
-  }.sign-text{
+  }
+  .sign-text {
     margin-top: -30px;
   }
-  .mbl-bg-img{
+  .mbl-bg-img {
     height: 70vh;
   }
-  .banner-Buttons{
+  .banner-Buttons {
     width: 27vw !important;
     margin-top: 120px;
-
   }
-  .banner-textt{
+  .banner-textt {
     margin-top: 5%;
   }
-  .sliderHeader{
+  .sliderHeader {
     width: 100%;
   }
-  .Cardslider{
+  .Cardslider {
     width: 100% !important;
   }
 }
 @media screen and (max-width: 750px) {
-  .pages{
-    width: 98vw ;
+  .pages {
+    width: 98vw;
   }
-  .contact-feild{
+  .contact-feild {
     width: 98vw;
     margin-left: -85px;
   }
-  .contact-feild-form{
+  .contact-feild-form {
     width: 97vw;
     margin-left: -46px !important;
   }
-  .contact-info{
+  .contact-info {
     width: 98vw;
     margin-left: -85px !important;
   }
-  
-
-
 }
 
 @media screen and (max-width: 720px) {
-  
-  
-  .card-con{
+  .card-con {
     width: 100vw;
 
     margin-left: 20px;
     padding: 0;
   }
-  .contain-card{
+  .contain-card {
     width: 100vw;
   }
-  .banner-textt{
+  .banner-textt {
     margin-top: 0%;
   }
-  .banner-Buttons{
+  .banner-Buttons {
     width: 27vw !important;
     margin-top: 45px;
-
   }
-  .main-page{
+  .main-page {
     flex-direction: column !important;
   }
-  .left-side{
-    width: 100%;
-
-  }
-
-  .right-side{
+  .left-side {
     width: 100%;
   }
-  .sign-text{
+
+  .right-side {
+    width: 100%;
+  }
+  .sign-text {
     margin-top: 30px !important;
-  
   }
-  .slider-head-text{
+  .slider-head-text {
     font-size: 18px !important;
   }
-  .sliderHeader{
+  .sliderHeader {
     margin-bottom: 13px !important;
   }
-
-
 }
 @media screen and (max-width: 645px) {
-  
-  .card-con{
+  .card-con {
     width: 47vw;
-
   }
   .deatil-container {
     height: 20rem;
     margin-top: 0px !important;
   }
-  .pay-texts{
-    width: 93vw ;
+  .pay-texts {
+    width: 93vw;
     margin-left: -90px;
   }
   .pay-card-box {
     width: 80vw;
   }
-  .pay-cardds{
+  .pay-cardds {
     height: 25vh;
   }
-  .pages{
-    width: 98vw ;
+  .pages {
+    width: 98vw;
   }
-
-
 }
 @media screen and (max-width: 550px) {
-  .card-con{
-
+  .card-con {
     width: 55vw;
   }
-  .pages{
-    width: 98vw ;
+  .pages {
+    width: 98vw;
   }
 
-.boox{
-  width: 100%;
-}
-.mbl-bg-img{
-  height: 28vh;
-}
-.dash-card{
-  width: 100vw;
-  height: 30vh;
+  .boox {
+    width: 100%;
   }
-}
-
-
-@media screen and (max-width: 490px) {
-  .card-con{
-
-    width: 65vw;
-  }
-  .pages{
-    width: 98vw ;
-  }
-
-}
-@media screen and (max-width: 450px) {
-  .card-con{
-
-    width: 78vw;
-
-  }
-  .banner-Buttons{
-    width: 50vw !important;
-  }
-  .pay-cardds{
+  .mbl-bg-img {
     height: 28vh;
   }
-  .plan-page-text{
+  .dash-card {
+    width: 100vw;
+    height: 30vh;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .card-con {
+    width: 65vw;
+  }
+  .pages {
+    width: 98vw;
+  }
+}
+@media screen and (max-width: 450px) {
+  .card-con {
+    width: 78vw;
+  }
+  .banner-Buttons {
+    width: 50vw !important;
+  }
+  .pay-cardds {
+    height: 28vh;
+  }
+  .plan-page-text {
     width: 93vw;
   }
-
 }
 @media screen and (max-width: 390px) {
-  .card-con{
-
+  .card-con {
     width: 85vw;
   }
-  .banner-Buttons{
+  .banner-Buttons {
     width: 60vw !important;
   }
-  .boox{
+  .boox {
     width: 90% !important;
   }
-  .pay-cardds{
+  .pay-cardds {
     height: 28vh;
     width: 83vw !important;
     margin-left: -15px;
   }
-  .plan-page-text{
+  .plan-page-text {
     width: 100vw;
   }
-
 }

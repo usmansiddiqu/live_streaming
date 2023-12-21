@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import DetailsComponent from "../../Components/Common/DetailsComponent";
@@ -10,9 +10,18 @@ import { useParams, useNavigate } from "react-router-dom";
 import BannerDetailSlider from "../../Components/Common/BannerSlider";
 import axios from "axios";
 import canView from "../../api/canView";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
+
 function DetailsPage() {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [url, setUrl] = useState(null);
+  const containerRef = useRef(null);
   const params = useParams();
   const [data, setData] = useState(null);
   const checkUrl = async () => {
@@ -27,9 +36,11 @@ function DetailsPage() {
       return false;
     }
   };
+
   const getData = async () => {
     try {
       const { data: response } = await getEventById(params.id);
+      scrollToTop();
       setData(response.events);
       const result = await checkUrl(response.events?.channel?.server1URL);
       if (result) {
@@ -39,8 +50,17 @@ function DetailsPage() {
       }
     } catch (error) {}
   };
+  const scrollToTop = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = 0;
+    }
+    // window.scrollTo({ top: 0, behavior: "smooth" });
+    // document.body.scrollTop = 0;
+    // document.getElementById("header").scrollIntoView();
+  };
   useEffect(() => {
     getData();
+    scrollToTop();
   }, [params.id]);
 
   const canViewPage = async () => {
@@ -63,7 +83,12 @@ function DetailsPage() {
   }, []);
 
   return (
-    <div>
+    <div
+      ref={containerRef}
+      className="APP"
+      style={{ height: "100vh", overflowX: "hidden" }}
+      // style={{ height: "100vh" }}
+    >
       <Navbar />
       {url ? <DetailsComponent data={data} url={url} /> : <></>}
       <DetailsDescription data={data} setUrl={setUrl} />

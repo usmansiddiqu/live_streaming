@@ -15,6 +15,7 @@ function DetailsSlider() {
     setData(response.events);
   };
   useEffect(() => {
+    window.scrollTo(0, 0);
     getData();
   }, []);
 

@@ -10,6 +10,7 @@ function Home() {
     const { data: response } = await getEvents();
     setData(response.events);
   };
+
   useEffect(() => {
     getData();
   }, []);
@@ -18,7 +19,7 @@ function Home() {
     <div className="bg-[#130A2D] ">
       <MainSlider />
       <div className="nfl-view">
-      <SliderHeader title="NFL Live" link="nfl" />
+        <SliderHeader title="NFL Live" link="nfl" />
       </div>
       <CardSlider
         data={data.filter((card) => {
