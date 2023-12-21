@@ -85,8 +85,12 @@ function DetailsPage() {
   return (
     <div
       ref={containerRef}
-      className="APP"
-      style={{ height: "100vh", overflowX: "hidden" }}
+      className="App"
+      style={{
+        height: "100vh",
+        overflowX: "hidden !important",
+        overflowY: "auto",
+      }}
       // style={{ height: "100vh" }}
     >
       <Navbar />
