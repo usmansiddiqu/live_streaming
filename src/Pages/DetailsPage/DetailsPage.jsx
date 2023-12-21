@@ -44,13 +44,17 @@ function DetailsPage() {
   }, [params.id]);
 
   const canViewPage = async () => {
-    const result = await canView();
-    console.log(123, result);
-    if (localStorage.getItem("data")) {
-      if (!result.data.flag) {
+    try {
+      const result = await canView();
+      console.log(123, result);
+      if (localStorage.getItem("data")) {
+        if (!result.data.flag) {
+          navigate("/membership_plan");
+        }
+      } else {
         navigate("/membership_plan");
       }
-    } else {
+    } catch (error) {
       navigate("/membership_plan");
     }
   };

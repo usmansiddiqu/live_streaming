@@ -269,11 +269,19 @@ function Nav() {
                     <img src={Search} alt="" className="w-[17px] h-[17px]" />
                   </div>
                 </div>
-                <div className="w-[55px]" onClick={handleNavigate}>
-                  <div className="Sub-Icon rounded-md flex justify-center items-center">
-                    <img src={Subscribe} alt="" className="w-[21px] h-[25px]" />
+                {!localStorage.getItem("data") ? (
+                  <div className="w-[55px]" onClick={handleNavigate}>
+                    <div className="Sub-Icon rounded-md flex justify-center items-center">
+                      <img
+                        src={Subscribe}
+                        alt=""
+                        className="w-[21px] h-[25px]"
+                      />
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <></>
+                )}
 
                 <div>
                   {data ? (
