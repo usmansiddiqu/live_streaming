@@ -1286,11 +1286,11 @@ li a {
 
     height: 32vh;
   }
-  .banner-slide-card {
+  /* .banner-slide-card {
     padding: 0;
     margin-left: 0;
     width: 128vw !important;
-  }
+  } */
   .live-head {
     width: 95vw;
   }
@@ -1405,6 +1405,23 @@ li a {
     width: 24vw;
     height: 30vh;
   }
+.banner-slide-card{
+  width: 100rem;
+}
+
+}
+@media screen and (max-width: 1190px) {
+  .dash-main {
+    width: 100%;
+  }
+  .dash-card {
+    width: 24vw;
+    height: 30vh;
+  }
+.banner-slide-card{
+  width: 92rem;
+}
+
 }
 @media screen and (max-width: 1024px) {
   .banner-sign-text {
@@ -1416,6 +1433,10 @@ li a {
   .mbl-bg-img {
     height: 70vh;
   }
+  .banner-slide-card{
+    width: 85rem;
+  }
+  
   .banner-Buttons {
     width: 27vw !important;
     margin-top: 120px;
@@ -1428,6 +1449,46 @@ li a {
   }
   .Cardslider {
     width: 100% !important;
+  }
+}
+@media screen and (max-width: 960px) {
+  .banner-slide-card{
+    width: 80rem;
+  }
+}
+@media screen and (max-width: 860px) {
+  .banner-slide-card{
+    width: 65rem;
+  }
+}
+@media screen and (max-width: 760px) {
+  .banner-slide-card{
+    width: 60rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  .banner-slide-card{
+    width: 55rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .banner-slide-card{
+    width: 51rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .banner-slide-card{
+    width: 45rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .banner-slide-card{
+    width: 42rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .banner-slide-card{
+    width: 36rem;
   }
 }
 @media screen and (max-width: 750px) {

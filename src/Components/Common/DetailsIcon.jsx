@@ -11,7 +11,7 @@ function DetailsIcon({ iconsData }) {
           <img
             src={icon.iconUrl}
             alt={icon.name}
-            style={{ width: "320px", height: "350px" }}
+            style={{ width: "320px" }}
             // className="w-40 h-50"
           />
         </div>
@@ -23,7 +23,7 @@ function DetailsIcon({ iconsData }) {
           <img
             src={icon.iconUrl}
             alt={icon.name}
-            style={{ width: "85px", height: "95px" }}
+            style={{ width: "85px" }}
          
           />
         </div>
