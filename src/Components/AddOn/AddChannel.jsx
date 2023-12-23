@@ -11,9 +11,9 @@ function AddChannel() {
   const [TVName, setTvName] = useState("");
   const [description, setDescription] = useState("");
   const [TVAccess, setTVAccess] = useState("free");
-  const [TVCategory, setTVCategory] = useState("");
-  const [streamType, setStreamType] = useState("");
-  const [status, setStatus] = useState("");
+  const [TVCategory, setTVCategory] = useState("MLB");
+  const [streamType, setStreamType] = useState("hls");
+  const [status, setStatus] = useState("active");
   const [server1URL, setServer1URL] = useState("");
   const [server2URL, setServer2URL] = useState("");
   const [server3URL, setServer3URL] = useState("");
@@ -181,6 +181,7 @@ function AddChannel() {
                   </label>
                   <select
                     id="countries"
+                    value={TVCategory}
                     class="border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#313133] block w-full p-2.5 font-bold text-white"
                     onChange={(e) => {
                       setTVCategory(e.target.value);
@@ -302,6 +303,7 @@ function AddChannel() {
                   <select
                     id="countries"
                     class="border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#313133] block w-full p-2.5 font-bold text-white"
+                    value={streamType}
                     onChange={(e) => {
                       setStreamType(e.target.value);
                     }}

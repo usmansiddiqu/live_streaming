@@ -85,7 +85,15 @@ function EditLiveTv() {
       setServer1URL(response.liveTV.server1URL);
       setServer2URL(response.liveTV.server2URL);
       setServer3URL(response.liveTV.server3URL);
-      setLogo(url + "\\" + response.liveTV.TVLogo.replace("uploads\\", ""));
+
+      setLogo(
+        url +
+          "\\" +
+          response.liveTV.TVLogo.replace("uploads\\", "").replace(
+            "uploads/",
+            ""
+          )
+      );
     } catch (error) {
       setError(error.response?.data?.message);
     }
@@ -425,7 +433,7 @@ function EditLiveTv() {
                 </div>
                 <div class="mb-5 input-feild w-[37vw] ">
                   <div className="flex flex-col w-full">
-                  <div className="flex input-feild  items-center ">
+                    <div className="flex input-feild  items-center ">
                       <label
                         for="email"
                         class="block mb-2  text-sm font-medium w-[16vw] tv-logo text-gray-900 text-white  "

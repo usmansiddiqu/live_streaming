@@ -9,6 +9,7 @@ import { useMediaQuery } from "react-responsive";
 import moment from "moment";
 
 const CardSlider = ({ data }) => {
+  console.log(data);
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1001px)" });
   function truncateText(text, maxLength) {
