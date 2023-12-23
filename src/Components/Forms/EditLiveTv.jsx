@@ -28,6 +28,7 @@ function EditLiveTv() {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
+    console.log(file);
     if (file) {
       setLogo(file);
       // const reader = new FileReader();
@@ -85,7 +86,14 @@ function EditLiveTv() {
       setServer1URL(response.liveTV.server1URL);
       setServer2URL(response.liveTV.server2URL);
       setServer3URL(response.liveTV.server3URL);
-
+      console.log(
+        url +
+          "\\" +
+          response.liveTV.TVLogo.replace("uploads\\", "").replace(
+            "uploads/",
+            ""
+          )
+      );
       setLogo(
         url +
           "\\" +

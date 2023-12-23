@@ -11,7 +11,7 @@ function AddChannel() {
   const [TVName, setTvName] = useState("");
   const [description, setDescription] = useState("");
   const [TVAccess, setTVAccess] = useState("free");
-  const [TVCategory, setTVCategory] = useState("MLB");
+  const [TVCategory, setTVCategory] = useState("656b004adb0f526eb7a01e43");
   const [streamType, setStreamType] = useState("hls");
   const [status, setStatus] = useState("active");
   const [server1URL, setServer1URL] = useState("");
