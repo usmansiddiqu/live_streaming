@@ -112,15 +112,15 @@ function TVChannel() {
       <div className=" ml-4 mt-20 ">
         <div>
           <div
-            className="w-[80vw] box edit-con bg-[#1C1C1E]  mx-auto rounded p-5"
+            className="w-[80vw] box edit-con bg-[#1C1C1E] mx-auto rounded p-5"
             style={{ position: "absolute", left: "16.5%" }}
           >
-            <div class="relative shadow-md edit-contain">
+            <div class="relative overflow-x-auto shadow-md edit-contain">
               {error && <ErrorComponent message={error} />}
               <div>
                 <div class="relative mt-1">
                   <div class=" flex items-center tvChannel-head2 justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
-                    <div className="bg-[#313133] Category-Filter rounded">
+                    {/* <div className="bg-[#313133] Category-Filter rounded">
                       <button
                         id="dropdownActionButton"
                         data-dropdown-toggle="dropdownAction"
@@ -207,7 +207,7 @@ function TVChannel() {
                           </li>
                         </ul>
                       </div>
-                    </div>
+                    </div> */}
                     <label for="table-search" class="sr-only">
                       Search
                     </label>

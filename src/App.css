@@ -140,7 +140,7 @@ li a {
     width: 23vw;
   }
   .tvChannel-head2 {
-    width: 42vw;
+    width: 24vw;
   }
 
   .red-bar {
@@ -219,7 +219,7 @@ li a {
     width: 25vw;
   }
   .tvChannel-head2 {
-    width: 38vw;
+    width: 25vw;
   }
 
   .card-match {
@@ -1378,10 +1378,19 @@ li a {
   .left-side {
     width: 50%;
   }
+  .tvChannel-head2 {
+    width: 30vw;
+  }
+  /* .edit-con{
+    width: 100vw;
+  } */
 }
 @media screen and (max-width: 1368px) {
   .banner-btnss {
     margin-top: -190px !important;
+  }
+  .tvChannel-head2 {
+    width: 35vw;
   }
   .banner-Buttons {
     width: 20vw !important;
