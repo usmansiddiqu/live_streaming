@@ -55,7 +55,9 @@ function BannerDetailsDescription({ data, setUrl }) {
               <label>Away</label>
             </div>
           </button>
-          {data?.liveTV?.server3URL != "null" ? (
+          {console.log(data?.liveTV?.server3URL)}
+          {typeof data?.liveTV?.server3URL === "string" &&
+          data?.liveTV?.server3URL !== "null" ? (
             <button
               class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
               onClick={() => setUrl(data?.liveTV?.server3URL)}

@@ -184,7 +184,9 @@ function Nav() {
               textDecoration: "none",
             }}
           >
-            <img className="logo" src={logo} alt="" />
+            <Link to="/">
+              <img className="logo" src={logo} alt="" />
+            </Link>
           </Typography>
 
           <Box
@@ -247,7 +249,9 @@ function Nav() {
               textDecoration: "none",
             }}
           >
-            <img className="logo" src={logo} alt="" />
+            <Link to="/">
+              <img className="logo" src={logo} alt="" />
+            </Link>
           </Typography>
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}

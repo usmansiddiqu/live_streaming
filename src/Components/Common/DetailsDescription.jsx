@@ -58,8 +58,8 @@ function DetailsDescription({ data, setUrl }) {
               <label>Away</label>
             </div>
           </button>
-          {console.log("=====>", data?.channel?.server3URL)}
-          {data?.channel?.server3URL != null ? (
+          {console.log(data?.liveTV?.server3URL)}
+          {typeof data?.liveTV?.server3URL === "string" ? (
             <button
               class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
               onClick={() => setUrl(data?.channel?.server3URL)}
