@@ -25,8 +25,12 @@ function PlanCards() {
     }
   };
   const handleFreePayment = async () => {
-    const { data: response } = await availFreePayment();
-    setError(response.message);
+    if (localStorage.getItem("data")) {
+      const { data: response } = await availFreePayment();
+      setError(response.message);
+    } else {
+      navigate("/signup");
+    }
   };
   return (
     <div className="lg:px-20 md:px-10 sm:px-5 w-[73vw] mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
