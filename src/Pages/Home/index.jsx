@@ -16,7 +16,7 @@ function Home() {
   }, []);
   console.log(data);
   return (
-    <div className="bg-[#130A2D] ">
+    <div className="bg-[#130A2D] h-[150vh] main-home-page">
       <MainSlider />
       <div className="nfl-view">
         <SliderHeader title="NFL Live" link="nfl" />

@@ -30,7 +30,7 @@ const CardSlider = ({ data }) => {
     <>
       {isDekstop && (
         <div
-          className="Cardslider"
+          className="Cardslider "
           style={{
             width: "73%",
             height: "AUTO",

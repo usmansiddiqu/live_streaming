@@ -5,6 +5,7 @@ import "../../Assets/styles/CardDetailss.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import getEventsByType from "../../api/getEventsType";
 import TeamIconsDetailPage from "./TeamIconsDetailPage";
+import Ended from "./Ended";
 
 function BannerDetailSlider() {
   const params = useParams();
@@ -94,7 +95,17 @@ function BannerDetailSlider() {
                   }))}
                   title={item?.data?.shortName}
                 />
+                <div className="">
+                  <Ended
+                    show={
+                      new Date(item?.data?.date) <
+                      new Date().setHours(new Date().getHours() + 4)
+                    }
+                    type={params.type}
+                  />
+                </div>
               </div>
+              
             </SplideSlide>
           ))}
         </>

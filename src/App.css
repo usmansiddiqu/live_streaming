@@ -188,7 +188,7 @@ li a {
 
   .mainSlider {
     margin-top: 20px !important;
-    height: 49vh !important;
+    height:32rem !important;
   }
   .sliderHeader {
     width: 65%;
@@ -598,9 +598,6 @@ li a {
 @media screen and (max-width: 769px) {
   .main-profile-img {
     margin: auto;
-  }
-  .mbl-bg-img {
-    height: 30vh !important;
   }
   .Edit-container {
     display: flex;
@@ -1144,7 +1141,7 @@ li a {
     padding: 10;
   }
   .bg-tab-mb {
-    height: 32vh;
+    height: 37vh;
   }
   .end {
     position: relative;
@@ -1446,7 +1443,8 @@ li a {
     margin-top: -30px;
   }
   .mbl-bg-img {
-    height: 70vh;
+    height: 35vh;
+    width: 100%;
   }
   .banner-slide-card{
     width: 85rem;
@@ -1595,7 +1593,11 @@ li a {
     width: 100%;
   }
   .mbl-bg-img {
-    height: 28vh;
+    height: 28vh ;
+  }
+  .bg-tab-mb {
+    height: 30vh ;
+
   }
   .dash-card {
     width: 100vw;
