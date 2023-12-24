@@ -28,7 +28,7 @@ function TeamIconsDetailPage({ iconsData, title }) {
             ))}
           </div>
           <div
-            className="w-[278px] team-names h-[0] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center py-1 "
+            className="w-[278px] team-Logo-name h-[0] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center py-1 "
             style={{
               right: "0%",
             }}
@@ -40,7 +40,7 @@ function TeamIconsDetailPage({ iconsData, title }) {
       {isTabletOrMobile && (
         <>
           <div
-            className="px-2 pr-6 py-3"
+            className="px-2 pr-6 py-3 team-icons"
             style={{
               height: "100%",
               display: "flex",
@@ -59,7 +59,7 @@ function TeamIconsDetailPage({ iconsData, title }) {
             ))}
           </div>
           <div
-            className="w-[278px] team-namess h-[0] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center py-1.5 "
+            className="w-[278px] team-Logo-name h-[0] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center py-1 "
             style={{
               right: "0%",
             }}

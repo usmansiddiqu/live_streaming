@@ -113,6 +113,21 @@ li a {
     opacity: 1;
   }
 }
+  .team-icons:hover{
+    transform:scale(1.1);
+    transition: 0.3s ease-in-out;
+  
+   }
+  .team-Logo-name {
+    display: none;
+    margin-top: -10px;
+  }
+  
+  .team-icons:hover ~ .team-Logo-name {
+    display: block;
+    transition: 1s ease-in-out;
+    height: 35px;
+  }
 @media screen and (max-width: 1500px) {
   .score-card {
     min-width: 270px;
@@ -132,6 +147,10 @@ li a {
   .play-wrapper[data-poster] {
     width: 10% !important;
     margin: auto;
+  }
+  .detail-live-end{
+    position: absolute;
+    left: 45%;
   }
   .nav-menu-btn {
     display: none;
@@ -270,6 +289,11 @@ li a {
   }
   .nav-sider {
     border: 0px;
+  }
+ .detail-live-end{
+    position: absolute;
+    left: 43%;
+    margin-top: -8px;
   }
   .mainSlider {
     margin-top: 20px !important;
@@ -612,12 +636,7 @@ li a {
     position: relative;
     left: 10%;
   }
-  .detail-live-end {
-    margin-top: 0px;
-    position: relative;
-    margin-left: 50px !important ;
-    top: 5%;
-  }
+
   .left {
     width: 100%;
   }
@@ -789,13 +808,7 @@ li a {
     position: relative;
     margin-top: -40px;
   }
-  .detail-live-end {
-    margin-top: -10px;
-    position: relative;
-    /* margin-left: 40px ; */
-    left: -10%;
-    top: -20%;
-  }
+
   .tem-img {
     width: 35px !important;
     height: 35px !important;
@@ -848,13 +861,6 @@ li a {
     margin-top: -14% !important;
   }
 
-  .detail-live-end {
-    margin-top: -10px;
-    position: relative;
-    /* margin-left: 40px ; */
-    left: 0%;
-    top: -20%;
-  }
 
   .watch-img {
     height: 30vh !important;
@@ -956,13 +962,6 @@ li a {
   .live {
     position: relative;
     margin-top: -40px;
-  }
-  .detail-live-end {
-    margin-top: -10px;
-    position: relative;
-    /* margin-left: 40px ; */
-    left: 0%;
-    top: 35%;
   }
 
   .post-Button {
@@ -1150,11 +1149,7 @@ li a {
   .card-live-end {
     position: relative;
   }
-  .detail-live-end {
-    margin-top: 0px;
-    position: relative;
-    margin-left: -50px;
-  }
+
   .team-namess {
     display: none;
     margin-top: -10px;

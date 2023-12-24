@@ -113,7 +113,7 @@ function DetailsSlider() {
                 }}
               >
                 <div
-                  className="container"
+                  className="container relative"
                   style={{ marginTop: "25px" }}
                   onClick={() => {
                     navigate(
