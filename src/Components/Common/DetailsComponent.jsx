@@ -4,14 +4,30 @@ import DetailsIcon from "./DetailsIcon";
 import VideoPlayer from "./VideoPlayer";
 import ClapprPlayer from "./ClapprPlayer";
 import moment from "moment-timezone";
+import { useParams } from "react-router-dom";
 
 function DetailsComponent({ data, url }) {
+  const { type } = useParams();
   const currentTime = moment();
   const eventTime = moment(data?.data?.date).utc();
 
   const isTimeWithinRange =
     data?.data?.date &&
-    currentTime.isBetween(eventTime, eventTime.clone().add(3.5, "hours"));
+    currentTime.isBetween(
+      eventTime.clone().subtract(15, "minutes"),
+      eventTime
+        .clone()
+        .add(
+          type == "NBA"
+            ? 2.6
+            : type == "NHL"
+            ? 2.3
+            : type == "MLB"
+            ? 3.6
+            : 3.22,
+          "hours"
+        )
+    );
 
   return (
     <div className="flex !justify-center mt-2">

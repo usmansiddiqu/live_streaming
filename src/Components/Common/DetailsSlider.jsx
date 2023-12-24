@@ -87,6 +87,7 @@ function DetailsSlider() {
                       new Date(item?.data?.date) <
                       new Date().setHours(new Date().getHours() + 4)
                     }
+                    type={params.type}
                   />
                 </div>
               </div>

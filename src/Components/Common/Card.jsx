@@ -86,7 +86,10 @@ function Card({ data, title }) {
                             }))}
                           />
                           <div>
-                            <Ended show={new Date(item?.data?.date)} />
+                            <Ended
+                              show={new Date(item?.data?.date)}
+                              type={item.channel.TVCategory.name}
+                            />
                           </div>
                         </div>
                       </div>
@@ -163,7 +166,10 @@ function Card({ data, title }) {
                             }))}
                           />
                           <div>
-                            <Ended show={new Date(item?.data?.date)} />
+                            <Ended
+                              show={new Date(item?.data?.date)}
+                              type={item.channel.TVCategory.name}
+                            />
                           </div>
                         </div>
                       </div>

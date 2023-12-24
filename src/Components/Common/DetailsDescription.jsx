@@ -58,6 +58,30 @@ function DetailsDescription({ data, setUrl }) {
               <label>Away</label>
             </div>
           </button>
+          {console.log("=====>", data?.channel?.server3URL)}
+          {data?.channel?.server3URL != null ? (
+            <button
+              class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
+              onClick={() => setUrl(data?.channel?.server3URL)}
+            >
+              <div className="flex gap-1">
+                <svg
+                  fill="#FFFFFF"
+                  width="20px"
+                  height="20px"
+                  viewBox="-2 -3 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMinYMin"
+                  class="jam jam-screen"
+                >
+                  <path d="M3 2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3zm0-2h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm4 16h6a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2z" />
+                </svg>
+                <label>French</label>
+              </div>
+            </button>
+          ) : (
+            <></>
+          )}
         </div>
         <div className="text-white pt-3">
           <h1 className="text-2xl font-semibold">{data?.data?.name}</h1>

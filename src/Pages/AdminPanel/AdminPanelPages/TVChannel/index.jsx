@@ -38,7 +38,7 @@ function TVChannel() {
   //   }
   // };
   const filter = (e) => {
-    if (textFilter.length > e.target.value.length) {
+    if (textFilter.length > e) {
       getChannels();
     }
     let tvChannel = [...channel];
@@ -92,7 +92,11 @@ function TVChannel() {
   };
   const handleTextFilter = (e) => {
     setTextFilter(e.target.value);
-    filter(e);
+    filter(e.target.value);
+  };
+  const handleTextPaste = (e) => {
+    setTextFilter(e?.clipboardData?.getData("text"));
+    filter(e?.clipboardData?.getData("text"));
   };
   useEffect(() => {
     getChannels();
@@ -218,6 +222,9 @@ function TVChannel() {
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs  bg-[#313133] rounded-full w-80 "
                         placeholder="Search by title"
+                        onPaste={(e) => {
+                          handleTextPaste(e);
+                        }}
                         onChange={(e) => {
                           handleTextFilter(e);
                         }}

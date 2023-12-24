@@ -77,6 +77,7 @@ function EditLiveTv() {
   const getChannel = async () => {
     try {
       const { data: response } = await getSpecificChannel(id);
+      console.log("=====>", response);
       setTvName(response.liveTV.TVName);
       setDescription(response.liveTV.description);
       setTVAccess(response.liveTV.TVAccess);
@@ -85,15 +86,10 @@ function EditLiveTv() {
       setStatus(response.liveTV.status);
       setServer1URL(response.liveTV.server1URL);
       setServer2URL(response.liveTV.server2URL);
-      setServer3URL(response.liveTV.server3URL);
-      console.log(
-        url +
-          "\\" +
-          response.liveTV.TVLogo.replace("uploads\\", "").replace(
-            "uploads/",
-            ""
-          )
+      setServer3URL(
+        response.liveTV.server3URL == "null" ? "" : response.liveTV.server3URL
       );
+
       setLogo(
         url +
           "\\" +

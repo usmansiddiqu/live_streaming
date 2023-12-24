@@ -121,7 +121,10 @@ const CardSlider = ({ data }) => {
                           />
                         </div>
                         <div className="card-live-end">
-                          <Ended show={item?.data?.date} />
+                          <Ended
+                            show={item?.data?.date}
+                            type={item.channel.TVCategory.name}
+                          />
                         </div>
                       </div>
                     </SplideSlide>
@@ -189,7 +192,10 @@ const CardSlider = ({ data }) => {
                             name: comp.name,
                           }))}
                         />
-                        <Ended show={new Date(item?.data?.date)} />
+                        <Ended
+                          show={new Date(item?.data?.date)}
+                          type={item.channel.TVCategory.name}
+                        />
                       </div>
                     </SplideSlide>
                   ))}

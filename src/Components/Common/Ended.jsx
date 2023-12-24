@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment-timezone";
 
-function Ended({ show }) {
+function Ended({ show, type }) {
   if (!show) {
     return null;
   }
@@ -10,33 +10,40 @@ function Ended({ show }) {
   const currentTimeLocal = moment();
 
   const showEnded = currentTimeLocal.isAfter(
-    eventTimeUTC.clone().add(4, "hours")
+    eventTimeUTC
+      .clone()
+      .add(
+        type == "NBA" ? 2.6 : type == "NHL" ? 2.3 : type == "MLB" ? 3.6 : 3.22,
+        "hours"
+      )
   );
 
   const isBetween = currentTimeLocal.isBetween(
     eventTimeUTC,
-    eventTimeUTC.clone().add(4, "hours")
+    eventTimeUTC
+      .clone()
+      .add(
+        type == "NBA" ? 2.6 : type == "NHL" ? 2.3 : type == "MLB" ? 3.6 : 3.22,
+        "hours"
+      )
   );
   if (isBetween) {
     return (
       <div className="relative z-40 live ">
-            <div
-              className="bg-white rounded-lg  text-white mx-auto  flex justify-evenly items-center "
-              style={{
-                fontSize: "10px",
-                height: "15px",
-                width: "40px",
-              }}
-            >
-              <div className="circular-div w-[6px] h-[6px] "></div>
-              <span
-                className="text-black my-auto "
-                style={{ fontSize: "11px" }}
-              >
-                LIVE
-              </span>
-            </div>
-          </div>
+        <div
+          className="bg-white rounded-lg  text-white mx-auto  flex justify-evenly items-center "
+          style={{
+            fontSize: "10px",
+            height: "15px",
+            width: "40px",
+          }}
+        >
+          <div className="circular-div w-[6px] h-[6px] "></div>
+          <span className="text-black my-auto " style={{ fontSize: "11px" }}>
+            LIVE
+          </span>
+        </div>
+      </div>
     );
   }
   return (
@@ -57,7 +64,6 @@ function Ended({ show }) {
               </span>
             </div>
           </div>
-
         </>
       )}
     </>
