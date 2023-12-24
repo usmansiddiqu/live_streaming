@@ -142,6 +142,9 @@ li a {
   .tvChannel-head2 {
     width: 24vw;
   }
+  .banner-slide-card{
+    margin-left: 30px
+  }
 
   .red-bar {
     width: 12.7vw;
@@ -1395,6 +1398,9 @@ li a {
   .banner-Buttons {
     width: 20vw !important;
   }
+  .banner-slide-card{
+    margin-left: 0px
+  }
   .card-match {
     width: 76vw;
   }
@@ -1604,6 +1610,7 @@ li a {
   .pages {
     width: 98vw;
   }
+
 }
 @media screen and (max-width: 450px) {
   .card-con {
@@ -1636,5 +1643,69 @@ li a {
   }
   .plan-page-text {
     width: 100vw;
+  }
+}
+/* Break points for card Details slider */
+@media screen and (max-width: 1168px) {
+  .deatils-carddd{
+    width: 76%;
+
+
+  }
+}
+@media screen and (max-width: 1120px) {
+  .deatils-carddd{
+    width: 73%;
+
+
+  }
+}
+@media screen and (max-width: 1080px) {
+  .deatils-carddd{
+    width: 70%;
+
+
+  }
+}
+@media screen and (max-width: 880px) {
+  .deatils-carddd{
+    width: 65%;
+
+
+  }
+}
+@media screen and (max-width: 860px) {
+  .deatils-carddd{
+    width: 79%;
+
+
+  }
+}
+@media screen and (max-width: 835px) {
+  .deatils-carddd{
+    width: 75%;
+
+
+  }
+}
+@media screen and (max-width: 785px) {
+  .deatils-carddd{
+    width: 71%;
+
+
+  }
+}
+@media screen and (max-width: 755px) {
+  .deatils-carddd{
+    width: 80%;
+
+
+  }
+}
+@media screen and (max-width: 675px) {
+  .deatils-carddd{
+    width: 75%;
+
+
   }
 }

@@ -30,9 +30,8 @@ function DetailsSlider() {
   const navigate = useNavigate();
   return (
     <div
-      className="CardSlider "
-      style={{
-        width: "70%",
+      className="deatils-carddd w-[80rem] "
+      style={{  
         height: "AUTO",
         display: "flex",
         flexDirection: "column",
