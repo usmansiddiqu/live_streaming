@@ -42,11 +42,15 @@ function DetailsPage() {
       const { data: response } = await getEventById(params.id);
       scrollToTop();
       setData(response.events);
+
       const result = await checkUrl(response.events?.channel?.server1URL);
       if (result) {
         setUrl(response.events?.channel?.server1URL);
       } else {
         setUrl(response.events?.channel?.server2URL);
+      }
+      if (response.events.channel.TVAccess == "paid") {
+        await canViewPage();
       }
     } catch (error) {}
   };
@@ -54,9 +58,6 @@ function DetailsPage() {
     if (containerRef.current) {
       containerRef.current.scrollTop = 0;
     }
-    // window.scrollTo({ top: 0, behavior: "smooth" });
-    // document.body.scrollTop = 0;
-    // document.getElementById("header").scrollIntoView();
   };
   useEffect(() => {
     getData();
@@ -66,7 +67,6 @@ function DetailsPage() {
   const canViewPage = async () => {
     try {
       const result = await canView();
-      console.log(123, result);
       if (localStorage.getItem("data")) {
         if (!result.data.flag) {
           navigate("/membership_plan");
@@ -79,7 +79,7 @@ function DetailsPage() {
     }
   };
   useEffect(() => {
-    canViewPage();
+    // canViewPage();
   }, []);
 
   return (

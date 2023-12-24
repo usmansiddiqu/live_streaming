@@ -8,8 +8,7 @@ import Ended from "./Ended";
 import { useMediaQuery } from "react-responsive";
 import moment from "moment";
 
-const CardSlider = ({ data }) => {
-  console.log(data);
+const CardSlider = ({ data, type }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1001px)" });
   function truncateText(text, maxLength) {
@@ -57,22 +56,45 @@ const CardSlider = ({ data }) => {
 
                     const isLiveA = currentTimeLocal.isBetween(
                       eventTimeA,
-                      eventTimeA.clone().add(4, "hours")
+                      eventTimeA
+                        .clone()
+                        .add(
+                          type == "NBA"
+                            ? 2.6
+                            : type == "NHL"
+                            ? 2.3
+                            : type == "MLB"
+                            ? 3.6
+                            : 3.22,
+                          "hours"
+                        )
                     );
                     const isLiveB = currentTimeLocal.isBetween(
                       eventTimeB,
-                      eventTimeB.clone().add(4, "hours")
+                      eventTimeB
+                        .clone()
+                        .add(
+                          type == "NBA"
+                            ? 2.6
+                            : type == "NHL"
+                            ? 2.3
+                            : type == "MLB"
+                            ? 3.6
+                            : 3.22,
+                          "hours"
+                        )
                     );
 
                     // The following comparison will bring live events to the front
                     if (isLiveA && !isLiveB) {
-                      return -1;
-                    } else if (!isLiveA && isLiveB) {
-                      return 1;
-                    } else {
                       return 0;
+                    } else if (!isLiveA && isLiveB) {
+                      return -1;
+                    } else {
+                      return 1;
                     }
                   })
+                  .reverse()
                   .map((item) => (
                     <SplideSlide
                       options={{ ...splideOptions, width: 150 }}
@@ -150,6 +172,52 @@ const CardSlider = ({ data }) => {
                   ?.sort(
                     (a, b) => new Date(b?.data?.date) - new Date(a?.data?.date)
                   )
+                  .sort((a, b) => {
+                    const eventTimeA = moment(a.data.date).utc();
+                    const eventTimeB = moment(b.data.date).utc();
+                    const currentTimeLocal = moment();
+
+                    const isLiveA = currentTimeLocal.isBetween(
+                      eventTimeA,
+                      eventTimeA
+                        .clone()
+                        .add(
+                          type == "NBA"
+                            ? 2.6
+                            : type == "NHL"
+                            ? 2.3
+                            : type == "MLB"
+                            ? 3.6
+                            : 3.22,
+                          "hours"
+                        )
+                    );
+                    const isLiveB = currentTimeLocal.isBetween(
+                      eventTimeB,
+                      eventTimeB
+                        .clone()
+                        .add(
+                          type == "NBA"
+                            ? 2.6
+                            : type == "NHL"
+                            ? 2.3
+                            : type == "MLB"
+                            ? 3.6
+                            : 3.22,
+                          "hours"
+                        )
+                    );
+
+                    // The following comparison will bring live events to the front
+                    if (isLiveA && !isLiveB) {
+                      return 0;
+                    } else if (!isLiveA && isLiveB) {
+                      return -1;
+                    } else {
+                      return 1;
+                    }
+                  })
+                  .reverse()
                   .map((item) => (
                     <SplideSlide
                       options={{ ...splideOptions, width: 150 }}

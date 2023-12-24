@@ -25,18 +25,22 @@ function Home() {
         data={data.filter((card) => {
           return card.channel.TVCategory.name == "NFL";
         })}
+        type="NFL"
       />
       <SliderHeader title="NHL Live" link="nhl" />
       <CardSlider
         data={data.filter((card) => card.channel.TVCategory.name == "NHL")}
+        type="NHL"
       />
       <SliderHeader title="NBA Live" link="nba" />
       <CardSlider
         data={data.filter((card) => card.channel.TVCategory.name == "NBA")}
+        type="NBL"
       />
       <SliderHeader title="MLB Live" link="mlb" />
       <CardSlider
         data={data.filter((card) => card.channel.TVCategory.name == "MLB")}
+        type="MLB"
       />
     </div>
   );

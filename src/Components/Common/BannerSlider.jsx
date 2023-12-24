@@ -96,16 +96,9 @@ function BannerDetailSlider() {
                   title={item?.data?.shortName}
                 />
                 <div className="">
-                  <Ended
-                    show={
-                      new Date(item?.data?.date) <
-                      new Date().setHours(new Date().getHours() + 4)
-                    }
-                    type={params.type}
-                  />
+                  <Ended show={new Date(item?.data?.date)} type={params.type} />
                 </div>
               </div>
-              
             </SplideSlide>
           ))}
         </>
