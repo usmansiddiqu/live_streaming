@@ -106,7 +106,7 @@ function DetailsPage() {
           score: data?.data?.competitors[1]?.score,
         }}
       />
-      <div className="mt-6 w-[80rem] bg-[#130A2D] mx-auto pt-3 pb-6 ps-7 flex flex-col p-3 mb-2 ">
+      <div className="mt-6 w-[80rem] h-[20rem] bg-[#130A2D] mx-auto pt-3 pb-6 ps-7 flex flex-col p-3 mb-2 " style={{overflowX:'hidden'}}>
         <h3 className="text-white font-medium text-2xl">You May Also Like</h3>
         <div className="w-[110rem] mt-4 mb-5 banner-slide-card">
           <DetailsSlider />
