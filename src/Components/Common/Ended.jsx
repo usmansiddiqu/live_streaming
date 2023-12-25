@@ -91,28 +91,6 @@ function Ended({ show, type }) {
       )}
     </>
   );
-  // return (
-  //   <>
-  //     {showEnded && (
-  //       <>
-  //         <div className="relative z-40 live ">
-  //           <div
-  //             className="bg-white rounded-lg  text-white mx-auto  flex justify-evenly items-center "
-  //             style={{
-  //               fontSize: "10px",
-  //               height: "18px",
-  //               width: "50px",
-  //             }}
-  //           >
-  //             <span className="text-black my-auto" style={{ fontSize: "11px" }}>
-  //               Warmup
-  //             </span>
-  //           </div>
-  //         </div>
-  //       </>
-  //     )}
-  //   </>
-  // );
 }
 
 export default Ended;

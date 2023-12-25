@@ -18,15 +18,7 @@ function Users() {
   const [users, setUsers] = useState([]);
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState();
-
-  const handleClickOpen = (user) => {
-    setUser(user);
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [eventId, setEventId] = useState();
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
@@ -67,6 +59,15 @@ function Users() {
     } catch (error) {
       setError(error.response.data.message);
     }
+  };
+  const handleClickOpen = (user) => {
+    setUser(user);
+    setOpen(true);
+    setEventId(user);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
   const getUsers = async () => {
     try {

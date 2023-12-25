@@ -13,9 +13,11 @@ import DialogContentText from "@mui/material/DialogContentText";
 function TVCategory() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [eventId, setEventId] = useState();
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (id) => {
     setOpen(true);
+    setEventId(id);
   };
 
   const handleClose = () => {
@@ -35,7 +37,7 @@ function TVCategory() {
     setData(response.categories);
   };
   const deleteCategory = async (id) => {
-    await deleteCategoryById(id);
+    await deleteCategoryById(eventId);
     getData();
     setOpen(false);
   };
@@ -150,7 +152,9 @@ function TVCategory() {
                           <>
                             <button
                               variant="outlined"
-                              onClick={handleClickOpen}
+                              onClick={() => {
+                                handleClickOpen(cat._id);
+                              }}
                               className="ml-3  w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
                             >
                               <img
@@ -159,33 +163,30 @@ function TVCategory() {
                                 className="w-[10px] h-[10px] m-auto"
                               />
                             </button>
-                            <Dialog
-                              open={open}
-                              onClose={handleClose}
-                              aria-labelledby="alert-dialog-title"
-                              aria-describedby="alert-dialog-description"
-                            >
-                              <DialogContent>
-                                <DialogContentText id="alert-dialog-description">
-                                  Are you sure you want to delete this?
-                                </DialogContentText>
-                              </DialogContent>
-                              <DialogActions>
-                                <Button onClick={handleClose}>Cancel</Button>
-                                <Button
-                                  onClick={() => deleteCategory(cat._id)}
-                                  autoFocus
-                                >
-                                  Delete
-                                </Button>
-                              </DialogActions>
-                            </Dialog>
                           </>
                         </div>
                       </td>
                     </tr>
                   ))}
                 </tbody>
+                <Dialog
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                      Are you sure you want to delete this?
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={() => deleteCategory()} autoFocus>
+                      Delete
+                    </Button>
+                  </DialogActions>
+                </Dialog>
               </table>
             </div>
           </div>

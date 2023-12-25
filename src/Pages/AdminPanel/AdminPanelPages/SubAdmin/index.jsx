@@ -14,14 +14,7 @@ function SubAdmin() {
   const [subAdmin, setSubAdmin] = useState([]);
   const [error, setError] = useState("");
   const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [eventId, setEventId] = useState();
 
   const navigate = useNavigate();
 
@@ -40,9 +33,18 @@ function SubAdmin() {
       setError(error.response.data.message);
     }
   };
-  const handleDelete = async (id) => {
-    const { data: response } = await deleteSingleUser(id);
+  const handleClickOpen = (id) => {
+    setOpen(true);
+    setEventId(id);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleDelete = async () => {
+    const { data: response } = await deleteSingleUser(eventId);
     getSubAdmins();
+    setOpen(false);
   };
   useEffect(() => {
     getSubAdmins();
@@ -186,7 +188,7 @@ function SubAdmin() {
                             {admin.phone}
                           </th>
                           <td
-                            class="px-6 py-4 dark:text-white"
+                            class="px-6 py-4 text-white"
                             style={{ border: "1px solid #313133" }}
                           >
                             {admin.status ? (
@@ -200,12 +202,12 @@ function SubAdmin() {
                             )}
                           </td>
                           <td
-                            class="px-6 py-4 dark:text-white border"
+                            class="px-6 py-4 dark:text-white "
                             style={{ border: "1px solid #313133" }}
                           >
                             <div className="flex">
                               <button
-                                className=" border relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
+                                className="  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
                                 onClick={() => {
                                   handleButtonClick(admin);
                                 }}
@@ -220,9 +222,9 @@ function SubAdmin() {
                                 <button
                                   variant="outlined"
                                   onClick={() => {
-                                    handleClickOpen();
+                                    handleClickOpen(admin._id);
                                   }}
-                                  className="ml-3 border w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
+                                  className="ml-3  w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
                                 >
                                   <img
                                     src={Cross}
@@ -230,31 +232,6 @@ function SubAdmin() {
                                     className="w-[10px] h-[10px] m-auto"
                                   />
                                 </button>
-                                <Dialog
-                                  open={open}
-                                  onClose={handleClose}
-                                  aria-labelledby="alert-dialog-title"
-                                  aria-describedby="alert-dialog-description"
-                                >
-                                  <DialogContent>
-                                    <DialogContentText id="alert-dialog-description">
-                                      Are you sure you want to delete this?
-                                    </DialogContentText>
-                                  </DialogContent>
-                                  <DialogActions>
-                                    <Button onClick={handleClose}>
-                                      Cancel
-                                    </Button>
-                                    <Button
-                                      onClick={() => {
-                                        handleDelete(admin._id);
-                                      }}
-                                      autoFocus
-                                    >
-                                      Delete
-                                    </Button>
-                                  </DialogActions>
-                                </Dialog>
                               </>
                             </div>
                           </td>
@@ -262,6 +239,29 @@ function SubAdmin() {
                       );
                     })}
                 </tbody>
+                <Dialog
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                      Are you sure you want to delete this?
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button
+                      onClick={() => {
+                        handleDelete();
+                      }}
+                      autoFocus
+                    >
+                      Delete
+                    </Button>
+                  </DialogActions>
+                </Dialog>
               </table>
             </div>
           </div>

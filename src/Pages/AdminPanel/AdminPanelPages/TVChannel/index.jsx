@@ -15,20 +15,13 @@ import DialogContentText from "@mui/material/DialogContentText";
 function TVChannel() {
   const [open, setOpen] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
   const [activeItem, setActiveItem] = useState(1);
   const [channel, setChannel] = useState([]);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [eventId, setEventId] = useState();
   const itemsPerPage = 7;
   const [textFilter, setTextFilter] = useState("");
   const totalItems = channel.length;
@@ -99,14 +92,22 @@ function TVChannel() {
     setChannel(response.liveTVs);
   };
   const paginatedData = paginate(currentPage);
-  const handleDelete = async (chnl) => {
+  const handleDelete = async () => {
     try {
-      const { data: response } = await deleteSpecificChannel(chnl._id);
+      const { data: response } = await deleteSpecificChannel(eventId);
       getChannels();
       setOpen(false);
     } catch (error) {
       setError(error.response.data.message);
     }
+  };
+  const handleClickOpen = (chnl) => {
+    setOpen(true);
+    setEventId(chnl._id);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
   const handleTextFilter = (e) => {
     setTextFilter(e.target.value);
@@ -386,7 +387,9 @@ function TVChannel() {
                               <>
                                 <button
                                   variant="outlined"
-                                  onClick={handleClickOpen}
+                                  onClick={() => {
+                                    handleClickOpen(chnl);
+                                  }}
                                   className="ml-3 w-[36px] h-[33px] relative rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
                                 >
                                   <img
@@ -395,31 +398,6 @@ function TVChannel() {
                                     className="w-[10px] h-[10px] m-auto"
                                   />
                                 </button>
-                                <Dialog
-                                  open={open}
-                                  onClose={handleClose}
-                                  aria-labelledby="alert-dialog-title"
-                                  aria-describedby="alert-dialog-description"
-                                >
-                                  <DialogContent>
-                                    <DialogContentText id="alert-dialog-description">
-                                      Are you sure you want to delete this?
-                                    </DialogContentText>
-                                  </DialogContent>
-                                  <DialogActions>
-                                    <Button onClick={handleClose}>
-                                      Cancel
-                                    </Button>
-                                    <Button
-                                      onClick={() => {
-                                        handleDelete(chnl);
-                                      }}
-                                      autoFocus
-                                    >
-                                      Delete
-                                    </Button>
-                                  </DialogActions>
-                                </Dialog>
                               </>
                             </div>
                           </div>
@@ -428,6 +406,29 @@ function TVChannel() {
                     );
                   })}
                 </tbody>
+                <Dialog
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                      Are you sure you want to delete this?
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button
+                      onClick={() => {
+                        handleDelete();
+                      }}
+                      autoFocus
+                    >
+                      Delete
+                    </Button>
+                  </DialogActions>
+                </Dialog>
               </table>
             </div>
 

@@ -6,9 +6,11 @@ import Footer from "../../Components/Footer";
 function MainScreen() {
   return (
     <>
-      <Nav />
-      <Home />
-      <Footer />
+      <div className="forMobScreen">
+        <Nav />
+        <Home />
+        <Footer />
+      </div>
     </>
   );
 }
