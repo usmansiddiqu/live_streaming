@@ -29,7 +29,7 @@ import ForgetPassword from "./Pages/ForgetPassword";
 import Contact from "./Pages/Contact";
 
 function App() {
-  const [isLoggedIn] = useState(localStorage.getItem("token")?.length);
+  const [isLoggedIn] = useState(true);
   const [isAdmin] = useState(
     JSON.parse(localStorage.getItem("data")?.usertype == "admin")
   );

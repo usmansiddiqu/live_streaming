@@ -10,7 +10,10 @@ import clearLocalStorage from "../../helper/localstorage";
 import { useNavigate } from "react-router";
 import ErrorComponent from "../../Components/Common/ErrorComponent";
 import signup from "../../api/signup";
+import { useSearchParams } from "react-router-dom";
 function Signup() {
+  const [search] = useSearchParams();
+
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
@@ -54,6 +57,13 @@ function Signup() {
       [e.target.name]: e.target.value,
     });
   };
+  useEffect(() => {
+    if (search.get("access") == "none") {
+      setError(
+        "Access denied! you need to signup or login to watch this match live"
+      );
+    }
+  }, [search.get("access")]);
   return (
     <>
       <div className="main-page flex flex-row w-[100vw] h-[100vh] bg-white">
