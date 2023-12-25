@@ -234,6 +234,9 @@ li a {
   .banner-text {
     bottom: -60% !important;
   }
+  .main-home-page{
+    height: 160vh;
+  }
   .Cardslider {
     width: 73% !important;
   }
@@ -290,6 +293,10 @@ li a {
   .nav-sider {
     border: 0px;
   }
+  .main-home-page{
+    height: 75rem !important;
+  }
+ 
  .detail-live-end{
     position: absolute;
     left: 43%;
@@ -1367,6 +1374,14 @@ li a {
     margin-top: -10px;
   }
 }
+@media screen and (max-width: 1768px) {
+  .main-home-page{
+    height: 100rem;
+  }
+  /* .edit-con{
+    width: 100vw;
+  } */
+}
 
 /* Card media QUeerry */
 @media screen and (max-width: 1568px) {
@@ -1375,6 +1390,9 @@ li a {
   }
   .tvChannel-head2 {
     width: 30vw;
+  }
+  .main-home-page{
+    height: 100rem;
   }
   /* .edit-con{
     width: 100vw;
@@ -1441,6 +1459,9 @@ li a {
     height: 35vh;
     width: 100%;
   }
+  .main-home-page{
+    height: 90rem;
+  }
   .banner-slide-card{
     width: 85rem;
   }
@@ -1492,6 +1513,9 @@ li a {
 @media screen and (max-width: 550px) {
   .banner-slide-card{
     width: 42rem;
+  }
+  .main-home-page{
+    height: 70rem !important;
   }
 }
 @media screen and (max-width: 500px) {
@@ -1606,6 +1630,9 @@ li a {
   }
   .pages {
     width: 98vw;
+  }
+  .main-home-page{
+    height: 60rem !important;
   }
 
 }
