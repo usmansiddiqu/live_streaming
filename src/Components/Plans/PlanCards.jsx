@@ -18,7 +18,7 @@ function PlanCards() {
   const [error, setError] = useState(null);
   const handleClick = async (packageId) => {
     if (!localStorage.getItem("token") || !localStorage.getItem("data")) {
-      navigate("/signup?access=none");
+      navigate("/signup");
     } else {
       const result = await createPayment({ package_id: packageId });
       window.location.href = result.data.data;
@@ -29,7 +29,7 @@ function PlanCards() {
       const { data: response } = await availFreePayment();
       setError(response.message);
     } else {
-      navigate("/signup?access=none");
+      navigate("/signup");
     }
   };
   return (

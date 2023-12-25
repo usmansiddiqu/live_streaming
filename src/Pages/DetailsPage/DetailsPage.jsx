@@ -72,10 +72,10 @@ function DetailsPage() {
           navigate("/membership_plan");
         }
       } else {
-        navigate("/membership_plan");
+        navigate("/signup?access=none");
       }
     } catch (error) {
-      navigate("/membership_plan");
+      navigate("/signup?access=none");
     }
   };
   useEffect(() => {
