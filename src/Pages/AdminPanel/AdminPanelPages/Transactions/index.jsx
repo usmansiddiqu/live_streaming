@@ -247,7 +247,7 @@ function Transactions() {
                       <tr>
                         <th
                           scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap text-blue-600"
+                          class="px-6 py-4 font-medium  whitespace-nowrap cursor-pointer text-blue-600"
                           style={{ border: "1px solid #313133" }}
                           onClick={() => {
                             handleUserClick(payment);
