@@ -46,21 +46,43 @@ function Ended({ show, type }) {
       </div>
     );
   }
+  // return (
+  //   <>
+  //     {showEnded && (
+  //       <>
+  //         <div className="relative z-40 live ">
+  //           <div
+  //             className="bg-red-600 rounded-lg  text-white mx-auto  flex justify-evenly items-center "
+  //             style={{
+  //               fontSize: "10px",
+  //               height: "18px",
+  //               width: "40px",
+  //             }}
+  //           >
+  //             <span className="text-white my-auto" style={{ fontSize: "11px" }}>
+  //               End
+  //             </span>
+  //           </div>
+  //         </div>
+  //       </>
+  //     )}
+  //   </>
+  // );
   return (
     <>
       {showEnded && (
         <>
           <div className="relative z-40 live ">
             <div
-              className="bg-red-600 rounded-lg  text-white mx-auto  flex justify-evenly items-center "
+              className="bg-white rounded-lg  text-white mx-auto  flex justify-evenly items-center "
               style={{
                 fontSize: "10px",
                 height: "18px",
-                width: "40px",
+                width: "50px",
               }}
             >
-              <span className="text-white my-auto" style={{ fontSize: "11px" }}>
-                End
+              <span className="text-black my-auto" style={{ fontSize: "11px" }}>
+                Warmup
               </span>
             </div>
           </div>
