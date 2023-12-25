@@ -5,8 +5,22 @@ import { useNavigate } from "react-router-dom";
 import deleteEventById from "../../../../api/event.api";
 import getEvents from "../../../../api/getEvents";
 import { ToastContainer, toast } from "react-toastify";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
 function AssignLiveTv() {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleButtonClick = (id) => {
     navigate(`/admin/assign_live_tv/assign_tv_edit/${id}`);
@@ -21,6 +35,7 @@ function AssignLiveTv() {
       await deleteEventById(id);
       toast.success("Event Deleted");
       getData();
+      setOpen(false);
     } catch (error) {
       toast.error("Unable to delete");
     }
@@ -134,16 +149,40 @@ function AssignLiveTv() {
                               className="w-[16px] h-[16px] m-auto"
                             />
                           </button>
-                          <button
-                            onClick={() => deleteEvent(event._id)}
-                            className="ml-3 w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
-                          >
-                            <img
-                              src={Cross}
-                              alt=""
-                              className="w-[10px] h-[10px] m-auto"
-                            />
-                          </button>
+                          <>
+                            <button
+                              variant="outlined"
+                              onClick={handleClickOpen}
+                              className="ml-3 w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
+                            >
+                              <img
+                                src={Cross}
+                                alt=""
+                                className="w-[10px] h-[10px] m-auto"
+                              />
+                            </button>
+                            <Dialog
+                              open={open}
+                              onClose={handleClose}
+                              aria-labelledby="alert-dialog-title"
+                              aria-describedby="alert-dialog-description"
+                            >
+                              <DialogContent>
+                                <DialogContentText id="alert-dialog-description">
+                                  Are you sure you want to delete this?
+                                </DialogContentText>
+                              </DialogContent>
+                              <DialogActions>
+                                <Button onClick={handleClose}>Cancel</Button>
+                                <Button
+                                  onClick={() => deleteEvent(event._id)}
+                                  autoFocus
+                                >
+                                  Delete
+                                </Button>
+                              </DialogActions>
+                            </Dialog>
+                          </>
                         </div>
                       </td>
                     </tr>
