@@ -31,8 +31,9 @@ import Contact from "./Pages/Contact";
 function App() {
   const [isLoggedIn] = useState(true);
   const [isAdmin] = useState(
-    JSON.parse(localStorage.getItem("data")?.usertype == "admin")
+    JSON.parse(localStorage.getItem("data"))?.usertype == "admin"
   );
+
   return (
     <div className="App">
       <BrowserRouter>
