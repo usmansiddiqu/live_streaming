@@ -4,10 +4,25 @@ import Edit from "../../../../Assets/Icons/editing.png";
 import { useNavigate } from "react-router-dom";
 import deleteCoupon from "../../../../api/coupon.api";
 import getCoupons from "../../../../api/getCoupon";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
 
 function Coupons() {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const handleButtonClick = (id) => {
     navigate(`/admin/coupons/editcoupon/${id}`);
   };
@@ -168,8 +183,11 @@ function Coupons() {
                         >
                           <div className="flex">
                             <button
+                              variant="outlined"
+                              onClick={() => {
+                                handleClickOpen();
+                              }}
                               className="  ml-3  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
-                              onClick={() => handleButtonClick(coupon._id)}
                             >
                               <img
                                 src={Edit}
@@ -187,6 +205,27 @@ function Coupons() {
                                 className="w-[10px] h-[10px] m-auto"
                               />
                             </button>
+                            <Dialog
+                              open={open}
+                              onClose={handleClose}
+                              aria-labelledby="alert-dialog-title"
+                              aria-describedby="alert-dialog-description"
+                            >
+                              <DialogContent>
+                                <DialogContentText id="alert-dialog-description">
+                                  Are you sure you want to delete this?
+                                </DialogContentText>
+                              </DialogContent>
+                              <DialogActions>
+                                <Button onClick={handleClose}>Cancel</Button>
+                                <Button
+                                  onClick={() => handleButtonClick(coupon._id)}
+                                  autoFocus
+                                >
+                                  Delete
+                                </Button>
+                              </DialogActions>
+                            </Dialog>
                           </div>
                         </td>
                       </tr>
