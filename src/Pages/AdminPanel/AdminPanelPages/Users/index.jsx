@@ -17,8 +17,10 @@ function Users() {
   const [textFilter, setTextFilter] = useState("");
   const [users, setUsers] = useState([]);
   const [open, setOpen] = useState(false);
+  const [user, setUser] = useState();
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (user) => {
+    setUser(user);
     setOpen(true);
   };
 
@@ -57,7 +59,7 @@ function Users() {
   const handleCreateButtonClick = () => {
     navigate("/admin/users/add_user");
   };
-  const handleDelete = async (user) => {
+  const handleDelete = async () => {
     try {
       const response = await deleteSingleUser(user._id);
       getUsers();
@@ -329,7 +331,7 @@ function Users() {
                               <button
                                 variant="outlined"
                                 onClick={() => {
-                                  handleClickOpen();
+                                  handleClickOpen(user);
                                 }}
                                 className="ml-3  w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
                               >
@@ -354,7 +356,7 @@ function Users() {
                                   <Button onClick={handleClose}>Cancel</Button>
                                   <Button
                                     onClick={() => {
-                                      handleDelete(user);
+                                      handleDelete();
                                     }}
                                     autoFocus
                                   >
