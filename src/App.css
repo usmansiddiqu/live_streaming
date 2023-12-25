@@ -44,6 +44,11 @@ li a {
   justify-content: space-between;
   align-items: baseline;
 }
+.main-home-page {
+  position: relative;
+  z-index: 99;
+  overflow: visible;
+}
 
 .carousel-indicators {
   display: none !important;
