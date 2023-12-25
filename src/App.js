@@ -29,8 +29,12 @@ import ForgetPassword from "./Pages/ForgetPassword";
 import Contact from "./Pages/Contact";
 
 function App() {
-  const [isLoggedIn] = useState(true);
-  const [isAdmin] = useState(true);
+  const [isLoggedIn] = useState(
+    JSON.parse(localStorage.getItem("data"))?.length
+  );
+  const [isAdmin] = useState(
+    JSON.parse(localStorage.getItem("data")?.usertype == "admin")
+  );
   return (
     <div className="App">
       <BrowserRouter>
