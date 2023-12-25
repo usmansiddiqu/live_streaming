@@ -124,7 +124,13 @@ function AddSlider() {
                       (Recommended resolution : 1100x450)
                     </p>
                     <img
-                      src={image}
+                      src={
+                        typeof image === "string"
+                          ? image
+                          : image instanceof File
+                          ? URL.createObjectURL(image)
+                          : null
+                      }
                       alt="Uploaded Image"
                       className="w-[400px] h-[169px] border-[6px]"
                     />
