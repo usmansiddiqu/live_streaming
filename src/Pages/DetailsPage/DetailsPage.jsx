@@ -43,11 +43,11 @@ function DetailsPage() {
       scrollToTop();
       setData(response.events);
 
-      const result = await checkUrl(response.events?.channel?.server1URL);
+      const result = await checkUrl(response.events?.channel?.server2URL);
       if (result) {
-        setUrl(response.events?.channel?.server1URL);
-      } else {
         setUrl(response.events?.channel?.server2URL);
+      } else {
+        setUrl(response.events?.channel?.server1URL);
       }
       if (response.events.channel.TVAccess == "paid") {
         await canViewPage();

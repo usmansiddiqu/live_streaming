@@ -4,17 +4,18 @@ import PlanCards from "../../Components/Plans/PlanCards";
 import Coupon from "../../Components/Plans/Coupon";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import verifyPayments from "../../api/payment.api";
 import { ToastContainer, toast } from "react-toastify";
 import getDetails from "../../api/authGetDetails";
 function PlansPage() {
+  const navigate = useNavigate();
   const [search] = useSearchParams();
   const getData = async () => {
     const { data: response } = await verifyPayments(search.get("token"));
     if (response.message == "Token Verified!") {
-      toast.success("Payment Successfull!");
       getUser();
+      navigate("/");
     } else {
       toast.error("Payment Failed");
     }
