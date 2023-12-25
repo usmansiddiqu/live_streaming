@@ -28,7 +28,7 @@ function Footer() {
   return (
     <footer className="footer relative text-base-content fooer-Img bg-[#170F2C]">
       <div className="w-[85vw]  new-footer-box">
-        <div className="flex footer-flex items-center mt-5 !justify-between  w-[50vw] mx-auto">
+        <div className="flex footer-flex items-center mt-3 !justify-between  w-[50vw] mx-auto">
           <div className="flex flex-col">
             <nav className="flex flex-wrap w-full gap-4 w-[29vw] text-footer ">
               <a

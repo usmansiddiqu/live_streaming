@@ -9,7 +9,7 @@ function MainScreen() {
       <div className="forMobScreen">
         <Nav />
         <Home />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );

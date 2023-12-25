@@ -80,7 +80,7 @@ function BannerDetailSlider() {
               </div> */}
 
               <div
-                className="container"
+                className="container relative"
                 style={{ marginTop: "25px" }}
                 onClick={() => {
                   navigate(
@@ -95,7 +95,7 @@ function BannerDetailSlider() {
                   }))}
                   title={item?.data?.shortName}
                 />
-                <div className="">
+                <div className="detail-live-end">
                   <Ended show={new Date(item?.data?.date)} type={params.type} />
                 </div>
               </div>
