@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import getTransactions from "../../../../api/transaction.api";
+import { useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 
 function Transactions() {
+  const navigate = useNavigate();
   const [activeItem, setActiveItem] = useState(1);
   const [data, setData] = useState([]);
   const handleItemClick = (index) => {
@@ -12,6 +16,36 @@ function Transactions() {
   const getData = async () => {
     const { data: response } = await getTransactions();
     setData(response.data);
+  };
+  const filter = (e) => {
+    if (textFilter.length > e) {
+      getData();
+    }
+    let transaction = [...data];
+    if (textFilter.length >= 2) {
+      transaction = transaction
+        .filter((payment) => {
+          if (dateFilter) {
+            const currentDate = new Date(payment?.updatedAt);
+
+            const formattedDate = currentDate.toISOString().slice(0, 10);
+            return formattedDate == dateFilter;
+          } else return true;
+        })
+        .filter((payment) => {
+          if (textFilter) {
+            return (
+              payment?.userId?.email?.includes(textFilter) ||
+              payment?.token?.includes(textFilter)
+            );
+          } else {
+            return true;
+          }
+        });
+
+      // console.log("running filter", tvChannel);
+      setData(transaction);
+    }
   };
   useEffect(() => {
     getData();
@@ -33,8 +67,22 @@ function Transactions() {
       Math.min(prevPage + 1, Math.ceil(totalItems / itemsPerPage))
     );
   };
+  const handleTextFilter = (e) => {
+    setTextFilter(e.target.value);
+    filter(e.target.value);
+  };
+  const handleDateChange = (e) => {
+    setDateFilter(e.target.value);
+    filter(e.target.value);
+  };
+  const handleTextPaste = (e) => {
+    setTextFilter(e?.clipboardData?.getData("text"));
+    filter(e?.clipboardData?.getData("text"));
+  };
   const paginatedData = paginate(currentPage);
-
+  const handleUserClick = (payment) => {
+    navigate(`/admin/users/history/${payment?.userId?._id}`);
+  };
   return (
     <div
       style={{
@@ -65,7 +113,10 @@ function Transactions() {
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0 placeholder:text-white  text-white text-xs   bg-[#313133] rounded-full w-full "
                         placeholder="Search by Payment ID or Email"
-                        onChange={(e) => setTextFilter(e.target.value)}
+                        onPaste={(e) => {
+                          handleTextPaste(e);
+                        }}
+                        onChange={(e) => handleTextFilter(e)}
                       />
                       <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
                         <svg
@@ -92,7 +143,7 @@ function Transactions() {
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0 outline-none text-white text-xs  bg-[#313133] rounded-full w-60 "
                         placeholder="mm/dd/yy"
-                        onChange={(e) => setDateFilter(e.target.value)}
+                        onChange={(e) => handleDateChange(e)}
                       />
                       {/* <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
                         <svg
@@ -198,6 +249,9 @@ function Transactions() {
                           scope="row"
                           class="px-6 py-4 font-medium  whitespace-nowrap text-blue-600"
                           style={{ border: "1px solid #313133" }}
+                          onClick={() => {
+                            handleUserClick(payment);
+                          }}
                         >
                           {payment?.userId?.name}
                         </th>

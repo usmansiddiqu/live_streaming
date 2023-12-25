@@ -5,9 +5,11 @@ import authGetUserHistory from "../../api/authGetUserHistory";
 function UserHistory() {
   const params = useParams();
   const [data, setData] = useState(null);
+  const [user, setUser] = useState();
   const getData = async () => {
     const { data: response } = await authGetUserHistory(params.id);
     setData(response?.data);
+    setUser(response?.data?.user);
   };
   useEffect(() => {
     getData();
@@ -24,7 +26,6 @@ function UserHistory() {
         margin: "auto",
       }}
     >
-      {console.log(data)}
       <div className=" mt-10 ">
         <div className="flex flex-col">
           <div
@@ -32,9 +33,9 @@ function UserHistory() {
             style={{ position: "relative", left: "7%" }}
           >
             <div className="w-[65%] userhisotryy h-[23vh] bg-[#1C1C1E] user-edit flex justify-between rounded p-3">
-            <div className="w-[200px] h-[170px] border-[5px] user-img">
-            <img src="" alt="" className="w-[100%] h-[100%]" />
-            </div>
+              <div className="w-[200px] h-[170px] border-[5px] user-img">
+                <img src="" alt="" className="w-[100%] h-[100%]" />
+              </div>
               <div className="user-info flex justify-between w-[45vw]  p-4">
                 <div>
                   <h1 className="text-lg text-white font-bold">
@@ -53,15 +54,19 @@ function UserHistory() {
                     </h2>
                   </div>
                   <div className="flex items-center ">
-                    <h1 className="text-md text-white font-bold adress">Address :</h1>
+                    <h1 className="text-md text-white font-bold adress">
+                      Address :
+                    </h1>
                     <h2 className="text-xs text-white ml-2 address-ip">
-                    {("123 Main Street, Cityville, Country").match(/.{1,50}/g).map((line, index) => (
-                      <React.Fragment key={index}>
-                        {line}
-                        <br />
-                      </React.Fragment>
-                    ))}
-                  </h2>
+                      {"123 Main Street, Cityville, Country"
+                        .match(/.{1,50}/g)
+                        .map((line, index) => (
+                          <React.Fragment key={index}>
+                            {line}
+                            <br />
+                          </React.Fragment>
+                        ))}
+                    </h2>
                   </div>
                 </div>
                 <div>
@@ -195,50 +200,52 @@ function UserHistory() {
               <tbody>
                 {data?.payments?.length ? (
                   data?.payments?.map((data) => {
-                    <tr>
-                      <th
-                        scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                        style={{ border: "1px solid #313133" }}
-                      >
-                        {data?.user?.email}
-                      </th>
-                      <th
-                        scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                        style={{ border: "1px solid #313133" }}
-                      >
-                        {data?.payments?.packageId?.name}
-                      </th>
-                      <th
-                        scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                        style={{ border: "1px solid #313133" }}
-                      >
-                        $ {data?.payments?.packageId?.amount}
-                      </th>
-                      <th
-                        scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                        style={{ border: "1px solid #313133" }}
-                      >
-                        {data?.payments?.packageId?.amount ? "PayCEC" : "-"}
-                      </th>
-                      <th
-                        scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                        style={{ border: "1px solid #313133" }}
-                      >
-                        $ {data?.payments?._id}
-                      </th>
-                      <th
-                        scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                        style={{ border: "1px solid #313133" }}
-                      >
-                        {data?.payments?.createdAt}
-                      </th>
-                    </tr>;
+                    return (
+                      <tr>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {user?.email}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {data?.packageId?.name}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          $ {data?.packageId?.amount}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {data?.packageId?.amount ? "PayCEC" : "-"}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          $ {data?._id}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {data?.createdAt}
+                        </th>
+                      </tr>
+                    );
                   })
                 ) : (
                   <></>
