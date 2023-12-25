@@ -43,7 +43,7 @@ function Login() {
       setError(data?.error);
     } else {
       setError(null);
-      console.log(data?.data);
+      // console.log(data?.data);
       localStorage.setItem("token", data.data.token);
       localStorage.setItem("data", JSON.stringify(data.data.user));
       navigate("/");

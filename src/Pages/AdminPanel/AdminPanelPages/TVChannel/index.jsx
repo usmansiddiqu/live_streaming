@@ -47,14 +47,14 @@ function TVChannel() {
         return chnl.TVName.toLowerCase().includes(textFilter.toLowerCase());
       });
 
-      console.log("running filter", tvChannel);
+      // console.log("running filter", tvChannel);
       setChannel(tvChannel);
     }
   };
   const paginate = (page) => {
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    console.log(channel);
+    // console.log(channel);
     return channel.slice(startIndex, endIndex);
   };
 

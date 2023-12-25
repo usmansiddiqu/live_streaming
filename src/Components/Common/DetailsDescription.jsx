@@ -11,7 +11,7 @@ function DetailsDescription({ data, setUrl }) {
       const { data: response } = await createWishList({ eventId: id });
       toast.success("Added to Wishlist");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Failed to Add");
     }
   };
@@ -58,7 +58,7 @@ function DetailsDescription({ data, setUrl }) {
               <label>Away</label>
             </div>
           </button>
-          {console.log(data?.liveTV?.server3URL)}
+          {/* {console.log(data?.liveTV?.server3URL)} */}
           {typeof data?.liveTV?.server3URL === "string" ? (
             <button
               class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"

@@ -37,7 +37,7 @@ function AddSubAdmin() {
     try {
       const { data: response } = await addSubAdmin(formData);
       navigate("/admin/sub_admin");
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -182,7 +182,7 @@ function AddSubAdmin() {
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
                 onChange={(e) => {
                   setStatus(e.target.value);
-                  console.log(status);
+                  // console.log(status);
                 }}
               >
                 <option value={"active"}>Active</option>

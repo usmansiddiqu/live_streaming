@@ -24,7 +24,7 @@ function MainSlider() {
   const navigate = useNavigate();
   return (
     <>
-      {console.log(isTabletOrMobile, isDekstop, "check1234")}
+      {/* {console.log(isTabletOrMobile, isDekstop, "check1234")} */}
       {isDekstop && (
         <div
           style={{
@@ -81,7 +81,7 @@ function MainSlider() {
                     {card?.title}
                   </h1>
                   <div className="mt-[-90px] z-80 banner-btnss">
-                    <BannerButtons 
+                    <BannerButtons
                       onWatch={() => navigate(`/live/${card._id}`)}
                     />
                   </div>

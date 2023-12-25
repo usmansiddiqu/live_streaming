@@ -28,7 +28,7 @@ function EditLiveTv() {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    console.log(file);
+    // console.log(file);
     if (file) {
       setLogo(file);
       // const reader = new FileReader();
@@ -47,7 +47,7 @@ function EditLiveTv() {
   }, []);
   const createTVChannel = async () => {
     const formData = new FormData();
-    console.log(TVAccess);
+    // console.log(TVAccess);
     formData.append("TVName", TVName);
     formData.append("description", description);
     formData.append("TVAccess", TVAccess);
@@ -61,7 +61,7 @@ function EditLiveTv() {
     formData.append("liveTVId", id);
     try {
       const { data: response } = await editChannelInDB(formData);
-      console.log(response);
+      // console.log(response);
       navigate("/admin/live_tv");
     } catch (error) {
       setError(error.response.data.message);
@@ -77,7 +77,7 @@ function EditLiveTv() {
   const getChannel = async () => {
     try {
       const { data: response } = await getSpecificChannel(id);
-      console.log("=====>", response);
+      // console.log("=====>", response);
       setTvName(response.liveTV.TVName);
       setDescription(response.liveTV.description);
       setTVAccess(response.liveTV.TVAccess);
@@ -478,7 +478,7 @@ function EditLiveTv() {
                           alt="Uploaded Image"
                           className="w-[200px] h-[116px] border-[6px]"
                         />
-                        {console.log(logo)}
+                        {/* {console.log(logo)} */}
                       </div>
                     </div>
                   </div>

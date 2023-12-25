@@ -14,7 +14,7 @@ function Home() {
   useEffect(() => {
     getData();
   }, []);
-  console.log(data);
+  // console.log(data);
   return (
     <div className="bg-[#130A2D] h-[150vh] main-home-page">
       <MainSlider />

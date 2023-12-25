@@ -37,7 +37,7 @@ function AddSlider() {
   const handleSave = async (e) => {
     try {
       e.preventDefault();
-      console.log(title, liveTV, status);
+      // console.log(title, liveTV, status);
       const formData = new FormData();
       formData.append("title", title);
       formData.append("liveTV", liveTV);

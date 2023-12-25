@@ -41,9 +41,9 @@ function Profile() {
     formData.append("image", image);
     try {
       const response = await updateUser(formData);
-      console.log(response);
+      // console.log(response);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setError(error.response.data.message);
     }
   };
@@ -66,7 +66,7 @@ function Profile() {
   const isGoogleImageUrl = (url) => {
     const googleImageUrlRegex =
       /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
-    console.log(googleImageUrlRegex.test(url));
+    // console.log(googleImageUrlRegex.test(url));
     return googleImageUrlRegex.test(url);
   };
   return (

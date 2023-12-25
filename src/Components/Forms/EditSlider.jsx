@@ -39,7 +39,7 @@ function EditSlider() {
   const handleSave = async (e) => {
     try {
       e.preventDefault();
-      console.log(title, liveTV, status);
+      // console.log(title, liveTV, status);
       const formData = new FormData();
       formData.append("id", id);
       formData.append("title", title);
@@ -48,7 +48,7 @@ function EditSlider() {
       formData.append("image", image);
       const { data: response } = await editSlider(formData);
       navigate("/admin/slider");
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -56,11 +56,11 @@ function EditSlider() {
   const specificSlider = async () => {
     try {
       const { data: response } = await getSpecific(id);
-      console.log(response.data);
+      // console.log(response.data);
       setTitle(response.data.title);
       setLiveTV(response.data.liveTV);
       setStatus(response.data.status);
-      console.log(url + "\\" + response.data.image.replace("uploads\\", ""));
+      // console.log(url + "\\" + response.data.image.replace("uploads\\", ""));
       setImage(url + "\\" + response.data.image.replace("uploads\\", ""));
     } catch (error) {
       setError(error.response.data.message);
@@ -89,7 +89,7 @@ function EditSlider() {
         >
           {error && <ErrorComponent message={error} />}
           <form class="max-w-sm ">
-          <div class="mb-5 w-[60vw] input-feild flex items-center">
+            <div class="mb-5 w-[60vw] input-feild flex items-center">
               <label
                 for="email"
                 class=" block mb-2 text-sm font-medium w-[15vw]  text-gray-900 text-white "
@@ -110,7 +110,7 @@ function EditSlider() {
             </div>
             <div class="mb-5 input-feild w-[60vw]  ">
               <div className="flex flex-col w-full">
-              <div className="flex input-feild  items-center">
+                <div className="flex input-feild  items-center">
                   <label
                     for="email"
                     class="block mb-2  text-sm font-medium w-[15vw] tv-logo text-white "
@@ -168,7 +168,7 @@ function EditSlider() {
                   <option>Inactive</option>
                 </select>
               </div> */}
-                   <div class="mb-5 input-feild  w-[60vw] flex  ">
+                <div class="mb-5 input-feild  w-[60vw] flex  ">
                   <label
                     for="countries"
                     class="block mb-2  text-sm font-medium text-white w-[15vw] "

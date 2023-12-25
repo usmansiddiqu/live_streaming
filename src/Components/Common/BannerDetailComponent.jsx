@@ -17,7 +17,7 @@ function BannerDetailComponent({ data, url }) {
       setShow(true);
     } catch (error) {
       setShow(false);
-      console.log(123, error);
+      // console.log(123, error);
     }
   };
   useEffect(() => {

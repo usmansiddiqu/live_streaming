@@ -26,7 +26,7 @@ const CardSliders = ({ data }) => {
         marginTop: "25px",
       }}
     >
-      {console.log(data)}
+      {/* {console.log(data)} */}
       <Splide options={{ ...splideOptions, width: 1400 }}>
         <>
           {data?.map((item) => (
@@ -52,7 +52,7 @@ const CardSliders = ({ data }) => {
                 } 50%)`,
               }}
             >
-              {console.log(item)}
+              {/* {console.log(item)} */}
               <div
                 className="placeAndTime border w-[100%] h-[3vh] flex justify-between flex-row  bg-[black] bg-opacity-40"
                 style={{

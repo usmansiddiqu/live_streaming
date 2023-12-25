@@ -44,7 +44,7 @@ function AddChannel() {
   const createTVChannel = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    console.log(TVAccess);
+    // console.log(TVAccess);
     formData.append("TVName", TVName);
     formData.append("description", description);
     formData.append("TVAccess", TVAccess);
@@ -57,7 +57,7 @@ function AddChannel() {
     formData.append("logo", logo);
     try {
       const { data: response } = await addChannelToDB(formData);
-      console.log(response);
+      // console.log(response);
       navigate("/admin/live_tv");
     } catch (error) {
       setError(error.response.data.message);
