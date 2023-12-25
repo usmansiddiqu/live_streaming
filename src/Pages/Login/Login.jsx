@@ -28,6 +28,7 @@ function Login() {
       setError(null);
       localStorage.setItem("token", data.data.token);
       localStorage.setItem("data", JSON.stringify(data.data.user));
+      window.dispatchEvent(new Event("token"));
       navigate("/");
     }
   };
@@ -46,6 +47,7 @@ function Login() {
       // console.log(data?.data);
       localStorage.setItem("token", data.data.token);
       localStorage.setItem("data", JSON.stringify(data.data.user));
+      window.dispatchEvent(new Event("token"));
       navigate("/");
     }
   };

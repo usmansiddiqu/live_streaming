@@ -13,4 +13,11 @@ if (token) {
   axiosInstance.defaults.headers.common["token"] = `${token}`;
 }
 
+window.addEventListener("token", () => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    axiosInstance.defaults.headers.common["token"] = `${token}`;
+  }
+});
+
 export default axiosInstance;
