@@ -425,7 +425,7 @@ li a {
     height: 200px;
   }
   .main-home-page {
-    height: 71rem;
+    height: 71rem !important;
   }
 
   .cardd {
@@ -1687,7 +1687,7 @@ li a {
     margin-left: -15px;
   }
   .main-home-page {
-    height: 73rem;
+    height: 71rem !important;
   }
   .plan-page-text {
     width: 100vw;
