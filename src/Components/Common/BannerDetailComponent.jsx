@@ -36,11 +36,19 @@ function BannerDetailComponent({ data, url }) {
             background: `linear-gradient(-60deg, #${
               data?.data?.competitors?.filter(
                 (comp) => comp.homeAway == "home"
-              )[0].color
+              )[0].color === "ffffff"
+                ? "808080"
+                : data?.data?.competitors?.filter(
+                    (comp) => comp.homeAway == "home"
+                  )[0].color
             } 50%, #${
               data?.data?.competitors?.filter(
-                (comp) => comp.homeAway != "home"
-              )[0].alternateColor
+                (comp) => comp.homeAway == "home"
+              )[0].alternateColor === "ffffff"
+                ? "808080"
+                : data?.data?.competitors?.filter(
+                    (comp) => comp.homeAway == "home"
+                  )[0].alternateColor
             } 50%)`,
           }}
         >

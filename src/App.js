@@ -27,6 +27,7 @@ import FAQ from "./Pages/FAQ";
 import Email from "./Pages/EnterEmail";
 import ForgetPassword from "./Pages/ForgetPassword";
 import Contact from "./Pages/Contact";
+import CrispChat from "./Components/crisp";
 
 function App() {
   const [isLoggedIn] = useState(true);
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <div className="App">
+      <CrispChat />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainScreen />} />

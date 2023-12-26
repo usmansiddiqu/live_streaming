@@ -11,12 +11,12 @@ import moment from "moment";
 const CardSlider = ({ data, type }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1001px)" });
-  function truncateText(text, maxLength) {
+  const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + "...";
     }
     return text;
-  }
+  };
   const splideOptions = {
     perPage: 1,
     perMove: 1,
@@ -112,11 +112,19 @@ const CardSlider = ({ data, type }) => {
                         background: `linear-gradient(-60deg, #${
                           item.data.competitors.filter(
                             (comp) => comp.homeAway == "home"
-                          )[0].color
+                          )[0].color === "ffffff"
+                            ? "808080"
+                            : item.data.competitors.filter(
+                                (comp) => comp.homeAway == "home"
+                              )[0].color
                         } 50%, #${
                           item.data.competitors.filter(
-                            (comp) => comp.homeAway != "home"
-                          )[0].alternateColor
+                            (comp) => comp.homeAway == "home"
+                          )[0].alternateColor === "ffffff"
+                            ? "808080"
+                            : item.data.competitors.filter(
+                                (comp) => comp.homeAway == "home"
+                              )[0].alternateColor
                         } 50%)`,
                       }}
                     >
@@ -235,11 +243,19 @@ const CardSlider = ({ data, type }) => {
                         background: `linear-gradient(-60deg, #${
                           item.data.competitors.filter(
                             (comp) => comp.homeAway == "home"
-                          )[0].color
+                          )[0].color === "ffffff"
+                            ? "808080"
+                            : item.data.competitors.filter(
+                                (comp) => comp.homeAway == "home"
+                              )[0].color
                         } 50%, #${
                           item.data.competitors.filter(
-                            (comp) => comp.homeAway != "home"
-                          )[0].alternateColor
+                            (comp) => comp.homeAway == "home"
+                          )[0].alternateColor === "ffffff"
+                            ? "808080"
+                            : item.data.competitors.filter(
+                                (comp) => comp.homeAway == "home"
+                              )[0].alternateColor
                         } 50%)`,
                       }}
                     >
