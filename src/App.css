@@ -424,6 +424,9 @@ li a {
     min-width: 330px;
     height: 200px;
   }
+  .main-home-page {
+    height: 71rem;
+  }
 
   .cardd {
     width: 100px !important;
@@ -1664,9 +1667,9 @@ li a {
     left: 43%;
     margin-top: -8px;
   }
-  .team-Logo-name {
-    /* margin-top: 35px; */
-  }
+  /* .team-Logo-name {
+    margin-top: 35px;
+  } */
 }
 @media screen and (max-width: 390px) {
   .card-con {
@@ -1682,6 +1685,9 @@ li a {
     height: 28vh;
     width: 83vw !important;
     margin-left: -15px;
+  }
+  .main-home-page {
+    height: 73rem;
   }
   .plan-page-text {
     width: 100vw;
