@@ -171,7 +171,7 @@ function Login() {
                     href="/enterEmail"
                     class="text-sm font-medium text-white hover:underline dark:text-primary-500"
                   >
-                    <Link to="/forget_password">Forgot password?</Link>
+                    <Link to="/enterEmail">Forgot password?</Link>
                   </a>
                 </div>
                 <button
