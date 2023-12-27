@@ -4,6 +4,8 @@ import Footer from "../../Components/Footer";
 import "../../Assets/styles/Button.scss";
 import DashHeader from "../../Components/Dashboard/DashHeader";
 import updateUser from "../../api/editUser";
+import { toast, ToastContainer } from "react-toastify";
+import getDetails from "../../api/authGetDetails";
 
 function Profile() {
   const [user, setUser] = useState(localStorage.getItem("data"));
@@ -40,10 +42,14 @@ function Profile() {
     formData.append("phone", phone);
     formData.append("image", image);
     try {
-      const response = await updateUser(formData);
-      // console.log(response);
+      await updateUser(formData);
+      if (localStorage.getItem("token")) {
+        const { data: response } = await getDetails();
+        localStorage.setItem("data", JSON.stringify(response?.user));
+        window.dispatchEvent(new Event("profile"));
+        toast.success("Profile Updated");
+      }
     } catch (error) {
-      // console.log(error);
       setError(error.response.data.message);
     }
   };
@@ -72,6 +78,7 @@ function Profile() {
   return (
     <>
       <div className="h-[100vh] bg-[#0D0620]">
+        <ToastContainer />
         <Nav />
         <DashHeader title="Edit Profile" SubTitle="Edit Profile" />
         <div className="w-[100vw] h-[auto] bg-[#0D0620] flex items-center ">

@@ -291,7 +291,7 @@ function Users() {
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          02135647
+                          {user.phone || "-"}
                         </th>
                         <td
                           class="px-6 py-4 dark:text-white"

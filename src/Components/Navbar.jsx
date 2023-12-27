@@ -28,6 +28,7 @@ import { url } from "../helper/url";
 import SearchCards from "./Common/SearchCards";
 import getEvents from "../api/getEvents";
 import { useMediaQuery } from "react-responsive";
+import { ToastContainer } from "react-toastify";
 
 function Nav() {
   const [eventData, setEventData] = useState([]);
@@ -69,7 +70,9 @@ function Nav() {
     data?.image
       ? isGoogleImageUrl(data.image)
         ? image
-        : url + "\\" + data.image.replace("uploads\\", "")
+        : url +
+          "\\" +
+          data.image.replace("uploads\\", "").replace("uploads/", "")
       : null
   );
   const isDesktop = useMediaQuery({ query: "(min-width: 1001px)" });
@@ -104,6 +107,20 @@ function Nav() {
     setEventData(response.events);
     // console.log(response.events);
   };
+
+  window.addEventListener("profile", () => {
+    let d = JSON.parse(localStorage.getItem("data"));
+    setImage(
+      d
+        ? isGoogleImageUrl(data.image)
+          ? image
+          : url +
+            "\\" +
+            d.image.replace("uploads\\", "").replace("uploads/", "")
+        : null
+    );
+  });
+
   function filterArray(arr, search) {
     if (search.length >= 2) {
       return arr.filter((item) => {
@@ -124,7 +141,7 @@ function Nav() {
 
     return arr;
   }
-
+  console.log("===========>", image);
   return (
     <AppBar
       position="static"
@@ -133,6 +150,7 @@ function Nav() {
         boxShadow: "-1px 6px 8px -6px rgba(255,255,255,0.45)",
       }}
     >
+      <ToastContainer />
       {isModalOpen && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center bg-[#0D0721] bg-opacity-90 z-50">
           <div className="p-8 rounded shadow-lg flex flex-col item-center relative">
@@ -296,7 +314,7 @@ function Nav() {
                           onClick={toggleDropdown}
                           src={
                             typeof image === "string"
-                              ? isGoogleImageUrl(image)
+                              ? image
                                 ? image
                                 : image instanceof File
                                 ? URL.createObjectURL(image)
