@@ -40,8 +40,8 @@ function UserHistory() {
                     url +
                     "\\" +
                     data?.user?.image
-                      .replace("uploads\\", "")
-                      .replace("uploads/", "")
+                      ?.replace("uploads\\", "")
+                      ?.replace("uploads/", "")
                   }
                   alt=""
                   className="w-[100%] h-[100%]"
