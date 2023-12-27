@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import authGetUserHistory from "../../api/authGetUserHistory";
+import { url } from "../../helper/url";
 
 function UserHistory() {
   const params = useParams();
@@ -34,7 +35,17 @@ function UserHistory() {
           >
             <div className="w-[65%] userhisotryy h-[23vh] bg-[#1C1C1E] user-edit flex justify-between rounded p-3">
               <div className="w-[200px] h-[170px] border-[5px] user-img">
-                <img src="" alt="" className="w-[100%] h-[100%]" />
+                <img
+                  src={
+                    url +
+                    "\\" +
+                    data?.user?.image
+                      .replace("uploads\\", "")
+                      .replace("uploads/", "")
+                  }
+                  alt=""
+                  className="w-[100%] h-[100%]"
+                />
               </div>
               <div className="user-info flex justify-between w-[45vw]  p-4">
                 <div>
