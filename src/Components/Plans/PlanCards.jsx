@@ -21,7 +21,12 @@ function PlanCards() {
       navigate("/signup");
     } else {
       const result = await createPayment({ package_id: packageId });
-      window.location.href = result.data.data;
+      console.log(123, result);
+      if (result?.data?.error) {
+        setError(result?.data?.error);
+      } else {
+        window.location.href = result.data.data;
+      }
     }
   };
   const handleFreePayment = async () => {
