@@ -17,7 +17,6 @@ function BannerDetailComponent({ data, url }) {
       setShow(true);
     } catch (error) {
       setShow(false);
-      // console.log(123, error);
     }
   };
   useEffect(() => {
@@ -74,7 +73,6 @@ function BannerDetailComponent({ data, url }) {
                 name: comp.name,
               }))}
             />
-            {console.log(url1 + "\\" + data.image.replace("uploads\\", ""))}
           </div> */}
         </div>
       )}

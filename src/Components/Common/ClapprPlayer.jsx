@@ -3,8 +3,6 @@ import Clappr from "@clappr/player";
 import { MediaControl } from "@clappr/plugins";
 
 function ClapprPlayer({ url, setShow }) {
-  // console.log(url);
-
   useEffect(() => {
     // Function to calculate player size based on screen width
     const calculatePlayerSize = () => {
@@ -28,7 +26,6 @@ function ClapprPlayer({ url, setShow }) {
       events: {
         onReady: function () {
           setShow(true);
-          // console.log("ready");
 
           // Adjust the positioning of controls
           // const controls = document.querySelector(".media-control");

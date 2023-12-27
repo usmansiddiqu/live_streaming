@@ -24,7 +24,6 @@ function MainSlider() {
   const navigate = useNavigate();
   return (
     <>
-      {/* {console.log(isTabletOrMobile, isDekstop, "check1234")} */}
       {isDekstop && (
         <div
           style={{

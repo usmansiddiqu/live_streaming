@@ -56,7 +56,6 @@ function Profile() {
   // const getUser = async () => {
   //   try {
   //     const { data: response } = await getSpecificUser(JSON.parse(user)._id);
-  //     console.log(response.user);
   //     setName(response.user.name);
   //     setEmail(response.user.email);
   //     setPhone(response.user?.phone);
@@ -66,13 +65,11 @@ function Profile() {
   //   }
   // };
   // useEffect(() => {
-  //   console.log("running");
   //   getUser();
   // }, []);
   const isGoogleImageUrl = (url) => {
     const googleImageUrlRegex =
       /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
-    // console.log(googleImageUrlRegex.test(url));
     return googleImageUrlRegex.test(url);
   };
   return (

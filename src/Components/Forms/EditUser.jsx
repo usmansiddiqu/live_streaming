@@ -44,16 +44,13 @@ function EditUser() {
       formData.append("image", image);
       const { data: response } = await updateUser(formData);
       navigate("/admin/users");
-      // console.log(response);
     } catch (error) {
-      // console.log(error);
       // setError(error.response.data.message);
     }
   };
   const getChannelById = async () => {
     try {
       const { data: response } = await getSpecificUser(id);
-      // console.log(123, response.user);
       setName(response.data.name);
       setEmail(response.data.email);
       setPhone(response.data?.phone);
@@ -61,7 +58,6 @@ function EditUser() {
       setExpireDate(response.data?.expiryDate);
       setStatus(response.data?.status);
     } catch (error) {
-      // console.log(error);
       // setError(error.response.data.message);
     }
   };
@@ -211,7 +207,6 @@ function EditUser() {
                 }}
               />
             </div>
-            {/* {console.log(123, expireDate)} */}
             {/* <div class="mb-5 input-feild w-[72vw] flex  ">
               <label
                 for="countries"
@@ -239,7 +234,6 @@ function EditUser() {
                 value={status}
                 onChange={(e) => {
                   setStatus(e.target.value);
-                  // console.log(status);
                 }}
               >
                 <option value={"active"}>Active</option>

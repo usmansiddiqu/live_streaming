@@ -31,7 +31,6 @@ function ForgetPassword() {
   //       .then(
   //         () => {
   //           // Initialization successful, you can now use gapi.client
-  //           console.log("Google API client initialized successfully");
   //         },
   //         (error) => {
   //           // Initialization failed, handle the error

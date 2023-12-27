@@ -43,7 +43,6 @@ function Transactions() {
           }
         });
 
-      // console.log("running filter", tvChannel);
       setData(transaction);
     }
   };

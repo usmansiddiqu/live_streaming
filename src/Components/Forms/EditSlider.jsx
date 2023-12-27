@@ -30,7 +30,6 @@ function EditSlider() {
   const getLiveTV = async () => {
     try {
       const { data: response } = await getChannel();
-      // console.log(response.liveTVs.data);
       setLiveTVObj(response.liveTVs);
     } catch (error) {
       setError(error.response.data.message);
@@ -39,7 +38,6 @@ function EditSlider() {
   const handleSave = async (e) => {
     try {
       e.preventDefault();
-      // console.log(title, liveTV, status);
       const formData = new FormData();
       formData.append("id", id);
       formData.append("title", title);
@@ -48,7 +46,6 @@ function EditSlider() {
       formData.append("image", image);
       const { data: response } = await editSlider(formData);
       navigate("/admin/slider");
-      // console.log(response);
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -56,11 +53,9 @@ function EditSlider() {
   const specificSlider = async () => {
     try {
       const { data: response } = await getSpecific(id);
-      // console.log(response.data);
       setTitle(response.data.title);
       setLiveTV(response.data.liveTV);
       setStatus(response.data.status);
-      // console.log(url + "\\" + response.data.image.replace("uploads\\", ""));
       setImage(url + "\\" + response.data.image.replace("uploads\\", ""));
     } catch (error) {
       setError(error.response.data.message);

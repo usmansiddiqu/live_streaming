@@ -24,7 +24,6 @@ function WatchList() {
       __v: item.eventId.__v,
     }));
     setConvertedData([...convertedArray]);
-    // console.log(convertedArray);
   };
   useEffect(() => {
     getWishlists();

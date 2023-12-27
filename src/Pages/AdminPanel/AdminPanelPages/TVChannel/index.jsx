@@ -36,13 +36,10 @@ function TVChannel() {
   //   if (textFilter.length >= 2) {
   //     tvChannel?.filter((chnl) => {
   //       if (textFilter) {
-  //         console.log(
-  //           chnl.TVName.toLowerCase().includes(textFilter.toLowerCase())
-  //         );
+
   //         return chnl.TVName.toLowerCase().includes(textFilter.toLowerCase());
   //       }
   //     });
-  //     console.log("running filter", tvChannel);
 
   //     setChannel(tvChannel);
   //   }
@@ -57,14 +54,12 @@ function TVChannel() {
         return chnl.TVName.toLowerCase().includes(textFilter.toLowerCase());
       });
 
-      // console.log("running filter", tvChannel);
       setChannel(tvChannel);
     }
   };
   const paginate = (page) => {
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    // console.log(channel);
     return channel.slice(startIndex, endIndex);
   };
 
@@ -88,7 +83,6 @@ function TVChannel() {
   };
   const getChannels = async () => {
     const { data: response } = await getChannel();
-    // console.log(response.live, "chnl123123");
     setChannel(response.liveTVs);
   };
   const paginatedData = paginate(currentPage);

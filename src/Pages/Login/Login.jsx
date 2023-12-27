@@ -44,16 +44,13 @@ function Login() {
       setError(data?.error);
     } else {
       setError(null);
-      // console.log(data?.data);
       localStorage.setItem("token", data.data.token);
       localStorage.setItem("data", JSON.stringify(data.data.user));
       window.dispatchEvent(new Event("token"));
       navigate("/");
     }
   };
-  const onFailure = (res) => {
-    console.log(res);
-  };
+
   // const start = () => {
   //   window.gapi.load("client", () => {
   //     window.gapi.client
@@ -214,7 +211,6 @@ function Login() {
                       onSuccess({ name, email, googleId, imageUrl });
                     }}
                     onError={() => {
-                      console.log("Login Failed");
                     }}
                   />
                 )} */}

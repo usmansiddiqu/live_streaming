@@ -28,7 +28,6 @@ function AddSlider() {
   const getLiveTV = async () => {
     try {
       const { data: response } = await getChannel();
-      // console.log(response.liveTVs.data);
       setLiveTVObj(response.liveTVs);
     } catch (error) {
       setError(error.response.data.message);
@@ -37,7 +36,6 @@ function AddSlider() {
   const handleSave = async (e) => {
     try {
       e.preventDefault();
-      // console.log(title, liveTV, status);
       const formData = new FormData();
       formData.append("title", title);
       formData.append("liveTV", liveTV);

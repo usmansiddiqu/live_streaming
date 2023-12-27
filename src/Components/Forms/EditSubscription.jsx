@@ -11,7 +11,6 @@ function EditSubscription() {
   const [data, setData] = useState(null);
   const getData = async () => {
     const { data: response } = await getSpecificPackage(params.id);
-    // console.log(response);
     setData(response.data);
   };
   useEffect(() => {
@@ -22,7 +21,6 @@ function EditSubscription() {
       ...data,
     });
     navigate("/admin/subscription_plan");
-    // console.log(data);
   };
   const handleOnChange = (e) => {
     setData({

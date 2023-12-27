@@ -55,7 +55,6 @@ function BannerDetailsDescription({ data, setUrl }) {
               <label>Away</label>
             </div>
           </button>
-          {/* {console.log(data?.liveTV?.server3URL)} */}
           {typeof data?.liveTV?.server3URL === "string" &&
           data?.liveTV?.server3URL !== "null" ? (
             <button

@@ -27,7 +27,6 @@ function SubAdmin() {
   const getSubAdmins = async () => {
     try {
       const { data: response } = await getAllSubAdmin();
-      // console.log(response.data);
       setSubAdmin(response.data);
     } catch (error) {
       setError(error.response.data.message);

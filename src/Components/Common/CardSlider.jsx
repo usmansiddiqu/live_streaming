@@ -129,7 +129,7 @@ const CardSlider = ({ data, type }) => {
                       }}
                     >
                       <div className="placeAndTime border w-[100%] h-[auto] p-1  flex justify-between flex-row  bg-[black] bg-opacity-40">
-                        {/* {console.log(item)} */}
+                        {/* {(item)} */}
                         <p className="text-white text-sm">
                           {truncateText(item.data.location, 20)}
                         </p>
@@ -260,7 +260,6 @@ const CardSlider = ({ data, type }) => {
                       }}
                     >
                       <div className="placeAndTime border w-[100%] h-[auto] p-1  flex justify-between flex-row  bg-[black] bg-opacity-40">
-                        {/* {console.log(item)} */}
                         <p className="text-white text-sm">
                           {truncateText(item.data.location, 5)}
                         </p>

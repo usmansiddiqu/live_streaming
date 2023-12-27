@@ -43,7 +43,6 @@ function AddUser() {
       formData.append("image", image);
       const { data: response } = await createUser(formData);
       navigate("/admin/users");
-      // console.log(response);
     } catch (error) {
       setError(error.response.data.message);
     }

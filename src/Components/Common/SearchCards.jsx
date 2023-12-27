@@ -42,7 +42,6 @@ const SearchCards = ({ data }) => {
               marginTop: "25px",
             }}
           >
-            {/* {console.log(data)} */}
             <Splide options={{ ...splideOptions, width: 1400 }}>
               <>
                 {data?.map((item) => (

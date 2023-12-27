@@ -15,7 +15,6 @@ function Home() {
   useEffect(() => {
     getData();
   }, []);
-  // console.log(data);
   return (
     <>
       <div className="bg-[#130A2D] h-[90rem] main-home-page">

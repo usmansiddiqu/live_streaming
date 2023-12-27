@@ -382,7 +382,6 @@ function EditSubAdmin() {
                 class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
                 onChange={(e) => {
                   setStatus(e.target.value);
-                  // console.log(status);
                 }}
               >
                 <option value={"active"}>Active</option>

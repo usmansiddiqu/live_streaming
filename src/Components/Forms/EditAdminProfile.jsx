@@ -41,7 +41,6 @@ function AdminProfile() {
       const response = await editSubAdmin(formData);
       getUser();
     } catch (error) {
-      // console.log(error);
       setError(error?.response?.data?.message);
     }
   };
@@ -59,20 +58,11 @@ function AdminProfile() {
             .replace("uploads\\", "")
             .replace("uploads/", "")
       );
-      // console.log(
-      //   typeof image === "string"
-      //     ? image
-      //     : image instanceof File
-      //     ? URL.createObjectURL(image)
-      //     : null
-      // );
     } catch (error) {
-      // console.log(error);
       setError(error?.response?.data?.message);
     }
   };
   useEffect(() => {
-    // console.log("running");
     getUser();
   }, []);
 

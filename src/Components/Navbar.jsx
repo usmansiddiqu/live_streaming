@@ -37,10 +37,8 @@ function Nav() {
   const [sortedData, setSortedData] = useState([]);
 
   const handleSearchChange = (event) => {
-    // console.log("change");
     setSearch(event.target.value);
     setSortedData(filterArray(eventData, search));
-    // console.log(sortedData);
   };
 
   const openModal = () => {
@@ -55,7 +53,6 @@ function Nav() {
   const isGoogleImageUrl = (url) => {
     const googleImageUrlRegex =
       /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
-    // console.log(googleImageUrlRegex.test(url));
     return googleImageUrlRegex.test(url);
   };
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -102,10 +99,8 @@ function Nav() {
     navigate("/membership_plan");
   };
   const getData = async () => {
-    // console.log("ere");
     const { data: response } = await getEvents();
     setEventData(response.events);
-    // console.log(response.events);
   };
 
   window.addEventListener("profile", () => {
@@ -141,7 +136,6 @@ function Nav() {
 
     return arr;
   }
-  console.log("===========>", image);
   return (
     <AppBar
       position="static"
