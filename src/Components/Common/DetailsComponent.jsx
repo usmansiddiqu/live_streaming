@@ -18,13 +18,7 @@ function DetailsComponent({ data, url }) {
       eventTime
         .clone()
         .add(
-          type == "NBA"
-            ? 2.6
-            : type == "NHL"
-            ? 2.3
-            : type == "MLB"
-            ? 3.6
-            : 3.22,
+          type == "NBA" ? 2.6 : type == "NHL" ? 3 : type == "MLB" ? 3.6 : 3.22,
           "hours"
         )
     );

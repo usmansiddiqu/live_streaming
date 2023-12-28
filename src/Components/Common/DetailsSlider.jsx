@@ -54,7 +54,7 @@ function DetailsSlider() {
                     params.type == "NBA"
                       ? 2.6
                       : params.type == "NHL"
-                      ? 2.3
+                      ? 3
                       : params.type == "MLB"
                       ? 3.6
                       : 3.22,
@@ -69,7 +69,7 @@ function DetailsSlider() {
                     params.type == "NBA"
                       ? 2.6
                       : params.type == "NHL"
-                      ? 2.3
+                      ? 3
                       : params.type == "MLB"
                       ? 3.6
                       : 3.22,
