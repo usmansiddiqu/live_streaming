@@ -206,6 +206,13 @@ function UserHistory() {
                   >
                     Payment Date
                   </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-white"
+                    style={{ border: "1px solid #313133" }}
+                  >
+                    Status
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -246,7 +253,7 @@ function UserHistory() {
                           class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          $ {data?._id}
+                          {data?._id}
                         </th>
                         <th
                           scope="row"
@@ -254,6 +261,13 @@ function UserHistory() {
                           style={{ border: "1px solid #313133" }}
                         >
                           {data?.createdAt}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {data?.status}
                         </th>
                       </tr>
                     );
