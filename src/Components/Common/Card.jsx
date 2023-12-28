@@ -86,7 +86,16 @@ function Card({ data, title }) {
                       >
                         <div className="placeAndTime  border w-[100%]  flex justify-between flex-row p-1 px-2 bg-[black] bg-opacity-40 text-white">
                           <p>{truncateText(item.data.location, 18)}</p>
-                          <p> {item.data.date.split("T")[0]}</p>
+                          <p>
+                            {" "}
+                            {
+                              moment
+                                .utc(item.data.date)
+                                .utcOffset("-0500")
+                                .format("MM/DD/YYYY hh:mm:ss A")
+                                .split(" ")[0]
+                            }
+                          </p>
                         </div>
 
                         <div className="container px-7">

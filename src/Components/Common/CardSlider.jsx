@@ -134,7 +134,15 @@ const CardSlider = ({ data, type }) => {
                           {truncateText(item.data.location, 20)}
                         </p>
                         <p className="text-white text-sm">
-                          {truncateText(item.data.date.split("T")[0], 10)}
+                          {item.data.date &&
+                            truncateText(
+                              moment
+                                .utc(item.data.date)
+                                .utcOffset("-0500")
+                                .format("MM/DD/YYYY hh:mm:ss A")
+                                .split("T")[0],
+                              10
+                            )}
                         </p>
                       </div>
 
