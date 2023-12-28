@@ -380,7 +380,7 @@ function Nav() {
                                   </>
                                 ) : (
                                   <>
-                                    <li className="w-[100%] list-none p-2">
+                                    <li className="w-[100%] list-none p-2 cursor-pointer">
                                       <a
                                         href="/dashboard"
                                         className="flex items-center"
