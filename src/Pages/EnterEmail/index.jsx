@@ -14,10 +14,10 @@ function EnterEmail() {
     try {
       const response = await sendVerificationCode({ email });
       toast.success("Code Sent");
-      navigate("/forgetPassword");
       setTimeout(() => {
         toast.success("verification code sent successfully");
       }, 2000);
+      navigate("/forgetPassword");
     } catch (error) {
       setError(error.response.data.message);
       toast.error("Something went wrong");
