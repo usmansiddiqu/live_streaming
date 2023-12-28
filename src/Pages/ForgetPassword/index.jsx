@@ -17,7 +17,7 @@ function ForgetPassword() {
       setError(data?.error);
     } else {
       setError(null);
-      navigate("/");
+      navigate("/login");
     }
   };
 
