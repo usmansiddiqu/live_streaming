@@ -4,6 +4,7 @@ import logo from "../../Assets/Icons/PixelSportLogo.png";
 import ErrorComponent from "../../Components/Common/ErrorComponent";
 import { Link, useNavigate } from "react-router-dom";
 import codeverification from "../../api/auth.api";
+import { ToastContainer } from "react-toastify";
 function ForgetPassword() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -20,6 +21,9 @@ function ForgetPassword() {
       navigate("/login");
     }
   };
+  useEffect(() => {
+    toast.success("verification code sent successfully");
+  }, []);
 
   // const start = () => {
   //   window.gapi.load("client", () => {
@@ -61,6 +65,7 @@ function ForgetPassword() {
 
   return (
     <div className="max-w-2xl mx-auto">
+      <ToastContainer limit={1} />
       <div className="overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 justify-center items-center login-Bg mx-auto"></div>
       <section>
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 relative ">
