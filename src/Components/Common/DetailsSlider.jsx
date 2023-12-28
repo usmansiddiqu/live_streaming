@@ -56,8 +56,8 @@ function DetailsSlider() {
                       : params.type == "NHL"
                       ? 3
                       : params.type == "MLB"
-                      ? 3.6
-                      : 3.22,
+                      ? 3
+                      : 3.5,
                     "hours"
                   )
               );
@@ -71,8 +71,8 @@ function DetailsSlider() {
                       : params.type == "NHL"
                       ? 3
                       : params.type == "MLB"
-                      ? 3.6
-                      : 3.22,
+                      ? 3
+                      : 3.5,
                     "hours"
                   )
               );

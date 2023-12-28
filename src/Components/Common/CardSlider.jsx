@@ -64,8 +64,8 @@ const CardSlider = ({ data, type }) => {
                             : type == "NHL"
                             ? 3
                             : type == "MLB"
-                            ? 3.6
-                            : 3.22,
+                            ? 3
+                            : 3.5,
                           "hours"
                         )
                     );
@@ -79,8 +79,8 @@ const CardSlider = ({ data, type }) => {
                             : type == "NHL"
                             ? 3
                             : type == "MLB"
-                            ? 3.6
-                            : 3.22,
+                            ? 3
+                            : 3.5,
                           "hours"
                         )
                     );
@@ -203,8 +203,8 @@ const CardSlider = ({ data, type }) => {
                             : type == "NHL"
                             ? 3
                             : type == "MLB"
-                            ? 3.6
-                            : 3.22,
+                            ? 3
+                            : 3.5,
                           "hours"
                         )
                     );
@@ -218,8 +218,8 @@ const CardSlider = ({ data, type }) => {
                             : type == "NHL"
                             ? 3
                             : type == "MLB"
-                            ? 3.6
-                            : 3.22,
+                            ? 3
+                            : 3.5,
                           "hours"
                         )
                     );
