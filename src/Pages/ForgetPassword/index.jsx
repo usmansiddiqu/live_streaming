@@ -4,7 +4,7 @@ import logo from "../../Assets/Icons/PixelSportLogo.png";
 import ErrorComponent from "../../Components/Common/ErrorComponent";
 import { Link, useNavigate } from "react-router-dom";
 import codeverification from "../../api/auth.api";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 function ForgetPassword() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
