@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import getTransactions from "../../../../api/transaction.api";
+import getTransaction from "../../../../api/getTransactions";
 import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
@@ -13,10 +14,13 @@ function Transactions() {
   };
   const [textFilter, setTextFilter] = useState("");
   const [dateFilter, setDateFilter] = useState("");
-  const getData = async () => {
-    const { data: response } = await getTransactions();
-    setData(response.data);
-  };
+  const [skip, setSkip] = useState(1);
+
+  // const getData = async () => {
+  //   const { data: response } = await getTransactions();
+  //   console.log(response.data);
+  //   setData(response.data);
+  // };
   const filter = (e) => {
     if (textFilter.length > e) {
       getData();
@@ -46,9 +50,26 @@ function Transactions() {
       setData(transaction);
     }
   };
+  const handlePreviousClick = () => {
+    if (skip > 1) {
+      setSkip(skip - 1);
+    }
+  };
+
+  const handleNextClick = () => {
+    setSkip(skip + 1);
+  };
+  const getData = async () => {
+    try {
+      const { data: response } = await getTransaction(skip, textFilter);
+      setData(response.data.userPayments);
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
   useEffect(() => {
     getData();
-  }, []);
+  }, [textFilter, skip]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
   const totalItems = data.length;
@@ -57,15 +78,15 @@ function Transactions() {
     const endIndex = startIndex + itemsPerPage;
     return data.slice(startIndex, endIndex);
   };
-  const handlePreviousClick = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-  };
+  // const handlePreviousClick = () => {
+  //   setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  // };
 
-  const handleNextClick = () => {
-    setCurrentPage((prevPage) =>
-      Math.min(prevPage + 1, Math.ceil(totalItems / itemsPerPage))
-    );
-  };
+  // const handleNextClick = () => {
+  //   setCurrentPage((prevPage) =>
+  //     Math.min(prevPage + 1, Math.ceil(totalItems / itemsPerPage))
+  //   );
+  // };
   const handleTextFilter = (e) => {
     setTextFilter(e.target.value);
     filter(e.target.value);
@@ -111,7 +132,7 @@ function Transactions() {
                         type="text"
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0 placeholder:text-white  text-white text-xs   bg-[#313133] rounded-full w-full "
-                        placeholder="Search by Payment ID or Email"
+                        placeholder="Search by Email"
                         onPaste={(e) => {
                           handleTextPaste(e);
                         }}
@@ -221,7 +242,7 @@ function Transactions() {
                   </tr>
                 </thead>
                 <tbody>
-                  {paginatedData
+                  {/* {paginatedData
                     ?.filter((payment) => {
                       if (dateFilter) {
                         const currentDate = new Date(payment?.updatedAt);
@@ -241,73 +262,71 @@ function Transactions() {
                       } else {
                         return true;
                       }
-                    })
-                    ?.map((payment) => (
-                      <tr>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap cursor-pointer text-blue-600"
-                          style={{ border: "1px solid #313133" }}
-                          onClick={() => {
-                            handleUserClick(payment);
-                          }}
-                        >
-                          {payment?.userId?.name}
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          {payment?.userId?.email}
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          {payment?.packageId?.name}
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          ${payment?.packageId?.amount}
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          PAYCEC
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          {payment?.token}
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          {new Date(payment?.updatedAt).toLocaleString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                              month: "numeric",
-                              day: "numeric",
-                              hour: "numeric",
-                              minute: "numeric",
-                              hour12: true,
-                            }
-                          )}
-                        </th>
-                      </tr>
-                    ))}
+                    }) */}
+                  {data?.map((payment) => (
+                    <tr>
+                      {console.log(payment)}
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap cursor-pointer text-blue-600"
+                        style={{ border: "1px solid #313133" }}
+                        onClick={() => {
+                          handleUserClick(payment);
+                        }}
+                      >
+                        {payment?.userdata[0]?.name}
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {payment?.userdata[0]?.email}
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {payment?.packagedata[0]?.name}
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        ${payment?.packagedata[0]?.amount}
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        PAYCEC
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {payment?.token ? payment?.token : ""}
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {new Date(payment?.updatedAt).toLocaleString("en-US", {
+                          year: "numeric",
+                          month: "numeric",
+                          day: "numeric",
+                          hour: "numeric",
+                          minute: "numeric",
+                          hour12: true,
+                        })}
+                      </th>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
