@@ -15,7 +15,7 @@ function Transactions() {
   const [textFilter, setTextFilter] = useState("");
   const [dateFilter, setDateFilter] = useState("");
   const [skip, setSkip] = useState(1);
-
+  const [error, setError] = useState("");
   // const getData = async () => {
   //   const { data: response } = await getTransactions();
   //   console.log(response.data);
@@ -158,13 +158,13 @@ function Transactions() {
                     </div>
 
                     <div class="relative flex justify-between table-search-user  w-60 rounded-full bg-[#313133]">
-                      <input
+                      {/* <input
                         type="date"
                         id="table-search-users"
                         class=" ps-5 text-sm py-3 border-0 outline-none text-white text-xs  bg-[#313133] rounded-full w-60 "
                         placeholder="mm/dd/yy"
                         onChange={(e) => handleDateChange(e)}
-                      />
+                      /> */}
                       {/* <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
                         <svg
                           class="w-3 h-3 text-white dark:text-white"
@@ -231,6 +231,13 @@ function Transactions() {
                       style={{ border: "1px solid #313133" }}
                     >
                       Payment ID
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-white"
+                      style={{ border: "1px solid #313133" }}
+                    >
+                      Status
                     </th>
                     <th
                       scope="col"
@@ -309,14 +316,21 @@ function Transactions() {
                         class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
-                        {payment?.token ? payment?.token : ""}
+                        {payment?.token ? payment?.token : "-"}
                       </th>
                       <th
                         scope="row"
                         class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
-                        {new Date(payment?.updatedAt).toLocaleString("en-US", {
+                        {payment?.status ? payment?.status : "-"}
+                      </th>
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
+                        style={{ border: "1px solid #313133" }}
+                      >
+                        {new Date(payment?.createdAt).toLocaleString("en-US", {
                           year: "numeric",
                           month: "numeric",
                           day: "numeric",
