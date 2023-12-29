@@ -15,11 +15,12 @@ function TeamScore({ teamA, teamB }) {
             <div className="px-4">
               <table className="bg-[#212529] min-w-full table-auto">
                 <thead className="w-[50vw]">
-                  <tr >
+                  <tr>
                     <th className="px-4  !w-[50%]  py-2 e md:text-sm sm:text-xs text-xs text-white text-center border-2 border-[#373B3E]">
+                      {teamA?.name}
+                    </th>{" "}
+                    <th className="px-4 py-2  !w-[50%]  md:text-sm sm:text-xs text-xs text-white text-center border-2 border-[#373B3E]">
                       {teamB?.name}
-                    </th>   <th className="px-4 py-2  !w-[50%]  md:text-sm sm:text-xs text-xs text-white text-center border-2 border-[#373B3E]">
-                    {teamA?.name}
                     </th>
                   </tr>
                 </thead>
