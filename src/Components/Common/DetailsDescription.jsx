@@ -58,7 +58,6 @@ function DetailsDescription({ data, setUrl }) {
               <label>Away</label>
             </div>
           </button>
-          {console.log(data?.channel?.server3URL)}
           {!data?.channel?.server3URL &&
           typeof data?.channel?.server3URL !== "null" ? (
             <button
