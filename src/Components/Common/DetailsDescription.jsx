@@ -3,6 +3,7 @@ import createWishList from "../../api/addWishlist";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import moment from "moment";
+import { LocalConvenienceStoreOutlined } from "@mui/icons-material";
 
 function DetailsDescription({ data, setUrl }) {
   const { id } = useParams();
@@ -57,7 +58,8 @@ function DetailsDescription({ data, setUrl }) {
               <label>Away</label>
             </div>
           </button>
-          {typeof data?.liveTV?.server3URL === "string" ? (
+          {/* {console.log(data?.channel?.server3URL)} */}
+          {typeof data?.channel?.server3URL === "string" ? (
             <button
               class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
               onClick={() => setUrl(data?.channel?.server3URL)}
