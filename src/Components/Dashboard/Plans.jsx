@@ -59,18 +59,21 @@ function Plans({ userData }) {
           <div className=" flex flex-col gap-3">
             <div className="flex ">
               <p>Current Plan:</p>
-              <div className="w-auto flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3" style={{fontSize:'11px'}}>
+              <div
+                className="w-auto flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3"
+                style={{ fontSize: "11px" }}
+              >
                 {userData?.[0]?.packageId?.name}
               </div>
             </div>
             <div className="flex ">
               <p>Subscription expires on:</p>
-              <div className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-2" style={{fontSize:'11px'}}>
-                {userData?.[0]?.createdAt &&
-                  new Date(
-                    new Date(userData?.[0]?.createdAt).getTime() +
-                      userData?.[0]?.packageId?.days * 24 * 60 * 60 * 1000
-                  ).toLocaleDateString("en-US", {
+              <div
+                className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-2"
+                style={{ fontSize: "11px" }}
+              >
+                {data?.expiryDate &&
+                  new Date(data.expiryDate).toLocaleDateString("en-US", {
                     month: "long",
                     day: "numeric",
                     year: "numeric",
@@ -107,19 +110,28 @@ function Plans({ userData }) {
 
           <div className="flex ">
             <p>Date:</p>
-            <div className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3" style={{fontSize:'12px'}}>
+            <div
+              className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3"
+              style={{ fontSize: "12px" }}
+            >
               {userData?.[0]?.createdAt?.split("T")[0]}
             </div>
           </div>
           <div className="flex ">
             <p>Plan: </p>
-            <div className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3" style={{fontSize:'12px'}}>
+            <div
+              className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3"
+              style={{ fontSize: "12px" }}
+            >
               {userData?.[0]?.packageId.name}
             </div>
           </div>
           <div className="flex ">
             <p>Amount:</p>
-            <div className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3" style={{fontSize:'12px'}}>
+            <div
+              className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3"
+              style={{ fontSize: "12px" }}
+            >
               $ {userData?.[0]?.packageId.amount}
             </div>
           </div>
