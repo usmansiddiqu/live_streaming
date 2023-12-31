@@ -18,8 +18,8 @@ function DetailsDescription({ data, setUrl }) {
   return (
     <div className="flex justify-center mt-3 ">
       <ToastContainer limit={1} />
-      <div className=" bg-[#190D39] w-[80rem] pt-3 pb-6 ps-7">
-        <div className=" flex gap-3">
+      <div className=" bg-[#190D39] w-[80rem] pt-3 pb-6 ps-3">
+        <div className=" flex gap-2">
           <button
             class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
             onClick={() => setUrl(data?.channel?.server1URL)}
