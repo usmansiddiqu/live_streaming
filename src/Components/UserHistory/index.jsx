@@ -125,16 +125,9 @@ function UserHistory() {
                           </div>
                           <div className="w-[100%]  text-start">
                             <h3>
-                              {data?.payments.length
+                              {data?.user?.expiryDate
                                 ? new Date(
-                                    new Date(
-                                      data?.payments?.[0].createdAt
-                                    ).getTime() +
-                                      data?.payments?.[0].packageId?.days *
-                                        24 *
-                                        60 *
-                                        60 *
-                                        1000
+                                    data?.user?.expiryDate
                                   ).toLocaleDateString("en-US", {
                                     month: "long",
                                     day: "numeric",
