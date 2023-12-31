@@ -297,8 +297,14 @@ function Users() {
                           class="px-6 py-4 dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          <div className=" bg-[#0EAC5C] w-[60px] text-center rounded text-sm">
-                            Active
+                          <div
+                            className={`${
+                              user?.status == "inactive"
+                                ? "bg-[#ff0033]"
+                                : "bg-[#0EAC5C]"
+                            } w-[60px] text-center rounded text-sm`}
+                          >
+                            {user?.status == "inactive" ? "Inactive" : "Active"}
                           </div>
                         </td>
                         <td
