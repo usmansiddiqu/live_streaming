@@ -245,7 +245,8 @@ function Nav() {
             </Menu>
           </Box>
 
-          <Typography
+          <div
+            className="logooo"
             variant="h5"
             noWrap
             component="a"
@@ -264,7 +265,7 @@ function Nav() {
             <Link to="/">
               <img className="logo" src={logo} alt="" />
             </Link>
-          </Typography>
+          </div>
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             style={{ marginLeft: "70px" }}

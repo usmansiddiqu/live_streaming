@@ -21,11 +21,13 @@ div {
 li a {
   text-decoration: none;
 }
+.logooo{
+  display: none;
+}
 @media screen and (max-width: 900px) {
-  .css-r6ewbb-MuiToolbar-root{
-    position: relative !important;
-  }
-  .css-1lfs2tq-MuiTypography-root{
+
+  .logooo{
+    display: block;
     position: absolute;
     left: 2%;
   }
