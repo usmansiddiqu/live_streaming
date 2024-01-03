@@ -76,9 +76,7 @@ function MainSlider() {
                       left: "2%",
                       bottom: "-70%",
                     }}
-                  >
-                    {card?.title}
-                  </h1>
+                  ></h1>
                   <div className="mt-[-90px] z-80 banner-btnss">
                     <BannerButtons
                       onWatch={() => navigate(`/live/${card._id}`)}

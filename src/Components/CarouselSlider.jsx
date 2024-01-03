@@ -32,12 +32,10 @@ function CarouselSlider() {
                 src={
                   url +
                   "\\" +
-                  card.image
-                    .replace("uploads\\", "")
-                    .replace("uploads/", "")
+                  card.image.replace("uploads\\", "").replace("uploads/", "")
                 }
                 alt={`Image ${key}`}
-                  style={{ filter: 'brightness(70%) saturate(150%)'}}
+                style={{ filter: "brightness(70%) saturate(150%)" }}
               />
               <div
                 className="flex flex-col w-[100vw] absolute"
@@ -46,9 +44,7 @@ function CarouselSlider() {
                   top: "50%",
                 }}
               >
-                <h1 className="text-white banner-textt text-4xl font-bold absolute">
-                  {card?.title}
-                </h1>
+                <h1 className="text-white banner-textt text-4xl font-bold absolute"></h1>
                 <BannerButtons onWatch={() => navigate(`/live/${card._id}`)} />
               </div>
             </Carousel.Item>
