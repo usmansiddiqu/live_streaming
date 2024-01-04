@@ -21,17 +21,15 @@ div {
 li a {
   text-decoration: none;
 }
-.logooo{
+.logooo {
   display: none;
 }
 @media screen and (max-width: 900px) {
-
-  .logooo{
+  .logooo {
     display: block;
     position: absolute;
     left: 2%;
   }
-
 }
 .video-player-wrapper {
   width: 100vw !important;
@@ -1056,7 +1054,7 @@ li a {
     margin-top: 10px;
   }
   .mbl-bg-img {
-    height: 28vh !important;
+    height: 25vh !important;
   }
 
   .team-p {
