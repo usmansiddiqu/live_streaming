@@ -38,10 +38,10 @@ function Signup() {
     } else {
       setError(null);
       const { data: response } = await signup(data);
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("data", JSON.stringify(response.data.user));
-      window.dispatchEvent(new Event("token"));
-      navigate("/");
+      // localStorage.setItem("token", response.data.token);
+      // localStorage.setItem("data", JSON.stringify(response.data.user));
+      // window.dispatchEvent(new Event("token"));
+      navigate("/verifyemail");
     }
   };
   useEffect(() => {

@@ -9,6 +9,7 @@ import NFL from "./Pages/NFL";
 import NBA from "./Pages/NBA";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup";
+import EmailVerif from "./Pages/EmailVerif";
 import Profile from "./Pages/Profile";
 import Plans from "./Pages/Plans/PlansPage";
 import DetailsPage from "./Pages/DetailsPage/DetailsPage";
@@ -47,6 +48,8 @@ function App() {
           <Route path="/nhl" element={<NHL />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/verifyemail" element={<EmailVerif />} />
+
           <Route path="/membership_plan" element={<Plans />} />
           <Route path="/watchlist" element={<WatchList />} />
           <Route path="/about-us" element={<AboutUS />} />
