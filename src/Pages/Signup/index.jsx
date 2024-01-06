@@ -37,11 +37,17 @@ function Signup() {
       setError("Password Should be 8 characters long!");
     } else {
       setError(null);
-      const { data: response } = await signup(data);
-      // localStorage.setItem("token", response.data.token);
-      // localStorage.setItem("data", JSON.stringify(response.data.user));
-      // window.dispatchEvent(new Event("token"));
-      navigate("/verifyemail");
+      try {
+        const { data: response } = await signup(data);
+        console.log(response);
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("data", JSON.stringify(response.data.user));
+        window.dispatchEvent(new Event("token"));
+        // navigate("/verifyemail");
+        navigate("/");
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   useEffect(() => {
