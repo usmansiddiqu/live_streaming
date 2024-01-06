@@ -52,9 +52,9 @@ function EditLiveTv() {
     formData.append("TVCategory", TVCategory);
     formData.append("streamType", streamType);
     formData.append("status", status);
-    formData.append("server1URL", server1URL);
-    formData.append("server2URL", server2URL);
-    formData.append("server3URL", server3URL);
+    formData.append("server1URL", server1URL?.length ? server1URL : null);
+    formData.append("server2URL", server2URL?.length ? server2URL : null);
+    formData.append("server3URL", server3URL?.length ? server3URL : null);
     formData.append("logo", logo);
     formData.append("liveTVId", id);
     try {
@@ -80,10 +80,20 @@ function EditLiveTv() {
       setTVCategory(response.liveTV.TVCategory._id);
       setStreamType(response.liveTV.streamType);
       setStatus(response.liveTV.status);
-      setServer1URL(response.liveTV.server1URL);
-      setServer2URL(response.liveTV.server2URL);
+      setServer1URL(
+        !response.liveTV.server1URL || response.liveTV.server1URL == "null"
+          ? ""
+          : response.liveTV.server1URL
+      );
+      setServer2URL(
+        !response.liveTV.server2URL || response.liveTV.server2URL == "null"
+          ? ""
+          : response.liveTV.server2URL
+      );
       setServer3URL(
-        response.liveTV.server3URL == "null" ? "" : response.liveTV.server3URL
+        !response.liveTV.server3URL || response.liveTV.server3URL == "null"
+          ? ""
+          : response.liveTV.server3URL
       );
 
       setLogo(
