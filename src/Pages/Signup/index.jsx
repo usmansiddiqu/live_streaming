@@ -39,7 +39,10 @@ function Signup() {
       setError(null);
       try {
         const { data: response } = await signup(data);
-        console.log(response);
+        if (response?.error) {
+          setError(response?.error);
+          return;
+        }
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("data", JSON.stringify(response.data.user));
         window.dispatchEvent(new Event("token"));
