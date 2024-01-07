@@ -26,7 +26,7 @@ function Footer() {
     navigate("/contact-us");
   };
   return (
-    <footer className="footer relative text-base-content fooer-Img bg-[#170F2C]">
+    <footer className="footer relative text-base-content fooer-Img bg-[#170F2C] !h-[13vh]">
       <div className="w-[85vw]  new-footer-box">
         <div className="flex footer-flex items-center mt-3 !justify-between  w-[50vw] mx-auto">
           <div className="flex flex-col">
@@ -66,7 +66,7 @@ function Footer() {
               Copyright @ 2022 PixelSports.tv All Rights Reserved
             </p>
           </div>
-          <div className="flex app-btn w-[20vw]  justify-between ">
+          {/* <div className="flex app-btn w-[20vw]  justify-between ">
             <div className=" flex  flex-col gap-3">
               <h1 className="text-white text-xl  ">
                 Buy Plans
@@ -102,7 +102,7 @@ function Footer() {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
