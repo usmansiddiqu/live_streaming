@@ -192,6 +192,7 @@ function Card({ data, title }) {
                             iconsData={item.data.competitors.map((comp) => ({
                               iconUrl: comp.logo,
                               name: comp.name,
+                              score: comp.score,
                             }))}
                           />
                           <div>
