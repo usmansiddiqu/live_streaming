@@ -18,7 +18,7 @@ function NFL() {
   return (
     <div>
       <Nav />
-      <Card data={data} title={"NFL LIVE"} />
+      <Card data={data} title={"NFL LIVE"} subtitle="NFL" />
       <Footer />
     </div>
   );

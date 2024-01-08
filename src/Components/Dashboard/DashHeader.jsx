@@ -2,7 +2,7 @@ import React from "react";
 import Play from "../../Assets/Icons/play.png";
 import dashBoardImage from "../../utils/images/dashboardBanner.jpg";
 import { Link } from "react-router-dom";
-function DashHeader({ title }) {
+function DashHeader({ title, subtitle }) {
   return (
     <div
       className=" text-[white]  h-[20vh] relative  md:w-100 object-cover bg-center bg-opacity-90 flex flex-row flex-wrap items-center justify-around lg:justify-between"
@@ -22,9 +22,12 @@ function DashHeader({ title }) {
           <h1 className="text-2xl z-20 font-semibold">{title}</h1>
         </div>
         <div className="flex  flex-row  z-20 justify-between !w-[150px] cursor-pointer  headdd items-center">
-          <a > <Link to="/"> Home</Link></a>
+          <a>
+            {" "}
+            <Link to="/"> Home</Link>
+          </a>
           <img src={Play} alt="" className="w-[10px] h-[10px]" />
-          <p>{title}</p>
+          <p>{subtitle}</p>
         </div>
       </div>
     </div>

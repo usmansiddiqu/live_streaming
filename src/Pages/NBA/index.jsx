@@ -18,7 +18,7 @@ function NBA() {
   return (
     <div>
       <Nav />
-      <Card data={data} title={"NBA LIVE"} />
+      <Card data={data} title={"NBA LIVE"} subtitle="NBA" />
       <Footer />
     </div>
   );

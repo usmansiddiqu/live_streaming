@@ -18,7 +18,7 @@ function NHL() {
   return (
     <div>
       <Nav />
-      <Card data={data} title={"NHL LIVE"} />
+      <Card data={data} title={"NHL LIVE"} subtitle="NHL" />
       <Footer />
     </div>
   );

@@ -6,7 +6,7 @@ import Ended from "./Ended";
 import { useMediaQuery } from "react-responsive";
 import moment from "moment";
 
-function Card({ data, title }) {
+function Card({ data, title, subtitle }) {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1700px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1701px)" });
   const truncateText = (text, maxLength) => {
@@ -18,7 +18,7 @@ function Card({ data, title }) {
   const navigate = useNavigate();
   return (
     <div>
-      <DashHeader title={title} />
+      <DashHeader title={title} subtitle={subtitle} />
       <div class=" flex items-center justify-center relative ">
         <div class="container contain-card mx-auto  teamOtherCards  ">
           {isDekstop && (

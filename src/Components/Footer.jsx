@@ -110,7 +110,7 @@ function Footer() {
     //   </div>
     // </div>
     <div className="w-[100%] h-[8rem] fooer-bg-Img bg-[#170F2C]">
-      <div className="flex w-[73%] mx-auto flex flex-column  justify-equal footer-width">
+      <div className="flex w-[73%] mx-auto flex flex-column justify-equal footer-width">
         <ul className="w-full flex flex-wrap items-center gap-[10px]">
           <li className="text-white flex-shrink-0 cursor-pointer">
             <a onClick={handleCLickAbout}> About us</a>
