@@ -14,6 +14,7 @@ div {
 .App {
   width: 100vw;
   height: 100vh;
+  position: relative;
   overflow-x: hidden;
   /* overflow-y: hidden; */
   background-color: #0d0620;
@@ -172,6 +173,10 @@ li a {
     width: 10% !important;
     margin: auto;
   }
+  .footer-width {
+    position: relative;
+    top: 20%;
+  }
   .detail-live-end {
     position: absolute;
     left: 45%;
@@ -193,7 +198,7 @@ li a {
     width: 12.7vw;
   }
   .card-match {
-    width: 65.5vw;
+    width: 65.7vw !important;
   }
   .score {
     visibility: hidden;
@@ -272,7 +277,7 @@ li a {
   }
 
   .card-match {
-    width: 73vw;
+    width: 73vw !important;
   }
   .sliderHeader {
     width: 73%;
@@ -1442,7 +1447,7 @@ li a {
     margin-left: 0px;
   }
   .card-match {
-    width: 76vw;
+    width: 76vw !important;
   }
   .dash-main {
     width: 100%;
@@ -1638,6 +1643,8 @@ li a {
   .footer-width {
     width: 100%;
     padding: 5px;
+    position: relative;
+    top: 0;
   }
   .boox {
     width: 100%;
