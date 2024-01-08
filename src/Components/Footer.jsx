@@ -26,11 +26,17 @@ function Footer() {
     navigate("/contact-us");
   };
   return (
-    <footer className="footer relative text-base-content fooer-Img bg-[#170F2C] !h-[13vh]">
-      <div className="w-[85vw]  new-footer-box">
-        <div className="flex footer-flex items-center mt-3 !justify-between  w-[50vw] mx-auto">
+    <div
+      className="footer relative text-base-content fooer-Img bg-[#170F2C] !h-[13vh]"
+      style={{ overflowY: "hidden" }}
+    >
+      <div className="w-[85vw]  new-footer-box" style={{ overflowY: "hidden" }}>
+        <div
+          className="flex footer-flex items-center mt-3 !justify-between  w-[50vw] mx-auto"
+          style={{ overflowY: "hidden" }}
+        >
           <div className="flex flex-col">
-            <nav className="flex flex-wrap w-full gap-4 w-[29vw] text-footer ">
+            <div className="flex flex-wrap w-full gap-4 w-[29vw] text-footer ">
               <a
                 className="link link-hover text-white text-lg cursor-pointer"
                 onClick={handleCLickAbout}
@@ -61,7 +67,7 @@ function Footer() {
               >
                 Contact Us
               </a>
-            </nav>
+            </div>
             <p className="text-white footer-copy text-sm mt-4 mb-2">
               Copyright @ 2022 PixelSports.tv All Rights Reserved
             </p>
@@ -105,7 +111,7 @@ function Footer() {
           </div> */}
         </div>
       </div>
-    </footer>
+    </div>
   );
 }
 
