@@ -27,15 +27,12 @@ function Footer() {
   };
   return (
     <div
-      className="footer relative text-base-content fooer-Img bg-[#170F2C] !h-[13vh]"
+      className="footer relative text-base-content fooer-Img bg-[#170F2C] !h-[10rem]"
       style={{ overflowY: "hidden" }}
     >
-      <div className="w-[85vw]  new-footer-box" style={{ overflowY: "hidden" }}>
-        <div
-          className="flex footer-flex items-center mt-3 !justify-between  w-[50vw] mx-auto"
-          style={{ overflowY: "hidden" }}
-        >
-          <div className="flex flex-col">
+      <div className="w-[85vw]  new-footer-box">
+        <div className="flex footer-flex items-center mt-3 !justify-between  w-[50vw] mx-auto">
+          <div className="flex flex-col !h-[10rem]">
             <div className="flex flex-wrap w-full gap-4 w-[29vw] text-footer ">
               <a
                 className="link link-hover text-white text-lg cursor-pointer"
