@@ -63,7 +63,7 @@ li a {
 .carousel-indicators {
   display: none !important;
 }
-.fooer-Img {
+.fooer-bg-Img {
   width: 100%;
   /* height: 26vh; */
   background-image: url(./Assets//Images/footer-bg-item.png);
@@ -1635,7 +1635,10 @@ li a {
   .pages {
     width: 98vw;
   }
-
+  .footer-width {
+    width: 100%;
+    padding: 5px;
+  }
   .boox {
     width: 100%;
   }
