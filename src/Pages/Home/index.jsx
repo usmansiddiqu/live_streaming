@@ -44,9 +44,9 @@ function Home() {
             data={data.filter((card) => card.channel.TVCategory.name == "MLB")}
             type="MLB"
           />
-        </div>
-        <div className="mt-3">
-          <Footer />
+          <div className="mt-3">
+            <Footer />
+          </div>
         </div>
       </div>
     </>
