@@ -276,7 +276,10 @@ const CardSlider = ({ data, type }) => {
                         </p>
                       </div>
 
-                      <div className="boox" style={{ marginTop: "25px" }}>
+                      <div
+                        className="boox"
+                        style={{ marginTop: "25px", width: "90%" }}
+                      >
                         <TeamIcons
                           iconsData={item.data.competitors.map((comp) => ({
                             iconUrl: comp.logo,
