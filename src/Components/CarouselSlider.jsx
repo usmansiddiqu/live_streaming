@@ -21,7 +21,10 @@ function CarouselSlider() {
 
   const navigate = useNavigate();
   return (
-    <div className="bg-[#0D0620] mt-3">
+    <div
+      className="bg-[#0D0629] mbl-slider-bg-color flex items-center mt-3"
+      style={{ paddingBottom: "10px", paddingTop: "10px" }}
+    >
       <Carousel data-bs-theme="dark">
         {data
           ?.filter((card) => card?.status)

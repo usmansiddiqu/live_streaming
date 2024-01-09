@@ -270,7 +270,7 @@ li a {
   }
 
   .mainSlider {
-    height: 49vh;
+    height: 32rem;
   }
   .sliderHeader {
     width: 65%;
@@ -984,6 +984,12 @@ li a {
   .banner-text {
     margin-top: -14% !important;
   }
+  .mbl-img-banner {
+    height: 14rem !important;
+  }
+  /* .mbl-slider-bg-color {
+    height: 16rem;
+  } */
 
   .watch-img {
     height: 30vh !important;
