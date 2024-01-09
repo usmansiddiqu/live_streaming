@@ -76,7 +76,7 @@ function MainSlider() {
 
                   <div
                     className="z-80  absolute"
-                    style={{ marginTop: "-80px" }}
+                    style={{ marginTop: "-90px" }}
                   >
                     <BannerButtons
                       onWatch={() => navigate(`/live/${card._id}`)}
