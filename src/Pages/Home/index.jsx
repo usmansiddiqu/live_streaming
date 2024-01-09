@@ -17,8 +17,8 @@ function Home() {
   }, []);
   return (
     <>
-      <div className="bg-[#130A2D] h-[90rem] main-home-page">
-        <div>
+      <div className=" main-home-page relative" style={{ overflow: "hidden" }}>
+        <div className="relative">
           <MainSlider />
           <div className="nfl-view">
             <SliderHeader title="NFL Live" link="nfl" />
@@ -44,10 +44,10 @@ function Home() {
             data={data.filter((card) => card.channel.TVCategory.name == "MLB")}
             type="MLB"
           />
-          <div className="mt-3">
-            <Footer />
-          </div>
         </div>
+      </div>
+      <div className="mt-3 ">
+        <Footer />
       </div>
     </>
   );

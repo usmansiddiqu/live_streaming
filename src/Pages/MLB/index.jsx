@@ -17,8 +17,15 @@ function MLB() {
   }, []);
   return (
     <div>
-      <Nav />
-      <Card data={data} title={"MLB LIVE"} subtitle="MLB" />
+      <div
+        style={{
+          minHeight: "100vh",
+          overflow: "hidden !important",
+        }}
+      >
+        <Nav />
+        <Card data={data} title={"MLB LIVE"} subtitle="MLB" />
+      </div>
       <Footer />
     </div>
   );

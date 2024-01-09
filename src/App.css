@@ -11,10 +11,14 @@ div {
 }
 
 /* Apply custom styles to the slider */
+.allover-container {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden !important;
+}
 .App {
   width: 100vw;
   height: 100vh;
-  position: relative;
   overflow-x: hidden;
   /* overflow-y: hidden; */
   background-color: #0d0620;
@@ -30,6 +34,32 @@ li a {
     display: block;
     position: absolute;
     left: 2%;
+  }
+}
+@media screen and (max-width: 1690px) {
+  .Match-cards-div {
+    width: 62rem;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .Match-cards-div {
+    width: 42rem;
+  }
+}
+@media screen and (max-width: 920px) {
+  .Match-cards-div {
+    width: 42rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 670px) {
+  .Match-cards-div {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 .video-player-wrapper {

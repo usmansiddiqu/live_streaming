@@ -6,24 +6,24 @@ import Crown from "../Assets/Icons/crown.png";
 import { useNavigate } from "react-router-dom";
 
 function Footer() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleCLick = () => {
-    navigate("/membership_plan");
+    // navigate("/membership_plan");
   };
   const handleCLickAbout = () => {
-    navigate("/about-us");
+    // navigate("/about-us");
   };
   const handleCLickTerms = () => {
-    navigate("/terms-of-use");
+    // navigate("/terms-of-use");
   };
   const handleCLickPrivacy = () => {
-    navigate("/privacy-policy");
+    // navigate("/privacy-policy");
   };
   const handleCLickFAQ = () => {
-    navigate("/faq");
+    // navigate("/faq");
   };
   const handleCLickContact = () => {
-    navigate("/contact-us");
+    // navigate("/contact-us");
   };
   return (
     // <div

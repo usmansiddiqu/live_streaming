@@ -17,8 +17,17 @@ function NBA() {
   }, []);
   return (
     <div>
-      <Nav />
-      <Card data={data} title={"NBA LIVE"} subtitle="NBA" />
+      <div
+        style={{
+          position: "relative",
+          minHeight: "100vh",
+          overflow: "hidden !important",
+        }}
+      >
+        <Nav />
+        <Card data={data} title={"NBA LIVE"} subtitle="NBA" />
+      </div>
+
       <Footer />
     </div>
   );

@@ -16,11 +16,18 @@ function NHL() {
     getData();
   }, []);
   return (
-    <div>
-      <Nav />
-      <Card data={data} title={"NHL LIVE"} subtitle="NHL" />
+    <>
+      <div
+        style={{
+          height: "100%",
+          overflow: "hidden !important",
+        }}
+      >
+        <Nav />
+        <Card data={data} title={"NHL LIVE"} subtitle="NHL" />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
