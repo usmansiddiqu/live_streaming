@@ -32,13 +32,13 @@ function MainSlider() {
             flexDirection: "column",
             alignItems: "center",
             marginTop: "35px",
-            // height: "55vh",
             margin: "auto",
             // padding: "15px",
             background: "#0D0620",
             // boxShadow: "1px 2px 14px 7px rgba(0,0,0,0.51)",
+            position: "relative",
           }}
-          className="mainSlider"
+          className="mainSlider p-3 mt-2"
         >
           <Splide
             options={{
@@ -49,15 +49,19 @@ function MainSlider() {
               type: "loop",
               padding: "8.5rem",
               gap: "0.4rem",
-              autoplay: true,
+              // autoplay: true,
               width: 1400,
+              height: 450,
             }}
-            style={{ borderRadius: "20px" }}
+            style={{
+              borderRadius: "20px",
+              position: "relative",
+            }}
           >
             {data
               ?.filter((card) => card?.status)
               .map((card, key) => (
-                <SplideSlide className="rounded !h-[20vh]">
+                <SplideSlide className="rounded absolute">
                   <img
                     src={
                       url +
@@ -70,14 +74,10 @@ function MainSlider() {
                     style={{ filter: "brightness(70%) saturate(150%)" }}
                   />
 
-                  <h1
-                    className="text-white banner-text text-4xl font-bold absolute"
-                    style={{
-                      left: "2%",
-                      bottom: "-70%",
-                    }}
-                  ></h1>
-                  <div className="mt-[-90px] z-80 banner-btnss">
+                  <div
+                    className="z-80  absolute"
+                    style={{ marginTop: "-80px" }}
+                  >
                     <BannerButtons
                       onWatch={() => navigate(`/live/${card._id}`)}
                     />

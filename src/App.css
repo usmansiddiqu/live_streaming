@@ -15,13 +15,14 @@ div {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden !important;
+  background-color: #0d0624;
 }
 .App {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
   /* overflow-y: hidden; */
-  background-color: #0d0620;
+  background-color: #0d0624;
 }
 li a {
   text-decoration: none;
@@ -52,6 +53,9 @@ li a {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .mbl-btn {
+    width: 220px !important;
   }
 }
 @media screen and (max-width: 670px) {
@@ -266,8 +270,7 @@ li a {
   }
 
   .mainSlider {
-    margin-top: 20px !important;
-    height: 30rem !important;
+    height: 49vh;
   }
   .sliderHeader {
     width: 65%;
@@ -337,7 +340,7 @@ li a {
     width: 68%;
   }
   .mainSlider {
-    margin-top: 20px !important;
+    height: 31rem;
   }
 
   .tem-img-box {
@@ -348,6 +351,47 @@ li a {
   }
   .ended {
     margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 1360px) {
+  .mainSlider {
+    height: 55vh !important;
+  }
+}
+@media screen and (max-width: 1305px) {
+  .mainSlider {
+    height: 53vh !important;
+  }
+}
+@media screen and (max-width: 1295px) {
+  .mainSlider {
+    height: 52vh !important;
+  }
+}
+@media screen and (max-width: 1265px) {
+  .mainSlider {
+    height: 50vh !important;
+  }
+}
+@media screen and (max-width: 1210px) {
+  .mainSlider {
+    height: 49vh !important;
+  }
+}
+@media screen and (max-width: 1155px) {
+  .mainSlider {
+    height: 47vh !important;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .mainSlider {
+    height: 43vh !important;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .mainSlider {
+    height: 43vh !important;
   }
 }
 
@@ -368,8 +412,8 @@ li a {
     margin-top: -8px;
   }
   .mainSlider {
-    margin-top: 20px !important;
-    height: 40vh !important;
+    /* margin-top: 20px !important; */
+    /* height: 40vh !important; */
   }
 
   .sliderHeader {
@@ -1766,6 +1810,9 @@ li a {
   }
   .team-Logo-name {
     margin-top: 35px;
+  }
+  .mbl-img-banner {
+    height: 14rem !important;
   }
 }
 /* Break points for card Details slider */

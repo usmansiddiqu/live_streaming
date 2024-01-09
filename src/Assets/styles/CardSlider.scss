@@ -40,10 +40,9 @@
 .card-Slider {
   background: rgb(9, 121, 116);
 }
-.card-slider{
+.card-slider {
   width: 280.5px !important;
   height: 140px !important;
-
 }
 .Cardslider {
   .splide__arrow {
@@ -101,7 +100,7 @@
       // display: none;
     }
   }
-  .ended{
+  .ended {
     width: 11.5vw;
   }
 }
@@ -124,61 +123,44 @@
       // display: none;
     }
   }
-  .banner-Buttons{
+  // .banner-Buttons{
+  //   width: 13vw;
+  //   }
+  //   .mainSlider{
+  //     height: 53vh !important;
+  //   }
+  .ended {
     width: 13vw;
-    }
-    .mainSlider{
-      height: 53vh !important;
-    }
-    .ended{
-      width: 13vw;
-    }
-   
+  }
 }
 @media screen and (max-width: 980px) {
-
-
-    .mainSlider{
-      height: 40vh !important;
-    }
-    .ended{
-      margin-left: 30px;
-    
-    }
-   
-   
+  .mainSlider {
+    height: 40vh !important;
+  }
+  .ended {
+    margin-left: 30px;
+  }
 }
 @media screen and (max-width: 790px) {
-
- 
-    .mainSlider{
-      height: 45vh !important;
-    }
-   
-   
+  .mainSlider {
+    height: 45vh !important;
+  }
 }
 @media screen and (max-width: 420px) {
-
-  .ended{
+  .ended {
     margin-left: 60px;
-    margin-top: -35px  ;
+    margin-top: -35px;
   }
-  .mainSlider{
+  .mainSlider {
     height: 53vh !important;
   }
-
-   
-   
 }
 @media screen and (max-width: 390px) {
-
-  .ended{
+  .ended {
     margin-left: 65px;
     // margin-top: -40px !important ;
   }
-  .mainSlider{
+  .mainSlider {
     height: 58vh !important;
   }
-   
-   
 }

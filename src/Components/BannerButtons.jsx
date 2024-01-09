@@ -6,7 +6,7 @@ import Crown from "../Assets/Icons/crown.png";
 
 function BannerButtons({ onWatch }) {
   return (
-    <div className="banner-Buttons relative w-[12vw]  h-[auto]  flex justify-between mt-[-70px] ml-[25px]">
+    <div className="relative !w-[250px] mbl-btn h-[auto]  flex justify-between ml-[25px] ">
       <Button
         text="WATCH"
         src={Play}

@@ -21,14 +21,14 @@ function CarouselSlider() {
 
   const navigate = useNavigate();
   return (
-    <div className="bg-[#0D0620] bg-tab-mb mt-3">
+    <div className="bg-[#0D0620] mt-3">
       <Carousel data-bs-theme="dark">
         {data
           ?.filter((card) => card?.status)
           .map((card, key) => (
             <Carousel.Item key={key}>
               <img
-                className="d-block  h-[30vh] mbl-bg-img"
+                className="d-block mbl-img-banner h-[100%]"
                 src={
                   url +
                   "\\" +
@@ -41,10 +41,9 @@ function CarouselSlider() {
                 className="flex flex-col w-[100vw] absolute"
                 style={{
                   left: "2%",
-                  top: "50%",
+                  top: "80%",
                 }}
               >
-                <h1 className="text-white banner-textt text-4xl font-bold absolute"></h1>
                 <BannerButtons onWatch={() => navigate(`/live/${card._id}`)} />
               </div>
             </Carousel.Item>
