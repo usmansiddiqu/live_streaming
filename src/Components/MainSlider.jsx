@@ -49,7 +49,7 @@ function MainSlider() {
               type: "loop",
               padding: "8.5rem",
               gap: "0.4rem",
-              // autoplay: true,
+              autoplay: true,
               width: 1400,
             }}
             style={{ borderRadius: "20px" }}
