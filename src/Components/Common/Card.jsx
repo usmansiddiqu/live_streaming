@@ -19,10 +19,10 @@ function Card({ data, title, subtitle }) {
   return (
     <div>
       <DashHeader title={title} subtitle={subtitle} />
-      <div class=" flex items-center justify-center relative ">
+      <div class=" flex items-center justify-center relative">
         <div class="container contain-card mx-auto  teamOtherCards  ">
           {isDekstop && (
-            <div class="grid card-con xl:grid-cols-4 p-3 mx-auto !w-[73vw] gap-3 mb-4 card-match ">
+            <div class="grid card-con xl:grid-cols-4 p-3 mx-auto !w-[89rem] gap-4 mb-4">
               <>
                 {data
                   ?.sort(

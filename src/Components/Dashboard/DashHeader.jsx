@@ -17,8 +17,8 @@ function DashHeader({ title, subtitle }) {
           background: "linear-gradient(to right, #372566, #37256669)",
         }}
       ></div>
-      <div className="w-[82vw] flex justify-between mx-auto dash-headd ml-9">
-        <div className=" flex justify-between  lg:px-40">
+      <div className="!w-[87rem] flex justify-between mx-auto dash-headd ml-9">
+        <div className=" flex justify-between">
           <h1 className="text-2xl z-20 font-semibold">{title}</h1>
         </div>
         <div className="flex  flex-row  z-20 justify-between !w-[150px] cursor-pointer  headdd items-center">

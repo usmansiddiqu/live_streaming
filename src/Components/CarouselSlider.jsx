@@ -21,7 +21,7 @@ function CarouselSlider() {
 
   const navigate = useNavigate();
   return (
-    <div className="bg-[#0D0620] bg-tab-mb">
+    <div className="bg-[#0D0620] bg-tab-mb mt-3">
       <Carousel data-bs-theme="dark">
         {data
           ?.filter((card) => card?.status)
