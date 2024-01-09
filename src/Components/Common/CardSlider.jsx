@@ -131,7 +131,7 @@ const CardSlider = ({ data, type }) => {
                       <div className="placeAndTime border w-[100%] h-[auto] p-1  flex justify-between flex-row  bg-[black] bg-opacity-40">
                         {/* {(item)} */}
                         <p className="text-white text-sm">
-                          {truncateText(item.data.location, 20)}
+                          {truncateText(item.data.location, 15)}
                         </p>
                         <p className="text-white text-sm">
                           {item.data.date &&
