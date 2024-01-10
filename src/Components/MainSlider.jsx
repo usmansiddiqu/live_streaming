@@ -53,6 +53,7 @@ function MainSlider() {
               // autoplay: true,
               width: 1400,
               height: 450,
+              arrows: false,
             }}
             style={{
               borderRadius: "20px",
