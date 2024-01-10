@@ -19,7 +19,7 @@ function NHL() {
     <>
       <div
         style={{
-          height: "100%",
+          minHeight: "100%",
           overflow: "hidden !important",
         }}
       >
