@@ -17,7 +17,7 @@ function Home() {
   }, []);
   return (
     <>
-      <div className=" main-home-page relative" style={{ overflow: "hidden" }}>
+      <div className=" relative" style={{ overflow: "hidden" }}>
         <div className="relative">
           <MainSlider />
           <div className="nfl-view">
