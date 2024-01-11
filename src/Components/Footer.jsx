@@ -11,20 +11,25 @@ function Footer() {
     // navigate("/membership_plan");
   };
   const handleCLickAbout = () => {
-    // navigate("/about-us");
+    window.location.href = "/about-us";
   };
+
   const handleCLickTerms = () => {
-    // navigate("/terms-of-use");
+    window.location.href = "/terms-of-use";
   };
+
   const handleCLickPrivacy = () => {
-    // navigate("/privacy-policy");
+    window.location.href = "/privacy-policy";
   };
+
   const handleCLickFAQ = () => {
-    // navigate("/faq");
+    window.location.href = "/faq";
   };
+
   const handleCLickContact = () => {
-    // navigate("/contact-us");
+    window.location.href = "/contact-us";
   };
+
   return (
     // <div
     //   className="footer relative text-base-content fooer-Img bg-[#170F2C] !h-[10rem]"
