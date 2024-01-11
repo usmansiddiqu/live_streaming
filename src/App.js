@@ -58,7 +58,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/enterEmail" element={<Email />} />
           <Route path="/forgetPassword" element={<ForgetPassword />} />
-          <Route path="/contact-us" element={<Contact />} />
+          {/* <Route path="/contact-us" element={<Contact />} /> */}
 
           {isLoggedIn && (
             <React.Fragment>

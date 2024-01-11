@@ -26,9 +26,9 @@ function Footer() {
     window.location.href = "/faq";
   };
 
-  const handleCLickContact = () => {
-    window.location.href = "/contact-us";
-  };
+  // const handleCLickContact = () => {
+  //   window.location.href = "/contact-us";
+  // };
 
   return (
     // <div
@@ -129,9 +129,9 @@ function Footer() {
           <li className="text-white flex-shrink-0 cursor-pointer">
             <a onClick={handleCLickFAQ}> FAQ</a>
           </li>
-          <li className="text-white flex-shrink-0 cursor-pointer">
+          {/* <li className="text-white flex-shrink-0 cursor-pointer">
             <a onClick={handleCLickContact}> Contact Us</a>
-          </li>
+          </li> */}
         </ul>
         <div>
           <p className="text-white footer-copy text-sm mt-4 mb-2">
