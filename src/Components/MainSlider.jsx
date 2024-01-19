@@ -24,7 +24,7 @@ function MainSlider() {
   const navigate = useNavigate();
   return (
     <>
-      {isDekstop && data?.filter((card) => card?.status)?.length > 0 && (
+      {isDekstop && (
         <div
           style={{
             width: "100%",
@@ -54,8 +54,9 @@ function MainSlider() {
               width: 1400,
               height: 450,
               arrows: false,
-              preloadPages: true,
+              preloadPages: 3,
               lazyLoad: "nearby",
+              speed: "150",
             }}
             style={{
               borderRadius: "20px",
