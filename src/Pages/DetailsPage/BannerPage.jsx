@@ -53,7 +53,9 @@ function BannerPage() {
       >
         <h3 className="text-white font-medium text-2xl">You May Also Like</h3>
         <div className="w-[100vw] mt-4 ml-9  banner-slide-card mb-5 ">
-          <DetailsSlider />
+          {data?.liveTV.TVName?.slice(0, 3) && (
+            <DetailsSlider name={data?.liveTV.TVName?.slice(0, 3)} />
+          )}
         </div>
       </div>
       <Footer className="mt-5" />

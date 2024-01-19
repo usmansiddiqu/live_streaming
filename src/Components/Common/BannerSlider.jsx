@@ -7,12 +7,12 @@ import getEventsByType from "../../api/getEventsType";
 import TeamIconsDetailPage from "./TeamIconsDetailPage";
 import Ended from "./Ended";
 
-function BannerDetailSlider() {
+function BannerDetailSlider({ name }) {
   const params = useParams();
-
+  console.log(name);
   const [data, setData] = useState(null);
   const getData = async () => {
-    const { data: response } = await getEventsByType("NBA");
+    const { data: response } = await getEventsByType(name);
     setData(response.events);
   };
 
