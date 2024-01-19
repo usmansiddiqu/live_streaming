@@ -67,7 +67,13 @@ function MainSlider() {
               .map((card, key) => (
                 <SplideSlide className="rounded absolute">
                   <img
-                    src={`/root/pixel_sport_backend/${card.image}`}
+                    src={
+                      url +
+                      "\\" +
+                      card.image
+                        .replace("uploads\\", "")
+                        .replace("uploads/", "")
+                    }
                     alt={`Image ${key}`}
                     style={{ filter: "brightness(70%) saturate(150%)" }}
                   />
