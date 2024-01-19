@@ -42,7 +42,7 @@ function MainSlider() {
         >
           <Splide
             options={{
-              start: 1,
+              start: 2,
               perPage: 1,
               perMove: 1,
               pagination: false,
@@ -54,9 +54,8 @@ function MainSlider() {
               width: 1400,
               height: 450,
               arrows: false,
-              preloadPages: 3,
+              preloadPages: 2,
               lazyLoad: "nearby",
-              speed: "150",
             }}
             style={{
               borderRadius: "20px",
