@@ -21,7 +21,6 @@ function PlanCards() {
       navigate("/signup");
     } else {
       const result = await createPayment({ package_id: packageId });
-      console.log(123, result);
       if (result?.data?.error) {
         setError(result?.data?.error);
       } else {

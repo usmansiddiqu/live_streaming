@@ -10,7 +10,6 @@ const VideoPlayer = ({ url, setShow }) => {
         width="100%"
         height="100%"
         onReady={() => {
-          console.log(123);
           setShow(true);
         }}
         onEnded={() => console.log("some")}

@@ -272,7 +272,6 @@ function Transactions() {
                     }) */}
                   {data?.map((payment) => (
                     <tr>
-                      {console.log(payment)}
                       <th
                         scope="row"
                         class="px-6 py-4 font-medium  whitespace-nowrap cursor-pointer text-blue-600"

@@ -9,7 +9,6 @@ import Ended from "./Ended";
 
 function BannerDetailSlider({ name }) {
   const params = useParams();
-  console.log(name);
   const [data, setData] = useState(null);
   const getData = async () => {
     const { data: response } = await getEventsByType(name);

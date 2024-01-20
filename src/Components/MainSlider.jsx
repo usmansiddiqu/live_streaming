@@ -77,7 +77,6 @@ function MainSlider() {
                     alt={`Image ${key}`}
                     style={{ filter: "brightness(70%) saturate(150%)" }}
                   />
-                  {console.log(123, card.image)}
                   <div
                     className="z-80  absolute"
                     style={{ marginTop: "-90px" }}
