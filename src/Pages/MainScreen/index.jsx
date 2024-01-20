@@ -25,7 +25,7 @@ function MainScreen() {
     if (search.get("token")) {
       getData();
     }
-  }, [search.get("token")]);
+  }, []);
   return (
     <>
       <div className="forMobScreen">
