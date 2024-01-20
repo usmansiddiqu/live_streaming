@@ -11,24 +11,24 @@ import getDetails from "../../api/authGetDetails";
 function PlansPage() {
   const navigate = useNavigate();
   const [search] = useSearchParams();
-  const getData = async () => {
-    const { data: response } = await verifyPayments(search.get("token"));
-    if (response.message == "Token Verified!") {
-      getUser();
-      navigate("/");
-    } else {
-      toast.error("Payment Failed");
-    }
-  };
-  const getUser = async () => {
-    if (localStorage.getItem("token")) {
-      const { data: response } = await getDetails();
-      localStorage.setItem("data", JSON.stringify(response?.user));
-    }
-  };
+  // const getData = async () => {
+  //   const { data: response } = await verifyPayments(search.get("token"));
+  //   if (response.message == "Token Verified!") {
+  //     getUser();
+  //     navigate("/");
+  //   } else {
+  //     toast.error("Payment Failed");
+  //   }
+  // };
+  // const getUser = async () => {
+  //   if (localStorage.getItem("token")) {
+  //     const { data: response } = await getDetails();
+  //     localStorage.setItem("data", JSON.stringify(response?.user));
+  //   }
+  // };
   useEffect(() => {
     if (search.get("token")) {
-      getData();
+      toast.error("Payment Failed");
     }
   }, []);
   return (
