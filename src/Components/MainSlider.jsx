@@ -42,7 +42,7 @@ function MainSlider() {
         >
           <Splide
             options={{
-              start: 2,
+              start: 1,
               perPage: 1,
               perMove: 1,
               pagination: false,
