@@ -5,6 +5,7 @@ import Footer from "../../Components/Footer";
 import verifyPayments from "../../api/payment.api";
 import { useSearchParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import getDetails from "../../api/authGetDetails";
 
 function MainScreen() {
   const [search] = useSearchParams();
