@@ -66,7 +66,7 @@ function Nav() {
   const [image, setImage] = useState(
     data?.image
       ? isGoogleImageUrl(data.image)
-        ? image
+        ? data.image
         : url +
           "\\" +
           data.image.replace("uploads\\", "").replace("uploads/", "")
