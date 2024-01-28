@@ -83,7 +83,7 @@ const LiveChat = () => {
               className="flex border rounded-full px-1 items-center"
               style={{ justifyContent: "space-between" }}
             >
-              <div className="w-[80%] input-1 ">
+              <div className="w-[80%] input-1 flex items-center">
                 {/* <textarea
                   type="text"
                   className="flex-1 px-2 text-sm border border-white focus:ring-0 focus:outline-none text-white chat-text-area w-full placeholder:text-white placeholder:text-sm"
@@ -107,7 +107,7 @@ const LiveChat = () => {
                     height: "35px",
                     background: "transparent",
                   }}
-                  class="w-full flex-1 mt-1 px-2 py-[-20px] text-sm border border-white focus:outline-none text-white chat-text-area w-full placeholder:text-white placeholder:text-sm text-sm border-0  focus:ring-0"
+                  class="w-full flex-1 p-2 text-left !border  px-2 text-sm border border-white focus:outline-none text-white border-0 chat-text-area w-full placeholder:text-white placeholder:text-sm text-sm  focus:ring-0"
                   placeholder="Send Your Message..."
                 ></textarea>
               </div>
