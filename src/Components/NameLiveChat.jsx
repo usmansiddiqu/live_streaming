@@ -49,14 +49,15 @@ const LiveChat = () => {
       <div className="mx-auto p-1 h-[100%] ">
         <div className="  relative " style={{ height: "100%" }}>
           <div
+            className="chat-bar"
             style={{
-              height: "84.5%",
-              overflowY: "hidden",
+              height: "89%",
+              overflowY: "auto",
             }}
           >
             <div
               className="mb-1 overflow-y-auto chat-scroll"
-              style={{ maxHeight: "83%", overflowY: "hidden" }}
+              style={{ maxHeight: "78%", overflowY: "hidden" }}
             >
               {messages.map((msg, index) => (
                 <Message key={index} msg={msg} index={index} />
@@ -64,7 +65,7 @@ const LiveChat = () => {
             </div>
           </div>
           <div
-            className="flex flex-column  absolute w-[100%] px-2 h-[10%] mb-3"
+            className="flex flex-column  absolute w-[100%] px-2 h-[10%]"
             style={{ bottom: "0" }}
           >
             <div
@@ -83,7 +84,7 @@ const LiveChat = () => {
               className="flex border rounded-full px-1 items-center"
               style={{ justifyContent: "space-between" }}
             >
-              <div className="w-[80%] input-1 flex items-center">
+              <div className="w-[80%] input-1 flex p-1 items-center">
                 {/* <textarea
                   type="text"
                   className="flex-1 px-2 text-sm border border-white focus:ring-0 focus:outline-none text-white chat-text-area w-full placeholder:text-white placeholder:text-sm"

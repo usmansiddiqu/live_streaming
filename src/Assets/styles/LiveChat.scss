@@ -26,6 +26,14 @@
   display: none;
   // background-color: #00c22a;
 }
+.chat-bar::-webkit-scrollbar {
+  display: none;
+  // background-color: #00c22a;
+}
+.chat-bar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .chat-scroll {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
