@@ -6,6 +6,7 @@ import ClapprPlayer from "./ClapprPlayer";
 import axiosInstance from "../../api";
 import axios from "axios";
 import { url as url1 } from "../../helper/url";
+import LiveChat from "../NameLiveChat";
 
 function BannerDetailComponent({ data, url }) {
   const [show, setShow] = useState(true);
@@ -25,8 +26,13 @@ function BannerDetailComponent({ data, url }) {
   return (
     <div className="flex !justify-center">
       {show ? (
-        <div className="chunchun mt-2">
-          <ClapprPlayer url={url} />
+        <div className="flex w-[94%] mx-auto chat-responsive">
+          <div className=" mt-2 flex h-full">
+            <ClapprPlayer url={url} />
+          </div>
+          <div className="w-[55%] h-[99%] mt-2 p-1 bg-[#251947]">
+            <LiveChat />
+          </div>
         </div>
       ) : (
         <div

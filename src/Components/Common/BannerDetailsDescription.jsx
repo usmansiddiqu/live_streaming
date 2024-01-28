@@ -4,7 +4,7 @@ import EYE from "../../Assets/Icons/eye-open.png";
 function BannerDetailsDescription({ data, setUrl }) {
   return (
     <div className="flex justify-center mt-8 ">
-      <div className=" bg-[#190D39] w-[60vw] pt-4 pb-6 ps-7 live-head">
+      <div className=" bg-[#190D39] w-[60vw] pt-4 pb-6 ps-3 live-head">
         <div className="">
           <h1 className="text-white text-2xl pb-4">{data?.liveTV?.TVName}</h1>
         </div>
@@ -16,7 +16,7 @@ function BannerDetailsDescription({ data, setUrl }) {
         <div className="">
           <h1 className="text-white pb-4">NHL</h1>
         </div>
-        <div className=" flex gap-3">
+        <div className=" flex gap-2">
           <button
             class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
             onClick={() => setUrl(data?.liveTV?.server1URL)}

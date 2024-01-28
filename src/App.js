@@ -3,7 +3,6 @@ import MLB from "./Pages/MLB";
 import MainScreen from "./Pages/MainScreen";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import UFC from "./Pages/UFC";
 import NHL from "./Pages/NHL";
 import NFL from "./Pages/NFL";
 import NBA from "./Pages/NBA";
@@ -29,6 +28,9 @@ import Email from "./Pages/EnterEmail";
 import ForgetPassword from "./Pages/ForgetPassword";
 import Contact from "./Pages/Contact";
 import CrispChat from "./Components/crisp";
+import Footer from "./Components/Footer";
+// import NameLiveChat from "./Components/NameLiveChat";
+import TestingChat from "./Components/TestingChat";
 
 function App() {
   const [isLoggedIn] = useState(true);
@@ -67,7 +69,10 @@ function App() {
               <Route path="/live/:id" element={<BannerPage />} />
               <Route path="/:type/live/:id" element={<DetailsPage />} />
               <Route path="/membership_plan/:id" element={<Plans />} />
-
+              <Route
+                path="/livechat_pixel_TV_Sports"
+                element={<TestingChat />}
+              />
               {isAdmin && (
                 <React.Fragment>
                   <Route path="/admin/*" element={<AdminPanelWrapper />} />

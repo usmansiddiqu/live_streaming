@@ -5,6 +5,7 @@ import VideoPlayer from "./VideoPlayer";
 import ClapprPlayer from "./ClapprPlayer";
 import moment from "moment-timezone";
 import { useParams } from "react-router-dom";
+import LiveChat from "../NameLiveChat";
 
 function DetailsComponent({ data, url }) {
   const { type } = useParams();
@@ -30,6 +31,7 @@ function DetailsComponent({ data, url }) {
           <div className="chunchun">
             <ClapprPlayer url={url} />
           </div>
+          {/* <LiveChat /> */}
         </div>
       ) : (
         <div
