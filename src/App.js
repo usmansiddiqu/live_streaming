@@ -30,7 +30,8 @@ import Contact from "./Pages/Contact";
 import CrispChat from "./Components/crisp";
 import Footer from "./Components/Footer";
 // import NameLiveChat from "./Components/NameLiveChat";
-import TestingChat from "./Components/TestingChat";
+// import TestingChat from "./Components/TestingChat";
+import LiveeChat from "./Pages/LiveChat";
 
 function App() {
   const [isLoggedIn] = useState(true);
@@ -71,7 +72,7 @@ function App() {
               <Route path="/membership_plan/:id" element={<Plans />} />
               <Route
                 path="/livechat_pdsfsdfsdixel_TV_Sports0987654232"
-                element={<TestingChat />}
+                element={<LiveeChat />}
               />
               {isAdmin && (
                 <React.Fragment>
