@@ -70,7 +70,7 @@ function App() {
               <Route path="/:type/live/:id" element={<DetailsPage />} />
               <Route path="/membership_plan/:id" element={<Plans />} />
               <Route
-                path="/livechat_pixel_TV_Sports"
+                path="/livechat_pdsfsdfsdixel_TV_Sports0987654232"
                 element={<TestingChat />}
               />
               {isAdmin && (
