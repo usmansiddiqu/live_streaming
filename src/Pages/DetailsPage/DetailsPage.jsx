@@ -66,7 +66,7 @@ function DetailsPage() {
 
   const canViewPage = async () => {
     try {
-      const result = await canView();
+      const result = await canView(params.id);
       if (localStorage.getItem("data")) {
         if (!result.data.flag) {
           navigate("/membership_plan");

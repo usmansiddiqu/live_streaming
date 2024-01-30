@@ -1,6 +1,6 @@
 const { default: axiosInstance } = require(".");
 
-const canView = async () => {
-  return await axiosInstance.get("/payment/canView");
+const canView = async (id) => {
+  return await axiosInstance.get(`/payment/canView/${id}`);
 };
 export default canView;
