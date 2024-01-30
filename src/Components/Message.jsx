@@ -11,7 +11,10 @@ const getMessageTime = () => {
 const Message = ({ msg, index }) => {
   const currentTime = getMessageTime();
   return (
-    <p className={`flex  p-1 msgHover ${index % 2 === 0 ? "even-msg" : ""}`}>
+    <p
+      className={`flex  p-1 ${index % 2 === 0 ? "even-msg" : ""}`}
+      style={{ background: index % 2 === 0 ? "#1b1b1b" : "#3f3f3f" }}
+    >
       <div className="w-[30px] h-[30px] mr-1">
         <img
           src="https://source.unsplash.com/random/person"

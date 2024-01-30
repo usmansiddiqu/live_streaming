@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../Assets/styles/LiveChat.scss";
+import { MentionsInput, Mention } from "react-mentions";
 import EmojiPicker from "emoji-picker-react";
 import Send from "../Assets/Icons/send-package.png";
 import Emoji from "../Assets/Icons/emoji.png";
 import Message from "./Message";
+
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
   let color = "#";
@@ -12,17 +13,35 @@ const getRandomColor = () => {
   }
   return color;
 };
+
 const LiveChat = () => {
+  const users = [
+    {
+      id: "isaac",
+      display: "Isaac Newton",
+    },
+    {
+      id: "sam",
+      display: "Sam Victor",
+    },
+    {
+      id: "emma",
+      display: "emmanuel@nobody.com",
+    },
+  ];
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const emojiPickerRef = useRef(null);
 
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
+  const [mentionData, setMentionData] = useState([]);
+
   const handleEmojiClick = (emojiObject) => {
     const emoji = emojiObject.emoji;
     setNewMessage((prevMessage) => prevMessage + emoji);
     setShowEmojiPicker(false);
   };
+
   const handleSendMessage = () => {
     if (newMessage.trim() !== "") {
       setMessages([
@@ -32,10 +51,105 @@ const LiveChat = () => {
       setNewMessage("");
     }
   };
+  const mentionStyle = {
+    width: "100%",
+    height: "30px",
+    // paddingLeft: "5px",
+    color: "white",
+    border: "1px solid white",
+    borderRadius: "25px",
+    control: {
+      fontSize: 12,
+      fontWeight: "normal",
+      border: "1px solid white",
+    },
+
+    highlighter: {
+      overflow: "hidden",
+    },
+
+    input: {
+      margin: 0,
+
+      border: "1px solid white",
+    },
+
+    "&singleLine": {
+      control: {
+        display: "inline-block",
+        width: 130,
+      },
+
+      highlighter: {
+        padding: 1,
+        border: "none",
+      },
+
+      input: {
+        padding: 1,
+        color: "black",
+        // outline: "none",
+        border: "1px solid white",
+      },
+    },
+
+    "&multiLine": {
+      control: {
+        fontFamily: "monospace",
+        height: 30,
+      },
+
+      highlighter: {
+        padding: 9,
+        height: 30,
+      },
+
+      input: {
+        padding: 9,
+        outline: 0,
+        border: 0,
+        height: 30,
+        left: "unset",
+        position: "absolute",
+        bottom: 14,
+        lineHeight: 1,
+        outline: "none",
+        focus: {
+          ring: 0,
+        },
+      },
+    },
+
+    suggestions: {
+      top: "unset",
+      bottom: "25px",
+      zIndex: 99,
+      maxHeight: "90px",
+      overflow: "auto",
+      list: {
+        backgroundColor: "#0D0620",
+        border: "1px solid white",
+        fontSize: 10,
+      },
+
+      item: {
+        padding: "5px 15px",
+        borderBottom: "1px solid white",
+
+        "&focused": {
+          backgroundColor: "none",
+          outline: "none",
+          focus: {
+            ring: 0,
+          },
+        },
+      },
+    },
+  };
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      // setNewMessage();
       handleSendMessage();
     }
   };
@@ -44,6 +158,7 @@ const LiveChat = () => {
     const chatScroll = document.querySelector(".chat-scroll");
     chatScroll.scrollTop = chatScroll.scrollHeight;
   }, [messages]);
+
   return (
     <>
       <div className="mx-auto p-1 h-[100%] ">
@@ -81,38 +196,33 @@ const LiveChat = () => {
               </span>
             </div>
             <div
-              className="flex border rounded-full px-1 items-center"
+              className="flex border border-0 rounded-full  items-center"
               style={{ justifyContent: "space-between" }}
             >
-              <div className="w-[80%] input-1 flex p-1 items-center">
-                {/* <textarea
-                  type="text"
-                  className="flex-1 px-2 text-sm border border-white focus:ring-0 focus:outline-none text-white chat-text-area w-full placeholder:text-white placeholder:text-sm"
-                  style={{
-                    overflowY: "hidden",
-                    height: "35px",
-                  }}
-                  placeholder="Send Your Message..."
+              <div className="w-[100%] input-1 flex p-1 items-center">
+                <MentionsInput
                   value={newMessage}
-                  onChange={(e) => setNewMessage(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                ></textarea> */}
-
-                <textarea
-                  id="comment"
-                  value={newMessage}
-                  onChange={(e) => setNewMessage(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  style={{
-                    overflowY: "hidden",
-                    height: "35px",
-                    background: "transparent",
+                  onChange={(e, newValue, plainTextValue, mentions) => {
+                    setNewMessage(newValue);
+                    setMentionData(mentions);
                   }}
-                  class="w-full flex-1 p-2 text-left !border  px-2 text-sm border border-white focus:outline-none text-white border-0 chat-text-area w-full placeholder:text-white placeholder:text-sm text-sm  focus:ring-0"
-                  placeholder="Send Your Message..."
-                ></textarea>
+                  onKeyDown={handleKeyDown}
+                  style={mentionStyle}
+                  placeholder="Type your message"
+                  className="!focus:outline-none  !border-0 chat-text-area   !focus:ring-0"
+                >
+                  <Mention
+                    trigger="@"
+                    style={{
+                      backgroundColor: "rgba(251, 122, 3, 0.15)",
+                      marginBottom: "20px",
+                    }}
+                    data={users}
+                    displayTransform={(id) => `@${id}`}
+                    // displayTransform={(id, display, type) => `@${display}`}
+                  />
+                </MentionsInput>
               </div>
-
               <div className="w-[16%] input-2 flex justify-evenly">
                 <div
                   className="relative p-2 cursor-pointer relative bg-[#4949FA] text-white rounded-full mr-2"
@@ -139,7 +249,6 @@ const LiveChat = () => {
                     </div>
                   )}
                 </div>
-
                 <button
                   className="p-2 bg-[#4949FA] text-white rounded-full"
                   onClick={handleSendMessage}
