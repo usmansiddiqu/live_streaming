@@ -13,7 +13,7 @@ function SliderHeader(props) {
         marginTop: "15px",
         marginBottom: "15px",
       }}
-      className="sliderHeader"
+      className="sliderHeader p-1"
     >
       <h1
         className="font-medium slider-head-text"
