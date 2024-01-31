@@ -23,7 +23,10 @@ const Message = ({ msg, index }) => {
         />
       </div>
       <div className="flex">
-        <span className="font-medium text-sm" style={{ color: msg.color }}>
+        <span
+          className="font-medium text-sm"
+          style={{ color: msg.color, minWidth: "50px" }}
+        >
           Daud :
         </span>
         <div className="flex justify-between">

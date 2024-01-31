@@ -30,7 +30,50 @@ li a {
 .logooo {
   display: none;
 }
-
+aside {
+  width: 100% !important;
+  height: 100% !important;
+}
+.epr-main
+  .EmojiPickerReact
+  .epr_mw4zr1
+  .epr_q53mwh
+  .epr_7hyle2
+  .epr_-x928hz
+  .epr_-rvl3je
+  .epr_-khp9xq
+  .epr_-to8mm
+  .epr_-4ueg5a
+  .epr_iddbfm
+  .epr_vy4vae
+  .epr_-7cq3xd
+  .epr_6ocl7q {
+  width: 100% !important;
+  height: 100% !important;
+}
+textarea {
+  /* border-radius: 20px !important; */
+  background-color: transparent !important;
+  /* outline: 0px !important; */
+  resize: none !important;
+  line-height: 15px !important;
+  border: 1px solid white !important;
+  /* border-color: Transparent !important; */
+  /* overflow: auto !important; */
+  outline: none !important;
+  border-radius: 20px !important;
+  color: white !important;
+  padding-left: 10px;
+  padding-top: 5px;
+  font-size: 10px !important;
+  height: 45px;
+  max-height: 40px !important;
+}
+textarea:focus {
+  background-color: transparent !important;
+  /* outline: 0px !important; */
+  color: #1a1a1a;
+}
 @media screen and (max-width: 900px) {
   .logooo {
     display: block;
@@ -602,6 +645,16 @@ li a {
     width: 70%;
     height: 25vmin;
     font-size: 8px;
+  }
+  .palyer-mbl {
+    height: 25% !important;
+  }
+  .chat-bar {
+    height: 22.5rem !important;
+  }
+  .live-chat-responsive {
+    width: 100%;
+    height: 55% !important;
   }
   .banner-text {
     left: 24% !important;
@@ -1871,14 +1924,14 @@ li a {
 /* Live Chat Responsiveness */
 /* small tabs + mobile view */
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1020px) {
   .chat-responsive {
     display: flex;
     flex-direction: column;
   }
   .liveChat-box {
     width: 100% !important;
-    /* background-color: red; */
+    background-color: red;
   }
   .chat-box-height {
     min-height: 29rem !important;
@@ -1888,6 +1941,19 @@ li a {
   }
   .chat-scroll {
     max-height: 24rem !important;
+  }
+  #videoPlayer [data-player] {
+    width: 100% !important;
+  }
+  .palyer-mbl {
+    height: 35%;
+  }
+  .live-chat-responsive {
+    width: 100%;
+    height: 55% !important;
+  }
+  .chat-mbl-box {
+    height: 100vh;
   }
 }
 @media screen and (max-width: 2500px) {
@@ -2051,7 +2117,7 @@ li a {
     width: 73% !important;
   }
   .input-2 {
-    width: 22% !important;
+    width: 25% !important;
   }
   .msg-text {
     width: 240px !important;
@@ -2071,11 +2137,14 @@ li a {
     width: 70% !important;
   }
   .input-2 {
-    width: 24% !important;
+    width: 27% !important;
   }
   .msg-text {
     width: 220px !important;
     font-size: 12px;
+  }
+  .input-box {
+    bottom: 10px !important;
   }
 }
 @media screen and (max-width: 1300px) {
@@ -2092,11 +2161,27 @@ li a {
     width: 70% !important;
   }
   .input-2 {
-    width: 26% !important;
+    width: 28% !important;
   }
   .msg-text {
     width: 190px !important;
     font-size: 12px;
+  }
+  .input-box {
+    bottom: 10px !important;
+  }
+  .inputcc {
+    width: 29px !important;
+    height: 29px !important;
+  }
+  .icon-input {
+    height: 15px !important;
+  }
+
+  .emoji-box {
+    /* width: 250px !important; */
+    top: -1050% !important;
+    left: -1000% !important;
   }
 }
 @media screen and (max-width: 1200px) {
@@ -2118,5 +2203,32 @@ li a {
   .msg-text {
     width: 170px !important;
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .input-1 {
+    width: 90% !important;
+  }
+  .input-2 {
+    width: 10% !important;
+  }
+}
+@media screen and (max-width: 580px) {
+  .input-1 {
+    width: 80% !important;
+  }
+  .input-2 {
+    width: 20% !important;
+  }
+  .palyer-mbl {
+    height: 30%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .input-1 {
+    width: 75% !important;
+  }
+  .input-2 {
+    width: 23% !important;
   }
 }

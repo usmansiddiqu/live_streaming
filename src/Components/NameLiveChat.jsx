@@ -51,17 +51,16 @@ const LiveChat = () => {
       setNewMessage("");
     }
   };
+  console.log(newMessage, "newValue");
   const mentionStyle = {
     width: "100%",
-    height: "30px",
+    // height: "30px",
     // paddingLeft: "5px",
     color: "white",
-    border: "1px solid white",
     borderRadius: "25px",
     control: {
       fontSize: 12,
       fontWeight: "normal",
-      border: "1px solid white",
     },
 
     highlighter: {
@@ -70,8 +69,6 @@ const LiveChat = () => {
 
     input: {
       margin: 0,
-
-      border: "1px solid white",
     },
 
     "&singleLine": {
@@ -89,7 +86,6 @@ const LiveChat = () => {
         padding: 1,
         color: "black",
         // outline: "none",
-        border: "1px solid white",
       },
     },
 
@@ -146,6 +142,13 @@ const LiveChat = () => {
       },
     },
   };
+  const memoizedMessages = useMemo(
+    () =>
+      messages.map((msg, index) => (
+        <Message key={index} msg={msg} index={index} />
+      )),
+    [messages]
+  );
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -174,13 +177,15 @@ const LiveChat = () => {
               className="mb-1 overflow-y-auto chat-scroll"
               style={{ maxHeight: "78%", overflowY: "hidden" }}
             >
-              {messages.map((msg, index) => (
+              {memoizedMessages}
+              {/* {messages.map((msg, index) => (
                 <Message key={index} msg={msg} index={index} />
-              ))}
+              ))} */}
             </div>
           </div>
+
           <div
-            className="flex flex-column  absolute w-[100%] px-2 h-[10%]"
+            className="flex flex-column  absolute w-[100%] px-2 mb-2 input-box h-[10%]"
             style={{ bottom: "0" }}
           >
             <div
@@ -195,6 +200,7 @@ const LiveChat = () => {
                 Online <span>358</span>
               </span>
             </div>
+
             <div
               className="flex border border-0 rounded-full  items-center"
               style={{ justifyContent: "space-between" }}
@@ -219,29 +225,31 @@ const LiveChat = () => {
                     }}
                     data={users}
                     displayTransform={(id) => `@${id}`}
-                    // displayTransform={(id, display, type) => `@${display}`}
                   />
                 </MentionsInput>
               </div>
+
               <div className="w-[16%] input-2 flex justify-evenly">
                 <div
-                  className="relative p-2 cursor-pointer relative bg-[#4949FA] text-white rounded-full mr-2"
+                  className="relative p-2 cursor-pointer relative inputcc bg-[#4949FA] text-white rounded-full mr-2"
                   onClick={() => setShowEmojiPicker(!showEmojiPicker)}
                 >
                   <span role="img" aria-label="emoji">
                     <img
                       src={Emoji}
+                      className="icon-input"
                       alt=""
                       style={{ width: "20px", height: "20px" }}
                     />
                   </span>
+
                   {showEmojiPicker && (
                     <div
-                      className="emoji-picker absolute w-[15px] h-[15px] "
-                      ref={emojiPickerRef}
-                      style={{ bottom: "0%", left: "100%" }}
+                      className="absolute w-[300px] h-[300px] emoji-box"
+                      style={{ top: "-800%", left: "-800%" }}
                     >
                       <EmojiPicker
+                        pickerStyle={{ width: "100%" }}
                         onEmojiClick={handleEmojiClick}
                         lazyLoadEmojis={true}
                         searchDisabled={true}
@@ -250,11 +258,12 @@ const LiveChat = () => {
                   )}
                 </div>
                 <button
-                  className="p-2 bg-[#4949FA] text-white rounded-full"
+                  className="p-2 bg-[#4949FA] inputcc text-white rounded-full"
                   onClick={handleSendMessage}
                 >
                   <img
                     src={Send}
+                    className="icon-input"
                     alt=""
                     style={{ width: "20px", height: "20px" }}
                   />
