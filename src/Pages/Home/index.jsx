@@ -21,13 +21,11 @@ function Home() {
         <div className="relative">
           <MainSlider />
           <div className="nfl-view">
-            <SliderHeader title="NFL Live" link="nfl" />
+            <SliderHeader title="MLB Live" link="mlb" />
           </div>
           <CardSlider
-            data={data.filter((card) => {
-              return card.channel.TVCategory.name == "NFL";
-            })}
-            type="NFL"
+            data={data.filter((card) => card.channel.TVCategory.name == "MLB")}
+            type="MLB"
           />
           <SliderHeader title="NHL Live" link="nhl" />
           <CardSlider
@@ -39,10 +37,12 @@ function Home() {
             data={data.filter((card) => card.channel.TVCategory.name == "NBA")}
             type="NBL"
           />
-          <SliderHeader title="MLB Live" link="mlb" />
+          <SliderHeader title="NFL Live" link="nfl" />
           <CardSlider
-            data={data.filter((card) => card.channel.TVCategory.name == "MLB")}
-            type="MLB"
+            data={data.filter((card) => {
+              return card.channel.TVCategory.name == "NFL";
+            })}
+            type="NFL"
           />
         </div>
       </div>
