@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { MentionsInput, Mention } from "react-mentions";
 import EmojiPicker from "emoji-picker-react";
 import Send from "../Assets/Icons/send-package.png";
