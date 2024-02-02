@@ -10,9 +10,10 @@ function SliderHeader(props) {
         justifyContent: "space-between",
         margin: "auto",
         alignItems: "center",
-        marginTop: "25px",
+        marginTop: "15px",
+        marginBottom: "15px",
       }}
-      className="sliderHeader"
+      className="sliderHeader p-1"
     >
       <h1
         className="font-medium slider-head-text"
