@@ -21,13 +21,11 @@ function Home() {
         <div className="relative">
           <MainSlider />
           <div className="nfl-view">
-            <SliderHeader title="NFL Live" link="nfl" />
+            <SliderHeader title="MLB Live" link="mlb" />
           </div>
           <CardSlider
-            data={data.filter((card) => {
-              return card.channel.TVCategory.name == "NFL";
-            })}
-            type="NFL"
+            data={data.filter((card) => card.channel.TVCategory.name == "MLB")}
+            type="MLB"
           />
           <SliderHeader title="NHL Live" link="nhl" />
           <CardSlider
@@ -39,11 +37,31 @@ function Home() {
             data={data.filter((card) => card.channel.TVCategory.name == "NBA")}
             type="NBL"
           />
-          <SliderHeader title="MLB Live" link="mlb" />
-          <CardSlider
-            data={data.filter((card) => card.channel.TVCategory.name == "MLB")}
-            type="MLB"
-          />
+          {data.filter((card) => {
+            return card.channel.TVCategory.name == "NFL";
+          })?.length ? (
+            <>
+              <SliderHeader title="NFL Live" link="nfl" />
+              <CardSlider
+                data={data.filter((card) => {
+                  return card.channel.TVCategory.name == "NFL";
+                })}
+                type="NFL"
+              />
+            </>
+          ) : (
+            <>
+              <SliderHeader title="NFL Live" link="nfl" />
+              <div className="h-[15.2vh] flex items-center">
+                <CardSlider
+                  data={data.filter((card) => {
+                    return card.channel.TVCategory.name == "NFL";
+                  })}
+                  type="NFL"
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
       <div className="mt-3 ">

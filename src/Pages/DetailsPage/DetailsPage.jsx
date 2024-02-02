@@ -41,7 +41,6 @@ function DetailsPage() {
     try {
       const { data: response } = await getEventById(params.id);
       scrollToTop();
-      console.log(response.events);
       setData(response.events);
 
       const result = await checkUrl(response.events?.channel?.server2URL);
