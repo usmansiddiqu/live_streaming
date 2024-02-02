@@ -16,7 +16,7 @@ const getRandomColor = () => {
   return color;
 };
 
-const LiveChat = () => {
+const ChatSection = () => {
   const users = [
     {
       id: "isaac",
@@ -171,15 +171,17 @@ const LiveChat = () => {
           <div
             className="chat-bar"
             style={{
-              height: "89%",
+              height: "87.5%",
               overflowY: "auto",
+              // transform: "rotate(180deg)",
             }}
           >
             <div
-              className="mb-1 overflow-y-auto chat-scroll"
+              className="mb-1 mt-2 overflow-y-auto chat-scroll "
               style={{ maxHeight: "78%", overflowY: "hidden" }}
             >
-              {memoizedMessages}
+              {/* <div style={{ transform: "rotate(180deg)" }}> */}
+              <div>{memoizedMessages}</div>
               {/* {messages.map((msg, index) => (
                 <Message key={index} msg={msg} index={index} />
               ))} */}
@@ -187,20 +189,30 @@ const LiveChat = () => {
           </div>
 
           <div
-            className="flex flex-column  absolute w-[100%] px-2 mb-2 input-box h-[10%]"
+            className="flex flex-column  absolute w-[100%] px-2 mb-2 input-box h-[10%] "
             style={{ bottom: "0" }}
           >
             <div
-              className="flex items-center w-[6.8rem] mb-2 bg-[#4949FA]"
+              className="flex"
               style={{
-                boxShadow: "-2px 4px 13px -1px rgba(0,0,0,0.67)",
-                borderRadius: "10px",
+                justifyContent: "flex-end",
               }}
             >
-              <div className="w-[6px] h-[6px] bg-[#00c22a] rounded-full  ml-2"></div>
-              <span className="text-white text-sm ml-2">
-                Online <span>358</span>
-              </span>
+              <div
+                className="flex items-center justify-evenly online mb-2 bg-[#4949FA] px-3"
+                style={{
+                  boxShadow: "-2px 4px 13px -1px rgba(0,0,0,0.67)",
+                  borderRadius: "10px",
+                }}
+              >
+                <div className="w-[6px] h-[6px] bg-[#00c22a] rounded-full mr-2"></div>
+                <span
+                  className="text-white text-sm"
+                  style={{ fontSize: "11px" }}
+                >
+                  Online <span>300</span>
+                </span>
+              </div>
             </div>
 
             <div
@@ -279,4 +291,4 @@ const LiveChat = () => {
   );
 };
 
-export default LiveChat;
+export default ChatSection;

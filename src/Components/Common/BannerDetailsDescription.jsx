@@ -84,7 +84,7 @@ function BannerDetailsDescription({ data, setUrl }) {
               <></>
             )}
           </div>
-          <button
+          {/* <button
             class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded mr-4"
             onClick={() =>
               navigate("/livechat_pdsfsdfsdixel_TV_Sports0987654232")
@@ -104,7 +104,7 @@ function BannerDetailsDescription({ data, setUrl }) {
               </svg>
               <label>Theater mode</label>
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

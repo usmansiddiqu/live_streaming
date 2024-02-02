@@ -80,7 +80,7 @@ function ClapprPlayer({ url, setShow }) {
     };
   }, [url, setShow]);
 
-  return <p className="w-full" id="videoPlayer"></p>;
+  return <p className="w-full !bg-black" id="videoPlayer"></p>;
 }
 
 export default ClapprPlayer;

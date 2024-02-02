@@ -3,9 +3,10 @@ import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import Card from "../../Components/Common/Card";
 import getEvents from "../../api/getEvents";
-import TestingChat from "../../Components/TestingChat";
+// import TestingChat from "../../Components/TheaterMode";
+import TheaterMode from "../../Components/TheaterMode";
 
-function LiveeChat() {
+function LiveChat() {
   const [data, setData] = useState([]);
   const getData = async () => {
     const { data: response } = await getEvents();
@@ -25,11 +26,11 @@ function LiveeChat() {
         }}
       >
         <Nav />
-        <TestingChat />
+        <TheaterMode />
       </div>
       <Footer />
     </div>
   );
 }
 
-export default LiveeChat;
+export default LiveChat;

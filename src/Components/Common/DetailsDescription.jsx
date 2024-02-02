@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import moment from "moment";
 import { LocalConvenienceStoreOutlined } from "@mui/icons-material";
 
-function DetailsDescription({ data, setUrl }) {
+function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const addToWishList = async () => {
@@ -88,9 +88,7 @@ function DetailsDescription({ data, setUrl }) {
           </div>
           <button
             class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded mr-4"
-            onClick={() =>
-              navigate("/livechat_pdsfsdfsdixel_TV_Sports0987654232")
-            }
+            onClick={() => toggleTheaterMode()}
           >
             <div className="flex gap-1">
               <svg

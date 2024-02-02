@@ -67,7 +67,7 @@ function Contact() {
                 />
               </div>
             </div>
-            <div class="flex flex-wrap ">
+            <div class="flex flex-wrap form-textArea">
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
                 <label
                   class="block uppercase tracking-wide text-white text-sm  font-bold mb-2"
@@ -80,7 +80,8 @@ function Contact() {
               <textarea
                 id="message"
                 rows="6"
-                class="appearance-none bg-[#22134E]  text-white h-[10vh] block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
+                cols="10"
+                class="appearance-none bg-[#22134E]  text-white !h-[30vh] block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
               ></textarea>
             </div>
             <div className="flex justify-between w-full items-end upload-ip">

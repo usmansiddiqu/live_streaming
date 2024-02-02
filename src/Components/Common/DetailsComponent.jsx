@@ -5,7 +5,7 @@ import VideoPlayer from "./VideoPlayer";
 import ClapprPlayer from "./ClapprPlayer";
 import moment from "moment-timezone";
 import { useParams } from "react-router-dom";
-import LiveChat from "../NameLiveChat";
+import LiveChat from "../ChatSection";
 
 function DetailsComponent({ data, url }) {
   const { type } = useParams();

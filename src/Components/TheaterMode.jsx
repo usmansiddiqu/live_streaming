@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../Assets/styles/CardDetailss.scss";
 import axios from "axios";
-import LiveChat from "./NameLiveChat";
+import LiveChat from "./ChatSection";
 import ClapprPlayer from "./Common/ClapprPlayer";
 
-function TestingChat({ data, url }) {
+function TheaterMode({ data, url }) {
   const [show, setShow] = useState(true);
   // const [videoPlayer, setVideoPlayer] = useState(false);
   // setTimeout(() => setShow(true), 10000);
@@ -20,14 +20,17 @@ function TestingChat({ data, url }) {
     getData();
   }, [url]);
   return (
-    <div className="flex !justify-center chat-mbl-box">
+    <div className="flex !justify-center chat-mbl-box h-[100%]">
       <div className="flex w-[94%] mx-auto chat-responsive">
-        <div className=" mt-2 flex h-full  palyer-mbl">
+        <div className="">
           <ClapprPlayer
             url={"https://main.fhdsports.live:443/hdstreamlive/hdembed/3.m3u8"}
           />
         </div>
-        <div className="w-[55%] h-[99%] mt-2 live-chat-responsive p-1 bg-[#251947]">
+        <div
+          className="w-[55%] h-[99%] mb-1 live-chat-responsive p-1 bg-[#251947]"
+          // style={{ marginTop: "8px" }}
+        >
           <LiveChat />
         </div>
       </div>
@@ -35,4 +38,4 @@ function TestingChat({ data, url }) {
   );
 }
 
-export default TestingChat;
+export default TheaterMode;
