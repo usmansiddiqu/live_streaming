@@ -30,7 +30,7 @@ function Contact() {
     <div>
       <Nav />
       <ToastContainer />
-      <DashHeader title="Contact Us" />
+      <DashHeader title="Contact Us" subtitle="Contact Us" />
 
       <div className="rounded contact-form w-[70vw] mx-auto mt-9 p-8 flex justify-evenly flex-wrap">
         <div className="w-[68%] contact-feild p-5 bg-[#130A2D] rounded-lg ">
