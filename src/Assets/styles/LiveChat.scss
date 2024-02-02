@@ -27,16 +27,15 @@
   // background-color: #00c22a;
 }
 .chat-bar::-webkit-scrollbar {
-  display: none;
+  display: none !important;
   // background-color: #313131;
 }
 .chat-bar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
+  -ms-overflow-style: none none !important; 
+  scrollbar-width: none none !important; }
 .chat-scroll {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none none !important; 
+  scrollbar-width: none none !important; 
 }
 
 .input-1 {

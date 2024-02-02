@@ -4,6 +4,7 @@ import EmojiPicker from "emoji-picker-react";
 import Send from "../Assets/Icons/send-package.png";
 import Emoji from "../Assets/Icons/emoji.png";
 import Message from "./Message";
+import "../Assets/styles/LiveChat.scss";
 
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
