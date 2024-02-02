@@ -37,16 +37,31 @@ function Home() {
             data={data.filter((card) => card.channel.TVCategory.name == "NBA")}
             type="NBL"
           />
-
-          <SliderHeader title="NFL Live" link="nfl" />
-          <div className="h-[15.2vh] flex items-center">
-            <CardSlider
-              data={data.filter((card) => {
-                return card.channel.TVCategory.name == "NFL";
-              })}
-              type="NFL"
-            />
-          </div>
+          {data.filter((card) => {
+            return card.channel.TVCategory.name == "NFL";
+          })?.length ? (
+            <>
+              <SliderHeader title="NFL Live" link="nfl" />
+              <CardSlider
+                data={data.filter((card) => {
+                  return card.channel.TVCategory.name == "NFL";
+                })}
+                type="NFL"
+              />
+            </>
+          ) : (
+            <>
+              <SliderHeader title="NFL Live" link="nfl" />
+              <div className="h-[15.2vh] flex items-center">
+                <CardSlider
+                  data={data.filter((card) => {
+                    return card.channel.TVCategory.name == "NFL";
+                  })}
+                  type="NFL"
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
       <div className="mt-3 ">
