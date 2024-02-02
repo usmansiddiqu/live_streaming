@@ -23,7 +23,9 @@ function TestingChat({ data, url }) {
     <div className="flex !justify-center chat-mbl-box">
       <div className="flex w-[94%] mx-auto chat-responsive">
         <div className=" mt-2 flex h-full  palyer-mbl">
-          <ClapprPlayer url={url} />
+          <ClapprPlayer
+            url={"https://main.fhdsports.live:443/hdstreamlive/hdembed/3.m3u8"}
+          />
         </div>
         <div className="w-[55%] h-[99%] mt-2 live-chat-responsive p-1 bg-[#251947]">
           <LiveChat />

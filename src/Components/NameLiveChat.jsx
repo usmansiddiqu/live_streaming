@@ -5,6 +5,7 @@ import Send from "../Assets/Icons/send-package.png";
 import Emoji from "../Assets/Icons/emoji.png";
 import Message from "./Message";
 import "../Assets/styles/LiveChat.scss";
+import getChat from "../api/getChat";
 
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
@@ -52,11 +53,8 @@ const LiveChat = () => {
       setNewMessage("");
     }
   };
-  console.log(newMessage, "newValue");
   const mentionStyle = {
     width: "100%",
-    // height: "30px",
-    // paddingLeft: "5px",
     color: "white",
     borderRadius: "25px",
     control: {
@@ -86,7 +84,6 @@ const LiveChat = () => {
       input: {
         padding: 1,
         color: "black",
-        // outline: "none",
       },
     },
 
@@ -157,6 +154,10 @@ const LiveChat = () => {
       handleSendMessage();
     }
   };
+
+  // const getMessages = async()=>{
+  //   const data = getChat()
+  // }
 
   useEffect(() => {
     const chatScroll = document.querySelector(".chat-scroll");
