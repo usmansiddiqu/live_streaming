@@ -3,6 +3,7 @@ import DashHeader from "../../Components/Dashboard/DashHeader";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import contactUs from "../../api/contactUs";
+import { ToastContainer, toast } from "react-toastify";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -14,6 +15,12 @@ function Contact() {
     e.preventDefault();
     try {
       const result = await contactUs({ name, email, phone, subject, message });
+      toast.success("we have received your message");
+      setEmail("");
+      setName("");
+      setPhone("");
+      setSubject("");
+      setMessage("");
       console.log(result);
     } catch (error) {
       console.log(error);
@@ -22,7 +29,9 @@ function Contact() {
   return (
     <div>
       <Nav />
+      <ToastContainer />
       <DashHeader title="Contact Us" />
+
       <div className="rounded contact-form w-[70vw] mx-auto mt-9 p-8 flex justify-evenly flex-wrap">
         <div className="w-[68%] contact-feild p-5 bg-[#130A2D] rounded-lg ">
           <form class="w-full  contact-feild-form mx-auto">
@@ -38,6 +47,7 @@ function Contact() {
                   class="appearance-none bg-[#22134E] text-white h-[7vh] block w-full text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                   id="grid-first-name"
                   type="text"
+                  value={name}
                   onChange={(e) => {
                     setName(e.target.value);
                   }}
@@ -55,6 +65,7 @@ function Contact() {
                   class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                   id="grid-last-name"
                   type="email"
+                  value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
@@ -74,6 +85,7 @@ function Contact() {
                   class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                   id="grid-first-name"
                   type="number"
+                  value={phone}
                   onChange={(e) => {
                     setPhone(e.target.value);
                   }}
@@ -90,6 +102,7 @@ function Contact() {
                   class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                   id="grid-last-name"
                   type="text"
+                  value={subject}
                   onChange={(e) => {
                     setSubject(e.target.value);
                   }}
@@ -110,6 +123,7 @@ function Contact() {
               <textarea
                 id="message"
                 rows="6"
+                value={message}
                 class="appearance-none bg-[#22134E]  text-white h-[10vh] block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                 onChange={(e) => {
                   setMessage(e.target.value);
