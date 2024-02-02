@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import DashHeader from "../../Components/Dashboard/DashHeader";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
+import contactUs from "../../api/contactUs";
 
 function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await contactUs({ name, email, phone, subject, message });
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <Nav />
@@ -23,6 +38,10 @@ function Contact() {
                   class="appearance-none bg-[#22134E] text-white h-[7vh] block w-full text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                   id="grid-first-name"
                   type="text"
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                  required
                 />
               </div>
               <div class="w-full md:w-1/2 px-3">
@@ -36,6 +55,10 @@ function Contact() {
                   class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                   id="grid-last-name"
                   type="email"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  required
                 />
               </div>
             </div>
@@ -50,7 +73,10 @@ function Contact() {
                 <input
                   class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                   id="grid-first-name"
-                  type="text"
+                  type="number"
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                  }}
                 />
               </div>
               <div class="w-full md:w-1/2 px-3">
@@ -64,6 +90,10 @@ function Contact() {
                   class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                   id="grid-last-name"
                   type="text"
+                  onChange={(e) => {
+                    setSubject(e.target.value);
+                  }}
+                  required
                 />
               </div>
             </div>
@@ -81,10 +111,20 @@ function Contact() {
                 id="message"
                 rows="6"
                 class="appearance-none bg-[#22134E]  text-white h-[10vh] block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}
+                required
               ></textarea>
             </div>
             <div className="flex justify-between w-full items-end upload-ip">
-              <button class="bg-gradient-to-r from-[#00C4FF] h-[40px] w-[110px] to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center ">
+              <button
+                onClick={(e) => {
+                  handleFormSubmit(e);
+                }}
+                type="button"
+                class="bg-gradient-to-r from-[#00C4FF] h-[40px] w-[110px] to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center "
+              >
                 SUBMIT
               </button>
             </div>
