@@ -1651,6 +1651,9 @@ aside {
   .banner-slide-card {
     width: 80rem;
   }
+  .deatil-container {
+    width: 100% !important;
+  }
 }
 @media screen and (max-width: 860px) {
   .banner-slide-card {
