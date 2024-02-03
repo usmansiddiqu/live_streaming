@@ -25,7 +25,7 @@ function DetailsComponent({ data, url }) {
     );
 
   return (
-    <div className="flex !justify-center mt-2">
+    <div className="flex !justify-center mt-2 clapper-palyer">
       {isTimeWithinRange ? (
         <div className="embed-responsive embed-responsive-16by9">
           <div className="chunchun">

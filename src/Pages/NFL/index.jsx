@@ -16,16 +16,18 @@ function NFL() {
     getData();
   }, []);
   return (
-    <div>
-      <div style={{ position: "relative", overflow: "hidden !important" }}>
+    <>
+      <div
+        style={{
+          minHeight: "100%",
+          overflow: "hidden !important",
+        }}
+      >
         <Nav />
         <Card data={data} title={"NFL LIVE"} subtitle="NFL" />
       </div>
-
-      <div style={{ bottom: "0", width: "100%" }}>
-        <Footer />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 

@@ -176,7 +176,7 @@ function AdminPanelBar() {
         </a>
         <aside
           id="logo-sidebar"
-          className={`fixed logo-sidebar top-0 left-0 z-40 !w-64 h-screen pt-20  transition-transform ${
+          className={`fixed logo-sidebar top-0 left-0 z-40 !w-64 h-screen pt-20 transition-transform ${
             isCollapsed ? "-translate-x-[200px]" : "translate-x-0"
           } border-r border-gray-200 bg-[#0c0c0d] dark:border-gray-700`}
           aria-label="Sidebar"
