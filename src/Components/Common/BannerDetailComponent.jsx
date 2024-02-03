@@ -23,7 +23,7 @@ function BannerDetailComponent({ data, url }) {
     getData();
   }, [url]);
   return (
-    <div className="flex !justify-center">
+    <div className="flex !justify-center clapper-palyer">
       {show ? (
         <div className="chunchun mt-2">
           <ClapprPlayer url={url} />

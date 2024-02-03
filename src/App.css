@@ -83,6 +83,9 @@ aside {
   .mbl-btn {
     width: 220px !important;
   }
+  .clapper-palyer {
+    display: block !important;
+  }
 }
 @media screen and (max-width: 670px) {
   .Match-cards-div {
