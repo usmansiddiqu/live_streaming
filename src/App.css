@@ -1027,7 +1027,7 @@ aside {
     margin-top: -14% !important;
   }
   .mbl-img-banner {
-    height: 14rem !important;
+    height: 24vh !important;
   }
   /* .mbl-slider-bg-color {
     height: 16rem;
@@ -1868,7 +1868,7 @@ aside {
     margin-top: 35px;
   }
   .mbl-img-banner {
-    height: 14rem !important;
+    height: 24vh !important;
   }
 }
 /* Break points for card Details slider */
