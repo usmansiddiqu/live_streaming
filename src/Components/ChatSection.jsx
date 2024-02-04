@@ -6,7 +6,8 @@ import Emoji from "../Assets/Icons/emoji.png";
 import Message from "./Message";
 import "../Assets/styles/LiveChat.scss";
 import getChat from "../api/getChat";
-
+import sendMessage from "../api/sendMessage";
+import { useParams } from "react-router";
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
   let color = "#";
@@ -17,6 +18,7 @@ const getRandomColor = () => {
 };
 
 const ChatSection = () => {
+  const eventId = "65be6436241e7c4667155c8c";
   const users = [
     {
       id: "isaac",
@@ -37,7 +39,19 @@ const ChatSection = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [mentionData, setMentionData] = useState([]);
-
+  const [data, setData] = useState(JSON.parse(localStorage.getItem("data")));
+  const sendMessageFunc = async () => {
+    try {
+      const result = await sendMessage({
+        eventId,
+        userId: data._id,
+        message: newMessage,
+      });
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleEmojiClick = (emojiObject) => {
     const emoji = emojiObject.emoji;
     setNewMessage((prevMessage) => prevMessage + emoji);
@@ -46,6 +60,7 @@ const ChatSection = () => {
 
   const handleSendMessage = () => {
     if (newMessage.trim() !== "") {
+      sendMessageFunc();
       setMessages([
         ...messages,
         { text: newMessage, emoji: "😊", color: getRandomColor() },
@@ -53,6 +68,7 @@ const ChatSection = () => {
       setNewMessage("");
     }
   };
+
   const mentionStyle = {
     width: "100%",
     color: "white",
