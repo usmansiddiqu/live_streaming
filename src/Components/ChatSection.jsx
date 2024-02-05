@@ -10,6 +10,7 @@ import sendMessage from "../api/sendMessage";
 import getMessages from "../api/getMessages";
 import getUser from "../api/getUsers";
 import { useParams } from "react-router";
+import { EventSourcePolyfill } from "event-source-polyfill";
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
   let color;
@@ -27,7 +28,6 @@ const getRandomColor = () => {
 const ChatSection = () => {
   const params = useParams();
   const eventId = params.id;
-  console.log(eventId);
   const users = [
     {
       id: "isaac",
@@ -50,6 +50,7 @@ const ChatSection = () => {
   const [mentionData, setMentionData] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState(0);
   const [data, setData] = useState(JSON.parse(localStorage.getItem("data")));
+
   const sendMessageFunc = async () => {
     try {
       const result = await sendMessage({
@@ -57,8 +58,9 @@ const ChatSection = () => {
         userId: data._id,
         message: newMessage,
       });
-      getMessageFrom();
-      console.log(result);
+      // getMessageFrom();
+
+      // setMessages([...messages, result?.data?.data]);
     } catch (error) {
       console.log(error);
     }
@@ -187,7 +189,6 @@ const ChatSection = () => {
     try {
       const messages = await getMessages(eventId);
       setMessages(messages?.data?.data);
-      console.log(messages?.data?.data);
     } catch (error) {
       console.log(error);
     }
@@ -204,6 +205,27 @@ const ChatSection = () => {
   useEffect(() => {
     getMessageFrom();
     getUsers();
+
+    const ed = new EventSourcePolyfill(
+      `http://localhost:4000/backend/chat/stream/${eventId}`,
+      {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+        heartbeatTimeout: 120000,
+      }
+    );
+    ed?.addEventListener("CHAT_CREATED", (event) => {
+      const data = JSON.parse(event.data);
+      setMessages((prevMessages) => [...prevMessages, data]);
+    });
+    ed?.addEventListener("CHAT_JOINED", (event) => {
+      console.log(123, JSON.parse(event.data));
+    });
+    return () => {
+      // Close the EventSource connection
+      ed?.close();
+    };
   }, []);
 
   useEffect(() => {

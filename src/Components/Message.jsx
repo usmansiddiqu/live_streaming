@@ -1,8 +1,5 @@
 // Message.js
 import React from "react";
-import ReactTimeAgo from "react-time-ago";
-import TimeAgo from "javascript-time-ago";
-import en from "javascript-time-ago/locale/en.json";
 
 const getMessageTime = () => {
   const now = new Date();
@@ -10,7 +7,7 @@ const getMessageTime = () => {
   const minutes = now.getMinutes().toString().padStart(2, "0");
   return `${hours}:${minutes}`;
 };
-TimeAgo.addDefaultLocale(en);
+// TimeAgo.addDefaultLocale(en);
 // TimeAgo.addLocale(ru);
 
 const Message = ({ msg, index }) => {
@@ -35,7 +32,7 @@ const Message = ({ msg, index }) => {
             className="font-medium text-sm"
             style={{ color: msg.color, minWidth: "50px" }}
           >
-            Daud :
+            {msg.userId.name} :
           </span>
           <div className="flex justify-between">
             <span
@@ -46,13 +43,13 @@ const Message = ({ msg, index }) => {
                 overflow: "hidden",
               }}
             >
-              {msg.text}
+              {msg.message}
             </span>
           </div>
         </div>
       </div>
       <span className="text-white flex jusitfy-end items-end text-xs relative">
-        <ReactTimeAgo date={currentTime} locale="en-US" />
+        {/* <ReactTimeAgo date={currentTime} locale="en-US" /> */}
       </span>
     </p>
   );
