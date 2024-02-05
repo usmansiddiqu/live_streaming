@@ -8,6 +8,7 @@ import "../Assets/styles/LiveChat.scss";
 import getChat from "../api/getChat";
 import sendMessage from "../api/sendMessage";
 import getMessages from "../api/getMessages";
+import getUser from "../api/getUsers";
 import { useParams } from "react-router";
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
@@ -19,7 +20,9 @@ const getRandomColor = () => {
 };
 
 const ChatSection = () => {
-  const eventId = "65be6436241e7c4667155c8c";
+  const params = useParams();
+  const eventId = params.id;
+  console.log(eventId);
   const users = [
     {
       id: "isaac",
@@ -40,6 +43,7 @@ const ChatSection = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [mentionData, setMentionData] = useState([]);
+  const [onlineUsers, setOnlineUsers] = useState(0);
   const [data, setData] = useState(JSON.parse(localStorage.getItem("data")));
   const sendMessageFunc = async () => {
     try {
@@ -48,6 +52,7 @@ const ChatSection = () => {
         userId: data._id,
         message: newMessage,
       });
+      getMessageFrom();
       console.log(result);
     } catch (error) {
       console.log(error);
@@ -62,10 +67,8 @@ const ChatSection = () => {
   const handleSendMessage = () => {
     if (newMessage.trim() !== "") {
       sendMessageFunc();
-      setMessages([
-        ...messages,
-        { text: newMessage, emoji: "😊", color: getRandomColor() },
-      ]);
+      console.log(newMessage);
+
       setNewMessage("");
     }
   };
@@ -175,7 +178,7 @@ const ChatSection = () => {
   // const getMessages = async()=>{
   //   const data = getChat()
   // }
-  const getMessageFrom = async (req, res) => {
+  const getMessageFrom = async () => {
     try {
       const messages = await getMessages(eventId);
       setMessages(messages?.data?.data);
@@ -184,8 +187,18 @@ const ChatSection = () => {
       console.log(error);
     }
   };
+  const getUsers = async () => {
+    try {
+      const response = await getUser(eventId);
+      setOnlineUsers(Object.keys(JSON.parse(response?.data?.data)).length);
+      console.log(Object.keys(JSON.parse(response?.data?.data)).length);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     getMessageFrom();
+    getUsers();
   }, []);
 
   useEffect(() => {
@@ -239,7 +252,7 @@ const ChatSection = () => {
                   className="text-white text-sm"
                   style={{ fontSize: "11px" }}
                 >
-                  Online <span>300</span>
+                  Online <span>{onlineUsers}</span>
                 </span>
               </div>
             </div>
