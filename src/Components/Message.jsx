@@ -31,14 +31,14 @@ const Message = ({ msg, index }) => {
         </span>
         <div className="flex justify-between">
           <span
-            className="text-white ml-2 msg-text text-sm "
+            className="!text-white ml-2 msg-text text-sm "
             style={{
               width: "300px",
               wordWrap: "break-word",
               overflow: "hidden",
             }}
           >
-            {msg.text}
+            {msg.message}
           </span>
           <span className="text-gray-500 flex jusitfy-end text-xs relative time">
             {currentTime}

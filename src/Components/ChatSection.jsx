@@ -7,6 +7,7 @@ import Message from "./Message";
 import "../Assets/styles/LiveChat.scss";
 import getChat from "../api/getChat";
 import sendMessage from "../api/sendMessage";
+import getMessages from "../api/getMessages";
 import { useParams } from "react-router";
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
@@ -174,6 +175,18 @@ const ChatSection = () => {
   // const getMessages = async()=>{
   //   const data = getChat()
   // }
+  const getMessageFrom = async (req, res) => {
+    try {
+      const messages = await getMessages(eventId);
+      setMessages(messages?.data?.data);
+      console.log(messages?.data?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getMessageFrom();
+  }, []);
 
   useEffect(() => {
     const chatScroll = document.querySelector(".chat-scroll");
