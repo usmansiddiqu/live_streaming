@@ -11,10 +11,15 @@ import getMessages from "../api/getMessages";
 import { useParams } from "react-router";
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
+  let color;
+
+  do {
+    color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+  } while (color === "#3f3f3f" || color === "#1b1b1b");
+
   return color;
 };
 

@@ -2208,9 +2208,9 @@ aside {
   }
 }
 @media screen and (max-width: 1120px) {
-  .live-chat-responsive {
+  /* .live-chat-responsive {
     margin-top: 8px !important;
-  }
+  } */
 }
 @media screen and (max-width: 1020px) {
   .input-1 {
@@ -2221,6 +2221,9 @@ aside {
   }
   .live-chat-responsive {
     margin-top: 0px !important;
+  }
+  .live-chatr-footer {
+    position: relative !important;
   }
 }
 @media screen and (max-width: 580px) {
@@ -2240,5 +2243,8 @@ aside {
   }
   .input-2 {
     width: 23% !important;
+  }
+  .theater-btn {
+    margin-left: 10px;
   }
 }
