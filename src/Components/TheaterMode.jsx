@@ -28,8 +28,8 @@ function TheaterMode({ data, url }) {
           />
         </div>
         <div
-          className="w-[55%] h-[99%] mb-1 live-chat-responsive p-1 bg-[#251947]"
-          // style={{ marginTop: "8px" }}
+          className="w-[55%] h-[100%] mb-1 live-chat-responsive p-1 bg-[#251947]"
+          style={{ marginTop: "0px" }}
         >
           <LiveChat />
         </div>

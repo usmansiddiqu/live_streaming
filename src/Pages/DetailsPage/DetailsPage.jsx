@@ -98,10 +98,13 @@ function DetailsPage() {
       }}
       // style={{ height: "100vh" }}
     >
+      {" "}
       <Navbar />
       <div>
         {theaterMode ? (
-          <TheaterMode />
+          <div>
+            <TheaterMode />
+          </div>
         ) : (
           <div>
             {url ? <DetailsComponent data={data} url={url} /> : <></>}
@@ -135,7 +138,10 @@ function DetailsPage() {
         )}
       </div>
       {theaterMode ? (
-        <div className="absolute w-[100%]" style={{ bottom: "0" }}>
+        <div
+          className="absolute live-chatr-footer w-[100%]"
+          style={{ bottom: "0" }}
+        >
           <Footer />
         </div>
       ) : (
