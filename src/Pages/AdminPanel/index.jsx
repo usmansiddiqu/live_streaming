@@ -31,6 +31,9 @@ import AdminProfile from "../../Components/Forms/EditAdminProfile";
 import SubscriptionPlan from "./AdminPanelPages/SubscriptionPlan";
 import EditSubscription from "../../Components/Forms/EditSubscription";
 import AddSubscriptionPlan from "../../Components/AddOn/AddSubscriptionPlan";
+import BadWords from "./AdminPanelPages/BadWords";
+import EditBadWord from "../../Components/Forms/EditBadWord";
+import AddBadWords from "../../Components/AddOn/AddBadWords";
 
 function AdminPanelWrapper() {
   const navigate = useNavigate();
@@ -68,6 +71,7 @@ function AdminPanelWrapper() {
         <Route path="/sub_admin" element={<SubAdmin />} />
         <Route path="/coupons" element={<Coupons />} />
         <Route path="/transactions" element={<Transactions />} />
+        <Route path="/bad_words" element={<BadWords />} />
         <Route
           path="/Tv_category/edit_category/:id"
           element={<EditCategory />}
@@ -98,7 +102,9 @@ function AdminPanelWrapper() {
         />
         <Route path="/sub_admin/add_user" element={<AddSubAdmin />} />
         <Route path="/coupons/addcoupon" element={<AddCoupons />} />
+        <Route path="/bad_word/addbadword" element={<AddBadWords />} />
         <Route path="/coupons/editcoupon/:id" element={<EditCoupons />} />
+        <Route path="/bad_word/editbadword/:id" element={<EditBadWord />} />
         <Route path="/users/add_user" element={<AddUser />} />
       </Routes>
     </div>
