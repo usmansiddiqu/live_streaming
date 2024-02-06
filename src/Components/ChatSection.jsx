@@ -28,20 +28,8 @@ const getRandomColor = () => {
 const ChatSection = () => {
   const params = useParams();
   const eventId = params.id;
-  const users = [
-    {
-      id: "isaac",
-      display: "Isaac Newton",
-    },
-    {
-      id: "sam",
-      display: "Sam Victor",
-    },
-    {
-      id: "emma",
-      display: "emmanuel@nobody.com",
-    },
-  ];
+
+  const [users, setUsers] = useState([]);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const emojiPickerRef = useRef(null);
 
@@ -197,7 +185,17 @@ const ChatSection = () => {
     try {
       const response = await getUser(eventId);
       setOnlineUsers(Object.keys(JSON.parse(response?.data?.data)).length);
-      console.log(Object.keys(JSON.parse(response?.data?.data)).length);
+      // setUsers(Object.entries(JSON.parse(response?.data?.data)));
+      let u = [];
+      for (const [key, value] of Object.entries(
+        JSON.parse(response?.data?.data)
+      )) {
+        u.push({
+          id: key,
+          display: value,
+        });
+      }
+      setUsers(u);
     } catch (error) {
       console.log(error);
     }
@@ -292,6 +290,7 @@ const ChatSection = () => {
                 <MentionsInput
                   value={newMessage}
                   onChange={(e, newValue, plainTextValue, mentions) => {
+                    console.log(123, newValue);
                     setNewMessage(newValue);
                     setMentionData(mentions);
                   }}
@@ -307,7 +306,7 @@ const ChatSection = () => {
                       marginBottom: "20px",
                     }}
                     data={users}
-                    displayTransform={(id) => `@${id}`}
+                    displayTransform={(id, display) => `@${display}`}
                   />
                 </MentionsInput>
               </div>
