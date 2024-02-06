@@ -11,6 +11,7 @@ import getMessages from "../api/getMessages";
 import getUser from "../api/getUsers";
 import { useParams } from "react-router";
 import { EventSourcePolyfill } from "event-source-polyfill";
+import removeUser from "../api/removeUser";
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
   let color;
@@ -38,6 +39,10 @@ const ChatSection = () => {
   const [mentionData, setMentionData] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState(0);
   const [data, setData] = useState(JSON.parse(localStorage.getItem("data")));
+
+  const [isMod, setIsMod] = useState(
+    JSON.parse(localStorage.getItem("data")).isMod
+  );
 
   const sendMessageFunc = async () => {
     try {
@@ -158,7 +163,7 @@ const ChatSection = () => {
   const memoizedMessages = useMemo(
     () =>
       messages.map((msg, index) => (
-        <Message key={index} msg={msg} index={index} />
+        <Message key={index} msg={msg} index={index} isMod={isMod} />
       )),
     [messages]
   );
@@ -185,7 +190,6 @@ const ChatSection = () => {
     try {
       const response = await getUser(eventId);
       setOnlineUsers(Object.keys(JSON.parse(response?.data?.data)).length);
-      // setUsers(Object.entries(JSON.parse(response?.data?.data)));
       let u = [];
       for (const [key, value] of Object.entries(
         JSON.parse(response?.data?.data)
@@ -218,11 +222,56 @@ const ChatSection = () => {
       setMessages((prevMessages) => [...prevMessages, data]);
     });
     ed?.addEventListener("CHAT_JOINED", (event) => {
-      console.log(123, JSON.parse(event.data));
+      try {
+        let connectedUsers = JSON.parse(event.data);
+        connectedUsers = JSON.parse(connectedUsers[params.id]);
+
+        setOnlineUsers(Object.keys(connectedUsers).length);
+        // setUsers(Object.entries(JSON.parse(response?.data?.data)));
+        let u = [];
+        for (const [key, value] of Object.entries(connectedUsers)) {
+          u.push({
+            id: key,
+            display: value,
+          });
+        }
+        setUsers(u);
+      } catch (error) {}
     });
+
+    ed?.addEventListener("CHAT_LEFT", (event) => {
+      try {
+        let connectedUsers = JSON.parse(event.data);
+        connectedUsers = connectedUsers[params.id];
+        setOnlineUsers(Object.keys(connectedUsers).length);
+        // setUsers(Object.entries(JSON.parse(response?.data?.data)));
+        let u = [];
+        for (const [key, value] of Object.entries(connectedUsers)) {
+          u.push({
+            id: key,
+            display: value,
+          });
+        }
+        setUsers(u);
+      } catch (error) {}
+    });
+
+    ed?.addEventListener("MOD", (event) => {
+      try {
+        console.log(123123, JSON.parse(event.data));
+        localStorage.setItem("data", event.data);
+        window.dispatchEvent(new Event("DATA_UPDATED"));
+      } catch (error) {}
+    });
+
+    window.addEventListener("DATA_UPDATED", () => {
+      const data = JSON.parse(localStorage.getItem("data"));
+      setIsMod(data.isMod);
+    });
+
     return () => {
-      // Close the EventSource connection
       ed?.close();
+      removeUser(params.id);
     };
   }, []);
 

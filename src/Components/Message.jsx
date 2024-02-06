@@ -1,5 +1,5 @@
 // Message.js
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const getMessageTime = () => {
   const now = new Date();
@@ -10,8 +10,9 @@ const getMessageTime = () => {
 // TimeAgo.addDefaultLocale(en);
 // TimeAgo.addLocale(ru);
 
-const Message = ({ msg, index }) => {
+const Message = ({ msg, index, isMod }) => {
   const currentTime = getMessageTime();
+
   return (
     <p
       className={`flex  p-1 justify-between w-[100%] ${
@@ -32,7 +33,7 @@ const Message = ({ msg, index }) => {
             className="font-medium text-sm"
             style={{ color: msg.color, minWidth: "50px" }}
           >
-            {msg.userId.name} :
+            {msg.userId.name} : ${isMod ? "hehehe" : "nonono"}
           </span>
           <div className="flex justify-between">
             <span
