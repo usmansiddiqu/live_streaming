@@ -640,6 +640,34 @@ function AdminPanelBar() {
                   )}
                 </a>
               </li>
+              <li
+                id="Bad Words"
+                className={`mt-1 ${
+                  activeItem.id === "Bad Words" ? "active" : ""
+                }`}
+                onClick={() => handleItemClick("Bad Words", "Bad Words")}
+              >
+                <a
+                  style={{ color: "white" }}
+                  className={`flex items-center text-sm p-2 dark:text-white bg-[#1c1c1e] group-hover:text-red-600 ${
+                    activeItem.id === "Bad Words" ? "bg-[#ff0015]" : ""
+                  } ${isCollapsed ? "justify-end" : "justify-start"}`}
+                >
+                  <img
+                    src={List}
+                    alt=""
+                    className={`w-[18px] h-[18px] flex ${
+                      isCollapsed ? "mr-3" : "ml-2"
+                    }`}
+                  />
+                  {!isCollapsed && (
+                    <span className="ms-3">
+                      {" "}
+                      <Link to="/admin/bad_words">Bad Words</Link>
+                    </span>
+                  )}
+                </a>
+              </li>
             </ul>
           </div>
         </aside>
