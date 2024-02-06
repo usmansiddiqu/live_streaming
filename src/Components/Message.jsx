@@ -1,5 +1,5 @@
 // Message.js
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const getMessageTime = () => {
   const now = new Date();
@@ -10,7 +10,12 @@ const getMessageTime = () => {
 // TimeAgo.addDefaultLocale(en);
 // TimeAgo.addLocale(ru);
 
-const Message = ({ msg, index, isMod }) => {
+const Message = ({ msg, index }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
   const currentTime = getMessageTime();
 
   return (
@@ -49,9 +54,22 @@ const Message = ({ msg, index, isMod }) => {
           </div>
         </div>
       </div>
-      <span className="text-white flex jusitfy-end items-end text-xs relative">
-        {/* <ReactTimeAgo date={currentTime} locale="en-US" /> */}
-      </span>
+      <div>
+        <span className="text-white flex jusitfy-end items-end text-xs relative">
+          {/* <ReactTimeAgo date={currentTime} locale="en-US" /> */}
+        </span>
+        <div className="relative">
+          <button className="relative" onClick={toggleVisibility}>
+            click
+          </button>
+          {isVisible && (
+            <div className="absolute w-[70px] h-[100px] border border-white flex flex-column action-box">
+              <span>Block</span>
+              <span>Edit</span>
+            </div>
+          )}
+        </div>
+      </div>
     </p>
   );
 };
