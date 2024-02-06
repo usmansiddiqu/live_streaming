@@ -17,16 +17,17 @@ function PlanCards() {
   }, []);
   const [error, setError] = useState(null);
   const handleClick = async (packageId) => {
-    if (!localStorage.getItem("token") || !localStorage.getItem("data")) {
-      navigate("/signup");
-    } else {
-      const result = await createPayment({ package_id: packageId });
-      if (result?.data?.error) {
-        setError(result?.data?.error);
-      } else {
-        window.location.href = result.data.data;
-      }
-    }
+    // if (!localStorage.getItem("token") || !localStorage.getItem("data")) {
+    //   navigate("/signup");
+    // } else {
+    //   const result = await createPayment({ package_id: packageId });
+    //   if (result?.data?.error) {
+    //     setError(result?.data?.error);
+    //   } else {
+    //     window.location.href = result.data.data;
+    //   }
+    // }
+    setError("Please contact live support for buying service and renewal");
   };
   const handleFreePayment = async () => {
     if (localStorage.getItem("data")) {
