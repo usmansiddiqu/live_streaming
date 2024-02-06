@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Cross from "../../../../Assets/Icons/close.png";
 import Edit from "../../../../Assets/Icons/editing.png";
 import { useNavigate } from "react-router-dom";
-import deleteCoupon from "../../../../api/coupon.api";
-import getCoupons from "../../../../api/getCoupon";
+import deleteBadWord from "../../../../api/deleteBadWord";
+import getBadWord from "../../../../api/getBadWord";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -23,7 +23,8 @@ function BadWords() {
     navigate("/admin/bad_word/addbadword");
   };
   const getData = async () => {
-    const { data: response } = await getCoupons();
+    const { data: response } = await getBadWord();
+    console.log(response);
     setData(response.data);
   };
   const handleClickOpen = (id) => {
@@ -35,7 +36,7 @@ function BadWords() {
     setOpen(false);
   };
   const deleteHandler = async () => {
-    await deleteCoupon(eventId);
+    await deleteBadWord(eventId);
     getData();
     setOpen(false);
   };
@@ -104,8 +105,14 @@ function BadWords() {
                           class="px-6 py-4 text-white "
                           style={{ border: "1px solid #313133" }}
                         >
+                          <div className="flex">{coupon.word}</div>
+                        </td>
+                        <td
+                          class="px-6 py-4 text-white "
+                          style={{ border: "1px solid #313133" }}
+                        >
                           <div className="flex">
-                            <button
+                            {/* <button
                               variant="outlined"
                               onClick={() => {
                                 handleClickOpen();
@@ -117,7 +124,7 @@ function BadWords() {
                                 alt=""
                                 className="w-[16px] h-[16px] m-auto"
                               />
-                            </button>
+                            </button> */}
                             <button
                               onClick={() => {
                                 handleClickOpen(coupon._id);

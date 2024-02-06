@@ -5,13 +5,13 @@ import getPlans from "../../api/plan.api";
 import { useNavigate, useParams } from "react-router";
 import editCoupon from "../../api/updateCoupon";
 import getCouponDetails from "../../api/couponDetails";
-
+import addBanWord from "../../api/addBanWord";
 function AddBadWords() {
   const params = useParams();
   const navigate = useNavigate();
   const [plans, setPlans] = useState([]);
   const [error, setError] = useState(null);
-  const [data, setData] = useState({});
+  const [data, setData] = useState("");
   const generateRandomString = (length) => {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -36,35 +36,43 @@ function AddBadWords() {
     setData(response.data);
   };
   useEffect(() => {
-    getData();
-    getCouponData();
+    // getData();
+    // getCouponData();
   }, []);
   const handleChange = (e) => {
-    if (e.target.name == "status") {
-      setData({
-        ...data,
-        [e.target.name]: e.target.value == "true",
-      });
-    } else {
-      setData({
-        ...data,
-        [e.target.name]: e.target.value,
-      });
-    }
+    setData(e.target.value);
+    // if (e.target.name == "status") {
+    //   setData({
+    //     ...data,
+    //     [e.target.name]: e.target.value == "true",
+    //   });
+    // } else {
+    //   setData({
+    //     ...data,
+    //     [e.target.name]: e.target.value,
+    //   });
+    // }
   };
   const handleClick = async () => {
-    if (!data.code) {
-      setError("Code is required!");
-    } else if (!data.plan) {
-      setError("Plan is required!");
-    } else if (!data.numberOfUses) {
-      setError("Number of uses is required!");
-    } else if (!data.expiryDate) {
-      setError("Expiry date is required!");
-    } else {
-      await editCoupon(data);
-      navigate("/admin/coupons");
+    try {
+      const response = await addBanWord({ word: data });
+      navigate("/admin/bad_words");
+      console.log(response);
+    } catch (error) {
+      console.log(error);
     }
+    // if (!data.code) {
+    //   setError("Code is required!");
+    // } else if (!data.plan) {
+    //   setError("Plan is required!");
+    // } else if (!data.numberOfUses) {
+    //   setError("Number of uses is required!");
+    // } else if (!data.expiryDate) {
+    //   setError("Expiry date is required!");
+    // } else {
+    //   await editCoupon(data);
+    //   navigate("/admin/coupons");
+    // }
   };
   const formatDateForInput = (date) => {
     if (!date) return "";
