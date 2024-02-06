@@ -14,15 +14,10 @@ import { EventSourcePolyfill } from "event-source-polyfill";
 import removeUser from "../api/removeUser";
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
-  let color;
-
-  do {
-    color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-  } while (color === "#3f3f3f" || color === "#1b1b1b");
-
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
   return color;
 };
 
@@ -57,6 +52,11 @@ const ChatSection = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+  const [openActionBoxIndex, setOpenActionBoxIndex] = useState(null);
+
+  const toggleActionBox = (index) => {
+    setOpenActionBoxIndex(openActionBoxIndex === index ? null : index);
   };
   const handleEmojiClick = (emojiObject) => {
     const emoji = emojiObject.emoji;
@@ -163,7 +163,14 @@ const ChatSection = () => {
   const memoizedMessages = useMemo(
     () =>
       messages.map((msg, index) => (
-        <Message key={index} msg={msg} index={index} isMod={isMod} />
+        <Message
+          key={index}
+          msg={msg}
+          index={index}
+          isMod={isMod}
+          isOpen={openActionBoxIndex === index}
+          toggleActionBox={toggleActionBox}
+        />
       )),
     [messages]
   );
@@ -282,7 +289,7 @@ const ChatSection = () => {
 
   return (
     <>
-      <div className="mx-auto p-1 h-[100%] ">
+      <div className="mx-auto p-1 h-[100%] w-[100%]">
         <div className="  relative " style={{ height: "100%" }}>
           <div
             className="chat-bar"

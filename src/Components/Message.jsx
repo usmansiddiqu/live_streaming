@@ -1,5 +1,6 @@
 // Message.js
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Dots from "../Assets/Icons/dots.png";
 
 const getMessageTime = () => {
   const now = new Date();
@@ -10,41 +11,75 @@ const getMessageTime = () => {
 // TimeAgo.addDefaultLocale(en);
 // TimeAgo.addLocale(ru);
 
-const Message = ({ msg, index }) => {
+const Message = ({ msg, index, isMod }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [openActionBoxIndex, setOpenActionBoxIndex] = useState(false);
+  const actionBoxRef = useRef(null);
 
-  const toggleVisibility = () => {
-    setIsVisible(!isVisible);
+  // const toggleVisibility = (e) => {
+  //   e.stopPropagation();
+  //   setIsVisible(!isVisible);
+  //   setOpenActionBoxIndex(index);
+  // };
+
+  const handleToggleActionBox = () => {
+    if (openActionBoxIndex === index && isVisible) {
+      setIsVisible(false);
+      setOpenActionBoxIndex(null);
+    } else {
+      setIsVisible(true);
+      setOpenActionBoxIndex(index);
+    }
   };
   const currentTime = getMessageTime();
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (actionBoxRef.current && !actionBoxRef.current.contains(e.target)) {
+        setIsVisible(false);
+      }
+    };
 
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
   return (
     <p
-      className={`flex  p-1 justify-between w-[100%] ${
+      className={`flex  p-1 justify-between w-[100%] msg-actions ${
         index % 2 === 0 ? "even-msg" : ""
       }`}
-      style={{ background: index % 2 === 0 ? "#1b1b1b" : "#3f3f3f" }}
+      style={{
+        background: index % 2 === 0 ? "#1b1b1b" : "#3f3f3f",
+        overflow: "visible",
+      }}
     >
       <div className="flex p-1 w-[100%]">
-        <div className="w-[30px] h-[30px] mr-1">
+        <div className=" h-[30px] mr-1">
           <img
             src="https://source.unsplash.com/random/person"
             alt=""
             className="w-[25px] h-[25px]"
           />
         </div>
-        <div className="flex">
+        <div className="flex  w-[90%]">
           <span
-            className="font-medium text-sm"
-            style={{ color: msg.color, minWidth: "50px" }}
+            className="font-medium text-sm  "
+            style={{
+              color: msg.color,
+              minWidth: "60px",
+              maxWidth: "120px",
+              wordWrap: "break-word",
+              overflow: "hidden",
+            }}
           >
             {msg.userId.name} : ${isMod ? "hehehe" : "nonono"}
           </span>
-          <div className="flex justify-between">
+          <div className="flex justify-between" style={{ width: "70%" }}>
             <span
-              className="text-white ml-2 msg-text text-sm "
+              className="text-white ml-2 msg-text text-sm"
               style={{
-                width: "300px",
                 wordWrap: "break-word",
                 overflow: "hidden",
               }}
@@ -53,21 +88,31 @@ const Message = ({ msg, index }) => {
             </span>
           </div>
         </div>
-      </div>
-      <div>
-        <span className="text-white flex jusitfy-end items-end text-xs relative">
-          {/* <ReactTimeAgo date={currentTime} locale="en-US" /> */}
-        </span>
-        <div className="relative">
-          <button className="relative" onClick={toggleVisibility}>
-            click
-          </button>
-          {isVisible && (
-            <div className="absolute w-[70px] h-[100px] border border-white flex flex-column action-box">
-              <span>Block</span>
-              <span>Edit</span>
-            </div>
-          )}
+        <div>
+          <span className="text-white flex jusitfy-end items-end text-xs relative">
+            {/* <ReactTimeAgo date={currentTime} locale="en-US" /> */}
+          </span>
+          <div className="relative" ref={actionBoxRef}>
+            <button
+              className="relative action-dot"
+              onClick={handleToggleActionBox}
+            >
+              <img src={Dots} alt="" className="w-[20px]" />
+            </button>
+            {isVisible && openActionBoxIndex === index && (
+              <div
+                className="absolute w-[70px] h-[70px] border border-white flex flex-column action-box bg-[#0D0624] "
+                style={{ zIndex: "999", left: "-350%" }}
+              >
+                <span className="border p-1 h-[50%] w-[100%] cursor-pointer text-white">
+                  Block
+                </span>
+                <span className="border p-1 h-[50%] w-[100%] cursor-pointer text-white">
+                  Delete
+                </span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </p>

@@ -24,6 +24,12 @@ div {
   /* overflow-y: hidden; */
   background-color: #0d0624;
 }
+.action-dot {
+  display: none;
+}
+.msg-actions:hover .action-dot {
+  display: block;
+}
 li a {
   text-decoration: none;
 }
@@ -2048,6 +2054,9 @@ aside {
   .inner-chat-box-height {
     max-height: 47rem !important;
   }
+  /* #videoPlayer [data-player] {
+    height: 98vh !important;
+  } */
   .chat-scroll {
     max-height: 42rem !important;
   }
