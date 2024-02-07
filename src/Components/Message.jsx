@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Dots from "../Assets/Icons/dots.png";
 import deleteMessage from "../api/deleteMessage";
+import blockUser from "../api/blockUser";
 const getMessageTime = () => {
   const now = new Date();
   const hours = now.getHours().toString().padStart(2, "0");
@@ -57,6 +58,15 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
       console.log(error);
     }
   };
+  const blockUserByUserId = async () => {
+    try {
+      const response = await blockUser({ userId: msg?.userId?._id });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <p
       className={`flex  p-1 justify-between w-[100%] msg-actions ${
@@ -116,7 +126,12 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
                 className="absolute w-[70px] h-[70px] border border-white flex flex-column action-box bg-[#0D0624] "
                 style={{ zIndex: "999", left: "-350%" }}
               >
-                <span className="border p-1 h-[50%] w-[100%] cursor-pointer text-white">
+                <span
+                  onClick={() => {
+                    blockUserByUserId();
+                  }}
+                  className="border p-1 h-[50%] w-[100%] cursor-pointer text-white"
+                >
                   Block
                 </span>
                 <span
