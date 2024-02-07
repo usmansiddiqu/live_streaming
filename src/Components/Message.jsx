@@ -11,7 +11,7 @@ const getMessageTime = () => {
 // TimeAgo.addDefaultLocale(en);
 // TimeAgo.addLocale(ru);
 
-const Message = ({ msg, index, isMod }) => {
+const Message = ({ msg, index, isMod, messages, setMessages }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [openActionBoxIndex, setOpenActionBoxIndex] = useState(false);
   const actionBoxRef = useRef(null);
@@ -48,6 +48,10 @@ const Message = ({ msg, index, isMod }) => {
   const deleteChat = async () => {
     try {
       const response = await deleteMessage(msg._id);
+      let array = [...messages];
+      array.splice(index, 1);
+      console.log(array);
+      setMessages(array);
       console.log(response);
     } catch (error) {
       console.log(error);

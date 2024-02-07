@@ -166,6 +166,8 @@ const ChatSection = () => {
         <Message
           key={index}
           msg={msg}
+          messages={messages}
+          setMessages={setMessages}
           index={index}
           isMod={isMod}
           isOpen={openActionBoxIndex === index}
