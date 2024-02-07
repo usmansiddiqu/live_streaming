@@ -660,9 +660,9 @@ aside {
   .palyer-mbl {
     height: 25% !important;
   }
-  .chat-bar {
+  /* .chat-bar {
     height: 22.5rem !important;
-  }
+  } */
   .live-chat-responsive {
     width: 100%;
     height: 55% !important;
@@ -1899,6 +1899,15 @@ aside {
   .deatils-carddd {
     width: 76%;
   }
+  .details-icons {
+    margin-top: 200px !important;
+  }
+  .live-deatil-container {
+    width: 100%;
+  }
+  .live-chat-responsive1 {
+    width: 40%;
+  }
 }
 @media screen and (max-width: 1120px) {
   .deatils-carddd {
@@ -1908,6 +1917,9 @@ aside {
 @media screen and (max-width: 1080px) {
   .deatils-carddd {
     width: 70%;
+  }
+  .details-icons {
+    margin-top: 250px !important;
   }
 }
 @media screen and (max-width: 880px) {
@@ -1929,6 +1941,12 @@ aside {
   .deatils-carddd {
     width: 71%;
   }
+  .live-deatil-container {
+    height: 35rem;
+  }
+  .details-icons {
+    margin-top: 50px !important;
+  }
 }
 @media screen and (max-width: 755px) {
   .deatils-carddd {
@@ -1938,6 +1956,9 @@ aside {
 @media screen and (max-width: 675px) {
   .deatils-carddd {
     width: 75%;
+  }
+  .live-deatil-container {
+    height: 25rem;
   }
 }
 /* Live Chat Responsiveness */

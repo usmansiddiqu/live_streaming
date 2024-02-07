@@ -28,7 +28,6 @@ function LiveChat() {
         <Nav />
         <TheaterMode />
       </div>
-      <Footer />
     </div>
   );
 }

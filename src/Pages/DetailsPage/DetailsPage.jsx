@@ -137,13 +137,7 @@ function DetailsPage() {
           </div>
         )}
       </div>
-      {theaterMode ? (
-        <div className="live-chatr-footer w-[100%]" style={{ bottom: "0" }}>
-          <Footer />
-        </div>
-      ) : (
-        <Footer />
-      )}
+      {theaterMode ? <div></div> : <Footer />}
     </div>
   );
 }

@@ -26,13 +26,13 @@ function TheaterMode({ data, url }) {
 
   return (
     <div className="flex !justify-center chat-mbl-box h-[100%]">
-      <div className="flex w-[94%] mx-auto chat-responsive">
+      <div className="flex w-[94%] mx-auto justify-center chat-responsive">
         <div className="">
           {isTimeWithinRange ? (
             <ClapprPlayer url={url} />
           ) : (
             <div
-              className="w-[80rem] h-[35rem]   deatil-container mt-2"
+              className="w-[100%] h-[45rem]   deatil-container live-deatil-container"
               style={{
                 background: `linear-gradient(-60deg, #${
                   data?.data?.competitors?.filter(
@@ -65,7 +65,7 @@ function TheaterMode({ data, url }) {
                 }}
               ></div>
 
-              <div className="" style={{ marginTop: "25px" }}>
+              <div className="details-icons" style={{ marginTop: "135px" }}>
                 <DetailsIcon
                   iconsData={data?.data?.competitors?.map((comp) => ({
                     iconUrl: comp.logo,
@@ -77,7 +77,7 @@ function TheaterMode({ data, url }) {
           )}
         </div>
         <div
-          className="w-[25%] h-[100%] mb-1 live-chat-responsive p-1 bg-[#251947]"
+          className="w-[25%] h-[100%] mb-1 live-chat-responsive  live-chat-responsive1 p-1 bg-[#251947]"
           style={{ marginTop: "0px" }}
         >
           <LiveChat />
