@@ -16,13 +16,24 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [openActionBoxIndex, setOpenActionBoxIndex] = useState(false);
   const actionBoxRef = useRef(null);
-
+  const isLastMessage = index === messages.length - 1;
   // const toggleVisibility = (e) => {
   //   e.stopPropagation();
   //   setIsVisible(!isVisible);
   //   setOpenActionBoxIndex(index);
   // };
-
+  const getRandomColor = () => {
+    const colors = [
+      "#A5F700",
+      "#F766AE",
+      "#F4F518",
+      "#B93EB9",
+      "#05CEF2",
+      "#F6A71B",
+      "#F6781D",
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
   const handleToggleActionBox = () => {
     if (openActionBoxIndex === index && isVisible) {
       setIsVisible(false);
@@ -89,11 +100,11 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
           <span
             className="font-medium text-sm  "
             style={{
-              color: msg.color,
               minWidth: "60px",
               maxWidth: "120px",
               wordWrap: "break-word",
               overflow: "hidden",
+              color: getRandomColor(),
             }}
           >
             {msg.userId.name} : ${isMod ? "hehehe" : "nonono"}
@@ -123,14 +134,19 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
             </button>
             {isVisible && openActionBoxIndex === index && (
               <div
-                className="absolute w-[70px] h-[70px] border border-white flex flex-column action-box bg-[#0D0624] "
-                style={{ zIndex: "999", left: "-350%" }}
+                className="absolute w-[100px] h-auto border border-white flex flex-column action-box  bg-[#251947]"
+                style={{
+                  zIndex: "999",
+                  left: "-430%",
+                  top: isLastMessage ? "-290%" : "",
+                  boxShadow: "1px 2px 9px 3px rgba(0,0,0,0.62)",
+                }}
               >
                 <span
+                  className="border p-2 h-[50%] w-[100%] cursor-pointer px-2 text-white action-hover action-box1"
                   onClick={() => {
                     blockUserByUserId();
                   }}
-                  className="border p-1 h-[50%] w-[100%] cursor-pointer text-white"
                 >
                   Block
                 </span>
@@ -138,7 +154,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
                   onClick={() => {
                     deleteChat();
                   }}
-                  className="border p-1 h-[50%] w-[100%] cursor-pointer text-white"
+                  className="border p-2 h-[50%] w-[100%] cursor-pointer px-2 text-white action-hover action-box2 "
                 >
                   Delete
                 </span>

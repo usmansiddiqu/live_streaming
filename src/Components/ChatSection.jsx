@@ -12,14 +12,6 @@ import getUser from "../api/getUsers";
 import { useParams } from "react-router";
 import { EventSourcePolyfill } from "event-source-polyfill";
 import removeUser from "../api/removeUser";
-const getRandomColor = () => {
-  const letters = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-};
 
 const ChatSection = () => {
   const params = useParams();
@@ -218,7 +210,7 @@ const ChatSection = () => {
     getUsers();
 
     const ed = new EventSourcePolyfill(
-      `http://localhost:4000/backend/chat/stream/${eventId}`,
+      `https://pixelsport.tv/backend/chat/stream/${eventId}`,
       {
         headers: {
           token: localStorage.getItem("token"),

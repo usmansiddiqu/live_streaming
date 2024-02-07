@@ -30,6 +30,23 @@ div {
 .msg-actions:hover .action-dot {
   visibility: visible;
 }
+.action-box {
+  border-radius: 6px;
+}
+.action-box1 {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom: 0px !important;
+}
+.action-box2 {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top: 0px !important;
+}
+.action-hover:hover {
+  background-color: #0d0624;
+  transition: 0.1s ease-in-out;
+}
 li a {
   text-decoration: none;
 }
