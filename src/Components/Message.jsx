@@ -1,7 +1,7 @@
 // Message.js
 import React, { useEffect, useRef, useState } from "react";
 import Dots from "../Assets/Icons/dots.png";
-
+import deleteMessage from "../api/deleteMessage";
 const getMessageTime = () => {
   const now = new Date();
   const hours = now.getHours().toString().padStart(2, "0");
@@ -45,6 +45,14 @@ const Message = ({ msg, index, isMod }) => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+  const deleteChat = async () => {
+    try {
+      const response = await deleteMessage(msg._id);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <p
       className={`flex  p-1 justify-between w-[100%] msg-actions ${
@@ -107,7 +115,12 @@ const Message = ({ msg, index, isMod }) => {
                 <span className="border p-1 h-[50%] w-[100%] cursor-pointer text-white">
                   Block
                 </span>
-                <span className="border p-1 h-[50%] w-[100%] cursor-pointer text-white">
+                <span
+                  onClick={() => {
+                    deleteChat();
+                  }}
+                  className="border p-1 h-[50%] w-[100%] cursor-pointer text-white"
+                >
                   Delete
                 </span>
               </div>

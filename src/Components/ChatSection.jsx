@@ -216,7 +216,7 @@ const ChatSection = () => {
     getUsers();
 
     const ed = new EventSourcePolyfill(
-      `http://localhost:4000/backend/chat/stream/${eventId}`,
+      `http://localhost:4000/backend/chat/stream`,
       {
         headers: {
           token: localStorage.getItem("token"),
