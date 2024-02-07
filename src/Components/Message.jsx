@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Dots from "../Assets/Icons/dots.png";
 import deleteMessage from "../api/deleteMessage";
 import blockUser from "../api/blockUser";
+import { url } from "../helper/url";
+import avatar from "../Assets/Icons/person.png";
 const getMessageTime = () => {
   const now = new Date();
   const hours = now.getHours().toString().padStart(2, "0");
@@ -31,7 +33,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
       "#F6A71B",
       "#F6781D",
     ];
-    return colors[Math.floor(Math.random() * colors.length)];
+    return colors[index % 6];
   };
   const handleToggleActionBox = () => {
     if (openActionBoxIndex === index && isVisible) {
@@ -72,7 +74,11 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
       setIsVisible(false);
     }
   };
-
+  const isGoogleImageUrl = (url) => {
+    const googleImageUrlRegex =
+      /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
+    return googleImageUrlRegex.test(url);
+  };
   return (
     <p
       className={`flex  p-1 justify-between w-[100%] msg-actions ${
@@ -86,7 +92,17 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
       <div className="flex p-1 w-[100%]">
         <div className=" h-[30px] mr-1">
           <img
-            src="https://source.unsplash.com/random/person"
+            src={
+              msg?.userId?.image
+                ? isGoogleImageUrl(msg?.userId?.image)
+                  ? msg?.userId?.image
+                  : url +
+                    "\\" +
+                    msg?.userId?.image
+                      .replace("uploads\\", "")
+                      .replace("uploads/", "")
+                : avatar
+            }
             alt=""
             className="w-[25px] h-[25px]"
           />
