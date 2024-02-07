@@ -300,8 +300,8 @@ const ChatSection = () => {
             }}
           >
             <div
-              className="mb-1 mt-2 overflow-y-auto chat-scroll "
-              style={{ maxHeight: "78%", overflowY: "hidden" }}
+              className="mb-1 mt-2 chat-scroll "
+              style={{ maxHeight: "78%", overflowY: "visible" }}
             >
               {/* <div style={{ transform: "rotate(180deg)" }}> */}
               <div>{memoizedMessages}</div>

@@ -25,10 +25,10 @@ div {
   background-color: #0d0624;
 }
 .action-dot {
-  display: none;
+  visibility: hidden;
 }
 .msg-actions:hover .action-dot {
-  display: block;
+  visibility: visible;
 }
 li a {
   text-decoration: none;
