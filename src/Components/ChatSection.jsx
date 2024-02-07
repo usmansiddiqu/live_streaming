@@ -218,7 +218,7 @@ const ChatSection = () => {
     getUsers();
 
     const ed = new EventSourcePolyfill(
-      `http://localhost:4000/backend/chat/stream`,
+      `http://localhost:4000/backend/chat/stream/${eventId}`,
       {
         headers: {
           token: localStorage.getItem("token"),
@@ -267,7 +267,6 @@ const ChatSection = () => {
 
     ed?.addEventListener("MOD", (event) => {
       try {
-        console.log(123123, JSON.parse(event.data));
         localStorage.setItem("data", event.data);
         window.dispatchEvent(new Event("DATA_UPDATED"));
       } catch (error) {}
