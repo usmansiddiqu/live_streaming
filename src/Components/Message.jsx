@@ -17,11 +17,10 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
   const [openActionBoxIndex, setOpenActionBoxIndex] = useState(false);
   const actionBoxRef = useRef(null);
   const isLastMessage = index === messages.length - 1;
-  // const toggleVisibility = (e) => {
-  //   e.stopPropagation();
-  //   setIsVisible(!isVisible);
-  //   setOpenActionBoxIndex(index);
-  // };
+  let data = localStorage.getItem("data");
+  if (data) {
+    data = JSON.parse(data)._id;
+  }
   const getRandomColor = () => {
     const colors = [
       "#A5F700",
@@ -59,22 +58,18 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
   }, []);
   const deleteChat = async () => {
     try {
-      const response = await deleteMessage(msg._id);
-      let array = [...messages];
-      array.splice(index, 1);
-      console.log(array);
-      setMessages(array);
-      console.log(response);
+      await deleteMessage(msg._id);
+      setIsVisible(false);
     } catch (error) {
-      console.log(error);
+      setIsVisible(false);
     }
   };
   const blockUserByUserId = async () => {
     try {
-      const response = await blockUser({ userId: msg?.userId?._id });
-      console.log(response);
+      await blockUser({ userId: msg?.userId?._id });
+      setIsVisible(false);
     } catch (error) {
-      console.log(error);
+      setIsVisible(false);
     }
   };
 
@@ -107,7 +102,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
               color: getRandomColor(),
             }}
           >
-            {msg.userId.name} : ${isMod ? "hehehe" : "nonono"}
+            {msg.userId.name} :
           </span>
           <div className="flex justify-between" style={{ width: "70%" }}>
             <span
@@ -126,12 +121,15 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
             {/* <ReactTimeAgo date={currentTime} locale="en-US" /> */}
           </span>
           <div className="relative" ref={actionBoxRef}>
-            <button
-              className="relative action-dot"
-              onClick={handleToggleActionBox}
-            >
-              <img src={Dots} alt="" className="w-[20px]" />
-            </button>
+            {msg?.userId._id != data && (
+              <button
+                className="relative action-dot"
+                onClick={handleToggleActionBox}
+              >
+                <img src={Dots} alt="" className="w-[20px]" />
+              </button>
+            )}
+
             {isVisible && openActionBoxIndex === index && (
               <div
                 className="absolute w-[100px] h-auto border border-white flex flex-column action-box  bg-[#251947]"
@@ -144,20 +142,20 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
               >
                 <span
                   className="border p-2 h-[50%] w-[100%] cursor-pointer px-2 text-white action-hover action-box1"
-                  onClick={() => {
-                    blockUserByUserId();
-                  }}
+                  onClick={blockUserByUserId}
                 >
                   Block
                 </span>
-                <span
-                  onClick={() => {
-                    deleteChat();
-                  }}
-                  className="border p-2 h-[50%] w-[100%] cursor-pointer px-2 text-white action-hover action-box2 "
-                >
-                  Delete
-                </span>
+                {isMod ? (
+                  <span
+                    onClick={deleteChat}
+                    className="border p-2 h-[50%] w-[100%] cursor-pointer px-2 text-white action-hover action-box2 "
+                  >
+                    Delete
+                  </span>
+                ) : (
+                  <></>
+                )}
               </div>
             )}
           </div>

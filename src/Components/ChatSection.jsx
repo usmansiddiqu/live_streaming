@@ -181,8 +181,8 @@ const ChatSection = () => {
   // }
   const getMessageFrom = async () => {
     try {
-      const messages = await getMessages(eventId);
-      setMessages(messages?.data?.data);
+      const data = await getMessages(eventId);
+      setMessages(data?.data?.data);
     } catch (error) {
       console.log(error);
     }
@@ -210,7 +210,7 @@ const ChatSection = () => {
     getUsers();
 
     const ed = new EventSourcePolyfill(
-      `https://pixelsport.tv/backend/chat/stream/${eventId}`,
+      `http://localhost:4000/backend/chat/stream/${eventId}`,
       {
         headers: {
           token: localStorage.getItem("token"),
@@ -219,6 +219,7 @@ const ChatSection = () => {
       }
     );
     ed?.addEventListener("CHAT_CREATED", (event) => {
+      console.log(messages);
       const data = JSON.parse(event.data);
       setMessages((prevMessages) => [...prevMessages, data]);
     });
@@ -245,7 +246,6 @@ const ChatSection = () => {
         let connectedUsers = JSON.parse(event.data);
         connectedUsers = connectedUsers[params.id];
         setOnlineUsers(Object.keys(connectedUsers).length);
-        // setUsers(Object.entries(JSON.parse(response?.data?.data)));
         let u = [];
         for (const [key, value] of Object.entries(connectedUsers)) {
           u.push({
@@ -264,6 +264,16 @@ const ChatSection = () => {
       } catch (error) {}
     });
 
+    ed?.addEventListener("MESSAGE_DELETED", (event) => {
+      try {
+        setMessages((prevMessages) =>
+          prevMessages.filter(
+            (message) => String(message._id) != JSON.parse(event.data)
+          )
+        );
+      } catch (error) {}
+    });
+
     window.addEventListener("DATA_UPDATED", () => {
       const data = JSON.parse(localStorage.getItem("data"));
       setIsMod(data.isMod);
@@ -276,7 +286,7 @@ const ChatSection = () => {
   }, []);
 
   useEffect(() => {
-    const chatScroll = document.querySelector(".chat-scroll");
+    const chatScroll = document.querySelector(".chat-bar");
     chatScroll.scrollTop = chatScroll.scrollHeight;
   }, [messages]);
 
