@@ -1871,6 +1871,7 @@ aside {
   .boox {
     width: 90% !important;
   }
+
   .pay-cardds {
     height: 28vh;
     width: 83vw !important;
@@ -1958,7 +1959,7 @@ aside {
     width: 75%;
   }
   .live-deatil-container {
-    height: 25rem;
+    height: 20rem;
   }
 }
 /* Live Chat Responsiveness */
@@ -2293,5 +2294,9 @@ aside {
   }
   .theater-btn {
     margin-left: 10px;
+  }
+  .emoji-box {
+    left: -900% !important;
+    width: 270px !important;
   }
 }

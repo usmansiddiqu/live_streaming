@@ -106,18 +106,18 @@ const ChatSection = () => {
       },
 
       highlighter: {
-        padding: 9,
+        padding: 0,
         height: 30,
       },
 
       input: {
-        padding: 9,
+        padding: 7,
         outline: 0,
         border: 0,
         height: 30,
         left: "unset",
         position: "absolute",
-        bottom: 14,
+        // bottom: 20,
         lineHeight: 1,
         outline: "none",
         focus: {
@@ -128,18 +128,18 @@ const ChatSection = () => {
 
     suggestions: {
       top: "unset",
-      bottom: "25px",
+      bottom: "35px",
       zIndex: 99,
       maxHeight: "90px",
       overflow: "auto",
       list: {
         backgroundColor: "#0D0620",
         border: "1px solid white",
-        fontSize: 10,
+        // fontSize: 10,
       },
 
       item: {
-        padding: "5px 15px",
+        // padding: "5px 15px",
         borderBottom: "1px solid white",
 
         "&focused": {
@@ -210,7 +210,7 @@ const ChatSection = () => {
     getUsers();
 
     const ed = new EventSourcePolyfill(
-      `http://localhost:4000/backend/chat/stream/${eventId}`,
+      `http://pixelsport.tv/backend/chat/stream/${eventId}`,
       {
         headers: {
           token: localStorage.getItem("token"),
@@ -356,7 +356,7 @@ const ChatSection = () => {
                   onKeyDown={handleKeyDown}
                   style={mentionStyle}
                   placeholder="Type your message"
-                  className="!focus:outline-none  !border-0 chat-text-area   !focus:ring-0"
+                  // className="!focus:outline-none  !border-0 chat-text-area   !focus:ring-0"
                 >
                   <Mention
                     trigger="@"
