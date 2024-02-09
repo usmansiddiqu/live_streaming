@@ -203,10 +203,7 @@ const ChatSection = () => {
       console.log(error);
     }
   };
-  useEffect(() => {
-    getMessageFrom();
-    getUsers();
-
+  const establishConnection = async () => {
     const ed = new EventSourcePolyfill(
       `http://pixelsport.tv/backend/chat/stream/${eventId}`,
       {
@@ -269,7 +266,22 @@ const ChatSection = () => {
         );
       } catch (error) {}
     });
+    ed.onerror = (error) => {
+      console.error("SSE error:", error);
 
+      // Check if the error is due to a timeout
+      if (error.eventPhase === EventSource.CLOSED) {
+        // Connection timed out or closed, attempt to re-establish the connection
+        setTimeout(() => {
+          establishConnection();
+        }, 1000); // You can adjust the delay before re-attempting the connection
+      }
+    };
+  };
+  useEffect(() => {
+    getMessageFrom();
+    getUsers();
+    establishConnection();
     window.addEventListener("DATA_UPDATED", () => {
       const data = JSON.parse(localStorage.getItem("data"));
       setIsMod(data.isMod);
