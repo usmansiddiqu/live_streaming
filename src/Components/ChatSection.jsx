@@ -266,6 +266,11 @@ const ChatSection = () => {
         );
       } catch (error) {}
     });
+    ed.addEventListener("HEART_BEAT", (event) => {
+      try {
+        console.log("listening");
+      } catch (error) {}
+    });
     ed.onerror = (error) => {
       console.error("SSE error:", error);
 
