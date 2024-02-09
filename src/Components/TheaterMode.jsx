@@ -25,14 +25,14 @@ function TheaterMode({ data, url }) {
     );
 
   return (
-    <div className="flex !justify-center chat-mbl-box h-[100%]">
-      <div className="flex w-[94%] mx-auto justify-center chat-responsive">
-        <div className="">
+    <div className="flex !justify-center chat-mbl-box h-[90vh] w-[100vw]">
+      <div className="flex w-[100%] w-[100%] justify-center chat-responsive">
+        <div className=" w-[100%]">
           {isTimeWithinRange ? (
             <ClapprPlayer url={url} />
           ) : (
             <div
-              className="w-[100%] h-[45rem]   deatil-container live-deatil-container"
+              className="w-[100%] h-[93vh]  deatil-container live-deatil-container"
               style={{
                 background: `linear-gradient(-60deg, #${
                   data?.data?.competitors?.filter(
