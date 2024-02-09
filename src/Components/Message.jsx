@@ -124,7 +124,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
             <div></div>
           )}
           <span
-            className="font-medium mbl-chat-font border"
+            className="font-medium mbl-chat-font "
             style={{
               // width: "80px",
               maxWidth: "120px",
@@ -138,7 +138,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
             {msg.userId.name} :
           </span>
 
-          <div className="flex justify-between border" style={{ width: "70%" }}>
+          <div className="flex justify-between " style={{ width: "70%" }}>
             <span
               className="text-white ml-2 msg-text"
               style={{
