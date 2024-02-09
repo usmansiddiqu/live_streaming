@@ -5,6 +5,7 @@ import deleteMessage from "../api/deleteMessage";
 import blockUser from "../api/blockUser";
 import { url } from "../helper/url";
 import avatar from "../Assets/Icons/person.png";
+import { formatDistanceStrict } from "date-fns";
 const getMessageTime = () => {
   const now = new Date();
   const hours = now.getHours().toString().padStart(2, "0");
@@ -79,6 +80,11 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
       /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
     return googleImageUrlRegex.test(url);
   };
+  const getTime = (messageDate) => {
+    const result = formatDistanceStrict(new Date(messageDate), new Date());
+    return result;
+    console.log(result);
+  };
   return (
     <p
       className={`flex  p-1 justify-between w-[100%] msg-actions ${
@@ -134,7 +140,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
         </div>
         <div>
           <span className="text-white flex jusitfy-end items-end text-xs relative">
-            {/* <ReactTimeAgo date={currentTime} locale="en-US" /> */}
+            {getTime(msg.createdAt)}
           </span>
           <div className="relative" ref={actionBoxRef}>
             {msg?.userId._id != data && (
