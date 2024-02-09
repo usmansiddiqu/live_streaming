@@ -91,7 +91,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
             onClick={() => toggleTheaterMode()}
           >
             <div className="flex gap-1">
-              <label>Theater mode</label>
+              <label>Chat</label>
             </div>
           </button>
         </div>
