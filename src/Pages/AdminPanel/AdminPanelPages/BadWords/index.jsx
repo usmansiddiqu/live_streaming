@@ -24,7 +24,6 @@ function BadWords() {
   };
   const getData = async () => {
     const { data: response } = await getBadWord();
-    console.log(response);
     setData(response.data);
   };
   const handleClickOpen = (id) => {

@@ -59,8 +59,6 @@ const ChatSection = () => {
   const handleSendMessage = () => {
     if (newMessage.trim() !== "") {
       sendMessageFunc();
-      console.log(newMessage);
-
       setNewMessage("");
     }
   };
@@ -219,7 +217,6 @@ const ChatSection = () => {
       }
     );
     ed?.addEventListener("CHAT_CREATED", (event) => {
-      console.log(messages);
       const data = JSON.parse(event.data);
       setMessages((prevMessages) => [...prevMessages, data]);
     });
@@ -229,7 +226,6 @@ const ChatSection = () => {
         connectedUsers = JSON.parse(connectedUsers[params.id]);
 
         setOnlineUsers(Object.keys(connectedUsers).length);
-        // setUsers(Object.entries(JSON.parse(response?.data?.data)));
         let u = [];
         for (const [key, value] of Object.entries(connectedUsers)) {
           u.push({
@@ -349,7 +345,6 @@ const ChatSection = () => {
                 <MentionsInput
                   value={newMessage}
                   onChange={(e, newValue, plainTextValue, mentions) => {
-                    console.log(123, newValue);
                     setNewMessage(newValue);
                     setMentionData(mentions);
                   }}

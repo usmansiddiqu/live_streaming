@@ -57,7 +57,6 @@ function AddBadWords() {
     try {
       const response = await addBanWord({ word: data });
       navigate("/admin/bad_words");
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
