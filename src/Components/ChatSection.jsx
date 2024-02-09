@@ -206,7 +206,7 @@ const ChatSection = ({ setTheaterMode }) => {
   };
   const establishConnection = async () => {
     const ed = new EventSourcePolyfill(
-      `http://pixelsport.tv/backend/chat/stream/${eventId}`,
+      `http://pixelsport.tv/backend/chat/stream`,
       {
         headers: {
           token: localStorage.getItem("token"),
