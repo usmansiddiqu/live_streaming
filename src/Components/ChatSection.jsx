@@ -180,7 +180,7 @@ const ChatSection = ({ setTheaterMode }) => {
   // }
   const getMessageFrom = async () => {
     try {
-      const data = await getMessages(eventId);
+      const data = await getMessages();
       setMessages(data?.data?.data);
     } catch (error) {
       console.log(error);
