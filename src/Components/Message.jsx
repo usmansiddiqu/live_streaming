@@ -115,7 +115,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
             className="w-[25px] h-[25px]"
           />
         </div>
-        <div className="flex items-center w-[80%] mbl-chat ">
+        <div className="flex items-center w-[85%] mbl-chat ">
           {msg?.userId?.isMod ? (
             <div className="w-[15px] h-[15px]">
               <img src={Mod} alt="" />
@@ -124,25 +124,27 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
             <div></div>
           )}
           <span
-            className="font-medium text-sm mbl-chat-font"
+            className="font-medium mbl-chat-font border"
             style={{
-              minWidth: "60px",
+              // width: "80px",
               maxWidth: "120px",
               wordWrap: "break-word",
               overflow: "hidden",
               color: getRandomColor(),
               marginLeft: "2px",
+              fontSize: "13px",
             }}
           >
             {msg.userId.name} :
           </span>
 
-          <div className="flex justify-between" style={{ width: "70%" }}>
+          <div className="flex justify-between border" style={{ width: "70%" }}>
             <span
-              className="text-white ml-2 msg-text text-sm"
+              className="text-white ml-2 msg-text"
               style={{
                 wordWrap: "break-word",
                 overflow: "hidden",
+                fontSize: "13px",
               }}
             >
               {msg.message}
