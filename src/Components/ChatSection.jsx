@@ -277,6 +277,10 @@ const ChatSection = () => {
         }, 1000); // You can adjust the delay before re-attempting the connection
       }
     };
+    return () => {
+      ed?.close();
+      removeUser(params.id);
+    };
   };
   useEffect(() => {
     getMessageFrom();
@@ -286,11 +290,6 @@ const ChatSection = () => {
       const data = JSON.parse(localStorage.getItem("data"));
       setIsMod(data.isMod);
     });
-
-    return () => {
-      ed?.close();
-      removeUser(params.id);
-    };
   }, []);
 
   useEffect(() => {
