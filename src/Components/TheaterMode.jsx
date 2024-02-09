@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import moment from "moment";
 import DetailsIcon from "./Common/DetailsIcon";
 
-function TheaterMode({ data, url }) {
+function TheaterMode({ data, url, setTheaterMode }) {
   const { type } = useParams();
   const currentTime = moment();
   const eventTime = moment(data?.data?.date).utc();
@@ -26,7 +26,7 @@ function TheaterMode({ data, url }) {
 
   return (
     <div className="flex !justify-center chat-mbl-box h-[90vh] w-[100vw]">
-      <div className="flex w-[100%] w-[100%] justify-center chat-responsive">
+      <div className="flex w-[100%] w-[100%]  chat-responsive">
         <div className=" w-[100%]">
           {isTimeWithinRange ? (
             <ClapprPlayer url={url} />
@@ -53,25 +53,15 @@ function TheaterMode({ data, url }) {
                 } 50%)`,
               }}
             >
-              <div
-                className="placeAndTime"
-                style={{
-                  width: "92%",
-                  height: "3vh",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  flexDirection: "row",
-                  margin: "auto",
-                }}
-              ></div>
-
-              <div className="details-icons" style={{ marginTop: "135px" }}>
-                <DetailsIcon
-                  iconsData={data?.data?.competitors?.map((comp) => ({
-                    iconUrl: comp.logo,
-                    name: comp.name,
-                  }))}
-                />
+              <div className="w-[100%] h-[100%] flex justify-evenly items-center">
+                <div className="mt-[-80px]">
+                  <DetailsIcon
+                    iconsData={data?.data?.competitors?.map((comp) => ({
+                      iconUrl: comp.logo,
+                      name: comp.name,
+                    }))}
+                  />
+                </div>
               </div>
             </div>
           )}
@@ -80,7 +70,7 @@ function TheaterMode({ data, url }) {
           className="w-[25%] h-[100%] mb-1 live-chat-responsive  live-chat-responsive1 p-1 bg-[#251947]"
           style={{ marginTop: "0px" }}
         >
-          <LiveChat />
+          <LiveChat setTheaterMode={setTheaterMode} />
         </div>
       </div>
     </div>

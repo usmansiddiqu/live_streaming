@@ -12,8 +12,9 @@ import getUser from "../api/getUsers";
 import { useParams } from "react-router";
 import { EventSourcePolyfill } from "event-source-polyfill";
 import removeUser from "../api/removeUser";
+import Back from "../Assets/Icons/undo.png";
 
-const ChatSection = () => {
+const ChatSection = ({ setTheaterMode }) => {
   const params = useParams();
   const eventId = params.id;
 
@@ -305,18 +306,39 @@ const ChatSection = () => {
   return (
     <>
       <div className="mx-auto p-1 h-[100%] w-[100%]">
-        <div className="  relative " style={{ height: "100%" }}>
+        <div className="w-[100%] flex justify-between mb-1">
+          <button
+            className="p-2 bg-[#4949FA] inputcc text-white rounded-full"
+            onClick={() => setTheaterMode((prevMode) => !prevMode)}
+          >
+            <img
+              src={Back}
+              className="icon-input"
+              alt=""
+              style={{ width: "20px", height: "20px" }}
+            />
+          </button>
+
+          <span className="text-white p-1" style={{ fontWeight: "bold" }}>
+            Live Stream Chat
+          </span>
+          <span></span>
+        </div>
+        <div
+          className="  relative chat-box-container"
+          style={{ height: "98%" }}
+        >
           <div
             className="chat-bar"
             style={{
-              height: "87.5%",
+              height: "85.5%",
               overflowY: "auto",
               // transform: "rotate(180deg)",
             }}
           >
             <div
               className="mb-1 mt-2 chat-scroll "
-              style={{ maxHeight: "78%", overflowY: "visible" }}
+              style={{ maxHeight: "77%", overflowY: "visible" }}
             >
               {/* <div style={{ transform: "rotate(180deg)" }}> */}
               <div>{memoizedMessages}</div>

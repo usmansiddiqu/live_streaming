@@ -103,7 +103,11 @@ function DetailsPage() {
       <div>
         {theaterMode ? (
           <div>
-            <TheaterMode data={data} setUrl={setUrl} />
+            <TheaterMode
+              data={data}
+              setUrl={setUrl}
+              setTheaterMode={setTheaterMode}
+            />
           </div>
         ) : (
           <div>

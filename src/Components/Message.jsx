@@ -5,6 +5,7 @@ import deleteMessage from "../api/deleteMessage";
 import blockUser from "../api/blockUser";
 import { url } from "../helper/url";
 import avatar from "../Assets/Icons/person.png";
+import Mod from "../Assets/Icons/mod.png";
 import { formatDistanceStrict } from "date-fns";
 const getMessageTime = () => {
   const now = new Date();
@@ -93,10 +94,11 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
       style={{
         background: index % 2 === 0 ? "#1b1b1b" : "#3f3f3f",
         overflow: "visible",
+        flexDirection: "column",
       }}
     >
-      <div className="flex p-1 w-[100%]">
-        <div className=" h-[30px] mr-1">
+      <div className="flex p-1 w-[100%] items-center">
+        <div className=" h-[30px] w-[30px] mr-1" style={{ marginTop: "2px" }}>
           <img
             src={
               msg?.userId?.image
@@ -113,19 +115,28 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
             className="w-[25px] h-[25px]"
           />
         </div>
-        <div className="flex  w-[90%]">
+        <div className="flex items-center w-[80%] mbl-chat ">
+          {msg?.userId?.isMod ? (
+            <div className="w-[15px] h-[15px]">
+              <img src={Mod} alt="" />
+            </div>
+          ) : (
+            <div></div>
+          )}
           <span
-            className="font-medium text-sm  "
+            className="font-medium text-sm mbl-chat-font"
             style={{
               minWidth: "60px",
               maxWidth: "120px",
               wordWrap: "break-word",
               overflow: "hidden",
               color: getRandomColor(),
+              marginLeft: "2px",
             }}
           >
             {msg.userId.name} :
           </span>
+
           <div className="flex justify-between" style={{ width: "70%" }}>
             <span
               className="text-white ml-2 msg-text text-sm"
@@ -139,9 +150,9 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
           </div>
         </div>
         <div>
-          <span className="text-white flex jusitfy-end items-end text-xs relative">
+          {/* <span className="text-white flex jusitfy-end items-end text-xs relative">
             {getTime(msg.createdAt)}
-          </span>
+          </span> */}
           <div className="relative" ref={actionBoxRef}>
             {msg?.userId._id != data && (
               <button
@@ -158,7 +169,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
                 style={{
                   zIndex: "999",
                   left: "-430%",
-                  top: isLastMessage ? "-290%" : "",
+                  top: isLastMessage ? "-320%" : "",
                   boxShadow: "1px 2px 9px 3px rgba(0,0,0,0.62)",
                 }}
               >
@@ -183,6 +194,16 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
           </div>
         </div>
       </div>
+      <span
+        className="text-white flex text-xs text-right relative w-[80px]"
+        style={{
+          textAlign: "right",
+          width: "100%",
+          justifyContent: "flex-end",
+        }}
+      >
+        {getTime(msg.createdAt)}
+      </span>
     </p>
   );
 };
