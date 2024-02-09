@@ -32,7 +32,7 @@ function TheaterMode({ data, url }) {
             <ClapprPlayer url={url} />
           ) : (
             <div
-              className="w-[100%] h-[93vh]  deatil-container live-deatil-container"
+              className="w-[100%] h-[90vh]  deatil-container live-deatil-container"
               style={{
                 background: `linear-gradient(-60deg, #${
                   data?.data?.competitors?.filter(
