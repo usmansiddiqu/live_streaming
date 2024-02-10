@@ -305,7 +305,7 @@ const ChatSection = ({ setTheaterMode }) => {
 
   return (
     <>
-      <div className="mx-auto p-1 h-[100%] w-[100%]">
+      <div className="mx-auto p-1 h-[100%] w-[100%] responsive-container">
         <div className="w-[100%] flex justify-between mb-1">
           <button
             className="p-2 bg-[#4949FA] inputcc text-white rounded-full"

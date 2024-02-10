@@ -29,7 +29,9 @@ function TheaterMode({ data, url, setTheaterMode }) {
       <div className="flex w-[100%] w-[100%]  chat-responsive">
         <div className=" w-[100%]">
           {isTimeWithinRange ? (
-            <ClapprPlayer url={url} />
+            <div className=" mt-2 flex h-full" style={{ width: "100%" }}>
+              <ClapprPlayer url={url} />
+            </div>
           ) : (
             <div
               className="w-[100%] h-[90vh]  deatil-container live-deatil-container"
@@ -67,7 +69,7 @@ function TheaterMode({ data, url, setTheaterMode }) {
           )}
         </div>
         <div
-          className="w-[25%] h-[100%] mb-1 live-chat-responsive  live-chat-responsive1 p-1 bg-[#251947]"
+          className="w-[25%] h-[100%] mb-1 live-chat-responsive  live-chat-responsive1 p-1 bg-[#251947] mt-2"
           style={{ marginTop: "0px" }}
         >
           <LiveChat setTheaterMode={setTheaterMode} />

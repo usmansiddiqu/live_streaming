@@ -27,11 +27,11 @@ function DetailsComponent({ data, url }) {
   return (
     <div className="flex !justify-center mt-2 clapper-palyer">
       {isTimeWithinRange ? (
-        <div className="embed-responsive embed-responsive-16by9">
-          <div className="chunchun">
-            <ClapprPlayer url={url} />
-          </div>
-          {/* <LiveChat /> */}
+        <div
+          className=" mt-2 flex h-full detail-clapper-player"
+          style={{ width: "100%" }}
+        >
+          <ClapprPlayer url={url} />
         </div>
       ) : (
         <div
