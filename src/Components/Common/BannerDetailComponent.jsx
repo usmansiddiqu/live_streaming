@@ -7,6 +7,7 @@ import axiosInstance from "../../api";
 import axios from "axios";
 import { url as url1 } from "../../helper/url";
 // import LiveChat from "../NameLiveChat";
+import "../../Assets/styles/DetailComponent.scss";
 
 function BannerDetailComponent({ data, url }) {
   const [show, setShow] = useState(true);
@@ -26,11 +27,10 @@ function BannerDetailComponent({ data, url }) {
   return (
     <div className="flex !justify-center clapper-palyer">
       {show ? (
-        <div
-          className=" mt-2 flex h-full detail-clapper-player"
-          style={{ width: "100%" }}
-        >
-          <ClapprPlayer url={url} />
+        <div className="detail-clapper-player-container">
+          <div className=" mt-2 flex h-full detail-clapper-player">
+            <ClapprPlayer url={url} />
+          </div>
         </div>
       ) : (
         <div

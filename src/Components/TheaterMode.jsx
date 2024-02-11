@@ -69,7 +69,7 @@ function TheaterMode({ data, url, setTheaterMode }) {
           )}
         </div>
         <div
-          className="w-[25%] h-[100%] mb-1 live-chat-responsive  live-chat-responsive1 p-1 bg-[#251947] mt-2"
+          className="w-[25%] h-[100%] mb-1 live-chat-responsive  live-chat-responsive1 p-1 bg-[#251947]"
           style={{ marginTop: "0px" }}
         >
           <LiveChat setTheaterMode={setTheaterMode} />

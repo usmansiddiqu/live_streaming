@@ -1,0 +1,40 @@
+.detail-clapper-player-container {
+  .detail-clapper-player {
+    #videoPlayer {
+      width: 70rem !important;
+      height: 70vh !important;
+    }
+    [data-player] {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+}
+@media screen and (max-width: 580px) {
+  .detail-clapper-player-container {
+    .detail-clapper-player {
+      #videoPlayer {
+        width: 100% !important;
+        height: 38vh !important;
+      }
+      [data-player] {
+        width: 100% !important;
+        height: 40vh !important;
+      }
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .detail-clapper-player-container {
+    .detail-clapper-player {
+      #videoPlayer {
+        width: 100% !important;
+        height: 32vh !important;
+      }
+      [data-player] {
+        width: 100% !important;
+        height: 30vh !important;
+      }
+    }
+  }
+}
