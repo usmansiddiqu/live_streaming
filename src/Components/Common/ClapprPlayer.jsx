@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Clappr from "@clappr/player";
 import { MediaControl } from "@clappr/plugins";
 
-function ClapprPlayer({ url, setShow }) {
+function ClapprPlayer({ url }) {
   useEffect(() => {
     // Function to calculate player size based on screen width
     const calculatePlayerSize = () => {
@@ -25,8 +25,6 @@ function ClapprPlayer({ url, setShow }) {
       autoPlay: true,
       events: {
         onReady: function () {
-          setShow(true);
-
           // Adjust the positioning of controls
           // const controls = document.querySelector(".media-control");
           // controls.style.right = "100px"; // You can adjust this value as needed
@@ -78,7 +76,7 @@ function ClapprPlayer({ url, setShow }) {
       window.removeEventListener("resize", handleResize);
       player.destroy();
     };
-  }, [url, setShow]);
+  }, [url]);
 
   return <p className="w-full !bg-black" id="videoPlayer"></p>;
 }

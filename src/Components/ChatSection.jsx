@@ -153,7 +153,7 @@ const ChatSection = ({ setTheaterMode }) => {
   };
   const memoizedMessages = useMemo(
     () =>
-      messages.map((msg, index) => (
+      messages?.map((msg, index) => (
         <Message
           key={index}
           msg={msg}
@@ -188,7 +188,7 @@ const ChatSection = ({ setTheaterMode }) => {
   };
   const getUsers = async () => {
     try {
-      const response = await getUser(eventId);
+      const response = await getUser();
       setOnlineUsers(Object.keys(JSON.parse(response?.data?.data)).length);
       let u = [];
       for (const [key, value] of Object.entries(
@@ -206,7 +206,7 @@ const ChatSection = ({ setTheaterMode }) => {
   };
   const establishConnection = async () => {
     const ed = new EventSourcePolyfill(
-      `http://pixelsport.tv/backend/chat/stream`,
+      `http://localhost:4000/backend/chat/stream`,
       {
         headers: {
           token: localStorage.getItem("token"),
@@ -285,7 +285,7 @@ const ChatSection = ({ setTheaterMode }) => {
     };
     return () => {
       ed?.close();
-      removeUser(params.id);
+      removeUser();
     };
   };
   useEffect(() => {

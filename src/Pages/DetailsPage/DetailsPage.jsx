@@ -71,7 +71,7 @@ function DetailsPage() {
 
   const canViewPage = async () => {
     try {
-      const result = await canView(params.id);
+      const result = await canView();
       if (localStorage.getItem("data")) {
         if (!result.data.flag) {
           navigate("/membership_plan");
@@ -106,6 +106,7 @@ function DetailsPage() {
             <TheaterMode
               data={data}
               setUrl={setUrl}
+              url={url}
               setTheaterMode={setTheaterMode}
             />
           </div>

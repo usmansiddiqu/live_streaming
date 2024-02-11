@@ -27,7 +27,7 @@ function DetailsComponent({ data, url }) {
 
   return (
     <div className="flex !justify-center mt-2 clapper-palyer">
-      {!isTimeWithinRange ? (
+      {isTimeWithinRange ? (
         <div className="detail-clapper-player-container">
           <div className=" mt-2 flex h-full detail-clapper-player">
             <ClapprPlayer url={url} />
