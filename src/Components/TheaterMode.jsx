@@ -55,8 +55,8 @@ function TheaterMode({ data, url, setTheaterMode }) {
                 } 50%)`,
               }}
             >
-              <div className="w-[100%] h-[100%] flex justify-evenly items-center">
-                <div className="mt-[-80px]">
+              <div className="w-[100%] h-[100%] flex justify-between items-center">
+                <div className="mt-[-80px] w-[100%]">
                   <DetailsIcon
                     iconsData={data?.data?.competitors?.map((comp) => ({
                       iconUrl: comp.logo,

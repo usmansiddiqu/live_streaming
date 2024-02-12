@@ -97,7 +97,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
         flexDirection: "column",
       }}
     >
-      <div className="flex p-1 w-[100%] items-center">
+      <div className="flex p-1 w-[100%] items-start">
         <div className=" h-[30px] w-[30px] mr-1" style={{ marginTop: "2px" }}>
           <img
             src={
@@ -115,7 +115,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
             className="w-[25px] h-[25px]"
           />
         </div>
-        <div className="flex items-center w-[85%] mbl-chat ">
+        <div className="flex items-start w-[85%] mbl-chat ">
           {msg?.userId?.isMod ? (
             <div className="w-[15px] h-[15px]">
               <img src={Mod} alt="" />
@@ -126,19 +126,25 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
           <span
             className="font-medium mbl-chat-font "
             style={{
-              // width: "80px",
-              maxWidth: "120px",
+              width: "100%",
+              // maxWidth: "120px",
               wordWrap: "break-word",
               overflow: "hidden",
-              color: getRandomColor(),
+
               marginLeft: "2px",
               fontSize: "13px",
             }}
           >
-            {msg.userId.name} :
+            <span style={{ color: getRandomColor() }}>{msg.userId.name}</span>
+            <span className="ml-1" style={{ color: "white" }}>
+              :
+            </span>
+            <span className="ml-1" style={{ color: "white" }}>
+              {msg.message}
+            </span>
           </span>
 
-          <div className="flex justify-between " style={{ width: "70%" }}>
+          {/* <div className="flex justify-between " style={{ width: "70%" }}>
             <span
               className="text-white ml-2 msg-text"
               style={{
@@ -149,7 +155,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
             >
               {msg.message}
             </span>
-          </div>
+          </div> */}
         </div>
         <div>
           {/* <span className="text-white flex jusitfy-end items-end text-xs relative">
