@@ -26,10 +26,14 @@ const ChatSection = ({ setTheaterMode }) => {
   const [newMessage, setNewMessage] = useState("");
   const [mentionData, setMentionData] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState(0);
-  const [data, setData] = useState(JSON.parse(localStorage.getItem("data")));
+  const [data, setData] = useState(
+    localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data")) : {}
+  );
 
   const [isMod, setIsMod] = useState(
-    JSON.parse(localStorage.getItem("data")).isMod
+    localStorage?.getItem("data")
+      ? JSON.parse(localStorage?.getItem("data"))?.isMod
+      : false
   );
 
   const sendMessageFunc = async () => {
