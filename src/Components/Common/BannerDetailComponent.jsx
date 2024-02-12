@@ -27,7 +27,7 @@ function BannerDetailComponent({ data, url }) {
   return (
     <div className="flex !justify-center clapper-palyer">
       {show ? (
-        <div className="detail-clapper-player-container">
+        <div className="detail-clapper-player-container mt-3">
           <div className=" mt-2 flex h-full detail-clapper-player">
             <ClapprPlayer url={url} />
           </div>
