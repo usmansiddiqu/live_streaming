@@ -26,10 +26,10 @@ function BannerDetailComponent({ data, url }) {
   }, [url]);
   return (
     <div className="flex !justify-center clapper-palyer">
-      {show ? (
+      {!show ? (
         <div className="detail-clapper-player-container">
           <div className=" mt-2 flex h-full detail-clapper-player">
-            <ClapprPlayer url={url} />
+            <ClapprPlayer url="https://main.fhdsports.live/hdstreamlive/hdembed/6.m3u8" />
           </div>
         </div>
       ) : (
