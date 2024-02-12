@@ -98,7 +98,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
       }}
     >
       <div className="flex p-1 w-[100%] items-start">
-        <div className=" h-[30px] w-[30px] mr-1">
+        <div className=" h-[35px] w-[35px] mr-1">
           <img
             src={
               msg?.userId?.image
@@ -112,7 +112,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
                 : avatar
             }
             alt=""
-            className="w-[25px] h-[25px]"
+            className="w-[35px] h-[35px]"
           />
         </div>
         <div className="flex items-start w-[85%] mbl-chat ">
