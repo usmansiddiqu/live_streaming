@@ -115,9 +115,9 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
             className="w-[25px] h-[25px]"
           />
         </div>
-        <div className="flex items-center w-[85%] mbl-chat ">
+        <div className="flex items-start w-[85%] mbl-chat ">
           {msg?.userId?.isMod ? (
-            <div className="w-[15px] h-[15px]">
+            <div className="w-[15px] h-[15px]" style={{ marginTop: "3px" }}>
               <img src={Mod} alt="" />
             </div>
           ) : (
