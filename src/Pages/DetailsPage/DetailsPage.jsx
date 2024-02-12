@@ -56,6 +56,8 @@ function DetailsPage() {
       }
       if (response.events.channel.TVAccess == "paid") {
         await canViewPage();
+      } else {
+        await canView();
       }
     } catch (error) {}
   };
