@@ -225,7 +225,7 @@ const ChatSection = ({ setTheaterMode }) => {
     ed?.addEventListener("CHAT_JOINED", (event) => {
       try {
         let connectedUsers = JSON.parse(event.data);
-        connectedUsers = JSON.parse(connectedUsers[params.id]);
+        connectedUsers = JSON.parse(connectedUsers["STREAM"]);
 
         setOnlineUsers(Object.keys(connectedUsers).length);
         let u = [];
@@ -242,7 +242,7 @@ const ChatSection = ({ setTheaterMode }) => {
     ed?.addEventListener("CHAT_LEFT", (event) => {
       try {
         let connectedUsers = JSON.parse(event.data);
-        connectedUsers = connectedUsers[params.id];
+        connectedUsers = connectedUsers["STREAM"];
         setOnlineUsers(Object.keys(connectedUsers).length);
         let u = [];
         for (const [key, value] of Object.entries(connectedUsers)) {
