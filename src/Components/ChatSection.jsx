@@ -352,10 +352,7 @@ const ChatSection = ({ setTheaterMode }) => {
             </div>
           </div>
 
-          <div
-            className="flex flex-column  absolute w-[100%] px-2 mb-2 input-box h-[10%] "
-            style={{ bottom: "0" }}
-          >
+          <div className="flex flex-column  absolute w-[100%] px-2 mb-2 input-box h-[10%] ">
             <div
               className="flex"
               style={{
@@ -407,7 +404,7 @@ const ChatSection = ({ setTheaterMode }) => {
                 </MentionsInput>
               </div>
 
-              <div className="w-[16%] input-2 flex justify-evenly">
+              <div className="flex justify-evenly" style={{ width: "80px" }}>
                 <div
                   className="relative p-2 cursor-pointer relative inputcc bg-[#4949FA] text-white rounded-full mr-2"
                   onClick={() => setShowEmojiPicker(!showEmojiPicker)}
