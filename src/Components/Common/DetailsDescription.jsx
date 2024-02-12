@@ -21,10 +21,16 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
     <div className="flex justify-center mt-3 ">
       <ToastContainer limit={1} />
       <div className=" bg-[#190D39] w-[80rem] pt-3 pb-6 ps-3">
-        <div className=" flex justify-between">
+        <div
+          className={`flex justify-between ${
+            data?.channel?.server3URL && data?.channel?.server3URL !== "null"
+              ? "for-mbl-btns"
+              : ""
+          }`}
+        >
           <div className="flex gap-2">
             <button
-              class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
+              className="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
               onClick={() => setUrl(data?.channel?.server1URL)}
             >
               <div className="flex gap-1">
@@ -35,7 +41,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
                   viewBox="-2 -3 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                   preserveAspectRatio="xMinYMin"
-                  class="jam jam-screen"
+                  className="jam jam-screen"
                 >
                   <path d="M3 2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3zm0-2h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm4 16h6a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2z" />
                 </svg>
@@ -43,7 +49,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
               </div>
             </button>
             <button
-              class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
+              className="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
               onClick={() => setUrl(data?.channel?.server2URL)}
             >
               <div className="flex gap-1">
@@ -54,7 +60,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
                   viewBox="-2 -3 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                   preserveAspectRatio="xMinYMin"
-                  class="jam jam-screen"
+                  className="jam jam-screen"
                 >
                   <path d="M3 2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3zm0-2h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm4 16h6a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2z" />
                 </svg>
@@ -64,7 +70,9 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
             {data?.channel?.server3URL &&
             data?.channel?.server3URL !== "null" ? (
               <button
-                class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded"
+                className={`bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded ${
+                  data?.isFrench ? "for-mbl-btn" : ""
+                }`}
                 onClick={() => setUrl(data?.channel?.server3URL)}
               >
                 <div className="flex gap-1">
@@ -75,7 +83,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
                     viewBox="-2 -3 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="xMinYMin"
-                    class="jam jam-screen"
+                    className="jam jam-screen"
                   >
                     <path d="M3 2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3zm0-2h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm4 16h6a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2z" />
                   </svg>
@@ -87,7 +95,11 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
             )}
           </div>
           <button
-            class="bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded mr-4 theater-btn"
+            className={`bg-[#FE8805] hover:bg-[#0973F6] text-white text-sm font-medium py-[7px] px-4 rounded mr-4 theater-btn ${
+              data?.channel?.server3URL && data?.channel?.server3URL !== "null"
+                ? "theater-btn-mbl"
+                : ""
+            }`}
             onClick={() => toggleTheaterMode()}
           >
             <div className="flex gap-1">
@@ -95,6 +107,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
             </div>
           </button>
         </div>
+
         <div className="text-white pt-3">
           <h1 className="text-2xl font-semibold">{data?.data?.name}</h1>
           <br />

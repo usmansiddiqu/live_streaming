@@ -686,6 +686,15 @@ aside {
     width: 38vw;
     margin-top: 10px;
   }
+  .for-mbl-btns{
+    display: flex;
+    flex-direction: column;
+  }
+  .theater-btn-mbl{
+    width: 80px;
+    margin-top: 10px;
+    margin-left: 0px !important;
+  }
   .container1 {
     width: 70%;
     height: 25vmin;
