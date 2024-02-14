@@ -279,12 +279,11 @@ const ChatSection = ({ setTheaterMode }) => {
     ed.onerror = (error) => {
       console.error("SSE error:", error);
       ed.close();
+      establishConnection();
       // Check if the error is due to a timeout
       // if (error.eventPhase === EventSource.CLOSED) {
       //   // Connection timed out or closed, attempt to re-establish the connection
-      setTimeout(() => {
-        establishConnection();
-      }, 1000); // You can adjust the delay before re-attempting the connection
+      // You can adjust the delay before re-attempting the connection
       // }
     };
     return () => {
