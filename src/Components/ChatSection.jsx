@@ -271,6 +271,13 @@ const ChatSection = ({ setTheaterMode }) => {
         );
       } catch (error) {}
     });
+    ed?.addEventListener("close", (event) => {
+      try {
+        setTimeout(() => {
+          establishConnection();
+        }, 1000);
+      } catch (error) {}
+    });
     ed.addEventListener("HEART_BEAT", (event) => {
       try {
         console.log("listening");
