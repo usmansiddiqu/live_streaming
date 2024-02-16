@@ -29,7 +29,6 @@ const ChatSection = ({ setTheaterMode }) => {
   const [data, setData] = useState(
     localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data")) : {}
   );
-
   const [isMod, setIsMod] = useState(
     localStorage?.getItem("data")
       ? JSON.parse(localStorage?.getItem("data"))?.isMod
@@ -257,7 +256,16 @@ const ChatSection = ({ setTheaterMode }) => {
 
     ed?.addEventListener("MOD", (event) => {
       try {
+        console.log("Mod Event");
         localStorage.setItem("data", event.data);
+        window.dispatchEvent(new Event("DATA_UPDATED"));
+      } catch (error) {}
+    });
+    ed?.addEventListener("BAN", (event) => {
+      try {
+        console.log("Ban EVent");
+        localStorage.setItem("data", event.data);
+        console.log(JSON.parse(localStorage.getItem("data")));
         window.dispatchEvent(new Event("DATA_UPDATED"));
       } catch (error) {}
     });
