@@ -34,6 +34,11 @@ const ChatSection = ({ setTheaterMode }) => {
       ? JSON.parse(localStorage?.getItem("data"))?.isMod
       : false
   );
+  const [isBanned, setIsBanned] = useState(
+    localStorage?.getItem("data")
+      ? JSON.parse(localStorage?.getItem("data"))?.isBanned
+      : false
+  );
 
   const sendMessageFunc = async () => {
     try {
@@ -208,6 +213,7 @@ const ChatSection = ({ setTheaterMode }) => {
     }
   };
   const establishConnection = async () => {
+    console.log(localStorage.getItem("token"));
     const ed = new EventSourcePolyfill(
       `http://pixelsport.tv/backend/chat/stream`,
       {
@@ -315,6 +321,7 @@ const ChatSection = ({ setTheaterMode }) => {
     window.addEventListener("DATA_UPDATED", () => {
       const data = JSON.parse(localStorage.getItem("data"));
       setIsMod(data.isMod);
+      setIsBanned(data.isBanned);
     });
   }, []);
 
@@ -397,27 +404,30 @@ const ChatSection = ({ setTheaterMode }) => {
               style={{ justifyContent: "space-between" }}
             >
               <div className="w-[100%] input-1 flex p-1 items-center">
-                <MentionsInput
-                  value={newMessage}
-                  onChange={(e, newValue, plainTextValue, mentions) => {
-                    setNewMessage(newValue);
-                    setMentionData(mentions);
-                  }}
-                  onKeyDown={handleKeyDown}
-                  style={mentionStyle}
-                  placeholder="Type your message"
-                  // className="!focus:outline-none  !border-0 chat-text-area   !focus:ring-0"
-                >
-                  <Mention
-                    trigger="@"
-                    style={{
-                      backgroundColor: "rgba(251, 122, 3, 0.15)",
-                      marginBottom: "20px",
+                {isBanned ? (
+                  <h1>You have been banned</h1>
+                ) : (
+                  <MentionsInput
+                    value={newMessage}
+                    onChange={(e, newValue, plainTextValue, mentions) => {
+                      setNewMessage(newValue);
+                      setMentionData(mentions);
                     }}
-                    data={users}
-                    displayTransform={(id, display) => `@${display}`}
-                  />
-                </MentionsInput>
+                    onKeyDown={handleKeyDown}
+                    style={mentionStyle}
+                    placeholder="Type your message"
+                  >
+                    <Mention
+                      trigger="@"
+                      style={{
+                        backgroundColor: "rgba(251, 122, 3, 0.15)",
+                        marginBottom: "20px",
+                      }}
+                      data={users}
+                      displayTransform={(id, display) => `@${display}`}
+                    />
+                  </MentionsInput>
+                )}
               </div>
 
               <div className="flex justify-evenly" style={{ width: "80px" }}>
