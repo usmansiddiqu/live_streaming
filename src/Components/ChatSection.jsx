@@ -410,7 +410,7 @@ const ChatSection = ({ setTheaterMode }) => {
             >
               <div className="w-[100%] input-1 flex p-1 items-center">
                 {isBanned ? (
-                  <h1>You have been banned</h1>
+                  <h1 className="text-white">You have been banned from Chat</h1>
                 ) : (
                   <MentionsInput
                     value={newMessage}
