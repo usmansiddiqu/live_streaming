@@ -225,9 +225,7 @@ const ChatSection = ({ setTheaterMode }) => {
     );
     ed?.addEventListener("message", (event) => {
       const { data, event: eventType } = JSON.parse(event.data);
-      if (eventType != "CHAT_JOINED") {
-        console.log("COMMENT", JSON.stringify({ data, eventType }));
-      }
+      XS;
 
       switch (eventType) {
         case "CHAT_CREATED":
@@ -235,7 +233,7 @@ const ChatSection = ({ setTheaterMode }) => {
           break;
         case "CHAT_JOINED":
           try {
-            let connectedUsers = JSON.parse(data.data);
+            let connectedUsers = JSON.parse(data);
             connectedUsers = JSON.parse(connectedUsers["STREAM"]);
 
             setOnlineUsers(Object.keys(connectedUsers).length);
@@ -251,7 +249,7 @@ const ChatSection = ({ setTheaterMode }) => {
           break;
         case "CHAT_LEFT":
           try {
-            let connectedUsers = JSON.parse(data.data);
+            let connectedUsers = JSON.parse(data);
             connectedUsers = connectedUsers["STREAM"];
             setOnlineUsers(Object.keys(connectedUsers).length);
             let u = [];
@@ -421,9 +419,11 @@ const ChatSection = ({ setTheaterMode }) => {
             >
               <div className="w-[100%] input-1 flex p-1 items-center">
                 {isBanned ? (
-                 <div className="w-[100%] text-center">
-                   <h1 className="text-white text-sm">You have been banned from Chat!</h1>
-                 </div>
+                  <div className="w-[100%] text-center">
+                    <h1 className="text-white text-sm">
+                      You have been banned from Chat!
+                    </h1>
+                  </div>
                 ) : (
                   <MentionsInput
                     value={newMessage}
