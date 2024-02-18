@@ -297,6 +297,12 @@ const ChatSection = ({ setTheaterMode }) => {
         console.log("listening");
       } catch (error) {}
     });
+    ed.addEventListener("comment", (event) => {
+      try {
+        console.log("comment", JSON.stringify(event));
+      } catch (error) {}
+    });
+
     ed.onerror = (error) => {
       console.error("SSE error:", error);
       ed.close();
