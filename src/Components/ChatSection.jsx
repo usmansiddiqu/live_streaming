@@ -225,7 +225,6 @@ const ChatSection = ({ setTheaterMode }) => {
     );
     ed?.addEventListener("message", (event) => {
       const { data, event: eventType } = JSON.parse(event.data);
-      XS;
 
       switch (eventType) {
         case "CHAT_CREATED":
