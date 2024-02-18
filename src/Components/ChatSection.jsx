@@ -303,12 +303,17 @@ const ChatSection = ({ setTheaterMode }) => {
       setTimeout(() => {
         establishConnection();
       }, 1000);
-      // Check if the error is due to a timeout
-      // if (error.eventPhase === EventSource.CLOSED) {
-      //   // Connection timed out or closed, attempt to re-establish the connection
-      // You can adjust the delay before re-attempting the connection
-      // }
     };
+
+    let reconnectInterval;
+    const reconnect = () => {
+      ed?.close();
+      setTimeout(() => {
+        establishConnection();
+      }, 1000);
+    };
+    reconnectInterval = setInterval(reconnect, 60000);
+    // 900000;
     return () => {
       ed?.close();
       removeUser();

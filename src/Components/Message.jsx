@@ -25,7 +25,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
   if (data) {
     data = JSON.parse(data)._id;
   }
-  const getRandomColor = () => {
+  const getRandomColor = (name) => {
     const colors = [
       "#A5F700",
       "#F766AE",
@@ -35,7 +35,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
       "#F6A71B",
       "#F6781D",
     ];
-    return colors[index % 6];
+    return colors[name.length % 6];
   };
   const handleToggleActionBox = () => {
     if (openActionBoxIndex === index && isVisible) {
@@ -135,7 +135,9 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
               fontSize: "13px",
             }}
           >
-            <span style={{ color: getRandomColor() }}>{msg.userId.name}</span>
+            <span style={{ color: getRandomColor(msg.userId.name) }}>
+              {msg.userId.name}
+            </span>
             <span className="ml-1" style={{ color: "white" }}>
               :
             </span>
