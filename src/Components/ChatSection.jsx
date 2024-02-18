@@ -225,9 +225,9 @@ const ChatSection = ({ setTheaterMode }) => {
     );
     ed?.addEventListener("message", (event) => {
       const data = JSON.parse(event.data);
-      const event = data.event;
+      const eventType = data.event;
 
-      switch (event) {
+      switch (eventType) {
         case "CHAT_CREATED":
           setMessages((prevMessages) => [...prevMessages, data]);
           break;
