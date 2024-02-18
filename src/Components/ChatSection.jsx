@@ -225,7 +225,9 @@ const ChatSection = ({ setTheaterMode }) => {
     );
     ed?.addEventListener("message", (event) => {
       const { data, event: eventType } = JSON.parse(event.data);
-      console.log("COMMENT", JSON.stringify({ data, eventType }));
+      if (eventType != "CHAT_JOINED") {
+        console.log("COMMENT", JSON.stringify({ data, eventType }));
+      }
 
       switch (eventType) {
         case "CHAT_CREATED":
