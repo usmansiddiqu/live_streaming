@@ -269,7 +269,6 @@ const ChatSection = ({ setTheaterMode }) => {
     });
     ed?.addEventListener("BAN", (event) => {
       try {
-        console.log("Ban EVent");
         localStorage.setItem("data", event.data);
         console.log(JSON.parse(localStorage.getItem("data")));
         window.dispatchEvent(new Event("DATA_UPDATED"));
@@ -297,9 +296,9 @@ const ChatSection = ({ setTheaterMode }) => {
         console.log("listening");
       } catch (error) {}
     });
-    ed.addEventListener("comment", (event) => {
+    ed.addEventListener("COMMENT", (event) => {
       try {
-        console.log("comment", JSON.stringify(event));
+        console.log("COMMENT", JSON.stringify(event));
       } catch (error) {}
     });
 
