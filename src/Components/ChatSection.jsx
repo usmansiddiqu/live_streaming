@@ -223,83 +223,69 @@ const ChatSection = ({ setTheaterMode }) => {
         heartbeatTimeout: 120000,
       }
     );
-    ed?.addEventListener("CHAT_CREATED", (event) => {
+    ed?.addEventListener("message", (event) => {
       const data = JSON.parse(event.data);
-      setMessages((prevMessages) => [...prevMessages, data]);
-    });
-    ed?.addEventListener("CHAT_JOINED", (event) => {
-      try {
-        let connectedUsers = JSON.parse(event.data);
-        connectedUsers = JSON.parse(connectedUsers["STREAM"]);
+      const event = data.event;
 
-        setOnlineUsers(Object.keys(connectedUsers).length);
-        let u = [];
-        for (const [key, value] of Object.entries(connectedUsers)) {
-          u.push({
-            id: key,
-            display: value,
-          });
-        }
-        setUsers(u);
-      } catch (error) {}
-    });
+      switch (event) {
+        case "CHAT_CREATED":
+          setMessages((prevMessages) => [...prevMessages, data]);
+          break;
+        case "CHAT_JOINED":
+          try {
+            let connectedUsers = JSON.parse(data.data);
+            connectedUsers = JSON.parse(connectedUsers["STREAM"]);
 
-    ed?.addEventListener("CHAT_LEFT", (event) => {
-      try {
-        let connectedUsers = JSON.parse(event.data);
-        connectedUsers = connectedUsers["STREAM"];
-        setOnlineUsers(Object.keys(connectedUsers).length);
-        let u = [];
-        for (const [key, value] of Object.entries(connectedUsers)) {
-          u.push({
-            id: key,
-            display: value,
-          });
-        }
-        setUsers(u);
-      } catch (error) {}
-    });
-
-    ed?.addEventListener("MOD", (event) => {
-      try {
-        console.log("Mod Event");
-        localStorage.setItem("data", event.data);
-        window.dispatchEvent(new Event("DATA_UPDATED"));
-      } catch (error) {}
-    });
-    ed?.addEventListener("BAN", (event) => {
-      try {
-        localStorage.setItem("data", event.data);
-        console.log(JSON.parse(localStorage.getItem("data")));
-        window.dispatchEvent(new Event("DATA_UPDATED"));
-      } catch (error) {}
-    });
-
-    ed?.addEventListener("MESSAGE_DELETED", (event) => {
-      try {
-        setMessages((prevMessages) =>
-          prevMessages.filter(
-            (message) => String(message._id) != JSON.parse(event.data)
-          )
-        );
-      } catch (error) {}
-    });
-    ed?.addEventListener("close", (event) => {
-      try {
-        setTimeout(() => {
-          establishConnection();
-        }, 1000);
-      } catch (error) {}
-    });
-    ed.addEventListener("HEART_BEAT", (event) => {
-      try {
-        console.log("listening");
-      } catch (error) {}
-    });
-    ed.addEventListener("COMMENT", (event) => {
-      try {
-        console.log("COMMENT", JSON.stringify(event));
-      } catch (error) {}
+            setOnlineUsers(Object.keys(connectedUsers).length);
+            let u = [];
+            for (const [key, value] of Object.entries(connectedUsers)) {
+              u.push({
+                id: key,
+                display: value,
+              });
+            }
+            setUsers(u);
+          } catch (error) {}
+          break;
+        case "CHAT_LEFT":
+          try {
+            let connectedUsers = JSON.parse(data.data);
+            connectedUsers = connectedUsers["STREAM"];
+            setOnlineUsers(Object.keys(connectedUsers).length);
+            let u = [];
+            for (const [key, value] of Object.entries(connectedUsers)) {
+              u.push({
+                id: key,
+                display: value,
+              });
+            }
+            setUsers(u);
+          } catch (error) {}
+          break;
+        case "MOD":
+        case "BAN":
+          try {
+            localStorage.setItem("data", data.data);
+            window.dispatchEvent(new Event("DATA_UPDATED"));
+          } catch (error) {}
+          break;
+        case "MESSAGE_DELETED":
+          try {
+            setMessages((prevMessages) =>
+              prevMessages.filter(
+                (message) => String(message._id) != JSON.parse(data.data)
+              )
+            );
+          } catch (error) {}
+          break;
+        case "COMMENT":
+          try {
+            console.log("COMMENT", JSON.stringify(data));
+          } catch (error) {}
+          break;
+        default:
+        // Handle unknown event type
+      }
     });
 
     ed.onerror = (error) => {
