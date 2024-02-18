@@ -159,22 +159,22 @@ const ChatSection = ({ setTheaterMode }) => {
       },
     },
   };
-  const memoizedMessages = useMemo(
-    () =>
-      messages?.map((msg, index) => (
-        <Message
-          key={index}
-          msg={msg}
-          messages={messages}
-          setMessages={setMessages}
-          index={index}
-          isMod={isMod}
-          isOpen={openActionBoxIndex === index}
-          toggleActionBox={toggleActionBox}
-        />
-      )),
-    [messages]
-  );
+  // const memoizedMessages = useef(
+  //   () =>
+  //     messages?.map((msg, index) => (
+  //       <Message
+  //         key={index}
+  //         msg={msg}
+  //         messages={messages}
+  //         setMessages={setMessages}
+  //         index={index}
+  //         isMod={isMod}
+  //         isOpen={openActionBoxIndex === index}
+  //         toggleActionBox={toggleActionBox}
+  //       />
+  //     )),
+  //   [messages]
+  // );
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -225,6 +225,7 @@ const ChatSection = ({ setTheaterMode }) => {
     );
     ed?.addEventListener("message", (event) => {
       const { data, event: eventType } = JSON.parse(event.data);
+      console.log("COMMENT", JSON.stringify({ data, eventType }));
 
       switch (eventType) {
         case "CHAT_CREATED":
@@ -279,7 +280,7 @@ const ChatSection = ({ setTheaterMode }) => {
           break;
         case "COMMENT":
           try {
-            console.log("COMMENT", JSON.stringify(data));
+            // console.log("COMMENT", JSON.stringify(data));
           } catch (error) {}
           break;
         default:
@@ -368,7 +369,20 @@ const ChatSection = ({ setTheaterMode }) => {
               style={{ maxHeight: "77%", overflowY: "visible" }}
             >
               {/* <div style={{ transform: "rotate(180deg)" }}> */}
-              <div>{memoizedMessages}</div>
+              <div>
+                {messages?.map((msg, index) => (
+                  <Message
+                    key={index}
+                    msg={msg}
+                    messages={messages}
+                    setMessages={setMessages}
+                    index={index}
+                    isMod={isMod}
+                    isOpen={openActionBoxIndex === index}
+                    toggleActionBox={toggleActionBox}
+                  />
+                ))}
+              </div>
               {/* {messages.map((msg, index) => (
                 <Message key={index} msg={msg} index={index} />
               ))} */}
