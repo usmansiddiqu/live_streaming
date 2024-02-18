@@ -213,7 +213,7 @@ const ChatSection = ({ setTheaterMode }) => {
     }
   };
   const establishConnection = async () => {
-    console.log(localStorage.getItem("token"));
+    console.log("connection established");
     const ed = new EventSourcePolyfill(
       `http://pixelsport.tv/backend/chat/stream`,
       {
@@ -307,14 +307,19 @@ const ChatSection = ({ setTheaterMode }) => {
 
     let reconnectInterval;
     const reconnect = () => {
-      ed?.close();
       setTimeout(() => {
         establishConnection();
       }, 1000);
     };
-    reconnectInterval = setInterval(reconnect, 60000);
+    // reconnectInterval = setInterval(() => {
+    //   clearInterval(reconnectInterval);
+    //   ed?.close();
+    //   console.log("trying to reconnect");
+    //   reconnect();
+    // }, 900000);
     // 900000;
     return () => {
+      // clearInterval(reconnectInterval);
       ed?.close();
       removeUser();
     };
