@@ -312,9 +312,13 @@ const ChatSection = ({ setTheaterMode }) => {
         establishConnection();
       }, 1000);
     };
-    reconnectInterval = setInterval(reconnect, 60000);
+    reconnectInterval = setInterval(() => {
+      clearInterval(reconnectInterval);
+      reconnect();
+    }, 60000);
     // 900000;
     return () => {
+      clearInterval(reconnectInterval);
       ed?.close();
       removeUser();
     };
