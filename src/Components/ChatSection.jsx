@@ -311,15 +311,15 @@ const ChatSection = ({ setTheaterMode }) => {
         establishConnection();
       }, 1000);
     };
-    reconnectInterval = setInterval(() => {
-      clearInterval(reconnectInterval);
-      ed?.close();
-      console.log("trying to reconnect");
-      reconnect();
-    }, 900000);
+    // reconnectInterval = setInterval(() => {
+    //   clearInterval(reconnectInterval);
+    //   ed?.close();
+    //   console.log("trying to reconnect");
+    //   reconnect();
+    // }, 900000);
     // 900000;
     return () => {
-      clearInterval(reconnectInterval);
+      // clearInterval(reconnectInterval);
       ed?.close();
       removeUser();
     };
