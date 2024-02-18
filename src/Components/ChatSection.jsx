@@ -267,7 +267,7 @@ const ChatSection = ({ setTheaterMode }) => {
         case "MOD":
         case "BAN":
           try {
-            localStorage.setItem("data", data.data);
+            localStorage.setItem("data", JSON.stringify(data));
             window.dispatchEvent(new Event("DATA_UPDATED"));
           } catch (error) {}
           break;
@@ -398,7 +398,7 @@ const ChatSection = ({ setTheaterMode }) => {
                 justifyContent: "flex-end",
               }}
             >
-              <div
+              {/* <div
                 className="flex items-center justify-evenly online mb-2 bg-[#4949FA] px-3"
                 style={{
                   boxShadow: "-2px 4px 13px -1px rgba(0,0,0,0.67)",
@@ -412,7 +412,7 @@ const ChatSection = ({ setTheaterMode }) => {
                 >
                   Online <span>{onlineUsers}</span>
                 </span>
-              </div>
+              </div> */}
             </div>
 
             <div
