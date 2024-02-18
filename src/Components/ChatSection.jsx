@@ -355,19 +355,19 @@ const ChatSection = ({ setTheaterMode }) => {
           <span></span>
         </div>
         <div
-          className="  relative chat-box-container"
+          className="  relative chat-box-container mb-3"
           style={{ height: "98%" }}
         >
           <div
-            className="chat-bar"
+            className="chat-bar mb-1"
             style={{
-              height: "85.5%",
+              height: "89%",
               overflowY: "auto",
               // transform: "rotate(180deg)",
             }}
           >
             <div
-              className="mb-1 mt-2 chat-scroll "
+              className="mb-2 mt-2 chat-scroll "
               style={{ maxHeight: "77%", overflowY: "visible" }}
             >
               {/* <div style={{ transform: "rotate(180deg)" }}> */}
@@ -391,7 +391,7 @@ const ChatSection = ({ setTheaterMode }) => {
             </div>
           </div>
 
-          <div className="flex flex-column  absolute w-[100%] px-2 mb-2 input-box h-[10%] ">
+          <div className="flex flex-column  absolute w-[100%] px-2 mb-2 input-box ">
             <div
               className="flex"
               style={{
@@ -421,7 +421,9 @@ const ChatSection = ({ setTheaterMode }) => {
             >
               <div className="w-[100%] input-1 flex p-1 items-center">
                 {isBanned ? (
-                  <h1 className="text-white">You have been banned from Chat</h1>
+                 <div className="w-[100%] text-center">
+                   <h1 className="text-white text-sm">You have been banned from Chat!</h1>
+                 </div>
                 ) : (
                   <MentionsInput
                     value={newMessage}
