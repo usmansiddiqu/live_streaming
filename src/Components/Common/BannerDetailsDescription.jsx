@@ -6,7 +6,7 @@ function BannerDetailsDescription({ data, setUrl }) {
   const navigate = useNavigate();
 
   return (
-    <div className="flex justify-center mt-8 ">
+    <div className="flex justify-center mt-3 ">
       <div className=" bg-[#190D39] w-[60vw] pt-4 pb-6 ps-3 live-head">
         <div className="">
           <h1 className="text-white text-2xl pb-4">{data?.liveTV?.TVName}</h1>
