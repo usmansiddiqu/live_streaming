@@ -225,6 +225,7 @@ const ChatSection = ({ setTheaterMode }) => {
     );
     ed?.addEventListener("message", (event) => {
       const { data, event: eventType } = JSON.parse(event.data);
+      console.log("COMMENT", JSON.stringify({ data, eventType }));
 
       switch (eventType) {
         case "CHAT_CREATED":
@@ -272,7 +273,7 @@ const ChatSection = ({ setTheaterMode }) => {
           try {
             setMessages((prevMessages) =>
               prevMessages.filter(
-                (message) => String(message._id) != JSON.parse(data.data)
+                (message) => String(message._id) != JSON.parse(data)
               )
             );
           } catch (error) {}
