@@ -272,9 +272,7 @@ const ChatSection = ({ setTheaterMode }) => {
         case "MESSAGE_DELETED":
           try {
             setMessages((prevMessages) =>
-              prevMessages.filter(
-                (message) => String(message._id) != JSON.parse(data)
-              )
+              prevMessages.filter((message) => String(message._id) != data._id)
             );
           } catch (error) {}
           break;
