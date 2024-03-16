@@ -7,10 +7,12 @@ import createPayment from "../../api/addPayment";
 import ErrorComponent from "../Common/ErrorComponent";
 import Card from "../../Assets/Icons/money.png";
 import Crypto from "../../Assets/Icons/bitcoin.png";
+import policioPayment from "../../api/policioPayment";
 function PlanCards() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
-    const [isCardSelected, setCardSelected] = useState(false);
+  const [isCardSelected, setCardSelected] = useState(false);
+  console.log(isCardSelected);
   const getData = async () => {
     const { data: response } = await getPlans();
     setData(response.data);
@@ -18,19 +20,35 @@ function PlanCards() {
   useEffect(() => {
     getData();
   }, []);
-    const toggleCard = () => {
-    setCardSelected(prevState => !prevState);
+  const toggleCard = () => {
+    setCardSelected((prevState) => !prevState);
   };
   const [error, setError] = useState(null);
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
   const handleClick = async (packageId) => {
+    console.log(packageId);
     if (!localStorage.getItem("token") || !localStorage.getItem("data")) {
       navigate("/signup");
     } else {
-      const result = await createPayment({ package_id: packageId });
-      if (result?.data?.error) {
-        setError(result?.data?.error);
+      if (isCardSelected) {
+        const result = await policioPayment({ packageId: packageId });
+        console.log(result);
+        if (result?.data?.error) {
+          setError(result?.data?.error);
+        } else {
+          openInNewTab(result.data?.data?.data?.invoice_url);
+          // window.location.href = result.data?.data?.data?.invoice_url;
+        }
       } else {
-        window.location.href = result.data.data;
+        const result = await createPayment({ package_id: packageId });
+        if (result?.data?.error) {
+          setError(result?.data?.error);
+        } else {
+          window.location.href = result.data.data;
+        }
       }
     }
     // setError("Please contact live support for buying service and renewal");
@@ -52,24 +70,30 @@ function PlanCards() {
           then it will be automatically canceled at the end of the billing
           period.
         </h4>
-      <div>
-        <h4 className="mb-4">Choose Payment Method:</h4>
-          <div className="mb-4" style={{display:'flex' ,gap:'20px',alignItems:'center'}}> 
-        <div style={{display:'flex',alignItems:'center',gap:'3px'}}>
-            <img style={{width:'45px'}} src={Card} alt="" />
-        <h4>Card</h4>
+        <div>
+          <h4 className="mb-4">Choose Payment Method:</h4>
+          <div
+            className="mb-4"
+            style={{ display: "flex", gap: "20px", alignItems: "center" }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: "3px" }}>
+              <img style={{ width: "45px" }} src={Card} alt="" />
+              <h4>Card</h4>
+            </div>
+            <label className="switch ">
+              <input
+                type="checkbox"
+                checked={isCardSelected}
+                onChange={toggleCard}
+              />
+              <span className="slider round"></span>
+            </label>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <img style={{ width: "25px" }} src={Crypto} alt="" />
+              <h4>Crypto</h4>
+            </div>
+          </div>
         </div>
-        <label className="switch ">
-        <input type="checkbox" checked={isCardSelected} onChange={toggleCard} />
-        <span className="slider round"></span>
-        </label>
-        <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
-          <img style={{width:'25px'}}  src={Crypto} alt="" />
-        <h4>Crypto</h4>
-        </div>
-          
-        </div>
-      </div>
         <div className="flex pay-cards justify-between items-center flex-wrap">
           {data?.map((payment) => (
             <div key={payment._id} className="flex w-[20rem] mb-4">
