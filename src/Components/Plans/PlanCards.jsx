@@ -39,8 +39,8 @@ function PlanCards() {
         if (result?.data?.error) {
           setError(result?.data?.error);
         } else {
-          openInNewTab(result.data?.data?.data?.invoice_url);
-          // window.location.href = result.data?.data?.data?.invoice_url;
+          // openInNewTab(result.data?.data?.data?.invoice_url);
+          window.location.href = result.data?.data?.data?.invoice_url;
         }
       } else {
         const result = await createPayment({ package_id: packageId });
