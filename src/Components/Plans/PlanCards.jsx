@@ -71,9 +71,9 @@ function PlanCards() {
           period.
         </h4>
         <div>
-          <h4 className="mb-4">Choose Payment Method:</h4>
+          <h4 className="mb-4 pay-texts">Choose Payment Method:</h4>
           <div
-            className="mb-4"
+            className="mb-4 pay-texts"
             style={{ display: "flex", gap: "20px", alignItems: "center" }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "3px" }}>
