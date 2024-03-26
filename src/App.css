@@ -27,6 +27,9 @@ div {
   /* overflow-y: hidden; */
   background-color: #0d0624;
 }
+  .pay-cards {
+    width: 80%;
+  }
 .chat-responsive {
   justify-content: space-between;
 }
@@ -1439,6 +1442,7 @@ aside {
     margin-top: -20px;
   }
   .pay-cards {
+    width: 100%;
     justify-content: center;
   }
   .contact-form {

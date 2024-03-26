@@ -11,12 +11,19 @@ import policioPayment from "../../api/policioPayment";
 function PlanCards() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+  const [sortedData, setSortedData] = useState([]);
   const [isCardSelected, setCardSelected] = useState(false);
   console.log(isCardSelected);
   const getData = async () => {
     const { data: response } = await getPlans();
     setData(response.data);
   };
+
+
+  useEffect(() => {
+    const sorted = [...data].sort((a, b) => a.days - b.days);
+    setSortedData(sorted);
+  }, [data]);
   useEffect(() => {
     getData();
   }, []);
@@ -62,7 +69,7 @@ function PlanCards() {
     }
   };
   return (
-    <div className="lg:px-20 md:px-10 sm:px-5 w-[73vw] mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
+    <div className="lg:px-20 md:px-10 sm:px-5 w-[73vw] mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5" style={{marginLeft:'250px'}}>
       <div className="flex flex-col w-full ">
         {error && <ErrorComponent message={error} />}
         <h4 className="mb-4 pay-texts">
@@ -94,58 +101,58 @@ function PlanCards() {
             </div>
           </div>
         </div>
-        <div className="flex pay-cards justify-between items-center flex-wrap">
-          {data?.map((payment) => (
-            <div key={payment._id} className="flex w-[20rem] mb-4">
-              <div
-                className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
-                style={{
-                  backgroundColor: "#1F1340",
-                  backgroundImage: `url(${plan})`,
-                }}
-              >
-                <div className="flex justify-start items-start">
-                  <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
-                    <div
-                      className="mx-auto text-center font-semibold"
-                      style={{ fontSize: "17px" }}
-                    >
-                      {payment.name}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col justify-center items-center">
-                  <p className="text-4xl font-bold">
-                    <span className="text-xl">$</span>
-                    {payment.amount}
-                    <span className="text-xl">.00</span>
-                  </p>
-                  <div
-                    className="w-14 rounded-lg bg-blue-500"
-                    style={{ paddingTop: "4px", marginTop: "4px" }}
-                  />
-                  <div>
-                    <p className="text-lg mt-3">
-                      <span> {payment.days}</span> <span>Day</span> (
-                      <span>s</span>)
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => {
-                      if (payment.name === "Free Service - No Card required") {
-                        handleFreePayment();
-                      } else handleClick(payment._id);
-                    }}
-                    className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
-                  >
-                    Select Plan
-                  </button>
+      <div className="flex pay-cards justify-between items-center flex-wrap">
+      {sortedData.map((payment) => (
+        <div key={payment._id} className="flex w-[20rem] mb-4">
+          <div
+            className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
+            style={{
+              backgroundColor: "#1F1340",
+              backgroundImage: `url(${plan})`,
+            }}
+          >
+            <div className="flex justify-start items-start">
+              <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
+                <div
+                  className="mx-auto text-center font-semibold"
+                  style={{ fontSize: "17px" }}
+                >
+                  {payment.name}
                 </div>
               </div>
             </div>
-          ))}
+
+            <div className="flex flex-col justify-center items-center">
+              <p className="text-4xl font-bold">
+                <span className="text-xl">$</span>
+                {payment.amount}
+                <span className="text-xl">.00</span>
+              </p>
+              <div
+                className="w-14 rounded-lg bg-blue-500"
+                style={{ paddingTop: "4px", marginTop: "4px" }}
+              />
+              <div>
+                <p className="text-lg mt-3">
+                  <span> {payment.days}</span> <span>Day</span> (
+                  <span>s</span>)
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  if (payment.name === "Free Service - No Card required") {
+                    handleFreePayment();
+                  } else handleClick(payment._id);
+                }}
+                className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
+              >
+                Select Plan
+              </button>
+            </div>
+          </div>
         </div>
+      ))}
+    </div>
       </div>
     </div>
   );
