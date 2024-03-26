@@ -11,7 +11,7 @@ import policioPayment from "../../api/policioPayment";
 function PlanCards() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
-  const [isCardSelected, setCardSelected] = useState(true);
+  const [isCardSelected, setCardSelected] = useState(false);
   console.log(isCardSelected);
   const getData = async () => {
     const { data: response } = await getPlans();
