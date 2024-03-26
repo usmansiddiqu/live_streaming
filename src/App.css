@@ -428,7 +428,20 @@ aside {
     margin-left: 0px;
   }
 }
-
+@media screen and (max-width: 1820px) {
+  .pay-cards{
+    width: 1050px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 1520px) {
+  .pay-cards{
+    width: 670px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}
 @media screen and (max-width: 1360px) {
   .mainSlider {
     height: 30rem !important;
