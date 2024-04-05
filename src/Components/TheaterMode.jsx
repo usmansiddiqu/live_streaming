@@ -20,7 +20,7 @@ function TheaterMode({ data, url, setTheaterMode }) {
       eventTime
         .clone()
         .add(
-          type == "NBA" ? 2.6 : type == "NHL" ? 3 : type == "MLB" ? 3 : 3.5,
+          type == "NBA" ? 2.6 : type == "NHL" ? 3 : type == "MLB" ? 3.5 : 3.5,
           "hours"
         )
     );
