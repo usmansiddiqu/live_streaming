@@ -11,11 +11,11 @@ function BannerDetailsDescription({ data, setUrl }) {
         <div className="">
           <h1 className="text-white text-2xl pb-4">{data?.liveTV?.TVName}</h1>
         </div>
-        <div className="flex items-center mb-2">
+        {/* <div className="flex items-center mb-2">
           <img src={EYE} alt="" className="w-[20px] h-[20px]" />
           <h1 className="text-white ml-2">109.10k</h1>
           <span className="text-white ml-2">Views</span>
-        </div>
+        </div> */}
         <div className="">
           <h1 className="text-white pb-4">NHL</h1>
         </div>
