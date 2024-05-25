@@ -1,0 +1,92 @@
+// .chatBorder {
+//   border: 1px !important;
+//   //   border-bottom: 0px !important;
+
+// }
+// .chat-scroll{
+
+// }
+
+.msgHover:hover {
+  background-color: #342857;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.msgHover:hover .time {
+  display: block;
+}
+
+.time {
+  display: none; /* Initially hide the time */
+  color: #888; /* Adjust the color as needed */
+  font-size: 12px; /* Adjust the font size as needed */
+  margin-left: 8px; /* Adjust the margin as needed */
+}
+.chat-scroll::-webkit-scrollbar {
+  display: none;
+  // background-color: #00c22a;
+}
+.chat-bar::-webkit-scrollbar {
+  display: none !important;
+  // background-color: #313131;
+}
+.chat-bar {
+  -ms-overflow-style: none none !important;
+  scrollbar-width: none none !important;
+}
+.chat-scroll {
+  -ms-overflow-style: none none !important;
+  scrollbar-width: none none !important;
+}
+.input-1 {
+  textarea {
+    /* border-radius: 20px !important; */
+    background-color: transparent !important;
+    /* outline: 0px !important; */
+    resize: none !important;
+    line-height: 15px !important;
+    border: 1px solid white !important;
+    /* border-color: Transparent !important; */
+    /* overflow: auto !important; */
+    outline: none !important;
+    border-radius: 20px !important;
+    color: white !important;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-size: 10px !important;
+    height: 45px;
+    max-height: 40px !important;
+  }
+  textarea:focus {
+    background-color: transparent !important;
+    /* outline: 0px !important; */
+    color: #1a1a1a;
+  }
+}
+
+.input-1 {
+  .chat-text-area {
+    background-color: transparent !important;
+    // outline: 0px !important;
+    resize: none !important;
+    line-height: 15px !important;
+    // border-style: none !important;
+    // border-color: Transparent !important;
+    // overflow: auto !important;
+    // outline: none !important;
+    border-radius: 20px !important;
+  }
+  .chat-text-area:focus,
+  select:focus {
+    background-color: transparent !important;
+    // outline: 0px !important;
+    // color: #1a1a1a;
+  }
+}
+
+.emoji-picker {
+  position: absolute;
+  margin-left: -370px;
+  // margin-top: 200px !important;
+  top: -450px;
+}

@@ -17,6 +17,9 @@ div {
   overflow-x: hidden !important;
   background-color: #0d0624;
 }
+.crisp-client .cc-tlyw[data-full-view="true"] .cc-kxkl .cc-nsge .cc-imbb {
+  display: block !important;
+}
 .App {
   width: 100vw;
   height: 100vh;
@@ -24,6 +27,40 @@ div {
   /* overflow-y: hidden; */
   background-color: #0d0624;
 }
+  .pay-cards {
+    width: 80%;
+  }
+.chat-responsive {
+  justify-content: space-between;
+}
+/* [data-player] {
+  width: 100% !important;
+  height: 90vh !important;
+} */
+.action-dot {
+  visibility: hidden;
+}
+.msg-actions:hover .action-dot {
+  visibility: visible;
+}
+.action-box {
+  border-radius: 6px;
+}
+.action-box1 {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom: 0px !important;
+}
+.action-box2 {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top: 0px !important;
+}
+.action-hover:hover {
+  background-color: #0d0624;
+  transition: 0.1s ease-in-out;
+}
+
 li a {
   text-decoration: none;
 }
@@ -33,6 +70,12 @@ li a {
 aside {
   width: 100% !important;
   height: 100% !important;
+}
+.epr-header {
+  display: none !important;
+}
+.epr-skin-tones {
+  display: none !important;
 }
 .epr-main
   .EmojiPickerReact
@@ -385,7 +428,20 @@ aside {
     margin-left: 0px;
   }
 }
-
+@media screen and (max-width: 1820px) {
+  .pay-cards{
+    width: 1050px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 1520px) {
+  .pay-cards{
+    width: 670px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}
 @media screen and (max-width: 1360px) {
   .mainSlider {
     height: 30rem !important;
@@ -410,6 +466,19 @@ aside {
   .mainSlider {
     height: 25.5rem !important;
   }
+  .chat-responsive {
+    display: flex;
+    flex-direction: column;
+  }
+  .live-chat-responsive {
+    width: 100% !important;
+  }
+  .live-deatil-container {
+    height: 45vh;
+  }
+  .chat-box-container {
+    height: 93% !important;
+  }
 }
 @media screen and (max-width: 1155px) {
   .mainSlider {
@@ -419,6 +488,10 @@ aside {
 @media screen and (max-width: 1100px) {
   .mainSlider {
     height: 22.5rem !important;
+  }
+  .live-chat-responsive1 {
+    width: 100%;
+    height: 62vh !important;
   }
 }
 @media screen and (max-width: 1050px) {
@@ -515,7 +588,7 @@ aside {
     margin-top: -20px;
   }
   .container {
-    padding-left: 10px !important;
+    padding-left: 10px ;
   }
   .footer-width {
     width: 98% !important;
@@ -629,6 +702,15 @@ aside {
     width: 38vw;
     margin-top: 10px;
   }
+  .for-mbl-btns{
+    display: flex;
+    flex-direction: column;
+  }
+  .theater-btn-mbl{
+    width: 80px;
+    margin-top: 10px;
+    margin-left: 0px !important;
+  }
   .container1 {
     width: 70%;
     height: 25vmin;
@@ -637,13 +719,14 @@ aside {
   .palyer-mbl {
     height: 25% !important;
   }
-  .chat-bar {
+  /* .chat-bar {
     height: 22.5rem !important;
-  }
+  } */
   .live-chat-responsive {
     width: 100%;
-    height: 55% !important;
+    height: 45% !important;
   }
+
   .banner-text {
     left: 24% !important;
     font-size: 24px !important;
@@ -1372,6 +1455,7 @@ aside {
     margin-top: -20px;
   }
   .pay-cards {
+    width: 100%;
     justify-content: center;
   }
   .contact-form {
@@ -1848,6 +1932,7 @@ aside {
   .boox {
     width: 90% !important;
   }
+
   .pay-cardds {
     height: 28vh;
     width: 83vw !important;
@@ -1876,6 +1961,12 @@ aside {
   .deatils-carddd {
     width: 76%;
   }
+  .details-icons {
+    margin-top: 200px !important;
+  }
+  .live-deatil-container {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 1120px) {
   .deatils-carddd {
@@ -1885,6 +1976,9 @@ aside {
 @media screen and (max-width: 1080px) {
   .deatils-carddd {
     width: 70%;
+  }
+  .details-icons {
+    margin-top: 250px !important;
   }
 }
 @media screen and (max-width: 880px) {
@@ -1906,15 +2000,28 @@ aside {
   .deatils-carddd {
     width: 71%;
   }
+  .live-deatil-container {
+    height: 35rem;
+  }
+  .details-icons {
+    margin-top: 50px !important;
+  }
 }
 @media screen and (max-width: 755px) {
   .deatils-carddd {
     width: 80%;
   }
+  .chat-responsive {
+    display: block !important;
+    justify-content: space-between;
+  }
 }
 @media screen and (max-width: 675px) {
   .deatils-carddd {
     width: 75%;
+  }
+  .live-deatil-container {
+    height: 20rem;
   }
 }
 /* Live Chat Responsiveness */
@@ -1939,10 +2046,10 @@ aside {
   .chat-scroll {
     max-height: 24rem !important;
   }
-  #videoPlayer [data-player] {
+  /* #videoPlayer [data-player] {
     width: 100% !important;
-    /* height: 100vh !important; */
-  }
+    height: 100vh !important;
+  } */
   /* .videoplayer [data-player] {
     width: 100% !important;
     height: 100vh !important;
@@ -1952,7 +2059,8 @@ aside {
   }
   .live-chat-responsive {
     width: 100%;
-    height: 55% !important;
+    /* height: 55% !important; */
+    justify-content: flex-start !important;
   }
   .chat-mbl-box {
     height: 100vh;
@@ -1980,10 +2088,10 @@ aside {
 }
 @media screen and (max-width: 2400px) {
   .input-1 {
-    width: 76% !important;
+    width: 70% !important;
   }
   .input-2 {
-    width: 20% !important;
+    width: 23% !important;
   }
 }
 @media screen and (max-width: 2400px) {
@@ -2048,6 +2156,9 @@ aside {
   .inner-chat-box-height {
     max-height: 47rem !important;
   }
+  /* #videoPlayer [data-player] {
+    height: 98vh !important;
+  } */
   .chat-scroll {
     max-height: 42rem !important;
   }
@@ -2190,27 +2301,41 @@ aside {
   .chat-box-height {
     min-height: 30rem !important;
   }
+  .mbl-chat {
+    width: 100%;
+  }
   .inner-chat-box-height {
     max-height: 47rem !important;
+  }
+  .responsive-container {
+    height: 59vh !important;
   }
   .chat-scroll {
     max-height: 25rem !important;
   }
+  /* [data-player] {
+    width: 100% !important;
+    height: 50vh !important;
+  } */
+  .live-chat-responsive1 {
+    width: 100%;
+  }
   .input-1 {
-    width: 70% !important;
+    width: 90% !important;
   }
   .input-2 {
-    width: 28% !important;
+    width: 8% !important;
   }
+
   .msg-text {
     width: 170px !important;
     font-size: 12px;
   }
 }
 @media screen and (max-width: 1120px) {
-  .live-chat-responsive {
+  /* .live-chat-responsive {
     margin-top: 8px !important;
-  }
+  } */
 }
 @media screen and (max-width: 1020px) {
   .input-1 {
@@ -2221,6 +2346,9 @@ aside {
   }
   .live-chat-responsive {
     margin-top: 0px !important;
+  }
+  .live-chatr-footer {
+    position: relative !important;
   }
 }
 @media screen and (max-width: 580px) {
@@ -2233,6 +2361,31 @@ aside {
   .palyer-mbl {
     height: 30%;
   }
+  /* [data-player] {
+    width: 100% !important;
+    height: 40vh !important;
+  } */
+}
+@media screen and (max-width: 480px) {
+  /* [data-player] {
+    width: 100% !important;
+    height: 30vh !important;
+  } */
+  .chat-box-container {
+    height: 100% !important;
+  }
+  .live-chat-responsive {
+    height: 60vh !important;
+  }
+}
+@media screen and (max-width: 420px) {
+
+  .live-chat-responsive {
+    height: 63vh !important;
+  }
+  .mbl-chat-font {
+    font-size: 12px !important;
+  }
 }
 @media screen and (max-width: 400px) {
   .input-1 {
@@ -2241,4 +2394,80 @@ aside {
   .input-2 {
     width: 23% !important;
   }
+  .theater-btn {
+    margin-left: 10px;
+  }
+  .emoji-box {
+    left: -900% !important;
+    width: 270px !important;
+  }
+
+  .live-chat-responsive {
+    height: 65vh !important;
+  }
+  .mbl-chat-font {
+    font-size: 12px !important;
+  }
+}
+/* toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

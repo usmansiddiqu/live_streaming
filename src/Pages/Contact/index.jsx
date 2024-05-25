@@ -110,7 +110,7 @@ function Contact() {
                 />
               </div>
             </div>
-            <div class="flex flex-wrap ">
+            <div class="flex flex-wrap form-textArea">
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
                 <label
                   class="block uppercase tracking-wide text-white text-sm  font-bold mb-2"

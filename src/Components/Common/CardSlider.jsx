@@ -62,9 +62,9 @@ const CardSlider = ({ data, type }) => {
                           type == "NBA"
                             ? 2.6
                             : type == "NHL"
-                            ? 3
+                            ? 3.5
                             : type == "MLB"
-                            ? 3
+                            ? 3.5
                             : 3.5,
                           "hours"
                         )
@@ -77,9 +77,9 @@ const CardSlider = ({ data, type }) => {
                           type == "NBA"
                             ? 2.6
                             : type == "NHL"
-                            ? 3
+                            ? 3.5
                             : type == "MLB"
-                            ? 3
+                            ? 3.5
                             : 3.5,
                           "hours"
                         )
@@ -202,9 +202,9 @@ const CardSlider = ({ data, type }) => {
                           type == "NBA"
                             ? 2.6
                             : type == "NHL"
-                            ? 3
+                            ? 3.5
                             : type == "MLB"
-                            ? 3
+                            ? 3.5
                             : 3.5,
                           "hours"
                         )
@@ -217,9 +217,9 @@ const CardSlider = ({ data, type }) => {
                           type == "NBA"
                             ? 2.6
                             : type == "NHL"
-                            ? 3
+                            ? 3.5
                             : type == "MLB"
-                            ? 3
+                            ? 3.5
                             : 3.5,
                           "hours"
                         )

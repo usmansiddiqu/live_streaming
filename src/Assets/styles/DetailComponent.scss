@@ -1,0 +1,322 @@
+// .detail-clapper-player-container {
+//   .detail-clapper-player {
+//     #videoPlayer {
+//       width: 70vw !important;
+//       height: 85.5vh !important;
+//     }
+//     [data-player] {
+//       width: 100% !important;
+//       height: 100% !important;
+//     }
+//   }
+// }
+// @media screen and (max-width: 2380px) {
+//   .detail-clapper-player-container {
+//     .detail-clapper-player {
+//       #videoPlayer {
+//         width: 66vw !important;
+//         height: 90vh !important;
+//       }
+//       [data-player] {
+//         width: 100% !important;
+//         height: 100% !important;
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 2080px) {
+//   .detail-clapper-player-container {
+//     .detail-clapper-player {
+//       #videoPlayer {
+//         width: 66vw !important;
+//         height: 85vh !important;
+//       }
+//       [data-player] {
+//         width: 100% !important;
+//         height: 100% !important;
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 2000px) {
+//   .detail-clapper-player-container {
+//     .detail-clapper-player {
+//       #videoPlayer {
+//         width: 69vw !important;
+//         height: 85vh !important;
+//       }
+//       [data-player] {
+//         width: 100% !important;
+//         height: 100% !important;
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 1880px) {
+//   .detail-clapper-player-container {
+//     .detail-clapper-player {
+//       #videoPlayer {
+//         width: 66vw !important;
+//         height: 78vh !important;
+//       }
+//       [data-player] {
+//         width: 100% !important;
+//         height: 100% !important;
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 1800px) {
+//   .detail-clapper-player-container {
+//     .detail-clapper-player {
+//       #videoPlayer {
+//         width: 70vw !important;
+//         height: 79vh !important;
+//       }
+//       [data-player] {
+//         width: 100% !important;
+//         height: 100% !important;
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 1730px) {
+//   .detail-clapper-player-container {
+//     .detail-clapper-player {
+//       #videoPlayer {
+//         width: 70vw !important;
+//         height: 75.5vh !important;
+//       }
+//       [data-player] {
+//         width: 100% !important;
+//         height: 100% !important;
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 1600px) {
+//   .detail-clapper-player-container {
+//     .detail-clapper-player {
+//       #videoPlayer {
+//         width: 70vw !important;
+//         height: 70vh !important;
+//       }
+//       [data-player] {
+//         width: 100% !important;
+//         height: 100% !important;
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 1520px) {
+//   .detail-clapper-player-container {
+//     .detail-clapper-player {
+//       #videoPlayer {
+//         width: 70vw !important;
+//         height: 70vh !important;
+//       }
+//       [data-player] {
+//         width: 100% !important;
+//         height: 100% !important;
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 580px) {
+//   .detail-clapper-player-container {
+//     .detail-clapper-player {
+//       #videoPlayer {
+//         width: 100% !important;
+//         height: 38vh !important;
+//       }
+//       [data-player] {
+//         width: 100% !important;
+//         height: 40vh !important;
+//       }
+//     }
+//   }
+// }
+.live-chat-container{
+  #videoPlayer {
+            width: 100% !important;
+            height: 100% !important;
+            .container{
+              padding-left: 0 !important;
+            }
+          }
+          [data-player] {
+            width: 100% !important;
+            height: 100%!important;
+          }
+
+}
+@media screen and (max-width: 920px) {
+  .detail-clapper-player-container {
+    .detail-clapper-player {
+      #videoPlayer {
+        width: 100% !important;
+      }
+      [data-player] {
+        width: 100% !important;
+      }
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .live-chat-container{
+    #videoPlayer {
+              width: 100% !important;
+              height: 30vh !important;
+            }
+            [data-player] {
+              width: 100% !important;
+              height: 100%!important;
+            }
+  
+  }
+}
+@media screen and (max-width: 1215px) {
+  .live-chat-container{
+   height: 70vh !important;
+  }
+ }
+@media screen and (max-width: 780px) {
+  .chat-respomsive-box{
+    height: 70vh;
+   }
+ .responsive-container{
+  height: 57vh !important;
+ }
+}
+@media screen and (max-width: 760px) {
+  .chat-responsive{
+    height: 60vh !important;
+  }
+  .chat-respomsive-box{
+   height: 70vh;
+  }
+ 
+  .live-chat-container{
+    height: 70vh !important;
+  
+    #videoPlayer {
+              width: 100% !important;
+              height: 100% !important;
+            }
+            [data-player] {
+              width: 100% !important;
+              height: 100% !important;
+            }
+  
+  }
+ }
+ @media screen and (max-width: 690px) {
+  .chat-responsive{
+    height: 50vh !important;
+  }
+  .chat-respomsive-box{
+   height: 100%;
+  }
+ 
+  .live-chat-container{
+    height: 100% !important;
+  
+    #videoPlayer {
+              width: 100% !important;
+              height: 100% !important;
+            }
+            [data-player] {
+              width: 100% !important;
+              height: 100% !important;
+            }
+  
+  }
+ }
+ @media screen and (max-width: 600px) {
+  .chat-responsive{
+    height: 45vh !important;
+  }
+  .chat-respomsive-box{
+   height: 100%;
+  }
+ 
+  .live-chat-container{
+    height: 100% !important;
+  
+    #videoPlayer {
+              width: 100% !important;
+              height: 100% !important;
+            }
+            [data-player] {
+              width: 100% !important;
+              height: 100% !important;
+            }
+  
+  }
+ }
+ @media screen and (max-width: 550px) {
+  .chat-responsive{
+    height: 38vh !important;
+  }
+  .chat-respomsive-box{
+   height: 100%;
+  }
+ 
+  .live-chat-container{
+    height: 100% !important;
+  
+    #videoPlayer {
+              width: 100% !important;
+              height: 100% !important;
+            }
+            [data-player] {
+              width: 100% !important;
+              height: 100% !important;
+            }
+  
+  }
+ }
+ @media screen and (max-width: 480px) {
+  .chat-responsive{
+    height: 39vh !important;
+  }
+  .chat-respomsive-box{
+   height: 100%;
+  }
+ 
+  .live-chat-container{
+    height: 100% !important;
+  
+    #videoPlayer {
+              width: 100% !important;
+              height: 39vh !important;
+            }
+            [data-player] {
+              width: 100% !important;
+              height: 100%!important;
+            }
+  
+  }
+ }
+ @media screen and (max-width: 420px) {
+  .chat-responsive{
+    height: 30vh !important;
+  }
+  .chat-respomsive-box{
+   height: 100%;
+  }
+ 
+  .live-chat-container{
+    height: 100% !important;
+  
+    #videoPlayer {
+              width: 100% !important;
+              height: 30vh !important;
+            }
+            [data-player] {
+              width: 100% !important;
+              height: 100%!important;
+            }
+  
+  }
+ }

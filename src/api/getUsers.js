@@ -1,6 +1,7 @@
 const { default: axiosInstance } = require(".");
 
-const getOnlineUsers = async () => {
+const getUser = async () => {
   return await axiosInstance.get(`/chat/getUsers`);
 };
-export default getOnlineUsers;
+
+export default getUser;

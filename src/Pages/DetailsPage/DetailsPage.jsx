@@ -16,6 +16,7 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
+import TheaterMode from "../../Components/TheaterMode";
 
 function DetailsPage() {
   const navigate = useNavigate();
@@ -24,6 +25,10 @@ function DetailsPage() {
   const containerRef = useRef(null);
   const params = useParams();
   const [data, setData] = useState(null);
+  const [theaterMode, setTheaterMode] = useState(false);
+  const toggleTheaterMode = () => {
+    setTheaterMode((prevMode) => !prevMode);
+  };
   const checkUrl = async () => {
     try {
       await axios.get(url, {
@@ -51,6 +56,8 @@ function DetailsPage() {
       }
       if (response.events.channel.TVAccess == "paid") {
         await canViewPage();
+      } else {
+        await canView();
       }
     } catch (error) {}
   };
@@ -93,29 +100,51 @@ function DetailsPage() {
       }}
       // style={{ height: "100vh" }}
     >
+      {" "}
       <Navbar />
-      {url ? <DetailsComponent data={data} url={url} /> : <></>}
-      <DetailsDescription data={data} setUrl={setUrl} />
-      <TeamScore
-        teamA={{
-          name: data?.data?.competitors[0]?.name,
-          score: data?.data?.competitors[0]?.score,
-        }}
-        teamB={{
-          name: data?.data?.competitors[1]?.name,
-          score: data?.data?.competitors[1]?.score,
-        }}
-      />
-      <div
-        className="mt-6 w-[80rem] h-[17rem] bg-[#130A2D] mx-auto pt-3 pb-6 ps-7 flex flex-col p-3 mb-2 "
-        style={{ overflow: "hidden" }}
-      >
-        <h3 className="text-white font-medium text-2xl">You May Also Like</h3>
-        <div className="w-[110rem] mt-4 mb-5 banner-slide-card">
-          <DetailsSlider />
-        </div>
+      <div>
+        {theaterMode ? (
+          <div>
+            <TheaterMode
+              data={data}
+              setUrl={setUrl}
+              url={url}
+              setTheaterMode={setTheaterMode}
+            />
+          </div>
+        ) : (
+          <div>
+            {url ? <DetailsComponent data={data} url={url} /> : <></>}
+            <DetailsDescription
+              data={data}
+              setUrl={setUrl}
+              toggleTheaterMode={toggleTheaterMode}
+            />
+            <TeamScore
+              teamA={{
+                name: data?.data?.competitors[0]?.name,
+                score: data?.data?.competitors[0]?.score,
+              }}
+              teamB={{
+                name: data?.data?.competitors[1]?.name,
+                score: data?.data?.competitors[1]?.score,
+              }}
+            />
+            <div
+              className="mt-6 w-[80rem] h-[17rem] bg-[#130A2D] mx-auto pt-3 pb-6 ps-7 flex flex-col p-3 mb-2 "
+              style={{ overflow: "hidden" }}
+            >
+              <h3 className="text-white font-medium text-2xl">
+                You May Also Like
+              </h3>
+              <div className="w-[110rem] mt-4 mb-5 banner-slide-card">
+                <DetailsSlider />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-      <Footer />
+      {theaterMode ? <div></div> : <Footer />}
     </div>
   );
 }

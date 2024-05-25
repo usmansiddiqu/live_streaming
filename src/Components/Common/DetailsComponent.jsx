@@ -5,6 +5,8 @@ import VideoPlayer from "./VideoPlayer";
 import ClapprPlayer from "./ClapprPlayer";
 import moment from "moment-timezone";
 import { useParams } from "react-router-dom";
+import LiveChat from "../ChatSection";
+import "../../Assets/styles/DetailComponent.scss";
 
 function DetailsComponent({ data, url }) {
   const { type } = useParams();
@@ -18,16 +20,19 @@ function DetailsComponent({ data, url }) {
       eventTime
         .clone()
         .add(
-          type == "NBA" ? 2.6 : type == "NHL" ? 3 : type == "MLB" ? 3 : 3.5,
+          type == "NBA" ? 2.6 : type == "NHL" ? 3.5 : type == "MLB" ? 3.5 : 3.5,
           "hours"
         )
     );
 
   return (
-    <div className="flex !justify-center mt-2 clapper-palyer">
+    <div className="flex !justify-center  clapper-palyer">
       {isTimeWithinRange ? (
-        <div className="embed-responsive embed-responsive-16by9">
-          <div className="chunchun">
+        <div
+          className="detail-clapper-player-container"
+          style={{ marginTop: "10px", marginBottom: "10px" }}
+        >
+          <div className=" mt-2 flex h-full detail-clapper-player">
             <ClapprPlayer url={url} />
           </div>
         </div>
