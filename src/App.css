@@ -442,6 +442,13 @@ aside {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
+  .affiliate-dash-main{
+    justify-content: flex-start;
+
+  }
+  .affiliates-card{
+    width: 47%;
+  }
 }
 @media screen and (max-width: 1360px) {
   .mainSlider {
@@ -480,8 +487,16 @@ aside {
   .chat-box-container {
     height: 93% !important;
   }
+    .affiliate-dash-main{
+    justify-content: flex-start;
+    width: 90%;
+
+  }
+  .affiliate-invoice-table{
+    width: 90%;
+  }
   .affiliates-card{
-    width: 45% !important;
+    width: 47%;
   }
 }
 @media screen and (max-width: 1155px) {
@@ -502,6 +517,7 @@ aside {
   .mainSlider {
     height: 21.5rem !important;
   }
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -525,7 +541,7 @@ aside {
     padding: 12px;
   }
    .affiliates-card{
-    width: 80%;
+    width: 46%;
     display: block !important;
 
   }

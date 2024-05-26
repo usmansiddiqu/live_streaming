@@ -5,7 +5,8 @@ function Table({ userData ,variant}) {
 
 if (variant === 'secondary')
   return (
-    <div className="bg-[#0D0620] py-1 text-white  w-[67%] history-div  mx-auto mb-10">
+<div className="bg-[#0D0620] w-[100%]">
+   <div className="bg-[#0D0620] py-1 text-white  w-[67%] affiliate-invoice-table  mx-auto">
       <p className="text-xl lg:text-2xl md:text-xl sm:text-lg pb-2">
         Invoices
       </p>
@@ -101,6 +102,8 @@ if (variant === 'secondary')
             </nav>
       </div>
     </div>
+</div>
+   
 
   );
   else {
