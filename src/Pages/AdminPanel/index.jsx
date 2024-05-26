@@ -35,6 +35,7 @@ import BadWords from "./AdminPanelPages/BadWords";
 import EditBadWord from "../../Components/Forms/EditBadWord";
 import AddBadWords from "../../Components/AddOn/AddBadWords";
 import AdminAffiliateRequests from "./AdminPanelPages/AffiliateRequests";
+import EditUserInvoice from "../../Components/Forms/EditUserInvoice";
 
 function AdminPanelWrapper() {
   const navigate = useNavigate();
@@ -93,6 +94,10 @@ function AdminPanelWrapper() {
         <Route path="/users/edit_user/:id" element={<EditUser />} />
         <Route path="/sub_admin/edit_user/:id" element={<EditSubAdmin />} />
         <Route path="/users/history/:id" element={<UserHistory />} />
+        <Route path="/edit_user_invoice" element={<EditUserInvoice />} />
+
+
+        
 
         {/* Add Button Routes */}
         <Route path="/tv_category/add_category" element={<AddTvCategory />} />
