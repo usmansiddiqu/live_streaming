@@ -32,6 +32,7 @@ import Footer from "./Components/Footer";
 // import NameLiveChat from "./Components/NameLiveChat";
 // import TestingChat from "./Components/TestingChat";
 import LiveeChat from "./Pages/LiveChat";
+import AffiliateRequest from "./Pages/AffiliateRequest";
 
 function App() {
   const [isLoggedIn] = useState(true);
@@ -70,6 +71,8 @@ function App() {
               <Route path="/live/:id" element={<BannerPage />} />
               <Route path="/:type/live/:id" element={<DetailsPage />} />
               <Route path="/membership_plan/:id" element={<Plans />} />
+              <Route path="/affiliate_requests" element={<AffiliateRequest />} />
+
               <Route
                 path="/livechat_pdsfsdfsdixel_TV_Sports0987654232"
                 element={<LiveeChat />}

@@ -3,7 +3,7 @@ import avatar from "../../utils/images/avatar.png";
 import plan from "../../utils/images/plan.png";
 import { useNavigate } from "react-router-dom";
 import getUserPayments from "../../api/getUserPayment";
-function Plans({ userData }) {
+function Plans({ userData ,variant}) {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/profile");
@@ -11,9 +11,125 @@ function Plans({ userData }) {
   const handleSelecPlanClick = () => {
     navigate("/membership_plan");
   };
+   const [inputValue, setInputValue] = useState('');
+  const [copyMessage, setCopyMessage] = useState('');
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(inputValue)
+      .then(() => {
+        setCopyMessage('URL Copied!');
+      })
+      .catch(err => {
+        setCopyMessage('Copy failed');
+        console.error('Failed to copy!', err);
+      });
+  };
+  useEffect(() => {
+    if (copyMessage) {
+      const timer = setTimeout(() => {
+        setCopyMessage('');
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [copyMessage]);
 
   const data = JSON.parse(localStorage.getItem("data"));
-  return (
+  if (variant === 'secondary')
+    return (
+    <div className=" bg-[#0D0620]  py-5">
+      <div className="flex flex-row flex-wrap w-[68%] mx-auto affiliate-dash-main justify-around text-white bg-[#130A2D] px-8 py-10 rounded  gap-5">
+  
+        <div
+          className="flex flex-col gap-3 justify-start items-start md:w-[40%] affiliates-card w-[25vw] p-3 bg-center rounded-xl"
+          style={{
+            backgroundColor: "#1F1340",
+            backgroundImage: `url(${plan})`,
+            height:'max-cotent'
+
+          }}
+        >
+          <p className="text-xl mb-2">
+            My History
+            <div
+              className="w-10 rounded-lg text-blue-500 bg-blue-500"
+              style={{ paddingTop: "2px" }}
+            />
+          </p>
+          <div className=" flex flex-col gap-3">
+            <div className="flex ">
+              <p>Current Earnings:</p>
+              <div
+                className="w-auto flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3"
+                style={{ fontSize: "11px" }}
+              >
+                {userData?.[0]?.packageId?.name}
+              </div>
+            </div>
+            <div className="flex ">
+              <p>Signed Up:</p>
+              <div
+                className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-2"
+                style={{ fontSize: "11px" }}
+              >
+                {data?.expiryDate &&
+                  new Date(data.expiryDate).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                {/* November, 01, 2023 */}
+              </div>
+            </div>
+
+            <div>
+              <button
+                class="bg-gradient-to-r mt-2 from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center "
+                onClick={handleSelecPlanClick}
+              >
+                Request
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className="flex flex-col gap-3 justify-start items-start md:w-[40%] affiliates-card w-[25vw] p-4 bg-center rounded-xl"
+          style={{
+            backgroundColor: "#1F1340",
+            backgroundImage: `url(${plan})`,
+             height:'max-cotent'
+          }}
+        >
+          <p className="text-xl mb-2">
+            Generated URL
+            <div
+              className="w-10 rounded-lg bg-blue-500"
+              style={{ paddingTop: "2px" }}
+            />
+          </p>
+                <div>
+                    <input
+                    class="appearance-none bg-[#22134E] text-white h-[5vh] block w-full text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
+                    id="grid-first-name"
+                    type="text"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                  />
+      <button 
+            class="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 mt-3 mb-2 rounded flex flex-row gap-2  justify-center items-center "
+       onClick={copyToClipboard}>Copy to Clipboard</button>
+       {copyMessage && <p>{copyMessage}</p>}
+    </div>
+
+        </div>
+      </div>
+    </div>
+  );
+  else  return (
     <div className="md:px-40 bg-[#0D0620]  py-5">
       <div className="flex flex-row flex-wrap w-[80%] mx-auto dash-main justify-around text-white bg-[#130A2D] py-10 rounded  gap-5  ">
         <div className="flex flex-col justify-center items-center ">
@@ -139,6 +255,7 @@ function Plans({ userData }) {
       </div>
     </div>
   );
+
 }
 
 export default Plans;

@@ -21,7 +21,7 @@ function DashHeader({ title, subtitle }) {
         <div className=" flex justify-between">
           <h1 className="text-2xl z-20 font-semibold">{title}</h1>
         </div>
-        <div className="flex  flex-row  z-20 justify-between !w-[150px] cursor-pointer  headdd items-center">
+        <div className="flex  flex-row  z-20 justify-between cursor-pointer  headdd items-center"  style={{gap:'8px'}}>
           <a>
             {" "}
             <Link to="/"> Home</Link>
