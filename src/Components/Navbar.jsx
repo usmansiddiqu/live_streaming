@@ -442,8 +442,8 @@ function Nav() {
                                       </a>
                                     </li>
                                     <li
-                                      className="w-[100%] list-none p-2 "
-                                      style={{ borderBottom: "0px" }}
+                                      className="w-[100%] list-none p-2"
+                                      style={{ borderBottom: "0px" ,cursor:'pointer'}}
                                     >
                                       <a
                                         className="flex items-center"
