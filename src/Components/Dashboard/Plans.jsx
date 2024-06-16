@@ -70,7 +70,7 @@ function Plans({ userData, variant }) {
   }, []);
   const copyToClipboard = () => {
     navigator.clipboard
-      .writeText(data._id)
+      .writeText(`https://pixelsport.tv/signup?id=${data?._id}`)
       .then(() => {
         setCopyMessage("URL Copied!");
       })
@@ -202,7 +202,7 @@ function Plans({ userData, variant }) {
                 class="appearance-none bg-[#22134E] text-white h-[5vh] block w-full text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                 id="grid-first-name"
                 type="text"
-                value={data?._id}
+                value={`https://pixelsport.tv/signup?id=${data?._id}`}
                 onChange={handleInputChange}
               />
               <button

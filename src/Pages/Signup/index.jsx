@@ -10,9 +10,11 @@ import clearLocalStorage from "../../helper/localstorage";
 import { useNavigate } from "react-router";
 import ErrorComponent from "../../Components/Common/ErrorComponent";
 import signup from "../../api/signup";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useParams } from "react-router-dom";
 function Signup() {
   const [search] = useSearchParams();
+  const id = search.get("id");
+  console.log(id);
 
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -20,6 +22,7 @@ function Signup() {
     email: "",
     password: "",
     confirmPassword: "",
+    affiliateId: id ? id : "",
   });
   const [error, setError] = useState(null);
   const handleClick = async () => {
