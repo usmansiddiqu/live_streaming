@@ -23,7 +23,10 @@ function SliderHeader(props) {
       </h1>
       <span className="header-view px-3">
         <a
-          onClick={() => navigate(`/${props.link}`)}
+           onClick={() => {
+    navigate(`/${props.link}`);
+    window.scrollTo(0, 0);
+  }}
           className="font-bold cursor-pointer"
           style={{
             textDecoration: "none",
