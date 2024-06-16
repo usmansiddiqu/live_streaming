@@ -15,6 +15,7 @@ function AffiliateRequest() {
     const { data: response } = await getUserPayments();
     setUserData(response.data);
   };
+
   useEffect(() => {
     if (!localStorage.getItem("data") || !localStorage.getItem("token")) {
       navigate("/login");
@@ -26,9 +27,12 @@ function AffiliateRequest() {
     <>
       <Nav />
       <div>
-        <DashHeader title="Affiliate DashBoard" subtitle="Affiliate DashBoard" />
-        <Plans variant ='secondary' userData={userData} />
-        <Table variant ='secondary' userData={userData} />
+        <DashHeader
+          title="Affiliate DashBoard"
+          subtitle="Affiliate DashBoard"
+        />
+        <Plans variant="secondary" userData={userData} />
+        <Table variant="secondary" userData={userData} />
         <Footer />
       </div>
     </>
@@ -36,4 +40,3 @@ function AffiliateRequest() {
 }
 
 export default AffiliateRequest;
-

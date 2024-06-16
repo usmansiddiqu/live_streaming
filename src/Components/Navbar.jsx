@@ -426,7 +426,7 @@ function Nav() {
                                         </span>
                                       </a>
                                     </li>
-                                     <li className="w-[100%] list-none p-2">
+                                    <li className="w-[100%] list-none p-2">
                                       <a
                                         href="/affiliate_requests"
                                         className="flex items-center"
@@ -443,7 +443,10 @@ function Nav() {
                                     </li>
                                     <li
                                       className="w-[100%] list-none p-2"
-                                      style={{ borderBottom: "0px" ,cursor:'pointer'}}
+                                      style={{
+                                        borderBottom: "0px",
+                                        cursor: "pointer",
+                                      }}
                                     >
                                       <a
                                         className="flex items-center"

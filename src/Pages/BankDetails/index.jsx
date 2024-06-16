@@ -2,56 +2,32 @@ import React, { useEffect, useState } from "react";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import "../../Assets/styles/Button.scss";
-import DashHeader from "../../Components/Dashboard/DashHeader";
-import updateUser from "../../api/editUser";
+import addBankDetails from "../../api/addBankDetails";
 import { toast, ToastContainer } from "react-toastify";
-import getDetails from "../../api/authGetDetails";
+import bankDetails from "../../api/getBankDetails";
+import DashHeader from "../../Components/Dashboard/DashHeader";
 
 function BankDetails() {
   const [user, setUser] = useState(localStorage.getItem("data"));
   const [data, setData] = useState(JSON?.parse(localStorage?.getItem("data")));
 
-  const [name, setName] = useState(data?.name);
-  const [email, setEmail] = useState(data?.email);
-  const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState(data?.phone);
-  const [error, setError] = useState("");
-  const [address, setAddress] = useState(data?.address);
-  const [image, setImage] = useState(data?.image ? data.image : null);
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-
-    if (file) {
-      setImage(file);
-      // const reader = new FileReader();
-      // reader.onloadend = () => {
-      //   setImageSrc(reader.result);
-      // };
-      // reader.readAsDataURL(file);
-    }
-  };
+  const [accNo, setAccNo] = useState("");
+  const [beneficiary, setBeneficiary] = useState("");
+  const [bankSwift, setBankSwift] = useState("");
+  const [iban, setIban] = useState("");
+  const [bankAddress, setBankAddress] = useState("");
   const handleSave = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("userId", JSON.parse(user)._id);
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("password", password);
-    formData.append("address", address);
-    formData.append("phone", phone);
-    formData.append("image", image);
-    try {
-      await updateUser(formData);
-      if (localStorage.getItem("token")) {
-        const { data: response } = await getDetails();
-        localStorage.setItem("data", JSON.stringify(response?.user));
-        window.dispatchEvent(new Event("profile"));
-        toast.success("Profile Updated");
-      }
-    } catch (error) {
-      setError(error.response.data.message);
-    }
+    let body = {
+      userId: data._id,
+      accountNo: accNo,
+      beneficiary,
+      bankSwift,
+      iban,
+      bankAddress,
+    };
+    const response = await addBankDetails(body);
+    console.log(response);
   };
   // const getUser = async () => {
   //   try {
@@ -67,11 +43,25 @@ function BankDetails() {
   // useEffect(() => {
   //   getUser();
   // }, []);
-  const isGoogleImageUrl = (url) => {
-    const googleImageUrlRegex =
-      /^https:\/\/lh3\.googleusercontent\.com\/.+=[sS]\d+(-c)?$/;
-    return googleImageUrlRegex.test(url);
+  const getUserBankDetails = async () => {
+    try {
+      const response = await bankDetails(data._id);
+      if (response?.data?.bankDetails?.length) {
+        setAccNo(response?.data?.bankDetails[0]?.accountNo);
+        setBeneficiary(response?.data?.bankDetails[0]?.beneficiary);
+        setBankSwift(response?.data?.bankDetails[0]?.bankSwift);
+        setIban(response?.data?.bankDetails[0]?.iban);
+        setBankAddress(response?.data?.bankDetails[0]?.bankAddress);
+      }
+      console.log(response?.data?.bankDetails);
+    } catch (error) {
+      console.log(error);
+    }
   };
+  useEffect(() => {
+    getUserBankDetails();
+  }, []);
+
   return (
     <>
       <div className="h-[100vh] bg-[#0D0620]">
@@ -93,9 +83,9 @@ function BankDetails() {
                     class="appearance-none bg-[#22134E] text-white h-[7vh] block w-full text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                     id="grid-first-name"
                     type="text"
-                    value={name}
+                    value={accNo}
                     onChange={(e) => {
-                      setName(e.target.value);
+                      setAccNo(e.target.value);
                     }}
                   />
                 </div>
@@ -110,9 +100,9 @@ function BankDetails() {
                     class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                     id="grid-last-name"
                     type="text"
-                    value={email}
+                    value={beneficiary}
                     onChange={(e) => {
-                      setEmail(e.target.value);
+                      setBeneficiary(e.target.value);
                     }}
                   />
                 </div>
@@ -129,9 +119,9 @@ function BankDetails() {
                     class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                     id="grid-first-name"
                     type="text"
-                    value={password}
+                    value={bankSwift}
                     onChange={(e) => {
-                      setPassword(e.target.value);
+                      setBankSwift(e.target.value);
                     }}
                   />
                 </div>
@@ -146,9 +136,9 @@ function BankDetails() {
                     class="appearance-none bg-[#22134E] h-[7vh]  text-white block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                     id="grid-last-name"
                     type="text"
-                    value={phone}
+                    value={iban}
                     onChange={(e) => {
-                      setPhone(e.target.value);
+                      setIban(e.target.value);
                     }}
                   />
                 </div>
@@ -166,9 +156,9 @@ function BankDetails() {
                 <textarea
                   id="message"
                   rows="6"
-                  value={address}
+                  value={bankAddress}
                   onChange={(e) => {
-                    setAddress(e.target.value);
+                    setBankAddress(e.target.value);
                   }}
                   class="appearance-none bg-[#22134E]  text-white h-[10vh] block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none "
                 ></textarea>

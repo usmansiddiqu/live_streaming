@@ -74,7 +74,10 @@ function AdminPanelWrapper() {
         <Route path="/coupons" element={<Coupons />} />
         <Route path="/transactions" element={<Transactions />} />
         <Route path="/bad_words" element={<BadWords />} />
-        <Route path="/affiliate_requests" element={<AdminAffiliateRequests />} />
+        <Route
+          path="/affiliate_requests"
+          element={<AdminAffiliateRequests />}
+        />
 
         <Route
           path="/Tv_category/edit_category/:id"
@@ -94,10 +97,10 @@ function AdminPanelWrapper() {
         <Route path="/users/edit_user/:id" element={<EditUser />} />
         <Route path="/sub_admin/edit_user/:id" element={<EditSubAdmin />} />
         <Route path="/users/history/:id" element={<UserHistory />} />
-        <Route path="/edit_user_invoice" element={<EditUserInvoice />} />
-
-
-        
+        <Route
+          path="/edit_user_invoice/:transactionId/:userId"
+          element={<EditUserInvoice />}
+        />
 
         {/* Add Button Routes */}
         <Route path="/tv_category/add_category" element={<AddTvCategory />} />
