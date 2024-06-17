@@ -14,6 +14,7 @@ import {
   DialogContent,
   DialogContentText,
 } from "@mui/material";
+import { toast } from "react-toastify";
 function Plans({ userData, variant }) {
   const navigate = useNavigate();
   const handleClick = () => {
@@ -80,7 +81,11 @@ function Plans({ userData, variant }) {
       });
   };
   const handleClickOpen = () => {
-    setOpen(true);
+    if (totalAmount > 0) {
+      setOpen(true);
+    } else {
+      toast.error("You can not make request at 0 dollar");
+    }
   };
   const handleClose = () => {
     setOpen(false);
@@ -88,11 +93,16 @@ function Plans({ userData, variant }) {
   const confirmRequest = async () => {
     try {
       const response = await makeRequest();
-      handleClose();
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
+      if (response.data.error) {
+        toast.error(response.data.error);
+        handleClose();
+      } else {
+        handleClose();
+        getUserStats();
+        toast.success("Request has been sent!");
+      }
+      console.log(123, response);
+    } catch (error) {}
   };
   useEffect(() => {
     if (copyMessage) {
@@ -236,7 +246,7 @@ function Plans({ userData, variant }) {
                   className="w-auto flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3"
                   style={{ fontSize: "11px" }}
                 >
-                  {userCount}
+                  {totalAmount}
                 </div>
               </div>
               <div className="flex ">
@@ -245,7 +255,7 @@ function Plans({ userData, variant }) {
                   className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-2"
                   style={{ fontSize: "11px" }}
                 >
-                  {totalAmount}
+                  {userCount}
                   {/* November, 01, 2023 */}
                 </div>
               </div>
@@ -269,7 +279,7 @@ function Plans({ userData, variant }) {
         >
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              Are you sure you want to Withdraw $300 Amount?
+              Are you sure you want to Withdraw ${totalAmount} Amount?
             </DialogContentText>
           </DialogContent>
           <DialogActions>
