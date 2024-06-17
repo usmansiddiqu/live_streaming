@@ -8,7 +8,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import bankDetails from "../../api/getBankDetails";
 import verifyPayment from "../../api/verifyPayment";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 function EditUserInvoice() {
   const { transactionId, userId } = useParams();
@@ -48,7 +48,7 @@ function EditUserInvoice() {
       e.preventDefault();
       const response = await verifyPayment(transactionId);
       console.log(response);
-      toast.success("Verified");
+      toast.success("Successfully Verified");
     } catch (error) {
       toast.error("Verification failed");
       console.log(error);
@@ -163,7 +163,7 @@ function EditUserInvoice() {
                   handleSave(e);
                 }}
               >
-                Save
+                Aprrove Payment
               </button>
               <button
                 className="text-white bg-[#48484A] text-sm font-bold rounded-md w-[70px] sm:w-auto px-3 py-1.5 text-center ml-5"

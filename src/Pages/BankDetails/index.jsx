@@ -6,6 +6,7 @@ import addBankDetails from "../../api/addBankDetails";
 import { toast, ToastContainer } from "react-toastify";
 import bankDetails from "../../api/getBankDetails";
 import DashHeader from "../../Components/Dashboard/DashHeader";
+import { useNavigate } from "react-router-dom";
 
 function BankDetails() {
   const [user, setUser] = useState(localStorage.getItem("data"));
@@ -16,6 +17,7 @@ function BankDetails() {
   const [bankSwift, setBankSwift] = useState("");
   const [iban, setIban] = useState("");
   const [bankAddress, setBankAddress] = useState("");
+  const navigate = useNavigate();
   const handleSave = async (e) => {
     e.preventDefault();
     let body = {
@@ -27,6 +29,7 @@ function BankDetails() {
       bankAddress,
     };
     const response = await addBankDetails(body);
+    navigate("/affiliate_requests");
     console.log(response);
   };
   // const getUser = async () => {
