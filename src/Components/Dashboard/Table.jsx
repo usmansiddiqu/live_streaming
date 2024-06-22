@@ -15,109 +15,69 @@ function Table({ userData, variant }) {
   useEffect(() => {
     getUserRequests();
   }, []);
+   const [activeTab, setActiveTab] = useState('invoices');
+     const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
 
   if (variant === "secondary")
     return (
-      <div className="bg-[#0D0620] w-[100%]">
-        <div className="bg-[#0D0620] py-1 text-white  w-[67%] affiliate-invoice-table  mx-auto">
-          <p className="text-xl lg:text-2xl md:text-xl sm:text-lg pb-2">
+     <div className="bg-[#0D0620] w-[100%]">
+      <div className="bg-[#0D0620] py-1 text-white w-[67%] affiliate-invoice-table mx-auto">
+        <div className="tabs flex mb-4">
+          <button 
+            onClick={() => handleTabChange('invoices')} 
+            className={`  ${activeTab === 'invoices' ? 'text-red-500' : 'text-white'}`}
+          >
             Invoices
-          </p>
-          <div className=" overflow-x-auto">
-            <table
-              class="w-full text-sm  text-left rtl:text-right text-white"
-              style={{ overflow: "scroll" }}
-            >
-              <thead class=" w-[78vw] text-xs text-white">
+          </button>
+          <button 
+            onClick={() => handleTabChange('graph')} 
+            className={`ml-4 ${activeTab === 'graph' ? 'text-red-500' : 'text-white'}`}
+          >
+            Graph
+          </button>
+        </div>
+        {activeTab === 'invoices' ? (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm text-left rtl:text-right text-white" style={{ overflow: 'scroll' }}>
+              <thead className="w-[78vw] text-xs text-white">
                 <tr>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 dark:text-white text-md"
-                    style={{ border: "1px solid #313133" }}
-                  >
-                    No.
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 dark:text-white"
-                    style={{ border: "1px solid #313133" }}
-                  >
-                    Amount
-                  </th>
-
-                  <th
-                    scope="col"
-                    class="px-6 py-3 dark:text-white"
-                    style={{ border: "1px solid #313133" }}
-                  >
-                    Status
-                  </th>
+                  <th scope="col" className="px-6 py-3 dark:text-white text-md" style={{ border: '1px solid #313133' }}>No.</th>
+                  <th scope="col" className="px-6 py-3 dark:text-white" style={{ border: '1px solid #313133' }}>Amount</th>
+                  <th scope="col" className="px-6 py-3 dark:text-white" style={{ border: '1px solid #313133' }}>Status</th>
                 </tr>
               </thead>
               <tbody>
-                {invoice &&
-                  invoice.map((item, index) => {
-                    return (
-                      <tr>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          {index + 1}
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          ${item?.totalAmount}
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          {item.status}
-                        </th>
-                      </tr>
-                    );
-                  })}
+                {invoice && invoice.map((item, index) => (
+                  <tr key={index}>
+                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-white" style={{ border: '1px solid #313133' }}>{index + 1}</th>
+                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-white" style={{ border: '1px solid #313133' }}>${item?.totalAmount}</th>
+                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-white" style={{ border: '1px solid #313133' }}>{item.status}</th>
+                  </tr>
+                ))}
               </tbody>
             </table>
-            <nav
-              className="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4"
-              aria-label="Table navigation"
-            >
+            <nav className="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
               <ul className="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
                 <li>
-                  <a
-                    href="#"
-                    className={`flex items-center justify-center px-3 h-8 ms-0 leading-tight border border-[#464648] bg-[#313133] hover:bg-[#FF0015] text-white ${
-                      activeItem === 0 ? "bg-gray-700 bg-[#FF0015]" : ""
-                    }`}
-                    // onClick={() => handlePreviousClick()}
-                  >
-                    Previous
-                  </a>
+                  <a href="#" className="flex items-center justify-center px-3 h-8 ms-0 leading-tight border border-[#464648] bg-[#313133] hover:bg-[#FF0015] text-white">Previous</a>
                 </li>
-
                 <li>
-                  <a
-                    href="#"
-                    className={`flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] hover:bg-[#FF0015]  text-white ${
-                      activeItem === 3 ? "bg-gray-700 bg-[#FF0015]" : ""
-                    }`}
-                    // onClick={() => handleNextClick()}
-                  >
-                    Next
-                  </a>
+                  <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight border border-[#464648] bg-[#313133] hover:bg-[#FF0015] text-white">Next</a>
                 </li>
               </ul>
             </nav>
           </div>
-        </div>
+        ) : (
+          <div className="text-white">
+            GRAPH
+          </div>
+        )}
       </div>
+    </div>
+  
+
     );
   else {
     return (
