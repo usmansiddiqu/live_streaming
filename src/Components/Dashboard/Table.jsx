@@ -238,7 +238,7 @@ function Table({ userData, variant }) {
             stroke: {
               colors: ["#FF7F00", "#007CFF"],
               lineCap: "round",
-              curve: "smooth",
+              curve: "straight",
             },
             markers: {
               size: 0,
