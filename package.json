@@ -30,6 +30,7 @@
     "or": "^0.2.0",
     "pikaday": "^1.8.2",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.4.1",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-google-login": "^5.2.2",
