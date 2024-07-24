@@ -187,14 +187,11 @@ function Table({ userData, variant }) {
           series: [
             {
               name: "revenue",
-              data: [1, 4, 10, 15, 20, 2, 3, 1, 5, 1, 23, 51, 3, 2, 31, 23, 10], // Replace with revenueEarned when ready
+              data: revenueEarned, // Replace with revenueEarned when ready
             },
             {
               name: "Users",
-              data: [
-                1, 24, 310, 15, 20, 21, 2, 1, 22, 1, 19, 20, 22, 1, 2, 44, 22,
-                12,
-              ], // Replace with userSigned when ready
+              data: userSigned, // Replace with userSigned when ready
             },
           ],
           options: {
