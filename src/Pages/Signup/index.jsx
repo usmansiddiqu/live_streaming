@@ -13,8 +13,69 @@ import signup from "../../api/signup";
 import { useSearchParams, useParams } from "react-router-dom";
 function Signup() {
   const [search] = useSearchParams();
-  const id = search.get("id");
-  console.log(id);
+  function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, "\\$&");
+    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+    let results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return "";
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+  // Get 'id' parameter from URL
+  let id = getParameterByName("id");
+
+  if (id) {
+    let affiliateData = {
+      id: id,
+      date: Date.now(),
+    };
+    console.log(affiliateData);
+    localStorage.setItem("affiliateData", JSON.stringify(affiliateData));
+  }
+  console.log(localStorage.getItem("affiliateData"));
+  if (localStorage.getItem("affiliateData")) {
+    let data = localStorage.getItem("affiliateData");
+    let parsedData = JSON.parse(data);
+    console.log(parsedData);
+    const savedTimestamp = parseInt(parsedData.date, 10);
+    const currentTimestamp = Date.now();
+    const differenceInMilliseconds = currentTimestamp - savedTimestamp;
+    console.log(differenceInMilliseconds);
+    const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+
+    if (differenceInDays > 7) {
+      id = parsedData.id;
+    }
+  }
+  // let id = search.get("id");
+  // console.log(localStorage.getItem("affiliateData"));
+  // const items = { ...localStorage };
+  // console.log(items);
+  // console.log(id);
+
+  // if (id) {
+  //   let affiliateData = {
+  //     id: id,
+  //     date: Date.now(),
+  //   };
+  //   console.log(affiliateData);
+  //   localStorage.setItem("affiliateData", JSON.stringify(affiliateData));
+  // }
+  // if (localStorage.getItem("affiliateData")) {
+  //   let data = localStorage.getItem("affiliateData");
+  //   let parsedData = JSON.parse(data);
+  //   console.log(parsedData);
+  //   const savedTimestamp = parseInt(parsedData.date, 10);
+  //   const currentTimestamp = Date.now();
+  //   const differenceInMilliseconds = currentTimestamp - savedTimestamp;
+  //   console.log(differenceInMilliseconds);
+  //   const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+
+  //   if (differenceInDays > 7) {
+  //     id = parsedData.id;
+  //   }
+  // }
 
   const navigate = useNavigate();
   const [data, setData] = useState({
