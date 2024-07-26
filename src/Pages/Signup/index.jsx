@@ -24,30 +24,37 @@ function Signup() {
 
   // Get 'id' parameter from URL
   let id = getParameterByName("id");
-
-  if (id) {
-    let affiliateData = {
-      id: id,
-      date: Date.now(),
-    };
-    console.log(affiliateData);
-    localStorage.setItem("affiliateData", JSON.stringify(affiliateData));
-  }
-  console.log(localStorage.getItem("affiliateData"));
-  if (localStorage.getItem("affiliateData")) {
-    let data = localStorage.getItem("affiliateData");
-    let parsedData = JSON.parse(data);
-    console.log(parsedData);
-    const savedTimestamp = parseInt(parsedData.date, 10);
-    const currentTimestamp = Date.now();
-    const differenceInMilliseconds = currentTimestamp - savedTimestamp;
-    console.log(differenceInMilliseconds);
-    const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
-
-    if (differenceInDays > 7) {
-      id = parsedData.id;
+  const setAffiliateData = () => {
+    try {
+      if (id) {
+        let affiliateData = {
+          id: id,
+          date: Date.now(),
+        };
+        console.log(affiliateData);
+        localStorage.setItem("affiliateData", JSON.stringify(affiliateData));
+      }
+      console.log(localStorage.getItem("affiliateData"));
+      if (localStorage.getItem("affiliateData")) {
+        let data = localStorage.getItem("affiliateData");
+        console.log(data);
+        let parsedData = JSON.parse(data);
+        console.log(parsedData);
+        const savedTimestamp = parseInt(parsedData.date, 10);
+        const currentTimestamp = Date.now();
+        const differenceInMilliseconds = currentTimestamp - savedTimestamp;
+        console.log(differenceInMilliseconds);
+        const differenceInDays =
+          differenceInMilliseconds / (1000 * 60 * 60 * 24);
+        if (differenceInDays > 7) {
+          id = parsedData.id;
+        }
+      }
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
+
   // let id = search.get("id");
   // console.log(localStorage.getItem("affiliateData"));
   // const items = { ...localStorage };
@@ -131,6 +138,7 @@ function Signup() {
     });
   };
   useEffect(() => {
+    setAffiliateData();
     if (search.get("access") == "none") {
       setError(
         "Access denied! you need to signup or login to watch this match live"
