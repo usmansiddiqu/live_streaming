@@ -360,13 +360,15 @@ function Table({ userData, variant }) {
             {isLoading ? (
               <></>
             ) : (
-              <ReactApexChart
-                options={chartData.options}
-                series={chartData.series}
-                type="area"
-                height={420}
-                width={1025}
-              />
+              <div className=" mx-auto w-[100%] h-[50vh]">
+                <ReactApexChart
+                  options={chartData.options}
+                  series={chartData.series}
+                  type="area"
+                  height='100%'
+                  width='100%'
+                />
+              </div>
             )}
             {/* <button 
             onClick={() => handleTabChange('graph')} 
