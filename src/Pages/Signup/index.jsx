@@ -13,6 +13,7 @@ import signup from "../../api/signup";
 import { useSearchParams, useParams } from "react-router-dom";
 function Signup() {
   const [search] = useSearchParams();
+  const [affiliateId, setAffiliateId] = useState(null);
   function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, "\\$&");
     let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
@@ -47,7 +48,7 @@ function Signup() {
         const differenceInDays =
           differenceInMilliseconds / (1000 * 60 * 60 * 24);
         if (differenceInDays > 7) {
-          id = parsedData.id;
+          setAffiliateId(parsedData.id);
         }
       }
     } catch (error) {
@@ -109,7 +110,7 @@ function Signup() {
     } else {
       setError(null);
       try {
-        const { data: response } = await signup(data);
+        const { data: response } = await signup({ ...data, affiliateId });
         if (response?.error) {
           setError(response?.error);
           return;
