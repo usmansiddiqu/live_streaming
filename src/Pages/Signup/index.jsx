@@ -91,7 +91,7 @@ function Signup() {
     email: "",
     password: "",
     confirmPassword: "",
-    affiliateId: id ? id : "",
+    // affiliateId: id ? id : "",
   });
   const [error, setError] = useState(null);
   const handleClick = async () => {
