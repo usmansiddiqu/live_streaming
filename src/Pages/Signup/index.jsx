@@ -47,7 +47,7 @@ function Signup() {
         console.log(differenceInMilliseconds);
         const differenceInDays =
           differenceInMilliseconds / (1000 * 60 * 60 * 24);
-        if (differenceInDays > 7) {
+        if (differenceInDays < 7) {
           setAffiliateId(parsedData.id);
         }
       }
