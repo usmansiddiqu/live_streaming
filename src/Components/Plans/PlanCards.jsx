@@ -30,7 +30,7 @@ function PlanCards() {
     setCardSelected((prevState) => !prevState);
   };
   const [error, setError] = useState(
-    "Our payment service is out of order, please message our support for activation"
+    "Please contact live chat support for renewal/new subscription"
   );
   const openInNewTab = (url) => {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
