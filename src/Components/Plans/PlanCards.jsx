@@ -30,7 +30,7 @@ function PlanCards() {
     setCardSelected((prevState) => !prevState);
   };
   const [error, setError] = useState(
-    "Please contact live chat support for renewal/new subscription"
+    "Please enter the email you are using for pixel sport when making payment, incase of any issue please contact support"
   );
   const openInNewTab = (url) => {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
