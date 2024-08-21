@@ -71,7 +71,7 @@ function PlanCards() {
   };
   return (
     <div
-      className="lg:px-20 md:px-10 sm:px-5 w-[73vw] mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5"
+      className="lg:px-20 md:px-10 sm:px-5 w-[73vw] mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5 mbl-error-box"
       style={{ marginLeft: "250px" }}
     >
       <div className="flex flex-col w-full ">
