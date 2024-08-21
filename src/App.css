@@ -2342,9 +2342,6 @@ aside {
   .mbl-chat {
     width: 100%;
   }
-  .mbl-error-box{
-    width: 95vw !important;
-  }
   .inner-chat-box-height {
     max-height: 47rem !important;
   }
@@ -2391,8 +2388,11 @@ aside {
   .live-chatr-footer {
     position: relative !important;
   }
-  .mbl-error-box{
-    width: 95vw !important;
+}
+@media screen and (max-width: 645px) {
+  .error-box{
+    width: 91vw !important;
+    margin-left: -90px;
   }
 }
 @media screen and (max-width: 580px) {
@@ -2404,9 +2404,6 @@ aside {
   }
   .palyer-mbl {
     height: 30%;
-  }
-  .mbl-error-box{
-    width: 95vw !important;
   }
   /* [data-player] {
     width: 100% !important;
@@ -2433,16 +2430,10 @@ aside {
   .mbl-chat-font {
     font-size: 12px !important;
   }
-  .mbl-error-box{
-    width: 95vw !important;
-  }
 }
 @media screen and (max-width: 400px) {
   .input-1 {
     width: 75% !important;
-  }
-  .mbl-error-box{
-    width: 95vw !important;
   }
   .input-2 {
     width: 23% !important;
