@@ -1281,9 +1281,9 @@ aside {
   .tem-p {
     font-size: 10px !important;
   }
-  .pay-texts {
+  /* .pay-texts {
     margin-left: -80px;
-  }
+  } */
   .plan-page-text {
     width: 100vw;
     padding: 20px;
@@ -1885,10 +1885,10 @@ aside {
     height: 20rem;
     margin-top: 0px !important;
   }
-  .pay-texts {
+  /* .pay-texts {
     width: 93vw;
     margin-left: -90px;
-  }
+  } */
   .pay-card-box {
     width: 80vw;
   }
@@ -2390,9 +2390,13 @@ aside {
   }
 }
 @media screen and (max-width: 645px) {
-  .error-box{
+  /* .error-box{
     width: 91vw !important;
     margin-left: -90px;
+  } */
+  .plan-cards-box{
+    width: 93vw;
+
   }
 }
 @media screen and (max-width: 580px) {
