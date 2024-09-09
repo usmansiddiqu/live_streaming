@@ -29,8 +29,11 @@ import SearchCards from "./Common/SearchCards";
 import getEvents from "../api/getEvents";
 import { useMediaQuery } from "react-responsive";
 import { ToastContainer } from "react-toastify";
+import { useSelector } from "react-redux";
 
 function Nav() {
+  const token = useSelector((state) => state.auth.token); // Access token
+  const user = useSelector((state) => state.auth.user); // Access user info
   const [eventData, setEventData] = useState([]);
   const [search, setSearch] = useState("");
   const [isModalOpen, setModalOpen] = useState(false);
@@ -59,17 +62,16 @@ function Nav() {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  const [data, setData] = useState(JSON?.parse(localStorage.getItem("data")));
   // const pages = ["HOME", "MLB", "NBA", "NFL", "NHL", "UFC"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [image, setImage] = useState(
-    data?.image
-      ? isGoogleImageUrl(data.image)
-        ? data.image
+    user?.image
+      ? isGoogleImageUrl(user.image)
+        ? user.image
         : url +
           "\\" +
-          data.image.replace("uploads\\", "").replace("uploads/", "")
+          user.image.replace("uploads\\", "").replace("uploads/", "")
       : null
   );
   const isDesktop = useMediaQuery({ query: "(min-width: 1001px)" });
@@ -104,14 +106,13 @@ function Nav() {
   };
 
   window.addEventListener("profile", () => {
-    let d = JSON.parse(localStorage.getItem("data"));
     setImage(
-      d
-        ? isGoogleImageUrl(data.image)
+      user
+        ? isGoogleImageUrl(user.image)
           ? image
           : url +
             "\\" +
-            d.image.replace("uploads\\", "").replace("uploads/", "")
+            user.image.replace("uploads\\", "").replace("uploads/", "")
         : null
     );
   });
@@ -301,7 +302,7 @@ function Nav() {
                 )}
 
                 <div>
-                  {data ? (
+                  {user ? (
                     <div className="avatar-profile">
                       {isDesktop ? (
                         <img
@@ -340,7 +341,7 @@ function Nav() {
                                   flexDirection: "column",
                                 }}
                               >
-                                {data?.usertype == "admin" ? (
+                                {user?.usertype == "admin" ? (
                                   <>
                                     <li className="w-[100%] list-none p-2">
                                       <a
