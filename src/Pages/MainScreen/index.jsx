@@ -6,8 +6,12 @@ import verifyPayments from "../../api/payment.api";
 import { useSearchParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import getDetails from "../../api/authGetDetails";
+import { useSelector } from "react-redux";
 
 function MainScreen() {
+  const token = useSelector((state) => state.auth.token); // Access token
+  const user = useSelector((state) => state.auth.user); // Access user info
+  console.log("test", token, user);
   const [search] = useSearchParams();
   const getData = async () => {
     const { data: response } = await verifyPayments(search.get("token"));
