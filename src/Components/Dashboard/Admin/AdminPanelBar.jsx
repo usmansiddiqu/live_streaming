@@ -152,7 +152,7 @@ function AdminPanelBar() {
                               alt=""
                               className="w-[18px] h-[18px]"
                             />
-                            <p className="ml-2"> LogOut</p>
+                            <p className="ml-2"> Logout</p>
                           </a>
                         </li>
                       </ul>

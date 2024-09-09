@@ -29,9 +29,11 @@ import SearchCards from "./Common/SearchCards";
 import getEvents from "../api/getEvents";
 import { useMediaQuery } from "react-responsive";
 import { ToastContainer } from "react-toastify";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearToken } from "../api/slice/auth.slice";
 
 function Nav() {
+  const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token); // Access token
   const user = useSelector((state) => state.auth.user); // Access user info
   const [eventData, setEventData] = useState([]);
@@ -434,7 +436,7 @@ function Nav() {
                                       <a
                                         className="flex items-center"
                                         onClick={() => {
-                                          clearLocalStorage();
+                                          dispatch(clearToken());
                                           navigate("/login");
                                         }}
                                       >
