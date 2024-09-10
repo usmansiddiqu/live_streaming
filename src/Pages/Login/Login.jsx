@@ -32,9 +32,14 @@ function Login() {
       // localStorage.setItem("token", data.data.token);
       // localStorage.setItem("data", JSON.stringify(data.data.user));
       // window.dispatchEvent(new Event("token"));
-      dispatch(setUser(data.data.user));
-      dispatch(setToken(data.data.token));
-      navigate("/");
+
+      if (data.error) {
+        setError(data.error);
+      } else {
+        dispatch(setUser(data.data.user));
+        dispatch(setToken(data.data.token));
+        navigate("/");
+      }
     }
   };
   const onSuccess = async (res) => {

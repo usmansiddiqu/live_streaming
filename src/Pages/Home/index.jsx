@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MainSlider from "../../Components/MainSlider";
 import SliderHeader from "../../Components/Common/SliderHeader";
 import CardSlider from "../../Components/Common/CardSlider";
-import getEvents from "../../api/getEvents";
 import Footer from "../../Components/Footer";
+import { useEventsQuery } from "../../api/services/liveTV";
+import Skeleton from "react-loading-skeleton";
 
 function Home() {
-  const [data, setData] = useState([]);
-  const getData = async () => {
-    const { data: response } = await getEvents();
-    setData(response.events);
-  };
+  const { data, isLoading } = useEventsQuery();
 
-  useEffect(() => {
-    getData();
-  }, []);
+  if (isLoading)
+    return (
+      <>
+        <Skeleton />
+      </>
+    );
   return (
     <>
       <div className=" relative" style={{ overflow: "hidden" }}>
@@ -24,29 +24,39 @@ function Home() {
             <SliderHeader title="MLB Live" link="mlb" />
           </div>
           <CardSlider
-            data={data.filter((card) => card.channel.TVCategory.name == "MLB")}
+            data={data.events.filter(
+              (card) => card.channel.TVCategory.name == "MLB"
+            )}
             type="MLB"
+            isLoading={isLoading}
           />
           <SliderHeader title="NHL Live" link="nhl" />
           <CardSlider
-            data={data.filter((card) => card.channel.TVCategory.name == "NHL")}
+            data={data.events.filter(
+              (card) => card.channel.TVCategory.name == "NHL"
+            )}
             type="NHL"
+            isLoading={isLoading}
           />
           <SliderHeader title="NBA Live" link="nba" />
           <CardSlider
-            data={data.filter((card) => card.channel.TVCategory.name == "NBA")}
+            data={data.events.filter(
+              (card) => card.channel.TVCategory.name == "NBA"
+            )}
             type="NBL"
+            isLoading={isLoading}
           />
-          {data.filter((card) => {
+          {data.events.filter((card) => {
             return card.channel.TVCategory.name == "NFL";
           })?.length ? (
             <>
               <SliderHeader title="NFL Live" link="nfl" />
               <CardSlider
-                data={data.filter((card) => {
+                data={data.events.filter((card) => {
                   return card.channel.TVCategory.name == "NFL";
                 })}
                 type="NFL"
+                isLoading={isLoading}
               />
             </>
           ) : (
@@ -58,6 +68,7 @@ function Home() {
                     return card.channel.TVCategory.name == "NFL";
                   })}
                   type="NFL"
+                  isLoading={isLoading}
                 />
               </div>
             </>

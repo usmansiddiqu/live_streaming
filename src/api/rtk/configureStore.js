@@ -13,6 +13,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import { liveTVapi } from "../services/liveTV";
 
 // Define the persist config
 const persistConfig = {
@@ -28,6 +29,7 @@ const authPersistConfig = {
 // Combine your reducers (for future expansion)
 const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
+  [liveTVapi.reducerPath]: liveTVapi.reducer,
   auth: persistReducer(authPersistConfig, authSlice),
 });
 
@@ -42,7 +44,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(authApi.middleware), // RTK Query middleware
+    }).concat(authApi.middleware, liveTVapi.middleware), // RTK Query middleware
 });
 
 // Create a persistor
