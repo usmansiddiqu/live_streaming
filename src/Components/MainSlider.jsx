@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import BannerButtons from "./BannerButtons";
 import "../Assets/styles/MainSlider.scss";
-import getSliders from "../api/getSlider";
 import { url } from "../helper/url";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
@@ -13,16 +12,9 @@ import Skeleton from "react-loading-skeleton";
 function MainSlider() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1024px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1025px)" });
-  // const [data, setData] = useState([]);
-  // const getData = async () => {
-  //   const { data: response } = await getSliders();
-  //   setData(response?.data);
-  // };
+
   const { data, isLoading } = useSliderQuery();
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
   const navigate = useNavigate();
   if (isLoading) {
     return <Skeleton count={5} />;
