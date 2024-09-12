@@ -8,7 +8,6 @@ import Skeleton from "react-loading-skeleton";
 
 function Home() {
   const { data, isLoading } = useEventsQuery();
-
   if (isLoading)
     return (
       <>

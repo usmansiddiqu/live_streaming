@@ -6,27 +6,24 @@ import getSliders from "../api/getSlider";
 import { url } from "../helper/url";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
+import { useSliderQuery } from "../api/services/slider";
+import Skeleton from "react-loading-skeleton";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 function CarouselSlider() {
-  const [data, setData] = useState([]);
-  const getData = async () => {
-    const { data: response } = await getSliders();
-    setData(response?.data);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const { data, isLoading } = useSliderQuery();
 
   const navigate = useNavigate();
+  if (isLoading) {
+    return <Skeleton count={5} />;
+  }
   return (
     <div
       className="bg-[#0D0629] mbl-slider-bg-color flex items-center mt-3"
       style={{ paddingBottom: "10px", paddingTop: "10px" }}
     >
       <Carousel data-bs-theme="dark">
-        {data
+        {data.data
           ?.filter((card) => card?.status)
           .map((card, key) => (
             <Carousel.Item key={key}>
