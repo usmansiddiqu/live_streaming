@@ -60,6 +60,7 @@ function MainSlider() {
               position: "relative",
             }}
           >
+            {console.log(data)}
             {data.data
               ?.filter((card) => card?.status)
               .map((card, key) => (

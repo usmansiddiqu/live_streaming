@@ -29,13 +29,8 @@ import SearchCards from "./Common/SearchCards";
 import getEvents from "../api/getEvents";
 import { useMediaQuery } from "react-responsive";
 import { ToastContainer } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
-import { clearToken } from "../api/slice/auth.slice";
 
 function Nav() {
-  const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth.token); // Access token
-  const user = useSelector((state) => state.auth.user); // Access user info
   const [eventData, setEventData] = useState([]);
   const [search, setSearch] = useState("");
   const [isModalOpen, setModalOpen] = useState(false);
@@ -64,16 +59,17 @@ function Nav() {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
+  const [data, setData] = useState(JSON?.parse(localStorage.getItem("data")));
   // const pages = ["HOME", "MLB", "NBA", "NFL", "NHL", "UFC"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [image, setImage] = useState(
-    user?.image
-      ? isGoogleImageUrl(user.image)
-        ? user.image
+    data?.image
+      ? isGoogleImageUrl(data.image)
+        ? data.image
         : url +
           "\\" +
-          user.image.replace("uploads\\", "").replace("uploads/", "")
+          data.image.replace("uploads\\", "").replace("uploads/", "")
       : null
   );
   const isDesktop = useMediaQuery({ query: "(min-width: 1001px)" });
@@ -108,13 +104,14 @@ function Nav() {
   };
 
   window.addEventListener("profile", () => {
+    let d = JSON.parse(localStorage.getItem("data"));
     setImage(
-      user
-        ? isGoogleImageUrl(user.image)
+      d
+        ? isGoogleImageUrl(data.image)
           ? image
           : url +
             "\\" +
-            user.image.replace("uploads\\", "").replace("uploads/", "")
+            d.image.replace("uploads\\", "").replace("uploads/", "")
         : null
     );
   });
@@ -123,10 +120,10 @@ function Nav() {
     if (search.length >= 2) {
       return arr.filter((item) => {
         const tvCategory = item.channel.TVCategory.name.toLowerCase();
-        const competitorNames = item.data.competitors
-          .map((comp) => comp.displayName.toLowerCase())
-          .join(" ");
-
+        // const competitorNames = item.data.competitors
+        //   .map((comp) => comp.displayName.toLowerCase())
+        //   .join(" ");
+        const competitorNames = `${item.competitors1_name.toLowerCase()} ${item.competitors2_name.toLowerCase()}`;
         const searchLower = search.toLowerCase();
 
         // Check if the search string is included in TV category names or competitor names
@@ -304,7 +301,7 @@ function Nav() {
                 )}
 
                 <div>
-                  {user ? (
+                  {data ? (
                     <div className="avatar-profile">
                       {isDesktop ? (
                         <img
@@ -343,7 +340,7 @@ function Nav() {
                                   flexDirection: "column",
                                 }}
                               >
-                                {user?.usertype == "admin" ? (
+                                {data?.usertype == "admin" ? (
                                   <>
                                     <li className="w-[100%] list-none p-2">
                                       <a
@@ -436,7 +433,7 @@ function Nav() {
                                       <a
                                         className="flex items-center"
                                         onClick={() => {
-                                          dispatch(clearToken());
+                                          clearLocalStorage();
                                           navigate("/login");
                                         }}
                                       >

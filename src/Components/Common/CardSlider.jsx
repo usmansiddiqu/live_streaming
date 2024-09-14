@@ -42,6 +42,7 @@ const CardSlider = ({ data, type }) => {
           <div className=" ml-1">
             <Splide options={{ ...splideOptions, width: 1400 }}>
               <>
+                {console.log(data)}
                 {data
                   .sort((a, b) => {
                     return (
@@ -110,34 +111,26 @@ const CardSlider = ({ data, type }) => {
                         width: "100%;",
                         height: "100vh",
                         background: `linear-gradient(-60deg, #${
-                          item.data.competitors.filter(
-                            (comp) => comp.homeAway == "home"
-                          )[0].color === "ffffff"
+                          item.competitors1_color === "ffffff"
                             ? "808080"
-                            : item.data.competitors.filter(
-                                (comp) => comp.homeAway == "home"
-                              )[0].color
+                            : item.competitors1_color
                         } 50%, #${
-                          item.data.competitors.filter(
-                            (comp) => comp.homeAway == "home"
-                          )[0].alternateColor === "ffffff"
+                          item.competitors1_alternateColor === "ffffff"
                             ? "808080"
-                            : item.data.competitors.filter(
-                                (comp) => comp.homeAway == "home"
-                              )[0].alternateColor
+                            : item.competitors1_alternateColor
                         } 50%)`,
                       }}
                     >
                       <div className="placeAndTime border w-[100%] h-[auto] p-1  flex justify-between flex-row  bg-[black] bg-opacity-40">
                         {/* {(item)} */}
                         <p className="text-white text-sm">
-                          {truncateText(item.data.location, 15)}
+                          {truncateText(item?.location, 15)}
                         </p>
                         <p className="text-white text-sm">
-                          {item.data.date &&
+                          {item?.date &&
                             truncateText(
                               moment
-                                .utc(item.data.date)
+                                .utc(item?.date)
                                 .utcOffset("-0500")
                                 .format("MM/DD/YYYY hh:mm:ss A")
                                 .split("T")[0],
@@ -152,15 +145,21 @@ const CardSlider = ({ data, type }) => {
                       >
                         <div className="">
                           <TeamIcons
-                            iconsData={item.data.competitors.map((comp) => ({
-                              iconUrl: comp.logo,
-                              name: comp.name,
-                            }))}
+                            iconsData={[
+                              {
+                                iconUrl: item.competitors1_logo,
+                                name: item.competitors1_displayName,
+                              },
+                              {
+                                iconUrl: item.competitors2_logo,
+                                name: item.competitors2_displayName,
+                              },
+                            ]}
                           />
                         </div>
                         <div className="card-live-end">
                           <Ended
-                            show={item?.data?.date}
+                            show={item?.date}
                             type={item.channel.TVCategory.name}
                           />
                         </div>
@@ -250,30 +249,30 @@ const CardSlider = ({ data, type }) => {
                         width: "100%;",
                         height: "100vh",
                         background: `linear-gradient(-60deg, #${
-                          item.data.competitors.filter(
-                            (comp) => comp.homeAway == "home"
-                          )[0].color === "ffffff"
+                          item.competitors1_color === "ffffff"
                             ? "808080"
-                            : item.data.competitors.filter(
-                                (comp) => comp.homeAway == "home"
-                              )[0].color
+                            : item.competitors1_color
                         } 50%, #${
-                          item.data.competitors.filter(
-                            (comp) => comp.homeAway == "home"
-                          )[0].alternateColor === "ffffff"
+                          item.competitors1_alternateColor === "ffffff"
                             ? "808080"
-                            : item.data.competitors.filter(
-                                (comp) => comp.homeAway == "home"
-                              )[0].alternateColor
+                            : item.competitors1_alternateColor
                         } 50%)`,
                       }}
                     >
                       <div className="placeAndTime border w-[100%] h-[auto] p-1  flex justify-between flex-row  bg-[black] bg-opacity-40">
                         <p className="text-white text-sm">
-                          {truncateText(item.data.location, 5)}
+                          {truncateText(item.location, 5)}
                         </p>
                         <p className="text-white text-sm">
-                          {truncateText(item.data.date.split("T")[0], 10)}
+                          {item.date &&
+                            truncateText(
+                              moment
+                                .utc(item.date)
+                                .utcOffset("-0500")
+                                .format("MM/DD/YYYY hh:mm:ss A")
+                                .split("T")[0],
+                              10
+                            )}
                         </p>
                       </div>
 
@@ -282,13 +281,19 @@ const CardSlider = ({ data, type }) => {
                         style={{ marginTop: "25px", width: "90%" }}
                       >
                         <TeamIcons
-                          iconsData={item.data.competitors.map((comp) => ({
-                            iconUrl: comp.logo,
-                            name: comp.name,
-                          }))}
+                          iconsData={[
+                            {
+                              iconUrl: item.competitors1_logo,
+                              name: item.competitors1_displayName,
+                            },
+                            {
+                              iconUrl: item.competitors2_logo,
+                              name: item.competitors2_displayName,
+                            },
+                          ]}
                         />
                         <Ended
-                          show={new Date(item?.data?.date)}
+                          show={item?.date}
                           type={item.channel.TVCategory.name}
                         />
                       </div>
@@ -302,5 +307,4 @@ const CardSlider = ({ data, type }) => {
     </>
   );
 };
-
 export default CardSlider;

@@ -54,21 +54,13 @@ function BannerDetailSlider({ name }) {
                 width: "100%;",
                 height: "100vh",
                 background: `linear-gradient(-60deg, #${
-                  item.data.competitors.filter(
-                    (comp) => comp.homeAway == "home"
-                  )[0].color === "ffffff"
+                  item.competitors1_color === "ffffff"
                     ? "808080"
-                    : item.data.competitors.filter(
-                        (comp) => comp.homeAway == "home"
-                      )[0].color
+                    : item.competitors1_color
                 } 50%, #${
-                  item.data.competitors.filter(
-                    (comp) => comp.homeAway == "home"
-                  )[0].alternateColor === "ffffff"
+                  item.competitors1_alternateColor === "ffffff"
                     ? "808080"
-                    : item.data.competitors.filter(
-                        (comp) => comp.homeAway == "home"
-                      )[0].alternateColor
+                    : item.competitors1_alternateColor
                 } 50%)`,
               }}
             >
@@ -95,14 +87,20 @@ function BannerDetailSlider({ name }) {
                 }}
               >
                 <TeamIconsDetailPage
-                  iconsData={item?.data?.competitors?.map((comp) => ({
-                    iconUrl: comp.logo,
-                    name: comp.name,
-                  }))}
-                  title={item?.data?.shortName}
+                  iconsData={[
+                    {
+                      iconUrl: item.competitors1_logo,
+                      name: item.competitors1_displayName,
+                    },
+                    {
+                      iconUrl: item.competitors2_logo,
+                      name: item.competitors2_displayName,
+                    },
+                  ]}
+                  title={item?.shortName}
                 />
                 <div className="detail-live-end">
-                  <Ended show={new Date(item?.data?.date)} type={params.type} />
+                  <Ended show={new Date(item?.date)} type={params.type} />
                 </div>
               </div>
             </SplideSlide>
