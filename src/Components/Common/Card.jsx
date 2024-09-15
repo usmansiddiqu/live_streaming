@@ -20,7 +20,6 @@ function Card({ data, title, subtitle }) {
   return (
     <div className="relative">
       <div className="relative">
-        <DashHeader title={title} subtitle={subtitle} />
         <div class=" flex items-center justify-center relative">
           <div class=" ">
             {isDekstop && (

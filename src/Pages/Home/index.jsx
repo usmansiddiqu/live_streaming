@@ -40,7 +40,7 @@ function Home() {
           {loading ? (
             <div className="flex items-center justify-center relative">
               <div className="w-[73%]">
-                <Skeleton height={200} count={3} {...skeletonProps} />
+                <Skeleton height={200} count={1} {...skeletonProps} />
               </div>
             </div>
           ) : (
@@ -57,7 +57,7 @@ function Home() {
           {loading ? (
             <div className="flex items-center justify-center relative">
               <div className="w-[73%]">
-                <Skeleton height={200} count={3} {...skeletonProps} />
+                <Skeleton height={200} count={1} {...skeletonProps} />
               </div>
             </div>
           ) : (
@@ -74,7 +74,7 @@ function Home() {
           {loading ? (
             <div className="flex items-center justify-center relative">
               <div className="w-[73%]">
-                <Skeleton height={200} count={3} {...skeletonProps} />
+                <Skeleton height={200} count={1} {...skeletonProps} />
               </div>
             </div>
           ) : (
@@ -89,7 +89,7 @@ function Home() {
           {loading ? (
             <div className="flex items-center justify-center relative">
               <div className="w-[73%]">
-                <Skeleton height={200} count={3} {...skeletonProps} />
+                <Skeleton height={200} count={1} {...skeletonProps} />
               </div>
             </div>
           ) : data.filter((card) => card.channel.TVCategory.name === "NFL")

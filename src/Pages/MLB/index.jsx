@@ -5,6 +5,7 @@ import Card from "../../Components/Common/Card";
 import getEvents from "../../api/getEvents";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import DashHeader from "../../Components/Dashboard/DashHeader";
 
 function MLB() {
   const [data, setData] = useState([]);
@@ -37,9 +38,9 @@ function MLB() {
         }}
       >
         <Nav />
-
+        <DashHeader title={"MLB LIVE"} subtitle="MLB" />
         {loading ? (
-          <div className="flex items-center justify-center relative">
+          <div className="flex items-center justify-center relative pt-2">
             <div className="w-[73%]">
               <Skeleton height={200} count={3} {...skeletonProps} />
             </div>
