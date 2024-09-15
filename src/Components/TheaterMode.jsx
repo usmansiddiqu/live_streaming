@@ -41,13 +41,13 @@ function TheaterMode({ data, url, setTheaterMode }) {
               className="w-[100%] h-[90vh]  deatil-container live-deatil-container"
               style={{
                 background: `linear-gradient(-60deg, #${
-                  item.competitors1_color === "ffffff"
+                  data.competitors1_color === "ffffff"
                     ? "808080"
-                    : item.competitors1_color
+                    : data.competitors1_color
                 } 50%, #${
-                  item.competitors1_alternateColor === "ffffff"
+                  data.competitors1_alternateColor === "ffffff"
                     ? "808080"
-                    : item.competitors1_alternateColor
+                    : data.competitors1_alternateColor
                 } 50%)`,
               }}
             >
