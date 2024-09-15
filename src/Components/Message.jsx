@@ -135,14 +135,14 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
               fontSize: "13px",
             }}
           >
-            <span style={{ color: getRandomColor(msg.userId.name) }}>
-              {msg.userId.name}
+            <span style={{ color: getRandomColor(msg.userId?.name) }}>
+              {msg?.userId?.name}
             </span>
             <span className="ml-1" style={{ color: "white" }}>
               :
             </span>
             <span className="ml-1" style={{ color: "white" }}>
-              {msg.message}
+              {msg?.message}
             </span>
           </span>
 

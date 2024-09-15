@@ -129,7 +129,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
               ></path>
               <rect x="0" y="0" width="36" height="36" fill-opacity="0" />
             </svg>
-            {data?.data?.location}
+            {data?.location}
           </p>
           <p className="flex gap-2 items-center">
             <svg
