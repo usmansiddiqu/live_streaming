@@ -71,6 +71,7 @@ function MainSlider() {
               arrows: false,
               preloadPages: 2,
               lazyLoad: "nearby",
+              autoplay: true,
             }}
             style={{
               borderRadius: "20px",
