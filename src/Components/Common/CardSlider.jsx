@@ -36,7 +36,7 @@ const CardSlider = ({ data, type }) => {
             display: "flex",
             flexDirection: "column",
             margin: "auto",
-            // marginTop: "25px",
+            marginBottom: "20px",
           }}
         >
           <div className=" ml-1">
