@@ -41,21 +41,13 @@ function DetailsComponent({ data, url }) {
           className="w-[80rem] h-[35rem]   deatil-container mt-2"
           style={{
             background: `linear-gradient(-60deg, #${
-              data?.data?.competitors?.filter(
-                (comp) => comp.homeAway == "home"
-              )[0].color === "ffffff"
+              item.competitors1_color === "ffffff"
                 ? "808080"
-                : data?.data?.competitors?.filter(
-                    (comp) => comp.homeAway == "home"
-                  )[0].color
+                : item.competitors1_color
             } 50%, #${
-              data?.data?.competitors?.filter(
-                (comp) => comp.homeAway == "home"
-              )[0].alternateColor === "ffffff"
+              item.competitors1_alternateColor === "ffffff"
                 ? "808080"
-                : data?.data?.competitors?.filter(
-                    (comp) => comp.homeAway == "home"
-                  )[0].alternateColor
+                : item.competitors1_alternateColor
             } 50%)`,
           }}
         >
@@ -73,10 +65,16 @@ function DetailsComponent({ data, url }) {
 
           <div className="" style={{ marginTop: "25px" }}>
             <DetailsIcon
-              iconsData={data?.data?.competitors?.map((comp) => ({
-                iconUrl: comp.logo,
-                name: comp.name,
-              }))}
+              iconsData={[
+                {
+                  iconUrl: item.competitors1_logo,
+                  name: item.competitors1_displayName,
+                },
+                {
+                  iconUrl: item.competitors2_logo,
+                  name: item.competitors2_displayName,
+                },
+              ]}
             />
           </div>
         </div>
