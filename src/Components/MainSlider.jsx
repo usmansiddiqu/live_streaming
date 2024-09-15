@@ -16,9 +16,9 @@ function MainSlider() {
   const { data, isLoading } = useSliderQuery();
 
   const navigate = useNavigate();
-  // if (isLoading) {
-  //   return <Skeleton count={5} />;
-  // }
+  if (isLoading) {
+    return <Skeleton count={5} />;
+  }
 
   return (
     <>
