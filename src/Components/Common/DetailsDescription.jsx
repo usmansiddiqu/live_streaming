@@ -109,7 +109,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
         </div>
 
         <div className="text-white pt-3">
-          <h1 className="text-2xl font-semibold">{data?.data?.name}</h1>
+          <h1 className="text-2xl font-semibold">{data?.name}</h1>
           <br />
           <p className="flex gap-2 text-lg items-center">
             <svg

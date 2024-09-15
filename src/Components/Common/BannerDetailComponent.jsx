@@ -40,13 +40,13 @@ function BannerDetailComponent({ data, url }) {
           className=" w-[60vw] h-[50vh] watch-img mb-4"
           style={{
             background: `linear-gradient(-60deg, #${
-              data.competitors1_color === "ffffff"
+              data?.competitors1_color === "ffffff"
                 ? "808080"
-                : data.competitors1_color
+                : data?.competitors1_color
             } 50%, #${
-              data.competitors1_alternateColor === "ffffff"
+              data?.competitors1_alternateColor === "ffffff"
                 ? "808080"
-                : data.competitors1_alternateColor
+                : data?.competitors1_alternateColor
             } 50%)`,
           }}
         >
