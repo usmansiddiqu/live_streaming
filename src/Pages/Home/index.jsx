@@ -34,7 +34,7 @@ function Home() {
         <div className="relative">
           <MainSlider />
           <div className="nfl-view">
-            <SliderHeader title="MLB Live" link="mlb" />
+            <SliderHeader title="MLB LIVE" link="mlb" />
           </div>
 
           {loading ? (
@@ -52,7 +52,7 @@ function Home() {
             />
           )}
 
-          <SliderHeader title="NHL Live" link="nhl" />
+          <SliderHeader title="NHL LIVE" link="nhl" />
 
           {loading ? (
             <div className="flex items-center justify-center relative">
@@ -69,7 +69,7 @@ function Home() {
             />
           )}
 
-          <SliderHeader title="NBA Live" link="nba" />
+          <SliderHeader title="NBA LIVE" link="nba" />
 
           {loading ? (
             <div className="flex items-center justify-center relative">
@@ -85,7 +85,7 @@ function Home() {
               type="NBL"
             />
           )}
-          <SliderHeader title="NFL Live" link="nfl" />
+          <SliderHeader title="NFL LIVE" link="nfl" />
           {loading ? (
             <div className="flex items-center justify-center relative">
               <div className="w-[73%]">
