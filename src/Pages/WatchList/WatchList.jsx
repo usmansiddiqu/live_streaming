@@ -35,7 +35,7 @@ function WatchList() {
       <div>
         <DashHeader title="My Watchlist" SubTitle="My Watchlist" />
 
-        <SliderHeaders title="NFL Live" />
+        <SliderHeaders title="NFL LIVE" />
         {convertedData?.filter((card) => card.channel.TVCategory.name == "NFL")
           .length && (
           <CardSliders
@@ -44,7 +44,7 @@ function WatchList() {
             )}
           />
         )}
-        <SliderHeaders title="NHL Live" />
+        <SliderHeaders title="NHL LIVE" />
         {convertedData?.filter((card) => card.channel.TVCategory.name == "NHL")
           .length && (
           <CardSliders
@@ -54,7 +54,7 @@ function WatchList() {
           />
         )}
 
-        <SliderHeaders title="NBA Live" />
+        <SliderHeaders title="NBA LIVE" />
         {convertedData?.filter((card) => card.channel.TVCategory.name == "NBA")
           .length && (
           <CardSliders
@@ -63,7 +63,7 @@ function WatchList() {
             )}
           />
         )}
-        <SliderHeaders title="MLB Live" />
+        <SliderHeaders title="MLB LIVE" />
         {convertedData?.filter((card) => card.channel.TVCategory.name == "MLB")
           .length && (
           <CardSliders
