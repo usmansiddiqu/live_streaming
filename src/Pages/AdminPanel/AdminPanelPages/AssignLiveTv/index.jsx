@@ -120,9 +120,7 @@ function AssignLiveTv() {
                         class="px-6 py-4 text-white"
                         style={{ border: "1px solid #313133" }}
                       >
-                        <div className=" rounded text-sm">
-                          {event?.data?.date}
-                        </div>
+                        <div className=" rounded text-sm">{event?.date}</div>
                       </td>
                       <td
                         class="px-6 py-4 text-white"

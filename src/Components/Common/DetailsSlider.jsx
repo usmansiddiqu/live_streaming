@@ -55,8 +55,8 @@ function DetailsSlider() {
           <>
             {data
               ?.sort((a, b) => {
-                const eventTimeA = moment(a.data.date).utc();
-                const eventTimeB = moment(b.data.date).utc();
+                const eventTimeA = moment(a.date).utc();
+                const eventTimeB = moment(b.date).utc();
                 const currentTimeLocal = moment();
 
                 const isLiveA = currentTimeLocal.isBetween(

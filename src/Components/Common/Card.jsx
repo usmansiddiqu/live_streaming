@@ -27,13 +27,10 @@ function Card({ data, title, subtitle }) {
               <div class="grid card-con xl:grid-cols-4 p-3 mx-auto !w-[89rem] gap-4 mb-4">
                 <>
                   {data
-                    ?.sort(
-                      (a, b) =>
-                        new Date(a?.data?.date) - new Date(b?.data?.date)
-                    )
+                    ?.sort((a, b) => new Date(a?.date) - new Date(b?.date))
                     .sort((a, b) => {
-                      const eventTimeA = moment(a.data.date).utc();
-                      const eventTimeB = moment(b.data.date).utc();
+                      const eventTimeA = moment(a.date).utc();
+                      const eventTimeB = moment(b.date).utc();
                       const currentTimeLocal = moment();
 
                       const isLiveA = currentTimeLocal.isBetween(
@@ -152,13 +149,10 @@ function Card({ data, title, subtitle }) {
               <div class="grid card-con grid-cols-1!w-[73vw] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 p-3 mx-auto gap-3 mb-4 Match-cards-div ">
                 <>
                   {data
-                    ?.sort(
-                      (a, b) =>
-                        new Date(a?.data?.date) - new Date(b?.data?.date)
-                    )
+                    ?.sort((a, b) => new Date(a?.date) - new Date(b?.date))
                     .sort((a, b) => {
-                      const eventTimeA = moment(a.data.date).utc();
-                      const eventTimeB = moment(b.data.date).utc();
+                      const eventTimeA = moment(a.date).utc();
+                      const eventTimeB = moment(b.date).utc();
                       const currentTimeLocal = moment();
 
                       const isLiveA = currentTimeLocal.isBetween(

@@ -69,7 +69,7 @@ function EditAssignTv() {
                   id="email"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                   placeholder="MLB"
-                  value={data?.data?.date}
+                  value={data?.date}
                 />
               </div>
               <div class="mb-5 input-feild w-[72vw] flex">

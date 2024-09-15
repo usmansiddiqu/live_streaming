@@ -183,12 +183,10 @@ const CardSlider = ({ data, type }) => {
             <Splide options={{ ...splideOptions, width: 1400 }}>
               <>
                 {data
-                  ?.sort(
-                    (a, b) => new Date(b?.data?.date) - new Date(a?.data?.date)
-                  )
+                  ?.sort((a, b) => new Date(b?.date) - new Date(a?.date))
                   .sort((a, b) => {
-                    const eventTimeA = moment(a.data.date).utc();
-                    const eventTimeB = moment(b.data.date).utc();
+                    const eventTimeA = moment(a.date).utc();
+                    const eventTimeB = moment(b.date).utc();
                     const currentTimeLocal = moment();
 
                     const isLiveA = currentTimeLocal.isBetween(

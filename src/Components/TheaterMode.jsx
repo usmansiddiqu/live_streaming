@@ -11,10 +11,10 @@ import "../Assets/styles/DetailComponent.scss";
 function TheaterMode({ data, url, setTheaterMode }) {
   const { type } = useParams();
   const currentTime = moment();
-  const eventTime = moment(data?.data?.date).utc();
+  const eventTime = moment(data?.date).utc();
 
   const isTimeWithinRange =
-    data?.data?.date &&
+    data?.date &&
     currentTime.isBetween(
       eventTime.clone().subtract(15, "minutes"),
       eventTime
