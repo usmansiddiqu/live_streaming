@@ -83,11 +83,11 @@ function PlanCards() {
     >
       <div className="flex flex-col w-full cards-laoder">
         {error && <ErrorComponent message={error} />}
-        <h4 className="mb-4 pay-texts">
+        {/* <h4 className="mb-4 pay-texts">
           NOTE: The service will not auto-renew, if you do not renew manually
           then it will be automatically canceled at the end of the billing
           period.
-        </h4>
+        </h4> */}
         <div>
           <h4 className="mb-4 pay-texts">Choose Payment Method:</h4>
           <div
