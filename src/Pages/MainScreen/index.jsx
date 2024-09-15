@@ -28,7 +28,8 @@ function MainScreen() {
   };
   useEffect(() => {
     if (search.get("token")) {
-      getData();
+      // getData();
+      getUser();
     }
   }, []);
   return (

@@ -668,6 +668,34 @@ function AdminPanelBar() {
                   )}
                 </a>
               </li>
+              <li
+                id="Affiliate Requests"
+                className={`mt-1 ${
+                  activeItem.id === "Affiliate Requests" ? "active" : ""
+                }`}
+                onClick={() => handleItemClick("Affiliate Requests", "Affiliate Requests")}
+              >
+                <a
+                  style={{ color: "white" }}
+                  className={`flex items-center text-sm p-2 dark:text-white bg-[#1c1c1e] group-hover:text-red-600 ${
+                    activeItem.id === "Affiliate Requests" ? "bg-[#ff0015]" : ""
+                  } ${isCollapsed ? "justify-end" : "justify-start"}`}
+                >
+                  <img
+                    src={List}
+                    alt=""
+                    className={`w-[18px] h-[18px] flex ${
+                      isCollapsed ? "mr-3" : "ml-2"
+                    }`}
+                  />
+                  {!isCollapsed && (
+                    <span className="ms-3">
+                      {" "}
+                      <Link to="/admin/affiliate_requests">Affiliate Requests</Link>
+                    </span>
+                  )}
+                </a>
+              </li>
             </ul>
           </div>
         </aside>

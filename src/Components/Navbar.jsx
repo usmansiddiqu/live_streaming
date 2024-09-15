@@ -426,9 +426,27 @@ function Nav() {
                                         </span>
                                       </a>
                                     </li>
+                                    <li className="w-[100%] list-none p-2">
+                                      <a
+                                        href="/affiliate_requests"
+                                        className="flex items-center"
+                                      >
+                                        <img
+                                          src={Watchlist}
+                                          alt=""
+                                          className="w-[15px] h-[15px]"
+                                        />
+                                        <span className="ml-2 text-sm">
+                                          Affiliate Dashboard
+                                        </span>
+                                      </a>
+                                    </li>
                                     <li
-                                      className="w-[100%] list-none p-2 "
-                                      style={{ borderBottom: "0px" }}
+                                      className="w-[100%] list-none p-2"
+                                      style={{
+                                        borderBottom: "0px",
+                                        cursor: "pointer",
+                                      }}
                                     >
                                       <a
                                         className="flex items-center"

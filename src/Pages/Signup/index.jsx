@@ -10,9 +10,80 @@ import clearLocalStorage from "../../helper/localstorage";
 import { useNavigate } from "react-router";
 import ErrorComponent from "../../Components/Common/ErrorComponent";
 import signup from "../../api/signup";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useParams } from "react-router-dom";
 function Signup() {
   const [search] = useSearchParams();
+  const [affiliateId, setAffiliateId] = useState(null);
+  function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, "\\$&");
+    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+    let results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return "";
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+  // Get 'id' parameter from URL
+  let id = getParameterByName("id");
+  const setAffiliateData = () => {
+    try {
+      if (id) {
+        let affiliateData = {
+          id: id,
+          date: Date.now(),
+        };
+        console.log(affiliateData);
+        localStorage.setItem("affiliateData", JSON.stringify(affiliateData));
+      }
+      console.log(localStorage.getItem("affiliateData"));
+      if (localStorage.getItem("affiliateData")) {
+        let data = localStorage.getItem("affiliateData");
+        console.log(data);
+        let parsedData = JSON.parse(data);
+        console.log(parsedData);
+        const savedTimestamp = parseInt(parsedData.date, 10);
+        const currentTimestamp = Date.now();
+        const differenceInMilliseconds = currentTimestamp - savedTimestamp;
+        console.log(differenceInMilliseconds);
+        const differenceInDays =
+          differenceInMilliseconds / (1000 * 60 * 60 * 24);
+        if (differenceInDays < 7) {
+          setAffiliateId(parsedData.id);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // let id = search.get("id");
+  // console.log(localStorage.getItem("affiliateData"));
+  // const items = { ...localStorage };
+  // console.log(items);
+  // console.log(id);
+
+  // if (id) {
+  //   let affiliateData = {
+  //     id: id,
+  //     date: Date.now(),
+  //   };
+  //   console.log(affiliateData);
+  //   localStorage.setItem("affiliateData", JSON.stringify(affiliateData));
+  // }
+  // if (localStorage.getItem("affiliateData")) {
+  //   let data = localStorage.getItem("affiliateData");
+  //   let parsedData = JSON.parse(data);
+  //   console.log(parsedData);
+  //   const savedTimestamp = parseInt(parsedData.date, 10);
+  //   const currentTimestamp = Date.now();
+  //   const differenceInMilliseconds = currentTimestamp - savedTimestamp;
+  //   console.log(differenceInMilliseconds);
+  //   const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+
+  //   if (differenceInDays > 7) {
+  //     id = parsedData.id;
+  //   }
+  // }
 
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -20,6 +91,7 @@ function Signup() {
     email: "",
     password: "",
     confirmPassword: "",
+    // affiliateId: id ? id : "",
   });
   const [error, setError] = useState(null);
   const handleClick = async () => {
@@ -38,7 +110,7 @@ function Signup() {
     } else {
       setError(null);
       try {
-        const { data: response } = await signup(data);
+        const { data: response } = await signup({ ...data, affiliateId });
         if (response?.error) {
           setError(response?.error);
           return;
@@ -67,6 +139,7 @@ function Signup() {
     });
   };
   useEffect(() => {
+    setAffiliateData();
     if (search.get("access") == "none") {
       setError(
         "Access denied! you need to signup or login to watch this match live"

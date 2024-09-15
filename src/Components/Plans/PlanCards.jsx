@@ -115,72 +115,56 @@ function PlanCards() {
           </div>
         </div>
         <div className="flex pay-cards justify-between items-center flex-wrap">
-          {loading ? (
-            // <div className="flex items-center justify-center relative">
-            <div className="w-[100%]">
-              <Skeleton
-                height={250}
-                style={{ width: "100%" }}
-                count={1}
-                {...skeletonProps}
-              />
-            </div>
-          ) : (
-            sortedData.map((payment) => (
-              // </div>
-              <div key={payment._id} className="flex w-[20rem] mb-4">
-                <div
-                  className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
-                  style={{
-                    backgroundColor: "#1F1340",
-                    backgroundImage: `url(${plan})`,
-                  }}
-                >
-                  <div className="flex justify-start items-start">
-                    <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
-                      <div
-                        className="mx-auto text-center font-semibold"
-                        style={{ fontSize: "17px" }}
-                      >
-                        {payment.name}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col justify-center items-center">
-                    <p className="text-4xl font-bold">
-                      <span className="text-xl">$</span>
-                      {payment.amount}
-                      <span className="text-xl">.00</span>
-                    </p>
+          {sortedData.map((payment) => (
+            <div key={payment._id} className="flex w-[20rem] mb-4">
+              <div
+                className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
+                style={{
+                  backgroundColor: "#1F1340",
+                  backgroundImage: `url(${plan})`,
+                }}
+              >
+                <div className="flex justify-start items-start">
+                  <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
                     <div
-                      className="w-14 rounded-lg bg-blue-500"
-                      style={{ paddingTop: "4px", marginTop: "4px" }}
-                    />
-                    <div>
-                      <p className="text-lg mt-3">
-                        <span> {payment.days}</span> <span>Day</span> (
-                        <span>s</span>)
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => {
-                        if (
-                          payment.name === "Free Service - No Card required"
-                        ) {
-                          handleFreePayment();
-                        } else handleClick(payment._id);
-                      }}
-                      className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
+                      className="mx-auto text-center font-semibold"
+                      style={{ fontSize: "17px" }}
                     >
-                      Select Plan
-                    </button>
+                      {payment.name}
+                    </div>
                   </div>
                 </div>
+
+                <div className="flex flex-col justify-center items-center">
+                  <p className="text-4xl font-bold">
+                    <span className="text-xl">$</span>
+                    {payment.amount}
+                    <span className="text-xl">.00</span>
+                  </p>
+                  <div
+                    className="w-14 rounded-lg bg-blue-500"
+                    style={{ paddingTop: "4px", marginTop: "4px" }}
+                  />
+                  <div>
+                    <p className="text-lg mt-3">
+                      <span> {payment.days}</span> <span>Day</span> (
+                      <span>s</span>)
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      if (payment.name === "Free Service - No Card required") {
+                        handleFreePayment();
+                      } else handleClick(payment._id);
+                    }}
+                    className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
+                  >
+                    Select Plan
+                  </button>
+                </div>
               </div>
-            ))
-          )}
-          {/* {} */}
+            </div>
+          ))}
         </div>
       </div>
     </div>

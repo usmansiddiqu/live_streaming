@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getTransactions from "../../../../api/transaction.api";
-import getTransaction from "../../../../api/getTransactions";
+import getTransaction from "../../../../api/getAffiliateRequests";
 import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
@@ -62,7 +61,8 @@ function Transactions() {
   const getData = async () => {
     try {
       const { data: response } = await getTransaction(skip, textFilter);
-      setData(response.data.userPayments);
+      console.log(response.data.data);
+      setData(response.data.data);
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -194,21 +194,21 @@ function Transactions() {
                       class="px-6 py-3text-white text-md"
                       style={{ border: "1px solid #313133" }}
                     >
-                      Name
+                      Username
                     </th>
                     <th
                       scope="col"
                       class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
-                      Email
+                      Affiliate Name
                     </th>
                     <th
                       scope="col"
                       class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
-                      Plan
+                      Processed
                     </th>
                     <th
                       scope="col"
@@ -222,29 +222,7 @@ function Transactions() {
                       class="px-6 py-3 text-white"
                       style={{ border: "1px solid #313133" }}
                     >
-                      Payment Gateway
-                    </th>
-
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      Payment ID
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      Status
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      Payment Date
+                      Date
                     </th>
                   </tr>
                 </thead>
@@ -272,6 +250,7 @@ function Transactions() {
                     }) */}
                   {data?.map((payment) => (
                     <tr>
+                      {console.log(payment)}
                       <th
                         scope="row"
                         class="px-6 py-4 font-medium  whitespace-nowrap cursor-pointer text-blue-600"
@@ -280,50 +259,30 @@ function Transactions() {
                           handleUserClick(payment);
                         }}
                       >
-                        {payment?.userdata[0]?.name}
+                        {payment?.userId?.name}
                       </th>
                       <th
                         scope="row"
                         class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
-                        {payment?.userdata[0]?.email}
+                        {payment?.affilateUserId?.name}
                       </th>
                       <th
                         scope="row"
                         class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
-                        {payment?.packagedata[0]?.name}
+                        {payment?.isProcessed ? "True" : "False"}
                       </th>
                       <th
                         scope="row"
                         class="px-6 py-4 font-medium  whitespace-nowrap text-white"
                         style={{ border: "1px solid #313133" }}
                       >
-                        ${payment?.packagedata[0]?.amount}
+                        ${payment?.amount}
                       </th>
-                      <th
-                        scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                        style={{ border: "1px solid #313133" }}
-                      >
-                        PAYCEC
-                      </th>
-                      <th
-                        scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                        style={{ border: "1px solid #313133" }}
-                      >
-                        {payment?.token ? payment?.token : "-"}
-                      </th>
-                      <th
-                        scope="row"
-                        class="px-6 py-4 font-medium  whitespace-nowrap text-white"
-                        style={{ border: "1px solid #313133" }}
-                      >
-                        {payment?.status ? payment?.status : "-"}
-                      </th>
+
                       <th
                         scope="row"
                         class="px-6 py-4 font-medium  whitespace-nowrap text-white"

@@ -136,7 +136,7 @@ const Message = ({ msg, index, isMod, messages, setMessages }) => {
             }}
           >
             <span style={{ color: getRandomColor(msg.userId?.name) }}>
-              {msg?.userId?.name}
+              {msg.userId?.name}
             </span>
             <span className="ml-1" style={{ color: "white" }}>
               :
