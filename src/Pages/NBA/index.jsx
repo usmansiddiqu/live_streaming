@@ -43,7 +43,12 @@ function NBA() {
         {loading ? (
           <div className="flex items-center justify-center relative pt-2">
             <div className="w-[73%]">
-              <Skeleton height={200} count={3} {...skeletonProps} />
+              <Skeleton
+                height={200}
+                count={3}
+                {...skeletonProps}
+                style={{ marginBottom: "20px" }}
+              />
             </div>
           </div>
         ) : (
