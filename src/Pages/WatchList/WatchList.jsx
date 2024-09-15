@@ -55,6 +55,7 @@ function WatchList() {
         )}
 
         <SliderHeaders title="NBA LIVE" />
+
         {convertedData?.filter((card) => card.channel.TVCategory.name == "NBA")
           .length && (
           <CardSliders
