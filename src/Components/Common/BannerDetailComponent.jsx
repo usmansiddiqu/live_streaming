@@ -27,7 +27,10 @@ function BannerDetailComponent({ data, url }) {
   return (
     <div className="flex !justify-center clapper-palyer">
       {show ? (
-        <div className="detail-clapper-player-container" style={{marginTop:'10px',marginBottom:'10px'}}>
+        <div
+          className="detail-clapper-player-container"
+          style={{ marginTop: "10px", marginBottom: "10px" }}
+        >
           <div className=" mt-2 flex h-full detail-clapper-player">
             <ClapprPlayer url={url} />
           </div>
@@ -37,21 +40,13 @@ function BannerDetailComponent({ data, url }) {
           className=" w-[60vw] h-[50vh] watch-img mb-4"
           style={{
             background: `linear-gradient(-60deg, #${
-              data?.data?.competitors?.filter(
-                (comp) => comp.homeAway == "home"
-              )[0].color === "ffffff"
+              item.competitors1_color === "ffffff"
                 ? "808080"
-                : data?.data?.competitors?.filter(
-                    (comp) => comp.homeAway == "home"
-                  )[0].color
+                : item.competitors1_color
             } 50%, #${
-              data?.data?.competitors?.filter(
-                (comp) => comp.homeAway == "home"
-              )[0].alternateColor === "ffffff"
+              item.competitors1_alternateColor === "ffffff"
                 ? "808080"
-                : data?.data?.competitors?.filter(
-                    (comp) => comp.homeAway == "home"
-                  )[0].alternateColor
+                : item.competitors1_alternateColor
             } 50%)`,
           }}
         >

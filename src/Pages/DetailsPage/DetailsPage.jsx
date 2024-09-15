@@ -122,12 +122,12 @@ function DetailsPage() {
             />
             <TeamScore
               teamA={{
-                name: data?.data?.competitors[0]?.name,
-                score: data?.data?.competitors[0]?.score,
+                name: data?.competitors1_name,
+                score: data?.competitors1_score,
               }}
               teamB={{
-                name: data?.data?.competitors[1]?.name,
-                score: data?.data?.competitors[1]?.score,
+                name: data?.competitors2_name,
+                score: data?.competitors2_score,
               }}
             />
             <div
