@@ -2400,6 +2400,12 @@ aside {
     left: -900% !important;
     width: 270px !important;
   }
+  .cards-laoder {
+    width: 75vw;
+  }
+  .pay-cards {
+    margin-left: -52px;
+  }
 
   .live-chat-responsive {
     height: 65vh !important;
@@ -2408,7 +2414,7 @@ aside {
     font-size: 12px !important;
   }
   .planCardSkeleton {
-    width:100%;
+    width: 100%;
   }
 }
 /* toggle switch */

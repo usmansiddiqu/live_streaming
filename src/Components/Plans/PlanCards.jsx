@@ -81,7 +81,7 @@ function PlanCards() {
       className="lg:px-20 md:px-10 sm:px-5 w-[73vw]  mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5"
       style={{ marginLeft: "250px" }}
     >
-      <div className="flex flex-col w-full ">
+      <div className="flex flex-col w-full cards-laoder">
         {error && <ErrorComponent message={error} />}
         <h4 className="mb-4 pay-texts">
           NOTE: The service will not auto-renew, if you do not renew manually
@@ -113,7 +113,7 @@ function PlanCards() {
           </div>
         </div>
         <div className="flex pay-cards justify-between items-center flex-wrap">
-          {true ? (
+          {loading ? (
             // <div className="flex items-center justify-center relative">
             <div className="w-[100%]">
               <Skeleton
