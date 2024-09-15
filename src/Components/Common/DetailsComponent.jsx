@@ -41,13 +41,13 @@ function DetailsComponent({ data, url }) {
           className="w-[80rem] h-[35rem]   deatil-container mt-2"
           style={{
             background: `linear-gradient(-60deg, #${
-              item.competitors1_color === "ffffff"
+              data.competitors1_color === "ffffff"
                 ? "808080"
-                : item.competitors1_color
+                : data.competitors1_color
             } 50%, #${
-              item.competitors1_alternateColor === "ffffff"
+              data.competitors1_alternateColor === "ffffff"
                 ? "808080"
-                : item.competitors1_alternateColor
+                : data.competitors1_alternateColor
             } 50%)`,
           }}
         >
@@ -67,12 +67,12 @@ function DetailsComponent({ data, url }) {
             <DetailsIcon
               iconsData={[
                 {
-                  iconUrl: item.competitors1_logo,
-                  name: item.competitors1_displayName,
+                  iconUrl: data.competitors1_logo,
+                  name: data.competitors1_displayName,
                 },
                 {
-                  iconUrl: item.competitors2_logo,
-                  name: item.competitors2_displayName,
+                  iconUrl: data.competitors2_logo,
+                  name: data.competitors2_displayName,
                 },
               ]}
             />
