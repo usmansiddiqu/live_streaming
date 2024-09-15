@@ -34,7 +34,9 @@ function PlanCards() {
   const toggleCard = () => {
     setCardSelected((prevState) => !prevState);
   };
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(
+    "Please enter the email you are using for pixel sport when making payment, incase of any issue please contact support"
+  );
   const openInNewTab = (url) => {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
     if (newWindow) newWindow.opener = null;

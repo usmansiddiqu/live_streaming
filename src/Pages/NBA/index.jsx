@@ -39,7 +39,7 @@ function NBA() {
         }}
       >
         <Nav />
-        <DashHeader title={"MLB LIVE"} subtitle="MLB" />
+        <DashHeader title={"NBA LIVE"} subtitle="NBA" />
         {loading ? (
           <div className="flex items-center justify-center relative pt-2">
             <div className="w-[73%]">
