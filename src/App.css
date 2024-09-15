@@ -344,7 +344,6 @@ aside {
     width: 75vw;
   }
 
-
   .mainSlider {
     height: 32rem;
   }
@@ -442,11 +441,10 @@ aside {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
-  .affiliate-dash-main{
+  .affiliate-dash-main {
     justify-content: flex-start;
-
   }
-  .affiliates-card{
+  .affiliates-card {
     width: 47%;
   }
 }
@@ -487,15 +485,14 @@ aside {
   .chat-box-container {
     height: 93% !important;
   }
-    .affiliate-dash-main{
+  .affiliate-dash-main {
     justify-content: flex-start;
     width: 90%;
-
   }
-  .affiliate-invoice-table{
+  .affiliate-invoice-table {
     width: 90%;
   }
-  .affiliates-card{
+  .affiliates-card {
     width: 47%;
   }
 }
@@ -517,7 +514,6 @@ aside {
   .mainSlider {
     height: 21.5rem !important;
   }
-
 }
 
 @media screen and (max-width: 1000px) {
@@ -536,14 +532,13 @@ aside {
     left: 43%;
     margin-top: -8px;
   }
-   .affiliate-dash-main{
+  .affiliate-dash-main {
     width: 97%;
     padding: 12px;
   }
-   .affiliates-card{
+  .affiliates-card {
     width: 46%;
     display: block !important;
-
   }
   .mainSlider {
     /* margin-top: 20px !important; */
@@ -1331,14 +1326,13 @@ aside {
   .tem-img {
     margin-top: -10px;
   }
-  .affiliate-dash-main{
+  .affiliate-dash-main {
     width: 97%;
     padding: 12px;
   }
-   .affiliates-card{
+  .affiliates-card {
     width: 100% !important;
     display: block !important;
-
   }
 }
 @media screen and (max-width: 540px) {
@@ -1885,11 +1879,15 @@ aside {
     height: 20rem;
     margin-top: 0px !important;
   }
-  /* .pay-texts {
+  .error-box {
+    width: 80vw;
+    margin-left: -80px;
+  }
+  .pay-texts {
     width: 93vw;
     margin-left: -90px;
-  } */
-  .pay-card-box {
+  }
+  */ .pay-card-box {
     width: 80vw;
   }
   .pay-cardds {
@@ -2394,9 +2392,8 @@ aside {
     width: 91vw !important;
     margin-left: -90px;
   } */
-  .plan-cards-box{
+  .plan-cards-box {
     width: 93vw;
-
   }
 }
 @media screen and (max-width: 580px) {
@@ -2453,6 +2450,10 @@ aside {
   }
   .pay-cards {
     margin-left: -52px;
+  }
+  .error-box {
+    width: 90vw;
+    margin-left: -80px;
   }
 
   .live-chat-responsive {
