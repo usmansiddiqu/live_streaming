@@ -27,9 +27,9 @@ div {
   /* overflow-y: hidden; */
   background-color: #0d0624;
 }
-  .pay-cards {
-    width: 80%;
-  }
+.pay-cards {
+  width: 80%;
+}
 .chat-responsive {
   justify-content: space-between;
 }
@@ -429,14 +429,14 @@ aside {
   }
 }
 @media screen and (max-width: 1820px) {
-  .pay-cards{
+  .pay-cards {
     width: 1050px;
     flex-wrap: nowrap;
     justify-content: space-between;
   }
 }
 @media screen and (max-width: 1520px) {
-  .pay-cards{
+  .pay-cards {
     width: 670px;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -588,7 +588,7 @@ aside {
     margin-top: -20px;
   }
   .container {
-    padding-left: 10px ;
+    padding-left: 10px;
   }
   .footer-width {
     width: 98% !important;
@@ -702,11 +702,11 @@ aside {
     width: 38vw;
     margin-top: 10px;
   }
-  .for-mbl-btns{
+  .for-mbl-btns {
     display: flex;
     flex-direction: column;
   }
-  .theater-btn-mbl{
+  .theater-btn-mbl {
     width: 80px;
     margin-top: 10px;
     margin-left: 0px !important;
@@ -2379,7 +2379,6 @@ aside {
   }
 }
 @media screen and (max-width: 420px) {
-
   .live-chat-responsive {
     height: 63vh !important;
   }
@@ -2408,6 +2407,9 @@ aside {
   .mbl-chat-font {
     font-size: 12px !important;
   }
+  .planCardSkeleton {
+    width:100%;
+  }
 }
 /* toggle switch */
 .switch {
@@ -2433,8 +2435,8 @@ aside {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -2445,16 +2447,16 @@ aside {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {

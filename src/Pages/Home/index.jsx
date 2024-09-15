@@ -38,7 +38,11 @@ function Home() {
           </div>
 
           {loading ? (
-            <Skeleton height={200} count={1} {...skeletonProps} />
+            <div className="flex items-center justify-center relative">
+              <div className="w-[73%]">
+                <Skeleton height={200} count={3} {...skeletonProps} />
+              </div>
+            </div>
           ) : (
             <CardSlider
               data={data.filter(
@@ -51,7 +55,11 @@ function Home() {
           <SliderHeader title="NHL Live" link="nhl" />
 
           {loading ? (
-            <Skeleton height={200} count={1} {...skeletonProps} />
+            <div className="flex items-center justify-center relative">
+              <div className="w-[73%]">
+                <Skeleton height={200} count={3} {...skeletonProps} />
+              </div>
+            </div>
           ) : (
             <CardSlider
               data={data.filter(
@@ -64,7 +72,11 @@ function Home() {
           <SliderHeader title="NBA Live" link="nba" />
 
           {loading ? (
-            <Skeleton height={200} count={1} {...skeletonProps} />
+            <div className="flex items-center justify-center relative">
+              <div className="w-[73%]">
+                <Skeleton height={200} count={3} {...skeletonProps} />
+              </div>
+            </div>
           ) : (
             <CardSlider
               data={data.filter(
@@ -75,7 +87,11 @@ function Home() {
           )}
           <SliderHeader title="NFL Live" link="nfl" />
           {loading ? (
-            <Skeleton height={200} count={1} {...skeletonProps} />
+            <div className="flex items-center justify-center relative">
+              <div className="w-[73%]">
+                <Skeleton height={200} count={3} {...skeletonProps} />
+              </div>
+            </div>
           ) : data.filter((card) => card.channel.TVCategory.name === "NFL")
               ?.length ? (
             <>
