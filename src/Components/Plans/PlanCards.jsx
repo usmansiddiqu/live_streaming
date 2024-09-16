@@ -84,7 +84,9 @@ function PlanCards() {
       style={{ marginLeft: "250px" }}
     >
       <div className="flex flex-col w-full cards-laoder">
-        {error && <ErrorComponent message={error} />}
+        <div className="card-error-fix">
+          {error && <ErrorComponent message={error} />}
+        </div>
         {/* <h4 className="mb-4 pay-texts">
           NOTE: The service will not auto-renew, if you do not renew manually
           then it will be automatically canceled at the end of the billing

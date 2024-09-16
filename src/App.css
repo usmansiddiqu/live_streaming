@@ -1881,6 +1881,9 @@ aside {
   }
   .error-box {
     width: 80vw;
+    /* margin-left: -80px; */
+  }
+  .card-error-fix {
     margin-left: -80px;
   }
   .pay-texts {
