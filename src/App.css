@@ -1884,7 +1884,7 @@ aside {
     /* margin-left: -80px; */
   }
   .card-error-fix {
-    margin-left: -80px;
+    margin-left: -52px;
   }
   .pay-texts {
     width: 93vw;
@@ -2455,8 +2455,8 @@ aside {
     margin-left: -52px;
   }
   .error-box {
-    width: 90vw;
-    margin-left: -80px;
+    width: 75vw;
+    /* margin-left: -80px; */
   }
 
   .live-chat-responsive {
