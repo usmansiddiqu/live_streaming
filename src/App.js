@@ -32,6 +32,8 @@ import Footer from "./Components/Footer";
 // import NameLiveChat from "./Components/NameLiveChat";
 // import TestingChat from "./Components/TestingChat";
 import LiveeChat from "./Pages/LiveChat";
+import AffiliateRequest from "./Pages/AffiliateRequest";
+import BankDetails from "./Pages/BankDetails";
 
 function App() {
   const [isLoggedIn] = useState(true);
@@ -66,10 +68,13 @@ function App() {
           {isLoggedIn && (
             <React.Fragment>
               <Route path="/profile" element={<Profile />} />
+              <Route path="/bank_details" element={<BankDetails />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/live/:id" element={<BannerPage />} />
               <Route path="/:type/live/:id" element={<DetailsPage />} />
               <Route path="/membership_plan/:id" element={<Plans />} />
+              <Route path="/affiliate_requests" element={<AffiliateRequest />} />
+
               <Route
                 path="/livechat_pdsfsdfsdixel_TV_Sports0987654232"
                 element={<LiveeChat />}

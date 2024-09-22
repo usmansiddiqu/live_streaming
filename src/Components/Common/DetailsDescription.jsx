@@ -109,7 +109,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
         </div>
 
         <div className="text-white pt-3">
-          <h1 className="text-2xl font-semibold">{data?.data?.name}</h1>
+          <h1 className="text-2xl font-semibold">{data?.match_name}</h1>
           <br />
           <p className="flex gap-2 text-lg items-center">
             <svg
@@ -129,7 +129,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
               ></path>
               <rect x="0" y="0" width="36" height="36" fill-opacity="0" />
             </svg>
-            {data?.data?.location}
+            {data?.location}
           </p>
           <p className="flex gap-2 items-center">
             <svg
@@ -142,9 +142,9 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
             >
               <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M15.5,14c-0.3,0.5-0.9,0.6-1.4,0.4l-2.6-1.5C11.2,12.7,11,12.4,11,12V7c0-0.6,0.4-1,1-1s1,0.4,1,1v4.4l2.1,1.2C15.6,12.9,15.7,13.5,15.5,14z" />
             </svg>
-            {data?.data?.date &&
+            {data?.date &&
               moment
-                .utc(data?.data?.date)
+                .utc(data?.date)
                 .utcOffset("-0500")
                 .format("MM/DD/YYYY hh:mm:ss A")}
           </p>

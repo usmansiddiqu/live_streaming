@@ -11,10 +11,10 @@ import "../Assets/styles/DetailComponent.scss";
 function TheaterMode({ data, url, setTheaterMode }) {
   const { type } = useParams();
   const currentTime = moment();
-  const eventTime = moment(data?.data?.date).utc();
+  const eventTime = moment(data?.date).utc();
 
   const isTimeWithinRange =
-    data?.data?.date &&
+    data?.date &&
     currentTime.isBetween(
       eventTime.clone().subtract(15, "minutes"),
       eventTime
@@ -41,31 +41,29 @@ function TheaterMode({ data, url, setTheaterMode }) {
               className="w-[100%] h-[90vh]  deatil-container live-deatil-container"
               style={{
                 background: `linear-gradient(-60deg, #${
-                  data?.data?.competitors?.filter(
-                    (comp) => comp.homeAway == "home"
-                  )[0].color === "ffffff"
+                  data.competitors1_color === "ffffff"
                     ? "808080"
-                    : data?.data?.competitors?.filter(
-                        (comp) => comp.homeAway == "home"
-                      )[0].color
+                    : data.competitors1_color
                 } 50%, #${
-                  data?.data?.competitors?.filter(
-                    (comp) => comp.homeAway == "home"
-                  )[0].alternateColor === "ffffff"
+                  data.competitors1_alternateColor === "ffffff"
                     ? "808080"
-                    : data?.data?.competitors?.filter(
-                        (comp) => comp.homeAway == "home"
-                      )[0].alternateColor
+                    : data.competitors1_alternateColor
                 } 50%)`,
               }}
             >
               <div className="w-[100%] h-[100%] flex justify-between items-center">
                 <div className="mt-[-80px] w-[100%]">
                   <DetailsIcon
-                    iconsData={data?.data?.competitors?.map((comp) => ({
-                      iconUrl: comp.logo,
-                      name: comp.name,
-                    }))}
+                    iconsData={[
+                      {
+                        iconUrl: data.competitors1_logo,
+                        name: data.competitors1_name,
+                      },
+                      {
+                        iconUrl: data.competitors2_logo,
+                        name: data.competitors2_name,
+                      },
+                    ]}
                   />
                 </div>
               </div>

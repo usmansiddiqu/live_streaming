@@ -368,18 +368,20 @@ const ChatSection = ({ setTheaterMode }) => {
             >
               {/* <div style={{ transform: "rotate(180deg)" }}> */}
               <div>
-                {messages?.map((msg, index) => (
-                  <Message
-                    key={index}
-                    msg={msg}
-                    messages={messages}
-                    setMessages={setMessages}
-                    index={index}
-                    isMod={isMod}
-                    isOpen={openActionBoxIndex === index}
-                    toggleActionBox={toggleActionBox}
-                  />
-                ))}
+                {messages
+                  ?.filter((msg) => msg.userId)
+                  ?.map((msg, index) => (
+                    <Message
+                      key={index}
+                      msg={msg}
+                      messages={messages}
+                      setMessages={setMessages}
+                      index={index}
+                      isMod={isMod}
+                      isOpen={openActionBoxIndex === index}
+                      toggleActionBox={toggleActionBox}
+                    />
+                  ))}
               </div>
               {/* {messages.map((msg, index) => (
                 <Message key={index} msg={msg} index={index} />

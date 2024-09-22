@@ -20,20 +20,16 @@ function Card({ data, title, subtitle }) {
   return (
     <div className="relative">
       <div className="relative">
-        <DashHeader title={title} subtitle={subtitle} />
         <div class=" flex items-center justify-center relative">
           <div class=" ">
             {isDekstop && (
               <div class="grid card-con xl:grid-cols-4 p-3 mx-auto !w-[89rem] gap-4 mb-4">
                 <>
                   {data
-                    ?.sort(
-                      (a, b) =>
-                        new Date(a?.data?.date) - new Date(b?.data?.date)
-                    )
+                    ?.sort((a, b) => new Date(a?.date) - new Date(b?.date))
                     .sort((a, b) => {
-                      const eventTimeA = moment(a.data.date).utc();
-                      const eventTimeB = moment(b.data.date).utc();
+                      const eventTimeA = moment(a.date).utc();
+                      const eventTimeB = moment(b.date).utc();
                       const currentTimeLocal = moment();
 
                       const isLiveA = currentTimeLocal.isBetween(
@@ -69,31 +65,43 @@ function Card({ data, title, subtitle }) {
                           style={{
                             border: "1px solid white",
                             background: `linear-gradient(-60deg, #${
-                              item.data.competitors.filter(
-                                (comp) => comp.homeAway == "home"
-                              )[0].color === "ffffff"
+                              item.competitors1_color === "ffffff"
                                 ? "808080"
-                                : item.data.competitors.filter(
-                                    (comp) => comp.homeAway == "home"
-                                  )[0].color
+                                : item.competitors1_color
                             } 50%, #${
-                              item.data.competitors.filter(
-                                (comp) => comp.homeAway == "home"
-                              )[0].alternateColor === "ffffff"
+                              item.competitors1_alternateColor === "ffffff"
                                 ? "808080"
-                                : item.data.competitors.filter(
-                                    (comp) => comp.homeAway == "home"
-                                  )[0].alternateColor
+                                : item.competitors1_alternateColor
                             } 50%)`,
                           }}
+                          // style={{
+                          //   border: "1px solid white",
+                          //   background: `linear-gradient(-60deg, #${
+                          //     item.data.competitors.filter(
+                          //       (comp) => comp.homeAway == "home"
+                          //     )[0].color === "ffffff"
+                          //       ? "808080"
+                          //       : item.data.competitors.filter(
+                          //           (comp) => comp.homeAway == "home"
+                          //         )[0].color
+                          //   } 50%, #${
+                          //     item.data.competitors.filter(
+                          //       (comp) => comp.homeAway == "home"
+                          //     )[0].alternateColor === "ffffff"
+                          //       ? "808080"
+                          //       : item.data.competitors.filter(
+                          //           (comp) => comp.homeAway == "home"
+                          //         )[0].alternateColor
+                          //   } 50%)`,
+                          // }}
                         >
                           <div className="placeAndTime  border w-[100%]  flex justify-between flex-row p-1 px-2 bg-[black] bg-opacity-40 text-white">
-                            <p>{truncateText(item.data.location, 18)}</p>
+                            <p>{truncateText(item?.location, 18)}</p>
                             <p>
                               {" "}
                               {
                                 moment
-                                  .utc(item.data.date)
+                                  .utc(item?.date)
                                   .utcOffset("-0500")
                                   .format("MM/DD/YYYY hh:mm:ss A")
                                   .split(" ")[0]
@@ -103,15 +111,29 @@ function Card({ data, title, subtitle }) {
 
                           <div className="container px-7">
                             <AnotherTeamIcons
+                              iconsData={[
+                                {
+                                  iconUrl: item.competitors1_logo,
+                                  name: item.competitors1_name,
+                                  score: item.competitors1_score,
+                                },
+                                {
+                                  iconUrl: item.competitors2_logo,
+                                  name: item.competitors2_name,
+                                  score: item.competitors2_score,
+                                },
+                              ]}
+                            />
+                            {/* <AnotherTeamIcons
                               iconsData={item.data.competitors.map((comp) => ({
                                 iconUrl: comp.logo,
                                 name: comp.name,
                                 score: comp.score,
                               }))}
-                            />
+                            /> */}
                             <div>
                               <Ended
-                                show={new Date(item?.data?.date)}
+                                show={new Date(item?.date)}
                                 type={item.channel.TVCategory.name}
                               />
                             </div>
@@ -126,13 +148,10 @@ function Card({ data, title, subtitle }) {
               <div class="grid card-con grid-cols-1!w-[73vw] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 p-3 mx-auto gap-3 mb-4 Match-cards-div ">
                 <>
                   {data
-                    ?.sort(
-                      (a, b) =>
-                        new Date(a?.data?.date) - new Date(b?.data?.date)
-                    )
+                    ?.sort((a, b) => new Date(a?.date) - new Date(b?.date))
                     .sort((a, b) => {
-                      const eventTimeA = moment(a.data.date).utc();
-                      const eventTimeB = moment(b.data.date).utc();
+                      const eventTimeA = moment(a.date).utc();
+                      const eventTimeB = moment(b.date).utc();
                       const currentTimeLocal = moment();
 
                       const isLiveA = currentTimeLocal.isBetween(
@@ -168,40 +187,46 @@ function Card({ data, title, subtitle }) {
                           style={{
                             border: "1px solid white",
                             background: `linear-gradient(-60deg, #${
-                              item.data.competitors.filter(
-                                (comp) => comp.homeAway == "home"
-                              )[0].color === "ffffff"
+                              item.competitors1_color === "ffffff"
                                 ? "808080"
-                                : item.data.competitors.filter(
-                                    (comp) => comp.homeAway == "home"
-                                  )[0].color
+                                : item.competitors1_color
                             } 50%, #${
-                              item.data.competitors.filter(
-                                (comp) => comp.homeAway == "home"
-                              )[0].color === "ffffff"
+                              item.competitors1_alternateColor === "ffffff"
                                 ? "808080"
-                                : item.data.competitors.filter(
-                                    (comp) => comp.homeAway == "home"
-                                  )[0].alternateColor
+                                : item.competitors1_alternateColor
                             } 50%)`,
                           }}
                         >
                           <div className="placeAndTime  border w-[100%]  flex justify-between flex-row p-1 px-2 bg-[black] bg-opacity-40 text-white">
-                            <p>{item.data.location}</p>
-                            <p> {item.data.date.split("T")[0]}</p>
+                            <p>{item?.location}</p>
+                            <p> {item?.date.split("T")[0]}</p>
                           </div>
 
                           <div className="container px-7">
                             <AnotherTeamIcons
+                              iconsData={[
+                                {
+                                  iconUrl: item.competitors1_logo,
+                                  name: item.competitors1_name,
+                                  score: item.competitors1_score,
+                                },
+                                {
+                                  iconUrl: item.competitors2_logo,
+                                  name: item.competitors2_name,
+                                  score: item.competitors2_score,
+                                },
+                              ]}
+                            />
+                            {/* <AnotherTeamIcons
                               iconsData={item.data.competitors.map((comp) => ({
                                 iconUrl: comp.logo,
                                 name: comp.name,
                                 score: comp.score,
                               }))}
-                            />
+                            /> */}
                             <div>
                               <Ended
-                                show={new Date(item?.data?.date)}
+                                show={new Date(item?.date)}
                                 type={item.channel.TVCategory.name}
                               />
                             </div>

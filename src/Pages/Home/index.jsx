@@ -4,59 +4,111 @@ import SliderHeader from "../../Components/Common/SliderHeader";
 import CardSlider from "../../Components/Common/CardSlider";
 import getEvents from "../../api/getEvents";
 import Footer from "../../Components/Footer";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function Home() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const getData = async () => {
+    setLoading(true);
     const { data: response } = await getEvents();
     setData(response.events);
+    setLoading(false);
   };
 
   useEffect(() => {
     getData();
   }, []);
+
+  // Skeleton color and animation customization
+  const skeletonProps = {
+    baseColor: "#170f2c", // Dark background color
+    highlightColor: "#332e47", // Lighter highlight for the animation effect
+  };
+
   return (
     <>
-      <div className=" relative" style={{ overflow: "hidden" }}>
+      <div className="relative" style={{ overflow: "hidden" }}>
         <div className="relative">
           <MainSlider />
           <div className="nfl-view">
-            <SliderHeader title="MLB Live" link="mlb" />
+            <SliderHeader title="MLB LIVE" link="mlb" />
           </div>
-          <CardSlider
-            data={data.filter((card) => card.channel.TVCategory.name == "MLB")}
-            type="MLB"
-          />
-          <SliderHeader title="NHL Live" link="nhl" />
-          <CardSlider
-            data={data.filter((card) => card.channel.TVCategory.name == "NHL")}
-            type="NHL"
-          />
-          <SliderHeader title="NBA Live" link="nba" />
-          <CardSlider
-            data={data.filter((card) => card.channel.TVCategory.name == "NBA")}
-            type="NBL"
-          />
-          {data.filter((card) => {
-            return card.channel.TVCategory.name == "NFL";
-          })?.length ? (
+
+          {loading ? (
+            <div className="flex items-center justify-center relative">
+              <div className="w-[93%] md:w-[73%]">
+                <Skeleton height={200} count={1} {...skeletonProps} />
+              </div>
+            </div>
+          ) : (
+            <CardSlider
+              data={data.filter(
+                (card) => card.channel.TVCategory.name === "MLB"
+              )}
+              type="MLB"
+            />
+          )}
+
+          <SliderHeader title="NHL LIVE" link="nhl" />
+
+          {loading ? (
+            <div className="flex items-center justify-center relative">
+              <div className="w-[93%] md:w-[73%]">
+                <Skeleton height={200} count={1} {...skeletonProps} />
+              </div>
+            </div>
+          ) : (
+            <CardSlider
+              data={data.filter(
+                (card) => card.channel.TVCategory.name === "NHL"
+              )}
+              type="NHL"
+            />
+          )}
+
+          <SliderHeader title="NBA LIVE" link="nba" />
+
+          {loading ? (
+            <div className="flex items-center justify-center relative">
+              <div className="w-[93%] md:w-[73%]">
+                <Skeleton height={200} count={1} {...skeletonProps} />
+              </div>
+            </div>
+          ) : (
+            <CardSlider
+              data={data.filter(
+                (card) => card.channel.TVCategory.name === "NBA"
+              )}
+              type="NBL"
+            />
+          )}
+          <SliderHeader title="NFL LIVE" link="nfl" />
+          {loading ? (
+            <div className="flex items-center justify-center relative">
+              <div className="w-[93%] md:w-[73%]">
+                <Skeleton height={200} count={1} {...skeletonProps} />
+              </div>
+            </div>
+          ) : data.filter((card) => card.channel.TVCategory.name === "NFL")
+              ?.length ? (
             <>
-              <SliderHeader title="NFL Live" link="nfl" />
               <CardSlider
-                data={data.filter((card) => {
-                  return card.channel.TVCategory.name == "NFL";
-                })}
+                data={data.filter(
+                  (card) => card.channel.TVCategory.name === "NFL"
+                )}
                 type="NFL"
               />
             </>
           ) : (
             <>
-              <SliderHeader title="NFL Live" link="nfl" />
               <div className="h-[15.2vh] flex items-center">
                 <CardSlider
-                  data={data.filter((card) => {
-                    return card.channel.TVCategory.name == "NFL";
-                  })}
+                  data={data.filter(
+                    (card) => card.channel.TVCategory.name === "NFL"
+                  )}
                   type="NFL"
                 />
               </div>
@@ -64,6 +116,7 @@ function Home() {
           )}
         </div>
       </div>
+
       <div className="mt-3 ">
         <Footer />
       </div>

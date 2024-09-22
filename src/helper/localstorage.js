@@ -1,5 +1,6 @@
 const clearLocalStorage = async () => {
-  localStorage.clear();
+  localStorage.removeItem("token");
+  localStorage.removeItem("data");
 };
 
 export default clearLocalStorage;

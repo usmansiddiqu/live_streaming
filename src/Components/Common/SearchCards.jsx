@@ -27,6 +27,8 @@ const SearchCards = ({ data }) => {
     drag: true,
   };
   const navigate = useNavigate();
+  console.log(data);
+
   return (
     <>
       {isDekstop && (
@@ -71,7 +73,7 @@ const SearchCards = ({ data }) => {
                       style={{ bottom: "0%" }}
                     >
                       <span className=" text-white font-medium">
-                        {item?.data?.shortName}
+                        {item?.shortName}
                       </span>
                     </div>
                   </SplideSlide>
@@ -116,12 +118,13 @@ const SearchCards = ({ data }) => {
                         : `url(${background})`,
                     }}
                   >
+                    {console.log(item)}
                     <div
                       className="w-[258px] search-card-bar  h-[3vh] bg-gradient-to-r from-[#00C4FF] to-[#0074FF] absolute rounded-b-xl text-center flex justify-center items-center  "
                       style={{ bottom: "0%" }}
                     >
                       <span className=" text-white font-medium">
-                        {item?.data?.shortName}
+                        {item?.shortName}
                       </span>
                     </div>
                   </SplideSlide>

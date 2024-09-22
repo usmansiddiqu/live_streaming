@@ -34,6 +34,8 @@ import AddSubscriptionPlan from "../../Components/AddOn/AddSubscriptionPlan";
 import BadWords from "./AdminPanelPages/BadWords";
 import EditBadWord from "../../Components/Forms/EditBadWord";
 import AddBadWords from "../../Components/AddOn/AddBadWords";
+import AdminAffiliateRequests from "./AdminPanelPages/AffiliateRequests";
+import EditUserInvoice from "../../Components/Forms/EditUserInvoice";
 
 function AdminPanelWrapper() {
   const navigate = useNavigate();
@@ -73,6 +75,11 @@ function AdminPanelWrapper() {
         <Route path="/transactions" element={<Transactions />} />
         <Route path="/bad_words" element={<BadWords />} />
         <Route
+          path="/affiliate_requests"
+          element={<AdminAffiliateRequests />}
+        />
+
+        <Route
           path="/Tv_category/edit_category/:id"
           element={<EditCategory />}
         />
@@ -90,6 +97,10 @@ function AdminPanelWrapper() {
         <Route path="/users/edit_user/:id" element={<EditUser />} />
         <Route path="/sub_admin/edit_user/:id" element={<EditSubAdmin />} />
         <Route path="/users/history/:id" element={<UserHistory />} />
+        <Route
+          path="/edit_user_invoice/:transactionId/:userId"
+          element={<EditUserInvoice />}
+        />
 
         {/* Add Button Routes */}
         <Route path="/tv_category/add_category" element={<AddTvCategory />} />

@@ -27,9 +27,9 @@ div {
   /* overflow-y: hidden; */
   background-color: #0d0624;
 }
-  .pay-cards {
-    width: 80%;
-  }
+.pay-cards {
+  width: 80%;
+}
 .chat-responsive {
   justify-content: space-between;
 }
@@ -429,17 +429,23 @@ aside {
   }
 }
 @media screen and (max-width: 1820px) {
-  .pay-cards{
+  .pay-cards {
     width: 1050px;
     flex-wrap: nowrap;
     justify-content: space-between;
   }
 }
 @media screen and (max-width: 1520px) {
-  .pay-cards{
+  .pay-cards {
     width: 670px;
     flex-wrap: nowrap;
     justify-content: space-between;
+  }
+  .affiliate-dash-main {
+    justify-content: flex-start;
+  }
+  .affiliates-card {
+    width: 47%;
   }
 }
 @media screen and (max-width: 1360px) {
@@ -479,6 +485,16 @@ aside {
   .chat-box-container {
     height: 93% !important;
   }
+  .affiliate-dash-main {
+    justify-content: flex-start;
+    width: 90%;
+  }
+  .affiliate-invoice-table {
+    width: 90%;
+  }
+  .affiliates-card {
+    width: 47%;
+  }
 }
 @media screen and (max-width: 1155px) {
   .mainSlider {
@@ -515,6 +531,14 @@ aside {
     position: absolute;
     left: 43%;
     margin-top: -8px;
+  }
+  .affiliate-dash-main {
+    width: 97%;
+    padding: 12px;
+  }
+  .affiliates-card {
+    width: 46%;
+    display: block !important;
   }
   .mainSlider {
     /* margin-top: 20px !important; */
@@ -588,7 +612,7 @@ aside {
     margin-top: -20px;
   }
   .container {
-    padding-left: 10px ;
+    padding-left: 10px;
   }
   .footer-width {
     width: 98% !important;
@@ -702,11 +726,11 @@ aside {
     width: 38vw;
     margin-top: 10px;
   }
-  .for-mbl-btns{
+  .for-mbl-btns {
     display: flex;
     flex-direction: column;
   }
-  .theater-btn-mbl{
+  .theater-btn-mbl {
     width: 80px;
     margin-top: 10px;
     margin-left: 0px !important;
@@ -1252,9 +1276,9 @@ aside {
   .tem-p {
     font-size: 10px !important;
   }
-  .pay-texts {
+  /* .pay-texts {
     margin-left: -80px;
-  }
+  } */
   .plan-page-text {
     width: 100vw;
     padding: 20px;
@@ -1301,6 +1325,14 @@ aside {
   }
   .tem-img {
     margin-top: -10px;
+  }
+  .affiliate-dash-main {
+    width: 97%;
+    padding: 12px;
+  }
+  .affiliates-card {
+    width: 100% !important;
+    display: block !important;
   }
 }
 @media screen and (max-width: 540px) {
@@ -1847,6 +1879,13 @@ aside {
     height: 20rem;
     margin-top: 0px !important;
   }
+  .error-box {
+    width: 80vw;
+    /* margin-left: -80px; */
+  }
+  .card-error-fix {
+    margin-left: -52px;
+  }
   .pay-texts {
     width: 93vw;
     margin-left: -90px;
@@ -2351,6 +2390,15 @@ aside {
     position: relative !important;
   }
 }
+@media screen and (max-width: 645px) {
+  /* .error-box{
+    width: 91vw !important;
+    margin-left: -90px;
+  } */
+  .plan-cards-box {
+    width: 93vw;
+  }
+}
 @media screen and (max-width: 580px) {
   .input-1 {
     width: 80% !important;
@@ -2379,7 +2427,6 @@ aside {
   }
 }
 @media screen and (max-width: 420px) {
-
   .live-chat-responsive {
     height: 63vh !important;
   }
@@ -2401,12 +2448,25 @@ aside {
     left: -900% !important;
     width: 270px !important;
   }
+  .cards-laoder {
+    width: 75vw;
+  }
+  .pay-cards {
+    margin-left: -52px;
+  }
+  .error-box {
+    width: 75vw;
+    /* margin-left: -80px; */
+  }
 
   .live-chat-responsive {
     height: 65vh !important;
   }
   .mbl-chat-font {
     font-size: 12px !important;
+  }
+  .planCardSkeleton {
+    width: 100%;
   }
 }
 /* toggle switch */
@@ -2433,8 +2493,8 @@ aside {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -2445,16 +2505,16 @@ aside {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {

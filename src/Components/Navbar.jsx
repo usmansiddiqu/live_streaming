@@ -120,10 +120,10 @@ function Nav() {
     if (search.length >= 2) {
       return arr.filter((item) => {
         const tvCategory = item.channel.TVCategory.name.toLowerCase();
-        const competitorNames = item.data.competitors
-          .map((comp) => comp.displayName.toLowerCase())
-          .join(" ");
-
+        // const competitorNames = item.data.competitors
+        //   .map((comp) => comp.displayName.toLowerCase())
+        //   .join(" ");
+        const competitorNames = `${item.competitors1_name.toLowerCase()} ${item.competitors2_name.toLowerCase()}`;
         const searchLower = search.toLowerCase();
 
         // Check if the search string is included in TV category names or competitor names
@@ -426,9 +426,27 @@ function Nav() {
                                         </span>
                                       </a>
                                     </li>
+                                    <li className="w-[100%] list-none p-2">
+                                      <a
+                                        href="/affiliate_requests"
+                                        className="flex items-center"
+                                      >
+                                        <img
+                                          src={Watchlist}
+                                          alt=""
+                                          className="w-[15px] h-[15px]"
+                                        />
+                                        <span className="ml-2 text-sm">
+                                          Affiliate Dashboard
+                                        </span>
+                                      </a>
+                                    </li>
                                     <li
-                                      className="w-[100%] list-none p-2 "
-                                      style={{ borderBottom: "0px" }}
+                                      className="w-[100%] list-none p-2"
+                                      style={{
+                                        borderBottom: "0px",
+                                        cursor: "pointer",
+                                      }}
                                     >
                                       <a
                                         className="flex items-center"
