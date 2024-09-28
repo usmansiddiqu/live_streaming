@@ -62,7 +62,7 @@ function PlanCards() {
         if (result?.data?.error) {
           setError(result?.data?.error);
         } else {
-          window.location.href = result.data.data;
+          window.location.href = result.data.link;
         }
       }
     }
