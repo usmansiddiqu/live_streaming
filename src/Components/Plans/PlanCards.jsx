@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import plan from "../../utils/images/plan.png";
 import getPlans from "../../api/plan.api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import availFreePayment from "../../api/availFree";
 import createPayment from "../../api/addPayment";
 import ErrorComponent from "../Common/ErrorComponent";
@@ -11,6 +11,7 @@ import policioPayment from "../../api/policioPayment";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 function PlanCards() {
+  const [search] = useSearchParams();
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [sortedData, setSortedData] = useState([]);
@@ -37,6 +38,7 @@ function PlanCards() {
   const [error, setError] = useState(
     "Please enter the email you are using for pixel sport when making payment, incase of any issue please contact support"
   );
+  const [error2, setError2] = useState("");
   const openInNewTab = (url) => {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
     if (newWindow) newWindow.opener = null;
@@ -78,6 +80,12 @@ function PlanCards() {
     baseColor: "#170f2c", // Dark background color
     highlightColor: "#332e47", // Lighter highlight for the animation effect
   };
+
+  useEffect(() => {
+    if (search.get("fail") == "none") {
+      setError2("Payment Failed Please Try Again");
+    }
+  }, [search.get("fail")]);
   return (
     <div
       className="lg:px-20 md:px-10 sm:px-5 w-[73vw]  mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5"
@@ -86,6 +94,7 @@ function PlanCards() {
       <div className="flex flex-col w-full cards-laoder">
         <div className="card-error-fix">
           {error && <ErrorComponent message={error} />}
+          {error2 && <ErrorComponent message={error2} />}
         </div>
         {/* <h4 className="mb-4 pay-texts">
           NOTE: The service will not auto-renew, if you do not renew manually
