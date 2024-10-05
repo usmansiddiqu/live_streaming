@@ -113,7 +113,7 @@ function MainSlider() {
                 data-aos="fade"
                 data-aos-easing="ease-in"
                 data-aos-duration="1500"
-                onClick={() => navigate("/signup")}
+                onClick={() => navigate("/login")}
               >
                 SIGN IN
               </p>

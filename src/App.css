@@ -322,6 +322,9 @@ aside {
   .Cardslider {
     width: 65% !important;
   }
+  .main-banner-container {
+    width: 65% !important;
+  }
   .SearchCard {
     width: 65% !important;
   }
@@ -381,6 +384,9 @@ aside {
     height: 160vh;
   } */
   .Cardslider {
+    width: 73% !important;
+  }
+  .main-banner-container {
     width: 73% !important;
   }
   .tvChannel-head {
