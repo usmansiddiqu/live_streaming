@@ -2226,10 +2226,16 @@ aside {
   .msg-text {
     width: 300px !important;
   }
+  .banner-text-container {
+    width: 540px !important;
+  }
 }
 @media screen and (max-width: 1700px) {
   .chat-box-height {
     min-height: 42.3rem !important;
+  }
+  .banner-img {
+    height: 420px !important;
   }
   .inner-chat-box-height {
     max-height: 47rem !important;
@@ -2244,6 +2250,16 @@ aside {
 @media screen and (max-width: 1600px) {
   .chat-box-height {
     min-height: 39.7rem !important;
+  }
+  .banner-img-text {
+    font-size: 36px !important;
+    line-height: 45px !important;
+  }
+  .banner-para-text {
+    font-size: 20px !important;
+  }
+  .banner-img {
+    height: 375px !important;
   }
   .inner-chat-box-height {
     max-height: 47rem !important;
@@ -2291,9 +2307,26 @@ aside {
   .input-2 {
     width: 27% !important;
   }
+  .banner-btn {
+    width: 300px;
+  }
+  .banner-text-container {
+    width: 480px !important;
+  }
+  .banner-img-text {
+    font-size: 30px !important;
+    line-height: 35px !important;
+  }
+  .banner-para-text {
+    font-size: 18px !important;
+  }
   .msg-text {
     width: 220px !important;
     font-size: 12px;
+  }
+  .banner-img {
+    height: 335px !important;
+    width: 950px !important;
   }
   .input-box {
     bottom: 10px !important;
@@ -2334,6 +2367,50 @@ aside {
     /* width: 250px !important; */
     top: -1050% !important;
     left: -1000% !important;
+  }
+  .banner-img-text {
+    font-size: 30px !important;
+    line-height: 35px !important;
+  }
+  .banner-para-text {
+    font-size: 18px !important;
+  }
+  .banner-img {
+    height: 315px !important;
+  }
+  .banner-btn {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 1290px) {
+  .main-banner-container {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+  }
+  .banner-text-container {
+    width: 100% !important;
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    margin-bottom: 28px;
+  }
+  .banner-img-text {
+    font-size: 48px !important;
+    line-height: 60px !important;
+  }
+  .banner-para-text {
+    font-size: 24px !important;
+  }
+  .banner-img {
+    height: 490px !important;
+    width: 860px !important;
+    margin: auto;
+  }
+  .banner-btn {
+    margin: auto !important;
+    width: 350px !important;
   }
 }
 @media screen and (max-width: 1200px) {
@@ -2390,6 +2467,70 @@ aside {
     position: relative !important;
   }
 }
+@media screen and (max-width: 870px) {
+  .main-banner-container {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+  }
+  .banner-text-container {
+    width: 100% !important;
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    margin-bottom: 28px;
+  }
+  .banner-img-text {
+    font-size: 48px !important;
+    line-height: 60px !important;
+  }
+  .banner-para-text {
+    font-size: 24px !important;
+  }
+  .banner-img {
+    height: 480px !important;
+    width: 100% !important;
+    margin: auto;
+  }
+  .banner-btn {
+    margin: auto !important;
+    width: 350px !important;
+  }
+}
+@media screen and (max-width: 760px) {
+  .main-banner-container {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+  }
+  .banner-text-container {
+    width: 98% !important;
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    margin-bottom: 28px;
+  }
+  .banner-img-text {
+    font-size: 30px !important;
+    line-height: 40px !important;
+    font-weight: 500 !important;
+  }
+  .banner-para-text {
+    font-size: 16px !important;
+  }
+  .banner-img {
+    height: 400px !important;
+    width: 95% !important;
+    margin: auto;
+  }
+  .banner-btn {
+    margin: auto !important;
+    width: 115px !important;
+    height: 38px !important;
+  }
+}
 @media screen and (max-width: 645px) {
   /* .error-box{
     width: 91vw !important;
@@ -2400,6 +2541,11 @@ aside {
   }
 }
 @media screen and (max-width: 580px) {
+  .banner-img {
+    height: 330px !important;
+    width: 95% !important;
+    margin: auto;
+  }
   .input-1 {
     width: 80% !important;
   }
@@ -2425,10 +2571,20 @@ aside {
   .live-chat-responsive {
     height: 60vh !important;
   }
+  .banner-img {
+    height: 300px !important;
+    width: 90% !important;
+    margin: auto;
+  }
 }
 @media screen and (max-width: 420px) {
   .live-chat-responsive {
     height: 63vh !important;
+  }
+  .banner-img {
+    height: 210px !important;
+    width: 90% !important;
+    margin: auto;
   }
   .mbl-chat-font {
     font-size: 12px !important;

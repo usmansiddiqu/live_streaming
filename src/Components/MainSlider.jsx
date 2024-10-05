@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import BannerButtons from "./BannerButtons";
 import "../Assets/styles/MainSlider.scss";
@@ -9,12 +9,17 @@ import CarouselSlider from "./CarouselSlider";
 import { useSliderQuery } from "../api/services/slider";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import BannerImge from "./../Assets/Images/SNPLUS_HEADER-IMAGE_JAN_1200X680_JAN588.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function MainSlider() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1024px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1025px)" });
-
-  const { data, isLoading } = useSliderQuery();
+  useEffect(() => {
+    AOS.init();
+  }, []);
+  const { isLoading } = useSliderQuery();
 
   const navigate = useNavigate();
 
@@ -43,7 +48,87 @@ function MainSlider() {
 
   return (
     <>
-      {isDekstop && (
+      <div className="w-[73%] mx-auto mt-[30px] flex justify-between main-banner-container">
+        <div
+          className="w-[600px] banner-text-container"
+          data-aos="fade"
+          data-aos-duration="1000"
+        >
+          <div
+            className="flex flex-col gap-[15px] mb-[28px]"
+            style={{ overflowY: "hidden" }}
+          >
+            <h1
+              className="text-white banner-img-text"
+              style={{
+                fontSize: "48px",
+                lineHeight: "60px",
+                fontWeight: "700",
+              }}
+            >
+              STREAM THE MLB, NFL, NHL, NBA AND MORE
+            </h1>
+            <h3
+              className="text-white banner-para-text"
+              style={{
+                fontSize: "24px",
+                lineHeight: "30px",
+              }}
+            >
+              Choose the plan that's right for you!
+            </h3>
+            <button
+              className="bg-[#156BAC] w-[358px] h-[48px] text-white rounded-[4px] banner-btn"
+              style={{ fontSize: "18px", fontWeight: "700" }}
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              onClick={() => navigate("/membership_plan")}
+            >
+              <div
+                data-aos="fade"
+                data-aos-easing="ease-in"
+                data-aos-duration="1500"
+              >
+                SUBSCRIBE
+              </div>
+            </button>
+          </div>
+          <div className="flex flex-col gap-[15px]">
+            <h3
+              className="text-white banner-para-text"
+              style={{
+                fontSize: "24px",
+                lineHeight: "30px",
+              }}
+            >
+              Have PixelSport Premium?
+            </h3>
+            <button
+              className=" w-[358px] border border-white h-[48px] text-white rounded-[4px] banner-btn"
+              style={{ fontSize: "18px", fontWeight: "700" }}
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              <p
+                data-aos="fade"
+                data-aos-easing="ease-in"
+                data-aos-duration="1500"
+                onClick={() => navigate("/signup")}
+              >
+                SIGN IN
+              </p>
+            </button>
+          </div>
+        </div>
+        <div
+          className="w-[876px] h-[465px] banner-img"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <img src={BannerImge} alt="" className="w-[100%] h-[100%]" />
+        </div>
+      </div>
+      {/* {isDekstop && (
         <div
           style={{
             width: "100%",
@@ -108,7 +193,7 @@ function MainSlider() {
         <>
           <CarouselSlider />
         </>
-      )}
+      )} */}
     </>
   );
 }
