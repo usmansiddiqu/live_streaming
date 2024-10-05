@@ -19,7 +19,7 @@ function MainSlider() {
   useEffect(() => {
     AOS.init();
   }, []);
-  const { data, isLoading } = useSliderQuery();
+  const { isLoading } = useSliderQuery();
 
   const navigate = useNavigate();
 
@@ -82,6 +82,7 @@ function MainSlider() {
               style={{ fontSize: "18px", fontWeight: "700" }}
               data-aos="fade-up"
               data-aos-duration="1000"
+              onClick={() => navigate("/membership_plan")}
             >
               <div
                 data-aos="fade"
@@ -112,6 +113,7 @@ function MainSlider() {
                 data-aos="fade"
                 data-aos-easing="ease-in"
                 data-aos-duration="1500"
+                onClick={() => navigate("/signup")}
               >
                 SIGN IN
               </p>
