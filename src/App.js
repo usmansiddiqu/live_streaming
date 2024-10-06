@@ -34,6 +34,7 @@ import Footer from "./Components/Footer";
 import LiveeChat from "./Pages/LiveChat";
 import AffiliateRequest from "./Pages/AffiliateRequest";
 import BankDetails from "./Pages/BankDetails";
+import Channel from "./Pages/Channel/indes";
 
 function App() {
   const [isLoggedIn] = useState(true);
@@ -51,6 +52,7 @@ function App() {
           <Route path="/nba" element={<NBA />} />
           <Route path="/nfl" element={<NFL />} />
           <Route path="/nhl" element={<NHL />} />
+          <Route path="/channel" element={<Channel />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/verifyemail" element={<EmailVerif />} />
@@ -73,7 +75,10 @@ function App() {
               <Route path="/live/:id" element={<BannerPage />} />
               <Route path="/:type/live/:id" element={<DetailsPage />} />
               <Route path="/membership_plan/:id" element={<Plans />} />
-              <Route path="/affiliate_requests" element={<AffiliateRequest />} />
+              <Route
+                path="/affiliate_requests"
+                element={<AffiliateRequest />}
+              />
 
               <Route
                 path="/livechat_pdsfsdfsdixel_TV_Sports0987654232"

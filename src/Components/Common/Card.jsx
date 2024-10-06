@@ -41,7 +41,6 @@ function Card({ data, title, subtitle }) {
                         eventTimeB.clone().add(4, "hours")
                       );
 
-                      // The following comparison will bring live events to the front
                       if (isLiveA && !isLiveB) {
                         return -1;
                       } else if (!isLiveA && isLiveB) {
@@ -74,26 +73,6 @@ function Card({ data, title, subtitle }) {
                                 : item.competitors1_alternateColor
                             } 50%)`,
                           }}
-                          // style={{
-                          //   border: "1px solid white",
-                          //   background: `linear-gradient(-60deg, #${
-                          //     item.data.competitors.filter(
-                          //       (comp) => comp.homeAway == "home"
-                          //     )[0].color === "ffffff"
-                          //       ? "808080"
-                          //       : item.data.competitors.filter(
-                          //           (comp) => comp.homeAway == "home"
-                          //         )[0].color
-                          //   } 50%, #${
-                          //     item.data.competitors.filter(
-                          //       (comp) => comp.homeAway == "home"
-                          //     )[0].alternateColor === "ffffff"
-                          //       ? "808080"
-                          //       : item.data.competitors.filter(
-                          //           (comp) => comp.homeAway == "home"
-                          //         )[0].alternateColor
-                          //   } 50%)`,
-                          // }}
                         >
                           <div className="placeAndTime  border w-[100%]  flex justify-between flex-row p-1 px-2 bg-[black] bg-opacity-40 text-white">
                             <p>{truncateText(item?.location, 18)}</p>
@@ -124,13 +103,7 @@ function Card({ data, title, subtitle }) {
                                 },
                               ]}
                             />
-                            {/* <AnotherTeamIcons
-                              iconsData={item.data.competitors.map((comp) => ({
-                                iconUrl: comp.logo,
-                                name: comp.name,
-                                score: comp.score,
-                              }))}
-                            /> */}
+
                             <div>
                               <Ended
                                 show={new Date(item?.date)}
@@ -163,7 +136,6 @@ function Card({ data, title, subtitle }) {
                         eventTimeB.clone().add(4, "hours")
                       );
 
-                      // The following comparison will bring live events to the front
                       if (isLiveA && !isLiveB) {
                         return -1;
                       } else if (!isLiveA && isLiveB) {
@@ -217,13 +189,7 @@ function Card({ data, title, subtitle }) {
                                 },
                               ]}
                             />
-                            {/* <AnotherTeamIcons
-                              iconsData={item.data.competitors.map((comp) => ({
-                                iconUrl: comp.logo,
-                                name: comp.name,
-                                score: comp.score,
-                              }))}
-                            /> */}
+
                             <div>
                               <Ended
                                 show={new Date(item?.date)}

@@ -126,7 +126,7 @@ function Login() {
                     type="email"
                     name="email"
                     id="email"
-                    class="bg-[#22134E] h-[6vh] border border-[#22134E] sm:text-sm rounded-md focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  border-[#22134E] dark:placeholder-white-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="bg-[#22134E] h-[6vh] border border-[#22134E] sm:text-sm rounded-md focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  border-[#22134E] dark:placeholder-white-800-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Enter Email"
                     required
                     onChange={(e) => setEmail(e.target.value)}
@@ -139,7 +139,7 @@ function Login() {
                     name="password"
                     id="password"
                     placeholder="Enter Password"
-                    class="bg-[#22134E] h-[6vh] border border-[#22134E] sm:text-sm rounded-md focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  border-[#22134E] dark:placeholder-white-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="bg-[#22134E] h-[6vh] border border-[#22134E] sm:text-sm rounded-md focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  border-[#22134E] dark:placeholder-white-800-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                     onChange={(e) => setPassword(e.target.value)}
                   />

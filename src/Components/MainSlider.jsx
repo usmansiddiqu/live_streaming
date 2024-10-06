@@ -19,8 +19,6 @@ function MainSlider() {
   useEffect(() => {
     AOS.init();
   }, []);
-  const { isLoading } = useSliderQuery();
-
   const navigate = useNavigate();
 
   const skeletonProps = {
@@ -28,23 +26,23 @@ function MainSlider() {
     highlightColor: "#332e47", // Lighter highlight for the animation effect
   };
 
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginTop: "35px",
-          background: "#0D0620",
-        }}
-        className="mainSlider p-3 mt-2"
-      >
-        <Skeleton height={450} width={1400} count={1} {...skeletonProps} />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div
+  //       style={{
+  //         width: "100%",
+  //         display: "flex",
+  //         flexDirection: "column",
+  //         alignItems: "center",
+  //         marginTop: "35px",
+  //         background: "#0D0620",
+  //       }}
+  //       className="mainSlider p-3 mt-2"
+  //     >
+  //       <Skeleton height={450} width={1400} count={1} {...skeletonProps} />
+  //     </div>
+  //   );
+  // }
 
   return (
     <>
@@ -61,8 +59,8 @@ function MainSlider() {
             <h1
               className="text-white banner-img-text"
               style={{
-                fontSize: "48px",
-                lineHeight: "60px",
+                fontSize: "42px",
+                lineHeight: "50px",
                 fontWeight: "700",
               }}
             >
@@ -71,14 +69,14 @@ function MainSlider() {
             <h3
               className="text-white banner-para-text"
               style={{
-                fontSize: "24px",
+                fontSize: "20px",
                 lineHeight: "30px",
               }}
             >
-              Choose the plan that's right for you!
+              Choose the right plan…
             </h3>
             <button
-              className="bg-[#156BAC] w-[358px] h-[48px] text-white rounded-[4px] banner-btn"
+              className="w-[358px] h-[48px] text-white rounded-[4px] banner-btn bg-blue-700"
               style={{ fontSize: "18px", fontWeight: "700" }}
               data-aos="fade-up"
               data-aos-duration="1000"
@@ -97,11 +95,11 @@ function MainSlider() {
             <h3
               className="text-white banner-para-text"
               style={{
-                fontSize: "24px",
+                fontSize: "20px",
                 lineHeight: "30px",
               }}
             >
-              Have PixelSport Premium?
+              Have PixelSport…
             </h3>
             <button
               className=" w-[358px] border border-white h-[48px] text-white rounded-[4px] banner-btn"
@@ -113,7 +111,7 @@ function MainSlider() {
                 data-aos="fade"
                 data-aos-easing="ease-in"
                 data-aos-duration="1500"
-                onClick={() => navigate("/signup")}
+                onClick={() => navigate("/login")}
               >
                 SIGN IN
               </p>
