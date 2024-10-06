@@ -1412,11 +1412,11 @@ aside {
     margin-top: 150px;
   }
 
-  .nav-menu-btn {
+  /* .nav-menu-btn {
     display: block;
-  }
+  } */
   .nav-a {
-    color: black !important;
+    color: rgb(255, 255, 255) !important;
     font-weight: 700;
     font-size: 18px;
   }
@@ -1663,6 +1663,22 @@ aside {
   }
   .tem-img {
     margin-top: -10px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .nav-menu-btn {
+    display: block;
+  }
+  .nav-a {
+    color: rgb(0, 0, 0) !important;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .support-icon {
+    display: none !important;
+  }
+  .Support-text {
+    display: block !important;
   }
 }
 @media screen and (max-width: 1768px) {

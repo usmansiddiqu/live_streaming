@@ -90,9 +90,23 @@ function NavLinks() {
           <a
             href="#"
             className={`block py-3 nav-aaa text-sm text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white  dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
+              activeLink === "CHANNEL" ? "active" : ""
+            }`}
+            onClick={() => handleLinkClick("CHANNEL")}
+          >
+            <Link to="/channel" className="nav-a" style={{ color: "white" }}>
+              Channel
+            </Link>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+            className={`block py-3 nav-aaa text-sm Support-text text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white  dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
               activeLink === "SUPPORT" ? "active" : ""
             }`}
             onClick={() => handleLinkClick("SUPPORT")}
+            style={{ display: "none" }}
           >
             <Link
               to="https://help.pixelsport.tv/en/"

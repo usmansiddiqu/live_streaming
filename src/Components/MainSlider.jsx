@@ -75,7 +75,7 @@ function MainSlider() {
                 lineHeight: "30px",
               }}
             >
-              Choose the plan that's right for you!
+              Choose the right plan…
             </h3>
             <button
               className="w-[358px] h-[48px] text-white rounded-[4px] banner-btn bg-blue-700"
@@ -101,7 +101,7 @@ function MainSlider() {
                 lineHeight: "30px",
               }}
             >
-              Have PixelSport Premium?
+              Have PixelSport…
             </h3>
             <button
               className=" w-[358px] border border-white h-[48px] text-white rounded-[4px] banner-btn"
