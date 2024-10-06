@@ -89,57 +89,32 @@ function Channel() {
                             >
                               <div
                                 className="card-Slider cursor-pointer w-[100%] h-[100%]"
+                                style={{ background: "none" }}
                                 key={item._id}
-                                // style={{
-                                //   border: "1px solid white",
-                                //   background: `linear-gradient(-60deg, #${
-                                //     item.competitors1_color === "ffffff"
-                                //       ? "808080"
-                                //       : item.competitors1_color
-                                //   } 50%, #${
-                                //     item.competitors1_alternateColor ===
-                                //     "ffffff"
-                                //       ? "808080"
-                                //       : item.competitors1_alternateColor
-                                //   } 50%)`,
-                                // }}
                               >
-                                <div className="placeAndTime  border w-[100%]  flex justify-between flex-row p-1 px-2 bg-[black] bg-opacity-40 text-white">
-                                  {/* <p>{truncateText(item?.location, 18)}</p> */}
+                                <div
+                                  className=" border w-[100%] px-2  flex justify-between flex-row   text-white"
+                                  style={{ background: "rgba(0, 0, 0, 0.5)" }}
+                                >
+                                  <p className="mb-1">{item?.title}</p>
                                 </div>
+                                <img
+                                  className="w-[360px] h-[148px]"
+                                  src={
+                                    url +
+                                    "\\" +
+                                    item.image
+                                      .replace("uploads\\", "")
+                                      .replace("uploads/", "")
+                                  }
+                                />
 
-                                <div className="container px-7">
-                                  {/* <AnotherTeamIcons
-                                  iconsData={[
-                                    {
-                                      iconUrl: item.competitors1_logo,
-                                      name: item.competitors1_name,
-                                      score: item.competitors1_score,
-                                    },
-                                    {
-                                      iconUrl: item.competitors2_logo,
-                                      name: item.competitors2_name,
-                                      score: item.competitors2_score,
-                                    },
-                                  ]}
-                                /> */}
-                                  <img
-                                    src={
-                                      url +
-                                      "\\" +
-                                      item.image
-                                        .replace("uploads\\", "")
-                                        .replace("uploads/", "")
-                                    }
+                                <div className="relative top-[-40px]">
+                                  <Ended
+                                    show={new Date(item?.date)}
+                                    // type={item.channel.TVCategory.name}
+                                    flag={true}
                                   />
-
-                                  <div>
-                                    <Ended
-                                      show={new Date(item?.date)}
-                                      // type={item.channel.TVCategory.name}
-                                      flag={true}
-                                    />
-                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -150,66 +125,43 @@ function Channel() {
                   {isTabletOrMobile && (
                     <div class="grid card-con grid-cols-1!w-[73vw] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 p-3 mx-auto gap-3 mb-4 Match-cards-div ">
                       <>
-                        {data.data
-                          // ?.sort(
-                          //   (a, b) => new Date(a?.date) - new Date(b?.date)
-                          // )
-                          // .sort((a, b) => {
-                          //   const eventTimeA = moment(a.date).utc();
-                          //   const eventTimeB = moment(b.date).utc();
-                          //   const currentTimeLocal = moment();
-
-                          //   const isLiveA = currentTimeLocal.isBetween(
-                          //     eventTimeA,
-                          //     eventTimeA.clone().add(4, "hours")
-                          //   );
-                          //   const isLiveB = currentTimeLocal.isBetween(
-                          //     eventTimeB,
-                          //     eventTimeB.clone().add(4, "hours")
-                          //   );
-
-                          //   if (isLiveA && !isLiveB) {
-                          //     return -1;
-                          //   } else if (!isLiveA && isLiveB) {
-                          //     return 1;
-                          //   } else {
-                          //     return 0;
-                          //   }
-                          // })
-                          .map((item) => (
+                        {data.data.map((item) => (
+                          <div
+                            class="w-[310px] h-[180px] border score-card"
+                            onClick={() => navigate(`/live/${item._id}`)}
+                          >
                             <div
-                              class="w-[310px] h-[180px] border score-card"
-                              onClick={() => navigate(`/live/${item._id}`)}
+                              className="card-Slider cursor-pointer w-[100%] h-[100%]"
+                              style={{ background: "none" }}
+                              key={item._id}
                             >
                               <div
-                                className="card-Slider cursor-pointer w-[100%] h-[100%]"
-                                key={item._id}
+                                className=" border w-[100%] px-2  flex justify-between flex-row   text-white"
+                                style={{ background: "rgba(0, 0, 0, 0.5)" }}
                               >
-                                <div className="placeAndTime  border w-[100%]  flex justify-between flex-row p-1 px-2 bg-[black] bg-opacity-40 text-white">
-                                  <p>{item?.location}</p>
-                                </div>
+                                <p className="mb-1">{item?.title}</p>
+                              </div>
+                              <img
+                                className="w-[360px] h-[148px] channle-img"
+                                src={
+                                  url +
+                                  "\\" +
+                                  item.image
+                                    .replace("uploads\\", "")
+                                    .replace("uploads/", "")
+                                }
+                              />
 
-                                <div className="container px-7">
-                                  <img
-                                    src={
-                                      url +
-                                      "\\" +
-                                      item.image
-                                        .replace("uploads\\", "")
-                                        .replace("uploads/", "")
-                                    }
-                                  />
-
-                                  <div>
-                                    <Ended
-                                      show={new Date(item?.date)}
-                                      flag={true}
-                                    />
-                                  </div>
-                                </div>
+                              <div className="relative top-[-40px] ended-channel">
+                                <Ended
+                                  show={new Date(item?.date)}
+                                  // type={item.channel.TVCategory.name}
+                                  flag={true}
+                                />
                               </div>
                             </div>
-                          ))}
+                          </div>
+                        ))}
                       </>
                     </div>
                   )}
