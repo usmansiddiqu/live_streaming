@@ -44,7 +44,7 @@ function Channel() {
     baseColor: "#170f2c", // Dark background color
     highlightColor: "#332e47", // Lighter highlight for the animation effect
   };
-  console.log(data?.data);
+
   const navigate = useNavigate();
 
   return (
@@ -78,9 +78,8 @@ function Channel() {
                     <div class="grid card-con xl:grid-cols-4 p-3 mx-auto !w-[89rem] gap-4 mb-4">
                       <>
                         {data.data
-                          .sort((item) => {
-                            console.log(item.status);
-                            return item.status === true;
+                          .filter((item) => {
+                            return item.status;
                           })
                           .map((item) => (
                             <div
@@ -126,9 +125,8 @@ function Channel() {
                     <div class="grid card-con grid-cols-1!w-[73vw] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 p-3 mx-auto gap-3 mb-4 Match-cards-div ">
                       <>
                         {data.data
-                          .sort((item) => {
-                            console.log(item.status);
-                            return item.status === true;
+                          .filter((item) => {
+                            return item.status;
                           })
                           .map((item) => (
                             <div
