@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment-timezone";
 
-function Ended({ show, type }) {
+function Ended({ show, type, flag = false }) {
   if (!show) {
     return null;
   }
@@ -50,7 +50,7 @@ function Ended({ show, type }) {
       </>
     );
   }
-  if (isBetween) {
+  if (isBetween || flag) {
     return (
       <div className="relative z-40 live ">
         <div

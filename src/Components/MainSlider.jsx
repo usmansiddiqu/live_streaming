@@ -19,8 +19,6 @@ function MainSlider() {
   useEffect(() => {
     AOS.init();
   }, []);
-  const { isLoading } = useSliderQuery();
-
   const navigate = useNavigate();
 
   const skeletonProps = {
@@ -28,23 +26,23 @@ function MainSlider() {
     highlightColor: "#332e47", // Lighter highlight for the animation effect
   };
 
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginTop: "35px",
-          background: "#0D0620",
-        }}
-        className="mainSlider p-3 mt-2"
-      >
-        <Skeleton height={450} width={1400} count={1} {...skeletonProps} />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div
+  //       style={{
+  //         width: "100%",
+  //         display: "flex",
+  //         flexDirection: "column",
+  //         alignItems: "center",
+  //         marginTop: "35px",
+  //         background: "#0D0620",
+  //       }}
+  //       className="mainSlider p-3 mt-2"
+  //     >
+  //       <Skeleton height={450} width={1400} count={1} {...skeletonProps} />
+  //     </div>
+  //   );
+  // }
 
   return (
     <>
