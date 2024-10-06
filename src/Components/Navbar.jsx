@@ -284,8 +284,11 @@ function Nav() {
                   className="w-[115px] support-icon cursor-pointer"
                   onClick={handleSupport}
                 >
-                  <div className="w-[100px] h-[35px] rounded-md bg-blue-700 nav-Btn flex justify-center items-center">
-                    <p className="mb-1">SUPPORT</p>
+                  <div
+                    className="w-[100px] h-[35px] rounded-md flex justify-center items-center"
+                    style={{ background: "none" }}
+                  >
+                    <p className="mb-1">Support</p>
                   </div>
                 </div>
                 <div className="w-[50px]">
