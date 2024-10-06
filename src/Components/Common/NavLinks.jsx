@@ -26,7 +26,7 @@ function NavLinks() {
             onClick={() => handleLinkClick("Home")}
           >
             <Link to="/" className="nav-a" style={{ color: "white" }}>
-              Home
+              HOME
             </Link>
           </a>
         </li>
@@ -95,7 +95,7 @@ function NavLinks() {
             onClick={() => handleLinkClick("CHANNEL")}
           >
             <Link to="/channel" className="nav-a" style={{ color: "white" }}>
-              Channel
+              CHANNEL
             </Link>
           </a>
         </li>
@@ -113,7 +113,7 @@ function NavLinks() {
               className="nav-a"
               style={{ color: "white" }}
             >
-              Support
+              SUPPORT
             </Link>
           </a>
         </li>

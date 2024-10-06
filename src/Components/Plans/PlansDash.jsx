@@ -22,7 +22,10 @@ function PlansDash() {
           <h1 className="text-2xl z-20 font-semibold">Service Plan</h1>
         </div>
         <div className="flex  flex-row  z-20 justify-between !w-[200px]  headd items-center">
-        <a > <Link to="/"> Home</Link></a>
+          <a>
+            {" "}
+            <Link to="/"> HOME</Link>
+          </a>
           <img src={Play} alt="" className="w-[10px] h-[10px]" />
           <p>Service Plan</p>
         </div>

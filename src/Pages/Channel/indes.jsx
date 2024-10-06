@@ -44,7 +44,7 @@ function Channel() {
     baseColor: "#170f2c", // Dark background color
     highlightColor: "#332e47", // Lighter highlight for the animation effect
   };
-  console.log(data?.data);
+
   const navigate = useNavigate();
 
   return (
@@ -78,9 +78,8 @@ function Channel() {
                     <div class="grid card-con xl:grid-cols-4 p-3 mx-auto !w-[89rem] gap-4 mb-4">
                       <>
                         {data.data
-                          .sort((item) => {
-                            console.log(item.status);
-                            return item.status === true;
+                          .filter((item) => {
+                            return item.status;
                           })
                           .map((item) => (
                             <div
@@ -125,43 +124,47 @@ function Channel() {
                   {isTabletOrMobile && (
                     <div class="grid card-con grid-cols-1!w-[73vw] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 p-3 mx-auto gap-3 mb-4 Match-cards-div ">
                       <>
-                        {data.data.map((item) => (
-                          <div
-                            class="w-[310px] h-[180px] border score-card"
-                            onClick={() => navigate(`/live/${item._id}`)}
-                          >
+                        {data.data
+                          .filter((item) => {
+                            return item.status;
+                          })
+                          .map((item) => (
                             <div
-                              className="card-Slider cursor-pointer w-[100%] h-[100%]"
-                              style={{ background: "none" }}
-                              key={item._id}
+                              class="w-[310px] h-[180px] border score-card"
+                              onClick={() => navigate(`/live/${item._id}`)}
                             >
                               <div
-                                className=" border w-[100%] px-2  flex justify-between flex-row   text-white"
-                                style={{ background: "rgba(0, 0, 0, 0.5)" }}
+                                className="card-Slider cursor-pointer w-[100%] h-[100%]"
+                                style={{ background: "none" }}
+                                key={item._id}
                               >
-                                <p className="mb-1">{item?.title}</p>
-                              </div>
-                              <img
-                                className="w-[360px] h-[148px] channle-img"
-                                src={
-                                  url +
-                                  "\\" +
-                                  item.image
-                                    .replace("uploads\\", "")
-                                    .replace("uploads/", "")
-                                }
-                              />
-
-                              <div className="relative top-[-40px] ended-channel">
-                                <Ended
-                                  show={new Date(item?.date)}
-                                  // type={item.channel.TVCategory.name}
-                                  flag={true}
+                                <div
+                                  className=" border w-[100%] px-2  flex justify-between flex-row   text-white"
+                                  style={{ background: "rgba(0, 0, 0, 0.5)" }}
+                                >
+                                  <p className="mb-1">{item?.title}</p>
+                                </div>
+                                <img
+                                  className="w-[360px] h-[148px] channle-img"
+                                  src={
+                                    url +
+                                    "\\" +
+                                    item.image
+                                      .replace("uploads\\", "")
+                                      .replace("uploads/", "")
+                                  }
                                 />
+
+                                <div className="relative top-[-40px] ended-channel">
+                                  <Ended
+                                    show={new Date(item?.date)}
+                                    // type={item.channel.TVCategory.name}
+                                    flag={true}
+                                  />
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
                       </>
                     </div>
                   )}
