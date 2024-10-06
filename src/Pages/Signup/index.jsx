@@ -148,7 +148,7 @@ function Signup() {
   }, [search.get("access")]);
   return (
     <>
-      <div className="main-page flex flex-row w-[100vw] h-[100vh] bg-white">
+      <div className="main-page flex flex-row w-[100vw] h-[100vh] bg-[#0d0820]">
         <div className="left-side w-[60%] h-full flex items-center relative">
           <div className="overflow-x-hidden absolute overflow-y-auto w-[60%] h-full fixed h-modal md:h-full signup-Bg "></div>
           <div className="relative w-[100%] mx-autoflex flex-col items-center h-[35vh] signup  my-auto">
@@ -176,15 +176,18 @@ function Signup() {
           </div>
         </div>
         {/* Right Side */}
-        <div className="right-side w-[40%]  m-auto bg-white">
+        <div className="right-side w-[40%]  m-auto bg-[#0D0820]">
           <section class="flex flex-col items-center ">
-            <div class="w-full rounded-lg  md:mt-0 sm:max-w-md xl:p-0">
-              <div class="p-6 space-y-4 md:space-y-6 sm:p-8 ">
+            <div class="w-full bg-[#0D082 rounded-2xl md:mt-0 sm:max-w-md xl:p-0 bg-[#0D0820] bg-opacity-75 ">
+              <div
+                class="p-6 space-y-4 md:space-y-6 sm:p-8 bg-[#0D0820] rounded-2xl "
+                style={{ boxShadow: "0px 1px 15px 1px rgba(255,255,255,0.5)" }}
+              >
                 <div>
-                  <h1 className="text-3xl leading-tight tracking-tight text-gray-900">
+                  <h1 className="text-3xl leading-tight tracking-tight text-white">
                     Sign Up
                   </h1>
-                  <h1 class="text-lg leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                  <h1 class="text-lg leading-tight tracking-tight text-white md:text-2xl ">
                     Create an new account
                   </h1>
                 </div>
@@ -241,7 +244,7 @@ function Signup() {
                   >
                     SIGN UP
                   </button>
-                  <p class="text-sm font-light text-gray-500 dark:text-gray-400 mx-auto text-center">
+                  <p class="text-sm font-light text-white dark:text-white mx-auto text-center">
                     Already Sign Up
                     <a
                       class="font-medium text-blue-600 hover:underline dark:text-blue-500 ml-2"
