@@ -71,14 +71,14 @@ function MainSlider() {
             <h3
               className="text-white banner-para-text"
               style={{
-                fontSize: "24px",
+                fontSize: "20px",
                 lineHeight: "30px",
               }}
             >
               Choose the plan that's right for you!
             </h3>
             <button
-              className="bg-[#156BAC] w-[358px] h-[48px] text-white rounded-[4px] banner-btn"
+              className="w-[358px] h-[48px] text-white rounded-[4px] banner-btn bg-blue-700"
               style={{ fontSize: "18px", fontWeight: "700" }}
               data-aos="fade-up"
               data-aos-duration="1000"
@@ -97,7 +97,7 @@ function MainSlider() {
             <h3
               className="text-white banner-para-text"
               style={{
-                fontSize: "24px",
+                fontSize: "20px",
                 lineHeight: "30px",
               }}
             >

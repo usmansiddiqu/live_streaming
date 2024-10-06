@@ -12,7 +12,7 @@ function NavLinks() {
   return (
     <div
       style={{
-        width: "35%",
+        width: "39%",
       }}
     >
       <ul className="flex flex-col font-medium md:flex-row md:space-x-4 md:mt-0 md:border-0  w-full  justify-between">
@@ -83,6 +83,23 @@ function NavLinks() {
             <Link to="/nhl" className="nav-a" style={{ color: "white" }}>
               {" "}
               NHL
+            </Link>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+            className={`block py-3 nav-aaa text-sm text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white  dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
+              activeLink === "SUPPORT" ? "active" : ""
+            }`}
+            onClick={() => handleLinkClick("SUPPORT")}
+          >
+            <Link
+              to="https://help.pixelsport.tv/en/"
+              className="nav-a"
+              style={{ color: "white" }}
+            >
+              Support
             </Link>
           </a>
         </li>
