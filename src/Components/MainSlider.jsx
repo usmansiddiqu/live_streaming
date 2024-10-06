@@ -61,7 +61,7 @@ function MainSlider() {
             <h1
               className="text-white banner-img-text"
               style={{
-                fontSize: "48px",
+                fontSize: "42px",
                 lineHeight: "60px",
                 fontWeight: "700",
               }}
