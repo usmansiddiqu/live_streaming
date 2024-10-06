@@ -62,7 +62,7 @@ function MainSlider() {
               className="text-white banner-img-text"
               style={{
                 fontSize: "42px",
-                lineHeight: "60px",
+                lineHeight: "50px",
                 fontWeight: "700",
               }}
             >
