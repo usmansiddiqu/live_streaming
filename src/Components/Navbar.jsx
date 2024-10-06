@@ -98,6 +98,10 @@ function Nav() {
   const handleNavigate = () => {
     navigate("/membership_plan");
   };
+
+  const handleSupport = () => {
+    window.location.href = "https://help.pixelsport.tv/en/";
+  };
   const getData = async () => {
     const { data: response } = await getEvents();
     setEventData(response.events);
@@ -276,6 +280,14 @@ function Nav() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip>
               <div className="nav-Icons">
+                <div
+                  className="w-[115px] support-icon cursor-pointer"
+                  onClick={handleSupport}
+                >
+                  <div className="w-[100px] h-[35px] rounded-md bg-blue-700 nav-Btn flex justify-center items-center">
+                    <p className="mb-1">SUPPORT</p>
+                  </div>
+                </div>
                 <div className="w-[50px]">
                   <div
                     className="search-Icon rounded-md flex justify-center items-center rounded-full w-[35px] h-[35px] bg-white-700 "

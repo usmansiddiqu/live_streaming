@@ -275,6 +275,9 @@ aside {
     min-width: 270px;
     height: 200px;
   }
+  .channle-img {
+    height: 170px !important;
+  }
 }
 
 @media screen and (max-width: 2600px) {
@@ -320,6 +323,9 @@ aside {
     margin-right: -200px;
   } */
   .Cardslider {
+    width: 65% !important;
+  }
+  .main-banner-container {
     width: 65% !important;
   }
   .SearchCard {
@@ -381,6 +387,9 @@ aside {
     height: 160vh;
   } */
   .Cardslider {
+    width: 73% !important;
+  }
+  .main-banner-container {
     width: 73% !important;
   }
   .tvChannel-head {
@@ -519,6 +528,9 @@ aside {
 @media screen and (max-width: 1000px) {
   .AdminBarLogo {
     display: none;
+  }
+  .ended-channel {
+    top: -40px;
   }
   .nav-sider {
     border: 0px;
@@ -895,6 +907,9 @@ aside {
 @media screen and (max-width: 769px) {
   .main-profile-img {
     margin: auto;
+  }
+  .ended-channel {
+    top: -50px;
   }
   .Edit-container {
     display: flex;
@@ -1406,11 +1421,11 @@ aside {
     margin-top: 150px;
   }
 
-  .nav-menu-btn {
+  /* .nav-menu-btn {
     display: block;
-  }
+  } */
   .nav-a {
-    color: black !important;
+    color: rgb(255, 255, 255) !important;
     font-weight: 700;
     font-size: 18px;
   }
@@ -1657,6 +1672,22 @@ aside {
   }
   .tem-img {
     margin-top: -10px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .nav-menu-btn {
+    display: block;
+  }
+  .nav-a {
+    color: rgb(0, 0, 0) !important;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .support-icon {
+    display: none !important;
+  }
+  .Support-text {
+    display: block !important;
   }
 }
 @media screen and (max-width: 1768px) {
@@ -2397,8 +2428,8 @@ aside {
     margin-bottom: 28px;
   }
   .banner-img-text {
-    font-size: 48px !important;
-    line-height: 60px !important;
+    font-size: 42px !important;
+    line-height: 50px !important;
   }
   .banner-para-text {
     font-size: 24px !important;
@@ -2482,8 +2513,8 @@ aside {
     margin-bottom: 28px;
   }
   .banner-img-text {
-    font-size: 48px !important;
-    line-height: 60px !important;
+    font-size: 42px !important;
+    line-height: 50px !important;
   }
   .banner-para-text {
     font-size: 24px !important;
