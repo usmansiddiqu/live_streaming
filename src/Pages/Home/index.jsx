@@ -33,24 +33,6 @@ function Home() {
       <div className="relative" style={{ overflow: "hidden" }}>
         <div className="relative">
           <MainSlider />
-          <div className="nfl-view">
-            <SliderHeader title="MLB LIVE" link="mlb" />
-          </div>
-
-          {loading ? (
-            <div className="flex items-center justify-center relative">
-              <div className="w-[93%] md:w-[73%]">
-                <Skeleton height={200} count={1} {...skeletonProps} />
-              </div>
-            </div>
-          ) : (
-            <CardSlider
-              data={data.filter(
-                (card) => card.channel.TVCategory.name === "MLB"
-              )}
-              type="MLB"
-            />
-          )}
 
           <SliderHeader title="NHL LIVE" link="nhl" />
 
@@ -113,6 +95,24 @@ function Home() {
                 />
               </div>
             </>
+          )}
+          <div className="nfl-view">
+            <SliderHeader title="MLB LIVE" link="mlb" />
+          </div>
+
+          {loading ? (
+            <div className="flex items-center justify-center relative">
+              <div className="w-[93%] md:w-[73%]">
+                <Skeleton height={200} count={1} {...skeletonProps} />
+              </div>
+            </div>
+          ) : (
+            <CardSlider
+              data={data.filter(
+                (card) => card.channel.TVCategory.name === "MLB"
+              )}
+              type="MLB"
+            />
           )}
         </div>
       </div>
