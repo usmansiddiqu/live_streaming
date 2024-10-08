@@ -20,6 +20,10 @@ div {
 .crisp-client .cc-tlyw[data-full-view="true"] .cc-kxkl .cc-nsge .cc-imbb {
   display: block !important;
 }
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+  background-color: #0f3057 !important;
+  box-shadow: 0 0 1px #000000 !important;
+}
 .App {
   width: 100vw;
   height: 100vh;
@@ -1356,7 +1360,7 @@ aside {
     flex-direction: column;
   }
   .nav-a {
-    color: black !important;
+    color: rgb(255, 255, 255) !important;
     font-weight: 700;
     font-size: 18px;
     padding-left: 20px;
@@ -1364,7 +1368,7 @@ aside {
   .nav-aa {
     position: relative;
     width: 100vw;
-    border-bottom: 1px solid;
+    /* border-bottom: 1px solid; */
     right: 18%;
   }
   .nav-aaa {
@@ -1678,7 +1682,7 @@ aside {
     display: block;
   }
   .nav-a {
-    color: rgb(0, 0, 0) !important;
+    color: rgb(255, 255, 255) !important;
     font-weight: 700;
     font-size: 18px;
   }

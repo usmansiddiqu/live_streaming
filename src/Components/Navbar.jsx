@@ -233,13 +233,15 @@ function Nav() {
                 <MenuItem
                   onClick={handleCloseNavMenu}
                   style={{
-                    background: "white",
+                    background: "#0F3057",
+                    border: "none",
                   }}
                 >
                   <div
                     className="w-[100vw] m-auto"
                     style={{
-                      background: "white",
+                      background: "#0F3057",
+                      border: "none",
                     }}
                   >
                     <NavLinks />
