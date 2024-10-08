@@ -36,7 +36,7 @@ function PlanCards() {
     setCardSelected((prevState) => !prevState);
   };
   const [error, setError] = useState(
-    "Please enter the email you are using for pixel sport when making payment, incase of any issue please contact support"
+    "NOTE: The service won’t auto-renew. If you don’t renew manually, it will cancel at the end of the billing period. Contact support for any issues."
   );
   const [error2, setError2] = useState("");
   const openInNewTab = (url) => {

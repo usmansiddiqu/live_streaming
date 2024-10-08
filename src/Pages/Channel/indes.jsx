@@ -5,42 +5,33 @@ import Footer from "../../Components/Footer";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import DashHeader from "../../Components/Dashboard/DashHeader";
-import { sliderApi } from "../../api/services/slider"; // Import the API
+import { sliderApi, useSliderQuery } from "../../api/services/slider"; // Import the API
 import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
 import Ended from "../../Components/Common/Ended";
 import { url } from "../../helper/url";
+import getSliders from "../../api/getSlider";
 
 function Channel() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1700px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1701px)" });
 
-  const [sliderData, setSliderData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [data, setData] = useState(null);
 
   const fetchSliderData = async () => {
     try {
       setLoading(true);
-      const startTime = Date.now();
 
-      const result = await dispatch(sliderApi.endpoints.slider.initiate());
-      const elapsedTime = Date.now() - startTime;
-      const minLoadingTime = 3000;
-      if (result.data) {
-        setSliderData(result.data.data);
-        const delay = minLoadingTime - elapsedTime;
-        if (delay > 0) {
-          setTimeout(() => {
-            setLoading(false);
-          }, delay);
-        } else {
-          setLoading(false);
-        }
-      }
+      const data = await getSliders();
+      setData(data.data.data);
+      console.log(data.data.data);
+
+      setLoading(false);
     } catch (err) {
       setError(err);
       setLoading(false);
@@ -55,7 +46,6 @@ function Channel() {
     baseColor: "#170f2c",
     highlightColor: "#332e47",
   };
-  console.log(loading, "loading");
 
   return (
     <div>
@@ -84,7 +74,7 @@ function Channel() {
                 <div>
                   {isDekstop && (
                     <div className="grid card-con xl:grid-cols-4 p-3 mx-auto !w-[89rem] gap-4 mb-4">
-                      {sliderData
+                      {data
                         .filter((item) => item.status)
                         .map((item) => (
                           <div
@@ -125,7 +115,7 @@ function Channel() {
                   )}
                   {isTabletOrMobile && (
                     <div className="grid card-con grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 py-3 mx-auto gap-3 mb-4">
-                      {sliderData
+                      {data
                         .filter((item) => item.status)
                         .map((item) => (
                           <div

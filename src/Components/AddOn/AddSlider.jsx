@@ -38,7 +38,7 @@ function AddSlider() {
       e.preventDefault();
       const formData = new FormData();
       formData.append("title", title);
-      formData.append("liveTV", liveTV);
+      formData.append("liveTV", liveTV || "6589a012796be500687b1eb8");
       formData.append("status", status);
       formData.append("image", image);
       const { data: response } = await createSlider(formData);
