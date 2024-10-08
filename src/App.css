@@ -121,8 +121,32 @@ aside {
 @media screen and (max-width: 900px) {
   .logooo {
     display: block;
+    /* position: absolute; */
+    /* left: 2%; */
+  }
+  .mbl-nav-bar {
+    margin-top: 35px !important;
+  }
+  .navbar-dis {
+    justify-content: end;
+  }
+  .nav-mbl-links {
+    display: flex !important;
+    z-index: 99;
+    background-color: #0f3057;
+    padding-left: 10px;
     position: absolute;
-    left: 2%;
+    top: 50px;
+    left: 100%; /* Off-screen initially */
+    transition: left 0.5s ease-in-out;
+  }
+
+  .nav-mbl-links.show {
+    left: 0; /* Slide in */
+  }
+
+  .nav-mbl-links.hide {
+    left: 100%; /* Slide out */
   }
 }
 @media screen and (max-width: 1690px) {
@@ -929,6 +953,11 @@ aside {
   }
   .ended-channel {
     top: -50px;
+  }
+  .mbl-nav-bar {
+    width: 300px;
+    top: 40px;
+    transition: left 0.2s ease-in-out;
   }
   .Edit-container {
     display: flex;

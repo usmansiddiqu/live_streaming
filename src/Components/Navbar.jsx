@@ -73,21 +73,23 @@ function Nav() {
       : null
   );
   const isDesktop = useMediaQuery({ query: "(min-width: 1001px)" });
+  const [navOpen, setNavOpen] = useState(false);
 
   const navigate = useNavigate();
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
+    setNavOpen((prevNavOpen) => !prevNavOpen);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
+    setNavOpen(false);
     setAnchorElNav(null);
   };
 
@@ -205,392 +207,371 @@ function Nav() {
             </Link>
           </Typography>
 
-          <Box
-            sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-            style={{
-              background: "#00022b",
-            }}
+          <div
+            className="relative flex w-100"
+            style={{ display: "flex", justifyContent: "space-between" }}
           >
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+            <div
+              className="logooo flex justify-between items-center mt-3 ml-2"
+              variant="h5"
+              noWrap
+              component="a"
+              href="#app-bar-with-responsive-menu"
               sx={{
-                display: { xs: "block", md: "none", color: "black" },
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
               }}
             >
-              <div>
-                <MenuItem
-                  onClick={handleCloseNavMenu}
-                  style={{
-                    background: "#0F3057",
-                    border: "none",
-                  }}
-                >
-                  <div
-                    className="w-[100vw] m-auto"
-                    style={{
-                      background: "#0F3057",
-                      border: "none",
-                    }}
-                  >
-                    <NavLinks />
-                  </div>
-                </MenuItem>
-              </div>
-            </Menu>
-          </Box>
+              <Link to="/">
+                <img className="logo" src={logo} alt="" />
+              </Link>
+            </div>
 
-          <div
-            className="logooo"
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            <Link to="/">
-              <img className="logo" src={logo} alt="" />
-            </Link>
-          </div>
-          <Box
-            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-            style={{ marginLeft: "70px" }}
-          >
-            <NavLinks />
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip>
-              <div className="nav-Icons">
-                <div
-                  className="w-[115px] support-icon cursor-pointer"
-                  onClick={handleSupport}
-                >
-                  <div
-                    className="w-[100px] h-[35px] rounded-md flex justify-center items-center"
-                    style={{ background: "none" }}
-                  >
-                    <p className="mb-1">Support</p>
-                  </div>
-                </div>
-                <div className="w-[50px]">
-                  <div
-                    className="search-Icon rounded-md flex justify-center items-center rounded-full w-[35px] h-[35px] bg-white-700 "
-                    onClick={() => {
-                      openModal();
-                    }}
-                  >
-                    <img src={Search} alt="" className="w-[17px] h-[17px]" />
-                  </div>
-                </div>
-                {!localStorage.getItem("data") ? (
-                  <div className="w-[55px]" onClick={handleNavigate}>
-                    <div className="Sub-Icon rounded-md flex justify-center items-center">
-                      <img
-                        src={Subscribe}
-                        alt=""
-                        className="w-[21px] h-[25px]"
-                      />
+            <div className=" flex w-100 navbar-dis">
+              <Box
+                sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+                style={{ marginLeft: "80px" }}
+              >
+                {isDesktop ? <NavLinks /> : <></>}
+              </Box>
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip>
+                  <div className="nav-Icons">
+                    <div
+                      className="w-[115px] support-icon cursor-pointer"
+                      onClick={handleSupport}
+                    >
+                      <div
+                        className="w-[100px] h-[35px] rounded-md flex justify-center items-center"
+                        style={{ background: "none" }}
+                      >
+                        <p className="mb-1">Support</p>
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  <></>
-                )}
-
-                <div>
-                  {data ? (
-                    <div className="avatar-profile">
-                      {isDesktop ? (
+                    <div className="w-[50px]">
+                      <div
+                        className="search-Icon rounded-md flex justify-center items-center rounded-full w-[35px] h-[35px] bg-white-700 "
+                        onClick={() => {
+                          openModal();
+                        }}
+                      >
                         <img
-                          className="avatar w-[40px] h-[40px] rounded-full cursor-pointer"
-                          onClick={toggleDropdown}
-                          src={
-                            typeof image === "string"
-                              ? image
-                                ? image
-                                : image instanceof File
-                                ? URL.createObjectURL(image)
-                                : image
-                              : avatar
-                          }
+                          src={Search}
+                          alt=""
+                          className="w-[17px] h-[17px]"
                         />
-                      ) : (
-                        <div className="w-[55px]" onClick={toggleDropdown}>
-                          <div className="Sub-Icon rounded-md flex justify-center items-center">
-                            <img
-                              src={Account}
-                              alt=""
-                              className="w-[21px] h-[25px]"
-                            />
-                          </div>
+                      </div>
+                    </div>
+                    {!localStorage.getItem("data") ? (
+                      <div className="w-[55px]" onClick={handleNavigate}>
+                        <div className="Sub-Icon rounded-md flex justify-center items-center">
+                          <img
+                            src={Subscribe}
+                            alt=""
+                            className="w-[21px] h-[25px]"
+                          />
                         </div>
-                      )}
-                      {isDropdownOpen && (
-                        <>
-                          <div>
-                            <div className="triangle"></div>
-                            <div className="dropdown rounded-md">
-                              <div
-                                className="dropdown-content rounded-md"
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                }}
-                              >
-                                {data?.usertype == "admin" ? (
-                                  <>
-                                    <li className="w-[100%] list-none p-2">
-                                      <a
-                                        href="/admin/dashboard"
-                                        className="flex items-center"
-                                      >
-                                        <img
-                                          src={Database}
-                                          alt=""
-                                          className="w-[15px] h-[15px]"
-                                        />{" "}
-                                        <span className="ml-2 text-sm">
-                                          Dashboard
-                                        </span>
-                                      </a>
-                                    </li>
-                                    <li
-                                      className="w-[100%] list-none p-2 cursor-pointer"
-                                      style={{ borderBottom: "0px" }}
-                                    >
-                                      <a
-                                        className="flex items-center"
-                                        onClick={() => {
-                                          clearLocalStorage();
-                                          navigate("/login");
-                                        }}
-                                      >
-                                        <img
-                                          src={Logout}
-                                          alt=""
-                                          className="w-[15px] h-[15px]"
-                                        />
-                                        <span className="ml-2 text-sm">
-                                          Logout
-                                        </span>
-                                      </a>
-                                    </li>
-                                  </>
-                                ) : (
-                                  <>
-                                    <li className="w-[100%] list-none p-2 cursor-pointer">
-                                      <a
-                                        href="/dashboard"
-                                        className="flex items-center"
-                                      >
-                                        <img
-                                          src={Database}
-                                          alt=""
-                                          className="w-[15px] h-[15px]"
-                                        />{" "}
-                                        <span className="ml-2 text-sm">
-                                          Dashboard
-                                        </span>
-                                      </a>
-                                    </li>
-                                    <li className="w-[100%] list-none p-2">
-                                      <a
-                                        href="/profile"
-                                        className="flex items-center"
-                                      >
-                                        <img
-                                          src={Profile}
-                                          alt=""
-                                          className="w-[15px] h-[15px]"
-                                        />{" "}
-                                        <span className="ml-2 text-sm">
-                                          Profile
-                                        </span>
-                                      </a>
-                                    </li>
-                                    <li className="w-[100%] list-none p-2">
-                                      <a
-                                        href="/watchlist"
-                                        className="flex items-center"
-                                      >
-                                        <img
-                                          src={Watchlist}
-                                          alt=""
-                                          className="w-[15px] h-[15px]"
-                                        />
-                                        <span className="ml-2 text-sm">
-                                          Watchlist
-                                        </span>
-                                      </a>
-                                    </li>
-                                    <li className="w-[100%] list-none p-2">
-                                      <a
-                                        href="/affiliate_requests"
-                                        className="flex items-center"
-                                      >
-                                        <img
-                                          src={Watchlist}
-                                          alt=""
-                                          className="w-[15px] h-[15px]"
-                                        />
-                                        <span className="ml-2 text-sm">
-                                          Affiliate Dashboard
-                                        </span>
-                                      </a>
-                                    </li>
-                                    <li
-                                      className="w-[100%] list-none p-2"
-                                      style={{
-                                        borderBottom: "0px",
-                                        cursor: "pointer",
-                                      }}
-                                    >
-                                      <a
-                                        className="flex items-center"
-                                        onClick={() => {
-                                          clearLocalStorage();
-                                          navigate("/login");
-                                        }}
-                                      >
-                                        <img
-                                          src={Logout}
-                                          alt=""
-                                          className="w-[15px] h-[15px]"
-                                        />
-                                        <span className="ml-2 text-sm">
-                                          Logout
-                                        </span>
-                                      </a>
-                                    </li>
-                                  </>
-                                )}
+                      </div>
+                    ) : (
+                      <></>
+                    )}
+
+                    <div>
+                      {data ? (
+                        <div className="avatar-profile">
+                          {isDesktop ? (
+                            <img
+                              className="avatar w-[40px] h-[40px] rounded-full cursor-pointer"
+                              onClick={toggleDropdown}
+                              src={
+                                typeof image === "string"
+                                  ? image
+                                    ? image
+                                    : image instanceof File
+                                    ? URL.createObjectURL(image)
+                                    : image
+                                  : avatar
+                              }
+                            />
+                          ) : (
+                            <div className="w-[55px]" onClick={toggleDropdown}>
+                              <div className="Sub-Icon rounded-md flex justify-center items-center">
+                                <img
+                                  src={Account}
+                                  alt=""
+                                  className="w-[21px] h-[25px]"
+                                />
                               </div>
                             </div>
-                          </div>
+                          )}
+                          {isDropdownOpen && (
+                            <>
+                              <div>
+                                <div className="triangle"></div>
+                                <div className="dropdown rounded-md">
+                                  <div
+                                    className="dropdown-content rounded-md"
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                    }}
+                                  >
+                                    {data?.usertype == "admin" ? (
+                                      <>
+                                        <li className="w-[100%] list-none p-2">
+                                          <a
+                                            href="/admin/dashboard"
+                                            className="flex items-center"
+                                          >
+                                            <img
+                                              src={Database}
+                                              alt=""
+                                              className="w-[15px] h-[15px]"
+                                            />{" "}
+                                            <span className="ml-2 text-sm">
+                                              Dashboard
+                                            </span>
+                                          </a>
+                                        </li>
+                                        <li
+                                          className="w-[100%] list-none p-2 cursor-pointer"
+                                          style={{ borderBottom: "0px" }}
+                                        >
+                                          <a
+                                            className="flex items-center"
+                                            onClick={() => {
+                                              clearLocalStorage();
+                                              navigate("/login");
+                                            }}
+                                          >
+                                            <img
+                                              src={Logout}
+                                              alt=""
+                                              className="w-[15px] h-[15px]"
+                                            />
+                                            <span className="ml-2 text-sm">
+                                              Logout
+                                            </span>
+                                          </a>
+                                        </li>
+                                      </>
+                                    ) : (
+                                      <>
+                                        <li className="w-[100%] list-none p-2 cursor-pointer">
+                                          <a
+                                            href="/dashboard"
+                                            className="flex items-center"
+                                          >
+                                            <img
+                                              src={Database}
+                                              alt=""
+                                              className="w-[15px] h-[15px]"
+                                            />{" "}
+                                            <span className="ml-2 text-sm">
+                                              Dashboard
+                                            </span>
+                                          </a>
+                                        </li>
+                                        <li className="w-[100%] list-none p-2">
+                                          <a
+                                            href="/profile"
+                                            className="flex items-center"
+                                          >
+                                            <img
+                                              src={Profile}
+                                              alt=""
+                                              className="w-[15px] h-[15px]"
+                                            />{" "}
+                                            <span className="ml-2 text-sm">
+                                              Profile
+                                            </span>
+                                          </a>
+                                        </li>
+                                        <li className="w-[100%] list-none p-2">
+                                          <a
+                                            href="/watchlist"
+                                            className="flex items-center"
+                                          >
+                                            <img
+                                              src={Watchlist}
+                                              alt=""
+                                              className="w-[15px] h-[15px]"
+                                            />
+                                            <span className="ml-2 text-sm">
+                                              Watchlist
+                                            </span>
+                                          </a>
+                                        </li>
+                                        <li className="w-[100%] list-none p-2">
+                                          <a
+                                            href="/affiliate_requests"
+                                            className="flex items-center"
+                                          >
+                                            <img
+                                              src={Watchlist}
+                                              alt=""
+                                              className="w-[15px] h-[15px]"
+                                            />
+                                            <span className="ml-2 text-sm">
+                                              Affiliate Dashboard
+                                            </span>
+                                          </a>
+                                        </li>
+                                        <li
+                                          className="w-[100%] list-none p-2"
+                                          style={{
+                                            borderBottom: "0px",
+                                            cursor: "pointer",
+                                          }}
+                                        >
+                                          <a
+                                            className="flex items-center"
+                                            onClick={() => {
+                                              clearLocalStorage();
+                                              navigate("/login");
+                                            }}
+                                          >
+                                            <img
+                                              src={Logout}
+                                              alt=""
+                                              className="w-[15px] h-[15px]"
+                                            />
+                                            <span className="ml-2 text-sm">
+                                              Logout
+                                            </span>
+                                          </a>
+                                        </li>
+                                      </>
+                                    )}
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      ) : (
+                        <>
+                          {isDesktop ? (
+                            <button className="w-[100px] h-[35px] rounded-md bg-blue-700 nav-Btn">
+                              <div
+                                className="w-[70px] h-[35px]  flex justify-between items-center"
+                                style={{ margin: "auto" }}
+                              >
+                                <div style={{ width: "18px", height: "18px" }}>
+                                  <img
+                                    src={
+                                      typeof image === "string"
+                                        ? isGoogleImageUrl(image)
+                                          ? image
+                                          : image instanceof File
+                                          ? URL.createObjectURL(image)
+                                          : image
+                                        : null
+                                    }
+                                    alt=""
+                                  />
+                                </div>
+                                <span
+                                  style={{ fontSize: "14px" }}
+                                  className="mr-3 "
+                                >
+                                  <Link to="/login"> LOGIN</Link>
+                                </span>
+                              </div>
+                            </button>
+                          ) : (
+                            <button className="mr-2">
+                              <div
+                                className="Sub-Icon rounded-md flex justify-center items-center"
+                                onClick={() => {
+                                  clearLocalStorage();
+                                  navigate("/login");
+                                }}
+                              >
+                                <img
+                                  src={Account}
+                                  alt=""
+                                  className="w-[21px] h-[25px]"
+                                />
+                              </div>
+                            </button>
+                          )}
                         </>
                       )}
                     </div>
-                  ) : (
-                    <>
-                      {isDesktop ? (
-                        <button className="w-[100px] h-[35px] rounded-md bg-blue-700 nav-Btn">
-                          <div
-                            className="w-[70px] h-[35px]  flex justify-between items-center"
-                            style={{ margin: "auto" }}
+                    <div className="relative">
+                      <div
+                        className="nav-menu-btn flex flex-center items-center relative"
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                          borderRadius: "50%",
+                          background: "#332360",
+                          marginTop: "-2px",
+                        }}
+                      >
+                        <div
+                          className="absolute"
+                          style={{
+                            marginTop: "-4px",
+                            marginRight: "0px",
+                            right: "-10%",
+                          }}
+                        >
+                          <IconButton
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            onClick={handleOpenNavMenu}
+                            color="inherit"
                           >
-                            <div style={{ width: "18px", height: "18px" }}>
-                              <img
-                                src={
-                                  typeof image === "string"
-                                    ? isGoogleImageUrl(image)
-                                      ? image
-                                      : image instanceof File
-                                      ? URL.createObjectURL(image)
-                                      : image
-                                    : null
-                                }
-                                alt=""
-                              />
-                            </div>
-                            <span
-                              style={{ fontSize: "14px" }}
-                              className="mr-3 "
-                            >
-                              <Link to="/login"> LOGIN</Link>
-                            </span>
-                          </div>
-                        </button>
-                      ) : (
-                        <button className="mr-2">
-                          <div
-                            className="Sub-Icon rounded-md flex justify-center items-center"
-                            onClick={() => {
-                              clearLocalStorage();
-                              navigate("/login");
-                            }}
-                          >
-                            <img
-                              src={Account}
-                              alt=""
-                              className="w-[21px] h-[25px]"
-                            />
-                          </div>
-                        </button>
-                      )}
-                    </>
-                  )}
-                </div>
-                <div
-                  className="nav-menu-btn flex flex-center items-center relative"
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    background: "#332360",
-                    marginTop: "-2px",
-                  }}
-                >
-                  <div
-                    className="absolute"
-                    style={{
-                      marginTop: "-4px",
-                      marginRight: "0px",
-                      right: "-10%",
-                    }}
-                  >
-                    <IconButton
-                      size="large"
-                      aria-label="account of current user"
-                      aria-controls="menu-appbar"
-                      aria-haspopup="true"
-                      onClick={handleOpenNavMenu}
-                      color="inherit"
-                    >
-                      <MenuIcon />
-                    </IconButton>
-                  </div>
-                </div>
-              </div>
-            </Tooltip>
+                            <MenuIcon />
+                          </IconButton>
+                        </div>
+                      </div>
 
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              <div className="Profile-DropDown"></div>
-            </Menu>
-          </Box>
+                      <div
+                        className={`absolute w-[300px] nav-mbl-links ${
+                          navOpen ? "show" : "hide"
+                        }`}
+                        style={{
+                          left: navOpen ? "-250px" : "100px",
+                          transition: "left 0.5s ease-in-out",
+                        }}
+                      >
+                        {isDesktop ? <></> : <NavLinks />}
+                      </div>
+                    </div>
+                  </div>
+                </Tooltip>
+
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <div className="Profile-DropDown"></div>
+                </Menu>
+              </Box>
+            </div>
+          </div>
         </Toolbar>
       </Container>
     </AppBar>
