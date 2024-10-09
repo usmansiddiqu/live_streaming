@@ -573,7 +573,7 @@ function Nav() {
               transition: "left 0.5s ease-in-out",
               zIndex: "999",
               // top: "100%",
-              bottom: "-7%",
+              bottom: "0%",
               display: isDesktop ? "none" : "flex",
             }}
           >
