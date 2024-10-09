@@ -511,67 +511,36 @@ function Nav() {
                       )}
                     </div>
                     <div className="relative">
-                      {navOpen ? (
+                      <div
+                        className="nav-menu-btn flex flex-center items-center relative"
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                          borderRadius: "50%",
+                          background: "#332360",
+                          marginTop: "-2px",
+                        }}
+                      >
                         <div
-                          className="nav-menu-btn flex flex-center items-center relative"
+                          className="absolute"
                           style={{
-                            width: "40px",
-                            height: "40px",
-                            borderRadius: "50%",
-                            background: "#332360",
-                            marginTop: "-2px",
+                            marginTop: "-4px",
+                            marginRight: "0px",
+                            right: "-10%",
                           }}
                         >
-                          <div
-                            className="flex items-center justify-between relative "
-                            style={{
-                              top: "10px",
-                              left: "10px",
-                              // marginTop: "-4px",
-                              // marginRight: "0px",
-                              // right: "-10%",
-                            }}
+                          <IconButton
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
                             onClick={handleOpenNavMenu}
+                            color="inherit"
                           >
-                            <img
-                              src={Crossicon}
-                              alt=""
-                              style={{ height: "20px", width: "20px" }}
-                            />
-                          </div>
+                            <MenuIcon />
+                          </IconButton>
                         </div>
-                      ) : (
-                        <div
-                          className="nav-menu-btn flex flex-center items-center relative"
-                          style={{
-                            width: "40px",
-                            height: "40px",
-                            borderRadius: "50%",
-                            background: "#332360",
-                            marginTop: "-2px",
-                          }}
-                        >
-                          <div
-                            className="absolute"
-                            style={{
-                              marginTop: "-4px",
-                              marginRight: "0px",
-                              right: "-10%",
-                            }}
-                          >
-                            <IconButton
-                              size="large"
-                              aria-label="account of current user"
-                              aria-controls="menu-appbar"
-                              aria-haspopup="true"
-                              onClick={handleOpenNavMenu}
-                              color="inherit"
-                            >
-                              <MenuIcon />
-                            </IconButton>
-                          </div>
-                        </div>
-                      )}
+                      </div>
                     </div>
                   </div>
                 </Tooltip>
@@ -597,21 +566,54 @@ function Nav() {
             </div>
           </div>
           <div
-            className={`absolute w-[100%] bg-[#140c2d] ${
+            className={`fixed w-[94%] h-[100vh] bg-[#140c2d] ${
               navOpen ? "show" : "hide"
             }`}
             style={{
-              left: navOpen ? "1040px" : "0px",
+              left: navOpen ? "1040px" : "50px",
               transition: "left 0.5s ease-in-out",
               zIndex: "999",
-              top: "100%",
+              // top: "100%",
+              bottom: "0%",
             }}
           >
             {isDesktop ? (
               <></>
             ) : (
-              <div className="ml-7">
-                <NavLinks />
+              <div className="flex flex-col">
+                <div className="flex justify-end mr-9 mt-2">
+                  <div
+                    className="nav-menu-btn flex flex-center items-center relative"
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                      background: "#332360",
+                      marginTop: "-2px",
+                    }}
+                  >
+                    <div
+                      className="flex items-center justify-between relative "
+                      style={{
+                        top: "10px",
+                        left: "10px",
+                        // marginTop: "-4px",
+                        // marginRight: "0px",
+                        // right: "-10%",
+                      }}
+                      onClick={handleOpenNavMenu}
+                    >
+                      <img
+                        src={Crossicon}
+                        alt=""
+                        style={{ height: "20px", width: "20px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="ml-7">
+                  <NavLinks />
+                </div>
               </div>
             )}
           </div>
