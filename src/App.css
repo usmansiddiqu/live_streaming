@@ -28,16 +28,16 @@ div {
   .MuiMenu-paper
   .MuiMenu-paper
   .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
-  background-color: #0f3057 !important;
+  background-color: #140c2d !important;
   box-shadow: 0 0 1px #000000 !important;
 }
 .css-6hp17o-MuiList-root-MuiMenu-list {
-  background-color: #0f3057 !important;
+  background-color: #140c2d !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
 .css-r8u8y9 {
-  background-color: #0f3057 !important;
+  background-color: #140c2d !important;
 }
 .App {
   width: 100vw;
@@ -133,11 +133,11 @@ aside {
   .nav-mbl-links {
     display: flex !important;
     z-index: 99;
-    background-color: #0f3057;
+    background-color: #140c2d;
     padding-left: 10px;
     position: absolute;
     top: 50px;
-    left: 100%; /* Off-screen initially */
+    margin-left: 100%;
     transition: left 0.5s ease-in-out;
   }
 
@@ -320,6 +320,16 @@ aside {
   }
   .channle-img {
     height: 170px !important;
+  }
+  .nav-mbl-links {
+    /* display: flex !important; */
+    /* z-index: 99; */
+    background-color: #140c2d;
+    /* padding-left: 10px; */
+    /* position: absolute !important; */
+    /* top: 50px; */
+    /* left: 100%; */
+    transition: left 0.5s ease-in-out;
   }
 }
 

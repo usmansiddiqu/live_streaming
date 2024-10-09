@@ -22,6 +22,8 @@ import Database from "../Assets/Icons/database.png";
 import Profile from "../Assets/Icons/user.png";
 import Watchlist from "../Assets/Icons/watchlist.png";
 import Logout from "../Assets/Icons/logout.png";
+import Crossicon from "../Assets/Icons/cross.png";
+
 import clearLocalStorage from "../helper/localstorage";
 import cross from "../utils/images/cross.png";
 import { url } from "../helper/url";
@@ -72,7 +74,10 @@ function Nav() {
           data.image.replace("uploads\\", "").replace("uploads/", "")
       : null
   );
-  const isDesktop = useMediaQuery({ query: "(min-width: 1001px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 901px)" });
+  const isTab = useMediaQuery({ query: "(min-width: 768px)" });
+  const isMobie = useMediaQuery({ query: "(min-width: 767px)" });
+
   const [navOpen, setNavOpen] = useState(false);
 
   const navigate = useNavigate();
@@ -506,48 +511,67 @@ function Nav() {
                       )}
                     </div>
                     <div className="relative">
-                      <div
-                        className="nav-menu-btn flex flex-center items-center relative"
-                        style={{
-                          width: "40px",
-                          height: "40px",
-                          borderRadius: "50%",
-                          background: "#332360",
-                          marginTop: "-2px",
-                        }}
-                      >
+                      {navOpen ? (
                         <div
-                          className="absolute"
+                          className="nav-menu-btn flex flex-center items-center relative"
                           style={{
-                            marginTop: "-4px",
-                            marginRight: "0px",
-                            right: "-10%",
+                            width: "40px",
+                            height: "40px",
+                            borderRadius: "50%",
+                            background: "#332360",
+                            marginTop: "-2px",
                           }}
                         >
-                          <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
+                          <div
+                            className="flex items-center justify-between relative "
+                            style={{
+                              top: "10px",
+                              left: "10px",
+                              // marginTop: "-4px",
+                              // marginRight: "0px",
+                              // right: "-10%",
+                            }}
                             onClick={handleOpenNavMenu}
-                            color="inherit"
                           >
-                            <MenuIcon />
-                          </IconButton>
+                            <img
+                              src={Crossicon}
+                              alt=""
+                              style={{ height: "20px", width: "20px" }}
+                            />
+                          </div>
                         </div>
-                      </div>
-
-                      <div
-                        className={`absolute w-[300px] nav-mbl-links ${
-                          navOpen ? "show" : "hide"
-                        }`}
-                        style={{
-                          left: navOpen ? "-250px" : "100px",
-                          transition: "left 0.5s ease-in-out",
-                        }}
-                      >
-                        {isDesktop ? <></> : <NavLinks />}
-                      </div>
+                      ) : (
+                        <div
+                          className="nav-menu-btn flex flex-center items-center relative"
+                          style={{
+                            width: "40px",
+                            height: "40px",
+                            borderRadius: "50%",
+                            background: "#332360",
+                            marginTop: "-2px",
+                          }}
+                        >
+                          <div
+                            className="absolute"
+                            style={{
+                              marginTop: "-4px",
+                              marginRight: "0px",
+                              right: "-10%",
+                            }}
+                          >
+                            <IconButton
+                              size="large"
+                              aria-label="account of current user"
+                              aria-controls="menu-appbar"
+                              aria-haspopup="true"
+                              onClick={handleOpenNavMenu}
+                              color="inherit"
+                            >
+                              <MenuIcon />
+                            </IconButton>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Tooltip>
@@ -571,6 +595,25 @@ function Nav() {
                 </Menu>
               </Box>
             </div>
+          </div>
+          <div
+            className={`absolute w-[100%] bg-[#140c2d] ${
+              navOpen ? "show" : "hide"
+            }`}
+            style={{
+              left: navOpen ? "1040px" : "0px",
+              transition: "left 0.5s ease-in-out",
+              zIndex: "999",
+              top: "100%",
+            }}
+          >
+            {isDesktop ? (
+              <></>
+            ) : (
+              <div className="ml-7">
+                <NavLinks />
+              </div>
+            )}
           </div>
         </Toolbar>
       </Container>
