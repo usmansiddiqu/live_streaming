@@ -78,7 +78,7 @@ function Nav() {
   const isTab = useMediaQuery({ query: "(min-width: 768px)" });
   const isMobie = useMediaQuery({ query: "(min-width: 767px)" });
 
-  const [navOpen, setNavOpen] = useState(false);
+  const [navOpen, setNavOpen] = useState(true);
 
   const navigate = useNavigate();
 
@@ -574,7 +574,8 @@ function Nav() {
               transition: "left 0.5s ease-in-out",
               zIndex: "999",
               // top: "100%",
-              bottom: "0%",
+              bottom: "-7%",
+              display: isDesktop ? "none" : "flex",
             }}
           >
             {isDesktop ? (
@@ -588,7 +589,7 @@ function Nav() {
                       width: "40px",
                       height: "40px",
                       borderRadius: "50%",
-                      background: "#332360",
+                      background: "red",
                       marginTop: "-2px",
                     }}
                   >
@@ -596,7 +597,7 @@ function Nav() {
                       className="flex items-center justify-between relative "
                       style={{
                         top: "10px",
-                        left: "10px",
+                        left: "-42px",
                         // marginTop: "-4px",
                         // marginRight: "0px",
                         // right: "-10%",
