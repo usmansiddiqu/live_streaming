@@ -140,7 +140,10 @@ function NavLinks({ handleOpenNavMenu }) {
             width: "39%",
           }}
         >
-          <ul className="flex flex-col font-medium  w-full  justify-between">
+          <ul
+            className="flex flex-col font-medium  w-full  justify-between"
+            style={{ marginTop: "90px" }}
+          >
             <li
               className="mt-2  w-[280px] flex justify-end"
               onClick={handleOpenNavMenu}
