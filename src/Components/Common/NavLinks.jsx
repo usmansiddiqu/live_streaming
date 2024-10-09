@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "../../Assets/styles/Navbar.scss";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import Crossicon from "../../Assets/Icons/cross.png";
 
-function NavLinks() {
+function NavLinks({ handleOpenNavMenu }) {
   const [activeLink, setActiveLink] = useState();
 
   const handleLinkClick = (link) => {
@@ -139,6 +140,36 @@ function NavLinks() {
             width: "39%",
           }}
         >
+          <div className="flex justify-end mr-[-140px] mt-3 ">
+            <div
+              className="nav-menu-btn flex flex-center items-center relative"
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                background: "#332360",
+                marginTop: "-2px",
+              }}
+            >
+              <div
+                className="flex items-center justify-between relative "
+                style={{
+                  top: "10px",
+                  left: "10px",
+                  // marginTop: "-4px",
+                  // marginRight: "0px",
+                  // right: "-10%",
+                }}
+                onClick={handleOpenNavMenu}
+              >
+                <img
+                  src={Crossicon}
+                  alt=""
+                  style={{ height: "20px", width: "20px" }}
+                />
+              </div>
+            </div>
+          </div>
           <ul className="flex flex-col font-medium  w-full  justify-between">
             <li style={{ listStyle: "none" }}>
               <a

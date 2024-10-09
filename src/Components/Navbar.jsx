@@ -22,7 +22,6 @@ import Database from "../Assets/Icons/database.png";
 import Profile from "../Assets/Icons/user.png";
 import Watchlist from "../Assets/Icons/watchlist.png";
 import Logout from "../Assets/Icons/logout.png";
-import Crossicon from "../Assets/Icons/cross.png";
 
 import clearLocalStorage from "../helper/localstorage";
 import cross from "../utils/images/cross.png";
@@ -582,38 +581,8 @@ function Nav() {
               <></>
             ) : (
               <div className="flex flex-col">
-                <div className="flex justify-end mr-9 mt-2">
-                  <div
-                    className="nav-menu-btn flex flex-center items-center relative"
-                    style={{
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "50%",
-                      background: "red",
-                      marginTop: "-2px",
-                    }}
-                  >
-                    <div
-                      className="flex items-center justify-between relative "
-                      style={{
-                        top: "10px",
-                        left: "-42px",
-                        // marginTop: "-4px",
-                        // marginRight: "0px",
-                        // right: "-10%",
-                      }}
-                      onClick={handleOpenNavMenu}
-                    >
-                      <img
-                        src={Crossicon}
-                        alt=""
-                        style={{ height: "20px", width: "20px" }}
-                      />
-                    </div>
-                  </div>
-                </div>
                 <div className="ml-7">
-                  <NavLinks />
+                  <NavLinks handleOpenNavMenu={handleOpenNavMenu} />
                 </div>
               </div>
             )}
