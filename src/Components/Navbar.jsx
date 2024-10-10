@@ -540,6 +540,25 @@ function Nav() {
                           </IconButton>
                         </div>
                       </div>
+                      <div
+                        className={`fixed w-[94%] h-[100vh] bg-[#140c2d] ${
+                          navOpen ? "show" : "hide"
+                        }`}
+                        style={{
+                          left: navOpen ? "1040px" : "50px",
+                          transition: "left 0.5s ease-in-out",
+                          zIndex: "999",
+                          display: isDesktop ? "none" : "flex",
+                          top: "0%",
+                          bottom: "0%",
+                        }}
+                      >
+                        {isDesktop ? (
+                          <></>
+                        ) : (
+                          <NavLinks handleOpenNavMenu={handleOpenNavMenu} />
+                        )}
+                      </div>
                     </div>
                   </div>
                 </Tooltip>
@@ -562,29 +581,6 @@ function Nav() {
                   <div className="Profile-DropDown"></div>
                 </Menu>
               </Box>
-            </div>
-            <div
-              className={`fixed w-[94%] h-[100vh] bg-[#140c2d] ${
-                navOpen ? "show" : "hide"
-              }`}
-              style={{
-                left: navOpen ? "1040px" : "50px",
-                transition: "left 0.5s ease-in-out",
-                zIndex: "999",
-                // top: "100%",
-                bottom: "0%",
-                display: isDesktop ? "none" : "flex",
-              }}
-            >
-              {isDesktop ? (
-                <></>
-              ) : (
-                <div className="flex flex-col">
-                  <div className="ml-7">
-                    <NavLinks handleOpenNavMenu={handleOpenNavMenu} />
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </Toolbar>

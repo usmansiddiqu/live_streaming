@@ -1423,12 +1423,12 @@ aside {
     position: relative;
     width: 100vw;
     /* border-bottom: 1px solid; */
-    right: 18%;
+    /* right: 18%; */
   }
   .nav-aaa {
     position: relative;
     width: 100vw;
-    right: 18%;
+    /* right: 18%; */
   }
   .text-btnn {
     font-size: 13px;
