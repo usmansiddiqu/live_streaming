@@ -139,7 +139,7 @@ function NavLinks() {
             width: "39%",
           }}
         >
-          <ul className="flex flex-col font-medium  w-full  justify-between">
+          <ul className="flex flex-col font-medium  w-full px-3 justify-between">
             <li style={{ listStyle: "none" }}>
               <a
                 href="#"
