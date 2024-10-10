@@ -150,6 +150,20 @@ function NavLinks() {
                 style={{ textDecoration: "none" }}
               >
                 <Link to="/home" className="nav-a" style={{ color: "white" }}>
+                  Cross
+                </Link>
+              </a>
+            </li>
+            <li style={{ listStyle: "none" }}>
+              <a
+                href="#"
+                className={`block py-3 nav-aa text-sm text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent  ${
+                  activeLink === "Home" ? "active" : ""
+                }`}
+                onClick={() => handleLinkClick("Home")}
+                style={{ textDecoration: "none" }}
+              >
+                <Link to="/home" className="nav-a" style={{ color: "white" }}>
                   {" "}
                   HOME
                 </Link>
