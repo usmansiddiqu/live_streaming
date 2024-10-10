@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "../../Assets/styles/Navbar.scss";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import CrossIcon from "../../Assets/Icons/cross.png";
 
-function NavLinks() {
+function NavLinks({ handleOpenNavMenu }) {
   const [activeLink, setActiveLink] = useState();
 
   const handleLinkClick = (link) => {
@@ -136,22 +137,27 @@ function NavLinks() {
       ) : (
         <div
           style={{
-            width: "39%",
+            width: "100%",
           }}
         >
           <ul className="flex flex-col font-medium  w-full px-3 justify-between">
-            <li style={{ listStyle: "none" }}>
+            <li
+              className="w-[90%] flex justify-end"
+              style={{ listStyle: "none" }}
+            >
               <a
                 href="#"
-                className={`block py-3 nav-aa text-sm text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent  ${
+                className={`block py-3 text-sm text-gray-900 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent  ${
                   activeLink === "Home" ? "active" : ""
                 }`}
-                onClick={() => handleLinkClick("Home")}
+                onClick={handleOpenNavMenu}
                 style={{ textDecoration: "none" }}
               >
-                <Link to="/home" className="nav-a" style={{ color: "white" }}>
-                  Cross
-                </Link>
+                <img
+                  src={CrossIcon}
+                  alt=""
+                  style={{ height: "20px", width: "20px" }}
+                />
               </a>
             </li>
             <li style={{ listStyle: "none" }}>
