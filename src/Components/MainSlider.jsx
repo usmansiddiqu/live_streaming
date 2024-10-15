@@ -25,7 +25,7 @@ function MainSlider() {
     baseColor: "#170f2c", // Dark background color
     highlightColor: "#332e47", // Lighter highlight for the animation effect
   };
-
+  const token = localStorage.getItem("token");
   // if (isLoading) {
   //   return (
   //     <div
@@ -91,32 +91,36 @@ function MainSlider() {
               </div>
             </button>
           </div>
-          <div className="flex flex-col gap-[15px]">
-            <h3
-              className="text-white banner-para-text"
-              style={{
-                fontSize: "20px",
-                lineHeight: "30px",
-              }}
-            >
-              Have PixelSport…
-            </h3>
-            <button
-              className=" w-[358px] border border-white h-[48px] text-white rounded-[4px] banner-btn"
-              style={{ fontSize: "18px", fontWeight: "700" }}
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <p
-                data-aos="fade"
-                data-aos-easing="ease-in"
-                data-aos-duration="1500"
-                onClick={() => navigate("/login")}
+          {!token ? (
+            <div className="flex flex-col gap-[15px]">
+              <h3
+                className="text-white banner-para-text"
+                style={{
+                  fontSize: "20px",
+                  lineHeight: "30px",
+                }}
               >
-                SIGN IN
-              </p>
-            </button>
-          </div>
+                Have PixelSport…
+              </h3>
+              <button
+                className=" w-[358px] border border-white h-[48px] text-white rounded-[4px] banner-btn"
+                style={{ fontSize: "18px", fontWeight: "700" }}
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
+                <p
+                  data-aos="fade"
+                  data-aos-easing="ease-in"
+                  data-aos-duration="1500"
+                  onClick={() => navigate("/login")}
+                >
+                  SIGN IN
+                </p>
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
         <div
           className="w-[876px] h-[465px] banner-img"
