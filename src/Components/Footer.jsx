@@ -1,6 +1,11 @@
 import React from "react";
 import "../App.css";
 import GooglePlay from "../Assets/Icons/google-play.png";
+import PaymentIcon from "../Assets/Icons/Payment Icons/download.png";
+import PaymentIcon1 from "../Assets/Icons/Payment Icons/download (1).png";
+import PaymentIcon2 from "../Assets/Icons/Payment Icons/download (2).png";
+import PaymentIcon3 from "../Assets/Icons/Payment Icons/download (3).png";
+
 import Button from "./Common/Button";
 import Crown from "../Assets/Icons/crown.png";
 import { useNavigate } from "react-router-dom";
@@ -116,23 +121,49 @@ function Footer() {
     // </div>
     <div className="w-[100%] h-[8rem] fooer-bg-Img bg-[#170F2C]">
       <div className="flex  mx-auto flex flex-column justify-equal footer-width">
-        <ul className="w-full flex flex-wrap items-center gap-[10px]">
-          <li className="text-white flex-shrink-0 cursor-pointer">
-            <a onClick={handleCLickAbout}> About us</a>
-          </li>
-          <li className="text-white flex-shrink-0 cursor-pointer">
-            <a onClick={handleCLickTerms}> Terms Of Use</a>
-          </li>
-          <li className="text-white flex-shrink-0 cursor-pointer">
-            <a onClick={handleCLickPrivacy}> Privacy Policy</a>
-          </li>
-          <li className="text-white flex-shrink-0 cursor-pointer">
-            <a onClick={handleCLickFAQ}> FAQ</a>
-          </li>
-          <li className="text-white flex-shrink-0 cursor-pointer">
-            <a onClick={handleCLickContact}> Contact Us</a>
-          </li>
-        </ul>
+        <div className="flex footer-tabs w-100">
+          <div className="w-[82%] flex justify-between">
+            <ul className="w-full flex flex-wrap items-center gap-[10px]">
+              <li className="text-white flex-shrink-0 cursor-pointer">
+                <a onClick={handleCLickAbout}> About us</a>
+              </li>
+              <li className="text-white flex-shrink-0 cursor-pointer">
+                <a onClick={handleCLickTerms}> Terms Of Use</a>
+              </li>
+              <li className="text-white flex-shrink-0 cursor-pointer">
+                <a onClick={handleCLickPrivacy}> Privacy Policy</a>
+              </li>
+              <li className="text-white flex-shrink-0 cursor-pointer">
+                <a onClick={handleCLickFAQ}> FAQ</a>
+              </li>
+              <li className="text-white flex-shrink-0 cursor-pointer">
+                <a onClick={handleCLickContact}> Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div className="flex gap-2">
+            <img
+              src={PaymentIcon}
+              alt=""
+              style={{ width: "50px", height: "40px" }}
+            />
+            <img
+              src={PaymentIcon1}
+              alt=""
+              style={{ width: "50px", height: "40px" }}
+            />
+            <img
+              src={PaymentIcon2}
+              alt=""
+              style={{ width: "50px", height: "40px" }}
+            />
+            <img
+              src={PaymentIcon3}
+              alt=""
+              style={{ width: "50px", height: "40px" }}
+            />
+          </div>
+        </div>
         <div>
           <p className="text-white footer-copy text-sm mt-4 mb-2">
             Copyright @ 2022 PixelSports.tv All Rights Reserved

@@ -961,6 +961,14 @@ aside {
   .main-profile-img {
     margin: auto;
   }
+  .footer-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .fooer-bg-Img {
+    height: 10.3rem;
+  }
   .ended-channel {
     top: -50px;
   }
@@ -1890,6 +1898,9 @@ aside {
 @media screen and (max-width: 550px) {
   .banner-slide-card {
     width: 42rem;
+  }
+  .fooer-bg-Img {
+    height: 12rem;
   }
   .main-home-page {
     height: 70rem !important;
