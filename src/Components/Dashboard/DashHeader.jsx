@@ -1,6 +1,6 @@
 import React from "react";
 import Play from "../../Assets/Icons/play.png";
-import dashBoardImage from "../../utils/images/dashboardBanner.jpg";
+import dashBoardImage from "../../Assets/Images/SNPLUS_HEADER-IMAGE_JAN_1200X680_JAN588.png";
 import { Link } from "react-router-dom";
 function DashHeader({ title, subtitle }) {
   return (
@@ -21,7 +21,10 @@ function DashHeader({ title, subtitle }) {
         <div className=" flex justify-between">
           <h1 className="text-2xl z-20 font-semibold">{title}</h1>
         </div>
-        <div className="flex  flex-row  z-20 justify-between cursor-pointer  headdd items-center"  style={{gap:'8px'}}>
+        <div
+          className="flex  flex-row  z-20 justify-between cursor-pointer  headdd items-center"
+          style={{ gap: "8px" }}
+        >
           <a>
             {" "}
             <Link to="/"> Home</Link>
