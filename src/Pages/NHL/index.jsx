@@ -6,6 +6,7 @@ import getEvents from "../../api/getEvents";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import DashHeader from "../../Components/Dashboard/DashHeader";
+import { Helmet } from "react-helmet";
 
 function NHL() {
   const [data, setData] = useState([]);
@@ -31,6 +32,15 @@ function NHL() {
 
   return (
     <>
+      <Helmet>
+        <title>
+          Watch NHL Live | Stream Hockey Games in 4K on PixelSport TV
+        </title>
+        <meta
+          name="description"
+          content="Stream NHL hockey games live in HD and 4K on PixelSport TV. Watch your favorite teams hit the ice and catch every goal and power play."
+        />
+      </Helmet>
       <div
         style={{
           minHeight: "100%",

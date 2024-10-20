@@ -6,6 +6,7 @@ import getEvents from "../../api/getEvents";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import DashHeader from "../../Components/Dashboard/DashHeader";
+import { Helmet } from "react-helmet";
 
 function NFL() {
   const [data, setData] = useState([]);
@@ -31,6 +32,15 @@ function NFL() {
 
   return (
     <>
+      <Helmet>
+        <title>
+          Watch NFL Live | Stream Football Games in 4K on PixelSport TV
+        </title>
+        <meta
+          name="description"
+          content="Watch NFL games live in HD and 4K on PixelSport TV. Stream every touchdown, playoff, and Super Bowl moment in real-time."
+        />
+      </Helmet>
       <div
         style={{
           minHeight: "100%",

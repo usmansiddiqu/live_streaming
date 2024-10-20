@@ -6,6 +6,7 @@ import getEvents from "../../api/getEvents";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import DashHeader from "../../Components/Dashboard/DashHeader";
+import { Helmet } from "react-helmet";
 
 function NBA() {
   const [data, setData] = useState([]);
@@ -30,34 +31,45 @@ function NBA() {
   };
 
   return (
-    <div>
-      <div
-        style={{
-          position: "relative",
-          minHeight: "100vh",
-          overflow: "hidden !important",
-        }}
-      >
-        <Nav />
-        <DashHeader title={"NBA LIVE"} subtitle="NBA" />
-        {loading ? (
-          <div className="flex items-center justify-center relative pt-2">
-            <div className="w-[93%] md:w-[73%] mb-4">
-              <Skeleton
-                height={200}
-                count={3}
-                {...skeletonProps}
-                style={{ marginBottom: "20px" }}
-              />
+    <>
+      <Helmet>
+        <title>
+          Watch NBA Live | Stream Basketball Games in 4K on PixelSport TV
+        </title>
+        <meta
+          name="description"
+          content="Stream NBA games live in HD and 4K on PixelSport TV. Watch every dunk, buzzer-beater, and playoff moment from the regular season to the Finals."
+        />
+      </Helmet>
+      <div>
+        <div
+          style={{
+            position: "relative",
+            minHeight: "100vh",
+            overflow: "hidden !important",
+          }}
+        >
+          <Nav />
+          <DashHeader title={"NBA LIVE"} subtitle="NBA" />
+          {loading ? (
+            <div className="flex items-center justify-center relative pt-2">
+              <div className="w-[93%] md:w-[73%] mb-4">
+                <Skeleton
+                  height={200}
+                  count={3}
+                  {...skeletonProps}
+                  style={{ marginBottom: "20px" }}
+                />
+              </div>
             </div>
-          </div>
-        ) : (
-          <Card data={data} title={"NBA LIVE"} subtitle="NBA" />
-        )}
-      </div>
+          ) : (
+            <Card data={data} title={"NBA LIVE"} subtitle="NBA" />
+          )}
+        </div>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }
 
