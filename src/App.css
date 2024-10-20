@@ -384,9 +384,7 @@ aside {
   .SearchCard {
     width: 65% !important;
   }
-  .nfl-view {
-    margin-top: 50px;
-  }
+
   .live {
     position: relative;
     margin-top: -50px;
@@ -2345,6 +2343,9 @@ aside {
   }
   .chat-scroll {
     max-height: 37.7rem !important;
+  }
+  .card-spacing {
+    margin-top: 0px !important;
   }
   .msg-text {
     width: 280px !important;

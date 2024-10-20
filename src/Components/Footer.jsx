@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import GooglePlay from "../Assets/Icons/google-play.png";
 import PaymentIcon from "../Assets/Icons/Payment Icons/download.png";
+import CreditCards from "../Assets/Icons/Payment Icons/credit-cards.png";
 import PaymentIcon1 from "../Assets/Icons/Payment Icons/download (1).png";
 import PaymentIcon2 from "../Assets/Icons/Payment Icons/download (2).png";
 import PaymentIcon3 from "../Assets/Icons/Payment Icons/download (3).png";
@@ -143,24 +144,9 @@ function Footer() {
           </div>
           <div className="flex gap-2">
             <img
-              src={PaymentIcon}
+              src={CreditCards}
               alt=""
-              style={{ width: "50px", height: "40px" }}
-            />
-            <img
-              src={PaymentIcon1}
-              alt=""
-              style={{ width: "50px", height: "40px" }}
-            />
-            <img
-              src={PaymentIcon2}
-              alt=""
-              style={{ width: "50px", height: "40px" }}
-            />
-            <img
-              src={PaymentIcon3}
-              alt=""
-              style={{ width: "50px", height: "40px" }}
+              style={{ width: "250px", height: "40px" }}
             />
           </div>
         </div>
