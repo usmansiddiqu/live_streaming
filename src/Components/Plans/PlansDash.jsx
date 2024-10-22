@@ -1,5 +1,5 @@
 import React from "react";
-import dashBoardImage from "../../utils/images/dashboardBanner.jpg";
+import dashBoardImage from "../../Assets/Images/league.jpg";
 import Play from "../../Assets/Icons/play.png";
 import { Link } from "react-router-dom";
 function PlansDash() {

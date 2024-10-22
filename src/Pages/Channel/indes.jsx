@@ -54,7 +54,7 @@ function Channel() {
         <DashHeader title={"24/7 LIVE"} subtitle="Channel" />
         {loading ? (
           <div className="flex items-center justify-center relative pt-1 mt-3">
-            <div className="w-[93%] md:w-[73%] mb-4">
+            <div className="w-[93%] skeleton-loading mb-4">
               <Skeleton
                 height={200}
                 count={3}

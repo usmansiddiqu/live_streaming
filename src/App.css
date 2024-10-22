@@ -424,10 +424,16 @@ aside {
     width: 12vw;
     margin-left: -65px;
   }
+  .skeleton-loading-home {
+    width: 65% !important;
+  }
 }
 @media screen and (max-width: 2500px) {
   .skeleton-loading {
     width: 57% !important;
+  }
+  .skeleton-loading-home {
+    width: 65% !important;
   }
 }
 @media screen and (max-width: 2300px) {
@@ -439,10 +445,24 @@ aside {
   .skeleton-loading {
     width: 64% !important;
   }
+  .skeleton-loading-home {
+    width: 65% !important;
+  }
+}
+@media screen and (max-width: 2100px) {
+  .skeleton-loading {
+    width: 70% !important;
+  }
+  .skeleton-loading-home {
+    width: 65% !important;
+  }
 }
 @media screen and (max-width: 1980px) {
   .red-bar {
     width: 14.4vw;
+  }
+  .skeleton-loading-home {
+    width: 73% !important;
   }
   .skeleton-loading {
     width: 73% !important;
@@ -515,12 +535,18 @@ aside {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
+  .skeleton-loading {
+    width: 56% !important;
+  }
 }
 @media screen and (max-width: 1520px) {
   .pay-cards {
     width: 670px;
     flex-wrap: nowrap;
     justify-content: space-between;
+  }
+  .skeleton-loading {
+    width: 62% !important;
   }
   .affiliate-dash-main {
     justify-content: flex-start;
@@ -529,14 +555,26 @@ aside {
     width: 47%;
   }
 }
+@media screen and (max-width: 1460px) {
+  .skeleton-loading {
+    width: 68% !important;
+  }
+}
+
 @media screen and (max-width: 1360px) {
   .mainSlider {
     height: 30rem !important;
+  }
+  .skeleton-loading {
+    width: 70% !important;
   }
 }
 @media screen and (max-width: 1305px) {
   .mainSlider {
     height: 28rem !important;
+  }
+  .skeleton-loading {
+    width: 73% !important;
   }
 }
 @media screen and (max-width: 1295px) {
