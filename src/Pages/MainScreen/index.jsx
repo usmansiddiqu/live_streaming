@@ -7,6 +7,7 @@ import { useSearchParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import getDetails from "../../api/authGetDetails";
 import { useSelector } from "react-redux";
+import { Helmet } from "react-helmet";
 
 function MainScreen() {
   const token = useSelector((state) => state.auth.token); // Access token
@@ -35,6 +36,11 @@ function MainScreen() {
   return (
     <>
       <div className="forMobScreen">
+        <Helmet>
+          <title>
+            Home Page | Stream Major League Baseball in 4K on PixelSport TV
+          </title>
+        </Helmet>
         <ToastContainer limit={1} />
         <Nav />
         <Home />
