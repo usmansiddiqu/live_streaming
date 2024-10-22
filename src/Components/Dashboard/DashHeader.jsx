@@ -1,6 +1,6 @@
 import React from "react";
 import Play from "../../Assets/Icons/play.png";
-import dashBoardImage from "../../Assets/Images/SNPLUS_HEADER-IMAGE_JAN_1200X680_JAN588.png";
+import dashBoardImage from "../../Assets/Images/league.jpg";
 import { Link } from "react-router-dom";
 function DashHeader({ title, subtitle }) {
   return (

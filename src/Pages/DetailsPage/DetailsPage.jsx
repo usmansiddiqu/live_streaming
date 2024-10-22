@@ -131,7 +131,7 @@ function DetailsPage() {
               }}
             />
             <div
-              className="mt-6 w-[80rem] h-[17rem] bg-[#130A2D] mx-auto pt-3 pb-6 ps-7 flex flex-col p-3 mb-2 "
+              className="mt-6 w-[80rem] h-[17rem] bg-[#130A2D] mx-auto pt-3 pb-6 ps-7 flex flex-col p-3 mb-4 "
               style={{ overflow: "hidden" }}
             >
               <h3 className="text-white font-medium text-2xl">
