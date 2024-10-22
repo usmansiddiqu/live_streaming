@@ -37,9 +37,11 @@ function MainScreen() {
     <>
       <div className="forMobScreen">
         <Helmet>
-          <title>
-            Home Page | Stream Major League Baseball in 4K on PixelSport TV
-          </title>
+          <title>PixelSports TV - Watch NFL, NHL, NBA in 4k</title>
+          <meta
+            name="description"
+            content="Watch NFL, NHL, MLB, NBA, and more live sports on PixelSport TV. Stream in HD, catch every goal, touchdown, and match moment"
+          />
         </Helmet>
         <ToastContainer limit={1} />
         <Nav />
