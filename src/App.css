@@ -339,7 +339,7 @@ aside {
     margin: auto;
   }
   .skeleton-loading {
-    width: 61%;
+    width: 54%;
   }
   .footer-width {
     width: 65% !important;
@@ -423,6 +423,11 @@ aside {
   .team-img-box {
     width: 12vw;
     margin-left: -65px;
+  }
+}
+@media screen and (max-width: 2500px) {
+  .skeleton-loading {
+    width: 57% !important;
   }
 }
 @media screen and (max-width: 2300px) {
