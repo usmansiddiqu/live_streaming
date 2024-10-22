@@ -8,6 +8,7 @@ import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import verifyPayments from "../../api/payment.api";
 import { ToastContainer, toast } from "react-toastify";
 import getDetails from "../../api/authGetDetails";
+import DashHeader from "../../Components/Dashboard/DashHeader";
 function PlansPage() {
   const navigate = useNavigate();
   const [search] = useSearchParams();
@@ -35,7 +36,8 @@ function PlansPage() {
     <div className="bg-[#0D0620]">
       <ToastContainer limit={1} />
       <Nav />
-      <PlansDash />
+      <DashHeader title={"Service Plan"} subtitle="Service Plan" />
+
       <PlanCards />
       <Coupon />
       <div className="text-white mx-auto w-[70vw] mb-3 plan-page-text">
