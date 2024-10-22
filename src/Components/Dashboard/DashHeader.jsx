@@ -13,9 +13,9 @@ function DashHeader({ title, subtitle }) {
     >
       <div
         className="absolute h-[20vh] w-100 inset-0 "
-        style={{
-          background: "linear-gradient( #372566, #37256669)",
-        }}
+        // style={{
+        //   background: "linear-gradient( #372566, #37256669)",
+        // }}
       ></div>
       <div className="!w-[65%] flex justify-between mx-auto dash-headd ml-9">
         <div className=" flex justify-between">

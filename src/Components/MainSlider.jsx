@@ -9,7 +9,7 @@ import CarouselSlider from "./CarouselSlider";
 import { useSliderQuery } from "../api/services/slider";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import BannerImge from "./../Assets/Images/SNPLUS_HEADER-IMAGE_JAN_1200X680_JAN588.png";
+import BannerImge from "./../Assets/Images/home pixel.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 

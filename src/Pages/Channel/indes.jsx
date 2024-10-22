@@ -53,7 +53,7 @@ function Channel() {
         <Nav />
         <DashHeader title={"24/7 LIVE"} subtitle="Channel" />
         {loading ? (
-          <div className="flex items-center justify-center relative pt-2">
+          <div className="flex items-center justify-center relative pt-1 mt-3">
             <div className="w-[93%] md:w-[73%] mb-4">
               <Skeleton
                 height={200}
@@ -73,7 +73,7 @@ function Channel() {
               <div className="flex items-center justify-center relative">
                 <div>
                   {isDekstop && (
-                    <div className="grid card-con xl:grid-cols-4 p-3 mx-auto !w-[89rem] gap-4 mb-4">
+                    <div className="grid card-con xl:grid-cols-4 p-3 mx-auto !w-[89rem] gap-4 mb-4  mt-2">
                       {data
                         .filter((item) => item.status)
                         .map((item) => (
