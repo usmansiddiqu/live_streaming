@@ -633,6 +633,15 @@ aside {
   .mainSlider {
     height: 21.5rem !important;
   }
+  .skeleton-loading-home {
+    width: 99% !important;
+  }
+  .skeleton-loading {
+    width: 63% !important;
+  }
+  .dash-header {
+    height: 10vh !important;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -691,6 +700,14 @@ aside {
   .live {
     position: relative;
     margin-top: -40px;
+  }
+}
+@media screen and (max-width: 855px) {
+  .skeleton-loading {
+    width: 40% !important;
+  }
+  .dash-header {
+    height: 15vh !important;
   }
 }
 
@@ -754,6 +771,17 @@ aside {
     width: calc(50% - 40px);
     height: 30vmin;
     font-size: 14px;
+  }
+  .dash-header {
+    height: 15vh !important;
+  }
+}
+@media screen and (max-width: 765px) {
+  .dash-header {
+    height: 20vh !important;
+  }
+  .skeleton-loading {
+    width: 90% !important;
   }
 }
 .headd {

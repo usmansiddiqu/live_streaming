@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 function DashHeader({ title, subtitle }) {
   return (
     <div
-      className=" text-[white]  h-[20vh] relative  md:w-100 object-cover bg-center bg-opacity-90 flex flex-row flex-wrap items-center justify-around lg:justify-between"
+      className=" text-[white]  h-[20vh] relative dash-header md:w-100 object-cover bg-center bg-opacity-90 flex flex-row flex-wrap items-center justify-around lg:justify-between"
       style={{
         backgroundImage: `url(${dashBoardImage})`,
         backgroundColor: "rgba(128, 0, 128, 0.5)",
       }}
     >
       <div
-        className="absolute h-[20vh] w-100 inset-0 "
+        className="absolute h-[20vh] w-100 inset-0  "
         // style={{
         //   background: "linear-gradient( #372566, #37256669)",
         // }}
