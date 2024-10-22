@@ -15,7 +15,7 @@ import DetailsPage from "./Pages/DetailsPage/DetailsPage";
 import BannerPage from "./Pages/DetailsPage/BannerPage";
 import AdminPanel from "./Pages/AdminPanel";
 import AdminPanelWrapper from "./Pages/AdminPanel";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NotFound from "./Pages/NotFound";
 import Dashboard from "./Pages/Dashboard";
 import WatchList from "./Pages/WatchList/WatchList";

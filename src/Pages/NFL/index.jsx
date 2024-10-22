@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import Card from "../../Components/Common/Card";
@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet";
 function NFL() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const topDivRef = useRef(null);
   const getData = async () => {
     setLoading(true);
     const { data: response } = await getEvents();
@@ -22,7 +22,13 @@ function NFL() {
   };
 
   useEffect(() => {
-    getData();
+    const fetchDataAndScroll = async () => {
+      await getData();
+      if (topDivRef.current) {
+        topDivRef.current.scrollIntoView({ behavior: "smooth" }); // Scroll into view
+      }
+    };
+    fetchDataAndScroll();
   }, []);
 
   const skeletonProps = {
@@ -46,6 +52,7 @@ function NFL() {
           minHeight: "100%",
           overflow: "hidden !important",
         }}
+        ref={topDivRef}
       >
         <Nav />
         <DashHeader title={"NFL LIVE"} subtitle="NFL" />

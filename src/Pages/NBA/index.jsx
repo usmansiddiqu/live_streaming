@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import Card from "../../Components/Common/Card";
@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet";
 function NBA() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const topDivRef = useRef(null); // Create a reference for the top div
   const getData = async () => {
     setLoading(true);
     const { data: response } = await getEvents();
@@ -22,7 +22,13 @@ function NBA() {
   };
 
   useEffect(() => {
-    getData();
+    const fetchDataAndScroll = async () => {
+      await getData();
+      if (topDivRef.current) {
+        topDivRef.current.scrollIntoView({ behavior: "smooth" }); // Scroll into view
+      }
+    };
+    fetchDataAndScroll();
   }, []);
 
   const skeletonProps = {
@@ -41,7 +47,7 @@ function NBA() {
           content="Stream NBA games live in HD and 4K on PixelSport TV. Watch every dunk, buzzer-beater, and playoff moment from the regular season to the Finals."
         />
       </Helmet>
-      <div>
+      <div ref={topDivRef}>
         <div
           style={{
             position: "relative",

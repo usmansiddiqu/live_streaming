@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import Card from "../../Components/Common/Card";
@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 function MLB() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const topDivRef = useRef(null); // Create a reference for the top div
 
   const getData = async () => {
     setLoading(true);
@@ -22,7 +23,13 @@ function MLB() {
   };
 
   useEffect(() => {
-    getData();
+    const fetchDataAndScroll = async () => {
+      await getData();
+      if (topDivRef.current) {
+        topDivRef.current.scrollIntoView({ behavior: "smooth" }); // Scroll into view
+      }
+    };
+    fetchDataAndScroll();
   }, []);
 
   const skeletonProps = {
@@ -41,7 +48,9 @@ function MLB() {
           content="Catch every MLB game live in HD and 4K on PixelSport TV. Stream Major League Baseball and never miss a home run or playoff moment."
         />
       </Helmet>
-      <div>
+      <div ref={topDivRef}>
+        {" "}
+        {/* Attach the ref to the top div */}
         <div
           style={{
             minHeight: "100vh",
