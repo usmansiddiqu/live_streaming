@@ -451,7 +451,7 @@ aside {
 }
 @media screen and (max-width: 2100px) {
   .skeleton-loading {
-    width: 70% !important;
+    width: 66% !important;
   }
   .skeleton-loading-home {
     width: 65% !important;
