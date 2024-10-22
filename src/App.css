@@ -338,6 +338,9 @@ aside {
     width: 10% !important;
     margin: auto;
   }
+  .skeleton-loading {
+    width: 61%;
+  }
   .footer-width {
     width: 65% !important;
     position: relative;
@@ -422,9 +425,22 @@ aside {
     margin-left: -65px;
   }
 }
+@media screen and (max-width: 2300px) {
+  .skeleton-loading {
+    width: 63% !important;
+  }
+}
+@media screen and (max-width: 2200px) {
+  .skeleton-loading {
+    width: 64% !important;
+  }
+}
 @media screen and (max-width: 1980px) {
   .red-bar {
     width: 14.4vw;
+  }
+  .skeleton-loading {
+    width: 73% !important;
   }
   .banner-text {
     bottom: -60% !important;
