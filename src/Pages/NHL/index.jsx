@@ -58,7 +58,7 @@ function NHL() {
         <DashHeader title={"NHL LIVE"} subtitle="NHL" />
         {loading ? (
           <div className="flex items-center justify-center relative pt-1 mt-3">
-            <div className="w-[93%] skeleton-loading mb-4">
+            <div className="card-con !w-[89rem] mb-4">
               <Skeleton
                 height={200}
                 count={3}

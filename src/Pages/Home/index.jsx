@@ -38,7 +38,7 @@ function Home() {
 
           {loading ? (
             <div className="flex items-center justify-center relative">
-              <div className="w-[93%] skeleton-loading-home">
+              <div className="w-[73%] Cardslider">
                 <Skeleton height={200} count={1} {...skeletonProps} />
               </div>
             </div>
@@ -55,7 +55,7 @@ function Home() {
 
           {loading ? (
             <div className="flex items-center justify-center relative">
-              <div className="w-[93%] skeleton-loading-home ">
+              <div className="w-[73%] Cardslider ">
                 <Skeleton height={200} count={1} {...skeletonProps} />
               </div>
             </div>
@@ -70,7 +70,7 @@ function Home() {
           <SliderHeader title="NFL LIVE" link="nfl" />
           {loading ? (
             <div className="flex items-center justify-center relative">
-              <div className="w-[93%] skeleton-loading-home ">
+              <div className="w-[73%] Cardslider ">
                 <Skeleton height={200} count={1} {...skeletonProps} />
               </div>
             </div>
@@ -102,7 +102,7 @@ function Home() {
 
           {loading ? (
             <div className="flex items-center justify-center relative">
-              <div className="w-[93%] skeleton-loading-home ">
+              <div className="w-[73%] Cardslider ">
                 <Skeleton height={200} count={1} {...skeletonProps} />
               </div>
             </div>
