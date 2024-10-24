@@ -16,7 +16,7 @@ function AddChannel() {
   const [status, setStatus] = useState("active");
   const [server1URL, setServer1URL] = useState("");
   const [server2URL, setServer2URL] = useState("");
-  const [server3URL, setServer3URL] = useState("");
+  const [server3URL, setServer3URL] = useState("null");
   const [logo, setLogo] = useState(null);
   const [text, setText] = useState("");
   const [categoriesObj, setCategoriesObj] = useState([]);
@@ -388,7 +388,7 @@ function AddChannel() {
                       required
                       value={server3URL}
                       onChange={(e) => {
-                        setServer3URL(e.target.value);
+                        setServer3URL("null");
                       }}
                     />
                     <p className="mt-4 text-[#98A6AD] text-xs	">
