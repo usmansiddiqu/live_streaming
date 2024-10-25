@@ -198,7 +198,7 @@ function Signup() {
                       type="text"
                       name="name"
                       id="name"
-                      class="bg-[#22134E] h-[7vh] border border-[#22134E] text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-[#22134E] h-[7vh] border border-[#22134E] text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 text-white  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Name"
                       required=""
                       onChange={handleChange}
@@ -209,7 +209,7 @@ function Signup() {
                       type="text"
                       name="email"
                       id="name"
-                      class="bg-[#22134E] h-[7vh] border border-[#22134E] text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-[#22134E] h-[7vh] border border-[#22134E] text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Email"
                       required=""
                       onChange={handleChange}
@@ -221,7 +221,7 @@ function Signup() {
                       name="password"
                       id="password"
                       placeholder="Password (At least 8 characters)"
-                      class="bg-[#22134E] h-[7vh] border border-[#22134E] text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-[#22134E] h-[7vh] border border-[#22134E] text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 text-white  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
                       onChange={handleChange}
                     />
@@ -232,7 +232,7 @@ function Signup() {
                       name="confirmPassword"
                       id="password"
                       placeholder="Confirm Password"
-                      class="bg-[#22134E] h-[7vh] border border-[#22134E] text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-[#22134E] h-[7vh] border border-[#22134E] text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 text-white  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
                       onChange={handleChange}
                     />
