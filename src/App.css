@@ -783,6 +783,10 @@ aside {
   .skeleton-loading {
     width: 90% !important;
   }
+  .card-con-mbl {
+    width: 87vw !important;
+    margin-left: 0px !important;
+  }
 }
 .headd {
   width: 25vw;

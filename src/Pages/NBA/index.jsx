@@ -59,7 +59,7 @@ function NBA() {
           <DashHeader title={"NBA LIVE"} subtitle="NBA" />
           {loading ? (
             <div className="flex items-center justify-center relative pt-1 mt-3">
-              <div className="card-con !w-[89rem] mb-4">
+              <div className="card-con !w-[89rem] card-con-mbl mb-4 ">
                 <Skeleton
                   height={200}
                   count={3}

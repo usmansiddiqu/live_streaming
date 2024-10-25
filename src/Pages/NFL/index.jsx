@@ -58,7 +58,7 @@ function NFL() {
         <DashHeader title={"NFL LIVE"} subtitle="NFL" />
         {loading ? (
           <div className="flex items-center justify-center relative pt-1 mt-3">
-            <div className=" card-con mb-4 !w-[89rem]">
+            <div className=" card-con mb-4 !w-[89rem] card-con-mbl">
               <Skeleton
                 height={200}
                 count={3}

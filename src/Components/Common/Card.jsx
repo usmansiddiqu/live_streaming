@@ -23,7 +23,7 @@ function Card({ data, title, subtitle }) {
         <div class=" flex items-center justify-center relative mt-2 card-spacing">
           <div class=" ">
             {isDekstop && (
-              <div class="grid card-con xl:grid-cols-4  p-3 mx-auto !w-[89rem] gap-4 mb-4">
+              <div class="grid card-con xl:grid-cols-4 mx-auto !w-[89rem] gap-4 mb-4">
                 <>
                   {data
                     ?.sort((a, b) => new Date(a?.date) - new Date(b?.date))
