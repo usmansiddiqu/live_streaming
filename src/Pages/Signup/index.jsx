@@ -99,7 +99,11 @@ function Signup() {
       setError("Name is required!");
     } else if (!data.email) {
       setError("Email is required!");
-    } else if (!data.password) {
+    }
+    else if (!validateEmail(data.email)) {
+      setError("Please enter a valid email address!");
+    }
+     else if (!data.password) {
       setError("Password is required!");
     } else if (!data.confirmPassword) {
       setError("Confirm Password is required!");
@@ -125,6 +129,12 @@ function Signup() {
       }
     }
   };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
   useEffect(() => {
     if (localStorage.getItem("token") && localStorage.getItem("data")) {
       navigate("/");
