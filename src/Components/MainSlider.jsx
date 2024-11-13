@@ -16,8 +16,26 @@ import "aos/dist/aos.css";
 function MainSlider() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1024px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1025px)" });
+  const [shouldAnimate, setShouldAnimate] = useState(true);
+
   useEffect(() => {
     AOS.init();
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      setShouldAnimate(width > 896 && height > 414);
+    };
+
+    // Initial check
+    checkScreenSize();
+
+    // Add event listener for resize
+    window.addEventListener("resize", checkScreenSize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
   }, []);
   const navigate = useNavigate();
 
@@ -78,12 +96,12 @@ function MainSlider() {
             <button
               className="w-[358px] h-[48px] text-white rounded-[4px] banner-btn bg-blue-700"
               style={{ fontSize: "18px", fontWeight: "700" }}
-              data-aos="fade-up"
+              data-aos={shouldAnimate ? "fade-up" : ""}
               data-aos-duration="1000"
               onClick={() => navigate("/membership_plan")}
             >
               <div
-                data-aos="fade"
+                data-aos={shouldAnimate ? "fade" : ""}
                 data-aos-easing="ease-in"
                 data-aos-duration="1500"
               >
@@ -105,11 +123,11 @@ function MainSlider() {
               <button
                 className=" w-[358px] border border-white h-[48px] text-white rounded-[4px] banner-btn"
                 style={{ fontSize: "18px", fontWeight: "700" }}
-                data-aos="fade-up"
+                data-aos={shouldAnimate ? "fade-up" : ""}
                 data-aos-duration="1000"
               >
                 <p
-                  data-aos="fade"
+                  data-aos={shouldAnimate ? "fade" : ""}
                   data-aos-easing="ease-in"
                   data-aos-duration="1500"
                   onClick={() => navigate("/login")}
@@ -124,7 +142,7 @@ function MainSlider() {
         </div>
         <div
           className="w-[876px] h-[465px] banner-img"
-          data-aos="fade-up"
+          data-aos={shouldAnimate ? "fade-up" : ""}
           data-aos-duration="1000"
         >
           <img src={BannerImge} alt="" className="w-[100%] h-[100%]" />
