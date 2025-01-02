@@ -10,6 +10,7 @@ import Crypto from "../../Assets/Icons/bitcoin.png";
 import policioPayment from "../../api/policioPayment";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import ErrorComponent1 from "../Common/ErrorComponent1";
 function PlanCards() {
   const [search] = useSearchParams();
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ function PlanCards() {
   const handleClick = async (packageId) => {
     console.log(packageId);
     if (!localStorage.getItem("token") || !localStorage.getItem("data")) {
-      navigate("/signup");
+      navigate("/membership_plan");
     } else {
       if (isCardSelected) {
         const result = await policioPayment({ packageId: packageId });
@@ -73,7 +74,7 @@ function PlanCards() {
       const { data: response } = await availFreePayment();
       setError(response.message);
     } else {
-      navigate("/signup");
+      navigate("/membership_plan");
     }
   };
   const skeletonProps = {
@@ -86,6 +87,27 @@ function PlanCards() {
       setError2("Payment Failed Please Try Again");
     }
   }, [search.get("fail")]);
+
+
+  const [isWidthInRange, setIsWidthInRange] = useState(false);
+
+  useEffect(() => {
+    const updateWidthStatus = () => {
+      const width = window.innerWidth;
+      setIsWidthInRange(width > 1080 && width < 1500);
+    };
+
+    // Set the initial value
+    updateWidthStatus();
+
+    // Listen for window resize events
+    window.addEventListener("resize", updateWidthStatus);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", updateWidthStatus);
+    };
+  }, []);
   return (
     <div
       className="lg:px-20 md:px-10 sm:px-5 w-[73vw]  mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5"
@@ -93,7 +115,7 @@ function PlanCards() {
     >
       <div className="flex flex-col w-full cards-laoder">
         <div className="card-error-fix">
-          {error && <ErrorComponent message={error} />}
+          {error && <ErrorComponent1 message={error} />}
           {error2 && <ErrorComponent message={error2} />}
         </div>
         {/* <h4 className="mb-4 pay-texts">
@@ -125,7 +147,7 @@ function PlanCards() {
             </div>
           </div>
         </div>
-        <div className="flex pay-cards justify-between items-center flex-wrap">
+        <div className={`flex pay-cards justify-between items-center ${isWidthInRange ?"":"flex-wrap"}`}>
           {loading ? (
             // <div className="flex items-center justify-center relative">
             <div className="w-[100%]">
@@ -139,7 +161,7 @@ function PlanCards() {
           ) : (
             sortedData.map((payment) => (
               // </div>
-              <div key={payment._id} className="flex w-[20rem] mb-4">
+              <div key={payment._id} className={`flex w-[20rem] mb-4 ${isWidthInRange? "ml-3":""}`}>
                 <div
                   className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
                   style={{
