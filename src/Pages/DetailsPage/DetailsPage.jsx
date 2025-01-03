@@ -17,6 +17,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import TheaterMode from "../../Components/TheaterMode";
+import TrialTimer from "./TrialTimer";
 
 function DetailsPage() {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ function DetailsPage() {
   const params = useParams();
   const [data, setData] = useState(null);
   const [theaterMode, setTheaterMode] = useState(false);
+  const [showTrialTag, setShowTrialTag] = useState(false);
   const toggleTheaterMode = () => {
     setTheaterMode((prevMode) => !prevMode);
   };
@@ -71,18 +73,32 @@ function DetailsPage() {
     scrollToTop();
   }, [params.id]);
 
+  const goToPlansPage = () => {
+    setTimeout(() => {
+      setShowTrialTag(false);
+
+      navigate("/membership_plan");
+    }, 60000);
+  };
   const canViewPage = async () => {
     try {
       const result = await canView();
       if (localStorage.getItem("data")) {
         if (!result.data.flag) {
-          navigate("/membership_plan");
+          // navigate("/membership_plan");
+          setShowTrialTag(true);
+          goToPlansPage();
         }
       } else {
-        navigate("/signup?access=none");
+        // navigate("/membership_plan");
+        setShowTrialTag(true);
+        goToPlansPage();
       }
     } catch (error) {
-      navigate("/signup?access=none");
+      // navigate("/membership_plan");
+      setShowTrialTag(true);
+
+      goToPlansPage();
     }
   };
   useEffect(() => {
@@ -102,6 +118,7 @@ function DetailsPage() {
     >
       {" "}
       <Navbar />
+      {showTrialTag && <TrialTimer />}
       <div>
         {theaterMode ? (
           <div>
