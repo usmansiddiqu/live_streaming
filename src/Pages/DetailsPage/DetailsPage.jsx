@@ -18,12 +18,14 @@ import {
 } from "react-router-dom";
 import TheaterMode from "../../Components/TheaterMode";
 import TrialTimer from "./TrialTimer";
+import moment from "moment";
 
 function DetailsPage() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [url, setUrl] = useState(null);
   const containerRef = useRef(null);
+  const [isLive, setIsLive] = useState(false);
   const params = useParams();
   const [data, setData] = useState(null);
   const [theaterMode, setTheaterMode] = useState(false);
@@ -47,6 +49,24 @@ function DetailsPage() {
   const getData = async () => {
     try {
       const { data: response } = await getEventById(params.id);
+      const eventTimeUTC = moment(response.events?.date).utc();
+      const currentTimeLocal = moment();
+      const type = response.events?.channel?.TVCategory?.name;
+      const showEnded = currentTimeLocal.isAfter(
+        eventTimeUTC
+          .clone()
+          .add(
+            type == "NBA"
+              ? 2.6
+              : type == "NHL"
+              ? 3.5
+              : type == "MLB"
+              ? 3.5
+              : 3.5,
+            "hours"
+          )
+      );
+      setIsLive(showEnded);
       scrollToTop();
       setData(response.events);
 
@@ -72,13 +92,22 @@ function DetailsPage() {
     getData();
     scrollToTop();
   }, [params.id]);
+  const visited = localStorage.getItem("visited");
 
   const goToPlansPage = () => {
-    setTimeout(() => {
-      setShowTrialTag(false);
-
+    if (isLive) {
       navigate("/membership_plan");
-    }, 60000);
+    }
+    if (visited == "true") {
+      navigate("/membership_plan");
+    } else {
+      setTimeout(() => {
+        setShowTrialTag(false);
+        localStorage.setItem("visited", "true");
+
+        navigate("/membership_plan");
+      }, 60000);
+    }
   };
   const canViewPage = async () => {
     try {

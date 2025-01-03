@@ -20,7 +20,7 @@ const TrialTimer = () => {
 
   return (
     <div className="flex items-center justify-center mt-4">
-      <span className="bg-blue-200 text-blue-800 text-xs font-medium mr-2 px-4 py-2 rounded-full shadow-lg">
+      <span className="bg-red-800 text-white text-md font-medium mr-2 px-4 py-2 rounded shadow-lg">
         {timeLeft > 0 ? `${timeLeft}s left on trial` : "Trial expired"}
       </span>
     </div>
