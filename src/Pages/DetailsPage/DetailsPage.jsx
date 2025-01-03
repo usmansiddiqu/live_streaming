@@ -30,6 +30,9 @@ function DetailsPage() {
   const [data, setData] = useState(null);
   const [theaterMode, setTheaterMode] = useState(false);
   const [showTrialTag, setShowTrialTag] = useState(false);
+  const timeoutRef = useRef(null);
+  const isLivee = useRef(false);
+
   const toggleTheaterMode = () => {
     setTheaterMode((prevMode) => !prevMode);
   };
@@ -66,6 +69,8 @@ function DetailsPage() {
             "hours"
           )
       );
+      isLivee.current = showEnded;
+      console.log(isLivee, 909090);
       setIsLive(showEnded);
       scrollToTop();
       setData(response.events);
@@ -95,13 +100,13 @@ function DetailsPage() {
   const visited = localStorage.getItem("visited");
 
   const goToPlansPage = () => {
-    if (isLive) {
+    if (isLivee?.current) {
       navigate("/membership_plan");
     }
     if (visited == "true") {
       navigate("/membership_plan");
     } else {
-      setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         setShowTrialTag(false);
         localStorage.setItem("visited", "true");
 
@@ -132,6 +137,12 @@ function DetailsPage() {
   };
   useEffect(() => {
     // canViewPage();
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        console.log("Timeout cleared");
+      }
+    };
   }, []);
 
   return (
