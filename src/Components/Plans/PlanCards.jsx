@@ -47,7 +47,7 @@ function PlanCards() {
   const handleClick = async (packageId) => {
     console.log(packageId);
     if (!localStorage.getItem("token") || !localStorage.getItem("data")) {
-      navigate("/membership_plan");
+      navigate("/signup");
     } else {
       if (isCardSelected) {
         const result = await policioPayment({ packageId: packageId });
@@ -74,7 +74,7 @@ function PlanCards() {
       const { data: response } = await availFreePayment();
       setError(response.message);
     } else {
-      navigate("/membership_plan");
+      navigate("/signup");
     }
   };
   const skeletonProps = {
@@ -87,7 +87,6 @@ function PlanCards() {
       setError2("Payment Failed Please Try Again");
     }
   }, [search.get("fail")]);
-
 
   const [isWidthInRange, setIsWidthInRange] = useState(false);
 
@@ -147,7 +146,11 @@ function PlanCards() {
             </div>
           </div>
         </div>
-        <div className={`flex pay-cards justify-between items-center ${isWidthInRange ?"":"flex-wrap"}`}>
+        <div
+          className={`flex pay-cards justify-between items-center ${
+            isWidthInRange ? "" : "flex-wrap"
+          }`}
+        >
           {loading ? (
             // <div className="flex items-center justify-center relative">
             <div className="w-[100%]">
@@ -161,7 +164,12 @@ function PlanCards() {
           ) : (
             sortedData.map((payment) => (
               // </div>
-              <div key={payment._id} className={`flex w-[20rem] mb-4 ${isWidthInRange? "ml-3":""}`}>
+              <div
+                key={payment._id}
+                className={`flex w-[20rem] mb-4 ${
+                  isWidthInRange ? "ml-3" : ""
+                }`}
+              >
                 <div
                   className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
                   style={{
