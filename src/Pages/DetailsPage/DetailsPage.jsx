@@ -85,20 +85,20 @@ function DetailsPage() {
       const result = await canView();
       if (localStorage.getItem("data")) {
         if (!result.data.flag) {
-          navigate("/membership_plan");
-          // setShowTrialTag(true);
-          // goToPlansPage();
+          // navigate("/membership_plan");
+          setShowTrialTag(true);
+          goToPlansPage();
         }
       } else {
-        navigate("/membership_plan");
-        // setShowTrialTag(true);
-        // goToPlansPage();
+        // navigate("/membership_plan");
+        setShowTrialTag(true);
+        goToPlansPage();
       }
     } catch (error) {
-      navigate("/membership_plan");
-      // setShowTrialTag(true);
+      // navigate("/membership_plan");
+      setShowTrialTag(true);
 
-      // goToPlansPage();
+      goToPlansPage();
     }
   };
   useEffect(() => {
