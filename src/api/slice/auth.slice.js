@@ -5,6 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   token: null, // Store the token
   user: null, // Store user info if needed
+  showTrialTag: false,
 };
 
 // Create the slice for auth
@@ -22,11 +23,14 @@ const authSlice = createSlice({
     setUser: (state, action) => {
       state.user = action.payload;
     },
+    setTrialTag: (state, action) => {
+      state.showTrialTag = action.payload;
+    },
   },
 });
 
 // Export actions
-export const { setToken, clearToken, setUser } = authSlice.actions;
+export const { setToken, clearToken, setUser, setTrialTag } = authSlice.actions;
 
 // Export the reducer
 export default authSlice.reducer;

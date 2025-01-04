@@ -19,8 +19,11 @@ import {
 import TheaterMode from "../../Components/TheaterMode";
 import TrialTimer from "./TrialTimer";
 import moment from "moment";
+import { useDispatch } from "react-redux";
+import { setTrialTag } from "../../api/slice/auth.slice";
 
 function DetailsPage() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [url, setUrl] = useState(null);
@@ -29,7 +32,7 @@ function DetailsPage() {
   const params = useParams();
   const [data, setData] = useState(null);
   const [theaterMode, setTheaterMode] = useState(false);
-  const [showTrialTag, setShowTrialTag] = useState(false);
+  // const [showTrialTag, setShowTrialTag] = useState(false);
   const timeoutRef = useRef(null);
   const isLivee = useRef(false);
 
@@ -70,7 +73,6 @@ function DetailsPage() {
           )
       );
       isLivee.current = showEnded;
-      console.log(isLivee, 909090);
       setIsLive(showEnded);
       scrollToTop();
       setData(response.events);
@@ -107,9 +109,8 @@ function DetailsPage() {
       navigate("/membership_plan");
     } else {
       timeoutRef.current = setTimeout(() => {
-        setShowTrialTag(false);
+        dispatch(setTrialTag(false));
         localStorage.setItem("visited", "true");
-
         navigate("/membership_plan");
       }, 60000);
     }
@@ -119,19 +120,15 @@ function DetailsPage() {
       const result = await canView();
       if (localStorage.getItem("data")) {
         if (!result.data.flag) {
-          // navigate("/membership_plan");
-          setShowTrialTag(true);
+          dispatch(setTrialTag(true));
           goToPlansPage();
         }
       } else {
-        // navigate("/membership_plan");
-        setShowTrialTag(true);
+        dispatch(setTrialTag(true));
         goToPlansPage();
       }
     } catch (error) {
-      // navigate("/membership_plan");
-      setShowTrialTag(true);
-
+      dispatch(setTrialTag(true));
       goToPlansPage();
     }
   };
@@ -139,6 +136,7 @@ function DetailsPage() {
     // canViewPage();
     return () => {
       if (timeoutRef.current) {
+        dispatch(setTrialTag(false));
         clearTimeout(timeoutRef.current);
         console.log("Timeout cleared");
       }
@@ -158,7 +156,7 @@ function DetailsPage() {
     >
       {" "}
       <Navbar />
-      {showTrialTag && <TrialTimer />}
+      {/* {showTrialTag && <TrialTimer />} */}
       <div>
         {theaterMode ? (
           <div>

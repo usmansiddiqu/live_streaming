@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
 import Clappr from "@clappr/player";
 import { MediaControl } from "@clappr/plugins";
+import TrialTimer from "../../Pages/DetailsPage/TrialTimer";
+import { useSelector } from "react-redux";
 
 function ClapprPlayer({ url }) {
+  const showTrialTag = useSelector((state) => state.auth.showTrialTag);
+
   useEffect(() => {
     // Function to calculate player size based on screen width
     const calculatePlayerSize = () => {
@@ -78,7 +82,19 @@ function ClapprPlayer({ url }) {
     };
   }, [url]);
 
-  return <p className="w-full !bg-black" id="videoPlayer"></p>;
+  return (
+    <div className="relative w-full bg-black">
+      {/* Video Player */}
+      <div id="videoPlayer" className="w-full h-full"></div>
+
+      {/* Overlay: Trial Timer */}
+      {showTrialTag && (
+        <div className="absolute top-1 right-1 z-10">
+          <TrialTimer />
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default ClapprPlayer;
