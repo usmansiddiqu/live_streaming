@@ -118,6 +118,10 @@ function DetailsPage() {
   const canViewPage = async () => {
     try {
       const result = await canView();
+      if (result.data.flag) {
+        localStorage.removeItem("visited");
+        dispatch(setTrialTag(false));
+      }
       if (localStorage.getItem("data")) {
         if (!result.data.flag) {
           dispatch(setTrialTag(true));
