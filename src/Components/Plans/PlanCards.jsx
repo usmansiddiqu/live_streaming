@@ -114,7 +114,6 @@ function PlanCards() {
     >
       <div className="flex flex-col w-full cards-laoder">
         <div className="card-error-fix">
-          {error && <ErrorComponent1 message={error} />}
           {error2 && <ErrorComponent message={error2} />}
         </div>
         {/* <h4 className="mb-4 pay-texts">
@@ -223,6 +222,7 @@ function PlanCards() {
           )}
           {/* {} */}
         </div>
+        {error && <ErrorComponent1 message={error} />}
       </div>
     </div>
   );
