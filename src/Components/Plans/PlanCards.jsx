@@ -37,7 +37,7 @@ function PlanCards() {
     setCardSelected((prevState) => !prevState);
   };
   const [error, setError] = useState(
-    "NOTE: The service won’t auto-renew. If you don’t renew manually, it will cancel at the end of the billing period. Contact support for any issues."
+    "The service won’t auto-renew. If you don’t renew manually, it will cancel at the end of the billing period. Contact support for any issues."
   );
   const [error2, setError2] = useState("");
   const openInNewTab = (url) => {
@@ -114,6 +114,7 @@ function PlanCards() {
     >
       <div className="flex flex-col w-full cards-laoder">
         <div className="card-error-fix">
+          {error && <ErrorComponent1 message={error} />}
           {error2 && <ErrorComponent message={error2} />}
         </div>
         {/* <h4 className="mb-4 pay-texts">
@@ -222,7 +223,6 @@ function PlanCards() {
           )}
           {/* {} */}
         </div>
-        {error && <ErrorComponent1 message={error} />}
       </div>
     </div>
   );
