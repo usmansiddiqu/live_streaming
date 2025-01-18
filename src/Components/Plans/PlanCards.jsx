@@ -39,6 +39,7 @@ function PlanCards() {
   const [error, setError] = useState(
     "The service won’t auto-renew. If you don’t renew manually, it will cancel at the end of the billing period. Contact support for any issues."
   );
+  const [error1, setError1] = useState("");
   const [error2, setError2] = useState("");
   const openInNewTab = (url) => {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
@@ -61,7 +62,7 @@ function PlanCards() {
       } else {
         const result = await createPayment({ package_id: packageId });
         if (result?.data?.error) {
-          setError(result?.data?.error);
+          setError1(result?.data?.error);
         } else {
           window.location.href = result.data.link;
         }
@@ -110,7 +111,7 @@ function PlanCards() {
   return (
     <>
       <div className=" w-full  bg-[#0D0620] pt-4 text-white">
-        {error && <ErrorComponent1 message={error} />}
+        {error && <ErrorComponent1 message={error1} />}
       </div>
       <div
         className="lg:px-20 md:px-10 sm:px-5 w-[73vw]  mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5"
@@ -228,9 +229,11 @@ function PlanCards() {
                 </div>
               ))
             )}
-            {/* {} */}
           </div>
         </div>
+      </div>
+      <div className=" w-full  bg-[#0D0620] pb-6 text-white">
+        {error && <ErrorComponent1 message={error} />}
       </div>
     </>
   );

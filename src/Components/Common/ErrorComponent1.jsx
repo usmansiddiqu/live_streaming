@@ -2,7 +2,7 @@ import React from "react";
 
 function ErrorComponent1({ message }) {
   return (
-    <div className=" h-[auto] w-full flex justify-center">
+    <div className=" h-[auto] w-full flex justify-center ml-1">
       <span className="text-[#fffff]">{message}</span>
     </div>
   );
