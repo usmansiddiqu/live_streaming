@@ -232,7 +232,7 @@ function PlanCards() {
           </div>
         </div>
       </div>
-      <div className=" w-full  bg-[#0D0620] pb-6 text-white">
+      <div className=" w-full  bg-[#0D0620] pb-6 text-white px-1" >
         {error && <ErrorComponent1 message={error} />}
       </div>
     </>
