@@ -169,7 +169,7 @@ function NavLinks({ handleOpenNavMenu }) {
                 onClick={() => handleLinkClick("Home")}
                 style={{ textDecoration: "none" }}
               >
-                <Link to="/home" className="nav-a" style={{ color: "white" }}>
+                <Link to="/" className="nav-a" style={{ color: "white" }}>
                   {" "}
                   HOME
                 </Link>
