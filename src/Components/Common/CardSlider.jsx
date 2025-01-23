@@ -180,7 +180,10 @@ const CardSlider = ({ data, type }) => {
           }}
         >
           <div className=" ml-1">
-            <Splide options={{ ...splideOptions, width: 1400 }}>
+            <Splide
+              options={{ ...splideOptions, width: 1400 }}
+              className="custom-splide"
+            >
               <>
                 {data
                   ?.sort((a, b) => new Date(b?.date) - new Date(a?.date))

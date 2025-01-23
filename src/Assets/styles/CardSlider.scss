@@ -164,3 +164,9 @@
     height: 58vh !important;
   }
 }
+
+@media (max-width: 500px) {
+  .custom-splide .splide__arrow {
+    display: none;
+  }
+}
