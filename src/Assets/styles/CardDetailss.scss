@@ -52,6 +52,7 @@
       width: 30px !important;
       height: 30px !important;
       background-color: rgba(255, 255, 255, 0);
+      
     }
     .splide__arrow--prev svg,
     .splide__arrow--next svg {
@@ -61,7 +62,7 @@
       color: aqua;
     }
     .splide__arrow--next {
-        margin-right: 5px !important;
+        margin-right: 90px !important;
         // display: none;
       }
       .splide__arrow--prev{

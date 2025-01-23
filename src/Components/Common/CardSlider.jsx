@@ -23,6 +23,7 @@ const CardSlider = ({ data, type }) => {
     pagination: false,
     gap: 20,
     drag: true,
+    // arrows: false,
   };
   const navigate = useNavigate();
   return (
@@ -182,7 +183,7 @@ const CardSlider = ({ data, type }) => {
           <div className=" ml-1">
             <Splide
               options={{ ...splideOptions, width: 1400 }}
-              className="custom-splide"
+              // className="custom-splide"
             >
               <>
                 {data
