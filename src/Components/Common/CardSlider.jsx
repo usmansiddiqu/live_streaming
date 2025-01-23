@@ -23,7 +23,7 @@ const CardSlider = ({ data, type }) => {
     pagination: false,
     gap: 20,
     drag: true,
-    // arrows: false,
+    arrows: false,
   };
   const navigate = useNavigate();
   return (
