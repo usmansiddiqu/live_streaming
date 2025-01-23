@@ -160,50 +160,51 @@ function DetailsPage() {
     >
       {" "}
       <Navbar />
-      {/* {showTrialTag && <TrialTimer />} */}
-      <div>
-        {theaterMode ? (
-          <div>
-            <TheaterMode
-              data={data}
-              setUrl={setUrl}
-              url={url}
-              setTheaterMode={setTheaterMode}
-            />
-          </div>
-        ) : (
-          <div>
-            {url ? <DetailsComponent data={data} url={url} /> : <></>}
-            <DetailsDescription
-              data={data}
-              setUrl={setUrl}
-              toggleTheaterMode={toggleTheaterMode}
-            />
-            <TeamScore
-              teamA={{
-                name: data?.competitors1_name,
-                score: data?.competitors1_score,
-              }}
-              teamB={{
-                name: data?.competitors2_name,
-                score: data?.competitors2_score,
-              }}
-            />
-            <div
-              className="mt-6 w-[80rem] h-[17rem] bg-[#130A2D] mx-auto pt-3 pb-6 ps-7 flex flex-col p-3 mb-4 "
-              style={{ overflow: "hidden" }}
-            >
-              <h3 className="text-white font-medium text-2xl">
-                You May Also Like
-              </h3>
-              <div className="w-[110rem] mt-4 mb-5 banner-slide-card">
-                <DetailsSlider />
+      <div className="flex justify-between flex-col">
+        <div>
+          {theaterMode ? (
+            <div>
+              <TheaterMode
+                data={data}
+                setUrl={setUrl}
+                url={url}
+                setTheaterMode={setTheaterMode}
+              />
+            </div>
+          ) : (
+            <div>
+              {url ? <DetailsComponent data={data} url={url} /> : <></>}
+              <DetailsDescription
+                data={data}
+                setUrl={setUrl}
+                toggleTheaterMode={toggleTheaterMode}
+              />
+              <TeamScore
+                teamA={{
+                  name: data?.competitors1_name,
+                  score: data?.competitors1_score,
+                }}
+                teamB={{
+                  name: data?.competitors2_name,
+                  score: data?.competitors2_score,
+                }}
+              />
+              <div
+                className="mt-6 w-[80rem] h-[17rem] bg-[#130A2D] mx-auto pt-3 pb-6 ps-7 flex flex-col p-3 mb-4 "
+                style={{ overflow: "hidden" }}
+              >
+                <h3 className="text-white font-medium text-2xl">
+                  You May Also Like
+                </h3>
+                <div className="w-[110rem] mt-4 mb-5 banner-slide-card">
+                  <DetailsSlider />
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+        {theaterMode ? <div></div> : <Footer />}
       </div>
-      {theaterMode ? <div></div> : <Footer />}
     </div>
   );
 }
