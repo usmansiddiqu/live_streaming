@@ -54,21 +54,24 @@ function BannerPage() {
       <BannerDetailComponent data={data} url={url} />
       <BannerDetailsDescription data={data} setUrl={setUrl} />
       {/* <TeamScore /> */}
-      <div className="mt-2"></div>
-      {data1 && data1?.length > 0 && (
-        <div
-          className="mt-6 w-[61%] bg-[#130A2D] mx-auto h-[17rem] flex flex-col p-3 mb-2 banner-slidess"
-          style={{ overflow: "hidden" }}
-        >
-          <h3 className="text-white font-medium text-2xl">You May Also Like</h3>
-          <div className="w-[100vw] mt-4 ml-9  banner-slide-card mb-5 ">
-            {data?.liveTV.TVName?.slice(0, 3) && (
-              <DetailsSlider name={data?.liveTV.TVName?.slice(0, 3)} />
-            )}
+      <div className="mt-2 flex justify-between flex-col">
+        {data1 && data1?.length > 0 && (
+          <div
+            className="mt-6 w-[61%] bg-[#130A2D] mx-auto h-[17rem] flex flex-col p-3 mb-2 banner-slidess"
+            style={{ overflow: "hidden" }}
+          >
+            <h3 className="text-white font-medium text-2xl">
+              You May Also Like
+            </h3>
+            <div className="w-[100vw] mt-4 ml-9  banner-slide-card mb-5 ">
+              {data?.liveTV.TVName?.slice(0, 3) && (
+                <DetailsSlider name={data?.liveTV.TVName?.slice(0, 3)} />
+              )}
+            </div>
           </div>
-        </div>
-      )}
-      <Footer className="mt-5" />
+        )}
+        <Footer className="mt-5" />
+      </div>
     </div>
   );
 }
