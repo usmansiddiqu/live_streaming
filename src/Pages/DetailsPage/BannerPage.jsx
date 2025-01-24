@@ -12,6 +12,7 @@ import BannerDetailComponent from "../../Components/Common/BannerDetailComponent
 import BannerDetailsDescription from "../../Components/Common/BannerDetailsDescription";
 import axios from "axios";
 import getEventsByType from "../../api/getEventsType";
+import "./bannar.scss";
 function BannerPage() {
   const [url, setUrl] = useState("");
   const params = useParams();
@@ -49,7 +50,7 @@ function BannerPage() {
     getData();
   }, [params.id]);
   return (
-    <div>
+    <div className="footerBottom">
       <Navbar />
       <BannerDetailComponent data={data} url={url} />
       <BannerDetailsDescription data={data} setUrl={setUrl} />
