@@ -339,7 +339,7 @@ function Nav() {
                                               className="w-[15px] h-[15px]"
                                             />{" "}
                                             <span className="ml-2 text-sm">
-                                              Dashboard
+                                            Subscription
                                             </span>
                                           </a>
                                         </li>
@@ -378,7 +378,7 @@ function Nav() {
                                               className="w-[15px] h-[15px]"
                                             />{" "}
                                             <span className="ml-2 text-sm">
-                                              Dashboard
+                                              Subscription
                                             </span>
                                           </a>
                                         </li>

@@ -6,8 +6,16 @@ import DashHeader from "../../Components/Dashboard/DashHeader";
 import updateUser from "../../api/editUser";
 import { toast, ToastContainer } from "react-toastify";
 import getDetails from "../../api/authGetDetails";
+import updateAccount from "../../api/editAccountInfo";
+import cancelSub from "../../api/cancelSub";
+import { useNavigate } from "react-router-dom";
+import clearLocalStorage from "../../helper/localstorage";
 
 function Profile() {
+  const navigate = useNavigate();
+  const [popUpBox, setPopUpBox] = useState(false);
+  const [popUpBoxValue, setPopUpBoxValue] = useState(false);
+  
   const [user, setUser] = useState(localStorage.getItem("data"));
   const [data, setData] = useState(JSON?.parse(localStorage?.getItem("data")));
 
@@ -31,6 +39,54 @@ function Profile() {
       // reader.readAsDataURL(file);
     }
   };
+
+  const handleCancelSubscription = async () =>{
+    try { 
+      const result = await cancelSub(data?._id);
+      if(result?.data?.hasError){
+        toast.error(result?.data?.message);
+      }
+      toast.success(result?.data?.message);
+    } catch (error) {
+      setError("error");
+    }
+  }
+  const handleDeleteAccount = async() =>{
+    try {
+      const result = await updateAccount(data?._id);
+      if(result?.data?.hasError){
+        toast.error(result?.data?.message);
+      }
+      toast.success(result?.data?.message);
+      clearLocalStorage();
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+      navigate("/")
+    } catch (error) {
+      setError("error");
+    }
+  }
+
+  const handlePopupdata = (val) =>{
+    setPopUpBox(true)
+    setPopUpBoxValue(val)
+  }
+
+  const handlePopupBoxCall = (val) =>{
+    if(val){
+       if(popUpBoxValue === "Cancel Subscription"){
+        handleCancelSubscription()
+       }
+       if(popUpBoxValue === "Delete Account"){
+        handleDeleteAccount()
+       }
+    }
+    else{
+      setPopUpBox(false)
+    }
+  }
+
   const handleSave = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -73,7 +129,7 @@ function Profile() {
     return googleImageUrlRegex.test(url);
   };
   return (
-    <>
+    <div className="relative">
       <div className="h-[100vh] bg-[#0D0620]">
         <ToastContainer />
         <Nav />
@@ -222,12 +278,44 @@ function Profile() {
                 </button>
               </div>
             </form>
+            <div class="flex flex-col md:flex-row gap-4 mt-5">
+            <button
+                  class="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center "
+                  onClick={() => {
+                    handlePopupdata("Cancel Subscription");
+                  }}
+                >
+                  Cancel Subscription
+                </button>
+                <button
+                  class="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center "
+                  onClick={() => {
+                    handlePopupdata("Delete Account");
+                  }}
+                >
+                  Delete Account
+                </button>
+            </div>
           </div>
         </div>
-
         <Footer />
       </div>
-    </>
+      {popUpBox && <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center absolute left-0 top-0 z-[100] p-3">
+        <div className="w-1/2 md:w-1/4 h-1/3 md:h-1/4 bg-[#0D0620] flex flex-col justify-center items-center gap-5 rounded-xl">
+          <p className="text-base md:text-2xl font-semibold text-white text-center">Are you sure you want to {popUpBoxValue}</p>
+          <div className="flex flex-col md:flex-row gap-5">
+            <button
+            onClick={()=>handlePopupBoxCall(true)}
+            class="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center "
+            >Yes</button>
+            <button
+              onClick={()=>handlePopupBoxCall(false)}
+              class="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center "
+            >No</button>
+          </div>
+        </div>
+      </div>}
+    </div>
   );
 }
 
