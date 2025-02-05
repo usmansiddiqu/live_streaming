@@ -6,6 +6,7 @@ import getUserPayments from "../../api/getUserPayment";
 import bankDetails from "../../api/getBankDetails";
 import getStats from "../../api/getStats";
 import makeRequest from "../../api/makeRequest";
+import cancelSub from "../../api/cancelSub";
 
 import {
   Button,
@@ -24,6 +25,8 @@ function Plans({ userData, variant }) {
     navigate("/membership_plan");
   };
   const [accNo, setAccNo] = useState("");
+  const [popUpBox, setPopUpBox] = useState(false);
+  const [popUpBoxValue, setPopUpBoxValue] = useState(false);
   const [beneficiary, setBeneficiary] = useState("");
   const [bankSwift, setBankSwift] = useState("");
   const [iban, setIban] = useState("");
@@ -104,6 +107,35 @@ function Plans({ userData, variant }) {
       console.log(123, response);
     } catch (error) {}
   };
+
+  const handlePopupdata = (val) =>{
+    setPopUpBox(true)
+    setPopUpBoxValue(val)
+  }
+
+  const handleCancelSubscription = async () =>{
+    try { 
+      const result = await cancelSub(data?._id);
+      if(result?.data?.hasError){
+        toast.error(result?.data?.message);
+      }
+      toast.success(result?.data?.message);
+    } catch (error) {
+      toast.error(error?.message)
+    }
+  }
+
+  const handlePopupBoxCall = (val) =>{
+    if(val){
+       if(popUpBoxValue === "Cancel Subscription"){
+        handleCancelSubscription()
+       }
+    }
+    else{
+      setPopUpBox(false)
+    }
+  }
+
   useEffect(() => {
     if (copyMessage) {
       const timer = setTimeout(() => {
@@ -366,13 +398,23 @@ function Plans({ userData, variant }) {
                 </div>
               </div>
 
-              <div>
+              <div className="flex flex-row gap-3">
                 <button
                   class="bg-gradient-to-r mt-2 from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center "
                   onClick={handleSelecPlanClick}
                 >
                   Select Plan
                 </button>
+                {data?.expiryDate && 
+                <button
+                  class="bg-gradient-to-r mt-2 from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center"
+                  onClick={() => {
+                    handlePopupdata("Cancel Subscription");
+                  }}
+                >
+                  Cancel Subscription
+                </button>
+                }
               </div>
             </div>
           </div>
@@ -421,6 +463,21 @@ function Plans({ userData, variant }) {
             </div>
           </div>
         </div>
+        {popUpBox && <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center absolute left-0 top-0 z-[100] p-3">
+        <div className="w-1/2 md:w-1/4 h-1/3 md:h-1/4 bg-[#0D0620] flex flex-col justify-center items-center gap-5 rounded-xl">
+          <p className="text-base md:text-2xl font-semibold text-white text-center">Are you sure you want to {popUpBoxValue}</p>
+          <div className="flex flex-col md:flex-row gap-5">
+            <button
+            onClick={()=>handlePopupBoxCall(true)}
+            class="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center "
+            >Yes</button>
+            <button
+              onClick={()=>handlePopupBoxCall(false)}
+              class="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center "
+            >No</button>
+          </div>
+        </div>
+      </div>}
       </div>
     );
 }

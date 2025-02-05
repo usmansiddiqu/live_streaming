@@ -279,14 +279,14 @@ function Profile() {
               </div>
             </form>
             <div class="flex flex-col md:flex-row gap-4 mt-5">
-            <button
+            {/* <button
                   class="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center "
                   onClick={() => {
                     handlePopupdata("Cancel Subscription");
                   }}
                 >
                   Cancel Subscription
-                </button>
+                </button> */}
                 <button
                   class="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center "
                   onClick={() => {
