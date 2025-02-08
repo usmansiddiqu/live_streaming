@@ -7,7 +7,8 @@ import { MediaControl } from "@clappr/plugins";
 function ClapprPlayer({ url }) {
   const showTrialTag = useSelector((state) => state.auth.showTrialTag);
   const [player, setPlayer] = useState(null);
-  const [windowSize, setWindowSize] = useState(window.innerWidth); // Track window size changes
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
+  const [userInteracted, setUserInteracted] = useState(false); // Track if user interacted
 
   // Function to calculate player size dynamically
   const calculatePlayerSize = () => {
@@ -34,10 +35,53 @@ function ClapprPlayer({ url }) {
       height: height.toString(),
       mute: false,
       autoPlay: true,
+      playsinline: true,
+      useNativeFullscreen: true,
       fullscreenEnabled: true,
+
+      events: {
+        onReady: function () {
+          console.log("Player is ready!");
+        },
+        onPlay: function () {
+          setUserInteracted(true); // Mark user has interacted
+        },
+      },
+
+      plugins: [
+        MediaControl.MainPlugin,
+        MediaControl.PlayPauseButtonPlugin,
+        MediaControl.VolumePlugin,
+        MediaControl.FullscreenButtonPlugin,
+        MediaControl.SeekBarPlugin,
+        MediaControl.TimeIndicatorPlugin,
+      ],
     });
 
     setPlayer(newPlayer);
+
+    // Function to request fullscreen after rotation
+    const handleOrientationChange = () => {
+      if (
+        userInteracted && // Only allow fullscreen if user interacted
+        !document.fullscreenElement &&
+        !document.webkitFullscreenElement
+      ) {
+        const videoContainer = newPlayer.core.el;
+        if (videoContainer) {
+          setTimeout(() => {
+            if (videoContainer.requestFullscreen) {
+              videoContainer.requestFullscreen().catch((err) => console.warn("Fullscreen error:", err));
+            } else if (videoContainer.webkitRequestFullscreen) {
+              videoContainer.webkitRequestFullscreen();
+            }
+          }, 500);
+        }
+      }
+    };
+
+    // Listen for screen rotation
+    window.screen.orientation.addEventListener("change", handleOrientationChange);
 
     // Handle window resize
     const handleResize = () => {
@@ -48,9 +92,10 @@ function ClapprPlayer({ url }) {
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.screen.orientation.removeEventListener("change", handleOrientationChange);
       newPlayer.destroy();
     };
-  }, [url, windowSize]); // Re-run when URL or window size changes
+  }, [url, windowSize, userInteracted]); // Re-run when URL, window size, or interaction state changes
 
   return (
     <div className="relative w-full bg-black">
