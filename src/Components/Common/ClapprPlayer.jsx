@@ -8,7 +8,8 @@ function ClapprPlayer({ url }) {
   const showTrialTag = useSelector((state) => state.auth.showTrialTag);
   const [player, setPlayer] = useState(null);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
-  const [userInteracted, setUserInteracted] = useState(false); // Track if user interacted
+  const [userInteracted, setUserInteracted] = useState(false);
+  const [showPlayButton, setShowPlayButton] = useState(true);
 
   // Function to calculate player size dynamically
   const calculatePlayerSize = () => {
@@ -33,7 +34,7 @@ function ClapprPlayer({ url }) {
       parentId: "#videoPlayer",
       width: width.toString(),
       height: height.toString(),
-      mute: false,
+      mute: true,
       autoPlay: true,
       playsinline: true,
       useNativeFullscreen: true,
@@ -44,7 +45,8 @@ function ClapprPlayer({ url }) {
           console.log("Player is ready!");
         },
         onPlay: function () {
-          setUserInteracted(true); // Mark user has interacted
+          setUserInteracted(true);
+          setShowPlayButton(false);
         },
       },
 
@@ -60,20 +62,17 @@ function ClapprPlayer({ url }) {
 
     setPlayer(newPlayer);
 
-    // Function to request fullscreen after rotation
+    // Handle fullscreen properly on iOS
     const handleOrientationChange = () => {
-      if (
-        userInteracted && // Only allow fullscreen if user interacted
-        !document.fullscreenElement &&
-        !document.webkitFullscreenElement
-      ) {
-        const videoContainer = newPlayer.core.el;
-        if (videoContainer) {
+      if (userInteracted && !document.fullscreenElement && !document.webkitFullscreenElement) {
+        const videoElement = newPlayer.core.el.querySelector("video"); // Get the actual video element
+
+        if (videoElement) {
           setTimeout(() => {
-            if (videoContainer.requestFullscreen) {
-              videoContainer.requestFullscreen().catch((err) => console.warn("Fullscreen error:", err));
-            } else if (videoContainer.webkitRequestFullscreen) {
-              videoContainer.webkitRequestFullscreen();
+            if (videoElement.requestFullscreen) {
+              videoElement.requestFullscreen();
+            } else if (videoElement.webkitEnterFullscreen) {
+              videoElement.webkitEnterFullscreen(); // iOS Safari fullscreen fix
             }
           }, 500);
         }
@@ -97,10 +96,28 @@ function ClapprPlayer({ url }) {
     };
   }, [url, windowSize, userInteracted]); // Re-run when URL, window size, or interaction state changes
 
+  const handleUserInteraction = () => {
+    if (player) {
+      player.play();
+      setUserInteracted(true);
+      setShowPlayButton(false);
+    }
+  };
+
   return (
     <div className="relative w-full bg-black">
       {/* Video Player */}
       <div id="videoPlayer" className="w-full h-full"></div>
+
+      {/* Overlay: Play Button for iOS */}
+      {showPlayButton && (
+        <button
+          className="absolute inset-0 flex items-center justify-center text-white bg-black bg-opacity-50"
+          onClick={handleUserInteraction}
+        >
+          ▶ Tap to Play
+        </button>
+      )}
 
       {/* Overlay: Trial Timer */}
       {showTrialTag && (
