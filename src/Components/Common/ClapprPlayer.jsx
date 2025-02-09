@@ -111,7 +111,7 @@ function ClapprPlayer({ url }) {
       width: width.toString(),
       height: height.toString(),
       mute: false, // Mute to allow autoplay on most browsers
-      autoPlay: true,
+      autoPlay: false,
       playsinline: true, // Required for Safari iOS
       useNativeFullscreen: true, // Use the browser's native fullscreen
       fullscreenEnabled: true, // Enable fullscreen functionality
