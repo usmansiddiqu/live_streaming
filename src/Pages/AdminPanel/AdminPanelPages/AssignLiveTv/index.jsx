@@ -65,6 +65,7 @@ function AssignLiveTv() {
             style={{ position: "absolute", left: "16.5%" }}
           >
             <div class="relative overflow-x-auto shadow-md edit-contain">
+            <button style={{color: "white"}} onClick={() => navigate("/admin/create-event")}>Add  Game</button>
               <table class="w-full mt-5 text-sm text-left rtl:text-right text-white">
                 <thead class=" w-[78vw] text-xs text-white">
                   <tr>

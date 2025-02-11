@@ -36,6 +36,7 @@ import EditBadWord from "../../Components/Forms/EditBadWord";
 import AddBadWords from "../../Components/AddOn/AddBadWords";
 import AdminAffiliateRequests from "./AdminPanelPages/AffiliateRequests";
 import EditUserInvoice from "../../Components/Forms/EditUserInvoice";
+import CreateAssignTv from "../../Components/Forms/CreateAssignTv";
 
 function AdminPanelWrapper() {
   const navigate = useNavigate();
@@ -117,6 +118,7 @@ function AdminPanelWrapper() {
         <Route path="/coupons/editcoupon/:id" element={<EditCoupons />} />
         <Route path="/bad_word/editbadword/:id" element={<EditBadWord />} />
         <Route path="/users/add_user" element={<AddUser />} />
+        <Route path="/create-event" element={<CreateAssignTv />} />
       </Routes>
     </div>
   );
