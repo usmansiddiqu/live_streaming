@@ -147,11 +147,11 @@ const CardSlider = ({ data, type }) => {
                           <TeamIcons
                             iconsData={[
                               {
-                                iconUrl: item.competitors1_logo.includes("https") ? item.competitors1_logo : `${baseURL}${item.competitors1_logoimagePath?.replace("/uploads", "")}`,
+                                iconUrl: item.competitors1_logo.includes("https") ? item.competitors1_logo : `${baseURL}${item.competitors1_logoimagePath}`,
                                 name: item.competitors1_displayName,
                               },
                               {
-                                iconUrl: item.competitors2_logo.includes("https") ? item.competitors2_logo : `${baseURL}${item.competitors2_logo.imagePath?.replace("/uploads", "")}`,
+                                iconUrl: item.competitors2_logo.includes("https") ? item.competitors2_logo : `${baseURL}${item.competitors2_logo.imagePath}`,
                                 name: item.competitors2_displayName,
                               },
                             ]}
