@@ -60,11 +60,10 @@ function CreateAssignTv() {
     if (competitor2Logo) formData.append("competitors2_logo", competitor2Logo);
   
     if(!selectedLiveTv) {
-       return toast.error("Please select channel")
+       alert("Please select channel")
     }
     try {
       const response = await createEvent(formData);
-      debugger
       if(response?.data?.success) {
         alert("Game created successfully")
       }
