@@ -11,6 +11,7 @@ import moment from "moment";
 const CardSlider = ({ data, type }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1001px)" });
+  const baseURL = "https://pixelsport.tv";
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + "...";
@@ -146,11 +147,11 @@ const CardSlider = ({ data, type }) => {
                           <TeamIcons
                             iconsData={[
                               {
-                                iconUrl: item.competitors1_logo,
+                                iconUrl: item.competitors1_logo.includes("https") ? item.competitors1_logo : `${baseURL}${item.competitors1_logo}`,
                                 name: item.competitors1_displayName,
                               },
                               {
-                                iconUrl: item.competitors2_logo,
+                                iconUrl: item.competitors2_logo.includes("https") ? item.competitors2_logo : `${baseURL}${item.competitors2_logo}`,
                                 name: item.competitors2_displayName,
                               },
                             ]}
@@ -283,11 +284,11 @@ const CardSlider = ({ data, type }) => {
                         <TeamIcons
                           iconsData={[
                             {
-                              iconUrl: item.competitors1_logo,
+                              iconUrl: item.competitors1_logo.includes("https") ? item.competitors1_logo : `${baseURL}${item.competitors1_logo}`,
                               name: item.competitors1_displayName,
                             },
                             {
-                              iconUrl: item.competitors2_logo,
+                              iconUrl: item.competitors2_logo.includes("https") ? item.competitors2_logo : `${baseURL}${item.competitors2_logo}`,
                               name: item.competitors2_displayName,
                             },
                           ]}

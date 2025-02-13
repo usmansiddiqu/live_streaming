@@ -1,33 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router";
-import editEventById from "../../api/editEvent";
-import getEventById from "../../api/eventById";
+import { toast } from "react-toastify";
 import getChannel from "../../api/retrieveChannel";
 import createEvent from "../../api/createEvent";
 
 function CreateAssignTv() {
-  const navigate = useNavigate();
-  const [data, setData] = useState(null);
   const [liveTv, setLiveTv] = useState([]);
-  const [selectedLiveTv, setSelectedLiveTv] = useState("");
+  const [selectedLiveTv, setSelectedLiveTv] = useState("6589a012796be500687b1eb8");
   const [eventName, setEventName] = useState("");
   const [shortName, setShortName] = useState("")
   const [location, setLocation] = useState("");
   const [date, setDate] = useState(new Date());
   const [competitor1Name, setCompetitor1Name] = useState("");
   const [competitor1DisplayName, setCompetitor1DisplayName] = useState("");
-  const [competitor1Color, setCompetitor1Color] = useState("");
-  const [competitor1AlternateColor, setCompetitor1AlternateColor] = useState("");
+  const [competitor1Color, setCompetitor1Color] = useState("#33FF57");
+  const [competitor1AlternateColor, setCompetitor1AlternateColor] = useState("#3357FF");
   const [competitor1Logo, setCompetitor1Logo] = useState(null);
   const [competitor1Score, setCompetitor1Score] = useState("");
   const [competitor2Name, setCompetitor2Name] = useState("");
   const [competitor2DisplayName, setCompetitor2DisplayName] = useState("");
-  const [competitor2Color, setCompetitor2Color] = useState("");
-  const [competitor2AlternateColor, setCompetitor2AlternateColor] = useState("")
+  const [competitor2Color, setCompetitor2Color] = useState("#F0F033");
+  const [competitor2AlternateColor, setCompetitor2AlternateColor] = useState("#007EA7")
   const [competitor2Logo, setCompetitor2Logo] = useState(null);
   const [competitor2Score, setCompetitor2Score] = useState("")
-  const params = useParams();
-  const formData = new FormData()
 
   const getData = async () => {
     // const { data: response } = await getEventById(params.id);
@@ -39,33 +33,44 @@ function CreateAssignTv() {
   useEffect(() => {
     getData();
   }, []);
-  // console.log("===sss", competitor1Logo)
-  const editEvent = async () => {
-     const payload = {
-      channel_id: selectedLiveTv,
-      match_name: eventName,
-      shortName: shortName,
-      location,
-      date,
-      competitors1_name: competitor1Name,
-      competitors2_name: competitor2Name,
-      competitors1_homeAway: "home",
-      competitors2_homeAway: "away",
-      competitors1_displayName: competitor1DisplayName,
-      competitors2_displayName: competitor2DisplayName,
-      competitors1_alternateColor: competitor1AlternateColor?.slice(1),
-      competitors2_alternateColor: competitor2AlternateColor?.slice(1),
-      competitors1_color: competitor1Color?.slice(1),
-      competitors2_color: competitor2Color?.slice(1),
-      competitors1_logo: "https://a.espncdn.com/i/teamlogos/nhl/500/scoreboard/mtl.png",
-      competitors2_logo: "https://a.espncdn.com/i/teamlogos/nhl/500/scoreboard/tb.png",
-      competitors1_score: competitor1Score,
-      competitors2_score: competitor2Score
+ 
+  const editEvent = async (e) => {
+    e.preventDefault()
+    const formData = new FormData();
+    formData.append("channel_id", selectedLiveTv);
+    formData.append("match_name", eventName);
+    formData.append("shortName", shortName);
+    formData.append("location", location);
+    formData.append("date", date);
+    formData.append("competitors1_name", competitor1Name);
+    formData.append("competitors2_name", competitor2Name);
+    formData.append("competitors1_homeAway", "home");
+    formData.append("competitors2_homeAway", "away");
+    formData.append("competitors1_displayName", competitor1DisplayName);
+    formData.append("competitors2_displayName", competitor2DisplayName);
+    formData.append("competitors1_alternateColor", competitor1AlternateColor?.slice(1));
+    formData.append("competitors2_alternateColor", competitor2AlternateColor?.slice(1));
+    formData.append("competitors1_color", competitor1Color?.slice(1));
+    formData.append("competitors2_color", competitor2Color?.slice(1));
+    formData.append("competitors1_score", competitor1Score);
+    formData.append("competitors2_score", competitor2Score);
+  
+    // Append images
+    if (competitor1Logo) formData.append("competitors1_logo", competitor1Logo);
+    if (competitor2Logo) formData.append("competitors2_logo", competitor2Logo);
+  
+    if(!selectedLiveTv) {
+       return toast.error("Please select channel")
     }
-    
     try {
-      await createEvent(payload);
-    } catch (error) {}
+      const response = await createEvent(formData);
+      debugger
+      if(response?.data?.success) {
+        alert("Game created successfully")
+      }
+    } catch (error) {
+      console.log(error)
+    }
   };
   return (
     <div
@@ -85,7 +90,7 @@ function CreateAssignTv() {
             className="w-[80vw] edit-con bg-[#1C1C1E]  rounded p-5"
             style={{ position: "absolute", left: "17%" }}
           >
-            <form class="max-w-sm ">
+            <form class="max-w-sm" onSubmit={editEvent}>
               <div class="mb-5 input-feild w-[72vw] flex">
                 <label
                   for="email"
@@ -96,7 +101,7 @@ function CreateAssignTv() {
                 <input
                   id="email"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
-                  placeholder=""
+                  required
                   value={eventName}
                   onChange={(e) => setEventName(e.target.value)}
                 />
@@ -111,7 +116,7 @@ function CreateAssignTv() {
                 <input
                   id="email"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
-                  placeholder=""
+                  required
                   value={shortName}
                   onChange={(e) => setShortName(e.target.value)}
                 />
@@ -127,7 +132,8 @@ function CreateAssignTv() {
                   id="email"
                   type="date"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
-                  placeholder="MLB"
+                  placeholder=""
+                  required
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
                 />
@@ -143,6 +149,7 @@ function CreateAssignTv() {
                   id="email"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                   value={location}
+                  required
                   onChange={(e) => setLocation(e.target.value)}
                 />
               </div>
@@ -155,6 +162,8 @@ function CreateAssignTv() {
                 </label>
                 <select
                   id="countries"
+                  required
+                  value={selectedLiveTv}
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
                   onChange={(e) => setSelectedLiveTv(e.target.value)}
                 >
@@ -177,6 +186,7 @@ function CreateAssignTv() {
                 </label>
                 <input
                   id="email"
+                  required
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                   value={competitor1Name}
                   onChange={(e) => setCompetitor1Name(e.target.value)}
@@ -191,6 +201,7 @@ function CreateAssignTv() {
                 </label>
                 <input
                   id="email"
+                  required
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                   value={competitor1DisplayName}
                   onChange={(e) => setCompetitor1DisplayName(e.target.value)}
@@ -206,6 +217,7 @@ function CreateAssignTv() {
                 <input
                   id="email"
                   type="color"
+                  required
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                   value={competitor1Color}
                   onChange={(e) => setCompetitor1Color(e.target.value)}
@@ -221,6 +233,7 @@ function CreateAssignTv() {
                 <input
                   id="email"
                   type="color"
+                  required
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                   value={competitor1AlternateColor}
                   onChange={(e) => setCompetitor1AlternateColor(e.target.value)}
@@ -236,6 +249,7 @@ function CreateAssignTv() {
                 <input
                   id="email"
                   type="file"
+                  required
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                   // value={competitor1Logo}
                   onChange={(e) => setCompetitor1Logo(e.target.files[0])}
@@ -251,6 +265,7 @@ function CreateAssignTv() {
                 <input
                   id="email"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
+                  required
                   value={competitor1Score}
                   onChange={(e) => setCompetitor1Score(e.target.value)}
                 />
@@ -266,6 +281,7 @@ function CreateAssignTv() {
                 <input
                   id="email"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
+                  required
                   value={competitor2Name}
                   onChange={(e) => setCompetitor2Name(e.target.value)}
                 />
@@ -280,6 +296,7 @@ function CreateAssignTv() {
                 <input
                   id="email"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
+                  required
                   value={competitor2DisplayName}
                   onChange={(e) => setCompetitor2DisplayName(e.target.value)}
                 />
@@ -295,6 +312,7 @@ function CreateAssignTv() {
                   id="email"
                   type="color"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
+                  required
                   value={competitor2Color}
                   onChange={(e) => setCompetitor2Color(e.target.value)}
                 />
@@ -310,6 +328,7 @@ function CreateAssignTv() {
                   id="email"
                   type="color"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
+                  required
                   value={competitor2AlternateColor}
                   onChange={(e) => setCompetitor2AlternateColor(e.target.value)}
                 />
@@ -325,6 +344,7 @@ function CreateAssignTv() {
                   id="email"
                   type="file"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
+                  required
                   // value={competitor2Logo}
                   onChange={(e) => setCompetitor2Logo(e.target.files[0])}
                 />
@@ -339,17 +359,18 @@ function CreateAssignTv() {
                 <input
                   id="email"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
+                  required
                   value={competitor2Score}
                   onChange={(e) => setCompetitor2Score(e.target.value)}
                 />
               </div>
-              <div class="mb-5 input-feild w-[72vw] flex ">
+              <div class="mb-5 input-feild w-[72vw] flex">
                 <label
                   for="countries"
                   class="block mb-2  text-sm font-medium text-white w-[15.5vw]"
                 ></label>
                 <button
-                  type="button"
+                  type="submit"
                   class="text-white  bg-[#FF0015] text-sm font-bold rounded-md text-sm w-[70px]  sm:w-auto px-3 py-1.5 text-center "
                   // onClick={editEvent}
                 >
