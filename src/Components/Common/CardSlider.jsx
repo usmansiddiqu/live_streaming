@@ -11,7 +11,7 @@ import moment from "moment";
 const CardSlider = ({ data, type }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1001px)" });
-  const baseURL = "https://pixelsport.tv";
+  const baseURL = "https://pixelsport.tv/backend";
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + "...";
