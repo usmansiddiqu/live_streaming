@@ -12,6 +12,7 @@ function DetailsComponent({ data, url }) {
   const { type } = useParams();
   const currentTime = moment();
   const eventTime = moment(data?.date).utc();
+  const baseURL = "https://pixelsport.tv/backend";
 
   const isTimeWithinRange =
     data?.date &&
@@ -67,11 +68,11 @@ function DetailsComponent({ data, url }) {
             <DetailsIcon
               iconsData={[
                 {
-                  iconUrl: data.competitors1_logo,
+                  iconUrl: data.competitors1_logo?.includes("https") ? data.competitors1_logo : `${baseURL}${data.competitors1_logo}`,
                   name: data.competitors1_displayName,
                 },
                 {
-                  iconUrl: data.competitors2_logo,
+                  iconUrl: data.competitors2_logo?.includes("https") ? data.competitors2_logo : `${baseURL}${data.competitors2_logo}`,
                   name: data.competitors2_displayName,
                 },
               ]}

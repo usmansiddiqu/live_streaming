@@ -14,6 +14,7 @@ function DetailsSlider() {
   const params = useParams();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const baseURL = "https://pixelsport.tv/backend";
 
   const getData = async () => {
     setLoading(true);
@@ -137,11 +138,11 @@ function DetailsSlider() {
                     <TeamIconsDetailPage
                       iconsData={[
                         {
-                          iconUrl: item.competitors1_logo,
+                          iconUrl: item.competitors1_logo?.includes("https") ? item.competitors1_logo : `${baseURL}${item.competitors1_logo}`,
                           name: item.competitors1_displayName,
                         },
                         {
-                          iconUrl: item.competitors2_logo,
+                          iconUrl: item.competitors2_logo?.includes("https") ? item.competitors2_logo : `${baseURL}${item.competitors2_logo}`,
                           name: item.competitors2_displayName,
                         },
                       ]}

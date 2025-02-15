@@ -129,7 +129,7 @@ function CreateAssignTv() {
                 </label>
                 <input
                   id="email"
-                  type="date"
+                  type="datetime-local"
                   class=" border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                   placeholder=""
                   required
