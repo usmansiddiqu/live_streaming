@@ -10,6 +10,7 @@ import Footer from "../Footer";
 function Card({ data, title, subtitle }) {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1700px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1701px)" });
+  const baseURL = "https://pixelsport.tv/backend";
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + "...";
@@ -92,12 +93,12 @@ function Card({ data, title, subtitle }) {
                             <AnotherTeamIcons
                               iconsData={[
                                 {
-                                  iconUrl: item.competitors1_logo,
+                                  iconUrl: item.competitors1_logo?.includes("https") ? item.competitors1_logo : `${baseURL}${item.competitors1_logo}`,
                                   name: item.competitors1_name,
                                   score: item.competitors1_score,
                                 },
                                 {
-                                  iconUrl: item.competitors2_logo,
+                                  iconUrl: item.competitors2_logo?.includes("https") ? item.competitors2_logo : `${baseURL}${item.competitors2_logo}`,
                                   name: item.competitors2_name,
                                   score: item.competitors2_score,
                                 },
@@ -178,12 +179,12 @@ function Card({ data, title, subtitle }) {
                             <AnotherTeamIcons
                               iconsData={[
                                 {
-                                  iconUrl: item.competitors1_logo,
+                                  iconUrl: item.competitors1_logo?.includes("https") ? item.competitors1_logo : `${baseURL}${item.competitors1_logo}`,
                                   name: item.competitors1_name,
                                   score: item.competitors1_score,
                                 },
                                 {
-                                  iconUrl: item.competitors2_logo,
+                                  iconUrl: item.competitors2_logo?.includes("https") ? item.competitors2_logo : `${baseURL}${item.competitors2_logo}`,
                                   name: item.competitors2_name,
                                   score: item.competitors2_score,
                                 },
