@@ -12,6 +12,7 @@ function TheaterMode({ data, url, setTheaterMode }) {
   const { type } = useParams();
   const currentTime = moment();
   const eventTime = moment(data?.date).utc();
+  const baseURL = "https://pixelsport.tv/backend";
 
   const isTimeWithinRange =
     data?.date &&
@@ -56,11 +57,11 @@ function TheaterMode({ data, url, setTheaterMode }) {
                   <DetailsIcon
                     iconsData={[
                       {
-                        iconUrl: data.competitors1_logo,
+                        iconUrl: data.competitors1_logo?.includes("https") ? data.competitors1_logo : `${baseURL}${data.competitors1_logo}`,
                         name: data.competitors1_name,
                       },
                       {
-                        iconUrl: data.competitors2_logo,
+                        iconUrl: data.competitors2_logo?.includes("https") ? data.competitors2_logo : `${baseURL}${data.competitors2_logo}`,
                         name: data.competitors2_name,
                       },
                     ]}

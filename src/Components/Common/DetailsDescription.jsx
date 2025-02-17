@@ -103,7 +103,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
             onClick={() => toggleTheaterMode()}
           >
             <div className="flex gap-1">
-              <label>Chat</label>
+              <label>Theatre</label>
             </div>
           </button>
         </div>
@@ -168,7 +168,6 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
           </button>
         </div>
       </div>
-      ;
     </div>
   );
 }
