@@ -145,7 +145,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
             {data?.date &&
               moment
                 .utc(data?.date)
-                .utcOffset("-0500")
+                // .utcOffset("-0500")
                 .format("MM/DD/YYYY hh:mm:ss A")}
           </p>
           <br />
