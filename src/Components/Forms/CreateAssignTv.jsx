@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import getChannel from "../../api/retrieveChannel";
 import createEvent from "../../api/createEvent";
+import moment from "moment-timezone";
 
 function CreateAssignTv() {
   const [liveTv, setLiveTv] = useState([]);
@@ -33,7 +34,6 @@ function CreateAssignTv() {
   useEffect(() => {
     getData();
   }, []);
- 
   const editEvent = async (e) => {
     e.preventDefault()
     const formData = new FormData();
@@ -41,7 +41,7 @@ function CreateAssignTv() {
     formData.append("match_name", eventName);
     formData.append("shortName", shortName);
     formData.append("location", location);
-    formData.append("date", new Date(date).toISOString());
+    formData.append("date", moment.tz(date, "America/New_York").utc().toISOString());
     formData.append("competitors1_name", competitor1Name);
     formData.append("competitors2_name", competitor2Name);
     formData.append("competitors1_homeAway", "home");

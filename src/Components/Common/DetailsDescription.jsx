@@ -3,7 +3,8 @@ import createWishList from "../../api/addWishlist";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import moment from "moment";
+// import moment from "moment";
+import moment from "moment-timezone";
 import { LocalConvenienceStoreOutlined } from "@mui/icons-material";
 
 function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
@@ -143,10 +144,12 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
               <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M15.5,14c-0.3,0.5-0.9,0.6-1.4,0.4l-2.6-1.5C11.2,12.7,11,12.4,11,12V7c0-0.6,0.4-1,1-1s1,0.4,1,1v4.4l2.1,1.2C15.6,12.9,15.7,13.5,15.5,14z" />
             </svg>
             {data?.date &&
-              moment
-                .utc(data?.date)
-                // .utcOffset("-0500")
-                .format("MM/DD/YYYY hh:mm:ss A")}
+              // moment
+              //   .utc(data?.date)
+              //   // .utcOffset("-0500")
+              //   .format("MM/DD/YYYY hh:mm:ss A")}
+              moment.utc(data.date).tz("America/New_York").format("YYYY-MM-DD hh:mm A")
+            }
           </p>
           <br />
           <button
