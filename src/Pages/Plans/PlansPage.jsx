@@ -40,7 +40,7 @@ function PlansPage() {
 
       <PlanCards />
       <Coupon />
-      <div className="text-white mx-auto w-[70vw] mb-3 plan-page-text">
+      {/* <div className="text-white mx-auto w-[70vw] mb-3 plan-page-text">
         <p className="text-lg font-bold">Why Choose Our Subscription?</p>
         <p>
           <span className="font-bold">Unlimited Sports Access:</span>{" "}
@@ -60,7 +60,7 @@ function PlansPage() {
           &nbsp;We're so confident you'll love our service that we offer a
           24-hour money-back guarantee—no questions asked!
         </p>
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

@@ -9,6 +9,7 @@ import Card from "../../Assets/Icons/money.png";
 import Crypto from "../../Assets/Icons/bitcoin.png";
 import policioPayment from "../../api/policioPayment";
 import Skeleton from "react-loading-skeleton";
+import { ImCross } from "react-icons/im";
 import "react-loading-skeleton/dist/skeleton.css";
 import ErrorComponent1 from "../Common/ErrorComponent1";
 function PlanCards() {
@@ -18,6 +19,9 @@ function PlanCards() {
   const [sortedData, setSortedData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isCardSelected, setCardSelected] = useState(false);
+  const [monthlyInfoModal, setMonthlyInfoModal] = useState(false)
+  const [quarterlyInfoModal, setQuarterlyInfoModal] = useState(false)
+  const [yearlyInfoModal, setYearlyInfoModal] = useState(false)
   console.log(isCardSelected);
   const getData = async () => {
     setLoading(true);
@@ -82,6 +86,16 @@ function PlanCards() {
     baseColor: "#170f2c", // Dark background color
     highlightColor: "#332e47", // Lighter highlight for the animation effect
   };
+
+  const handleLearnMoreView = (i) => {
+    if(i === 0) {
+      setMonthlyInfoModal(true)
+    } else if(i === 1) {
+      setQuarterlyInfoModal(true)
+    } else {
+      setYearlyInfoModal(true)
+    }
+  }
 
   useEffect(() => {
     if (search.get("fail") == "none") {
@@ -170,7 +184,7 @@ function PlanCards() {
                 />
               </div>
             ) : (
-              sortedData.map((payment) => (
+              sortedData.map((payment, i) => (
                 // </div>
                 <div
                   key={payment._id}
@@ -191,7 +205,7 @@ function PlanCards() {
                           className="mx-auto text-center font-semibold"
                           style={{ fontSize: "17px" }}
                         >
-                          {payment.name}
+                          {i === 0 ? "Monthly Plan" : i === 1 ? "Quarterly Plan" : "Half-Year Plan"}
                         </div>
                       </div>
                     </div>
@@ -224,6 +238,12 @@ function PlanCards() {
                       >
                         Select Plan
                       </button>
+                      <div
+                        className="cursor-pointer mt-2"
+                        onClick={() => handleLearnMoreView(i)}
+                      >
+                        Learn more
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -232,7 +252,201 @@ function PlanCards() {
           </div>
         </div>
       </div>
-      <div className=" w-full  bg-[#0D0620] pb-6 text-white px-1" >
+      {monthlyInfoModal && (
+        <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
+          <div className="max-w-2xl w-full bg-black p-6 rounded-xl shadow-lg relative">
+            <div className="flex justify-between items-center">
+              <h2 className="text-xl font-bold text-white flex items-center justify-between">
+                <span>
+                  Monthly Plan -{" "}
+                  <span className="text-white">$15 for 30 Days</span>
+                </span>
+              </h2>
+              <button
+                className="ml-3 p-2 bg-white rounded-full text-blue-600 hover:bg-gray-200"
+                onClick={() => setMonthlyInfoModal(false)}
+              >
+                <ImCross size={20} />
+              </button>
+            </div>
+            <p className="mt-2 text-white">
+              Get full access to all live games and premium features for{" "}
+              <span className="font-semibold">30 days!</span> With the Basic
+              Plan, you can enjoy:
+            </p>
+
+            <ul className="mt-4 space-y-3 text-white">
+              <li>
+                <span className="font-bold text-blue-600">NHL:</span> Stream all{" "}
+                <span className="font-semibold">
+                  1,312 regular-season games
+                </span>
+                , including the{" "}
+                <span className="font-bold">Stanley Cup Playoffs</span> and the
+                exciting{" "}
+                <span className="font-semibold">4 Nations Face-Off</span>{" "}
+                tournament.
+              </li>
+              <li>
+                <span className="font-bold text-blue-600">NFL:</span> Watch all{" "}
+                <span className="font-semibold">272 regular-season games</span>,
+                plus the <span className="font-bold">playoffs</span> and the{" "}
+                <span className="font-bold">Super Bowl</span>.
+              </li>
+              <li>
+                <span className="font-bold text-blue-600">MLB:</span> Catch all{" "}
+                <span className="font-semibold">
+                  2,430 regular-season games
+                </span>
+                , including the <span className="font-bold">World Series</span>.
+              </li>
+              <li>
+                <span className="font-bold text-blue-600">NBA:</span> Enjoy all{" "}
+                <span className="font-semibold">
+                  1,230 regular-season games
+                </span>
+                , plus the <span className="font-bold">NBA Playoffs</span> and{" "}
+                <span className="font-bold">Finals</span>.
+              </li>
+            </ul>
+
+            <p className="mt-4 text-white">
+              This plan is perfect for fans who want short-term access to all
+              the action across{" "}
+              <span className="font-bold text-blue-600">
+                NHL, NFL, MLB, and NBA
+              </span>
+              .
+            </p>
+          </div>
+        </div>
+      )}
+      {quarterlyInfoModal && (
+        <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
+          <div className="max-w-2xl w-full bg-black p-6 rounded-xl shadow-lg relative">
+            <div className="flex justify-between items-center">
+              <h2 className="text-xl font-bold text-white flex items-center justify-between">
+                <span>
+                  Quarterly Plan -{" "}
+                  <span className="text-white">$35 for 90 Days</span>
+                </span>
+              </h2>
+              <button
+                className="ml-3 p-2 bg-white rounded-full text-blue-600 hover:bg-gray-200"
+                onClick={() => setQuarterlyInfoModal(false)}
+              >
+                <ImCross size={20} />
+              </button>
+            </div>
+            <p className="mt-2 text-white">
+              Experience uninterrupted sports streaming for{" "}
+              <span className="font-semibold">90 days!</span> with the Quarterly
+              Plan, This plan includes:
+            </p>
+
+            <ul className="mt-4 space-y-3 text-white">
+              <li>
+                <span className="font-bold text-blue-600">NHL:</span> Access to
+                all{" "}
+                <span className="font-semibold">
+                  1,312 regular-season games, the Stanley Cup Playoffs, and the
+                  4 Nations Face-Off
+                </span>
+              </li>
+              <li>
+                <span className="font-bold text-blue-600">NFL:</span> Stream all{" "}
+                <span className="font-semibold">
+                  272 regular-season games, playoffs, and the Super Bowl
+                </span>
+                .
+              </li>
+              <li>
+                <span className="font-bold text-blue-600">MLB:</span> Watch all{" "}
+                <span className="font-semibold">
+                  2,430 regular-season games and the World Series
+                </span>
+                .
+              </li>
+              <li>
+                <span className="font-bold text-blue-600">NBA:</span> Enjoy all{" "}
+                <span className="font-semibold">
+                  1,230 regular-season games
+                </span>
+                , plus the <span className="font-bold">NBA Playoffs</span> and{" "}
+                <span className="font-bold">Finals</span>.
+              </li>
+            </ul>
+
+            <p className="mt-4 text-white">
+              Ideal for fans who want extended access to all four major sports
+              leagues without missing a single game.
+            </p>
+          </div>
+        </div>
+      )}
+      {yearlyInfoModal && (
+        <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
+          <div className="max-w-2xl w-full bg-black p-6 rounded-xl shadow-lg relative">
+            <div className="flex justify-between items-center">
+              <h2 className="text-xl font-bold text-white flex items-center justify-between">
+                <span>
+                  Half-Year Plan -{" "}
+                  <span className="text-white">$180 for 180 Days</span>
+                </span>
+              </h2>
+              <button
+                className="ml-3 p-2 bg-white rounded-full text-blue-600 hover:bg-gray-200"
+                onClick={() => setYearlyInfoModal(false)}
+              >
+                <ImCross size={20} />
+              </button>
+            </div>
+            <p className="mt-2 text-white">
+              Go all-in with the Platinum Plan and enjoy{" "}
+              <span className="font-semibold">6 months!</span> of unlimited
+              sports streaming. This plan offers:
+            </p>
+            <ul className="mt-4 space-y-3 text-white">
+              <li>
+                <span className="font-bold text-blue-600">NHL:</span>Full Access
+                to all{" "}
+                <span className="font-semibold">
+                  1,312 regular-season games, the Stanley Cup Playoffs, and the
+                  4 Nations Face-Off
+                </span>
+              </li>
+              <li>
+                <span className="font-bold text-blue-600">NFL:</span> Stream all{" "}
+                <span className="font-semibold">
+                  272 regular-season games, playoffs, and the Super Bowl
+                </span>
+                .
+              </li>
+              <li>
+                <span className="font-bold text-blue-600">MLB:</span> Watch all{" "}
+                <span className="font-semibold">
+                  2,430 regular-season games and the World Series
+                </span>
+                .
+              </li>
+              <li>
+                <span className="font-bold text-blue-600">NBA:</span> Enjoy all{" "}
+                <span className="font-semibold">
+                  1,230 regular-season games
+                </span>
+                , plus the <span className="font-bold">NBA Playoffs</span> and{" "}
+                <span className="font-bold">Finals</span>.
+              </li>
+            </ul>
+
+            <p className="mt-4 text-white">
+              Perfect for die-hard sports fans who want the best value and
+              long-term access to all the action.
+            </p>
+          </div>
+        </div>
+      )}
+      <div className=" w-full  bg-[#0D0620] pb-6 text-white px-1">
         {error && <ErrorComponent1 message={error} />}
       </div>
     </>
