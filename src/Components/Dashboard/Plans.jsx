@@ -463,18 +463,25 @@ function Plans({ userData, variant }) {
             </div>
           </div>
         </div>
-        {popUpBox && <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center absolute left-0 top-0 z-[100] p-3">
-        <div className="w-1/2 md:w-1/4 h-1/3 md:h-1/4 bg-[#0D0620] flex flex-col justify-center items-center gap-5 rounded-xl">
-          <p className="text-base md:text-2xl font-semibold text-white text-center">Are you sure you want to {popUpBoxValue}</p>
-          <div className="flex flex-col md:flex-row gap-5">
+        {popUpBox && 
+        <div className="w-screen h-screen bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
+        <div className="w-11/12 sm:w-3/4 md:w-1/3 lg:w-1/4 h-auto bg-[#0D0620] flex flex-col justify-center items-center gap-5 rounded-xl p-4">
+          <p className="text-sm sm:text-base md:text-2xl font-semibold text-white text-center">
+            Are you sure you want to {popUpBoxValue}
+          </p>
+          <div className="flex flex-row flex-wrap gap-4 w-full justify-center items-center">
             <button
-            onClick={()=>handlePopupBoxCall(true)}
-            class="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center "
-            >Yes</button>
+              onClick={() => handlePopupBoxCall(true)}
+              className="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-normal rounded flex flex-row gap-2 justify-center items-center w-auto"
+            >
+              Yes
+            </button>
             <button
-              onClick={()=>handlePopupBoxCall(false)}
-              class="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-norma rounded flex flex-row gap-2  justify-center items-center "
-            >No</button>
+              onClick={() => handlePopupBoxCall(false)}
+              className="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-normal rounded flex flex-row gap-2 justify-center items-center w-auto"
+            >
+              No
+            </button>
           </div>
         </div>
       </div>}

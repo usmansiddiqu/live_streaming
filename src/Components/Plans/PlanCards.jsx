@@ -12,6 +12,57 @@ import Skeleton from "react-loading-skeleton";
 import { ImCross } from "react-icons/im";
 import "react-loading-skeleton/dist/skeleton.css";
 import ErrorComponent1 from "../Common/ErrorComponent1";
+
+
+const StepProgress = ({ currentStep }) => {
+  const steps = ["Plan", "Account", "Payment", "Stream"];
+
+  return (
+    <div className="flex justify-center flex-col sm:flex-row w-full max-w-3xl bg-slate-900 p-4 rounded-lg">
+      {steps.map((step, index) => (
+        <div 
+          key={index} 
+          className="relative flex flex-col sm:flex-row items-center w-full"
+        >
+          <div className="flex w-full sm:w-auto justify-center">
+            <div className="flex items-center justify-start w-32 sm:w-auto">
+              <div
+                className={`w-8 h-8 flex items-center justify-center rounded-full border-2 shrink-0
+                ${
+                  currentStep === index + 1
+                    ? "bg-white text-black border-white"
+                    : "text-gray-400 border-gray-600"
+                }`}
+              >
+                {index + 1}
+              </div>
+              <span
+                className={`ml-2 text-sm ${
+                  currentStep === index + 1 ? "text-white" : "text-gray-400"
+                }`}
+              >
+                {step}
+              </span>
+            </div>
+          </div>
+          
+          {index !== steps.length - 1 && (
+            <>
+              {/* Horizontal line for desktop */}
+              <div className="hidden sm:block h-px bg-gray-600 w-16 mx-4" />
+              
+              {/* Vertical line for mobile */}
+              <div className="sm:hidden w-px bg-gray-600 h-4 my-1 mx-auto" />
+            </>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+
+
 function PlanCards() {
   const [search] = useSearchParams();
   const navigate = useNavigate();
@@ -127,8 +178,11 @@ function PlanCards() {
       <div className=" w-full  bg-[#0D0620] pt-4 text-white">
         {error && <ErrorComponent1 message={error1} />}
       </div>
+      <div className="lg:px-20 md:px-10 sm:px-5 w-[73vw]  mx-auto bg-[#0D0620] pt-3 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
+        <StepProgress currentStep={1} />
+      </div>
       <div
-        className="lg:px-20 md:px-10 sm:px-5 w-[73vw]  mx-auto bg-[#0D0620] pt-5 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5"
+        className="lg:px-20 md:px-10 sm:px-5 w-[73vw]  mx-auto bg-[#0D0620] pt-3 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5"
         style={{ marginLeft: "250px" }}
       >
         <div className="flex flex-col w-full cards-laoder">
@@ -141,8 +195,8 @@ function PlanCards() {
           period.
         </h4> */}
           <div>
-            <h4 className="mb-4 pay-texts">Choose Payment Method:</h4>
-            <div
+            <h4 className="mb-4 font-bold pay-texts">Choose Plan:</h4>
+            {/* <div
               className="mb-4 pay-texts"
               style={{ display: "flex", gap: "20px", alignItems: "center" }}
             >
@@ -166,7 +220,7 @@ function PlanCards() {
                 <img style={{ width: "25px" }} src={Crypto} alt="" />
                 <h4>Crypto</h4>
               </div>
-            </div>
+            </div> */}
           </div>
           <div
             className={`flex pay-cards justify-between items-center ${
@@ -205,7 +259,11 @@ function PlanCards() {
                           className="mx-auto text-center font-semibold"
                           style={{ fontSize: "17px" }}
                         >
-                          {i === 0 ? "Monthly Plan" : i === 1 ? "Quarterly Plan" : "Half-Year Plan"}
+                          {i === 0
+                            ? "Monthly Plan"
+                            : i === 1
+                            ? "Quarterly Plan"
+                            : "Half-Year Plan"}
                         </div>
                       </div>
                     </div>
@@ -250,11 +308,14 @@ function PlanCards() {
               ))
             )}
           </div>
+          <div className=" w-full bg-[#0D0620] pb-2 text-white">
+            {error && <ErrorComponent1 message={error} />}
+          </div>
         </div>
       </div>
       {monthlyInfoModal && (
-        <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
-          <div className="max-w-2xl w-full bg-black p-6 rounded-xl shadow-lg relative">
+        <div className="w-screen h-screen bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
+          <div className="max-w-2xl w-full bg-[#130A2D] p-6 rounded-xl shadow-lg relative">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold text-white flex items-center justify-between">
                 <span>
@@ -323,7 +384,7 @@ function PlanCards() {
       )}
       {quarterlyInfoModal && (
         <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
-          <div className="max-w-2xl w-full bg-black p-6 rounded-xl shadow-lg relative">
+          <div className="max-w-2xl w-full bg-[#130A2D] p-6 rounded-xl shadow-lg relative">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold text-white flex items-center justify-between">
                 <span>
@@ -386,7 +447,7 @@ function PlanCards() {
       )}
       {yearlyInfoModal && (
         <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
-          <div className="max-w-2xl w-full bg-black p-6 rounded-xl shadow-lg relative">
+          <div className="max-w-2xl w-full bg-[#130A2D] p-6 rounded-xl shadow-lg relative">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold text-white flex items-center justify-between">
                 <span>
@@ -446,9 +507,6 @@ function PlanCards() {
           </div>
         </div>
       )}
-      <div className=" w-full  bg-[#0D0620] pb-6 text-white px-1">
-        {error && <ErrorComponent1 message={error} />}
-      </div>
     </>
   );
 }
