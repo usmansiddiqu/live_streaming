@@ -18,45 +18,32 @@ const StepProgress = ({ currentStep }) => {
   const steps = ["Plan", "Account", "Payment", "Stream"];
 
   return (
-    <div className="flex justify-center flex-col sm:flex-row w-full max-w-3xl bg-slate-900 p-4 rounded-lg">
-      {steps.map((step, index) => (
-        <div 
-          key={index} 
-          className="relative flex flex-col sm:flex-row items-center w-full"
-        >
-          <div className="flex w-full sm:w-auto justify-center">
-            <div className="flex items-center justify-start w-32 sm:w-auto">
-              <div
-                className={`w-8 h-8 flex items-center justify-center rounded-full border-2 shrink-0
-                ${
-                  currentStep === index + 1
-                    ? "bg-white text-black border-white"
-                    : "text-gray-400 border-gray-600"
-                }`}
-              >
-                {index + 1}
-              </div>
-              <span
-                className={`ml-2 text-sm ${
-                  currentStep === index + 1 ? "text-white" : "text-gray-400"
-                }`}
-              >
-                {step}
-              </span>
+    <div className="flex justify-center items-center w-full">
+      <div className="flex items-center justify-between w-full max-w-3xl  p-3 sm:p-4 rounded-lg">
+        {steps.map((step, index) => (
+          <div key={index} className="flex flex-col items-center flex-1 relative">
+            <span
+              className={`mb-2 text-xs sm:text-sm font-semibold ${
+                currentStep === index + 1 ? "text-white" : "text-gray-400"
+              }`}
+            >
+              {step}
+            </span>
+            <div
+              className={`w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center rounded-full border-2 z-10 ${
+                currentStep === index + 1
+                  ? "bg-white text-black border-white"
+                  : "text-gray-400 border-gray-600"
+              }`}
+            >
+              {index + 1}
             </div>
+            {index !== steps.length - 1 && (
+              <div className="absolute top-[72%] left-[68%] sm:right-[-32%] md:right-[-32%] right-[-32%] -translate-y-1/2 h-0.5 bg-gray-600"></div>
+            )}
           </div>
-          
-          {index !== steps.length - 1 && (
-            <>
-              {/* Horizontal line for desktop */}
-              <div className="hidden sm:block h-px bg-gray-600 w-16 mx-4" />
-              
-              {/* Vertical line for mobile */}
-              <div className="sm:hidden w-px bg-gray-600 h-4 my-1 mx-auto" />
-            </>
-          )}
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
@@ -178,7 +165,7 @@ function PlanCards() {
       <div className=" w-full  bg-[#0D0620] pt-4 text-white">
         {error && <ErrorComponent1 message={error1} />}
       </div>
-      <div className="lg:px-20 md:px-10 sm:px-5 w-[73vw]  mx-auto bg-[#0D0620] pt-3 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
+      <div className="lg:px-20 md:px-10 sm:px-5  mx-auto bg-[#0D0620] pt-3 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
         <StepProgress currentStep={1} />
       </div>
       <div
@@ -308,13 +295,13 @@ function PlanCards() {
               ))
             )}
           </div>
-          <div className=" w-full bg-[#0D0620] pb-2 text-white">
-            {error && <ErrorComponent1 message={error} />}
-          </div>
         </div>
       </div>
+      <div className="sm:px-5 md:px-40 lg:px-60 text-white flex justify-center items-center w-full mb-5">
+            {error && <ErrorComponent1 message={error} />}
+          </div>
       {monthlyInfoModal && (
-        <div className="w-screen h-screen bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
+        <div className="w-screen h-screen bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3 overflow-auto">
           <div className="max-w-2xl w-full bg-[#130A2D] p-6 rounded-xl shadow-lg relative">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold text-white flex items-center justify-between">
@@ -383,7 +370,7 @@ function PlanCards() {
         </div>
       )}
       {quarterlyInfoModal && (
-        <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
+        <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3  overflow-auto">
           <div className="max-w-2xl w-full bg-[#130A2D] p-6 rounded-xl shadow-lg relative">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold text-white flex items-center justify-between">
@@ -446,7 +433,7 @@ function PlanCards() {
         </div>
       )}
       {yearlyInfoModal && (
-        <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
+        <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3  overflow-auto">
           <div className="max-w-2xl w-full bg-[#130A2D] p-6 rounded-xl shadow-lg relative">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold text-white flex items-center justify-between">
