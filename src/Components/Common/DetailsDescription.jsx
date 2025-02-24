@@ -21,7 +21,7 @@ function DetailsDescription({ data, setUrl, toggleTheaterMode }) {
   return (
     <div className="flex justify-center mt-3 ">
       <ToastContainer limit={1} />
-      <div className=" bg-[#190D39] w-[80rem] pt-3 pb-6 ps-3">
+      <div className=" bg-[#190D39] w-[60vw] live-head pt-3 pb-6 ps-3">
         <div
           className={`flex justify-between ${
             data?.channel?.server3URL && data?.channel?.server3URL !== "null"

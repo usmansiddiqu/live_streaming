@@ -39,7 +39,7 @@ function DetailsComponent({ data, url }) {
         </div>
       ) : (
         <div
-          className="w-[80rem] h-[35rem]   deatil-container mt-2"
+          className="w-100vs watch-img h-[35rem]   deatil-container mt-2"
           style={{
             background: `linear-gradient(-60deg, #${
               data.competitors1_color === "ffffff"

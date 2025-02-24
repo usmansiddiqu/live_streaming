@@ -42,7 +42,7 @@ function DetailsSlider() {
   const navigate = useNavigate();
   return (
     <div
-      className="deatils-carddd w-[80rem] "
+      className="deatils-carddd w-[60vw] live-head "
       style={{
         height: "AUTO",
         display: "flex",
