@@ -61,7 +61,7 @@ function MLB() {
           <DashHeader title={"MLB LIVE"} subtitle="MLB" />
           {loading ? (
             <div className="flex items-center justify-center relative pt-1 mt-3">
-              <div className=" card-con mb-4 !w-[89rem] card-con-mbl">
+              <div className="card-con mb-4 w-full md:w-3/4 lg:w-2/3 card-con-mbl">
                 <Skeleton
                   height={200}
                   count={3}
