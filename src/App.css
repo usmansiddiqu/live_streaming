@@ -49,6 +49,10 @@ div {
 .pay-cards {
   width: 80%;
 }
+
+.payment-skelton{
+  width: 70%
+}
 .chat-responsive {
   justify-content: space-between;
 }
@@ -2068,7 +2072,7 @@ aside {
     width: 47vw;
   }
   .small-screen{
-    width: 75%;
+    width: 100%;
   }
   .deatil-container {
     height: 20rem;
@@ -2812,7 +2816,9 @@ aside {
     width: 75vw;
     /* margin-left: -80px; */
   }
-
+  .payment-skelton{
+    width: 100%
+  }
   .live-chat-responsive {
     height: 65vh !important;
   }

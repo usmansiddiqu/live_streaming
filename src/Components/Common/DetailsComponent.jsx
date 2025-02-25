@@ -39,7 +39,7 @@ function DetailsComponent({ data, url }) {
         </div>
       ) : (
         <div
-          className="w-100vs watch-img h-[35rem]   deatil-container mt-2"
+          className="w-[60vw] watch-img h-[35rem] deatil-container mt-2"
           style={{
             background: `linear-gradient(-60deg, #${
               data.competitors1_color === "ffffff"
@@ -55,7 +55,7 @@ function DetailsComponent({ data, url }) {
           <div
             className="placeAndTime"
             style={{
-              width: "92%",
+              width: "100%",
               height: "3vh",
               display: "flex",
               justifyContent: "space-between",

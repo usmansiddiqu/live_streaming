@@ -166,17 +166,19 @@ function PlanCards() {
   }, []);
   return (
     <>
-      <div className=" w-full  bg-[#0D0620] pt-4 text-white">
-        {error && <ErrorComponent1 message={error1} />}
-      </div>
       {/* <div className="lg:px-20 md:px-10 sm:px-5  mx-auto bg-[#0D0620] pt-3 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
         <StepProgress currentStep={1} />
       </div> */}
       <div className="lg:px-20 md:px-10 sm:px-5  mx-auto bg-[#0D0620] pt-3 pb-[30px] text-white md:flex-row  gap-8 px-5">
-        <div className="flex flex-col justify-center w-full cards-laoder">
-          <div className="card-error-fix w-full">
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <p>
+            {error && <ErrorComponent1 message={error1} />}
             {error2 && <ErrorComponent message={error2} />}
-          </div>
+          </p>
+        </div>
+        
+        <div className="flex flex-col justify-center w-full cards-laoder">
+          <div className="card-error-fix w-full"></div>
           {/* <h4 className="mb-4 pay-texts">
           NOTE: The service will not auto-renew, if you do not renew manually
           then it will be automatically canceled at the end of the billing
@@ -219,19 +221,29 @@ function PlanCards() {
             }`}
           >
             <div>
-              <h4 className="my-10 font-bold pay-texts">Choose Plan:</h4>
+              <h4 className="my-10 font-bold">Choose Plan:</h4>
             </div>
-            <div style={{ display: "flex", gap: "25px", flexWrap: "wrap" }}>
+            <div
+              className="payment-skelton"
+              style={{
+                display: "flex",
+                gap: "25px",
+                flexWrap: "wrap",
+                justifyContent: "center",
+              }}
+            >
               {loading ? (
                 // <div className="flex items-center justify-center relative">
-                <div className="w-[100%]">
-                  <Skeleton
-                    height={250}
-                    style={{ width: "100%" }}
-                    count={1}
-                    {...skeletonProps}
-                  />
-                </div>
+                <>
+                  <div style={{ width: "100%" }}>
+                    <Skeleton
+                      height={250}
+                      style={{ width: "100%" }}
+                      count={1}
+                      {...skeletonProps}
+                    />
+                  </div>
+                </>
               ) : (
                 sortedData.map((payment, i) => (
                   // </div>
@@ -316,7 +328,7 @@ function PlanCards() {
             {error && <ErrorComponent1 message={error} />}
           </div> */}
       {monthlyInfoModal && (
-        <div className="w-screen h-screen bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3 overflow-auto">
+        <div className={`w-screen h-screen bg-gray-700 bg-opacity-85 flex justify-center ${isTabletOrMobile ? "" :"items-center"}  fixed left-0 top-0 z-[100] p-3 overflow-auto`}>
           <div className="max-w-2xl w-full bg-[#130A2D] p-6 rounded-xl shadow-lg relative">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold text-white flex items-center justify-between">
