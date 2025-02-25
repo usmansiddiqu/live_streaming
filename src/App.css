@@ -531,7 +531,7 @@ aside {
 }
 @media screen and (max-width: 1820px) {
   .pay-cards {
-    width: 1050px;
+    width: 1050px !important;
     flex-wrap: nowrap;
     justify-content: space-between;
   }
@@ -2067,6 +2067,9 @@ aside {
   .card-con {
     width: 47vw;
   }
+  .small-screen{
+    width: 75%;
+  }
   .deatil-container {
     height: 20rem;
     margin-top: 0px !important;
@@ -2079,7 +2082,7 @@ aside {
     margin-left: -52px;
   }
   .pay-texts {
-    width: 93vw;
+    /* width: 93vw; */
     margin-left: -90px;
   }
   .pay-card-box {

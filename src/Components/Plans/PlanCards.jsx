@@ -12,6 +12,8 @@ import Skeleton from "react-loading-skeleton";
 import { ImCross } from "react-icons/im";
 import "react-loading-skeleton/dist/skeleton.css";
 import ErrorComponent1 from "../Common/ErrorComponent1";
+import { useMediaQuery } from "react-responsive";
+
 
 
 const StepProgress = ({ currentStep }) => {
@@ -59,6 +61,8 @@ function PlanCards() {
   const [isCardSelected, setCardSelected] = useState(false);
   const [monthlyInfoModal, setMonthlyInfoModal] = useState(false)
   const [quarterlyInfoModal, setQuarterlyInfoModal] = useState(false)
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
+  const isDekstop = useMediaQuery({ query: "(min-width: 1001px)" });
   const [yearlyInfoModal, setYearlyInfoModal] = useState(false)
   console.log(isCardSelected);
   const getData = async () => {
@@ -165,14 +169,11 @@ function PlanCards() {
       <div className=" w-full  bg-[#0D0620] pt-4 text-white">
         {error && <ErrorComponent1 message={error1} />}
       </div>
-      <div className="lg:px-20 md:px-10 sm:px-5  mx-auto bg-[#0D0620] pt-3 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
+      {/* <div className="lg:px-20 md:px-10 sm:px-5  mx-auto bg-[#0D0620] pt-3 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
         <StepProgress currentStep={1} />
-      </div>
-      <div
-        className="lg:px-20 md:px-10 sm:px-5 w-[73vw]  mx-auto bg-[#0D0620] pt-3 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5"
-        style={{ marginLeft: "250px" }}
-      >
-        <div className="flex flex-col w-full cards-laoder">
+      </div> */}
+      <div className="lg:px-20 md:px-10 sm:px-5  mx-auto bg-[#0D0620] pt-3 pb-[30px] text-white md:flex-row  gap-8 px-5">
+        <div className="flex flex-col justify-center w-full cards-laoder">
           <div className="card-error-fix w-full">
             {error2 && <ErrorComponent message={error2} />}
           </div>
@@ -181,8 +182,11 @@ function PlanCards() {
           then it will be automatically canceled at the end of the billing
           period.
         </h4> */}
-          <div>
-            <h4 className="mb-4 font-bold pay-texts">Choose Plan:</h4>
+          <div className="w-full">
+            <StepProgress currentStep={1} />
+          </div>
+          <div className="">
+            {/* <h4 className="mb-4 font-bold pay-texts">Choose Plan:</h4> */}
             {/* <div
               className="mb-4 pay-texts"
               style={{ display: "flex", gap: "20px", alignItems: "center" }}
@@ -210,96 +214,107 @@ function PlanCards() {
             </div> */}
           </div>
           <div
-            className={`flex pay-cards justify-between items-center ${
+            className={`flex flex-column items-center ${
               isWidthInRange ? "" : "flex-wrap"
             }`}
           >
-            {loading ? (
-              // <div className="flex items-center justify-center relative">
-              <div className="w-[100%]">
-                <Skeleton
-                  height={250}
-                  style={{ width: "100%" }}
-                  count={1}
-                  {...skeletonProps}
-                />
-              </div>
-            ) : (
-              sortedData.map((payment, i) => (
-                // </div>
-                <div
-                  key={payment._id}
-                  className={`flex w-[20rem] mb-4 ${
-                    isWidthInRange ? "ml-3" : ""
-                  }`}
-                >
+            <div>
+              <h4 className="mb-4 font-bold pay-texts">Choose Plan:</h4>
+            </div>
+            <div style={{ display: "flex", gap: "25px", flexWrap: "wrap" }}>
+              {loading ? (
+                // <div className="flex items-center justify-center relative">
+                <div className="w-[100%]">
+                  <Skeleton
+                    height={250}
+                    style={{ width: "100%" }}
+                    count={1}
+                    {...skeletonProps}
+                  />
+                </div>
+              ) : (
+                sortedData.map((payment, i) => (
+                  // </div>
                   <div
-                    className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
-                    style={{
-                      backgroundColor: "#1F1340",
-                      backgroundImage: `url(${plan})`,
-                    }}
+                    key={payment._id}
+                    className={`flex w-[20rem] mb-4 small-screen ${
+                      isWidthInRange ? "ml-3" : ""
+                    }`}
                   >
-                    <div className="flex justify-start items-start">
-                      <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
+                    <div
+                      className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
+                      style={{
+                        backgroundColor: "#1F1340",
+                        backgroundImage: `url(${plan})`,
+                      }}
+                    >
+                      <div className="flex justify-start items-start">
+                        <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
+                          <div
+                            className="mx-auto text-center font-semibold"
+                            style={{ fontSize: "17px" }}
+                          >
+                            {i === 0
+                              ? "Monthly Plan"
+                              : i === 1
+                              ? "Quarterly Plan"
+                              : "Half-Year Plan"}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col justify-center items-center">
+                        <p className="text-4xl font-bold">
+                          <span className="text-xl">$</span>
+                          {payment.amount}
+                          <span className="text-xl">.00</span>
+                        </p>
                         <div
-                          className="mx-auto text-center font-semibold"
-                          style={{ fontSize: "17px" }}
+                          className="w-14 rounded-lg bg-blue-500"
+                          style={{ paddingTop: "4px", marginTop: "4px" }}
+                        />
+                        <div>
+                          <p className="text-lg mt-3">
+                            <span> {payment.days}</span> <span>Day</span> (
+                            <span>s</span>)
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => {
+                            if (
+                              payment.name === "Free Service - No Card required"
+                            ) {
+                              handleFreePayment();
+                            } else handleClick(payment._id);
+                          }}
+                          className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
                         >
-                          {i === 0
-                            ? "Monthly Plan"
-                            : i === 1
-                            ? "Quarterly Plan"
-                            : "Half-Year Plan"}
+                          Select Plan
+                        </button>
+                        <div
+                          className="cursor-pointer mt-2"
+                          onClick={() => handleLearnMoreView(i)}
+                        >
+                          Learn more
                         </div>
                       </div>
                     </div>
-
-                    <div className="flex flex-col justify-center items-center">
-                      <p className="text-4xl font-bold">
-                        <span className="text-xl">$</span>
-                        {payment.amount}
-                        <span className="text-xl">.00</span>
-                      </p>
-                      <div
-                        className="w-14 rounded-lg bg-blue-500"
-                        style={{ paddingTop: "4px", marginTop: "4px" }}
-                      />
-                      <div>
-                        <p className="text-lg mt-3">
-                          <span> {payment.days}</span> <span>Day</span> (
-                          <span>s</span>)
-                        </p>
-                      </div>
-                      <button
-                        onClick={() => {
-                          if (
-                            payment.name === "Free Service - No Card required"
-                          ) {
-                            handleFreePayment();
-                          } else handleClick(payment._id);
-                        }}
-                        className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
-                      >
-                        Select Plan
-                      </button>
-                      <div
-                        className="cursor-pointer mt-2"
-                        onClick={() => handleLearnMoreView(i)}
-                      >
-                        Learn more
-                      </div>
-                    </div>
                   </div>
-                </div>
-              ))
+                ))
+              )}
+            </div>
+            {isDekstop && (
+              <div>{error && <ErrorComponent1 message={error} />}</div>
             )}
           </div>
+          {isTabletOrMobile && (
+            <div>{error && <ErrorComponent1 message={error} />}</div>
+          )}
         </div>
       </div>
-      <div className="sm:px-5 md:px-40 lg:px-60 text-white flex justify-center items-center w-full mb-5">
+      {/* <div className="sm:px-5 md:px-40 lg:px-60 text-white flex justify-center items-center w-full mb-5">
             {error && <ErrorComponent1 message={error} />}
-          </div>
+          </div> */}
       {monthlyInfoModal && (
         <div className="w-screen h-screen bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3 overflow-auto">
           <div className="max-w-2xl w-full bg-[#130A2D] p-6 rounded-xl shadow-lg relative">

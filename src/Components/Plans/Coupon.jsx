@@ -11,7 +11,8 @@ function Coupon() {
     setCoupon("");
   };
   return (
-    <div className="w-[70vw] mx-auto  bg-[#0D0620] pt-0 pb-5 md:ps-20 text-white pay-card-box p-2">
+    <div className="w-[70vw] mx-auto  bg-[#0D0620] pt-0 pb-5 md:ps-20 text-white pay-card-box p-2"
+    style={{display:"flex",width:"100%",justifyContent:"center"}}>
       <ToastContainer />
       <div
         className="flex flex-col  gap-5 justify-center items-center pt-4 pb-4 md:w-[34rem] h-48 bg-center rounded-xl pay-cardds"
