@@ -219,7 +219,7 @@ function PlanCards() {
             }`}
           >
             <div>
-              <h4 className="mb-4 font-bold pay-texts">Choose Plan:</h4>
+              <h4 className="my-10 font-bold pay-texts">Choose Plan:</h4>
             </div>
             <div style={{ display: "flex", gap: "25px", flexWrap: "wrap" }}>
               {loading ? (
