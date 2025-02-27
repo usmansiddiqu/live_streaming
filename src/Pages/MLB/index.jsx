@@ -58,7 +58,7 @@ function MLB() {
           }}
         >
           <Nav />
-          <DashHeader title={"MLB LIVE"} subtitle="MLB" />
+          <DashHeader title={"MLB LIVE"} subtitle="MLB" info="Your MLB Grand Slam. Watch live baseball games daily—don’t miss a single home run, curveball, or dramatic walk-off!" type="Baseball" />
           {loading ? (
             <div className="flex items-center justify-center relative pt-1 mt-3">
               <div className="card-con mb-4 w-full md:w-3/4 lg:w-2/3 card-con-mbl">

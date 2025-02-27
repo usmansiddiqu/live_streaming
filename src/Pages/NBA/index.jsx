@@ -56,7 +56,7 @@ function NBA() {
           }}
         >
           <Nav />
-          <DashHeader title={"NBA LIVE"} subtitle="NBA" />
+          <DashHeader title={"NBA LIVE"} subtitle="NBA" info="Your NBA Hotspot. Stream live basketball games daily—celebrate every dunk, alley-oop, and clutch shot!" type="Basketball" />
           {loading ? (
             <div className="flex items-center justify-center relative pt-1 mt-3">
               <div className="card-con w-full md:w-3/4 lg:w-2/3 card-con-mbl mb-4 ">

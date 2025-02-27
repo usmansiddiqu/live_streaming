@@ -55,7 +55,7 @@ function NFL() {
         ref={topDivRef}
       >
         <Nav />
-        <DashHeader title={"NFL LIVE"} subtitle="NFL" />
+        <DashHeader title={"NFL LIVE"} subtitle="NFL" info="Your NFL Zone. Watch live football games daily—feel the rush of every touchdown, tackle, and game-changing play!" type="Football" />
         {loading ? (
           <div className="flex items-center justify-center relative pt-1 mt-3">
             <div className=" card-con mb-4 w-full md:w-3/4 lg:w-2/3 card-con-mbl">

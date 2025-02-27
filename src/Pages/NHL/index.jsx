@@ -55,7 +55,7 @@ function NHL() {
         ref={topDivRef}
       >
         <Nav />
-        <DashHeader title={"NHL LIVE"} subtitle="NHL" />
+        <DashHeader title={"NHL LIVE"} subtitle="NHL" info="Your NHL Ice. Tune in for live hockey games daily—experience every slap shot, hat trick, and shootout showdown!" type="Hockey" />
         {loading ? (
           <div className="flex items-center justify-center relative pt-1 mt-3">
             <div className="card-con w-full md:w-3/4 lg:w-2/3 mb-4 card-con-mbl">
