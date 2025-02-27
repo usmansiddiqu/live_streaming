@@ -36,7 +36,7 @@ function PlansPage() {
     <div className="bg-[#0D0620]">
       <ToastContainer limit={1} />
       <Nav />
-      <DashHeader title={"Service Plan"} subtitle="Service Plan" />
+      <DashHeader title={"Service Plan"} subtitle="Service Plan" noContent={true} />
 
       <PlanCards />
       <Coupon />
