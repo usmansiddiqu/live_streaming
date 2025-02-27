@@ -18,10 +18,10 @@ function DashHeader({ title, subtitle, info, type }) {
         // }}
       ></div>
       {info ? (
-        <div class=" mx-auto absolute w-[70%] sm:w-[100%] md:w-[80%] lg:w-[55%]  text-white lg:p-0 md:p-10 rounded-lg text-height">
+        <div class=" mx-auto absolute w-[70%] sm:w-[100%] md:w-[80%] lg:w-[55%]  text-white lg:p-0 md:pb-10 rounded-lg text-height md:relative">
         {/* <div class="border-t-4 border-red-600 pb-4"> */}
           <h1 class="text-3xl font-bold">{title}</h1>
-          <span class="inline-block border border-white text-sm px-3 py-1 uppercase">{type}</span>
+          <span class="inline-block border border-white mt-2 rounded-md text-xs px-3 py-1 uppercase">{type}</span>
         {/* </div> */}
       
         <p class="mt-4 text-gray-300">
