@@ -466,7 +466,7 @@ function PlanCards() {
               <h2 className="text-xl font-bold text-white flex items-center justify-between">
                 <span>
                   Half-Year Plan -{" "}
-                  <span className="text-white">$180 for 180 Days</span>
+                  <span className="text-white">$50 for 180 Days</span>
                 </span>
               </h2>
               <button

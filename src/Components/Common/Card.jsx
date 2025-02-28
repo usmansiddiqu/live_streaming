@@ -119,7 +119,7 @@ function Card({ data, title, subtitle }) {
               </div>
             )}
             {isTabletOrMobile && (
-              <div class="grid card-con grid-cols-1!w-[73vw] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 p-3 mx-auto gap-3 mb-4 Match-cards-div ">
+              <div class="grid card-con grid-cols-1!w-[73vw] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 p-3 mx-auto gap-3 mb-8 Match-cards-div ">
                 <>
                   {data
                     ?.sort((a, b) => new Date(a?.date) - new Date(b?.date))
