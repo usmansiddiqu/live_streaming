@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function DashHeader({ title, subtitle, info, type, noContent }) {
   return (
     <>
-    {noContent ? <div className="relative w-[100%] text-[white] lg:h-[3vh] md:dash-header object-cover bg-center bg-opacity-90 flex flex-column flex-wrap items-center justify-around top-[30px]"></div>
+    {noContent ? <div className="w-[100%] text-[white] h-[3vh] md:dash-header md:w-100 object-cover bg-center bg-opacity-90"></div>
     :
     <div
       className="relative w-[100%] text-[white]  lg:h-[40vh] md:dash-header md:w-100 object-cover bg-center bg-opacity-90 flex flex-column flex-wrap items-center justify-around top-[30px] text-height"
