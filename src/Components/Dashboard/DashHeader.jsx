@@ -8,7 +8,7 @@ function DashHeader({ title, subtitle, info, type, noContent }) {
     {noContent ? <div className="w-[100%] text-[white] h-[3vh] md:dash-header md:w-100 object-cover bg-center bg-opacity-90"></div>
     :
     <div
-      className="relative w-[100%] text-[white]  lg:h-[40vh] md:dash-header md:w-100 object-cover bg-center bg-opacity-90 flex flex-column flex-wrap items-center justify-around top-[30px] text-height"
+      className={`relative w-[100%] text-[white]  ${info ? "lg:h-[40vh]" : "h-[20vh]"} md:dash-header md:w-100 object-cover bg-center bg-opacity-90 flex flex-column flex-wrap items-center justify-around top-[30px] ${info && "text-height"}`}
       style={{
         backgroundImage: !info && `url(${dashBoardImage})`,
         backgroundColor: !info && "rgba(128, 0, 128, 0.5)",
