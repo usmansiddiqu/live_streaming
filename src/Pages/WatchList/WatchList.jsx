@@ -11,7 +11,9 @@ function WatchList() {
   const getWishlists = async () => {
     try {
       const { data: response } = await getWishList();
-      convertAndSetState(response.data);
+      convertAndSetState(
+        response.data?.filter((item) => item.eventId !== null)
+      );
 
       return response.data;
     } catch (error) {}
@@ -20,8 +22,27 @@ function WatchList() {
     const convertedArray = originalData.map((item) => ({
       _id: item.eventId._id,
       channel: item.eventId.channel,
-      data: item.eventId.data,
+      data: item.eventId,
       __v: item.eventId.__v,
+      competitors1_alternateColor: item.eventId.competitors1_alternateColor,
+      competitors1_color: item.eventId.competitors1_color,
+      competitors1_displayName: item.eventId.competitors1_displayName,
+      competitors1_homeAway: item.eventId.competitors1_homeAway,
+      competitors1_logo: item.eventId.competitors1_logo,
+      competitors1_name: item.eventId.competitors1_name,
+      competitors1_score: item.eventId.competitors1_score,
+      competitors2_alternateColor: item.eventId.competitors2_alternateColor,
+      competitors2_color: item.eventId.competitors2_color,
+      competitors2_displayName: item.eventId.competitors2_displayName,
+      competitors2_homeAway: item.eventId.competitors2_homeAway,
+      competitors2_logo: item.eventId.competitors2_logo,
+      competitors2_name: item.eventId.competitors2_name,
+      competitors2_score: item.eventId.competitors2_score,
+      date: item.eventId.date,
+      isAuto: true,
+      location: item.eventId.location,
+      match_name: item.eventId.match_name,
+      shortName: item.eventId.shortName,
     }));
     setConvertedData([...convertedArray]);
   };
