@@ -5,7 +5,7 @@ import "../../Assets/styles/CardSlider.scss";
 import TeamIcons from "./TeamIcons";
 import { useNavigate } from "react-router-dom";
 
-const CardSliders = ({ data }) => {
+const CardSliders = ({ data, watchList }) => {
   const baseURL = "https://pixelsport.tv/backend";
   const splideOptions = {
     perPage: 1,
@@ -54,7 +54,7 @@ const CardSliders = ({ data }) => {
             >
               {console.log(item)}
               <div
-                className="placeAndTime border w-[100%] h-[3vh] flex justify-between flex-row  bg-[black] bg-opacity-40"
+                className="placeAndTime border w-[100%] flex justify-between flex-row  bg-[black] bg-opacity-40"
                 style={{
                   padding: "0 10px",
                 }}
@@ -81,6 +81,7 @@ const CardSliders = ({ data }) => {
                       name: item.competitors2_displayName,
                     },
                   ]}
+                  watchList={watchList}
                 />
               </div>
             </SplideSlide>

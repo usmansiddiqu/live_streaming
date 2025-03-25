@@ -63,6 +63,7 @@ function WatchList() {
             data={convertedData.filter(
               (card) => card.channel.TVCategory.name == "NFL"
             )}
+            watchList={true}
           />
         )}
         <SliderHeaders title="NHL LIVE" />
@@ -72,6 +73,7 @@ function WatchList() {
             data={convertedData.filter(
               (card) => card.channel.TVCategory.name == "NHL"
             )}
+            watchList={true}
           />
         )}
 
@@ -83,6 +85,7 @@ function WatchList() {
             data={convertedData.filter(
               (card) => card.channel.TVCategory.name == "NBA"
             )}
+            watchList={true}
           />
         )}
         <SliderHeaders title="MLB LIVE" />
@@ -92,6 +95,7 @@ function WatchList() {
             data={convertedData.filter(
               (card) => card.channel.TVCategory.name == "MLB"
             )}
+            watchList={true}
           />
         )}
 

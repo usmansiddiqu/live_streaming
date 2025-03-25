@@ -1,7 +1,7 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 
-function TeamIcons({ iconsData }) {
+function TeamIcons({ iconsData, watchList }) {
   const isDesktop = useMediaQuery({ query: "(min-width: 1001px)" });
   const isTablet = useMediaQuery({
     query: "(min-width: 501px) and (max-width: 1000px)",
@@ -37,7 +37,12 @@ function TeamIcons({ iconsData }) {
         </div>
       )}
       {isTablet && (
-        <div className="flex justify-between " style={{ marginTop: "-20px" }}>
+        <div
+          className={`flex ${
+            !watchList ? "justify-between" : "justify-around"
+          }`}
+          style={{ marginTop: !watchList ? "-20px" : "0px" }}
+        >
           {iconsData.map((icon, index) => (
             <div key={index} className="flex flex-col items-center">
               <img
@@ -56,8 +61,10 @@ function TeamIcons({ iconsData }) {
       )}
       {isMobile && (
         <div
-          className="flex justify-between px-2 "
-          style={{ marginTop: "-15px" }}
+          className={`flex ${
+            !watchList ? "justify-between" : "justify-around"
+          } px-2 `}
+          style={{ marginTop: !watchList ? "-15px" : "0px" }}
         >
           {iconsData.map((icon, index) => (
             <div key={index} className="flex flex-col items-center">
