@@ -50,8 +50,8 @@ div {
   width: 80%;
 }
 
-.payment-skelton{
-  width: 70%
+.payment-skelton {
+  width: 70%;
 }
 .chat-responsive {
   justify-content: space-between;
@@ -383,7 +383,7 @@ aside {
     margin-right: -200px;
   } */
   .Cardslider {
-    width: 65% !important;
+    width: 73% !important;
   }
   .main-banner-container {
     width: 65% !important;
@@ -512,7 +512,7 @@ aside {
   .watch-img {
     width: 67vw;
   }
-  .teams-logo{
+  .teams-logo {
     height: 36rem !important;
   }
   .live-head {
@@ -649,7 +649,7 @@ aside {
   .dash-header {
     height: 10vh !important;
   }
-  .teams-logo{
+  .teams-logo {
     height: 20rem !important;
   }
 }
@@ -790,8 +790,8 @@ aside {
   .dash-header {
     height: 36vh !important;
   }
-  .text-height{
-    height:  36vh !important;
+  .text-height {
+    height: 36vh !important;
   }
   .skeleton-loading {
     width: 90% !important;
@@ -817,8 +817,8 @@ aside {
     flex-direction: column;
   }
 
-  .text-height{
-   height:  43vh !important;
+  .text-height {
+    height: 43vh !important;
   }
   .score-card {
     min-width: 330px;
@@ -1328,7 +1328,7 @@ aside {
   /* .mbl-slider-bg-color {
     height: 16rem;
   } */
-  .teams-logo{
+  .teams-logo {
     height: 50vh !important;
   }
 
@@ -1417,7 +1417,7 @@ aside {
 
     left: -2%;
   }
-  .teams-logo{
+  .teams-logo {
     height: 20rem !important;
   }
 }
@@ -2093,7 +2093,7 @@ aside {
   .card-con {
     width: 47vw;
   }
-  .small-screen{
+  .small-screen {
     width: 100%;
   }
   .deatil-container {
@@ -2345,7 +2345,7 @@ aside {
   .input-2 {
     width: 26% !important;
   } */
-  .teams-logo{
+  .teams-logo {
     height: 35rem !important;
   }
 }
@@ -2558,7 +2558,7 @@ aside {
   .input-box {
     bottom: 10px !important;
   }
-  .teams-logo{
+  .teams-logo {
     height: 26rem !important;
   }
 }
@@ -2677,7 +2677,7 @@ aside {
     width: 170px !important;
     font-size: 12px;
   }
-  .teams-logo{
+  .teams-logo {
     height: 22rem !important;
   }
 }
@@ -2822,7 +2822,7 @@ aside {
   .mbl-chat-font {
     font-size: 12px !important;
   }
-  .teams-logo{
+  .teams-logo {
     height: 20rem !important;
   }
 }
@@ -2850,8 +2850,8 @@ aside {
     width: 75vw;
     /* margin-left: -80px; */
   }
-  .payment-skelton{
-    width: 100%
+  .payment-skelton {
+    width: 100%;
   }
   .live-chat-responsive {
     height: 65vh !important;
