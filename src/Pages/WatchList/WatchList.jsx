@@ -55,50 +55,54 @@ function WatchList() {
       <Nav />
       <div>
         <DashHeader title="My Watchlist" SubTitle="My Watchlist" />
+        <div className="my-4">
+          <SliderHeaders title="NFL LIVE" />
+          {convertedData?.filter(
+            (card) => card.channel.TVCategory.name == "NFL"
+          ).length && (
+            <CardSliders
+              data={convertedData.filter(
+                (card) => card.channel.TVCategory.name == "NFL"
+              )}
+              watchList={true}
+            />
+          )}
+          <SliderHeaders title="NHL LIVE" />
+          {convertedData?.filter(
+            (card) => card.channel.TVCategory.name == "NHL"
+          ).length && (
+            <CardSliders
+              data={convertedData.filter(
+                (card) => card.channel.TVCategory.name == "NHL"
+              )}
+              watchList={true}
+            />
+          )}
 
-        <SliderHeaders title="NFL LIVE" />
-        {convertedData?.filter((card) => card.channel.TVCategory.name == "NFL")
-          .length && (
-          <CardSliders
-            data={convertedData.filter(
-              (card) => card.channel.TVCategory.name == "NFL"
-            )}
-            watchList={true}
-          />
-        )}
-        <SliderHeaders title="NHL LIVE" />
-        {convertedData?.filter((card) => card.channel.TVCategory.name == "NHL")
-          .length && (
-          <CardSliders
-            data={convertedData.filter(
-              (card) => card.channel.TVCategory.name == "NHL"
-            )}
-            watchList={true}
-          />
-        )}
+          <SliderHeaders title="NBA LIVE" />
 
-        <SliderHeaders title="NBA LIVE" />
-
-        {convertedData?.filter((card) => card.channel.TVCategory.name == "NBA")
-          .length && (
-          <CardSliders
-            data={convertedData.filter(
-              (card) => card.channel.TVCategory.name == "NBA"
-            )}
-            watchList={true}
-          />
-        )}
-        <SliderHeaders title="MLB LIVE" />
-        {convertedData?.filter((card) => card.channel.TVCategory.name == "MLB")
-          .length && (
-          <CardSliders
-            data={convertedData.filter(
-              (card) => card.channel.TVCategory.name == "MLB"
-            )}
-            watchList={true}
-          />
-        )}
-
+          {convertedData?.filter(
+            (card) => card.channel.TVCategory.name == "NBA"
+          ).length && (
+            <CardSliders
+              data={convertedData.filter(
+                (card) => card.channel.TVCategory.name == "NBA"
+              )}
+              watchList={true}
+            />
+          )}
+          <SliderHeaders title="MLB LIVE" />
+          {convertedData?.filter(
+            (card) => card.channel.TVCategory.name == "MLB"
+          ).length && (
+            <CardSliders
+              data={convertedData.filter(
+                (card) => card.channel.TVCategory.name == "MLB"
+              )}
+              watchList={true}
+            />
+          )}
+        </div>
         {/* <h1 className="h-[8vh] w-[64vw] text-white text-2xl font-bold mx-auto flex items-center">
           MLB
         </h1>
