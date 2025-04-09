@@ -221,7 +221,7 @@ const NBCGatePayButton = ({
         // Give NBC script some time to render the button
         setTimeout(() => {
           const button = document.querySelector("#nbcgate-pay-button button");
-          if (button) button.textContent = "Pay Now"; // change the label here
+          if (button) button.textContent = "Pay With Credit Card"; // change the label here
         }, 500);
       };
       document.body.appendChild(script);

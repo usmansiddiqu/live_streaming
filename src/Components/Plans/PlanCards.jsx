@@ -154,7 +154,10 @@ function PlanCards() {
     if (!userData) {
       navigate("/signup");
     } else if (JSON.parse(userData)?.expiryDate) {
-      navigate("/");
+      setError1(
+        "You already have an active subscription, you cannot subscribe again!"
+      );
+      // navigate("/");
     } else {
       setNBCPaymentModal(true);
     }
