@@ -4,6 +4,7 @@ import getPlans from "../../api/plan.api";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import availFreePayment from "../../api/availFree";
 import createPayment from "../../api/addPayment";
+import getUserDetail from "../../api/getUserDetail";
 import ErrorComponent from "../Common/ErrorComponent";
 import Card from "../../Assets/Icons/money.png";
 import Crypto from "../../Assets/Icons/bitcoin.png";
@@ -13,8 +14,8 @@ import { ImCross } from "react-icons/im";
 import "react-loading-skeleton/dist/skeleton.css";
 import ErrorComponent1 from "../Common/ErrorComponent1";
 import { useMediaQuery } from "react-responsive";
-
-
+import NBCGatePayButton from "../../NBCScripts/NBCGatePay";
+import { useLocation } from "react-router-dom";
 
 const StepProgress = ({ currentStep }) => {
   const steps = ["Plan", "Account", "Payment", "Stream"];
@@ -23,7 +24,10 @@ const StepProgress = ({ currentStep }) => {
     <div className="flex justify-center items-center w-full">
       <div className="flex items-center justify-between w-full max-w-3xl  p-3 sm:p-4 rounded-lg">
         {steps.map((step, index) => (
-          <div key={index} className="flex flex-col items-center flex-1 relative">
+          <div
+            key={index}
+            className="flex flex-col items-center flex-1 relative"
+          >
             <span
               className={`mb-2 text-xs sm:text-sm font-semibold ${
                 currentStep === index + 1 ? "text-white" : "text-gray-400"
@@ -50,8 +54,6 @@ const StepProgress = ({ currentStep }) => {
   );
 };
 
-
-
 function PlanCards() {
   const [search] = useSearchParams();
   const navigate = useNavigate();
@@ -59,11 +61,18 @@ function PlanCards() {
   const [sortedData, setSortedData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isCardSelected, setCardSelected] = useState(false);
-  const [monthlyInfoModal, setMonthlyInfoModal] = useState(false)
-  const [quarterlyInfoModal, setQuarterlyInfoModal] = useState(false)
+  const [monthlyInfoModal, setMonthlyInfoModal] = useState(false);
+  const [quarterlyInfoModal, setQuarterlyInfoModal] = useState(false);
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1001px)" });
-  const [yearlyInfoModal, setYearlyInfoModal] = useState(false)
+  const [yearlyInfoModal, setYearlyInfoModal] = useState(false);
+  const [NBCPaymentModal, setNBCPaymentModal] = useState(false);
+  const [NBCAMount, setNBCAMount] = useState("");
+  const [NBCPackageId, setNBCPackageId] = useState("");
+
+  const location = useLocation();
+  const userData = localStorage.getItem("data");
+
   console.log(isCardSelected);
   const getData = async () => {
     setLoading(true);
@@ -130,14 +139,26 @@ function PlanCards() {
   };
 
   const handleLearnMoreView = (i) => {
-    if(i === 0) {
-      setMonthlyInfoModal(true)
-    } else if(i === 1) {
-      setQuarterlyInfoModal(true)
+    if (i === 0) {
+      setMonthlyInfoModal(true);
+    } else if (i === 1) {
+      setQuarterlyInfoModal(true);
     } else {
-      setYearlyInfoModal(true)
+      setYearlyInfoModal(true);
     }
-  }
+  };
+
+  const handleNavigate = (amount, packageId) => {
+    setNBCAMount(amount);
+    setNBCPackageId(packageId);
+    if (!userData) {
+      navigate("/signup");
+    } else if (JSON.parse(userData)?.expiryDate) {
+      navigate("/");
+    } else {
+      setNBCPaymentModal(true);
+    }
+  };
 
   useEffect(() => {
     if (search.get("fail") == "none") {
@@ -164,6 +185,29 @@ function PlanCards() {
       window.removeEventListener("resize", updateWidthStatus);
     };
   }, []);
+
+  useEffect(() => {
+    async function getData() {
+      const parsed = JSON.parse(userData);
+      const data = await getUserDetail(parsed._id);
+      if (data.data.data) {
+        localStorage.setItem("data", JSON.stringify(data.data.data));
+      }
+    }
+    if (userData) {
+      getData();
+    }
+  }, [userData]);
+
+  useEffect(() => {
+    if (!window.sessionStorage.getItem("hasReloaded")) {
+      window.sessionStorage.setItem("hasReloaded", "true");
+      window.location.reload();
+    } else {
+      window.sessionStorage.removeItem("hasReloaded");
+    }
+  }, [location.pathname]);
+
   return (
     <>
       {/* <div className="lg:px-20 md:px-10 sm:px-5  mx-auto bg-[#0D0620] pt-3 pb-[30px] text-white flex flex-col md:flex-row  gap-8 px-5">
@@ -176,7 +220,7 @@ function PlanCards() {
             {error2 && <ErrorComponent message={error2} />}
           </p>
         </div>
-        
+
         <div className="flex flex-col justify-center w-full cards-laoder">
           <div className="card-error-fix w-full"></div>
           {/* <h4 className="mb-4 pay-texts">
@@ -187,34 +231,7 @@ function PlanCards() {
           <div className="w-full">
             <StepProgress currentStep={1} />
           </div>
-          <div className="">
-            {/* <h4 className="mb-4 font-bold pay-texts">Choose Plan:</h4> */}
-            {/* <div
-              className="mb-4 pay-texts"
-              style={{ display: "flex", gap: "20px", alignItems: "center" }}
-            >
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "3px" }}
-              >
-                <img style={{ width: "45px" }} src={Card} alt="" />
-                <h4>Card</h4>
-              </div>
-              <label className="switch ">
-                <input
-                  type="checkbox"
-                  checked={isCardSelected}
-                  onChange={toggleCard}
-                />
-                <span className="slider round"></span>
-              </label>
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "10px" }}
-              >
-                <img style={{ width: "25px" }} src={Crypto} alt="" />
-                <h4>Crypto</h4>
-              </div>
-            </div> */}
-          </div>
+          <div className=""></div>
           <div
             className={`flex flex-column items-center ${
               isWidthInRange ? "" : "flex-wrap"
@@ -245,10 +262,75 @@ function PlanCards() {
                   </div>
                 </>
               ) : (
-                sortedData.map((payment, i) => (
-                  // </div>
+                // sortedData.map((payment, i) => (
+                // </div>
+                // <div
+                //     key={payment._id}
+                //     className={`flex w-[20rem] mb-4 small-screen ${
+                //       isWidthInRange ? "ml-3" : ""
+                //     }`}
+                //   >
+                //     <div
+                //       className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
+                //       style={{
+                //         backgroundColor: "#1F1340",
+                //         backgroundImage: `url(${plan})`,
+                //       }}
+                //     >
+                //       <div className="flex justify-start items-start">
+                //         <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
+                //           <div
+                //             className="mx-auto text-center font-semibold"
+                //             style={{ fontSize: "17px" }}
+                //           >
+                //             {i === 0
+                //               ? "Monthly Plan"
+                //               : i === 1
+                //               ? "Quarterly Plan"
+                //               : "Half-Year Plan"}
+                //           </div>
+                //         </div>
+                //       </div>
+
+                //       <div className="flex flex-col justify-center items-center">
+                //         <p className="text-4xl font-bold">
+                //           <span className="text-xl">$</span>
+                //           {payment.amount}
+                //           <span className="text-xl">.00</span>
+                //         </p>
+                //         <div
+                //           className="w-14 rounded-lg bg-blue-500"
+                //           style={{ paddingTop: "4px", marginTop: "4px" }}
+                //         />
+                //         <div>
+                //           <p className="text-lg mt-3">
+                //             <span> {payment.days}</span> <span>Day</span> (
+                //             <span>s</span>)
+                //           </p>
+                //         </div>
+                //         <button
+                //           onClick={() => {
+                //             if (
+                //               payment.name === "Free Service - No Card required"
+                //             ) {
+                //               handleFreePayment();
+                //             } else handleClick(payment._id);
+                //           }}
+                //           className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
+                //         >
+                //           Select Plan
+                //         </button>
+                //         <div
+                //           className="cursor-pointer mt-2"
+                //           onClick={() => handleLearnMoreView(i)}
+                //         >
+                //           Learn more
+                //         </div>
+                //       </div>
+                //     </div>
+                //   </div>
+                <>
                   <div
-                    key={payment._id}
                     className={`flex w-[20rem] mb-4 small-screen ${
                       isWidthInRange ? "ml-3" : ""
                     }`}
@@ -266,11 +348,7 @@ function PlanCards() {
                             className="mx-auto text-center font-semibold"
                             style={{ fontSize: "17px" }}
                           >
-                            {i === 0
-                              ? "Monthly Plan"
-                              : i === 1
-                              ? "Quarterly Plan"
-                              : "Half-Year Plan"}
+                            {"Monthly Plan"}
                           </div>
                         </div>
                       </div>
@@ -278,7 +356,7 @@ function PlanCards() {
                       <div className="flex flex-col justify-center items-center">
                         <p className="text-4xl font-bold">
                           <span className="text-xl">$</span>
-                          {payment.amount}
+                          {15}
                           <span className="text-xl">.00</span>
                         </p>
                         <div
@@ -287,17 +365,12 @@ function PlanCards() {
                         />
                         <div>
                           <p className="text-lg mt-3">
-                            <span> {payment.days}</span> <span>Day</span> (
-                            <span>s</span>)
+                            <span>{30}</span> <span>Day</span> (<span>s</span>)
                           </p>
                         </div>
                         <button
                           onClick={() => {
-                            if (
-                              payment.name === "Free Service - No Card required"
-                            ) {
-                              handleFreePayment();
-                            } else handleClick(payment._id);
+                            handleNavigate("15.00", "66f6e6f00230ef05670897c5"); // Trigger visibility and auto-click
                           }}
                           className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
                         >
@@ -305,14 +378,138 @@ function PlanCards() {
                         </button>
                         <div
                           className="cursor-pointer mt-2"
-                          onClick={() => handleLearnMoreView(i)}
+                          onClick={() => setMonthlyInfoModal(!monthlyInfoModal)}
                         >
                           Learn more
                         </div>
                       </div>
                     </div>
                   </div>
-                ))
+                  <div
+                    className={`flex w-[20rem] mb-4 small-screen ${
+                      isWidthInRange ? "ml-3" : ""
+                    }`}
+                  >
+                    <div
+                      className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
+                      style={{
+                        backgroundColor: "#1F1340",
+                        backgroundImage: `url(${plan})`,
+                      }}
+                    >
+                      <div className="flex justify-start items-start">
+                        <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
+                          <div
+                            className="mx-auto text-center font-semibold"
+                            style={{ fontSize: "17px" }}
+                          >
+                            {"Premium Plan"}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col justify-center items-center">
+                        <p className="text-4xl font-bold">
+                          <span className="text-xl">$</span>
+                          {35}
+                          <span className="text-xl">.00</span>
+                        </p>
+                        <div
+                          className="w-14 rounded-lg bg-blue-500"
+                          style={{ paddingTop: "4px", marginTop: "4px" }}
+                        />
+                        <div>
+                          <p className="text-lg mt-3">
+                            <span> {90}</span> <span>Day</span> (<span>s</span>)
+                          </p>
+                        </div>
+                        <div>
+                          <button
+                            onClick={() => {
+                              handleNavigate(
+                                "35.00",
+                                "66f6e70c0230ef05670897ca"
+                              );
+                            }}
+                            className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
+                          >
+                            Select Plan
+                          </button>
+                        </div>
+                        <div
+                          className="cursor-pointer mt-2"
+                          onClick={() =>
+                            setQuarterlyInfoModal(!quarterlyInfoModal)
+                          }
+                        >
+                          Learn more
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={`flex w-[20rem] mb-4 small-screen ${
+                      isWidthInRange ? "ml-3" : ""
+                    }`}
+                  >
+                    <div
+                      className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
+                      style={{
+                        backgroundColor: "#1F1340",
+                        backgroundImage: `url(${plan})`,
+                      }}
+                    >
+                      <div className="flex justify-start items-start">
+                        <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
+                          <div
+                            className="mx-auto text-center font-semibold"
+                            style={{ fontSize: "17px" }}
+                          >
+                            {"Platinum Plan"}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col justify-center items-center">
+                        <p className="text-4xl font-bold">
+                          <span className="text-xl">$</span>
+                          {50}
+                          <span className="text-xl">.00</span>
+                        </p>
+                        <div
+                          className="w-14 rounded-lg bg-blue-500"
+                          style={{ paddingTop: "4px", marginTop: "4px" }}
+                        />
+                        <div>
+                          <p className="text-lg mt-3">
+                            <span> {180}</span> <span>Day</span> (<span>s</span>
+                            )
+                          </p>
+                        </div>
+                        <div>
+                          <button
+                            onClick={() => {
+                              handleNavigate(
+                                "50.00",
+                                "66f6e75b0230ef05670897d1"
+                              );
+                            }}
+                            className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
+                          >
+                            Select Plan
+                          </button>
+                        </div>
+                        <div
+                          className="cursor-pointer mt-2"
+                          onClick={() => setYearlyInfoModal(!yearlyInfoModal)}
+                        >
+                          Learn more
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
+                // ))
               )}
             </div>
             {isDekstop && (
@@ -324,11 +521,12 @@ function PlanCards() {
           )}
         </div>
       </div>
-      {/* <div className="sm:px-5 md:px-40 lg:px-60 text-white flex justify-center items-center w-full mb-5">
-            {error && <ErrorComponent1 message={error} />}
-          </div> */}
       {monthlyInfoModal && (
-        <div className={`w-screen h-screen bg-gray-700 bg-opacity-85 flex justify-center ${isTabletOrMobile ? "" :"items-center"}  fixed left-0 top-0 z-[100] p-3 overflow-auto`}>
+        <div
+          className={`w-screen h-screen bg-gray-700 bg-opacity-85 flex justify-center ${
+            isTabletOrMobile ? "" : "items-center"
+          }  fixed left-0 top-0 z-[100] p-3 overflow-auto`}
+        >
           <div className="max-w-2xl w-full bg-[#130A2D] p-6 rounded-xl shadow-lg relative">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold text-white flex items-center justify-between">
@@ -518,6 +716,28 @@ function PlanCards() {
               Perfect for die-hard sports fans who want the best value and
               long-term access to all the action.
             </p>
+          </div>
+        </div>
+      )}
+      {NBCPaymentModal && (
+        <div className="w-screen h-[105vh] bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3  overflow-auto">
+          <div className="max-w-2xl w-[500px] bg-[#130A2D] p-6 rounded-xl shadow-lg relative">
+            <div className="flex justify-end items-center">
+              <button
+                className="ml-3 p-2 bg-white rounded-full text-blue-600 hover:bg-gray-200"
+                onClick={() => setNBCPaymentModal(false)}
+              >
+                <ImCross size={20} />
+              </button>
+            </div>
+            <div className="text-center mb-4">
+              <h2 className="text-xl font-bold text-white flex items-center justify-center">
+                <span>Proceed Payment</span>
+              </h2>
+            </div>
+            <div className="d-flex align-items-center justify-content-center mb-4">
+              <NBCGatePayButton amount={NBCAMount} packageId={NBCPackageId} />
+            </div>
           </div>
         </div>
       )}
