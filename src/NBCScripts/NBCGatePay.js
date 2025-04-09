@@ -214,7 +214,7 @@ const NBCGatePayButton = ({
   useEffect(() => {
     if (!document.getElementById("nbcgatepay")) {
       const script = document.createElement("script");
-      script.src = "https://portal.nbcgate.tech/js/payformdev.js?ID=179";
+      script.src = "https://portal.nbcgate.com/js/payform.js?ID=23";
       script.async = true;
       script.id = "nbcgatepay";
       script.onload = () => {
