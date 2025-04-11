@@ -16,6 +16,7 @@ import ErrorComponent1 from "../Common/ErrorComponent1";
 import { useMediaQuery } from "react-responsive";
 import NBCGatePayButton from "../../NBCScripts/NBCGatePay";
 import { useLocation } from "react-router-dom";
+import moment from "moment";
 
 const StepProgress = ({ currentStep }) => {
   const steps = ["Plan", "Account", "Payment", "Stream"];
@@ -149,11 +150,15 @@ function PlanCards() {
   };
 
   const handleNavigate = (amount, packageId) => {
+    const userParsedData = JSON.parse(userData);
     setNBCAMount(amount);
     setNBCPackageId(packageId);
     if (!userData) {
       navigate("/signup");
-    } else if (JSON.parse(userData)?.expiryDate) {
+    } else if (
+      userParsedData?.expiryDate &&
+      moment(userParsedData?.expiryDate).diff(moment(), "days") >= 1
+    ) {
       setError1(
         "You already have an active subscription, you cannot subscribe again!"
       );
