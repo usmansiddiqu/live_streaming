@@ -744,7 +744,18 @@ function PlanCards() {
               </h2>
             </div>
             <div className="d-flex align-items-center justify-content-center mb-4">
-              <NBCGatePayButton amount={NBCAMount} packageId={NBCPackageId} />
+              <NBCGatePayButton
+                amount={NBCAMount}
+                packageId={NBCPackageId}
+                order_id={{
+                  package_id: NBCPackageId,
+                  price: NBCAMount,
+                  original_price: NBCAMount,
+                  token: new Date().getTime(),
+                  uid: JSON.parse(userData)?._id,
+                  email: JSON.parse(userData)?.email,
+                }}
+              />
             </div>
           </div>
         </div>

@@ -4,15 +4,15 @@ import { useNavigate } from "react-router-dom";
 const user = localStorage.getItem("data");
 
 /////////////// its working ////////
-const NBCGatePayButton = ({
-  amount,
-  orderId = Math.floor(10000 + Math.random() * 90000),
-  packageId,
-}) => {
+const NBCGatePayButton = ({ amount, order_id, packageId }) => {
   const navigate = useNavigate();
 
   const hellofunction = async () => {
-    const data = await createNBCPayment(packageId, orderId, JSON.parse(user));
+    const data = await createNBCPayment(
+      packageId,
+      order_id?.token,
+      JSON.parse(user)
+    );
     if (data?.status === 200 && data.data.error) {
       navigate("/");
     }
@@ -39,7 +39,7 @@ const NBCGatePayButton = ({
     <div
       id="nbcgate-pay-button"
       nbcgate-order-amount={amount}
-      nbcgate-order-id={orderId}
+      nbcgate-order-id={JSON.stringify(order_id)}
       nbcgate-return-url={"https://pixelsport.tv"} // Default URL if missing
       nbcgate-theme="dark"
       nbcgate-lang="en"
