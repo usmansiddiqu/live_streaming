@@ -20,6 +20,9 @@ function Users() {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState();
   const [eventId, setEventId] = useState();
+  const [dateFrom, setDateFrom] = useState('');
+  const [dateTo, setDateTo] = useState('');
+  const [planType, setPlanType] = useState('all');
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
@@ -78,6 +81,15 @@ function Users() {
       setError(error.response.data.message);
     }
   };
+
+  const handleFilters = async() => {
+    try {
+      const { data: response } = await getAllUsers(skip, {dateFrom, dateTo, planType});
+      setUsers(response.data.user);
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  }
 
   useEffect(() => {
     getUsers();
@@ -224,6 +236,69 @@ function Users() {
                         Add User
                       </span>
                     </button> */}
+                    <div className="">
+                      <div className="flex flex-row gap-4 items-end">
+                        {/* Date From Filter */}
+                        <div className="flex flex-col">
+                          <label
+                            htmlFor="dateFrom"
+                            className="text-sm font-medium text-white mb-1"
+                          >
+                            Date From
+                          </label>
+                          <input
+                            type="date"
+                            id="dateFrom"
+                            className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            value={dateFrom}
+                            onChange={(e) => setDateFrom(e.target.value)}
+                          />
+                        </div>
+
+                        {/* Date To Filter */}
+                        <div className="flex flex-col">
+                          <label
+                            htmlFor="dateTo"
+                            className="text-sm font-medium text-white mb-1"
+                          >
+                            Date To
+                          </label>
+                          <input
+                            type="date"
+                            id="dateTo"
+                            className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            value={dateTo}
+                            onChange={(e) => setDateTo(e.target.value)}
+                          />
+                        </div>
+
+                        <div className="flex flex-col">
+                          <label
+                            htmlFor="planType"
+                            className="text-sm font-medium text-white mb-1"
+                          >
+                            Plan Type
+                          </label>
+                          <select
+                            id="planType"
+                            className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            value={planType}
+                            onChange={(e) => setPlanType(e.target.value)}
+                          >
+                            <option value="all">All</option>
+                            <option value="Basic Plan">Monthly Plan</option>
+                            <option value="Premium Plan">Quarterly Plan</option>
+                            <option value="Platinum Plan">Half Year Plan</option>
+                          </select>
+                        </div>
+                        <button
+                          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                          onClick={handleFilters}
+                        >
+                          Apply
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -3,7 +3,7 @@ const { default: axiosInstance } = require(".");
 const getAllUsers = async (skip, filter) => {
   let url = `/auth/getAllUsers/${skip}`;
   if (filter) {
-    url = `${url}?searchString=${filter}`;
+    url = `${url}?searchString=${JSON.stringify(filter)}`;
   }
 
   return await axiosInstance.get(url);
