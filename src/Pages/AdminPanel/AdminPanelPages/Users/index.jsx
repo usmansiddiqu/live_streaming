@@ -258,7 +258,20 @@ function Users() {
                     >
                       Date
                     </th>
-
+                    <th
+                      scope="col"
+                      class="px-6 py-3 dark:text-white"
+                      style={{ border: "1px solid #313133" }}
+                    >
+                      Plan
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 dark:text-white"
+                      style={{ border: "1px solid #313133" }}
+                    >
+                      Expiry
+                    </th>
                     <th
                       scope="col"
                       class="px-6 py-3 dark:text-white"
@@ -306,6 +319,24 @@ function Users() {
                           style={{ border: "1px solid #313133" }}
                         >
                           {moment(user?.createdAt).format("YYYY-MM-DD") || "-"}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {user?.packageId?.name || "-"}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {user?.createdAt && user?.packageId?.days
+                            ? moment(user.createdAt)
+                                .add(user.packageId.days, "days")
+                                .format("YYYY-MM-DD")
+                            : "-"}
                         </th>
                         <td
                           class="px-6 py-4 dark:text-white"
