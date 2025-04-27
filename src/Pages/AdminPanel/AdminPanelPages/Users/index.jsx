@@ -10,6 +10,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
+import moment from "moment";
 
 function Users() {
   const navigate = useNavigate();
@@ -72,8 +73,7 @@ function Users() {
   const getUsers = async () => {
     try {
       const { data: response } = await getAllUsers(skip, textFilter);
-      // setUsers(response.data.user);
-      setUsers(response?.data?.user);
+      setUsers(response.data.user);
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -177,7 +177,7 @@ function Users() {
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
-                    <div class="relative flex justify-between w-80 rounded-full bg-[#313133]">
+                    {/* <div class="relative flex justify-between w-80 rounded-full bg-[#313133]">
                       <input
                         type="text"
                         id="table-search-users"
@@ -205,9 +205,9 @@ function Users() {
                           />
                         </svg>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <button
+                    {/* <button
                       className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
                       onClick={handleCreateButtonClick}
                     >
@@ -223,7 +223,7 @@ function Users() {
                       <span className="text-white text-sm dark:text-white">
                         Add User
                       </span>
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
@@ -251,6 +251,13 @@ function Users() {
                     >
                       Phone
                     </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 dark:text-white"
+                      style={{ border: "1px solid #313133" }}
+                    >
+                      Date
+                    </th>
 
                     <th
                       scope="col"
@@ -259,13 +266,13 @@ function Users() {
                     >
                       Status
                     </th>
-                    <th
+                    {/* <th
                       scope="col"
                       class="px-6 py-3 dark:text-white"
                       style={{ border: "1px solid #313133" }}
                     >
                       Action
-                    </th>
+                    </th> */}
                   </tr>
                 </thead>
                 <tbody>
@@ -277,21 +284,28 @@ function Users() {
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          {user.name}
+                          {user.userId?.name}
                         </th>
                         <th
                           scope="row"
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          {user.email}
+                          {user.userId?.email}
                         </th>
                         <th
                           scope="row"
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          {user.phone || "-"}
+                          {user.userId?.phone || "-"}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {moment(user?.createdAt).format("YYYY-MM-DD") || "-"}
                         </th>
                         <td
                           class="px-6 py-4 dark:text-white"
@@ -299,15 +313,15 @@ function Users() {
                         >
                           <div
                             className={`${
-                              user?.status == "inactive"
+                              user?.status == "pending"
                                 ? "bg-[#ff0033]"
                                 : "bg-[#0EAC5C]"
                             } w-[60px] text-center rounded text-sm`}
                           >
-                            {user?.status == "inactive" ? "Inactive" : "Active"}
+                            {user?.status == "pending" ? "Pending" : "Paid"}
                           </div>
                         </td>
-                        <td
+                        {/* <td
                           class="px-6 py-4 dark:text-white "
                           style={{ border: "1px solid #313133" }}
                         >
@@ -373,7 +387,7 @@ function Users() {
                               </Dialog>
                             </>
                           </div>
-                        </td>
+                        </td> */}
                       </tr>
                     );
                   })}
