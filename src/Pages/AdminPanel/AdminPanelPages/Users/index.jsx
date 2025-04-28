@@ -26,7 +26,7 @@ function Users() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
-  const totalItems = users.length;
+  const totalItems = users?.length;
   const paginate = (page) => {
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -78,7 +78,7 @@ function Users() {
       const { data: response } = await getAllUsers(skip, textFilter);
       setUsers(response.data.user);
     } catch (error) {
-      setError(error.response.data.message);
+      setError(error.response?.data.message);
     }
   };
 
@@ -94,7 +94,7 @@ function Users() {
 
   useEffect(() => {
     getUsers();
-  }, [skip]);
+  }, []);
 
   return (
     <div
@@ -190,7 +190,8 @@ function Users() {
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
-                    {/* <div className="relative flex justify-between w-80 rounded-full bg-[#313133]">
+                    <div className="flex m-2">
+                    <div className="relative flex justify-between w-80 rounded-full bg-[#313133]">
                       <input
                         type="text"
                         id="table-search-users"
@@ -212,8 +213,7 @@ function Users() {
                         className="absolute right-0 bottom-0 h-full px-4 rounded-r-full bg-blue-600 hover:bg-blue-700 transition-colors flex items-center justify-center"
                         onClick={() => {
                           setSkip(1);
-                          // Trigger your search function here
-                          // searchFunction(textFilter);
+                          handleFilters()
                         }}
                       >
                         <svg
@@ -232,7 +232,7 @@ function Users() {
                           />
                         </svg>
                       </button>
-                    </div> */}
+                    </div>
                     {/* <div class="relative flex justify-between w-80 rounded-full bg-[#313133]">
                       <input
                         type="text"
@@ -264,7 +264,7 @@ function Users() {
                     </div> */}
 
                     <button
-                      className="w-[125px] h-[6vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
+                      className="w-[125px] h-[6vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly m-2"
                       onClick={handleCreateButtonClick}
                     >
                       <svg
@@ -280,6 +280,7 @@ function Users() {
                         Add User
                       </span>
                     </button>
+                    </div>
                     <div className="">
                       <div className="flex flex-row gap-4 items-end">
                         {/* Date From Filter */}
@@ -410,7 +411,7 @@ function Users() {
                   </tr>
                 </thead>
                 <tbody>
-                  {users.map((user) => {
+                  {users?.map((user) => {
                     return (
                       <tr>
                         <th
