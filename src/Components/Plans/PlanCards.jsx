@@ -411,7 +411,7 @@ function PlanCards() {
                             className="mx-auto text-center font-semibold"
                             style={{ fontSize: "17px" }}
                           >
-                            {"Quarterly Plan"}
+                            {"Premium Plan"}
                           </div>
                         </div>
                       </div>
@@ -473,7 +473,7 @@ function PlanCards() {
                             className="mx-auto text-center font-semibold"
                             style={{ fontSize: "17px" }}
                           >
-                            {"Half-Year Plan"}
+                            {"Platinum Plan"}
                           </div>
                         </div>
                       </div>
