@@ -20,13 +20,10 @@ function Users() {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState();
   const [eventId, setEventId] = useState();
-  const [dateFrom, setDateFrom] = useState('');
-  const [dateTo, setDateTo] = useState('');
-  const [planType, setPlanType] = useState('all');
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
-  const totalItems = users?.length;
+  const totalItems = users.length;
   const paginate = (page) => {
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -76,25 +73,16 @@ function Users() {
   const getUsers = async () => {
     try {
       const { data: response } = await getAllUsers(skip, textFilter);
-      setUsers(response.data.user);
-    } catch (error) {
-      setError(error.response?.data.message);
-    }
-  };
-
-  const handleFilters = async() => {
-    try {
-      const filters = {dateFrom, dateTo, planType, email: textFilter}
-      const { data: response } = await getAllUsers(skip, JSON.stringify(filters));
-      setUsers(response.data.user);
+      // setUsers(response.data.user);
+      setUsers(response?.data?.user);
     } catch (error) {
       setError(error.response.data.message);
     }
-  }
+  };
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [textFilter, skip]);
 
   return (
     <div
@@ -190,50 +178,7 @@ function Users() {
                     <label for="table-search" class="sr-only">
                       Search
                     </label>
-                    <div className="flex m-2">
-                    <div className="relative flex justify-between w-80 rounded-full bg-[#313133]">
-                      <input
-                        type="text"
-                        id="table-search-users"
-                        className="ps-5 text-sm py-3 border-0 text-[#6C757D] text-xs placeholder:text-white bg-[#313133] rounded-full w-80 text-white pr-12"
-                        placeholder="Search by name or email"
-                        onChange={(e) => {
-                          // Just update the state without triggering the search
-                          setTextFilter(e.target.value);
-                        }}
-                        onKeyPress={(e) => {
-                          // Allow searching by pressing Enter key
-                          if (e.key === "Enter") {
-                            setSkip(1);
-                            handleFilters()
-                          }
-                        }}
-                      />
-                      <button
-                        className="absolute right-0 bottom-0 h-full px-4 rounded-r-full bg-blue-600 hover:bg-blue-700 transition-colors flex items-center justify-center"
-                        onClick={() => {
-                          setSkip(1);
-                          handleFilters()
-                        }}
-                      >
-                        <svg
-                          className="w-4 h-4 text-white"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                    {/* <div class="relative flex justify-between w-80 rounded-full bg-[#313133]">
+                    <div class="relative flex justify-between w-80 rounded-full bg-[#313133]">
                       <input
                         type="text"
                         id="table-search-users"
@@ -261,10 +206,10 @@ function Users() {
                           />
                         </svg>
                       </div>
-                    </div> */}
+                    </div>
 
                     <button
-                      className="w-[125px] h-[6vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly m-2"
+                      className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
                       onClick={handleCreateButtonClick}
                     >
                       <svg
@@ -276,76 +221,10 @@ function Users() {
                       >
                         <path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z" />
                       </svg>
-                      <span className="text-white text-sm dark:text-white p-2 m-2">
+                      <span className="text-white text-sm dark:text-white">
                         Add User
                       </span>
                     </button>
-                    </div>
-                    <div className="">
-                      <div className="flex flex-row gap-4 items-end">
-                        {/* Date From Filter */}
-                        <div className="flex flex-col">
-                          <label
-                            htmlFor="dateFrom"
-                            className="text-sm font-medium text-white mb-1"
-                          >
-                            Date From
-                          </label>
-                          <input
-                            type="date"
-                            id="dateFrom"
-                            className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            value={dateFrom}
-                            onChange={(e) => setDateFrom(e.target.value)}
-                          />
-                        </div>
-
-                        {/* Date To Filter */}
-                        <div className="flex flex-col">
-                          <label
-                            htmlFor="dateTo"
-                            className="text-sm font-medium text-white mb-1"
-                          >
-                            Date To
-                          </label>
-                          <input
-                            type="date"
-                            id="dateTo"
-                            className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            value={dateTo}
-                            onChange={(e) => setDateTo(e.target.value)}
-                          />
-                        </div>
-
-                        <div className="flex flex-col">
-                          <label
-                            htmlFor="planType"
-                            className="text-sm font-medium text-white mb-1"
-                          >
-                            Plan Type
-                          </label>
-                          <select
-                            id="planType"
-                            className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            value={planType}
-                            onChange={(e) => setPlanType(e.target.value)}
-                          >
-                            <option value="all">All</option>
-                            <option value="Basic Plan">Monthly Plan</option>
-                            <option value="Premium Plan">Quarterly Plan</option>
-                            <option value="Platinum Plan">
-                              Half Year Plan
-                            </option>
-                          </select>
-                        </div>
-                        <button
-                          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                          onClick={handleFilters}
-                        >
-                          Apply
-                        </button>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -378,22 +257,9 @@ function Users() {
                       class="px-6 py-3 dark:text-white"
                       style={{ border: "1px solid #313133" }}
                     >
-                      Date
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
-                      Plan
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 dark:text-white"
-                      style={{ border: "1px solid #313133" }}
-                    >
                       Expiry
                     </th>
+
                     <th
                       scope="col"
                       class="px-6 py-3 dark:text-white"
@@ -411,7 +277,7 @@ function Users() {
                   </tr>
                 </thead>
                 <tbody>
-                  {users?.map((user) => {
+                  {users.map((user) => {
                     return (
                       <tr>
                         <th
@@ -419,46 +285,28 @@ function Users() {
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          {user.userId?.name}
+                          {user.name}
                         </th>
                         <th
                           scope="row"
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          {user.userId?.email}
+                          {user.email}
                         </th>
                         <th
                           scope="row"
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          {user.userId?.phone || "-"}
+                          {user.phone || "-"}
                         </th>
                         <th
                           scope="row"
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          {moment(user?.createdAt).format("YYYY-MM-DD") || "-"}
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          {user?.packageId?.name || "-"}
-                        </th>
-                        <th
-                          scope="row"
-                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
-                          style={{ border: "1px solid #313133" }}
-                        >
-                          {user?.createdAt && user?.packageId?.days
-                            ? moment(user.createdAt)
-                                .add(user.packageId.days, "days")
-                                .format("YYYY-MM-DD")
-                            : "-"}
+                          { user?.expiryDate ? moment(user.expiryDate).format('YYYY-MM-DD') : "-"}
                         </th>
                         <td
                           class="px-6 py-4 dark:text-white"
@@ -466,12 +314,12 @@ function Users() {
                         >
                           <div
                             className={`${
-                              user?.status == "pending"
+                              user?.status == "inactive"
                                 ? "bg-[#ff0033]"
                                 : "bg-[#0EAC5C]"
                             } w-[60px] text-center rounded text-sm`}
                           >
-                            {user?.status == "pending" ? "Pending" : "Paid"}
+                            {user?.status == "inactive" ? "Inactive" : "Active"}
                           </div>
                         </td>
                         <td
@@ -481,9 +329,7 @@ function Users() {
                           <div className="flex">
                             <button
                               className="  relative w-[36px] h-[33px] rounded z-10 bg-[#FF0015] hover:before:absolute hover:before:bg-black hover:before:content-['History'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
-                              onClick={() =>
-                                handleHistoryButtonClick(user.userId?._id)
-                              }
+                              onClick={() => handleHistoryButtonClick(user._id)}
                             >
                               <img
                                 src={Eye}
@@ -494,7 +340,7 @@ function Users() {
                             <button
                               className="   ml-3  relative w-[36px] h-[33px] rounded z-10 bg-[#10C469] hover:before:absolute hover:before:bg-black hover:before:content-['Edit'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full  hover:before:mt-[-18px]"
                               onClick={() => {
-                                handleButtonClick(user?.userId);
+                                handleButtonClick(user);
                               }}
                             >
                               <img
@@ -503,11 +349,11 @@ function Users() {
                                 className="w-[16px] h-[16px] m-auto"
                               />
                             </button>
-                            {/* <>
+                            <>
                               <button
                                 variant="outlined"
                                 onClick={() => {
-                                  (user);
+                                  handleClickOpen(user);
                                 }}
                                 className="ml-3  w-[36px] h-[33px] rounded relative z-10 bg-[#FF5B5B] hover:before:absolute hover:before:bg-black hover:before:content-['Remove'] hover:before:p-2 hover:before:rounded hover:before:shadow-md hover:before:-top-full hover:before:mt-[-18px]"
                               >
@@ -540,7 +386,7 @@ function Users() {
                                   </Button>
                                 </DialogActions>
                               </Dialog>
-                            </> */}
+                            </>
                           </div>
                         </td>
                       </tr>
