@@ -257,6 +257,20 @@ function Users() {
                       class="px-6 py-3 dark:text-white"
                       style={{ border: "1px solid #313133" }}
                     >
+                      Package
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 dark:text-white"
+                      style={{ border: "1px solid #313133" }}
+                    >
+                      Package status
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 dark:text-white"
+                      style={{ border: "1px solid #313133" }}
+                    >
                       Expiry
                     </th>
 
@@ -300,6 +314,20 @@ function Users() {
                           style={{ border: "1px solid #313133" }}
                         >
                           {user.phone || "-"}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          { user?.payment ? user.payment?.packageId?.name : "-"}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          { user?.payment ? user.payment?.status : "-"}
                         </th>
                         <th
                           scope="row"
