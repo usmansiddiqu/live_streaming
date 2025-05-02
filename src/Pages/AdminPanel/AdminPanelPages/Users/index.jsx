@@ -19,6 +19,7 @@ function Users() {
   const [users, setUsers] = useState([]);
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState();
+  const [dateFrom, setDateFrom] = useState('');
   const [eventId, setEventId] = useState();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -72,8 +73,7 @@ function Users() {
   };
   const getUsers = async () => {
     try {
-      const { data: response } = await getAllUsers(skip, textFilter);
-      // setUsers(response.data.user);
+      const { data: response } = await getAllUsers(skip, textFilter, dateFrom);
       setUsers(response?.data?.user);
     } catch (error) {
       setError(error.response.data.message);
@@ -82,7 +82,7 @@ function Users() {
 
   useEffect(() => {
     getUsers();
-  }, [textFilter, skip]);
+  }, [textFilter, skip, dateFrom]);
 
   return (
     <div
@@ -104,7 +104,7 @@ function Users() {
             <div class="relative overflow-x-auto shadow-md edit-contain ">
               <div>
                 <div class="relative mt-1">
-                  <div class=" flex items-center  tvChannel-head justify-between  flex-wrap md:flex-row md:space-y-0 pb-4   ">
+                  <div class=" flex items-center justify-start gap-2 md:flex-row md:space-y-0 pb-4   ">
                     {/* <div className="bg-[#313133] Category-Filter rounded">
                       <button
                         id="dropdownActionButton"
@@ -207,9 +207,23 @@ function Users() {
                         </svg>
                       </div>
                     </div>
+                    <div className="">
+                       <div className="flex flex-row gap-4 items-end">
+                         {/* Date From Filter */}
+                         <div className="flex flex-col">
+                           <input
+                             type="date"
+                             id="dateFrom"
+                             className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                             value={dateFrom}
+                             onChange={(e) => setDateFrom(e.target.value)}
+                           />
+                         </div>
+                       </div>
+                     </div>
 
                     <button
-                      className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly"
+                      className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly my-2"
                       onClick={handleCreateButtonClick}
                     >
                       <svg
