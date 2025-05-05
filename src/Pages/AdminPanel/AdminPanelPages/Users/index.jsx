@@ -17,14 +17,16 @@ function Users() {
   const [activeItem, setActiveItem] = useState(1);
   const [textFilter, setTextFilter] = useState("");
   const [users, setUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState();
   const [dateFrom, setDateFrom] = useState('');
   const [eventId, setEventId] = useState();
+  const [planType, setPlanType] = useState('');
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
-  const totalItems = users.length;
+  const totalItems = users?.length;
   const paginate = (page) => {
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -75,6 +77,7 @@ function Users() {
     try {
       const { data: response } = await getAllUsers(skip, textFilter, dateFrom);
       setUsers(response?.data?.user);
+      setAllUsers(response?.data?.user)
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -83,6 +86,18 @@ function Users() {
   useEffect(() => {
     getUsers();
   }, [textFilter, skip, dateFrom]);
+
+  useEffect(() => {
+    if (planType) {
+      const filteredUsers = allUsers?.filter(
+        (u) =>
+          u.payment?.packageId?.name?.toLowerCase() === planType.toLowerCase()
+      );
+      setUsers(filteredUsers);
+    } else {
+      getUsers();
+    }
+  }, [planType]);
 
   return (
     <div
@@ -221,6 +236,25 @@ function Users() {
                          </div>
                        </div>
                      </div>
+                     <div className="flex flex-col">
+                           {/* <label
+                             htmlFor="planType"
+                             className="text-sm font-medium text-white mb-1"
+                           >
+                             Plan Type
+                           </label> */}
+                           <select
+                             id="planType"
+                             className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                             value={planType}
+                             onChange={(e) => setPlanType(e.target.value)}
+                           >
+                             <option value="">All</option>
+                             <option value="Basic Plan">Monthly Plan</option>
+                             <option value="Premium Plan">Quarterly Plan</option>
+                             <option value="Platinum Plan">Half Year Plan</option>
+                           </select>
+                         </div>
 
                     <button
                       className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly my-2"
@@ -305,7 +339,7 @@ function Users() {
                   </tr>
                 </thead>
                 <tbody>
-                  {users.map((user) => {
+                  {users?.map((user) => {
                     return (
                       <tr>
                         <th
