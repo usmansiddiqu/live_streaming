@@ -21,6 +21,7 @@ function Users() {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState();
   const [dateFrom, setDateFrom] = useState('');
+  const [dateTo, setDateTo] = useState('');
   const [eventId, setEventId] = useState();
   const [planType, setPlanType] = useState('');
 
@@ -75,7 +76,7 @@ function Users() {
   };
   const getUsers = async () => {
     try {
-      const { data: response } = await getAllUsers(skip, textFilter, dateFrom);
+      const { data: response } = await getAllUsers(skip, textFilter, dateFrom, dateTo);
       setUsers(response?.data?.user);
       setAllUsers(response?.data?.user)
     } catch (error) {
@@ -85,7 +86,7 @@ function Users() {
 
   useEffect(() => {
     getUsers();
-  }, [textFilter, skip, dateFrom]);
+  }, [textFilter, skip, dateTo]);
 
   useEffect(() => {
     if (planType) {
@@ -190,74 +191,99 @@ function Users() {
                         </ul>
                       </div>
                     </div> */}
-                    <label for="table-search" class="sr-only">
-                      Search
-                    </label>
-                    <div class="relative flex justify-between w-80 rounded-full bg-[#313133]">
-                      <input
-                        type="text"
-                        id="table-search-users"
-                        class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs placeholder:text-white bg-[#313133] rounded-full w-80 text-white"
-                        placeholder="Search by name or email"
-                        onChange={(e) => {
-                          setSkip(1);
-                          setTextFilter(e.target.value);
-                        }}
-                      />
-                      <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
-                        <svg
-                          class="w-3 h-3 text-white dark:text-white"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                          />
-                        </svg>
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="dateFrom mx-2"
+                        className="text-sm font-medium text-white mb-1"
+                      >
+                        Search
+                      </label>
+                      <div class="relative flex justify-between w-80 rounded-full bg-[#313133]">
+                        <input
+                          type="text"
+                          id="table-search-users"
+                          class=" ps-5 text-sm py-3 border-0  text-[#6C757D] text-xs placeholder:text-white bg-[#313133] rounded-full w-80 text-white"
+                          placeholder="Search by name or email"
+                          onChange={(e) => {
+                            setSkip(1);
+                            setTextFilter(e.target.value);
+                          }}
+                        />
+                        <div class="absolute bottom-0 right-0  flex items-center pointer-events-none mr-5 mb-3">
+                          <svg
+                            class="w-3 h-3 text-white dark:text-white"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                            />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                     <div className="">
-                       <div className="flex flex-row gap-4 items-end">
-                         {/* Date From Filter */}
-                         <div className="flex flex-col">
-                           <input
-                             type="date"
-                             id="dateFrom"
-                             className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                             value={dateFrom}
-                             onChange={(e) => setDateFrom(e.target.value)}
-                           />
-                         </div>
-                       </div>
-                     </div>
-                     <div className="flex flex-col">
-                           {/* <label
-                             htmlFor="planType"
-                             className="text-sm font-medium text-white mb-1"
-                           >
-                             Plan Type
-                           </label> */}
-                           <select
-                             id="planType"
-                             className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                             value={planType}
-                             onChange={(e) => setPlanType(e.target.value)}
-                           >
-                             <option value="">All</option>
-                             <option value="Basic Plan">Monthly Plan</option>
-                             <option value="Premium Plan">Quarterly Plan</option>
-                             <option value="Platinum Plan">Half Year Plan</option>
-                           </select>
-                         </div>
-
+                      <div className="flex flex-row gap-2 items-end">
+                        <div className="flex flex-col">
+                          <label
+                            htmlFor="dateFrom"
+                            className="text-sm font-medium text-white mb-1"
+                          >
+                            Date From
+                          </label>
+                          <input
+                            type="date"
+                            id="dateFrom"
+                            className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            value={dateFrom}
+                            onChange={(e) => setDateFrom(e.target.value)}
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <label
+                            htmlFor="dateFrom"
+                            className="text-sm font-medium text-white mb-1"
+                          >
+                            Date To
+                          </label>
+                          <input
+                            type="date"
+                            id="dateFrom"
+                            className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            value={dateTo}
+                            onChange={(e) => setDateTo(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="planType"
+                        className="text-sm font-medium text-white mb-1"
+                      >
+                        Plan Type
+                      </label>
+                      <select
+                        id="planType"
+                        className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        value={planType}
+                        onChange={(e) => setPlanType(e.target.value)}
+                      >
+                        <option value="">All</option>
+                        <option value="Basic Plan">Monthly Plan</option>
+                        <option value="Premium Plan">Quarterly Plan</option>
+                        <option value="Platinum Plan">Half Year Plan</option>
+                      </select>
+                    </div>
+                    <div className="mt-4">
                     <button
-                      className="w-[125px] h-[4vh] bg-[#0EAC5C] Add-tv font-medium rounded-md flex items-center justify-evenly my-2"
+                      className="w-[125px] h-[4vh] bg-[#0EAC5C] font-medium rounded-md flex items-center"
                       onClick={handleCreateButtonClick}
                     >
                       <svg
@@ -273,6 +299,7 @@ function Users() {
                         Add User
                       </span>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -299,6 +326,13 @@ function Users() {
                       style={{ border: "1px solid #313133" }}
                     >
                       Phone
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 dark:text-white"
+                      style={{ border: "1px solid #313133" }}
+                    >
+                      Date
                     </th>
                     <th
                       scope="col"
@@ -368,21 +402,30 @@ function Users() {
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          { user?.payment ? user.payment?.packageId?.name : "-"}
+                          {moment(user.createdAt).format('MM-DD-YYYY') || "-"}
                         </th>
                         <th
                           scope="row"
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          { user?.payment ? user.payment?.status : "-"}
+                          {user?.payment ? user.payment?.packageId?.name : "-"}
                         </th>
                         <th
                           scope="row"
                           class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
                           style={{ border: "1px solid #313133" }}
                         >
-                          { user?.expiryDate ? moment(user.expiryDate).format('YYYY-MM-DD') : "-"}
+                          {user?.payment ? user.payment?.status : "-"}
+                        </th>
+                        <th
+                          scope="row"
+                          class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white"
+                          style={{ border: "1px solid #313133" }}
+                        >
+                          {user?.expiryDate
+                            ? moment(user.expiryDate).format("YYYY-MM-DD")
+                            : "-"}
                         </th>
                         <td
                           class="px-6 py-4 dark:text-white"
