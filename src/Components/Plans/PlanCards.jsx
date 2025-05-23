@@ -247,8 +247,7 @@ function PlanCards() {
           >
             <div>
               <h4 className="my-10 font-bold">
-                Only cryptocurrency is accepted.
-                Contact support for payment.
+                Choose Plan
                 </h4>
             </div>
             <div
@@ -272,7 +271,7 @@ function PlanCards() {
                     />
                   </div>
                 </>
-              ) : (<></>
+              ) : (
                 // sortedData.map((payment, i) => (
                 // </div>
                 // <div
@@ -341,187 +340,187 @@ function PlanCards() {
                 //     </div>
                 //   </div>
                 ///////////////// New payment method blocks ////////////
-                // <>
-                //   <div
-                //     className={`flex w-[20rem] mb-4 small-screen ${
-                //       isWidthInRange ? "ml-3" : ""
-                //     }`}
-                //   >
-                //     <div
-                //       className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
-                //       style={{
-                //         backgroundColor: "#1F1340",
-                //         backgroundImage: `url(${plan})`,
-                //       }}
-                //     >
-                //       <div className="flex justify-start items-start">
-                //         <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
-                //           <div
-                //             className="mx-auto text-center font-semibold"
-                //             style={{ fontSize: "17px" }}
-                //           >
-                //             {"Monthly Plan"}
-                //           </div>
-                //         </div>
-                //       </div>
+                <>
+                  <div
+                    className={`flex w-[20rem] mb-4 small-screen ${
+                      isWidthInRange ? "ml-3" : ""
+                    }`}
+                  >
+                    <div
+                      className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
+                      style={{
+                        backgroundColor: "#1F1340",
+                        backgroundImage: `url(${plan})`,
+                      }}
+                    >
+                      <div className="flex justify-start items-start">
+                        <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
+                          <div
+                            className="mx-auto text-center font-semibold"
+                            style={{ fontSize: "17px" }}
+                          >
+                            {"Monthly Plan"}
+                          </div>
+                        </div>
+                      </div>
 
-                //       <div className="flex flex-col justify-center items-center">
-                //         <p className="text-4xl font-bold">
-                //           <span className="text-xl">$</span>
-                //           {15}
-                //           <span className="text-xl">.00</span>
-                //         </p>
-                //         <div
-                //           className="w-14 rounded-lg bg-blue-500"
-                //           style={{ paddingTop: "4px", marginTop: "4px" }}
-                //         />
-                //         <div>
-                //           <p className="text-lg mt-3">
-                //             <span>{30}</span> <span>Day</span> (<span>s</span>)
-                //           </p>
-                //         </div>
-                //         <button
-                //           onClick={() => {
-                //             handleNavigate("15.00", "66f6e6f00230ef05670897c5"); // Trigger visibility and auto-click
-                //           }}
-                //           className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
-                //         >
-                //           Select Plan
-                //         </button>
-                //         <div
-                //           className="cursor-pointer mt-2"
-                //           onClick={() => setMonthlyInfoModal(!monthlyInfoModal)}
-                //         >
-                //           Learn more
-                //         </div>
-                //       </div>
-                //     </div>
-                //   </div>
-                //   <div
-                //     className={`flex w-[20rem] mb-4 small-screen ${
-                //       isWidthInRange ? "ml-3" : ""
-                //     }`}
-                //   >
-                //     <div
-                //       className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
-                //       style={{
-                //         backgroundColor: "#1F1340",
-                //         backgroundImage: `url(${plan})`,
-                //       }}
-                //     >
-                //       <div className="flex justify-start items-start">
-                //         <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
-                //           <div
-                //             className="mx-auto text-center font-semibold"
-                //             style={{ fontSize: "17px" }}
-                //           >
-                //             {"Quarterly Plan"}
-                //           </div>
-                //         </div>
-                //       </div>
+                      <div className="flex flex-col justify-center items-center">
+                        <p className="text-4xl font-bold">
+                          <span className="text-xl">$</span>
+                          {15}
+                          <span className="text-xl">.00</span>
+                        </p>
+                        <div
+                          className="w-14 rounded-lg bg-blue-500"
+                          style={{ paddingTop: "4px", marginTop: "4px" }}
+                        />
+                        <div>
+                          <p className="text-lg mt-3">
+                            <span>{30}</span> <span>Day</span> (<span>s</span>)
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => {
+                            handleNavigate("15.00", "66f6e6f00230ef05670897c5"); // Trigger visibility and auto-click
+                          }}
+                          className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
+                        >
+                          Select Plan
+                        </button>
+                        <div
+                          className="cursor-pointer mt-2"
+                          onClick={() => setMonthlyInfoModal(!monthlyInfoModal)}
+                        >
+                          Learn more
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={`flex w-[20rem] mb-4 small-screen ${
+                      isWidthInRange ? "ml-3" : ""
+                    }`}
+                  >
+                    <div
+                      className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
+                      style={{
+                        backgroundColor: "#1F1340",
+                        backgroundImage: `url(${plan})`,
+                      }}
+                    >
+                      <div className="flex justify-start items-start">
+                        <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
+                          <div
+                            className="mx-auto text-center font-semibold"
+                            style={{ fontSize: "17px" }}
+                          >
+                            {"Quarterly Plan"}
+                          </div>
+                        </div>
+                      </div>
 
-                //       <div className="flex flex-col justify-center items-center">
-                //         <p className="text-4xl font-bold">
-                //           <span className="text-xl">$</span>
-                //           {35}
-                //           <span className="text-xl">.00</span>
-                //         </p>
-                //         <div
-                //           className="w-14 rounded-lg bg-blue-500"
-                //           style={{ paddingTop: "4px", marginTop: "4px" }}
-                //         />
-                //         <div>
-                //           <p className="text-lg mt-3">
-                //             <span> {90}</span> <span>Day</span> (<span>s</span>)
-                //           </p>
-                //         </div>
-                //         <div>
-                //           <button
-                //             onClick={() => {
-                //               handleNavigate(
-                //                 "35.00",
-                //                 "66f6e70c0230ef05670897ca"
-                //               );
-                //             }}
-                //             className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
-                //           >
-                //             Select Plan
-                //           </button>
-                //         </div>
-                //         <div
-                //           className="cursor-pointer mt-2"
-                //           onClick={() =>
-                //             setQuarterlyInfoModal(!quarterlyInfoModal)
-                //           }
-                //         >
-                //           Learn more
-                //         </div>
-                //       </div>
-                //     </div>
-                //   </div>
-                //   <div
-                //     className={`flex w-[20rem] mb-4 small-screen ${
-                //       isWidthInRange ? "ml-3" : ""
-                //     }`}
-                //   >
-                //     <div
-                //       className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
-                //       style={{
-                //         backgroundColor: "#1F1340",
-                //         backgroundImage: `url(${plan})`,
-                //       }}
-                //     >
-                //       <div className="flex justify-start items-start">
-                //         <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
-                //           <div
-                //             className="mx-auto text-center font-semibold"
-                //             style={{ fontSize: "17px" }}
-                //           >
-                //             {"Half-Year Plan"}
-                //           </div>
-                //         </div>
-                //       </div>
+                      <div className="flex flex-col justify-center items-center">
+                        <p className="text-4xl font-bold">
+                          <span className="text-xl">$</span>
+                          {35}
+                          <span className="text-xl">.00</span>
+                        </p>
+                        <div
+                          className="w-14 rounded-lg bg-blue-500"
+                          style={{ paddingTop: "4px", marginTop: "4px" }}
+                        />
+                        <div>
+                          <p className="text-lg mt-3">
+                            <span> {90}</span> <span>Day</span> (<span>s</span>)
+                          </p>
+                        </div>
+                        <div>
+                          <button
+                            onClick={() => {
+                              handleNavigate(
+                                "35.00",
+                                "66f6e70c0230ef05670897ca"
+                              );
+                            }}
+                            className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
+                          >
+                            Select Plan
+                          </button>
+                        </div>
+                        <div
+                          className="cursor-pointer mt-2"
+                          onClick={() =>
+                            setQuarterlyInfoModal(!quarterlyInfoModal)
+                          }
+                        >
+                          Learn more
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={`flex w-[20rem] mb-4 small-screen ${
+                      isWidthInRange ? "ml-3" : ""
+                    }`}
+                  >
+                    <div
+                      className="flex flex-col gap-3 w-full md:w-[20rem] h-64 bg-center rounded-xl pay-cardd"
+                      style={{
+                        backgroundColor: "#1F1340",
+                        backgroundImage: `url(${plan})`,
+                      }}
+                    >
+                      <div className="flex justify-start items-start">
+                        <div className="bg-gradient-to-r from-[#00C5FF] to-[#0074FF] w-full rounded-tr-xl rounded-tl-xl flex justify-center items-center h-12 ">
+                          <div
+                            className="mx-auto text-center font-semibold"
+                            style={{ fontSize: "17px" }}
+                          >
+                            {"Half-Year Plan"}
+                          </div>
+                        </div>
+                      </div>
 
-                //       <div className="flex flex-col justify-center items-center">
-                //         <p className="text-4xl font-bold">
-                //           <span className="text-xl">$</span>
-                //           {50}
-                //           <span className="text-xl">.00</span>
-                //         </p>
-                //         <div
-                //           className="w-14 rounded-lg bg-blue-500"
-                //           style={{ paddingTop: "4px", marginTop: "4px" }}
-                //         />
-                //         <div>
-                //           <p className="text-lg mt-3">
-                //             <span> {180}</span> <span>Day</span> (<span>s</span>
-                //             )
-                //           </p>
-                //         </div>
-                //         <div>
-                //           <button
-                //             onClick={() => {
-                //               handleNavigate(
-                //                 "50.00",
-                //                 "66f6e75b0230ef05670897d1"
-                //               );
-                //             }}
-                //             className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
-                //           >
-                //             Select Plan
-                //           </button>
-                //         </div>
-                //         <div
-                //           className="cursor-pointer mt-2"
-                //           onClick={() => setYearlyInfoModal(!yearlyInfoModal)}
-                //         >
-                //           Learn more
-                //         </div>
-                //       </div>
-                //     </div>
-                //   </div>
-                // </>
-                // ))
+                      <div className="flex flex-col justify-center items-center">
+                        <p className="text-4xl font-bold">
+                          <span className="text-xl">$</span>
+                          {50}
+                          <span className="text-xl">.00</span>
+                        </p>
+                        <div
+                          className="w-14 rounded-lg bg-blue-500"
+                          style={{ paddingTop: "4px", marginTop: "4px" }}
+                        />
+                        <div>
+                          <p className="text-lg mt-3">
+                            <span> {180}</span> <span>Day</span> (<span>s</span>
+                            )
+                          </p>
+                        </div>
+                        <div>
+                          <button
+                            onClick={() => {
+                              handleNavigate(
+                                "50.00",
+                                "66f6e75b0230ef05670897d1"
+                              );
+                            }}
+                            className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
+                          >
+                            Select Plan
+                          </button>
+                        </div>
+                        <div
+                          className="cursor-pointer mt-2"
+                          onClick={() => setYearlyInfoModal(!yearlyInfoModal)}
+                        >
+                          Learn more
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
+                //))
               )}
             </div>
             {isDekstop && (
