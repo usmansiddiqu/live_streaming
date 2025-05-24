@@ -17,11 +17,12 @@ const NBCGatePayButton = ({ amount, order_id, packageId }) => {
       navigate("/");
     }
   };
-  // https://portal.nbcgate.tech/js/payformdev.js?ID=179 //
+  // test https://portal.nbcgate.tech/js/payformdev.js?ID=179 //
+ /// live https://portal.nbcgate.com/js/payform.js?ID=23
   useEffect(() => {
     if (!document.getElementById("nbcgatepay")) {
       const script = document.createElement("script");
-      script.src = "https://portal.nbcgate.com/js/payform.js?ID=23";
+      script.src = "https://portal.nbcgate.tech/js/payformdev.js?ID=179";
       script.async = true;
       script.id = "nbcgatepay";
       script.onload = () => {
