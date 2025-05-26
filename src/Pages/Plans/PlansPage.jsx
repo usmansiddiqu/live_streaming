@@ -39,7 +39,7 @@ function PlansPage() {
       <DashHeader title={"Service Plan"} subtitle="Service Plan" noContent={true} />
 
       <PlanCards />
-      <Coupon />
+      {/* <Coupon /> */}
       {/* <div className="text-white mx-auto w-[70vw] mb-3 plan-page-text">
         <p className="text-lg font-bold">Why Choose Our Subscription?</p>
         <p>

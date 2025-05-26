@@ -16,6 +16,14 @@ import ErrorComponent1 from "../Common/ErrorComponent1";
 import { useMediaQuery } from "react-responsive";
 import NBCGatePayButton from "../../NBCScripts/NBCGatePay";
 import { useLocation } from "react-router-dom";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+  Box,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import moment from "moment";
 
 const StepProgress = ({ currentStep }) => {
@@ -74,7 +82,65 @@ function PlanCards() {
   const location = useLocation();
   const userData = localStorage.getItem("data");
 
-  console.log(isCardSelected);
+  const faqData = [
+    {
+      question: "1. What is Pixelsport TV?",
+      answer:
+        "PixelSport TV is a premium live sports streaming platform offering HD-quality coverage of major sporting events with options for home and away commentary, zero blackouts, and smooth streaming on any device.",
+    },
+    {
+      question: "2. How do I get access to PixelSport TV?",
+      answer:
+        "Choose the plan that best fits your needs on our pricing page and complete your payment using a secure credit card checkout. Once your payment is confirmed, your access will be activated based on the selected plan.",
+    },
+    {
+      question: "3. What sports do you cover?",
+      answer:
+        "We stream a wide range of leagues including NHL, NFL, NBA, MLB, and other top competitions. Our schedule is updated daily, so you never miss a game.",
+    },
+    {
+      question: "4. What devices can I watch on?",
+      answer:
+        "PixelSport TV is fully compatible with desktops, laptops, smartphones, tablets, and smart TVs — no app required. Just stream directly through your browser.",
+    },
+    {
+      question: "5. Is the streaming in HD?",
+      answer:
+        "Yes! All streams are in high-definition with adaptive bitrate technology for smooth, buffer-free playback even on slower networks.",
+    },
+    {
+      question: "6. When will my access be activated?",
+      answer:
+        "Access is typically activated within minutes of successful payment. In most cases, its ready within the hour.",
+    },
+    {
+      question: "7. What if I face issues after payment?",
+      answer:
+        "Just contact our support team with your payment confirmation, and we’ll help you resolve any issues right away.",
+    },
+    {
+      question: "8. Do you offer refunds?",
+      answer:
+        "Yes — we provide a no-questions-asked refund within 24 hours of payment. Your satisfaction is our priority.",
+    },
+    {
+      question: "9. Can I share my account with others?",
+      answer:
+        "Each plan is intended for personal use. Sharing access across multiple IPs or devices may result in suspension for security and fairness.",
+    },
+    {
+      question: "10. How reliable is the service?",
+      answer:
+        "PixelSport TV maintains approximately 95% uptime. In the rare case of a disruption, we provide alternate feeds or rapid recovery to ensure your viewing experience continues smoothly.",
+    },
+    {
+      question: "11. Who is behind PixelSport TV?",
+      answer:
+        "We’re a team of sports enthusiasts and streaming experts with years of experience building stable, high-performance sports platforms for fans worldwide.",
+    },
+  ];
+
+ 
   const getData = async () => {
     setLoading(true);
     const { data: response } = await getPlans();
@@ -246,9 +312,7 @@ function PlanCards() {
             }`}
           >
             <div>
-              <h4 className="my-10 font-bold">
-                Choose Plan
-                </h4>
+              <h4 className="my-10 font-bold">Choose Plan</h4>
             </div>
             <div
               className="payment-skelton"
@@ -531,6 +595,63 @@ function PlanCards() {
             <div>{false && <ErrorComponent1 message={error} />}</div>
           )}
         </div>
+
+        <Box
+          sx={{
+            backgroundColor: "#0d0628",
+            padding: 4,
+            borderRadius: 3,
+            maxWidth: 800,
+            mx: "auto",
+            color: "#fff",
+          }}
+        >
+          <Typography
+            variant="h5"
+            fontWeight="bold"
+            gutterBottom
+            sx={{ color: "#fff" }}
+          >
+            Frequently Asked Questions (FAQ) - Pixelsport TV
+          </Typography>
+
+          {faqData.map((faq, index) => (
+            <Accordion
+              key={index}
+              sx={{
+                backgroundColor: "#10082f",
+                color: "#fff",
+                boxShadow: "none",
+                borderBottom: "1px solid #ffffff30",
+                "&::before": {
+                  display: "none",
+                },
+              }}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
+                aria-controls={`panel${index}-content`}
+                id={`panel${index}-header`}
+                sx={{
+                  fontWeight: "bold",
+                  "& .MuiAccordionSummary-content": {
+                    margin: 0,
+                  },
+                }}
+              >
+                {faq.question}
+              </AccordionSummary>
+              <AccordionDetails
+                sx={{
+                  fontSize: 15,
+                  lineHeight: 1.6,
+                }}
+              >
+                {faq.answer}
+              </AccordionDetails>
+            </Accordion>
+          ))}
+        </Box>
       </div>
       {monthlyInfoModal && (
         <div
