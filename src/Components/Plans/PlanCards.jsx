@@ -595,11 +595,11 @@ function PlanCards() {
             <div>{false && <ErrorComponent1 message={error} />}</div>
           )}
         </div>
-
+        <div className="mt-4">
         <Box
           sx={{
             backgroundColor: "#0d0628",
-            padding: 4,
+            // padding: 4,
             borderRadius: 3,
             maxWidth: 800,
             mx: "auto",
@@ -652,6 +652,7 @@ function PlanCards() {
             </Accordion>
           ))}
         </Box>
+        </div>
       </div>
       {monthlyInfoModal && (
         <div
