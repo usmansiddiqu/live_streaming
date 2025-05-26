@@ -619,6 +619,7 @@ function PlanCards() {
             <Accordion
               key={index}
               sx={{
+                mb: 1.5,
                 backgroundColor: "#10082f",
                 color: "#fff",
                 boxShadow: "none",
