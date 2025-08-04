@@ -337,7 +337,7 @@ function PlanCards() {
                 </>
               ) : (
                 <>
-                  {/* {sortedData.map((payment, i) => (
+                  {sortedData.map((payment, i) => (
                     <div
                       key={payment._id}
                       className={`flex w-[20rem] mb-4 small-screen ${
@@ -404,8 +404,8 @@ function PlanCards() {
                         </div>
                       </div>
                     </div>
-                  ))} */}
-                  <>
+                  ))}
+                  {/* <>
                     <div
                       className={`flex w-[20rem] mb-4 small-screen ${
                         isWidthInRange ? "ml-3" : ""
@@ -591,7 +591,7 @@ function PlanCards() {
                         </div>
                       </div>
                     </div>
-                  </>
+                  </> */}
                 </>
                 //))
               )}
