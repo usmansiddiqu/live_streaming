@@ -167,28 +167,35 @@ function PlanCards() {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
     if (newWindow) newWindow.opener = null;
   };
-  const handleClick = async (packageId) => {
+  const handleClick = async (packageId, i) => {
     console.log(packageId);
     if (!localStorage.getItem("token") || !localStorage.getItem("data")) {
       navigate("/signup");
     } else {
-      if (isCardSelected) {
-        const result = await policioPayment({ packageId: packageId });
-        console.log(result);
-        if (result?.data?.error) {
-          setError(result?.data?.error);
-        } else {
-          // openInNewTab(result.data?.data?.data?.invoice_url);
-          window.location.href = result.data?.data?.data?.invoice_url;
-        }
+      if(i === 0) {
+        window.location.assign("https://pixelsport.store/checkout/?add-to-cart=5051&empty-cart=1")
+      } else if(i === 1) {
+        window.location.assign("https://pixelsport.store/checkout/?add-to-cart=5052&empty-cart=1")
       } else {
-        const result = await createPayment({ package_id: packageId });
-        if (result?.data?.error) {
-          setError1(result?.data?.error);
-        } else {
-          window.location.href = result.data.link;
-        }
+        window.location.assign("https://pixelsport.store/checkout/?add-to-cart=5054&empty-cart=1")
       }
+      // if (isCardSelected) {
+      //   const result = await policioPayment({ packageId: packageId });
+      //   console.log(result);
+      //   if (result?.data?.error) {
+      //     setError(result?.data?.error);
+      //   } else {
+      //     // openInNewTab(result.data?.data?.data?.invoice_url);
+      //     window.location.href = result.data?.data?.data?.invoice_url;
+      //   }
+      // } else {
+      //   const result = await createPayment({ package_id: packageId });
+      //   if (result?.data?.error) {
+      //     setError1(result?.data?.error);
+      //   } else {
+      //     window.location.href = result.data.link;
+      //   }
+      // }
     }
     // setError("Please contact live support for buying service and renewal");
   };
@@ -389,7 +396,7 @@ function PlanCards() {
                                 "Free Service - No Card required"
                               ) {
                                 handleFreePayment();
-                              } else handleClick(payment._id);
+                              } else handleClick(payment._id, i);
                             }}
                             className="bg-gradient-to-r from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2 justify-center items-center mt-3"
                           >
