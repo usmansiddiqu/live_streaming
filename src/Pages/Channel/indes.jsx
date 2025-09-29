@@ -22,6 +22,7 @@ function Channel() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [data, setData] = useState(null);
+  const user = JSON.parse(localStorage.getItem("data"))
 
   const fetchSliderData = async () => {
     try {
@@ -46,6 +47,16 @@ function Channel() {
     baseColor: "#170f2c",
     highlightColor: "#332e47",
   };
+
+  const handleClick = (item) => {
+    if(!user) {
+      navigate("/login")
+    } else if(user.expiryDate && new Date(user.expiryDate) < new Date()) {
+      navigate("/membership_plan")
+    } else {
+      navigate(`/live/${item._id}`)
+    }
+  }
 
   return (
     <div>
@@ -79,7 +90,7 @@ function Channel() {
                         .map((item) => (
                           <div
                             className="w-[330px] h-[180px] border score-card"
-                            onClick={() => navigate(`/live/${item._id}`)}
+                            onClick={() => handleClick(item)}
                             key={item._id}
                           >
                             <div
@@ -120,7 +131,7 @@ function Channel() {
                         .map((item) => (
                           <div
                             className="w-[310px] h-[180px] border score-card"
-                            onClick={() => navigate(`/live/${item._id}`)}
+                             onClick={() => handleClick(item)}
                             key={item._id}
                           >
                             <div
