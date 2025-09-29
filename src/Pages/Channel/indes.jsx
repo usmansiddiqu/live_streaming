@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Ended from "../../Components/Common/Ended";
 import { url } from "../../helper/url";
 import getSliders from "../../api/getSlider";
+import canView from "../../api/canView";
 
 function Channel() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1700px)" });
@@ -22,7 +23,7 @@ function Channel() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [data, setData] = useState(null);
-  const user = JSON.parse(localStorage.getItem("data"))
+  const user = JSON.parse(localStorage.getItem("data"));
 
   const fetchSliderData = async () => {
     try {
@@ -43,26 +44,58 @@ function Channel() {
     fetchSliderData();
   }, []);
 
+  // Guard: if user exists but has no active subscription, redirect to plans
+  useEffect(() => {
+    const storedUserRaw = localStorage.getItem("data");
+    if (!storedUserRaw) return; // allow unauthenticated flow to handle via click/login
+
+    try {
+      const storedUser = JSON.parse(storedUserRaw);
+      const isExpired =
+        !storedUser?.expiryDate || new Date(storedUser.expiryDate) < new Date();
+      if (isExpired) {
+        navigate("/membership_plan");
+        return;
+      }
+    } catch (_) {}
+
+    // Backend confirmation (in case local date is stale)
+    canView()
+      .then((res) => {
+        if (!res?.data?.flag) {
+          navigate("/membership_plan");
+        }
+      })
+      .catch(() => {
+        // On error, do not hard-redirect; the click handler still protects navigation
+      });
+  }, [navigate]);
+
   const skeletonProps = {
     baseColor: "#170f2c",
     highlightColor: "#332e47",
   };
 
   const handleClick = (item) => {
-    if(!user) {
-      navigate("/login")
-    } else if(user.expiryDate && new Date(user.expiryDate) < new Date()) {
-      navigate("/membership_plan")
+    if (!user) {
+      navigate("/login");
+    } else if (user.expiryDate && new Date(user.expiryDate) < new Date()) {
+      navigate("/membership_plan");
     } else {
-      navigate(`/live/${item._id}`)
+      navigate(`/live/${item._id}`);
     }
-  }
+  };
 
   return (
     <div>
       <div style={{ minHeight: "100vh", overflow: "hidden !important" }}>
         <Nav />
-        <DashHeader title={"24/7 LIVE"} subtitle="Channel" info="Non-stop sports action, all day, every day—catch every game, every play, anytime you want!" type="Channels"/>
+        <DashHeader
+          title={"24/7 LIVE"}
+          subtitle="Channel"
+          info="Non-stop sports action, all day, every day—catch every game, every play, anytime you want!"
+          type="Channels"
+        />
         {loading ? (
           <div className="flex items-center justify-center relative pt-1 mt-3">
             <div className=" card-con mb-4 w-full md:w-3/4 lg:w-2/3">
@@ -131,7 +164,7 @@ function Channel() {
                         .map((item) => (
                           <div
                             className="w-[310px] h-[180px] border score-card"
-                             onClick={() => handleClick(item)}
+                            onClick={() => handleClick(item)}
                             key={item._id}
                           >
                             <div
