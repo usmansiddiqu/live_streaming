@@ -44,46 +44,39 @@ function Channel() {
     fetchSliderData();
   }, []);
 
-  // Guard: if user exists but has no active subscription, redirect to plans
-  useEffect(() => {
-    const storedUserRaw = localStorage.getItem("data");
-    if (!storedUserRaw) return; // allow unauthenticated flow to handle via click/login
-
-    try {
-      const storedUser = JSON.parse(storedUserRaw);
-      const isExpired =
-        !storedUser?.expiryDate || new Date(storedUser.expiryDate) < new Date();
-      if (isExpired) {
-        navigate("/membership_plan");
-        return;
-      }
-    } catch (_) {}
-
-    // Backend confirmation (in case local date is stale)
-    canView()
-      .then((res) => {
-        if (!res?.data?.flag) {
-          navigate("/membership_plan");
-        }
-      })
-      .catch(() => {
-        // On error, do not hard-redirect; the click handler still protects navigation
-      });
-  }, [navigate]);
+  // Removed global canView checks; validation happens on item click
 
   const skeletonProps = {
     baseColor: "#170f2c",
     highlightColor: "#332e47",
   };
 
-  const handleClick = (item) => {
+  const handleClick = async (item) => {
     if (!user) {
       navigate("/login");
-    } else if (user.expiryDate && new Date(user.expiryDate) < new Date()) {
-      navigate("/membership_plan");
-    } else {
-      navigate(`/live/${item._id}`);
+      return;
     }
+
+    // Local expiry guard first
+    if (user.expiryDate && new Date(user.expiryDate) < new Date()) {
+      navigate("/membership_plan");
+      return;
+    }
+
+    // Backend canView validation at click time
+    try {
+      const res = await canView();
+      if (!res?.data?.flag) {
+        navigate("/membership_plan");
+        return;
+      }
+    } catch (_) {
+      // If backend errors, keep user safe by sending to plans
+      navigate("/membership_plan");
+      return;
+    }
+
+    navigate(`/live/${item._id}`);
   };
 
   return (
