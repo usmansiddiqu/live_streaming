@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Clappr from "@clappr/player";
-import { useSelector } from "react-redux";
-import TrialTimer from "../../Pages/DetailsPage/TrialTimer";
 import { MediaControl } from "@clappr/plugins";
 
 function ClapprPlayer({ url }) {
-  const showTrialTag = useSelector((state) => state.auth.showTrialTag);
   const [player, setPlayer] = useState(null);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const [userInteracted, setUserInteracted] = useState(false); // Track if user interacted
@@ -98,12 +95,12 @@ function ClapprPlayer({ url }) {
   // }, [url, windowSize, userInteracted]);
   useEffect(() => {
     const { width, height } = calculatePlayerSize();
-  
+
     // Destroy old player if exists
     if (player) {
       player.destroy();
     }
-  
+
     // Create new Clappr player
     const newPlayer = new Clappr.Player({
       source: url,
@@ -115,7 +112,7 @@ function ClapprPlayer({ url }) {
       playsinline: true, // Required for Safari iOS
       useNativeFullscreen: true, // Use the browser's native fullscreen
       fullscreenEnabled: true, // Enable fullscreen functionality
-  
+
       events: {
         onReady: function () {
           console.log("Player is ready!");
@@ -127,7 +124,7 @@ function ClapprPlayer({ url }) {
           console.error("Player error:", error); // Log errors for debugging
         },
       },
-  
+
       plugins: [
         MediaControl.MainPlugin,
         MediaControl.PlayPauseButtonPlugin,
@@ -137,17 +134,17 @@ function ClapprPlayer({ url }) {
         MediaControl.TimeIndicatorPlugin,
       ],
     });
-  
+
     setPlayer(newPlayer);
-  
+
     // Handle window resize
     const handleResize = () => {
       const { width: newWidth, height: newHeight } = calculatePlayerSize();
       newPlayer.resize({ width: newWidth, height: newHeight }); // Resize the player directly
     };
-  
+
     window.addEventListener("resize", handleResize);
-  
+
     return () => {
       window.removeEventListener("resize", handleResize);
       newPlayer.destroy();
@@ -157,13 +154,6 @@ function ClapprPlayer({ url }) {
     <div className="relative w-full bg-black">
       {/* Video Player */}
       <div id="videoPlayer" className="w-full h-full"></div>
-
-      {/* Overlay: Trial Timer */}
-      {showTrialTag && (
-        <div className="absolute top-1 right-1 z-10">
-          <TrialTimer />
-        </div>
-      )}
     </div>
   );
 }

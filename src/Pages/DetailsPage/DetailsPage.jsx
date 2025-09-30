@@ -17,10 +17,8 @@ import {
   useLocation,
 } from "react-router-dom";
 import TheaterMode from "../../Components/TheaterMode";
-import TrialTimer from "./TrialTimer";
 import moment from "moment";
 import { useDispatch } from "react-redux";
-import { setTrialTag } from "../../api/slice/auth.slice";
 
 function DetailsPage() {
   const dispatch = useDispatch();
@@ -102,37 +100,15 @@ function DetailsPage() {
   const visited = localStorage.getItem("visited");
 
   const goToPlansPage = () => {
-    if (isLivee?.current) {
-      navigate("/membership_plan");
-    }
-    if (visited == "true") {
-      navigate("/membership_plan");
-    } else {
-      timeoutRef.current = setTimeout(() => {
-        dispatch(setTrialTag(false));
-        localStorage.setItem("visited", "true");
-        navigate("/membership_plan");
-      }, 60000);
-    }
+    navigate("/membership_plan");
   };
   const canViewPage = async () => {
     try {
       const result = await canView();
-      if (result.data.flag) {
-        localStorage.removeItem("visited");
-        dispatch(setTrialTag(false));
-      }
-      if (localStorage.getItem("data")) {
-        if (!result.data.flag) {
-          dispatch(setTrialTag(true));
-          goToPlansPage();
-        }
-      } else {
-        dispatch(setTrialTag(true));
+      if (!result.data.flag) {
         goToPlansPage();
       }
     } catch (error) {
-      dispatch(setTrialTag(true));
       goToPlansPage();
     }
   };
@@ -140,9 +116,7 @@ function DetailsPage() {
     // canViewPage();
     return () => {
       if (timeoutRef.current) {
-        dispatch(setTrialTag(false));
         clearTimeout(timeoutRef.current);
-        console.log("Timeout cleared");
       }
     };
   }, []);
