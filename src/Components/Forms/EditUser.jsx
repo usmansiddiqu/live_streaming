@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Pikaday from "pikaday";
 import "pikaday/css/pikaday.css";
 import updateUser from "../../api/editUser";
+import getPackagesAdmin from "../../api/getPackagesAdmin";
 import getSpecificUser from "../../api/specificUser";
 import ErrorComponent from "../Common/ErrorComponent";
 import { useParams } from "react-router-dom";
@@ -15,6 +16,8 @@ function EditUser() {
   const [address, setAddress] = useState("");
   const [image, setImage] = useState("");
   const [expireDate, setExpireDate] = useState("");
+  const [packages, setPackages] = useState([]);
+  const [packageId, setPackageId] = useState("");
   // const [subscriptionPlan,setEmail]=useState("")
   const [status, setStatus] = useState("active");
   const [error, setError] = useState("");
@@ -40,6 +43,9 @@ function EditUser() {
       formData.append("phone", phone);
       formData.append("address", address);
       formData.append("expiryDate", expireDate);
+      if (packageId) {
+        formData.append("packageId", packageId);
+      }
       formData.append("status", status);
       formData.append("image", image);
       const { data: response } = await updateUser(formData);
@@ -57,12 +63,22 @@ function EditUser() {
       setAddress(response.data?.address);
       setExpireDate(response.data?.expiryDate);
       setStatus(response.data?.status);
+      if (response.data?.packageId) {
+        setPackageId(response.data.packageId);
+      }
     } catch (error) {
       // setError(error.response.data.message);
     }
   };
+  const getAdminPackages = async () => {
+    try {
+      const { data } = await getPackagesAdmin();
+      setPackages(data?.data || []);
+    } catch (e) {}
+  };
   useEffect(() => {
     getChannelById();
+    getAdminPackages();
   }, []);
 
   return (
@@ -206,6 +222,27 @@ function EditUser() {
                   setExpireDate(e.target.value);
                 }}
               />
+            </div>
+            <div class="mb-5 input-feild w-[72vw] flex  ">
+              <label
+                for="subscription_plan"
+                class="block mb-2 input-feild-label  text-sm font-medium text-white w-[17vw]"
+              >
+                Subscription Plan
+              </label>
+              <select
+                id="subscription_plan"
+                class=" border-0 text-sm rounded focus:ring-0 bg-[#48484A] block w-full p-2.5 font-bold text-white"
+                value={packageId}
+                onChange={(e) => setPackageId(e.target.value)}
+              >
+                <option value="">Select package</option>
+                {packages?.map((p) => (
+                  <option key={p?._id} value={p?._id}>
+                    {p?.name} ({p?.days} days)
+                  </option>
+                ))}
+              </select>
             </div>
             {/* <div class="mb-5 input-feild w-[72vw] flex  ">
               <label

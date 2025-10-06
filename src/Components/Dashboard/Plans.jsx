@@ -7,6 +7,7 @@ import bankDetails from "../../api/getBankDetails";
 import getStats from "../../api/getStats";
 import makeRequest from "../../api/makeRequest";
 import cancelSub from "../../api/cancelSub";
+import getDetails from "../../api/authGetDetails";
 
 import {
   Button,
@@ -40,6 +41,16 @@ function Plans({ userData, variant }) {
     localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data")) : {}
   );
 
+  const refreshUserDetails = async () => {
+    try {
+      const { data: response } = await getDetails();
+      if (response?.user) {
+        setData(response.user);
+        localStorage.setItem("data", JSON.stringify(response.user));
+      }
+    } catch (e) {}
+  };
+
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -71,6 +82,7 @@ function Plans({ userData, variant }) {
   useEffect(() => {
     getUserBankDetails();
     getUserStats();
+    refreshUserDetails();
   }, []);
   const copyToClipboard = () => {
     navigator.clipboard
@@ -108,33 +120,33 @@ function Plans({ userData, variant }) {
     } catch (error) {}
   };
 
-  const handlePopupdata = (val) =>{
-    setPopUpBox(true)
-    setPopUpBoxValue(val)
-  }
+  const handlePopupdata = (val) => {
+    setPopUpBox(true);
+    setPopUpBoxValue(val);
+  };
 
-  const handleCancelSubscription = async () =>{
-    try { 
+  const handleCancelSubscription = async () => {
+    try {
       const result = await cancelSub(data?._id);
-      if(result?.data?.hasError){
+      if (result?.data?.hasError) {
         toast.error(result?.data?.message);
       }
       toast.success(result?.data?.message);
+      await refreshUserDetails();
     } catch (error) {
-      toast.error(error?.message)
+      toast.error(error?.message);
     }
-  }
+  };
 
-  const handlePopupBoxCall = (val) =>{
-    if(val){
-       if(popUpBoxValue === "Cancel Subscription"){
-        handleCancelSubscription()
-       }
+  const handlePopupBoxCall = (val) => {
+    if (val) {
+      if (popUpBoxValue === "Cancel Subscription") {
+        handleCancelSubscription();
+      }
+    } else {
+      setPopUpBox(false);
     }
-    else{
-      setPopUpBox(false)
-    }
-  }
+  };
 
   useEffect(() => {
     if (copyMessage) {
@@ -405,16 +417,16 @@ function Plans({ userData, variant }) {
                 >
                   Select Plan
                 </button>
-                {data?.expiryDate && 
-                <button
-                  class="bg-gradient-to-r mt-2 from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center"
-                  onClick={() => {
-                    handlePopupdata("Cancel Subscription");
-                  }}
-                >
-                  Cancel Subscription
-                </button>
-                }
+                {data?.expiryDate && (
+                  <button
+                    class="bg-gradient-to-r mt-2 from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center"
+                    onClick={() => {
+                      handlePopupdata("Cancel Subscription");
+                    }}
+                  >
+                    Cancel Subscription
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -463,28 +475,29 @@ function Plans({ userData, variant }) {
             </div>
           </div>
         </div>
-        {popUpBox && 
-        <div className="w-screen h-screen bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
-        <div className="w-11/12 sm:w-3/4 md:w-1/3 lg:w-1/4 h-auto bg-[#0D0620] flex flex-col justify-center items-center gap-5 rounded-xl p-4">
-          <p className="text-sm sm:text-base md:text-2xl font-semibold text-white text-center">
-            Are you sure you want to {popUpBoxValue}
-          </p>
-          <div className="flex flex-row flex-wrap gap-4 w-full justify-center items-center">
-            <button
-              onClick={() => handlePopupBoxCall(true)}
-              className="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-normal rounded flex flex-row gap-2 justify-center items-center w-auto"
-            >
-              Yes
-            </button>
-            <button
-              onClick={() => handlePopupBoxCall(false)}
-              className="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-normal rounded flex flex-row gap-2 justify-center items-center w-auto"
-            >
-              No
-            </button>
+        {popUpBox && (
+          <div className="w-screen h-screen bg-gray-700 bg-opacity-85 flex justify-center items-center fixed left-0 top-0 z-[100] p-3">
+            <div className="w-11/12 sm:w-3/4 md:w-1/3 lg:w-1/4 h-auto bg-[#0D0620] flex flex-col justify-center items-center gap-5 rounded-xl p-4">
+              <p className="text-sm sm:text-base md:text-2xl font-semibold text-white text-center">
+                Are you sure you want to {popUpBoxValue}
+              </p>
+              <div className="flex flex-row flex-wrap gap-4 w-full justify-center items-center">
+                <button
+                  onClick={() => handlePopupBoxCall(true)}
+                  className="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-normal rounded flex flex-row gap-2 justify-center items-center w-auto"
+                >
+                  Yes
+                </button>
+                <button
+                  onClick={() => handlePopupBoxCall(false)}
+                  className="bg-gradient-to-r from-[#00C4FF] h-[40px] px-3 to-[#0074FF] hover:bg-gradient-to-l text-white font-normal rounded flex flex-row gap-2 justify-center items-center w-auto"
+                >
+                  No
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>}
+        )}
       </div>
     );
 }
