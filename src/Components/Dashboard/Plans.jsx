@@ -452,7 +452,7 @@ function Plans({ userData, variant }) {
                 className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3"
                 style={{ fontSize: "12px" }}
               >
-                {userData?.[0]?.createdAt?.split("T")[0]}
+                {userData?.[0]?.createdAt?.split?.("T")?.[0]}
               </div>
             </div>
             <div className="flex ">
@@ -461,7 +461,7 @@ function Plans({ userData, variant }) {
                 className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3"
                 style={{ fontSize: "12px" }}
               >
-                {userData?.[0]?.packageId.name}
+                {userData?.[0]?.packageId?.name}
               </div>
             </div>
             <div className="flex ">
@@ -470,7 +470,7 @@ function Plans({ userData, variant }) {
                 className="w-auto  flex items-center justify-center bg-[#362B53] rounded ml-2 p-1 px-3"
                 style={{ fontSize: "12px" }}
               >
-                $ {userData?.[0]?.packageId.amount}
+                $ {userData?.[0]?.packageId?.amount}
               </div>
             </div>
           </div>

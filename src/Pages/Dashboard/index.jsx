@@ -26,7 +26,7 @@ function Dashboard() {
     <>
       <Nav />
       <div>
-        <DashHeader title="DashBoard" SubTitle="DashBoard" />
+        <DashHeader title="DashBoard" subtitle="DashBoard" />
         <Plans userData={userData} />
         <Table userData={userData} />
         <Footer />

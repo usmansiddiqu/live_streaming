@@ -365,8 +365,8 @@ function Table({ userData, variant }) {
                   options={chartData.options}
                   series={chartData.series}
                   type="area"
-                  height='100%'
-                  width='100%'
+                  height="100%"
+                  width="100%"
                 />
               </div>
             )}
@@ -498,10 +498,10 @@ function Table({ userData, variant }) {
               {userData?.map((data) => (
                 <tr>
                   <td className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-center text-xs text-white border-2 border-[#221846]">
-                    {data?.packageId.name}
+                    {data?.packageId?.name}
                   </td>
                   <td className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-center text-xs text-white border-2 border-[#221846]">
-                    $ {data?.packageId.amount}
+                    $ {data?.packageId?.amount}
                   </td>
                   <td className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-center text-xs text-white border-2 border-[#221846]">
                     PayCEC{" "}
@@ -510,7 +510,7 @@ function Table({ userData, variant }) {
                     {data?.token}{" "}
                   </td>
                   <td className="px-4 py-2 lg:text-base md:text-sm sm:text-xs text-center text-xs text-white border-2 border-[#221846]">
-                    {data?.createdAt.split("T")[0]}
+                    {data?.createdAt?.split?.("T")?.[0]}
                   </td>
                 </tr>
               ))}
