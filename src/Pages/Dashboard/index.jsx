@@ -7,7 +7,6 @@ import Nav from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import getUserPayments from "../../api/getUserPayment";
 import { useNavigate } from "react-router-dom";
-
 function Dashboard() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
