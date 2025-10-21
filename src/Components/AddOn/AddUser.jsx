@@ -173,7 +173,7 @@ function AddUser() {
                 Expiry Date*
               </label>
               <input
-                type="Date"
+                type="date"
                 id="expiry_date"
                 className="border-0 text-gray-900 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required

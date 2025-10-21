@@ -4,6 +4,7 @@ import "pikaday/css/pikaday.css";
 import updateUser from "../../api/editUser";
 import getPackagesAdmin from "../../api/getPackagesAdmin";
 import getSpecificUser from "../../api/specificUser";
+import cancelSub from "../../api/cancelSub";
 import ErrorComponent from "../Common/ErrorComponent";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -33,8 +34,17 @@ function EditUser() {
       // reader.readAsDataURL(file);
     }
   };
-  const handleSave = async () => {
+  const handleClearExpiry = async () => {
     try {
+      await cancelSub(id);
+      setExpireDate("");
+    } catch (error) {
+      // setError(error?.response?.data?.message);
+    }
+  };
+  const handleSave = async (e) => {
+    try {
+      e && e.preventDefault();
       const formData = new FormData();
       formData.append("userId", id);
       formData.append("name", name);
@@ -211,12 +221,14 @@ function EditUser() {
                 Expiry Date*
               </label>
               <input
-                type="Date"
+                type="date"
                 id="expiry_date"
                 className="border-0 text-sm rounded focus:ring-0 block w-full p-2.5 text-white font-bold bg-[#48484A]"
                 required
                 value={
-                  expireDate && new Date(expireDate).toISOString().split("T")[0]
+                  expireDate
+                    ? new Date(expireDate).toISOString().split("T")[0]
+                    : ""
                 }
                 onChange={(e) => {
                   setExpireDate(e.target.value);
@@ -283,13 +295,20 @@ function EditUser() {
                 class="block mb-2  text-sm font-medium text-white w-[15.5vw] "
               ></label>
               <button
-                type="submit"
+                type="button"
                 class="text-white  bg-[#FF0015] text-sm font-bold rounded-md text-sm w-[70px]  sm:w-auto px-3 py-1.5 text-center "
-                onClick={() => {
-                  handleSave();
+                onClick={(e) => {
+                  handleSave(e);
                 }}
               >
                 Save
+              </button>
+              <button
+                type="button"
+                class="ml-3 text-white bg-[#444548] text-sm font-bold rounded-md text-sm w-[110px] sm:w-auto px-3 py-1.5 text-center "
+                onClick={handleClearExpiry}
+              >
+                Clear expiry
               </button>
             </div>
           </form>
