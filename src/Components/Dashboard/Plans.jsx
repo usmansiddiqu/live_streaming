@@ -157,6 +157,9 @@ function Plans({ userData, variant }) {
     }
   }, [copyMessage]);
 
+  const hasActiveSubscription =
+    Boolean(data?.expiryDate) && new Date(data.expiryDate) > new Date();
+
   // const data = JSON.parse(localStorage.getItem("data"));
   if (variant === "secondary")
     return (
@@ -411,12 +414,14 @@ function Plans({ userData, variant }) {
               </div>
 
               <div className="flex flex-row gap-3">
-                <button
-                  class="bg-gradient-to-r mt-2 from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center "
-                  onClick={handleSelecPlanClick}
-                >
-                  Select Plan
-                </button>
+                {!hasActiveSubscription && (
+                  <button
+                    class="bg-gradient-to-r mt-2 from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center "
+                    onClick={handleSelecPlanClick}
+                  >
+                    Select Plan
+                  </button>
+                )}
                 {/* {data?.expiryDate && (
                   <button
                     class="bg-gradient-to-r mt-2 from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center"
