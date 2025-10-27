@@ -417,7 +417,7 @@ function Plans({ userData, variant }) {
                 >
                   Select Plan
                 </button>
-                {data?.expiryDate && (
+                {/* {data?.expiryDate && (
                   <button
                     class="bg-gradient-to-r mt-2 from-[#00C4FF] to-[#0074FF] hover:bg-gradient-to-l text-white font-normal py-2 px-4 rounded flex flex-row gap-2  justify-center items-center"
                     onClick={() => {
@@ -426,7 +426,7 @@ function Plans({ userData, variant }) {
                   >
                     Cancel Subscription
                   </button>
-                )}
+                )} */}
               </div>
             </div>
           </div>
