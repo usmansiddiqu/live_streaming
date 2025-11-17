@@ -6,18 +6,21 @@ import DetailsDescription from "../../Components/Common/DetailsDescription";
 import TeamScore from "../../Components/Common/TeamScore";
 import DetailsSlider from "../../Components/Common/BannerSlider";
 import getEventById from "../../api/eventById";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import getSpecificDetails from "../../api/slider.api";
 import BannerDetailComponent from "../../Components/Common/BannerDetailComponent";
 import BannerDetailsDescription from "../../Components/Common/BannerDetailsDescription";
 import axios from "axios";
 import getEventsByType from "../../api/getEventsType";
 import "./bannar.scss";
+
 function BannerPage() {
   const [url, setUrl] = useState("");
   const params = useParams();
   const [data, setData] = useState(null);
   const [data1, setData1] = useState(null);
+
+  const navigate = useNavigate();
 
   const checkUrl = async () => {
     try {
@@ -32,6 +35,7 @@ function BannerPage() {
     }
   };
   const getData = async () => {
+    // userIdRef is set during mount gate. Do not add tab here
     const { data: response } = await getSpecificDetails(params.id);
     setData(response?.data);
     getData1(response?.data?.liveTV.TVName?.slice(0, 3));
@@ -41,14 +45,17 @@ function BannerPage() {
     } else {
       setUrl(response?.data?.liveTV?.server2URL);
     }
+    // No-op here; gating handled on mount
   };
   const getData1 = async (name) => {
     const { data: response } = await getEventsByType(name);
     setData1(response.events);
   };
-  useMemo(() => {
+  React.useEffect(() => {
     getData();
   }, [params.id]);
+  // Frontend only; no server heartbeats, SSE, or beacons
+  // When blocked, show a modal first; user can go back to home
   return (
     <div className="footerBottom">
       <Navbar />

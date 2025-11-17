@@ -13,6 +13,7 @@ import { url } from "../../helper/url";
 import getSliders from "../../api/getSlider";
 import canView from "../../api/canView";
 
+
 function Channel() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1700px)" });
   const isDekstop = useMediaQuery({ query: "(min-width: 1701px)" });

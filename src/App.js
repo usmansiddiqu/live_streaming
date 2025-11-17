@@ -35,6 +35,7 @@ import LiveeChat from "./Pages/LiveChat";
 import AffiliateRequest from "./Pages/AffiliateRequest";
 import BankDetails from "./Pages/BankDetails";
 import Channel from "./Pages/Channel/indes";
+import StreamGuard from "./Components/Common/StreamGuard";
 
 function App() {
   const [isLoggedIn] = useState(true);
@@ -72,8 +73,22 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/bank_details" element={<BankDetails />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/live/:id" element={<BannerPage />} />
-              <Route path="/:type/live/:id" element={<DetailsPage />} />
+              <Route
+                path="/live/:id"
+                element={
+                  <StreamGuard>
+                    <BannerPage />
+                  </StreamGuard>
+                }
+              />
+              <Route
+                path="/:type/live/:id"
+                element={
+                  <StreamGuard>
+                    <DetailsPage />
+                  </StreamGuard>
+                }
+              />
               <Route path="/membership_plan/:id" element={<Plans />} />
               <Route
                 path="/affiliate_requests"

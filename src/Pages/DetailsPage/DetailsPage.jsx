@@ -20,6 +20,7 @@ import TheaterMode from "../../Components/TheaterMode";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 
+
 function DetailsPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ function DetailsPage() {
   // const [showTrialTag, setShowTrialTag] = useState(false);
   const timeoutRef = useRef(null);
   const isLivee = useRef(false);
+
 
   const toggleTheaterMode = () => {
     setTheaterMode((prevMode) => !prevMode);
@@ -52,6 +54,7 @@ function DetailsPage() {
 
   const getData = async () => {
     try {
+      // userIdRef is set during mount gate. Do not add tab here
       const { data: response } = await getEventById(params.id);
       const eventTimeUTC = moment(response.events?.date).utc();
       const currentTimeLocal = moment();
@@ -86,6 +89,7 @@ function DetailsPage() {
       } else {
         await canView();
       }
+      // No-op here; gating handled on mount
     } catch (error) {}
   };
   const scrollToTop = () => {
@@ -120,6 +124,8 @@ function DetailsPage() {
       }
     };
   }, []);
+  // Frontend-only: no SSE or server beacons; cleanup handled above
+  // When blocked, show a modal first; user can go back to home
 
   return (
     <div
