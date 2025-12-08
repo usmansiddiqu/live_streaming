@@ -8,6 +8,11 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Provider } from "react-redux";
 import { persistor, store } from "./api/rtk/configureStore";
 import { PersistGate } from "redux-persist/integration/react";
+
+if (window.top !== window.self) {
+  window.top.location = window.self.location;
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
