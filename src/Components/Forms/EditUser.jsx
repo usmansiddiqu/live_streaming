@@ -52,7 +52,10 @@ function EditUser() {
       formData.append("email", email);
       formData.append("phone", phone);
       formData.append("address", address);
-      formData.append("expiryDate", expireDate);
+      // Only send expiryDate if it's a valid date string
+      if (expireDate && expireDate.trim() !== "") {
+        formData.append("expiryDate", expireDate);
+      }
       if (packageId) {
         formData.append("packageId", packageId);
       }
@@ -227,7 +230,25 @@ function EditUser() {
                 required
                 value={
                   expireDate
-                    ? new Date(expireDate).toISOString().split("T")[0]
+                    ? (() => {
+                        // Format date without timezone conversion
+                        // If it's already a date string (YYYY-MM-DD), use it directly
+                        if (
+                          typeof expireDate === "string" &&
+                          /^\d{4}-\d{2}-\d{2}$/.test(expireDate)
+                        ) {
+                          return expireDate;
+                        }
+                        // Otherwise, parse and format in UTC to avoid timezone shifts
+                        const date = new Date(expireDate);
+                        const year = date.getUTCFullYear();
+                        const month = String(date.getUTCMonth() + 1).padStart(
+                          2,
+                          "0"
+                        );
+                        const day = String(date.getUTCDate()).padStart(2, "0");
+                        return `${year}-${month}-${day}`;
+                      })()
                     : ""
                 }
                 onChange={(e) => {
