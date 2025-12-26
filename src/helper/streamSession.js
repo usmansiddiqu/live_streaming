@@ -73,7 +73,7 @@ export const getActiveTabCount = (userId) => {
   }
 };
 
-export const canOpenStream = (userId, max = 5) => {
+export const canOpenStream = (userId, max = Infinity) => {
   const count = getActiveTabCount(userId);
   return { canOpen: count < max, count };
 };
@@ -114,7 +114,7 @@ const releaseLock = (userId) => {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-export const addTabAtomically = async (userId, max = 5) => {
+export const addTabAtomically = async (userId, max = Infinity) => {
   const tabId = getOrCreateTabId();
   // Prefer navigator.locks when available for cross-tab mutual exclusion
   if (
@@ -131,11 +131,7 @@ export const addTabAtomically = async (userId, max = 5) => {
           const raw = localStorage.getItem(keyForUser(userId));
           let records = normalizeSet(raw);
           records = pruneStale(records);
-          if (records.length >= max && !records.find((r) => r.id === tabId)) {
-            localStorage.setItem(keyForUser(userId), JSON.stringify(records));
-            result = { allowed: false, size: records.length };
-            return;
-          }
+          // No limit check - allow unlimited streams
           const idx = records.findIndex((r) => r.id === tabId);
           if (idx === -1) {
             records.push({ id: tabId, ts: nowMs() });
@@ -157,11 +153,7 @@ export const addTabAtomically = async (userId, max = 5) => {
         const raw = localStorage.getItem(keyForUser(userId));
         let records = normalizeSet(raw);
         records = pruneStale(records);
-        if (records.length >= max && !records.find((r) => r.id === tabId)) {
-          // Already at limit and this tab isn't in the set
-          localStorage.setItem(keyForUser(userId), JSON.stringify(records));
-          return { allowed: false, size: records.length };
-        }
+        // No limit check - allow unlimited streams
         const idx = records.findIndex((r) => r.id === tabId);
         if (idx === -1) {
           records.push({ id: tabId, ts: nowMs() });

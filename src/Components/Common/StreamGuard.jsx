@@ -22,16 +22,17 @@ const StreamGuard = ({ children }) => {
       try {
         const res = await streamOpen(sid);
         if (!alive) return;
-        if (!res?.data?.allowed) {
-          setBlocked(true);
-          return;
-        }
+        // Stream limit removed - always allow streams
+        // if (!res?.data?.allowed) {
+        //   setBlocked(true);
+        //   return;
+        // }
         heartbeatRef.current = setInterval(() => {
           streamHeartbeat(sessionIdRef.current).catch(() => {});
         }, 5000);
       } catch {
-        // fail-closed to be safe
-        setBlocked(true);
+        // Stream limit removed - don't block on error, allow stream to continue
+        // setBlocked(true);
       }
     })();
     const doClose = () => {
@@ -73,19 +74,20 @@ const StreamGuard = ({ children }) => {
     };
   }, []);
 
-  if (blocked) {
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-        <div className="bg-[#1C1C1E] text-white p-6 rounded-md shadow-md">
-          <h3 className="text-lg font-semibold mb-2">Stream limit reached</h3>
-          <p className="text-sm mb-4">
-            You already have more than 5 streams open. Please close another
-            stream and try again.
-          </p>
-        </div>
-      </div>
-    );
-  }
+  // Stream limit removed - allow unlimited streams
+  // if (blocked) {
+  //   return (
+  //     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+  //       <div className="bg-[#1C1C1E] text-white p-6 rounded-md shadow-md">
+  //         <h3 className="text-lg font-semibold mb-2">Stream limit reached</h3>
+  //         <p className="text-sm mb-4">
+  //           You already have more than 5 streams open. Please close another
+  //           stream and try again.
+  //         </p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
   return <>{children}</>;
 };
 
