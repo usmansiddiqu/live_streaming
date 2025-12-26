@@ -8,13 +8,28 @@ const NBCGatePayButton = ({ amount, order_id, packageId }) => {
   const navigate = useNavigate();
 
   const hellofunction = async () => {
-    const data = await createNBCPayment(
-      packageId,
-      order_id?.token,
-      JSON.parse(user)
-    );
-    if (data?.status === 200 && data.data.error) {
-      navigate("/");
+    try {
+      const data = await createNBCPayment(
+        packageId,
+        order_id?.token,
+        JSON.parse(user)
+      );
+      if (data?.status === 200 && data.data.error) {
+        // If backend returns redirect info, use it; otherwise default to home
+        if (data.data.redirectTo) {
+          navigate(data.data.redirectTo);
+        } else {
+          navigate("/");
+        }
+      }
+    } catch (error) {
+      // Handle error response with redirect
+      if (error.response?.data?.redirectTo) {
+        navigate(error.response.data.redirectTo);
+      } else if (error.response?.data?.error) {
+        console.error(error.response.data.error);
+        navigate("/membership_plan");
+      }
     }
   };
   // test https://portal.nbcgate.tech/js/payformdev.js?ID=179 //
