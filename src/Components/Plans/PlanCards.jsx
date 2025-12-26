@@ -140,7 +140,6 @@ function PlanCards() {
     },
   ];
 
-
   const getData = async () => {
     setLoading(true);
     const { data: response } = await getPlans();
@@ -172,12 +171,18 @@ function PlanCards() {
     if (!localStorage.getItem("token") || !localStorage.getItem("data")) {
       navigate("/signup");
     } else {
-      if(i === 0) {
-        window.location.assign("https://pixelsport.store/checkout/?add-to-cart=5051&empty-cart=1")
-      } else if(i === 1) {
-        window.location.assign("https://pixelsport.store/checkout/?add-to-cart=5052&empty-cart=1")
+      if (i === 0) {
+        window.location.assign(
+          "https://pixelsport.store/checkout/?add-to-cart=5051&empty-cart=1"
+        );
+      } else if (i === 1) {
+        window.location.assign(
+          "https://pixelsport.store/checkout/?add-to-cart=5052&empty-cart=1"
+        );
       } else {
-        window.location.assign("https://pixelsport.store/checkout/?add-to-cart=5054&empty-cart=1")
+        window.location.assign(
+          "https://pixelsport.store/checkout/?add-to-cart=5054&empty-cart=1"
+        );
       }
       // if (isCardSelected) {
       //   const result = await policioPayment({ packageId: packageId });
@@ -228,17 +233,20 @@ function PlanCards() {
     setNBCPackageId(packageId);
     if (!userData) {
       navigate("/signup");
-    } else if (
-      userParsedData?.expiryDate &&
-      moment(userParsedData?.expiryDate).diff(moment(), "days") >= 1
-    ) {
-      setError1(
-        "You already have an active subscription, you cannot subscribe again!"
+    } else if (userParsedData?.expiryDate) {
+      const daysUntilExpiry = moment(userParsedData?.expiryDate).diff(
+        moment(),
+        "days"
       );
-      // navigate("/");
-    } else {
-      setNBCPaymentModal(true);
+      // If subscription expires in more than 1 day, redirect to dashboard (subscription status page)
+      if (daysUntilExpiry > 1) {
+        navigate("/dashboard");
+        return;
+      }
+      // If subscription expires in 1 day or less (or expired), allow resubscription
     }
+    // Allow payment if no expiry date or expiry is <= 1 day away
+    setNBCPaymentModal(true);
   };
 
   useEffect(() => {

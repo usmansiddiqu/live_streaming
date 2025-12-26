@@ -3,15 +3,17 @@ import Nav from "../../Components/Navbar";
 import Home from "../Home";
 import Footer from "../../Components/Footer";
 import verifyPayments from "../../api/payment.api";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import getDetails from "../../api/authGetDetails";
 import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
+import moment from "moment";
 
 function MainScreen() {
   const token = useSelector((state) => state.auth.token); // Access token
   const user = useSelector((state) => state.auth.user); // Access user info
+  const navigate = useNavigate();
 
   const [search] = useSearchParams();
   const getData = async () => {
@@ -25,14 +27,40 @@ function MainScreen() {
     if (localStorage.getItem("token")) {
       const { data: response } = await getDetails();
       localStorage.setItem("data", JSON.stringify(response?.user));
+      return response?.user;
+    }
+    return null;
+  };
+  
+  // Check subscription status when arriving from email renewal link
+  const checkSubscriptionFromEmail = async () => {
+    if (search.get("renew") === "true") {
+      const userData = await getUser();
+      if (userData?.expiryDate) {
+        const daysUntilExpiry = moment(userData.expiryDate).diff(moment(), "days");
+        // If subscription expires in more than 1 day, redirect to dashboard subscription page
+        if (daysUntilExpiry > 1) {
+          navigate("/dashboard");
+          return;
+        }
+        // If subscription expires in <= 1 day or expired, allow renewal - redirect to plans page
+        navigate("/membership_plan");
+      } else {
+        // No subscription, redirect to plans page
+        navigate("/membership_plan");
+      }
     }
   };
+
   useEffect(() => {
     if (search.get("token")) {
       // getData();
       getUser();
     }
-  }, []);
+    if (search.get("renew") === "true") {
+      checkSubscriptionFromEmail();
+    }
+  }, [search]);
   return (
     <>
       <div className="forMobScreen">
