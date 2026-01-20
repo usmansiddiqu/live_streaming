@@ -18,6 +18,7 @@ function ForgetPassword() {
       setError(data?.error);
     } else {
       setError(null);
+      toast.success("Password changed successfully");
       navigate("/login");
     }
   };
