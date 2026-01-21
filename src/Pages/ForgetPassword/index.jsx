@@ -9,17 +9,24 @@ function ForgetPassword() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [code, setCode] = useState();
+  const [code, setCode] = useState("");
   const [error, setError] = useState(null);
   const handleClick = async () => {
-    const { data } = await codeverification({ email, password, code });
+    try {
+      const { data } = await codeverification({ email, password, code });
 
-    if (data?.error) {
-      setError(data?.error);
-    } else {
+      if (data?.error) {
+        setError(data?.error);
+        return;
+      }
+
       setError(null);
-      toast.success("Password changed successfully");
-      navigate("/login");
+      toast.success("Password changed successfully", {
+        autoClose: 1500,
+        onClose: () => navigate("/login"),
+      });
+    } catch (e) {
+      setError("Something went wrong. Please try again.");
     }
   };
   useEffect(() => {
